@@ -28,7 +28,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 ## `createCluster()`
 
 ```php
-createCluster($cluster_in): \OpenAPI\Client\Model\CreateCluster201Response
+createCluster($cluster_in): \OpenAPI\Client\Model\ClusterResponse
 ```
 
 Создание кластера
@@ -70,7 +70,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateCluster201Response**](../Model/CreateCluster201Response.md)
+[**\OpenAPI\Client\Model\ClusterResponse**](../Model/ClusterResponse.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ try {
 ## `createClusterNodeGroup()`
 
 ```php
-createClusterNodeGroup($cluster_id, $node_group_in): \OpenAPI\Client\Model\CreateClusterNodeGroup201Response
+createClusterNodeGroup($cluster_id, $node_group_in): \OpenAPI\Client\Model\NodeGroupResponse
 ```
 
 Создание группы нод
@@ -132,7 +132,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateClusterNodeGroup201Response**](../Model/CreateClusterNodeGroup201Response.md)
+[**\OpenAPI\Client\Model\NodeGroupResponse**](../Model/NodeGroupResponse.md)
 
 ### Authorization
 
@@ -336,7 +336,7 @@ void (empty response body)
 ## `getCluster()`
 
 ```php
-getCluster($cluster_id): \OpenAPI\Client\Model\CreateCluster201Response
+getCluster($cluster_id): \OpenAPI\Client\Model\ClusterResponse
 ```
 
 Получение информации о кластере
@@ -378,7 +378,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateCluster201Response**](../Model/CreateCluster201Response.md)
+[**\OpenAPI\Client\Model\ClusterResponse**](../Model/ClusterResponse.md)
 
 ### Authorization
 
@@ -456,7 +456,7 @@ try {
 ## `getClusterNodeGroup()`
 
 ```php
-getClusterNodeGroup($cluster_id, $group_id): \OpenAPI\Client\Model\CreateClusterNodeGroup201Response
+getClusterNodeGroup($cluster_id, $group_id): \OpenAPI\Client\Model\NodeGroupResponse
 ```
 
 Получение информации о группе нод
@@ -500,7 +500,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateClusterNodeGroup201Response**](../Model/CreateClusterNodeGroup201Response.md)
+[**\OpenAPI\Client\Model\NodeGroupResponse**](../Model/NodeGroupResponse.md)
 
 ### Authorization
 
@@ -518,7 +518,7 @@ try {
 ## `getClusterNodeGroups()`
 
 ```php
-getClusterNodeGroups($cluster_id): \OpenAPI\Client\Model\GetClusterNodeGroups200Response
+getClusterNodeGroups($cluster_id): \OpenAPI\Client\Model\NodeGroupsResponse
 ```
 
 Получение групп нод кластера
@@ -560,7 +560,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetClusterNodeGroups200Response**](../Model/GetClusterNodeGroups200Response.md)
+[**\OpenAPI\Client\Model\NodeGroupsResponse**](../Model/NodeGroupsResponse.md)
 
 ### Authorization
 
@@ -578,7 +578,7 @@ try {
 ## `getClusterNodes()`
 
 ```php
-getClusterNodes($cluster_id): \OpenAPI\Client\Model\GetClusterNodesFromGroup200Response
+getClusterNodes($cluster_id): \OpenAPI\Client\Model\NodesResponse
 ```
 
 Получение списка нод
@@ -620,7 +620,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response**](../Model/GetClusterNodesFromGroup200Response.md)
+[**\OpenAPI\Client\Model\NodesResponse**](../Model/NodesResponse.md)
 
 ### Authorization
 
@@ -638,7 +638,7 @@ try {
 ## `getClusterNodesFromGroup()`
 
 ```php
-getClusterNodesFromGroup($cluster_id, $group_id, $limit, $offset): \OpenAPI\Client\Model\GetClusterNodesFromGroup200Response
+getClusterNodesFromGroup($cluster_id, $group_id, $limit, $offset): \OpenAPI\Client\Model\NodesResponse
 ```
 
 Получение списка нод, принадлежащих группе
@@ -686,7 +686,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response**](../Model/GetClusterNodesFromGroup200Response.md)
+[**\OpenAPI\Client\Model\NodesResponse**](../Model/NodesResponse.md)
 
 ### Authorization
 
@@ -704,7 +704,7 @@ try {
 ## `getClusterResources()`
 
 ```php
-getClusterResources($cluster_id): \OpenAPI\Client\Model\GetClusterResources200Response
+getClusterResources($cluster_id): \OpenAPI\Client\Model\ResourcesResponse
 ```
 
 Получение ресурсов кластера
@@ -746,7 +746,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetClusterResources200Response**](../Model/GetClusterResources200Response.md)
+[**\OpenAPI\Client\Model\ResourcesResponse**](../Model/ResourcesResponse.md)
 
 ### Authorization
 
@@ -764,7 +764,7 @@ try {
 ## `getClusters()`
 
 ```php
-getClusters($limit, $offset): \OpenAPI\Client\Model\GetClusters200Response
+getClusters($limit, $offset): \OpenAPI\Client\Model\ClustersResponse
 ```
 
 Получение списка кластеров
@@ -808,7 +808,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetClusters200Response**](../Model/GetClusters200Response.md)
+[**\OpenAPI\Client\Model\ClustersResponse**](../Model/ClustersResponse.md)
 
 ### Authorization
 
@@ -826,7 +826,7 @@ try {
 ## `getK8SNetworkDrivers()`
 
 ```php
-getK8SNetworkDrivers(): \OpenAPI\Client\Model\GetK8SNetworkDrivers200Response
+getK8SNetworkDrivers(): \OpenAPI\Client\Model\NetworkDriversResponse
 ```
 
 Получение списка сетевых драйверов k8s
@@ -865,7 +865,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetK8SNetworkDrivers200Response**](../Model/GetK8SNetworkDrivers200Response.md)
+[**\OpenAPI\Client\Model\NetworkDriversResponse**](../Model/NetworkDriversResponse.md)
 
 ### Authorization
 
@@ -883,7 +883,7 @@ This endpoint does not need any parameter.
 ## `getK8SVersions()`
 
 ```php
-getK8SVersions(): \OpenAPI\Client\Model\GetK8SVersions200Response
+getK8SVersions(): \OpenAPI\Client\Model\K8SVersionsResponse
 ```
 
 Получение списка версий k8s
@@ -922,7 +922,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetK8SVersions200Response**](../Model/GetK8SVersions200Response.md)
+[**\OpenAPI\Client\Model\K8SVersionsResponse**](../Model/K8SVersionsResponse.md)
 
 ### Authorization
 
@@ -940,7 +940,7 @@ This endpoint does not need any parameter.
 ## `getKubernetesPresets()`
 
 ```php
-getKubernetesPresets(): \OpenAPI\Client\Model\GetKubernetesPresets200Response
+getKubernetesPresets(): \OpenAPI\Client\Model\PresetsResponse
 ```
 
 Получение списка тарифов
@@ -979,7 +979,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetKubernetesPresets200Response**](../Model/GetKubernetesPresets200Response.md)
+[**\OpenAPI\Client\Model\PresetsResponse**](../Model/PresetsResponse.md)
 
 ### Authorization
 
@@ -997,7 +997,7 @@ This endpoint does not need any parameter.
 ## `increaseCountOfNodesInGroup()`
 
 ```php
-increaseCountOfNodesInGroup($cluster_id, $group_id, $node_count): \OpenAPI\Client\Model\GetClusterNodesFromGroup200Response
+increaseCountOfNodesInGroup($cluster_id, $group_id, $node_count): \OpenAPI\Client\Model\NodesResponse
 ```
 
 Увеличение количества нод в группе на указанное количество
@@ -1043,7 +1043,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response**](../Model/GetClusterNodesFromGroup200Response.md)
+[**\OpenAPI\Client\Model\NodesResponse**](../Model/NodesResponse.md)
 
 ### Authorization
 
@@ -1124,7 +1124,7 @@ void (empty response body)
 ## `updateCluster()`
 
 ```php
-updateCluster($cluster_id, $cluster_edit): \OpenAPI\Client\Model\CreateCluster201Response
+updateCluster($cluster_id, $cluster_edit): \OpenAPI\Client\Model\ClusterResponse
 ```
 
 Обновление информации о кластере
@@ -1168,7 +1168,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateCluster201Response**](../Model/CreateCluster201Response.md)
+[**\OpenAPI\Client\Model\ClusterResponse**](../Model/ClusterResponse.md)
 
 ### Authorization
 

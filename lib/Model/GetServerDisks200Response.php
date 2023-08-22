@@ -59,8 +59,7 @@ class GetServerDisks200Response implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'server_disks' => '\OpenAPI\Client\Model\ServerDisk[]',
-        'response_id' => 'string'
+        'server_disks' => '\OpenAPI\Client\Model\ServerDisk[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetServerDisks200Response implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'server_disks' => null,
-        'response_id' => 'uuid'
+        'server_disks' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetServerDisks200Response implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'server_disks' => false,
-		'response_id' => false
+		'server_disks' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetServerDisks200Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'server_disks' => 'server_disks',
-        'response_id' => 'response_id'
+        'server_disks' => 'server_disks'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetServerDisks200Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'server_disks' => 'setServerDisks',
-        'response_id' => 'setResponseId'
+        'server_disks' => 'setServerDisks'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetServerDisks200Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'server_disks' => 'getServerDisks',
-        'response_id' => 'getResponseId'
+        'server_disks' => 'getServerDisks'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetServerDisks200Response implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('server_disks', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetServerDisks200Response implements ModelInterface, ArrayAccess, \JsonSer
         }
         if ($this->container['server_disks'] === null) {
             $invalidProperties[] = "'server_disks' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetServerDisks200Response implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable server_disks cannot be null');
         }
         $this->container['server_disks'] = $server_disks;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

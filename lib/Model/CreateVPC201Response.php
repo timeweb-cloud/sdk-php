@@ -58,8 +58,7 @@ class CreateVPC201Response implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'vpc' => '\OpenAPI\Client\Model\Vpc',
-        'response_id' => 'string'
+        'vpc' => '\OpenAPI\Client\Model\Vpc'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateVPC201Response implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'vpc' => null,
-        'response_id' => 'uuid'
+        'vpc' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateVPC201Response implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'vpc' => false,
-		'response_id' => false
+        'vpc' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateVPC201Response implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'vpc' => 'vpc',
-        'response_id' => 'response_id'
+        'vpc' => 'vpc'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateVPC201Response implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'vpc' => 'setVpc',
-        'response_id' => 'setResponseId'
+        'vpc' => 'setVpc'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateVPC201Response implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'vpc' => 'getVpc',
-        'response_id' => 'getResponseId'
+        'vpc' => 'getVpc'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateVPC201Response implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->setIfExists('vpc', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateVPC201Response implements ModelInterface, ArrayAccess, \JsonSerializ
 
         if ($this->container['vpc'] === null) {
             $invalidProperties[] = "'vpc' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateVPC201Response implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable vpc cannot be null');
         }
         $this->container['vpc'] = $vpc;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

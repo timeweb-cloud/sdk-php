@@ -58,8 +58,7 @@ class CreateDomainRequest201Response implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'request' => '\OpenAPI\Client\Model\DomainRequest',
-        'response_id' => 'string'
+        'request' => '\OpenAPI\Client\Model\DomainRequest'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateDomainRequest201Response implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'request' => null,
-        'response_id' => 'uuid'
+        'request' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateDomainRequest201Response implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'request' => false,
-		'response_id' => false
+        'request' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateDomainRequest201Response implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'request' => 'request',
-        'response_id' => 'response_id'
+        'request' => 'request'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateDomainRequest201Response implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'request' => 'setRequest',
-        'response_id' => 'setResponseId'
+        'request' => 'setRequest'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateDomainRequest201Response implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'request' => 'getRequest',
-        'response_id' => 'getResponseId'
+        'request' => 'getRequest'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateDomainRequest201Response implements ModelInterface, ArrayAccess, \Js
     public function __construct(array $data = null)
     {
         $this->setIfExists('request', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateDomainRequest201Response implements ModelInterface, ArrayAccess, \Js
 
         if ($this->container['request'] === null) {
             $invalidProperties[] = "'request' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateDomainRequest201Response implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable request cannot be null');
         }
         $this->container['request'] = $request;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

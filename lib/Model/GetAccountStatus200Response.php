@@ -58,8 +58,7 @@ class GetAccountStatus200Response implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => '\OpenAPI\Client\Model\Status',
-        'response_id' => 'string'
+        'status' => '\OpenAPI\Client\Model\Status'
     ];
 
     /**
@@ -70,8 +69,7 @@ class GetAccountStatus200Response implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'status' => null,
-        'response_id' => 'uuid'
+        'status' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class GetAccountStatus200Response implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'status' => false,
-		'response_id' => false
+        'status' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class GetAccountStatus200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
-        'response_id' => 'response_id'
+        'status' => 'status'
     ];
 
     /**
@@ -180,8 +176,7 @@ class GetAccountStatus200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
-        'response_id' => 'setResponseId'
+        'status' => 'setStatus'
     ];
 
     /**
@@ -190,8 +185,7 @@ class GetAccountStatus200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
-        'response_id' => 'getResponseId'
+        'status' => 'getStatus'
     ];
 
     /**
@@ -252,7 +246,6 @@ class GetAccountStatus200Response implements ModelInterface, ArrayAccess, \JsonS
     public function __construct(array $data = null)
     {
         $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class GetAccountStatus200Response implements ModelInterface, ArrayAccess, \JsonS
 
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class GetAccountStatus200Response implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

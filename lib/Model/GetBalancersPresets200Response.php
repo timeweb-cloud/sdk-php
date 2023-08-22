@@ -59,8 +59,7 @@ class GetBalancersPresets200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'balancers_presets' => '\OpenAPI\Client\Model\PresetsBalancer[]',
-        'response_id' => 'string'
+        'balancers_presets' => '\OpenAPI\Client\Model\PresetsBalancer[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetBalancersPresets200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'balancers_presets' => null,
-        'response_id' => 'uuid'
+        'balancers_presets' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetBalancersPresets200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'balancers_presets' => false,
-		'response_id' => false
+		'balancers_presets' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetBalancersPresets200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'balancers_presets' => 'balancers_presets',
-        'response_id' => 'response_id'
+        'balancers_presets' => 'balancers_presets'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetBalancersPresets200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'balancers_presets' => 'setBalancersPresets',
-        'response_id' => 'setResponseId'
+        'balancers_presets' => 'setBalancersPresets'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetBalancersPresets200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'balancers_presets' => 'getBalancersPresets',
-        'response_id' => 'getResponseId'
+        'balancers_presets' => 'getBalancersPresets'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetBalancersPresets200Response implements ModelInterface, ArrayAccess, \Js
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('balancers_presets', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetBalancersPresets200Response implements ModelInterface, ArrayAccess, \Js
         }
         if ($this->container['balancers_presets'] === null) {
             $invalidProperties[] = "'balancers_presets' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetBalancersPresets200Response implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable balancers_presets cannot be null');
         }
         $this->container['balancers_presets'] = $balancers_presets;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

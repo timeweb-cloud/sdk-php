@@ -58,8 +58,7 @@ class CreateServer201Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'server' => '\OpenAPI\Client\Model\Vds',
-        'response_id' => 'string'
+        'server' => '\OpenAPI\Client\Model\Vds'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateServer201Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'server' => null,
-        'response_id' => 'uuid'
+        'server' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateServer201Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'server' => false,
-		'response_id' => false
+        'server' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateServer201Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'server' => 'server',
-        'response_id' => 'response_id'
+        'server' => 'server'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateServer201Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'server' => 'setServer',
-        'response_id' => 'setResponseId'
+        'server' => 'setServer'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateServer201Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'server' => 'getServer',
-        'response_id' => 'getResponseId'
+        'server' => 'getServer'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateServer201Response implements ModelInterface, ArrayAccess, \JsonSeria
     public function __construct(array $data = null)
     {
         $this->setIfExists('server', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateServer201Response implements ModelInterface, ArrayAccess, \JsonSeria
 
         if ($this->container['server'] === null) {
             $invalidProperties[] = "'server' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateServer201Response implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable server cannot be null');
         }
         $this->container['server'] = $server;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

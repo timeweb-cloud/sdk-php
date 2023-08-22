@@ -59,8 +59,7 @@ class GetDatabaseInstances200Response implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'instances' => '\OpenAPI\Client\Model\DatabaseInstance[]',
-        'response_id' => 'string'
+        'instances' => '\OpenAPI\Client\Model\DatabaseInstance[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetDatabaseInstances200Response implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'instances' => null,
-        'response_id' => 'uuid'
+        'instances' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetDatabaseInstances200Response implements ModelInterface, ArrayAccess, \J
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'instances' => false,
-		'response_id' => false
+		'instances' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetDatabaseInstances200Response implements ModelInterface, ArrayAccess, \J
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'instances' => 'instances',
-        'response_id' => 'response_id'
+        'instances' => 'instances'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetDatabaseInstances200Response implements ModelInterface, ArrayAccess, \J
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'instances' => 'setInstances',
-        'response_id' => 'setResponseId'
+        'instances' => 'setInstances'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetDatabaseInstances200Response implements ModelInterface, ArrayAccess, \J
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'instances' => 'getInstances',
-        'response_id' => 'getResponseId'
+        'instances' => 'getInstances'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetDatabaseInstances200Response implements ModelInterface, ArrayAccess, \J
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('instances', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetDatabaseInstances200Response implements ModelInterface, ArrayAccess, \J
         }
         if ($this->container['instances'] === null) {
             $invalidProperties[] = "'instances' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetDatabaseInstances200Response implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable instances cannot be null');
         }
         $this->container['instances'] = $instances;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

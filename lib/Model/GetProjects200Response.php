@@ -59,8 +59,7 @@ class GetProjects200Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'projects' => '\OpenAPI\Client\Model\Project[]',
-        'meta' => '\OpenAPI\Client\Model\Meta',
-        'response_id' => 'string'
+        'meta' => '\OpenAPI\Client\Model\Meta'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetProjects200Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPIFormats = [
         'projects' => null,
-        'meta' => null,
-        'response_id' => 'uuid'
+        'meta' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetProjects200Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static array $openAPINullables = [
         'projects' => false,
-		'meta' => false,
-		'response_id' => false
+		'meta' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetProjects200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'projects' => 'projects',
-        'meta' => 'meta',
-        'response_id' => 'response_id'
+        'meta' => 'meta'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetProjects200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $setters = [
         'projects' => 'setProjects',
-        'meta' => 'setMeta',
-        'response_id' => 'setResponseId'
+        'meta' => 'setMeta'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetProjects200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $getters = [
         'projects' => 'getProjects',
-        'meta' => 'getMeta',
-        'response_id' => 'getResponseId'
+        'meta' => 'getMeta'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetProjects200Response implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $this->setIfExists('projects', $data ?? [], null);
         $this->setIfExists('meta', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetProjects200Response implements ModelInterface, ArrayAccess, \JsonSerial
         }
         if ($this->container['meta'] === null) {
             $invalidProperties[] = "'meta' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetProjects200Response implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable meta cannot be null');
         }
         $this->container['meta'] = $meta;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

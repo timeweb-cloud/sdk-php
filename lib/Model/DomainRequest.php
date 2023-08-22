@@ -130,7 +130,7 @@ class DomainRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 		'money_source' => true,
 		'period' => false,
 		'person_id' => false,
-		'prime' => true,
+		'prime' => false,
 		'soon_expire' => false,
 		'sort_order' => false,
 		'type' => false
@@ -996,14 +996,7 @@ class DomainRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPrime($prime)
     {
         if (is_null($prime)) {
-            array_push($this->openAPINullablesSetToNull, 'prime');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('prime', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable prime cannot be null');
         }
         $this->container['prime'] = $prime;
 

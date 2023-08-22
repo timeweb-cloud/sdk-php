@@ -59,10 +59,10 @@ class UpdateMailbox implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'auto_reply' => '\OpenAPI\Client\Model\UpdateMailboxAutoReply',
-        'spam_filter' => '\OpenAPI\Client\Model\UpdateMailboxSpamFilter',
-        'forwarding_incoming' => '\OpenAPI\Client\Model\UpdateMailboxForwardingIncoming',
-        'forwarding_outgoing' => '\OpenAPI\Client\Model\UpdateMailboxForwardingOutgoing',
+        'auto_reply' => '\OpenAPI\Client\Model\AutoReplyIsDisabled',
+        'spam_filter' => '\OpenAPI\Client\Model\SpamFilterIsDisabled',
+        'forwarding_incoming' => '\OpenAPI\Client\Model\ForwardingIncomingIsDisabled',
+        'forwarding_outgoing' => '\OpenAPI\Client\Model\ForwardingOutgoingIsDisabled',
         'comment' => 'string',
         'password' => 'string'
     ];
@@ -329,7 +329,7 @@ class UpdateMailbox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets auto_reply
      *
-     * @return \OpenAPI\Client\Model\UpdateMailboxAutoReply|null
+     * @return \OpenAPI\Client\Model\AutoReplyIsDisabled|null
      */
     public function getAutoReply()
     {
@@ -339,7 +339,7 @@ class UpdateMailbox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets auto_reply
      *
-     * @param \OpenAPI\Client\Model\UpdateMailboxAutoReply|null $auto_reply auto_reply
+     * @param \OpenAPI\Client\Model\AutoReplyIsDisabled|null $auto_reply auto_reply
      *
      * @return self
      */
@@ -356,7 +356,7 @@ class UpdateMailbox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets spam_filter
      *
-     * @return \OpenAPI\Client\Model\UpdateMailboxSpamFilter|null
+     * @return \OpenAPI\Client\Model\SpamFilterIsDisabled|null
      */
     public function getSpamFilter()
     {
@@ -366,7 +366,7 @@ class UpdateMailbox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets spam_filter
      *
-     * @param \OpenAPI\Client\Model\UpdateMailboxSpamFilter|null $spam_filter spam_filter
+     * @param \OpenAPI\Client\Model\SpamFilterIsDisabled|null $spam_filter spam_filter
      *
      * @return self
      */
@@ -383,7 +383,7 @@ class UpdateMailbox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets forwarding_incoming
      *
-     * @return \OpenAPI\Client\Model\UpdateMailboxForwardingIncoming|null
+     * @return \OpenAPI\Client\Model\ForwardingIncomingIsDisabled|null
      */
     public function getForwardingIncoming()
     {
@@ -393,7 +393,7 @@ class UpdateMailbox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets forwarding_incoming
      *
-     * @param \OpenAPI\Client\Model\UpdateMailboxForwardingIncoming|null $forwarding_incoming forwarding_incoming
+     * @param \OpenAPI\Client\Model\ForwardingIncomingIsDisabled|null $forwarding_incoming forwarding_incoming
      *
      * @return self
      */
@@ -410,7 +410,7 @@ class UpdateMailbox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets forwarding_outgoing
      *
-     * @return \OpenAPI\Client\Model\UpdateMailboxForwardingOutgoing|null
+     * @return \OpenAPI\Client\Model\ForwardingOutgoingIsDisabled|null
      */
     public function getForwardingOutgoing()
     {
@@ -420,7 +420,7 @@ class UpdateMailbox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets forwarding_outgoing
      *
-     * @param \OpenAPI\Client\Model\UpdateMailboxForwardingOutgoing|null $forwarding_outgoing forwarding_outgoing
+     * @param \OpenAPI\Client\Model\ForwardingOutgoingIsDisabled|null $forwarding_outgoing forwarding_outgoing
      *
      * @return self
      */

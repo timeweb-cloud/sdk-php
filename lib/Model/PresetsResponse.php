@@ -60,7 +60,7 @@ class PresetsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'response_id' => 'string',
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'k8s_presets' => '\OpenAPI\Client\Model\K8SPresetsInner[]'
+        'k8s_presets' => '\OpenAPI\Client\Model\WorkerPresetOutApi[]'
     ];
 
     /**
@@ -367,7 +367,7 @@ class PresetsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets k8s_presets
      *
-     * @return \OpenAPI\Client\Model\K8SPresetsInner[]
+     * @return \OpenAPI\Client\Model\WorkerPresetOutApi[]
      */
     public function getK8sPresets()
     {
@@ -377,7 +377,7 @@ class PresetsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets k8s_presets
      *
-     * @param \OpenAPI\Client\Model\K8SPresetsInner[] $k8s_presets Массив тарифов k8s
+     * @param \OpenAPI\Client\Model\WorkerPresetOutApi[] $k8s_presets Массив тарифов k8s
      *
      * @return self
      */

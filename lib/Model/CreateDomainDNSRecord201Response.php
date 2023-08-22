@@ -58,8 +58,7 @@ class CreateDomainDNSRecord201Response implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'dns_record' => '\OpenAPI\Client\Model\DnsRecord',
-        'response_id' => 'string'
+        'dns_record' => '\OpenAPI\Client\Model\DnsRecord'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateDomainDNSRecord201Response implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'dns_record' => null,
-        'response_id' => 'uuid'
+        'dns_record' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateDomainDNSRecord201Response implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'dns_record' => false,
-		'response_id' => false
+        'dns_record' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateDomainDNSRecord201Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'dns_record' => 'dns_record',
-        'response_id' => 'response_id'
+        'dns_record' => 'dns_record'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateDomainDNSRecord201Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'dns_record' => 'setDnsRecord',
-        'response_id' => 'setResponseId'
+        'dns_record' => 'setDnsRecord'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateDomainDNSRecord201Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'dns_record' => 'getDnsRecord',
-        'response_id' => 'getResponseId'
+        'dns_record' => 'getDnsRecord'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateDomainDNSRecord201Response implements ModelInterface, ArrayAccess, \
     public function __construct(array $data = null)
     {
         $this->setIfExists('dns_record', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateDomainDNSRecord201Response implements ModelInterface, ArrayAccess, \
 
         if ($this->container['dns_record'] === null) {
             $invalidProperties[] = "'dns_record' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateDomainDNSRecord201Response implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable dns_record cannot be null');
         }
         $this->container['dns_record'] = $dns_record;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

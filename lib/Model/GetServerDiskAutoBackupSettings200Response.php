@@ -58,8 +58,7 @@ class GetServerDiskAutoBackupSettings200Response implements ModelInterface, Arra
       * @var string[]
       */
     protected static $openAPITypes = [
-        'auto_backups_settings' => '\OpenAPI\Client\Model\AutoBackup',
-        'response_id' => 'string'
+        'auto_backups_settings' => '\OpenAPI\Client\Model\AutoBackup'
     ];
 
     /**
@@ -70,8 +69,7 @@ class GetServerDiskAutoBackupSettings200Response implements ModelInterface, Arra
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'auto_backups_settings' => null,
-        'response_id' => 'uuid'
+        'auto_backups_settings' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class GetServerDiskAutoBackupSettings200Response implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'auto_backups_settings' => false,
-		'response_id' => false
+        'auto_backups_settings' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class GetServerDiskAutoBackupSettings200Response implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_backups_settings' => 'auto_backups_settings',
-        'response_id' => 'response_id'
+        'auto_backups_settings' => 'auto_backups_settings'
     ];
 
     /**
@@ -180,8 +176,7 @@ class GetServerDiskAutoBackupSettings200Response implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'auto_backups_settings' => 'setAutoBackupsSettings',
-        'response_id' => 'setResponseId'
+        'auto_backups_settings' => 'setAutoBackupsSettings'
     ];
 
     /**
@@ -190,8 +185,7 @@ class GetServerDiskAutoBackupSettings200Response implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'auto_backups_settings' => 'getAutoBackupsSettings',
-        'response_id' => 'getResponseId'
+        'auto_backups_settings' => 'getAutoBackupsSettings'
     ];
 
     /**
@@ -252,7 +246,6 @@ class GetServerDiskAutoBackupSettings200Response implements ModelInterface, Arra
     public function __construct(array $data = null)
     {
         $this->setIfExists('auto_backups_settings', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class GetServerDiskAutoBackupSettings200Response implements ModelInterface, Arra
 
         if ($this->container['auto_backups_settings'] === null) {
             $invalidProperties[] = "'auto_backups_settings' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class GetServerDiskAutoBackupSettings200Response implements ModelInterface, Arra
             throw new \InvalidArgumentException('non-nullable auto_backups_settings cannot be null');
         }
         $this->container['auto_backups_settings'] = $auto_backups_settings;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

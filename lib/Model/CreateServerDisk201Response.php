@@ -58,8 +58,7 @@ class CreateServerDisk201Response implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'server_disk' => '\OpenAPI\Client\Model\ServerDisk',
-        'response_id' => 'string'
+        'server_disk' => '\OpenAPI\Client\Model\ServerDisk'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateServerDisk201Response implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'server_disk' => null,
-        'response_id' => 'uuid'
+        'server_disk' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateServerDisk201Response implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'server_disk' => false,
-		'response_id' => false
+        'server_disk' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateServerDisk201Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'server_disk' => 'server_disk',
-        'response_id' => 'response_id'
+        'server_disk' => 'server_disk'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateServerDisk201Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'server_disk' => 'setServerDisk',
-        'response_id' => 'setResponseId'
+        'server_disk' => 'setServerDisk'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateServerDisk201Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'server_disk' => 'getServerDisk',
-        'response_id' => 'getResponseId'
+        'server_disk' => 'getServerDisk'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateServerDisk201Response implements ModelInterface, ArrayAccess, \JsonS
     public function __construct(array $data = null)
     {
         $this->setIfExists('server_disk', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateServerDisk201Response implements ModelInterface, ArrayAccess, \JsonS
 
         if ($this->container['server_disk'] === null) {
             $invalidProperties[] = "'server_disk' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateServerDisk201Response implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable server_disk cannot be null');
         }
         $this->container['server_disk'] = $server_disk;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

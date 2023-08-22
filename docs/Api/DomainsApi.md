@@ -273,7 +273,7 @@ try {
 ## `createDomainRequest()`
 
 ```php
-createDomainRequest($create_domain_request_request): \OpenAPI\Client\Model\CreateDomainRequest201Response
+createDomainRequest($register): \OpenAPI\Client\Model\CreateDomainRequest201Response
 ```
 
 Создание заявки на регистрацию/продление/трансфер домена
@@ -297,10 +297,10 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_domain_request_request = new \OpenAPI\Client\Model\CreateDomainRequestRequest(); // \OpenAPI\Client\Model\CreateDomainRequestRequest
+$register = new \OpenAPI\Client\Model\Register(); // \OpenAPI\Client\Model\Register
 
 try {
-    $result = $apiInstance->createDomainRequest($create_domain_request_request);
+    $result = $apiInstance->createDomainRequest($register);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainsApi->createDomainRequest: ', $e->getMessage(), PHP_EOL;
@@ -311,7 +311,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_domain_request_request** | [**\OpenAPI\Client\Model\CreateDomainRequestRequest**](../Model/CreateDomainRequestRequest.md)|  | |
+| **register** | [**\OpenAPI\Client\Model\Register**](../Model/Register.md)|  | |
 
 ### Return type
 
@@ -1262,7 +1262,7 @@ try {
 ## `updateDomainRequest()`
 
 ```php
-updateDomainRequest($request_id, $update_domain_request_request): \OpenAPI\Client\Model\CreateDomainRequest201Response
+updateDomainRequest($request_id, $model_use): \OpenAPI\Client\Model\CreateDomainRequest201Response
 ```
 
 Оплата/обновление заявки на регистрацию/продление/трансфер домена
@@ -1287,10 +1287,10 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     $config
 );
 $request_id = 123; // int | Идентификатор заявки на регистрацию/продление/трансфер домена.
-$update_domain_request_request = new \OpenAPI\Client\Model\UpdateDomainRequestRequest(); // \OpenAPI\Client\Model\UpdateDomainRequestRequest
+$model_use = new \OpenAPI\Client\Model\ModelUse(); // \OpenAPI\Client\Model\ModelUse
 
 try {
-    $result = $apiInstance->updateDomainRequest($request_id, $update_domain_request_request);
+    $result = $apiInstance->updateDomainRequest($request_id, $model_use);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainsApi->updateDomainRequest: ', $e->getMessage(), PHP_EOL;
@@ -1302,7 +1302,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **request_id** | **int**| Идентификатор заявки на регистрацию/продление/трансфер домена. | |
-| **update_domain_request_request** | [**\OpenAPI\Client\Model\UpdateDomainRequestRequest**](../Model/UpdateDomainRequestRequest.md)|  | |
+| **model_use** | [**\OpenAPI\Client\Model\ModelUse**](../Model/ModelUse.md)|  | |
 
 ### Return type
 

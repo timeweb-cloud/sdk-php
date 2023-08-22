@@ -58,8 +58,7 @@ class CreateDatabaseUser201Response implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'admin' => '\OpenAPI\Client\Model\DatabaseAdmin',
-        'response_id' => 'string'
+        'admin' => '\OpenAPI\Client\Model\DatabaseAdmin'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateDatabaseUser201Response implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'admin' => null,
-        'response_id' => 'uuid'
+        'admin' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateDatabaseUser201Response implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'admin' => false,
-		'response_id' => false
+        'admin' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateDatabaseUser201Response implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'admin' => 'admin',
-        'response_id' => 'response_id'
+        'admin' => 'admin'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateDatabaseUser201Response implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'admin' => 'setAdmin',
-        'response_id' => 'setResponseId'
+        'admin' => 'setAdmin'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateDatabaseUser201Response implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'admin' => 'getAdmin',
-        'response_id' => 'getResponseId'
+        'admin' => 'getAdmin'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateDatabaseUser201Response implements ModelInterface, ArrayAccess, \Jso
     public function __construct(array $data = null)
     {
         $this->setIfExists('admin', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateDatabaseUser201Response implements ModelInterface, ArrayAccess, \Jso
 
         if ($this->container['admin'] === null) {
             $invalidProperties[] = "'admin' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateDatabaseUser201Response implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable admin cannot be null');
         }
         $this->container['admin'] = $admin;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

@@ -58,8 +58,7 @@ class CreateBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'balancer' => '\OpenAPI\Client\Model\Balancer',
-        'response_id' => 'string'
+        'balancer' => '\OpenAPI\Client\Model\Balancer'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'balancer' => null,
-        'response_id' => 'uuid'
+        'balancer' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'balancer' => false,
-		'response_id' => false
+        'balancer' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'balancer' => 'balancer',
-        'response_id' => 'response_id'
+        'balancer' => 'balancer'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'balancer' => 'setBalancer',
-        'response_id' => 'setResponseId'
+        'balancer' => 'setBalancer'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'balancer' => 'getBalancer',
-        'response_id' => 'getResponseId'
+        'balancer' => 'getBalancer'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->setIfExists('balancer', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
 
         if ($this->container['balancer'] === null) {
             $invalidProperties[] = "'balancer' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable balancer cannot be null');
         }
         $this->container['balancer'] = $balancer;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

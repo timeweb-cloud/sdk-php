@@ -58,8 +58,7 @@ class GetMailQuota200Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'quota' => '\OpenAPI\Client\Model\Quota',
-        'response_id' => 'string'
+        'quota' => '\OpenAPI\Client\Model\Quota'
     ];
 
     /**
@@ -70,8 +69,7 @@ class GetMailQuota200Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'quota' => null,
-        'response_id' => 'uuid'
+        'quota' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class GetMailQuota200Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'quota' => false,
-		'response_id' => false
+        'quota' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class GetMailQuota200Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'quota' => 'quota',
-        'response_id' => 'response_id'
+        'quota' => 'quota'
     ];
 
     /**
@@ -180,8 +176,7 @@ class GetMailQuota200Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'quota' => 'setQuota',
-        'response_id' => 'setResponseId'
+        'quota' => 'setQuota'
     ];
 
     /**
@@ -190,8 +185,7 @@ class GetMailQuota200Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'quota' => 'getQuota',
-        'response_id' => 'getResponseId'
+        'quota' => 'getQuota'
     ];
 
     /**
@@ -252,7 +246,6 @@ class GetMailQuota200Response implements ModelInterface, ArrayAccess, \JsonSeria
     public function __construct(array $data = null)
     {
         $this->setIfExists('quota', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class GetMailQuota200Response implements ModelInterface, ArrayAccess, \JsonSeria
 
         if ($this->container['quota'] === null) {
             $invalidProperties[] = "'quota' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class GetMailQuota200Response implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable quota cannot be null');
         }
         $this->container['quota'] = $quota;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

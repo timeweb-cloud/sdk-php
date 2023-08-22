@@ -88,13 +88,4 @@ class CreateDatabase201ResponseTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "response_id"
-     */
-    public function testPropertyResponseId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
 }

@@ -59,8 +59,7 @@ class GetDatabasesPresets200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'databases_presets' => '\OpenAPI\Client\Model\PresetsDbs[]',
-        'response_id' => 'string'
+        'databases_presets' => '\OpenAPI\Client\Model\PresetsDbs[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetDatabasesPresets200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'databases_presets' => null,
-        'response_id' => 'uuid'
+        'databases_presets' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetDatabasesPresets200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'databases_presets' => false,
-		'response_id' => false
+		'databases_presets' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetDatabasesPresets200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'databases_presets' => 'databases_presets',
-        'response_id' => 'response_id'
+        'databases_presets' => 'databases_presets'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetDatabasesPresets200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'databases_presets' => 'setDatabasesPresets',
-        'response_id' => 'setResponseId'
+        'databases_presets' => 'setDatabasesPresets'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetDatabasesPresets200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'databases_presets' => 'getDatabasesPresets',
-        'response_id' => 'getResponseId'
+        'databases_presets' => 'getDatabasesPresets'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetDatabasesPresets200Response implements ModelInterface, ArrayAccess, \Js
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('databases_presets', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetDatabasesPresets200Response implements ModelInterface, ArrayAccess, \Js
         }
         if ($this->container['databases_presets'] === null) {
             $invalidProperties[] = "'databases_presets' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetDatabasesPresets200Response implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable databases_presets cannot be null');
         }
         $this->container['databases_presets'] = $databases_presets;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

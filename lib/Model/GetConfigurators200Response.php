@@ -59,8 +59,7 @@ class GetConfigurators200Response implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'server_configurators' => '\OpenAPI\Client\Model\ServersConfigurator[]',
-        'response_id' => 'string'
+        'server_configurators' => '\OpenAPI\Client\Model\ServersConfigurator[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetConfigurators200Response implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'server_configurators' => null,
-        'response_id' => 'uuid'
+        'server_configurators' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetConfigurators200Response implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'server_configurators' => false,
-		'response_id' => false
+		'server_configurators' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetConfigurators200Response implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'server_configurators' => 'server_configurators',
-        'response_id' => 'response_id'
+        'server_configurators' => 'server_configurators'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetConfigurators200Response implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'server_configurators' => 'setServerConfigurators',
-        'response_id' => 'setResponseId'
+        'server_configurators' => 'setServerConfigurators'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetConfigurators200Response implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'server_configurators' => 'getServerConfigurators',
-        'response_id' => 'getResponseId'
+        'server_configurators' => 'getServerConfigurators'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetConfigurators200Response implements ModelInterface, ArrayAccess, \JsonS
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('server_configurators', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetConfigurators200Response implements ModelInterface, ArrayAccess, \JsonS
         }
         if ($this->container['server_configurators'] === null) {
             $invalidProperties[] = "'server_configurators' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetConfigurators200Response implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable server_configurators cannot be null');
         }
         $this->container['server_configurators'] = $server_configurators;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

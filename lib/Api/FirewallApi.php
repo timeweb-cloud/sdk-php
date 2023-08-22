@@ -169,12 +169,12 @@ class FirewallApi
      *
      * @param  string $group_id Идентификатор группы правил (required)
      * @param  string $resource_id Идентификатор ресурса (required)
-     * @param  \OpenAPI\Client\Model\ResourceType $resource_type resource_type (optional)
+     * @param  ResourceType $resource_type resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addResourceToGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AddResourceToGroup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\FirewallGroupResourceOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function addResourceToGroup($group_id, $resource_id, $resource_type = null, string $contentType = self::contentTypes['addResourceToGroup'][0])
     {
@@ -189,12 +189,12 @@ class FirewallApi
      *
      * @param  string $group_id Идентификатор группы правил (required)
      * @param  string $resource_id Идентификатор ресурса (required)
-     * @param  \OpenAPI\Client\Model\ResourceType $resource_type (optional)
+     * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addResourceToGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AddResourceToGroup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\FirewallGroupResourceOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function addResourceToGroupWithHttpInfo($group_id, $resource_id, $resource_type = null, string $contentType = self::contentTypes['addResourceToGroup'][0])
     {
@@ -237,17 +237,17 @@ class FirewallApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\AddResourceToGroup201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\FirewallGroupResourceOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\AddResourceToGroup201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\FirewallGroupResourceOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AddResourceToGroup201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\FirewallGroupResourceOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -313,7 +313,7 @@ class FirewallApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AddResourceToGroup201Response';
+            $returnType = '\OpenAPI\Client\Model\FirewallGroupResourceOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -334,7 +334,7 @@ class FirewallApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AddResourceToGroup201Response',
+                        '\OpenAPI\Client\Model\FirewallGroupResourceOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -383,7 +383,7 @@ class FirewallApi
      *
      * @param  string $group_id Идентификатор группы правил (required)
      * @param  string $resource_id Идентификатор ресурса (required)
-     * @param  \OpenAPI\Client\Model\ResourceType $resource_type (optional)
+     * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addResourceToGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -406,7 +406,7 @@ class FirewallApi
      *
      * @param  string $group_id Идентификатор группы правил (required)
      * @param  string $resource_id Идентификатор ресурса (required)
-     * @param  \OpenAPI\Client\Model\ResourceType $resource_type (optional)
+     * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addResourceToGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -414,7 +414,7 @@ class FirewallApi
      */
     public function addResourceToGroupAsyncWithHttpInfo($group_id, $resource_id, $resource_type = null, string $contentType = self::contentTypes['addResourceToGroup'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AddResourceToGroup201Response';
+        $returnType = '\OpenAPI\Client\Model\FirewallGroupResourceOutResponse';
         $request = $this->addResourceToGroupRequest($group_id, $resource_id, $resource_type, $contentType);
 
         return $this->client
@@ -458,7 +458,7 @@ class FirewallApi
      *
      * @param  string $group_id Идентификатор группы правил (required)
      * @param  string $resource_id Идентификатор ресурса (required)
-     * @param  \OpenAPI\Client\Model\ResourceType $resource_type (optional)
+     * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addResourceToGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -586,7 +586,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateGroup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\FirewallGroupOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createGroup($firewall_group_in_api, string $contentType = self::contentTypes['createGroup'][0])
     {
@@ -604,7 +604,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateGroup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\FirewallGroupOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createGroupWithHttpInfo($firewall_group_in_api, string $contentType = self::contentTypes['createGroup'][0])
     {
@@ -647,17 +647,17 @@ class FirewallApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\CreateGroup201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\FirewallGroupOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateGroup201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\FirewallGroupOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateGroup201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\FirewallGroupOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -723,7 +723,7 @@ class FirewallApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateGroup201Response';
+            $returnType = '\OpenAPI\Client\Model\FirewallGroupOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -744,7 +744,7 @@ class FirewallApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateGroup201Response',
+                        '\OpenAPI\Client\Model\FirewallGroupOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -820,7 +820,7 @@ class FirewallApi
      */
     public function createGroupAsyncWithHttpInfo($firewall_group_in_api, string $contentType = self::contentTypes['createGroup'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateGroup201Response';
+        $returnType = '\OpenAPI\Client\Model\FirewallGroupOutResponse';
         $request = $this->createGroupRequest($firewall_group_in_api, $contentType);
 
         return $this->client
@@ -965,7 +965,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateGroupRule201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\FirewallRuleOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createGroupRule($group_id, $firewall_rule_in_api, string $contentType = self::contentTypes['createGroupRule'][0])
     {
@@ -984,7 +984,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateGroupRule201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\FirewallRuleOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createGroupRuleWithHttpInfo($group_id, $firewall_rule_in_api, string $contentType = self::contentTypes['createGroupRule'][0])
     {
@@ -1027,17 +1027,17 @@ class FirewallApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\CreateGroupRule201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\FirewallRuleOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateGroupRule201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\FirewallRuleOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateGroupRule201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\FirewallRuleOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1103,7 +1103,7 @@ class FirewallApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateGroupRule201Response';
+            $returnType = '\OpenAPI\Client\Model\FirewallRuleOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1124,7 +1124,7 @@ class FirewallApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateGroupRule201Response',
+                        '\OpenAPI\Client\Model\FirewallRuleOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1202,7 +1202,7 @@ class FirewallApi
      */
     public function createGroupRuleAsyncWithHttpInfo($group_id, $firewall_rule_in_api, string $contentType = self::contentTypes['createGroupRule'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateGroupRule201Response';
+        $returnType = '\OpenAPI\Client\Model\FirewallRuleOutResponse';
         $request = $this->createGroupRuleRequest($group_id, $firewall_rule_in_api, $contentType);
 
         return $this->client
@@ -1925,7 +1925,7 @@ class FirewallApi
      *
      * @param  string $group_id Идентификатор группы правил (required)
      * @param  string $resource_id Идентификатор ресурса (required)
-     * @param  \OpenAPI\Client\Model\ResourceType $resource_type resource_type (optional)
+     * @param  ResourceType $resource_type resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteResourceFromGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1944,7 +1944,7 @@ class FirewallApi
      *
      * @param  string $group_id Идентификатор группы правил (required)
      * @param  string $resource_id Идентификатор ресурса (required)
-     * @param  \OpenAPI\Client\Model\ResourceType $resource_type (optional)
+     * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteResourceFromGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2046,7 +2046,7 @@ class FirewallApi
      *
      * @param  string $group_id Идентификатор группы правил (required)
      * @param  string $resource_id Идентификатор ресурса (required)
-     * @param  \OpenAPI\Client\Model\ResourceType $resource_type (optional)
+     * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteResourceFromGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2069,7 +2069,7 @@ class FirewallApi
      *
      * @param  string $group_id Идентификатор группы правил (required)
      * @param  string $resource_id Идентификатор ресурса (required)
-     * @param  \OpenAPI\Client\Model\ResourceType $resource_type (optional)
+     * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteResourceFromGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2108,7 +2108,7 @@ class FirewallApi
      *
      * @param  string $group_id Идентификатор группы правил (required)
      * @param  string $resource_id Идентификатор ресурса (required)
-     * @param  \OpenAPI\Client\Model\ResourceType $resource_type (optional)
+     * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteResourceFromGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2236,7 +2236,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateGroup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\FirewallGroupOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getGroup($group_id, string $contentType = self::contentTypes['getGroup'][0])
     {
@@ -2254,7 +2254,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateGroup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\FirewallGroupOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getGroupWithHttpInfo($group_id, string $contentType = self::contentTypes['getGroup'][0])
     {
@@ -2297,17 +2297,17 @@ class FirewallApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreateGroup201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\FirewallGroupOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateGroup201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\FirewallGroupOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateGroup201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\FirewallGroupOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2388,7 +2388,7 @@ class FirewallApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateGroup201Response';
+            $returnType = '\OpenAPI\Client\Model\FirewallGroupOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2409,7 +2409,7 @@ class FirewallApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateGroup201Response',
+                        '\OpenAPI\Client\Model\FirewallGroupOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2493,7 +2493,7 @@ class FirewallApi
      */
     public function getGroupAsyncWithHttpInfo($group_id, string $contentType = self::contentTypes['getGroup'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateGroup201Response';
+        $returnType = '\OpenAPI\Client\Model\FirewallGroupOutResponse';
         $request = $this->getGroupRequest($group_id, $contentType);
 
         return $this->client
@@ -2640,7 +2640,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetGroupResources200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\FirewallGroupResourcesOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getGroupResources($group_id, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getGroupResources'][0])
     {
@@ -2660,7 +2660,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetGroupResources200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\FirewallGroupResourcesOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getGroupResourcesWithHttpInfo($group_id, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getGroupResources'][0])
     {
@@ -2703,17 +2703,17 @@ class FirewallApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetGroupResources200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\FirewallGroupResourcesOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetGroupResources200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\FirewallGroupResourcesOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetGroupResources200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\FirewallGroupResourcesOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2779,7 +2779,7 @@ class FirewallApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetGroupResources200Response';
+            $returnType = '\OpenAPI\Client\Model\FirewallGroupResourcesOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2800,7 +2800,7 @@ class FirewallApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetGroupResources200Response',
+                        '\OpenAPI\Client\Model\FirewallGroupResourcesOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2880,7 +2880,7 @@ class FirewallApi
      */
     public function getGroupResourcesAsyncWithHttpInfo($group_id, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getGroupResources'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetGroupResources200Response';
+        $returnType = '\OpenAPI\Client\Model\FirewallGroupResourcesOutResponse';
         $request = $this->getGroupResourcesRequest($group_id, $limit, $offset, $contentType);
 
         return $this->client
@@ -3048,7 +3048,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateGroupRule201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\FirewallRuleOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getGroupRule($rule_id, $group_id, string $contentType = self::contentTypes['getGroupRule'][0])
     {
@@ -3067,7 +3067,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateGroupRule201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\FirewallRuleOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getGroupRuleWithHttpInfo($rule_id, $group_id, string $contentType = self::contentTypes['getGroupRule'][0])
     {
@@ -3110,17 +3110,17 @@ class FirewallApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreateGroupRule201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\FirewallRuleOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateGroupRule201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\FirewallRuleOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateGroupRule201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\FirewallRuleOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3201,7 +3201,7 @@ class FirewallApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateGroupRule201Response';
+            $returnType = '\OpenAPI\Client\Model\FirewallRuleOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3222,7 +3222,7 @@ class FirewallApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateGroupRule201Response',
+                        '\OpenAPI\Client\Model\FirewallRuleOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3308,7 +3308,7 @@ class FirewallApi
      */
     public function getGroupRuleAsyncWithHttpInfo($rule_id, $group_id, string $contentType = self::contentTypes['getGroupRule'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateGroupRule201Response';
+        $returnType = '\OpenAPI\Client\Model\FirewallRuleOutResponse';
         $request = $this->getGroupRuleRequest($rule_id, $group_id, $contentType);
 
         return $this->client
@@ -3471,7 +3471,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetGroupRules200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\FirewallRulesOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getGroupRules($group_id, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getGroupRules'][0])
     {
@@ -3491,7 +3491,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetGroupRules200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\FirewallRulesOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getGroupRulesWithHttpInfo($group_id, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getGroupRules'][0])
     {
@@ -3534,17 +3534,17 @@ class FirewallApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetGroupRules200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\FirewallRulesOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetGroupRules200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\FirewallRulesOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetGroupRules200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\FirewallRulesOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3610,7 +3610,7 @@ class FirewallApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetGroupRules200Response';
+            $returnType = '\OpenAPI\Client\Model\FirewallRulesOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3631,7 +3631,7 @@ class FirewallApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetGroupRules200Response',
+                        '\OpenAPI\Client\Model\FirewallRulesOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3711,7 +3711,7 @@ class FirewallApi
      */
     public function getGroupRulesAsyncWithHttpInfo($group_id, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getGroupRules'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetGroupRules200Response';
+        $returnType = '\OpenAPI\Client\Model\FirewallRulesOutResponse';
         $request = $this->getGroupRulesRequest($group_id, $limit, $offset, $contentType);
 
         return $this->client
@@ -3879,7 +3879,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetGroups200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\FirewallGroupsOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getGroups($limit = 100, $offset = 0, string $contentType = self::contentTypes['getGroups'][0])
     {
@@ -3898,7 +3898,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetGroups200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\FirewallGroupsOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getGroupsWithHttpInfo($limit = 100, $offset = 0, string $contentType = self::contentTypes['getGroups'][0])
     {
@@ -3941,17 +3941,17 @@ class FirewallApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetGroups200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\FirewallGroupsOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetGroups200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\FirewallGroupsOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetGroups200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\FirewallGroupsOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4017,7 +4017,7 @@ class FirewallApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetGroups200Response';
+            $returnType = '\OpenAPI\Client\Model\FirewallGroupsOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4038,7 +4038,7 @@ class FirewallApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetGroups200Response',
+                        '\OpenAPI\Client\Model\FirewallGroupsOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4116,7 +4116,7 @@ class FirewallApi
      */
     public function getGroupsAsyncWithHttpInfo($limit = 100, $offset = 0, string $contentType = self::contentTypes['getGroups'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetGroups200Response';
+        $returnType = '\OpenAPI\Client\Model\FirewallGroupsOutResponse';
         $request = $this->getGroupsRequest($limit, $offset, $contentType);
 
         return $this->client
@@ -4270,7 +4270,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetGroups200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\FirewallGroupsOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getRulesForResource($resource_id, $resource_type, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getRulesForResource'][0])
     {
@@ -4291,7 +4291,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetGroups200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\FirewallGroupsOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRulesForResourceWithHttpInfo($resource_id, $resource_type, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getRulesForResource'][0])
     {
@@ -4334,17 +4334,17 @@ class FirewallApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetGroups200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\FirewallGroupsOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetGroups200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\FirewallGroupsOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetGroups200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\FirewallGroupsOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4410,7 +4410,7 @@ class FirewallApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetGroups200Response';
+            $returnType = '\OpenAPI\Client\Model\FirewallGroupsOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4431,7 +4431,7 @@ class FirewallApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetGroups200Response',
+                        '\OpenAPI\Client\Model\FirewallGroupsOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4513,7 +4513,7 @@ class FirewallApi
      */
     public function getRulesForResourceAsyncWithHttpInfo($resource_id, $resource_type, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getRulesForResource'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetGroups200Response';
+        $returnType = '\OpenAPI\Client\Model\FirewallGroupsOutResponse';
         $request = $this->getRulesForResourceRequest($resource_id, $resource_type, $limit, $offset, $contentType);
 
         return $this->client
@@ -4697,7 +4697,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateGroup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\FirewallGroupOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateGroup($group_id, $firewall_group_in_api, string $contentType = self::contentTypes['updateGroup'][0])
     {
@@ -4716,7 +4716,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateGroup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\FirewallGroupOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateGroupWithHttpInfo($group_id, $firewall_group_in_api, string $contentType = self::contentTypes['updateGroup'][0])
     {
@@ -4759,17 +4759,17 @@ class FirewallApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\CreateGroup201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\FirewallGroupOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateGroup201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\FirewallGroupOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateGroup201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\FirewallGroupOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4850,7 +4850,7 @@ class FirewallApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateGroup201Response';
+            $returnType = '\OpenAPI\Client\Model\FirewallGroupOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4871,7 +4871,7 @@ class FirewallApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateGroup201Response',
+                        '\OpenAPI\Client\Model\FirewallGroupOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4957,7 +4957,7 @@ class FirewallApi
      */
     public function updateGroupAsyncWithHttpInfo($group_id, $firewall_group_in_api, string $contentType = self::contentTypes['updateGroup'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateGroup201Response';
+        $returnType = '\OpenAPI\Client\Model\FirewallGroupOutResponse';
         $request = $this->updateGroupRequest($group_id, $firewall_group_in_api, $contentType);
 
         return $this->client
@@ -5119,7 +5119,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateGroupRule201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\FirewallRuleOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateGroupRule($group_id, $rule_id, $firewall_rule_in_api, string $contentType = self::contentTypes['updateGroupRule'][0])
     {
@@ -5139,7 +5139,7 @@ class FirewallApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateGroupRule201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\FirewallRuleOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateGroupRuleWithHttpInfo($group_id, $rule_id, $firewall_rule_in_api, string $contentType = self::contentTypes['updateGroupRule'][0])
     {
@@ -5182,17 +5182,17 @@ class FirewallApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\CreateGroupRule201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\FirewallRuleOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateGroupRule201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\FirewallRuleOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateGroupRule201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\FirewallRuleOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5273,7 +5273,7 @@ class FirewallApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateGroupRule201Response';
+            $returnType = '\OpenAPI\Client\Model\FirewallRuleOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5294,7 +5294,7 @@ class FirewallApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateGroupRule201Response',
+                        '\OpenAPI\Client\Model\FirewallRuleOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5382,7 +5382,7 @@ class FirewallApi
      */
     public function updateGroupRuleAsyncWithHttpInfo($group_id, $rule_id, $firewall_rule_in_api, string $contentType = self::contentTypes['updateGroupRule'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateGroupRule201Response';
+        $returnType = '\OpenAPI\Client\Model\FirewallRuleOutResponse';
         $request = $this->updateGroupRuleRequest($group_id, $rule_id, $firewall_rule_in_api, $contentType);
 
         return $this->client

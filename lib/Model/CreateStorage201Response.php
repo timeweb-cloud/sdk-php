@@ -58,8 +58,7 @@ class CreateStorage201Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'bucket' => '\OpenAPI\Client\Model\Bucket',
-        'response_id' => 'string'
+        'bucket' => '\OpenAPI\Client\Model\Bucket'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateStorage201Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'bucket' => null,
-        'response_id' => 'uuid'
+        'bucket' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateStorage201Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'bucket' => false,
-		'response_id' => false
+        'bucket' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateStorage201Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'bucket' => 'bucket',
-        'response_id' => 'response_id'
+        'bucket' => 'bucket'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateStorage201Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'bucket' => 'setBucket',
-        'response_id' => 'setResponseId'
+        'bucket' => 'setBucket'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateStorage201Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'bucket' => 'getBucket',
-        'response_id' => 'getResponseId'
+        'bucket' => 'getBucket'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateStorage201Response implements ModelInterface, ArrayAccess, \JsonSeri
     public function __construct(array $data = null)
     {
         $this->setIfExists('bucket', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateStorage201Response implements ModelInterface, ArrayAccess, \JsonSeri
 
         if ($this->container['bucket'] === null) {
             $invalidProperties[] = "'bucket' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateStorage201Response implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable bucket cannot be null');
         }
         $this->container['bucket'] = $bucket;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

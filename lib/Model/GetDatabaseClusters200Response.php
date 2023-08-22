@@ -59,8 +59,7 @@ class GetDatabaseClusters200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'dbs' => '\OpenAPI\Client\Model\DatabaseCluster[]',
-        'response_id' => 'string'
+        'dbs' => '\OpenAPI\Client\Model\DatabaseCluster[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetDatabaseClusters200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'dbs' => null,
-        'response_id' => 'uuid'
+        'dbs' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetDatabaseClusters200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'dbs' => false,
-		'response_id' => false
+		'dbs' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetDatabaseClusters200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'dbs' => 'dbs',
-        'response_id' => 'response_id'
+        'dbs' => 'dbs'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetDatabaseClusters200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'dbs' => 'setDbs',
-        'response_id' => 'setResponseId'
+        'dbs' => 'setDbs'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetDatabaseClusters200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'dbs' => 'getDbs',
-        'response_id' => 'getResponseId'
+        'dbs' => 'getDbs'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetDatabaseClusters200Response implements ModelInterface, ArrayAccess, \Js
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('dbs', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetDatabaseClusters200Response implements ModelInterface, ArrayAccess, \Js
         }
         if ($this->container['dbs'] === null) {
             $invalidProperties[] = "'dbs' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetDatabaseClusters200Response implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable dbs cannot be null');
         }
         $this->container['dbs'] = $dbs;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

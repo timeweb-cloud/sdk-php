@@ -59,8 +59,7 @@ class GetSoftware200Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'servers_software' => '\OpenAPI\Client\Model\ServersSoftware[]',
-        'response_id' => 'string'
+        'servers_software' => '\OpenAPI\Client\Model\ServersSoftware[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetSoftware200Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'servers_software' => null,
-        'response_id' => 'uuid'
+        'servers_software' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetSoftware200Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'servers_software' => false,
-		'response_id' => false
+		'servers_software' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetSoftware200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'servers_software' => 'servers_software',
-        'response_id' => 'response_id'
+        'servers_software' => 'servers_software'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetSoftware200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'servers_software' => 'setServersSoftware',
-        'response_id' => 'setResponseId'
+        'servers_software' => 'setServersSoftware'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetSoftware200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'servers_software' => 'getServersSoftware',
-        'response_id' => 'getResponseId'
+        'servers_software' => 'getServersSoftware'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetSoftware200Response implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('servers_software', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetSoftware200Response implements ModelInterface, ArrayAccess, \JsonSerial
         }
         if ($this->container['servers_software'] === null) {
             $invalidProperties[] = "'servers_software' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetSoftware200Response implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable servers_software cannot be null');
         }
         $this->container['servers_software'] = $servers_software;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

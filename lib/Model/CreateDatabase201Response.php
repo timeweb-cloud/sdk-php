@@ -58,8 +58,7 @@ class CreateDatabase201Response implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'db' => '\OpenAPI\Client\Model\Db',
-        'response_id' => 'string'
+        'db' => '\OpenAPI\Client\Model\Db'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateDatabase201Response implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'db' => null,
-        'response_id' => 'uuid'
+        'db' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateDatabase201Response implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'db' => false,
-		'response_id' => false
+        'db' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateDatabase201Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'db' => 'db',
-        'response_id' => 'response_id'
+        'db' => 'db'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateDatabase201Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'db' => 'setDb',
-        'response_id' => 'setResponseId'
+        'db' => 'setDb'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateDatabase201Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'db' => 'getDb',
-        'response_id' => 'getResponseId'
+        'db' => 'getDb'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateDatabase201Response implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->setIfExists('db', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateDatabase201Response implements ModelInterface, ArrayAccess, \JsonSer
 
         if ($this->container['db'] === null) {
             $invalidProperties[] = "'db' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateDatabase201Response implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable db cannot be null');
         }
         $this->container['db'] = $db;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

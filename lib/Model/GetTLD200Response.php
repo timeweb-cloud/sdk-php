@@ -58,8 +58,7 @@ class GetTLD200Response implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'top_level_domain' => '\OpenAPI\Client\Model\TopLevelDomain',
-        'response_id' => 'string'
+        'top_level_domain' => '\OpenAPI\Client\Model\TopLevelDomain'
     ];
 
     /**
@@ -70,8 +69,7 @@ class GetTLD200Response implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'top_level_domain' => null,
-        'response_id' => 'uuid'
+        'top_level_domain' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class GetTLD200Response implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'top_level_domain' => false,
-		'response_id' => false
+        'top_level_domain' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class GetTLD200Response implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'top_level_domain' => 'top_level_domain',
-        'response_id' => 'response_id'
+        'top_level_domain' => 'top_level_domain'
     ];
 
     /**
@@ -180,8 +176,7 @@ class GetTLD200Response implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'top_level_domain' => 'setTopLevelDomain',
-        'response_id' => 'setResponseId'
+        'top_level_domain' => 'setTopLevelDomain'
     ];
 
     /**
@@ -190,8 +185,7 @@ class GetTLD200Response implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'top_level_domain' => 'getTopLevelDomain',
-        'response_id' => 'getResponseId'
+        'top_level_domain' => 'getTopLevelDomain'
     ];
 
     /**
@@ -252,7 +246,6 @@ class GetTLD200Response implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function __construct(array $data = null)
     {
         $this->setIfExists('top_level_domain', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class GetTLD200Response implements ModelInterface, ArrayAccess, \JsonSerializabl
 
         if ($this->container['top_level_domain'] === null) {
             $invalidProperties[] = "'top_level_domain' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class GetTLD200Response implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable top_level_domain cannot be null');
         }
         $this->container['top_level_domain'] = $top_level_domain;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

@@ -58,8 +58,7 @@ class UpdateStorageUser200Response implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'user' => '\OpenAPI\Client\Model\BucketUser',
-        'response_id' => 'string'
+        'user' => '\OpenAPI\Client\Model\BucketUser'
     ];
 
     /**
@@ -70,8 +69,7 @@ class UpdateStorageUser200Response implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user' => null,
-        'response_id' => 'uuid'
+        'user' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class UpdateStorageUser200Response implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'user' => false,
-		'response_id' => false
+        'user' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class UpdateStorageUser200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'user' => 'user',
-        'response_id' => 'response_id'
+        'user' => 'user'
     ];
 
     /**
@@ -180,8 +176,7 @@ class UpdateStorageUser200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'user' => 'setUser',
-        'response_id' => 'setResponseId'
+        'user' => 'setUser'
     ];
 
     /**
@@ -190,8 +185,7 @@ class UpdateStorageUser200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'user' => 'getUser',
-        'response_id' => 'getResponseId'
+        'user' => 'getUser'
     ];
 
     /**
@@ -252,7 +246,6 @@ class UpdateStorageUser200Response implements ModelInterface, ArrayAccess, \Json
     public function __construct(array $data = null)
     {
         $this->setIfExists('user', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class UpdateStorageUser200Response implements ModelInterface, ArrayAccess, \Json
 
         if ($this->container['user'] === null) {
             $invalidProperties[] = "'user' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class UpdateStorageUser200Response implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable user cannot be null');
         }
         $this->container['user'] = $user;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

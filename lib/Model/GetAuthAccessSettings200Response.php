@@ -60,8 +60,7 @@ class GetAuthAccessSettings200Response implements ModelInterface, ArrayAccess, \
     protected static $openAPITypes = [
         'is_ip_restrictions_enabled' => 'bool',
         'is_country_restrictions_enabled' => 'bool',
-        'white_list' => '\OpenAPI\Client\Model\GetAuthAccessSettings200ResponseAllOfWhiteList',
-        'response_id' => 'string'
+        'white_list' => '\OpenAPI\Client\Model\GetAuthAccessSettings200ResponseWhiteList'
     ];
 
     /**
@@ -74,8 +73,7 @@ class GetAuthAccessSettings200Response implements ModelInterface, ArrayAccess, \
     protected static $openAPIFormats = [
         'is_ip_restrictions_enabled' => null,
         'is_country_restrictions_enabled' => null,
-        'white_list' => null,
-        'response_id' => 'uuid'
+        'white_list' => null
     ];
 
     /**
@@ -86,8 +84,7 @@ class GetAuthAccessSettings200Response implements ModelInterface, ArrayAccess, \
     protected static array $openAPINullables = [
         'is_ip_restrictions_enabled' => false,
 		'is_country_restrictions_enabled' => false,
-		'white_list' => false,
-		'response_id' => false
+		'white_list' => false
     ];
 
     /**
@@ -178,8 +175,7 @@ class GetAuthAccessSettings200Response implements ModelInterface, ArrayAccess, \
     protected static $attributeMap = [
         'is_ip_restrictions_enabled' => 'is_ip_restrictions_enabled',
         'is_country_restrictions_enabled' => 'is_country_restrictions_enabled',
-        'white_list' => 'white_list',
-        'response_id' => 'response_id'
+        'white_list' => 'white_list'
     ];
 
     /**
@@ -190,8 +186,7 @@ class GetAuthAccessSettings200Response implements ModelInterface, ArrayAccess, \
     protected static $setters = [
         'is_ip_restrictions_enabled' => 'setIsIpRestrictionsEnabled',
         'is_country_restrictions_enabled' => 'setIsCountryRestrictionsEnabled',
-        'white_list' => 'setWhiteList',
-        'response_id' => 'setResponseId'
+        'white_list' => 'setWhiteList'
     ];
 
     /**
@@ -202,8 +197,7 @@ class GetAuthAccessSettings200Response implements ModelInterface, ArrayAccess, \
     protected static $getters = [
         'is_ip_restrictions_enabled' => 'getIsIpRestrictionsEnabled',
         'is_country_restrictions_enabled' => 'getIsCountryRestrictionsEnabled',
-        'white_list' => 'getWhiteList',
-        'response_id' => 'getResponseId'
+        'white_list' => 'getWhiteList'
     ];
 
     /**
@@ -266,7 +260,6 @@ class GetAuthAccessSettings200Response implements ModelInterface, ArrayAccess, \
         $this->setIfExists('is_ip_restrictions_enabled', $data ?? [], null);
         $this->setIfExists('is_country_restrictions_enabled', $data ?? [], null);
         $this->setIfExists('white_list', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -304,9 +297,6 @@ class GetAuthAccessSettings200Response implements ModelInterface, ArrayAccess, \
         }
         if ($this->container['white_list'] === null) {
             $invalidProperties[] = "'white_list' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -380,7 +370,7 @@ class GetAuthAccessSettings200Response implements ModelInterface, ArrayAccess, \
     /**
      * Gets white_list
      *
-     * @return \OpenAPI\Client\Model\GetAuthAccessSettings200ResponseAllOfWhiteList
+     * @return \OpenAPI\Client\Model\GetAuthAccessSettings200ResponseWhiteList
      */
     public function getWhiteList()
     {
@@ -390,7 +380,7 @@ class GetAuthAccessSettings200Response implements ModelInterface, ArrayAccess, \
     /**
      * Sets white_list
      *
-     * @param \OpenAPI\Client\Model\GetAuthAccessSettings200ResponseAllOfWhiteList $white_list white_list
+     * @param \OpenAPI\Client\Model\GetAuthAccessSettings200ResponseWhiteList $white_list white_list
      *
      * @return self
      */
@@ -400,33 +390,6 @@ class GetAuthAccessSettings200Response implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable white_list cannot be null');
         }
         $this->container['white_list'] = $white_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

@@ -575,7 +575,7 @@ class VPCApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\DeleteVPC204Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateVPC201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function deleteVPC($vpc_id, string $contentType = self::contentTypes['deleteVPC'][0])
     {
@@ -593,7 +593,7 @@ class VPCApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\DeleteVPC204Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateVPC201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteVPCWithHttpInfo($vpc_id, string $contentType = self::contentTypes['deleteVPC'][0])
     {
@@ -636,17 +636,17 @@ class VPCApi
 
             switch($statusCode) {
                 case 204:
-                    if ('\OpenAPI\Client\Model\DeleteVPC204Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\CreateVPC201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\DeleteVPC204Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\CreateVPC201Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DeleteVPC204Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateVPC201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -742,7 +742,7 @@ class VPCApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\DeleteVPC204Response';
+            $returnType = '\OpenAPI\Client\Model\CreateVPC201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -763,7 +763,7 @@ class VPCApi
                 case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\DeleteVPC204Response',
+                        '\OpenAPI\Client\Model\CreateVPC201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -855,7 +855,7 @@ class VPCApi
      */
     public function deleteVPCAsyncWithHttpInfo($vpc_id, string $contentType = self::contentTypes['deleteVPC'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\DeleteVPC204Response';
+        $returnType = '\OpenAPI\Client\Model\CreateVPC201Response';
         $request = $this->deleteVPCRequest($vpc_id, $contentType);
 
         return $this->client

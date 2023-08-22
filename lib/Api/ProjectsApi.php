@@ -200,7 +200,7 @@ class ProjectsApi
      *
      * Добавление балансировщика в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddBalancerToProjectRequest $add_balancer_to_project_request add_balancer_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addBalancerToProject'] to see the possible values for this operation
      *
@@ -219,7 +219,7 @@ class ProjectsApi
      *
      * Добавление балансировщика в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddBalancerToProjectRequest $add_balancer_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addBalancerToProject'] to see the possible values for this operation
      *
@@ -435,7 +435,7 @@ class ProjectsApi
      *
      * Добавление балансировщика в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddBalancerToProjectRequest $add_balancer_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addBalancerToProject'] to see the possible values for this operation
      *
@@ -457,7 +457,7 @@ class ProjectsApi
      *
      * Добавление балансировщика в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddBalancerToProjectRequest $add_balancer_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addBalancerToProject'] to see the possible values for this operation
      *
@@ -508,7 +508,7 @@ class ProjectsApi
     /**
      * Create request for operation 'addBalancerToProject'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddBalancerToProjectRequest $add_balancer_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addBalancerToProject'] to see the possible values for this operation
      *
@@ -624,7 +624,7 @@ class ProjectsApi
      *
      * Добавление кластера в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddClusterToProjectRequest $add_cluster_to_project_request add_cluster_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addClusterToProject'] to see the possible values for this operation
      *
@@ -643,7 +643,7 @@ class ProjectsApi
      *
      * Добавление кластера в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddClusterToProjectRequest $add_cluster_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addClusterToProject'] to see the possible values for this operation
      *
@@ -859,7 +859,7 @@ class ProjectsApi
      *
      * Добавление кластера в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddClusterToProjectRequest $add_cluster_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addClusterToProject'] to see the possible values for this operation
      *
@@ -881,7 +881,7 @@ class ProjectsApi
      *
      * Добавление кластера в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddClusterToProjectRequest $add_cluster_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addClusterToProject'] to see the possible values for this operation
      *
@@ -932,7 +932,7 @@ class ProjectsApi
     /**
      * Create request for operation 'addClusterToProject'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddClusterToProjectRequest $add_cluster_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addClusterToProject'] to see the possible values for this operation
      *
@@ -1048,7 +1048,7 @@ class ProjectsApi
      *
      * Добавление базы данных в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddDatabaseToProjectRequest $add_database_to_project_request add_database_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDatabaseToProject'] to see the possible values for this operation
      *
@@ -1067,7 +1067,7 @@ class ProjectsApi
      *
      * Добавление базы данных в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddDatabaseToProjectRequest $add_database_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDatabaseToProject'] to see the possible values for this operation
      *
@@ -1283,7 +1283,7 @@ class ProjectsApi
      *
      * Добавление базы данных в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddDatabaseToProjectRequest $add_database_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDatabaseToProject'] to see the possible values for this operation
      *
@@ -1305,7 +1305,7 @@ class ProjectsApi
      *
      * Добавление базы данных в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddDatabaseToProjectRequest $add_database_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDatabaseToProject'] to see the possible values for this operation
      *
@@ -1356,7 +1356,7 @@ class ProjectsApi
     /**
      * Create request for operation 'addDatabaseToProject'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddDatabaseToProjectRequest $add_database_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDatabaseToProject'] to see the possible values for this operation
      *
@@ -1472,7 +1472,7 @@ class ProjectsApi
      *
      * Добавление выделенного сервера в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddDedicatedServerToProjectRequest $add_dedicated_server_to_project_request add_dedicated_server_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDedicatedServerToProject'] to see the possible values for this operation
      *
@@ -1491,7 +1491,7 @@ class ProjectsApi
      *
      * Добавление выделенного сервера в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddDedicatedServerToProjectRequest $add_dedicated_server_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDedicatedServerToProject'] to see the possible values for this operation
      *
@@ -1707,7 +1707,7 @@ class ProjectsApi
      *
      * Добавление выделенного сервера в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddDedicatedServerToProjectRequest $add_dedicated_server_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDedicatedServerToProject'] to see the possible values for this operation
      *
@@ -1729,7 +1729,7 @@ class ProjectsApi
      *
      * Добавление выделенного сервера в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddDedicatedServerToProjectRequest $add_dedicated_server_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDedicatedServerToProject'] to see the possible values for this operation
      *
@@ -1780,7 +1780,7 @@ class ProjectsApi
     /**
      * Create request for operation 'addDedicatedServerToProject'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddDedicatedServerToProjectRequest $add_dedicated_server_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addDedicatedServerToProject'] to see the possible values for this operation
      *
@@ -1896,7 +1896,7 @@ class ProjectsApi
      *
      * Добавление сервера в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddServerToProjectRequest $add_server_to_project_request add_server_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addServerToProject'] to see the possible values for this operation
      *
@@ -1915,7 +1915,7 @@ class ProjectsApi
      *
      * Добавление сервера в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddServerToProjectRequest $add_server_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addServerToProject'] to see the possible values for this operation
      *
@@ -2131,7 +2131,7 @@ class ProjectsApi
      *
      * Добавление сервера в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddServerToProjectRequest $add_server_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addServerToProject'] to see the possible values for this operation
      *
@@ -2153,7 +2153,7 @@ class ProjectsApi
      *
      * Добавление сервера в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddServerToProjectRequest $add_server_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addServerToProject'] to see the possible values for this operation
      *
@@ -2204,7 +2204,7 @@ class ProjectsApi
     /**
      * Create request for operation 'addServerToProject'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddServerToProjectRequest $add_server_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addServerToProject'] to see the possible values for this operation
      *
@@ -2320,7 +2320,7 @@ class ProjectsApi
      *
      * Добавление хранилища в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddStorageToProjectRequest $add_storage_to_project_request add_storage_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addStorageToProject'] to see the possible values for this operation
      *
@@ -2339,7 +2339,7 @@ class ProjectsApi
      *
      * Добавление хранилища в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddStorageToProjectRequest $add_storage_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addStorageToProject'] to see the possible values for this operation
      *
@@ -2555,7 +2555,7 @@ class ProjectsApi
      *
      * Добавление хранилища в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddStorageToProjectRequest $add_storage_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addStorageToProject'] to see the possible values for this operation
      *
@@ -2577,7 +2577,7 @@ class ProjectsApi
      *
      * Добавление хранилища в проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddStorageToProjectRequest $add_storage_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addStorageToProject'] to see the possible values for this operation
      *
@@ -2628,7 +2628,7 @@ class ProjectsApi
     /**
      * Create request for operation 'addStorageToProject'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\AddStorageToProjectRequest $add_storage_to_project_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addStorageToProject'] to see the possible values for this operation
      *
@@ -3122,7 +3122,7 @@ class ProjectsApi
      *
      * Удаление проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProject'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3139,7 +3139,7 @@ class ProjectsApi
      *
      * Удаление проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProject'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3239,7 +3239,7 @@ class ProjectsApi
      *
      * Удаление проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProject'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3260,7 +3260,7 @@ class ProjectsApi
      *
      * Удаление проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProject'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3297,7 +3297,7 @@ class ProjectsApi
     /**
      * Create request for operation 'deleteProject'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProject'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5690,7 +5690,7 @@ class ProjectsApi
      *
      * Получение всех ресурсов проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProjectResources'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -5708,7 +5708,7 @@ class ProjectsApi
      *
      * Получение всех ресурсов проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProjectResources'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -5923,7 +5923,7 @@ class ProjectsApi
      *
      * Получение всех ресурсов проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProjectResources'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5944,7 +5944,7 @@ class ProjectsApi
      *
      * Получение всех ресурсов проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProjectResources'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5994,7 +5994,7 @@ class ProjectsApi
     /**
      * Create request for operation 'getAllProjectResources'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProjectResources'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6095,7 +6095,7 @@ class ProjectsApi
      *
      * Получение проекта по идентификатору
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProject'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6113,7 +6113,7 @@ class ProjectsApi
      *
      * Получение проекта по идентификатору
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProject'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6328,7 +6328,7 @@ class ProjectsApi
      *
      * Получение проекта по идентификатору
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProject'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6349,7 +6349,7 @@ class ProjectsApi
      *
      * Получение проекта по идентификатору
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProject'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6399,7 +6399,7 @@ class ProjectsApi
     /**
      * Create request for operation 'getProject'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProject'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6500,7 +6500,7 @@ class ProjectsApi
      *
      * Получение списка балансировщиков проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectBalancers'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6518,7 +6518,7 @@ class ProjectsApi
      *
      * Получение списка балансировщиков проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectBalancers'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6733,7 +6733,7 @@ class ProjectsApi
      *
      * Получение списка балансировщиков проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectBalancers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6754,7 +6754,7 @@ class ProjectsApi
      *
      * Получение списка балансировщиков проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectBalancers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6804,7 +6804,7 @@ class ProjectsApi
     /**
      * Create request for operation 'getProjectBalancers'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectBalancers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6905,7 +6905,7 @@ class ProjectsApi
      *
      * Получение списка кластеров проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectClusters'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6923,7 +6923,7 @@ class ProjectsApi
      *
      * Получение списка кластеров проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectClusters'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -7138,7 +7138,7 @@ class ProjectsApi
      *
      * Получение списка кластеров проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectClusters'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7159,7 +7159,7 @@ class ProjectsApi
      *
      * Получение списка кластеров проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectClusters'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7209,7 +7209,7 @@ class ProjectsApi
     /**
      * Create request for operation 'getProjectClusters'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectClusters'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7310,7 +7310,7 @@ class ProjectsApi
      *
      * Получение списка баз данных проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectDatabases'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -7328,7 +7328,7 @@ class ProjectsApi
      *
      * Получение списка баз данных проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectDatabases'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -7543,7 +7543,7 @@ class ProjectsApi
      *
      * Получение списка баз данных проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectDatabases'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7564,7 +7564,7 @@ class ProjectsApi
      *
      * Получение списка баз данных проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectDatabases'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7614,7 +7614,7 @@ class ProjectsApi
     /**
      * Create request for operation 'getProjectDatabases'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectDatabases'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7715,7 +7715,7 @@ class ProjectsApi
      *
      * Получение списка выделенных серверов проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectDedicatedServers'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -7733,7 +7733,7 @@ class ProjectsApi
      *
      * Получение списка выделенных серверов проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectDedicatedServers'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -7948,7 +7948,7 @@ class ProjectsApi
      *
      * Получение списка выделенных серверов проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectDedicatedServers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7969,7 +7969,7 @@ class ProjectsApi
      *
      * Получение списка выделенных серверов проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectDedicatedServers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8019,7 +8019,7 @@ class ProjectsApi
     /**
      * Create request for operation 'getProjectDedicatedServers'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectDedicatedServers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8120,7 +8120,7 @@ class ProjectsApi
      *
      * Получение списка серверов проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectServers'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -8138,7 +8138,7 @@ class ProjectsApi
      *
      * Получение списка серверов проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectServers'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -8353,7 +8353,7 @@ class ProjectsApi
      *
      * Получение списка серверов проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectServers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8374,7 +8374,7 @@ class ProjectsApi
      *
      * Получение списка серверов проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectServers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8424,7 +8424,7 @@ class ProjectsApi
     /**
      * Create request for operation 'getProjectServers'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectServers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8525,7 +8525,7 @@ class ProjectsApi
      *
      * Получение списка хранилищ проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectStorages'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -8543,7 +8543,7 @@ class ProjectsApi
      *
      * Получение списка хранилищ проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectStorages'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -8758,7 +8758,7 @@ class ProjectsApi
      *
      * Получение списка хранилищ проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectStorages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8779,7 +8779,7 @@ class ProjectsApi
      *
      * Получение списка хранилищ проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectStorages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8829,7 +8829,7 @@ class ProjectsApi
     /**
      * Create request for operation 'getProjectStorages'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectStorages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9289,7 +9289,7 @@ class ProjectsApi
      *
      * Перенести ресурс в другой проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\ResourceTransfer $resource_transfer resource_transfer (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferResourceToAnotherProject'] to see the possible values for this operation
      *
@@ -9308,7 +9308,7 @@ class ProjectsApi
      *
      * Перенести ресурс в другой проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\ResourceTransfer $resource_transfer (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferResourceToAnotherProject'] to see the possible values for this operation
      *
@@ -9547,7 +9547,7 @@ class ProjectsApi
      *
      * Перенести ресурс в другой проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\ResourceTransfer $resource_transfer (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferResourceToAnotherProject'] to see the possible values for this operation
      *
@@ -9569,7 +9569,7 @@ class ProjectsApi
      *
      * Перенести ресурс в другой проект
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\ResourceTransfer $resource_transfer (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferResourceToAnotherProject'] to see the possible values for this operation
      *
@@ -9620,7 +9620,7 @@ class ProjectsApi
     /**
      * Create request for operation 'transferResourceToAnotherProject'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\ResourceTransfer $resource_transfer (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferResourceToAnotherProject'] to see the possible values for this operation
      *
@@ -9736,7 +9736,7 @@ class ProjectsApi
      *
      * Изменение проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\UpdateProject $update_project update_project (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProject'] to see the possible values for this operation
      *
@@ -9755,7 +9755,7 @@ class ProjectsApi
      *
      * Изменение проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\UpdateProject $update_project (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProject'] to see the possible values for this operation
      *
@@ -9971,7 +9971,7 @@ class ProjectsApi
      *
      * Изменение проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\UpdateProject $update_project (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProject'] to see the possible values for this operation
      *
@@ -9993,7 +9993,7 @@ class ProjectsApi
      *
      * Изменение проекта
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\UpdateProject $update_project (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProject'] to see the possible values for this operation
      *
@@ -10044,7 +10044,7 @@ class ProjectsApi
     /**
      * Create request for operation 'updateProject'
      *
-     * @param  float $project_id Уникальный идентификатор проекта. (required)
+     * @param  int $project_id Уникальный идентификатор проекта. (required)
      * @param  \OpenAPI\Client\Model\UpdateProject $update_project (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProject'] to see the possible values for this operation
      *

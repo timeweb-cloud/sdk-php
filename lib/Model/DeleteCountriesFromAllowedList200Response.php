@@ -58,8 +58,7 @@ class DeleteCountriesFromAllowedList200Response implements ModelInterface, Array
       * @var string[]
       */
     protected static $openAPITypes = [
-        'countries' => '\OpenAPI\Client\Model\RemoveCountries',
-        'response_id' => 'string'
+        'countries' => '\OpenAPI\Client\Model\RemoveCountries'
     ];
 
     /**
@@ -70,8 +69,7 @@ class DeleteCountriesFromAllowedList200Response implements ModelInterface, Array
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'countries' => null,
-        'response_id' => 'uuid'
+        'countries' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class DeleteCountriesFromAllowedList200Response implements ModelInterface, Array
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'countries' => false,
-		'response_id' => false
+        'countries' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class DeleteCountriesFromAllowedList200Response implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'countries' => 'countries',
-        'response_id' => 'response_id'
+        'countries' => 'countries'
     ];
 
     /**
@@ -180,8 +176,7 @@ class DeleteCountriesFromAllowedList200Response implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'countries' => 'setCountries',
-        'response_id' => 'setResponseId'
+        'countries' => 'setCountries'
     ];
 
     /**
@@ -190,8 +185,7 @@ class DeleteCountriesFromAllowedList200Response implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'countries' => 'getCountries',
-        'response_id' => 'getResponseId'
+        'countries' => 'getCountries'
     ];
 
     /**
@@ -252,7 +246,6 @@ class DeleteCountriesFromAllowedList200Response implements ModelInterface, Array
     public function __construct(array $data = null)
     {
         $this->setIfExists('countries', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class DeleteCountriesFromAllowedList200Response implements ModelInterface, Array
 
         if ($this->container['countries'] === null) {
             $invalidProperties[] = "'countries' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class DeleteCountriesFromAllowedList200Response implements ModelInterface, Array
             throw new \InvalidArgumentException('non-nullable countries cannot be null');
         }
         $this->container['countries'] = $countries;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

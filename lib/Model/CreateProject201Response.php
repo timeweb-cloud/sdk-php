@@ -58,8 +58,7 @@ class CreateProject201Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'project' => '\OpenAPI\Client\Model\Project',
-        'response_id' => 'string'
+        'project' => '\OpenAPI\Client\Model\Project'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateProject201Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'project' => null,
-        'response_id' => 'uuid'
+        'project' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateProject201Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'project' => false,
-		'response_id' => false
+        'project' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateProject201Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'project' => 'project',
-        'response_id' => 'response_id'
+        'project' => 'project'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateProject201Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'project' => 'setProject',
-        'response_id' => 'setResponseId'
+        'project' => 'setProject'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateProject201Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'project' => 'getProject',
-        'response_id' => 'getResponseId'
+        'project' => 'getProject'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateProject201Response implements ModelInterface, ArrayAccess, \JsonSeri
     public function __construct(array $data = null)
     {
         $this->setIfExists('project', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateProject201Response implements ModelInterface, ArrayAccess, \JsonSeri
 
         if ($this->container['project'] === null) {
             $invalidProperties[] = "'project' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateProject201Response implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable project cannot be null');
         }
         $this->container['project'] = $project;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

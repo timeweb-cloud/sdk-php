@@ -58,8 +58,7 @@ class AddBalancerToProject200Response implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'resource' => '\OpenAPI\Client\Model\ProjectResource',
-        'response_id' => 'string'
+        'resource' => '\OpenAPI\Client\Model\ProjectResource'
     ];
 
     /**
@@ -70,8 +69,7 @@ class AddBalancerToProject200Response implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'resource' => null,
-        'response_id' => 'uuid'
+        'resource' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class AddBalancerToProject200Response implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'resource' => false,
-		'response_id' => false
+        'resource' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class AddBalancerToProject200Response implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource' => 'resource',
-        'response_id' => 'response_id'
+        'resource' => 'resource'
     ];
 
     /**
@@ -180,8 +176,7 @@ class AddBalancerToProject200Response implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'resource' => 'setResource',
-        'response_id' => 'setResponseId'
+        'resource' => 'setResource'
     ];
 
     /**
@@ -190,8 +185,7 @@ class AddBalancerToProject200Response implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'resource' => 'getResource',
-        'response_id' => 'getResponseId'
+        'resource' => 'getResource'
     ];
 
     /**
@@ -252,7 +246,6 @@ class AddBalancerToProject200Response implements ModelInterface, ArrayAccess, \J
     public function __construct(array $data = null)
     {
         $this->setIfExists('resource', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class AddBalancerToProject200Response implements ModelInterface, ArrayAccess, \J
 
         if ($this->container['resource'] === null) {
             $invalidProperties[] = "'resource' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class AddBalancerToProject200Response implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable resource cannot be null');
         }
         $this->container['resource'] = $resource;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

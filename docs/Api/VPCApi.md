@@ -76,7 +76,7 @@ try {
 ## `deleteVPC()`
 
 ```php
-deleteVPC($vpc_id): \OpenAPI\Client\Model\DeleteVPC204Response
+deleteVPC($vpc_id): \OpenAPI\Client\Model\CreateVPC201Response
 ```
 
 Удаление VPC по идентификатору сети
@@ -118,7 +118,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\DeleteVPC204Response**](../Model/DeleteVPC204Response.md)
+[**\OpenAPI\Client\Model\CreateVPC201Response**](../Model/CreateVPC201Response.md)
 
 ### Authorization
 

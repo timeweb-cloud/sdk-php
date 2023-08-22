@@ -59,7 +59,7 @@ class GetFinances429Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'status_code' => 'float',
-        'message' => '\OpenAPI\Client\Model\GetFinances429ResponseMessage',
+        'message' => 'string',
         'error_code' => 'string',
         'response_id' => 'string'
     ];
@@ -350,7 +350,7 @@ class GetFinances429Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets message
      *
-     * @return \OpenAPI\Client\Model\GetFinances429ResponseMessage|null
+     * @return string|null
      */
     public function getMessage()
     {
@@ -360,7 +360,7 @@ class GetFinances429Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets message
      *
-     * @param \OpenAPI\Client\Model\GetFinances429ResponseMessage|null $message message
+     * @param string|null $message Сообщение, предоставляющее дополнительную информацию об ошибке, в том числе сведения, помогающие устранить ее, когда это возможно.
      *
      * @return self
      */

@@ -58,8 +58,7 @@ class CreateKey201Response implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ssh_key' => '\OpenAPI\Client\Model\SshKey',
-        'response_id' => 'string'
+        'ssh_key' => '\OpenAPI\Client\Model\SshKey'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateKey201Response implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ssh_key' => null,
-        'response_id' => 'uuid'
+        'ssh_key' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateKey201Response implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'ssh_key' => false,
-		'response_id' => false
+        'ssh_key' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateKey201Response implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'ssh_key' => 'ssh-key',
-        'response_id' => 'response_id'
+        'ssh_key' => 'ssh-key'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateKey201Response implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'ssh_key' => 'setSshKey',
-        'response_id' => 'setResponseId'
+        'ssh_key' => 'setSshKey'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateKey201Response implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'ssh_key' => 'getSshKey',
-        'response_id' => 'getResponseId'
+        'ssh_key' => 'getSshKey'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateKey201Response implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->setIfExists('ssh_key', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateKey201Response implements ModelInterface, ArrayAccess, \JsonSerializ
 
         if ($this->container['ssh_key'] === null) {
             $invalidProperties[] = "'ssh_key' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateKey201Response implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable ssh_key cannot be null');
         }
         $this->container['ssh_key'] = $ssh_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

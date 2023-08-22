@@ -59,8 +59,7 @@ class GetServerIPs200Response implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'server_ips' => '\OpenAPI\Client\Model\ServerIp[]',
-        'response_id' => 'string'
+        'server_ips' => '\OpenAPI\Client\Model\ServerIp[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetServerIPs200Response implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'server_ips' => null,
-        'response_id' => 'uuid'
+        'server_ips' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetServerIPs200Response implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'server_ips' => false,
-		'response_id' => false
+		'server_ips' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetServerIPs200Response implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'server_ips' => 'server_ips',
-        'response_id' => 'response_id'
+        'server_ips' => 'server_ips'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetServerIPs200Response implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'server_ips' => 'setServerIps',
-        'response_id' => 'setResponseId'
+        'server_ips' => 'setServerIps'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetServerIPs200Response implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'server_ips' => 'getServerIps',
-        'response_id' => 'getResponseId'
+        'server_ips' => 'getServerIps'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetServerIPs200Response implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('server_ips', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetServerIPs200Response implements ModelInterface, ArrayAccess, \JsonSeria
         }
         if ($this->container['server_ips'] === null) {
             $invalidProperties[] = "'server_ips' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetServerIPs200Response implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable server_ips cannot be null');
         }
         $this->container['server_ips'] = $server_ips;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

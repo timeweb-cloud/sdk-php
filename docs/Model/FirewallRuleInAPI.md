@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **direction** | [**\OpenAPI\Client\Model\FirewallRuleDirection**](FirewallRuleDirection.md) |  |
 **port** | **string** | Порт или диапазон портов, в случае tcp или udp | [optional]
 **protocol** | [**\OpenAPI\Client\Model\FirewallRuleProtocol**](FirewallRuleProtocol.md) |  |
-**cidr** | [**\OpenAPI\Client\Model\Cidr**](Cidr.md) |  | [optional]
+**cidr** | **string** | Сетевой адрес или подсеть. Поддерживаются протоколы IPv4  и IPv6 | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

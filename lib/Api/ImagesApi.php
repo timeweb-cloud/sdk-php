@@ -160,7 +160,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateImage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ImageOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createImage($image_in_api, string $contentType = self::contentTypes['createImage'][0])
     {
@@ -178,7 +178,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateImage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ImageOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createImageWithHttpInfo($image_in_api, string $contentType = self::contentTypes['createImage'][0])
     {
@@ -221,17 +221,17 @@ class ImagesApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\CreateImage201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ImageOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateImage201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ImageOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateImage201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ImageOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -297,7 +297,7 @@ class ImagesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateImage201Response';
+            $returnType = '\OpenAPI\Client\Model\ImageOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -318,7 +318,7 @@ class ImagesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateImage201Response',
+                        '\OpenAPI\Client\Model\ImageOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -394,7 +394,7 @@ class ImagesApi
      */
     public function createImageAsyncWithHttpInfo($image_in_api, string $contentType = self::contentTypes['createImage'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateImage201Response';
+        $returnType = '\OpenAPI\Client\Model\ImageOutResponse';
         $request = $this->createImageRequest($image_in_api, $contentType);
 
         return $this->client
@@ -539,7 +539,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateImageDownloadUrl201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\BaseError|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ImageDownloadResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\BaseError|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createImageDownloadUrl($image_id, $image_url_in, string $contentType = self::contentTypes['createImageDownloadUrl'][0])
     {
@@ -558,7 +558,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateImageDownloadUrl201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\BaseError|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ImageDownloadResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\BaseError|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createImageDownloadUrlWithHttpInfo($image_id, $image_url_in, string $contentType = self::contentTypes['createImageDownloadUrl'][0])
     {
@@ -601,17 +601,17 @@ class ImagesApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\CreateImageDownloadUrl201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ImageDownloadResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateImageDownloadUrl201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ImageDownloadResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateImageDownloadUrl201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ImageDownloadResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -707,7 +707,7 @@ class ImagesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateImageDownloadUrl201Response';
+            $returnType = '\OpenAPI\Client\Model\ImageDownloadResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -728,7 +728,7 @@ class ImagesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateImageDownloadUrl201Response',
+                        '\OpenAPI\Client\Model\ImageDownloadResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -822,7 +822,7 @@ class ImagesApi
      */
     public function createImageDownloadUrlAsyncWithHttpInfo($image_id, $image_url_in, string $contentType = self::contentTypes['createImageDownloadUrl'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateImageDownloadUrl201Response';
+        $returnType = '\OpenAPI\Client\Model\ImageDownloadResponse';
         $request = $this->createImageDownloadUrlRequest($image_id, $image_url_in, $contentType);
 
         return $this->client
@@ -1532,7 +1532,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateImage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ImageOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getImage($image_id, string $contentType = self::contentTypes['getImage'][0])
     {
@@ -1550,7 +1550,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateImage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ImageOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getImageWithHttpInfo($image_id, string $contentType = self::contentTypes['getImage'][0])
     {
@@ -1593,17 +1593,17 @@ class ImagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreateImage201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ImageOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateImage201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ImageOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateImage201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ImageOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1684,7 +1684,7 @@ class ImagesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateImage201Response';
+            $returnType = '\OpenAPI\Client\Model\ImageOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1705,7 +1705,7 @@ class ImagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateImage201Response',
+                        '\OpenAPI\Client\Model\ImageOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1789,7 +1789,7 @@ class ImagesApi
      */
     public function getImageAsyncWithHttpInfo($image_id, string $contentType = self::contentTypes['getImage'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateImage201Response';
+        $returnType = '\OpenAPI\Client\Model\ImageOutResponse';
         $request = $this->getImageRequest($image_id, $contentType);
 
         return $this->client
@@ -1935,7 +1935,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateImageDownloadUrl201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ImageDownloadResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getImageDownloadURL($image_id, $image_url_id, string $contentType = self::contentTypes['getImageDownloadURL'][0])
     {
@@ -1954,7 +1954,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateImageDownloadUrl201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ImageDownloadResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getImageDownloadURLWithHttpInfo($image_id, $image_url_id, string $contentType = self::contentTypes['getImageDownloadURL'][0])
     {
@@ -1997,17 +1997,17 @@ class ImagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreateImageDownloadUrl201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ImageDownloadResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateImageDownloadUrl201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ImageDownloadResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateImageDownloadUrl201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ImageDownloadResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2088,7 +2088,7 @@ class ImagesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateImageDownloadUrl201Response';
+            $returnType = '\OpenAPI\Client\Model\ImageDownloadResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2109,7 +2109,7 @@ class ImagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateImageDownloadUrl201Response',
+                        '\OpenAPI\Client\Model\ImageDownloadResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2195,7 +2195,7 @@ class ImagesApi
      */
     public function getImageDownloadURLAsyncWithHttpInfo($image_id, $image_url_id, string $contentType = self::contentTypes['getImageDownloadURL'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateImageDownloadUrl201Response';
+        $returnType = '\OpenAPI\Client\Model\ImageDownloadResponse';
         $request = $this->getImageDownloadURLRequest($image_id, $image_url_id, $contentType);
 
         return $this->client
@@ -2358,7 +2358,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetImageDownloadURLs200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ImageDownloadsResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getImageDownloadURLs($image_id, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getImageDownloadURLs'][0])
     {
@@ -2378,7 +2378,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetImageDownloadURLs200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ImageDownloadsResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getImageDownloadURLsWithHttpInfo($image_id, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getImageDownloadURLs'][0])
     {
@@ -2421,17 +2421,17 @@ class ImagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetImageDownloadURLs200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ImageDownloadsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetImageDownloadURLs200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ImageDownloadsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImageDownloadURLs200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ImageDownloadsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2512,7 +2512,7 @@ class ImagesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetImageDownloadURLs200Response';
+            $returnType = '\OpenAPI\Client\Model\ImageDownloadsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2533,7 +2533,7 @@ class ImagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetImageDownloadURLs200Response',
+                        '\OpenAPI\Client\Model\ImageDownloadsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2621,7 +2621,7 @@ class ImagesApi
      */
     public function getImageDownloadURLsAsyncWithHttpInfo($image_id, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getImageDownloadURLs'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetImageDownloadURLs200Response';
+        $returnType = '\OpenAPI\Client\Model\ImageDownloadsResponse';
         $request = $this->getImageDownloadURLsRequest($image_id, $limit, $offset, $contentType);
 
         return $this->client
@@ -2789,7 +2789,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetImages200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ImagesOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getImages($limit = 100, $offset = 0, string $contentType = self::contentTypes['getImages'][0])
     {
@@ -2808,7 +2808,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetImages200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ImagesOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getImagesWithHttpInfo($limit = 100, $offset = 0, string $contentType = self::contentTypes['getImages'][0])
     {
@@ -2851,17 +2851,17 @@ class ImagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetImages200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ImagesOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetImages200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ImagesOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImages200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ImagesOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2927,7 +2927,7 @@ class ImagesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetImages200Response';
+            $returnType = '\OpenAPI\Client\Model\ImagesOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2948,7 +2948,7 @@ class ImagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetImages200Response',
+                        '\OpenAPI\Client\Model\ImagesOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3026,7 +3026,7 @@ class ImagesApi
      */
     public function getImagesAsyncWithHttpInfo($limit = 100, $offset = 0, string $contentType = self::contentTypes['getImages'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetImages200Response';
+        $returnType = '\OpenAPI\Client\Model\ImagesOutResponse';
         $request = $this->getImagesRequest($limit, $offset, $contentType);
 
         return $this->client
@@ -3178,7 +3178,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateImage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ImageOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateImage($image_id, $image_update_api, string $contentType = self::contentTypes['updateImage'][0])
     {
@@ -3197,7 +3197,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateImage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ImageOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateImageWithHttpInfo($image_id, $image_update_api, string $contentType = self::contentTypes['updateImage'][0])
     {
@@ -3240,17 +3240,17 @@ class ImagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreateImage201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ImageOutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateImage201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ImageOutResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateImage201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ImageOutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3331,7 +3331,7 @@ class ImagesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateImage201Response';
+            $returnType = '\OpenAPI\Client\Model\ImageOutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3352,7 +3352,7 @@ class ImagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateImage201Response',
+                        '\OpenAPI\Client\Model\ImageOutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3438,7 +3438,7 @@ class ImagesApi
      */
     public function updateImageAsyncWithHttpInfo($image_id, $image_update_api, string $contentType = self::contentTypes['updateImage'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateImage201Response';
+        $returnType = '\OpenAPI\Client\Model\ImageOutResponse';
         $request = $this->updateImageRequest($image_id, $image_update_api, $contentType);
 
         return $this->client
@@ -3599,7 +3599,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\UploadImage200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\UploadSuccessfulResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function uploadImage($image_id, $content_disposition = null, string $contentType = self::contentTypes['uploadImage'][0])
     {
@@ -3618,7 +3618,7 @@ class ImagesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\UploadImage200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\UploadSuccessfulResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function uploadImageWithHttpInfo($image_id, $content_disposition = null, string $contentType = self::contentTypes['uploadImage'][0])
     {
@@ -3661,17 +3661,17 @@ class ImagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\UploadImage200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UploadSuccessfulResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\UploadImage200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UploadSuccessfulResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UploadImage200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UploadSuccessfulResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3737,7 +3737,7 @@ class ImagesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\UploadImage200Response';
+            $returnType = '\OpenAPI\Client\Model\UploadSuccessfulResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3758,7 +3758,7 @@ class ImagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\UploadImage200Response',
+                        '\OpenAPI\Client\Model\UploadSuccessfulResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3836,7 +3836,7 @@ class ImagesApi
      */
     public function uploadImageAsyncWithHttpInfo($image_id, $content_disposition = null, string $contentType = self::contentTypes['uploadImage'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\UploadImage200Response';
+        $returnType = '\OpenAPI\Client\Model\UploadSuccessfulResponse';
         $request = $this->uploadImageRequest($image_id, $content_disposition, $contentType);
 
         return $this->client

@@ -59,8 +59,7 @@ class GetDatabaseBackups200Response implements ModelInterface, ArrayAccess, \Jso
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'backups' => '\OpenAPI\Client\Model\Backup[]',
-        'response_id' => 'string'
+        'backups' => '\OpenAPI\Client\Model\Backup[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetDatabaseBackups200Response implements ModelInterface, ArrayAccess, \Jso
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'backups' => null,
-        'response_id' => 'uuid'
+        'backups' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetDatabaseBackups200Response implements ModelInterface, ArrayAccess, \Jso
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'backups' => false,
-		'response_id' => false
+		'backups' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetDatabaseBackups200Response implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'backups' => 'backups',
-        'response_id' => 'response_id'
+        'backups' => 'backups'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetDatabaseBackups200Response implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'backups' => 'setBackups',
-        'response_id' => 'setResponseId'
+        'backups' => 'setBackups'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetDatabaseBackups200Response implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'backups' => 'getBackups',
-        'response_id' => 'getResponseId'
+        'backups' => 'getBackups'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetDatabaseBackups200Response implements ModelInterface, ArrayAccess, \Jso
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('backups', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetDatabaseBackups200Response implements ModelInterface, ArrayAccess, \Jso
         }
         if ($this->container['backups'] === null) {
             $invalidProperties[] = "'backups' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetDatabaseBackups200Response implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable backups cannot be null');
         }
         $this->container['backups'] = $backups;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

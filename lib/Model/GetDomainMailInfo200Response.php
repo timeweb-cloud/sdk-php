@@ -58,8 +58,7 @@ class GetDomainMailInfo200Response implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'domain_info' => '\OpenAPI\Client\Model\DomainInfo',
-        'response_id' => 'string'
+        'domain_info' => '\OpenAPI\Client\Model\DomainInfo'
     ];
 
     /**
@@ -70,8 +69,7 @@ class GetDomainMailInfo200Response implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'domain_info' => null,
-        'response_id' => 'uuid'
+        'domain_info' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class GetDomainMailInfo200Response implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'domain_info' => false,
-		'response_id' => false
+        'domain_info' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class GetDomainMailInfo200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'domain_info' => 'domain_info',
-        'response_id' => 'response_id'
+        'domain_info' => 'domain_info'
     ];
 
     /**
@@ -180,8 +176,7 @@ class GetDomainMailInfo200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'domain_info' => 'setDomainInfo',
-        'response_id' => 'setResponseId'
+        'domain_info' => 'setDomainInfo'
     ];
 
     /**
@@ -190,8 +185,7 @@ class GetDomainMailInfo200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'domain_info' => 'getDomainInfo',
-        'response_id' => 'getResponseId'
+        'domain_info' => 'getDomainInfo'
     ];
 
     /**
@@ -252,7 +246,6 @@ class GetDomainMailInfo200Response implements ModelInterface, ArrayAccess, \Json
     public function __construct(array $data = null)
     {
         $this->setIfExists('domain_info', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class GetDomainMailInfo200Response implements ModelInterface, ArrayAccess, \Json
 
         if ($this->container['domain_info'] === null) {
             $invalidProperties[] = "'domain_info' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class GetDomainMailInfo200Response implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable domain_info cannot be null');
         }
         $this->container['domain_info'] = $domain_info;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

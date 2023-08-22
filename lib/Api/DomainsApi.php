@@ -1683,16 +1683,16 @@ class DomainsApi
      *
      * Создание заявки на регистрацию/продление/трансфер домена
      *
-     * @param  \OpenAPI\Client\Model\CreateDomainRequestRequest $create_domain_request_request create_domain_request_request (required)
+     * @param  \OpenAPI\Client\Model\Register $register register (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainRequest'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CreateDomainRequest201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function createDomainRequest($create_domain_request_request, string $contentType = self::contentTypes['createDomainRequest'][0])
+    public function createDomainRequest($register, string $contentType = self::contentTypes['createDomainRequest'][0])
     {
-        list($response) = $this->createDomainRequestWithHttpInfo($create_domain_request_request, $contentType);
+        list($response) = $this->createDomainRequestWithHttpInfo($register, $contentType);
         return $response;
     }
 
@@ -1701,16 +1701,16 @@ class DomainsApi
      *
      * Создание заявки на регистрацию/продление/трансфер домена
      *
-     * @param  \OpenAPI\Client\Model\CreateDomainRequestRequest $create_domain_request_request (required)
+     * @param  \OpenAPI\Client\Model\Register $register (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainRequest'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CreateDomainRequest201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDomainRequestWithHttpInfo($create_domain_request_request, string $contentType = self::contentTypes['createDomainRequest'][0])
+    public function createDomainRequestWithHttpInfo($register, string $contentType = self::contentTypes['createDomainRequest'][0])
     {
-        $request = $this->createDomainRequestRequest($create_domain_request_request, $contentType);
+        $request = $this->createDomainRequestRequest($register, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1916,15 +1916,15 @@ class DomainsApi
      *
      * Создание заявки на регистрацию/продление/трансфер домена
      *
-     * @param  \OpenAPI\Client\Model\CreateDomainRequestRequest $create_domain_request_request (required)
+     * @param  \OpenAPI\Client\Model\Register $register (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainRequest'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDomainRequestAsync($create_domain_request_request, string $contentType = self::contentTypes['createDomainRequest'][0])
+    public function createDomainRequestAsync($register, string $contentType = self::contentTypes['createDomainRequest'][0])
     {
-        return $this->createDomainRequestAsyncWithHttpInfo($create_domain_request_request, $contentType)
+        return $this->createDomainRequestAsyncWithHttpInfo($register, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1937,16 +1937,16 @@ class DomainsApi
      *
      * Создание заявки на регистрацию/продление/трансфер домена
      *
-     * @param  \OpenAPI\Client\Model\CreateDomainRequestRequest $create_domain_request_request (required)
+     * @param  \OpenAPI\Client\Model\Register $register (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainRequest'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDomainRequestAsyncWithHttpInfo($create_domain_request_request, string $contentType = self::contentTypes['createDomainRequest'][0])
+    public function createDomainRequestAsyncWithHttpInfo($register, string $contentType = self::contentTypes['createDomainRequest'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CreateDomainRequest201Response';
-        $request = $this->createDomainRequestRequest($create_domain_request_request, $contentType);
+        $request = $this->createDomainRequestRequest($register, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1987,19 +1987,19 @@ class DomainsApi
     /**
      * Create request for operation 'createDomainRequest'
      *
-     * @param  \OpenAPI\Client\Model\CreateDomainRequestRequest $create_domain_request_request (required)
+     * @param  \OpenAPI\Client\Model\Register $register (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainRequest'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createDomainRequestRequest($create_domain_request_request, string $contentType = self::contentTypes['createDomainRequest'][0])
+    public function createDomainRequestRequest($register, string $contentType = self::contentTypes['createDomainRequest'][0])
     {
 
-        // verify the required parameter 'create_domain_request_request' is set
-        if ($create_domain_request_request === null || (is_array($create_domain_request_request) && count($create_domain_request_request) === 0)) {
+        // verify the required parameter 'register' is set
+        if ($register === null || (is_array($register) && count($register) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_domain_request_request when calling createDomainRequest'
+                'Missing the required parameter $register when calling createDomainRequest'
             );
         }
 
@@ -2022,12 +2022,12 @@ class DomainsApi
         );
 
         // for model (json/xml)
-        if (isset($create_domain_request_request)) {
+        if (isset($register)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_domain_request_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($register));
             } else {
-                $httpBody = $create_domain_request_request;
+                $httpBody = $register;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -7950,16 +7950,16 @@ class DomainsApi
      * Оплата/обновление заявки на регистрацию/продление/трансфер домена
      *
      * @param  int $request_id Идентификатор заявки на регистрацию/продление/трансфер домена. (required)
-     * @param  \OpenAPI\Client\Model\UpdateDomainRequestRequest $update_domain_request_request update_domain_request_request (required)
+     * @param  \OpenAPI\Client\Model\ModelUse $model_use model_use (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDomainRequest'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CreateDomainRequest201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function updateDomainRequest($request_id, $update_domain_request_request, string $contentType = self::contentTypes['updateDomainRequest'][0])
+    public function updateDomainRequest($request_id, $model_use, string $contentType = self::contentTypes['updateDomainRequest'][0])
     {
-        list($response) = $this->updateDomainRequestWithHttpInfo($request_id, $update_domain_request_request, $contentType);
+        list($response) = $this->updateDomainRequestWithHttpInfo($request_id, $model_use, $contentType);
         return $response;
     }
 
@@ -7969,16 +7969,16 @@ class DomainsApi
      * Оплата/обновление заявки на регистрацию/продление/трансфер домена
      *
      * @param  int $request_id Идентификатор заявки на регистрацию/продление/трансфер домена. (required)
-     * @param  \OpenAPI\Client\Model\UpdateDomainRequestRequest $update_domain_request_request (required)
+     * @param  \OpenAPI\Client\Model\ModelUse $model_use (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDomainRequest'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CreateDomainRequest201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateDomainRequestWithHttpInfo($request_id, $update_domain_request_request, string $contentType = self::contentTypes['updateDomainRequest'][0])
+    public function updateDomainRequestWithHttpInfo($request_id, $model_use, string $contentType = self::contentTypes['updateDomainRequest'][0])
     {
-        $request = $this->updateDomainRequestRequest($request_id, $update_domain_request_request, $contentType);
+        $request = $this->updateDomainRequestRequest($request_id, $model_use, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8208,15 +8208,15 @@ class DomainsApi
      * Оплата/обновление заявки на регистрацию/продление/трансфер домена
      *
      * @param  int $request_id Идентификатор заявки на регистрацию/продление/трансфер домена. (required)
-     * @param  \OpenAPI\Client\Model\UpdateDomainRequestRequest $update_domain_request_request (required)
+     * @param  \OpenAPI\Client\Model\ModelUse $model_use (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDomainRequest'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDomainRequestAsync($request_id, $update_domain_request_request, string $contentType = self::contentTypes['updateDomainRequest'][0])
+    public function updateDomainRequestAsync($request_id, $model_use, string $contentType = self::contentTypes['updateDomainRequest'][0])
     {
-        return $this->updateDomainRequestAsyncWithHttpInfo($request_id, $update_domain_request_request, $contentType)
+        return $this->updateDomainRequestAsyncWithHttpInfo($request_id, $model_use, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8230,16 +8230,16 @@ class DomainsApi
      * Оплата/обновление заявки на регистрацию/продление/трансфер домена
      *
      * @param  int $request_id Идентификатор заявки на регистрацию/продление/трансфер домена. (required)
-     * @param  \OpenAPI\Client\Model\UpdateDomainRequestRequest $update_domain_request_request (required)
+     * @param  \OpenAPI\Client\Model\ModelUse $model_use (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDomainRequest'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDomainRequestAsyncWithHttpInfo($request_id, $update_domain_request_request, string $contentType = self::contentTypes['updateDomainRequest'][0])
+    public function updateDomainRequestAsyncWithHttpInfo($request_id, $model_use, string $contentType = self::contentTypes['updateDomainRequest'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CreateDomainRequest201Response';
-        $request = $this->updateDomainRequestRequest($request_id, $update_domain_request_request, $contentType);
+        $request = $this->updateDomainRequestRequest($request_id, $model_use, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8281,13 +8281,13 @@ class DomainsApi
      * Create request for operation 'updateDomainRequest'
      *
      * @param  int $request_id Идентификатор заявки на регистрацию/продление/трансфер домена. (required)
-     * @param  \OpenAPI\Client\Model\UpdateDomainRequestRequest $update_domain_request_request (required)
+     * @param  \OpenAPI\Client\Model\ModelUse $model_use (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDomainRequest'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateDomainRequestRequest($request_id, $update_domain_request_request, string $contentType = self::contentTypes['updateDomainRequest'][0])
+    public function updateDomainRequestRequest($request_id, $model_use, string $contentType = self::contentTypes['updateDomainRequest'][0])
     {
 
         // verify the required parameter 'request_id' is set
@@ -8297,10 +8297,10 @@ class DomainsApi
             );
         }
 
-        // verify the required parameter 'update_domain_request_request' is set
-        if ($update_domain_request_request === null || (is_array($update_domain_request_request) && count($update_domain_request_request) === 0)) {
+        // verify the required parameter 'model_use' is set
+        if ($model_use === null || (is_array($model_use) && count($model_use) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $update_domain_request_request when calling updateDomainRequest'
+                'Missing the required parameter $model_use when calling updateDomainRequest'
             );
         }
 
@@ -8331,12 +8331,12 @@ class DomainsApi
         );
 
         // for model (json/xml)
-        if (isset($update_domain_request_request)) {
+        if (isset($model_use)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_domain_request_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($model_use));
             } else {
-                $httpBody = $update_domain_request_request;
+                $httpBody = $model_use;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

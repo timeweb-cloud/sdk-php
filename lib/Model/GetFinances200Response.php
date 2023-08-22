@@ -58,8 +58,7 @@ class GetFinances200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'finances' => '\OpenAPI\Client\Model\Finances',
-        'response_id' => 'string'
+        'finances' => '\OpenAPI\Client\Model\Finances'
     ];
 
     /**
@@ -70,8 +69,7 @@ class GetFinances200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'finances' => null,
-        'response_id' => 'uuid'
+        'finances' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class GetFinances200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'finances' => false,
-		'response_id' => false
+        'finances' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class GetFinances200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'finances' => 'finances',
-        'response_id' => 'response_id'
+        'finances' => 'finances'
     ];
 
     /**
@@ -180,8 +176,7 @@ class GetFinances200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'finances' => 'setFinances',
-        'response_id' => 'setResponseId'
+        'finances' => 'setFinances'
     ];
 
     /**
@@ -190,8 +185,7 @@ class GetFinances200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'finances' => 'getFinances',
-        'response_id' => 'getResponseId'
+        'finances' => 'getFinances'
     ];
 
     /**
@@ -252,7 +246,6 @@ class GetFinances200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(array $data = null)
     {
         $this->setIfExists('finances', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class GetFinances200Response implements ModelInterface, ArrayAccess, \JsonSerial
 
         if ($this->container['finances'] === null) {
             $invalidProperties[] = "'finances' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class GetFinances200Response implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable finances cannot be null');
         }
         $this->container['finances'] = $finances;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

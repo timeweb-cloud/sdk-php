@@ -59,8 +59,7 @@ class GetDedicatedServersPresets200Response implements ModelInterface, ArrayAcce
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'dedicated_servers_presets' => '\OpenAPI\Client\Model\DedicatedServerPreset[]',
-        'response_id' => 'string'
+        'dedicated_servers_presets' => '\OpenAPI\Client\Model\DedicatedServerPreset[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetDedicatedServersPresets200Response implements ModelInterface, ArrayAcce
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'dedicated_servers_presets' => null,
-        'response_id' => 'uuid'
+        'dedicated_servers_presets' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetDedicatedServersPresets200Response implements ModelInterface, ArrayAcce
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'dedicated_servers_presets' => false,
-		'response_id' => false
+		'dedicated_servers_presets' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetDedicatedServersPresets200Response implements ModelInterface, ArrayAcce
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'dedicated_servers_presets' => 'dedicated_servers_presets',
-        'response_id' => 'response_id'
+        'dedicated_servers_presets' => 'dedicated_servers_presets'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetDedicatedServersPresets200Response implements ModelInterface, ArrayAcce
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'dedicated_servers_presets' => 'setDedicatedServersPresets',
-        'response_id' => 'setResponseId'
+        'dedicated_servers_presets' => 'setDedicatedServersPresets'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetDedicatedServersPresets200Response implements ModelInterface, ArrayAcce
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'dedicated_servers_presets' => 'getDedicatedServersPresets',
-        'response_id' => 'getResponseId'
+        'dedicated_servers_presets' => 'getDedicatedServersPresets'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetDedicatedServersPresets200Response implements ModelInterface, ArrayAcce
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('dedicated_servers_presets', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetDedicatedServersPresets200Response implements ModelInterface, ArrayAcce
         }
         if ($this->container['dedicated_servers_presets'] === null) {
             $invalidProperties[] = "'dedicated_servers_presets' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetDedicatedServersPresets200Response implements ModelInterface, ArrayAcce
             throw new \InvalidArgumentException('non-nullable dedicated_servers_presets cannot be null');
         }
         $this->container['dedicated_servers_presets'] = $dedicated_servers_presets;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

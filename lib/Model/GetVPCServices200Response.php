@@ -59,8 +59,7 @@ class GetVPCServices200Response implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'services' => '\OpenAPI\Client\Model\VpcService[]',
-        'response_id' => 'string'
+        'services' => '\OpenAPI\Client\Model\VpcService[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetVPCServices200Response implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'services' => null,
-        'response_id' => 'uuid'
+        'services' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetVPCServices200Response implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'services' => false,
-		'response_id' => false
+		'services' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetVPCServices200Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'services' => 'services',
-        'response_id' => 'response_id'
+        'services' => 'services'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetVPCServices200Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'services' => 'setServices',
-        'response_id' => 'setResponseId'
+        'services' => 'setServices'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetVPCServices200Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'services' => 'getServices',
-        'response_id' => 'getResponseId'
+        'services' => 'getServices'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetVPCServices200Response implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('services', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetVPCServices200Response implements ModelInterface, ArrayAccess, \JsonSer
         }
         if ($this->container['services'] === null) {
             $invalidProperties[] = "'services' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetVPCServices200Response implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable services cannot be null');
         }
         $this->container['services'] = $services;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

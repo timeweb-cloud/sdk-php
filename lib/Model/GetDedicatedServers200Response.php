@@ -59,8 +59,7 @@ class GetDedicatedServers200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'dedicated_servers' => '\OpenAPI\Client\Model\DedicatedServer[]',
-        'response_id' => 'string'
+        'dedicated_servers' => '\OpenAPI\Client\Model\DedicatedServer[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetDedicatedServers200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'dedicated_servers' => null,
-        'response_id' => 'uuid'
+        'dedicated_servers' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetDedicatedServers200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'dedicated_servers' => false,
-		'response_id' => false
+		'dedicated_servers' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetDedicatedServers200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'dedicated_servers' => 'dedicated_servers',
-        'response_id' => 'response_id'
+        'dedicated_servers' => 'dedicated_servers'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetDedicatedServers200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'dedicated_servers' => 'setDedicatedServers',
-        'response_id' => 'setResponseId'
+        'dedicated_servers' => 'setDedicatedServers'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetDedicatedServers200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'dedicated_servers' => 'getDedicatedServers',
-        'response_id' => 'getResponseId'
+        'dedicated_servers' => 'getDedicatedServers'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetDedicatedServers200Response implements ModelInterface, ArrayAccess, \Js
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('dedicated_servers', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetDedicatedServers200Response implements ModelInterface, ArrayAccess, \Js
         }
         if ($this->container['dedicated_servers'] === null) {
             $invalidProperties[] = "'dedicated_servers' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetDedicatedServers200Response implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable dedicated_servers cannot be null');
         }
         $this->container['dedicated_servers'] = $dedicated_servers;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

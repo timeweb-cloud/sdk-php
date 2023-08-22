@@ -58,8 +58,7 @@ class UpdateToken200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'api_key' => '\OpenAPI\Client\Model\ApiKey',
-        'response_id' => 'string'
+        'api_key' => '\OpenAPI\Client\Model\ApiKey'
     ];
 
     /**
@@ -70,8 +69,7 @@ class UpdateToken200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'api_key' => null,
-        'response_id' => 'uuid'
+        'api_key' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class UpdateToken200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'api_key' => false,
-		'response_id' => false
+        'api_key' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class UpdateToken200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_key' => 'api_key',
-        'response_id' => 'response_id'
+        'api_key' => 'api_key'
     ];
 
     /**
@@ -180,8 +176,7 @@ class UpdateToken200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'api_key' => 'setApiKey',
-        'response_id' => 'setResponseId'
+        'api_key' => 'setApiKey'
     ];
 
     /**
@@ -190,8 +185,7 @@ class UpdateToken200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'api_key' => 'getApiKey',
-        'response_id' => 'getResponseId'
+        'api_key' => 'getApiKey'
     ];
 
     /**
@@ -252,7 +246,6 @@ class UpdateToken200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(array $data = null)
     {
         $this->setIfExists('api_key', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class UpdateToken200Response implements ModelInterface, ArrayAccess, \JsonSerial
 
         if ($this->container['api_key'] === null) {
             $invalidProperties[] = "'api_key' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class UpdateToken200Response implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable api_key cannot be null');
         }
         $this->container['api_key'] = $api_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

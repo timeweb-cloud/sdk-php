@@ -59,8 +59,7 @@ class GetDomainDNSRecords200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'dns_records' => '\OpenAPI\Client\Model\DnsRecord[]',
-        'response_id' => 'string'
+        'dns_records' => '\OpenAPI\Client\Model\DnsRecord[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetDomainDNSRecords200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'dns_records' => null,
-        'response_id' => 'uuid'
+        'dns_records' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetDomainDNSRecords200Response implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'dns_records' => false,
-		'response_id' => false
+		'dns_records' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetDomainDNSRecords200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'dns_records' => 'dns_records',
-        'response_id' => 'response_id'
+        'dns_records' => 'dns_records'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetDomainDNSRecords200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'dns_records' => 'setDnsRecords',
-        'response_id' => 'setResponseId'
+        'dns_records' => 'setDnsRecords'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetDomainDNSRecords200Response implements ModelInterface, ArrayAccess, \Js
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'dns_records' => 'getDnsRecords',
-        'response_id' => 'getResponseId'
+        'dns_records' => 'getDnsRecords'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetDomainDNSRecords200Response implements ModelInterface, ArrayAccess, \Js
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('dns_records', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetDomainDNSRecords200Response implements ModelInterface, ArrayAccess, \Js
         }
         if ($this->container['dns_records'] === null) {
             $invalidProperties[] = "'dns_records' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetDomainDNSRecords200Response implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable dns_records cannot be null');
         }
         $this->container['dns_records'] = $dns_records;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

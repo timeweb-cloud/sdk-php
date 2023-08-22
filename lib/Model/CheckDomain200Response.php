@@ -58,8 +58,7 @@ class CheckDomain200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'is_domain_available' => 'bool',
-        'response_id' => 'string'
+        'is_domain_available' => 'bool'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CheckDomain200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'is_domain_available' => null,
-        'response_id' => 'uuid'
+        'is_domain_available' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CheckDomain200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'is_domain_available' => false,
-		'response_id' => false
+        'is_domain_available' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CheckDomain200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_domain_available' => 'is_domain_available',
-        'response_id' => 'response_id'
+        'is_domain_available' => 'is_domain_available'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CheckDomain200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'is_domain_available' => 'setIsDomainAvailable',
-        'response_id' => 'setResponseId'
+        'is_domain_available' => 'setIsDomainAvailable'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CheckDomain200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'is_domain_available' => 'getIsDomainAvailable',
-        'response_id' => 'getResponseId'
+        'is_domain_available' => 'getIsDomainAvailable'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CheckDomain200Response implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(array $data = null)
     {
         $this->setIfExists('is_domain_available', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CheckDomain200Response implements ModelInterface, ArrayAccess, \JsonSerial
 
         if ($this->container['is_domain_available'] === null) {
             $invalidProperties[] = "'is_domain_available' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CheckDomain200Response implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable is_domain_available cannot be null');
         }
         $this->container['is_domain_available'] = $is_domain_available;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

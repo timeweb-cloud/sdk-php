@@ -58,8 +58,7 @@ class DeleteBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'balancer_delete' => '\OpenAPI\Client\Model\DeleteServiceResponse',
-        'response_id' => 'string'
+        'balancer_delete' => '\OpenAPI\Client\Model\DeleteServiceResponse'
     ];
 
     /**
@@ -70,8 +69,7 @@ class DeleteBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'balancer_delete' => null,
-        'response_id' => 'uuid'
+        'balancer_delete' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class DeleteBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'balancer_delete' => false,
-		'response_id' => false
+        'balancer_delete' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class DeleteBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'balancer_delete' => 'balancer_delete',
-        'response_id' => 'response_id'
+        'balancer_delete' => 'balancer_delete'
     ];
 
     /**
@@ -180,8 +176,7 @@ class DeleteBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'balancer_delete' => 'setBalancerDelete',
-        'response_id' => 'setResponseId'
+        'balancer_delete' => 'setBalancerDelete'
     ];
 
     /**
@@ -190,8 +185,7 @@ class DeleteBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'balancer_delete' => 'getBalancerDelete',
-        'response_id' => 'getResponseId'
+        'balancer_delete' => 'getBalancerDelete'
     ];
 
     /**
@@ -252,7 +246,6 @@ class DeleteBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->setIfExists('balancer_delete', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class DeleteBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
 
         if ($this->container['balancer_delete'] === null) {
             $invalidProperties[] = "'balancer_delete' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class DeleteBalancer200Response implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable balancer_delete cannot be null');
         }
         $this->container['balancer_delete'] = $balancer_delete;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

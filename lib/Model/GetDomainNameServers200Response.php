@@ -59,8 +59,7 @@ class GetDomainNameServers200Response implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'name_servers' => '\OpenAPI\Client\Model\DomainNameServer[]',
-        'response_id' => 'string'
+        'name_servers' => '\OpenAPI\Client\Model\DomainNameServer[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetDomainNameServers200Response implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'name_servers' => null,
-        'response_id' => 'uuid'
+        'name_servers' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetDomainNameServers200Response implements ModelInterface, ArrayAccess, \J
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'name_servers' => false,
-		'response_id' => false
+		'name_servers' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetDomainNameServers200Response implements ModelInterface, ArrayAccess, \J
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'name_servers' => 'name_servers',
-        'response_id' => 'response_id'
+        'name_servers' => 'name_servers'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetDomainNameServers200Response implements ModelInterface, ArrayAccess, \J
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'name_servers' => 'setNameServers',
-        'response_id' => 'setResponseId'
+        'name_servers' => 'setNameServers'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetDomainNameServers200Response implements ModelInterface, ArrayAccess, \J
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'name_servers' => 'getNameServers',
-        'response_id' => 'getResponseId'
+        'name_servers' => 'getNameServers'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetDomainNameServers200Response implements ModelInterface, ArrayAccess, \J
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('name_servers', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetDomainNameServers200Response implements ModelInterface, ArrayAccess, \J
         }
         if ($this->container['name_servers'] === null) {
             $invalidProperties[] = "'name_servers' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetDomainNameServers200Response implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable name_servers cannot be null');
         }
         $this->container['name_servers'] = $name_servers;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

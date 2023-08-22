@@ -58,8 +58,7 @@ class CreateDatabaseBackup201Response implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'backup' => '\OpenAPI\Client\Model\Backup',
-        'response_id' => 'string'
+        'backup' => '\OpenAPI\Client\Model\Backup'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateDatabaseBackup201Response implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'backup' => null,
-        'response_id' => 'uuid'
+        'backup' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateDatabaseBackup201Response implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'backup' => false,
-		'response_id' => false
+        'backup' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateDatabaseBackup201Response implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'backup' => 'backup',
-        'response_id' => 'response_id'
+        'backup' => 'backup'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateDatabaseBackup201Response implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'backup' => 'setBackup',
-        'response_id' => 'setResponseId'
+        'backup' => 'setBackup'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateDatabaseBackup201Response implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'backup' => 'getBackup',
-        'response_id' => 'getResponseId'
+        'backup' => 'getBackup'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateDatabaseBackup201Response implements ModelInterface, ArrayAccess, \J
     public function __construct(array $data = null)
     {
         $this->setIfExists('backup', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateDatabaseBackup201Response implements ModelInterface, ArrayAccess, \J
 
         if ($this->container['backup'] === null) {
             $invalidProperties[] = "'backup' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateDatabaseBackup201Response implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable backup cannot be null');
         }
         $this->container['backup'] = $backup;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

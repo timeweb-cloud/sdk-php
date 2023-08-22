@@ -58,8 +58,7 @@ class DeleteStorage200Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'bucket_delete' => '\OpenAPI\Client\Model\DeleteServiceResponse',
-        'response_id' => 'string'
+        'bucket_delete' => '\OpenAPI\Client\Model\DeleteServiceResponse'
     ];
 
     /**
@@ -70,8 +69,7 @@ class DeleteStorage200Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'bucket_delete' => null,
-        'response_id' => 'uuid'
+        'bucket_delete' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class DeleteStorage200Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'bucket_delete' => false,
-		'response_id' => false
+        'bucket_delete' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class DeleteStorage200Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'bucket_delete' => 'bucket_delete',
-        'response_id' => 'response_id'
+        'bucket_delete' => 'bucket_delete'
     ];
 
     /**
@@ -180,8 +176,7 @@ class DeleteStorage200Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'bucket_delete' => 'setBucketDelete',
-        'response_id' => 'setResponseId'
+        'bucket_delete' => 'setBucketDelete'
     ];
 
     /**
@@ -190,8 +185,7 @@ class DeleteStorage200Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'bucket_delete' => 'getBucketDelete',
-        'response_id' => 'getResponseId'
+        'bucket_delete' => 'getBucketDelete'
     ];
 
     /**
@@ -252,7 +246,6 @@ class DeleteStorage200Response implements ModelInterface, ArrayAccess, \JsonSeri
     public function __construct(array $data = null)
     {
         $this->setIfExists('bucket_delete', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class DeleteStorage200Response implements ModelInterface, ArrayAccess, \JsonSeri
 
         if ($this->container['bucket_delete'] === null) {
             $invalidProperties[] = "'bucket_delete' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class DeleteStorage200Response implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable bucket_delete cannot be null');
         }
         $this->container['bucket_delete'] = $bucket_delete;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

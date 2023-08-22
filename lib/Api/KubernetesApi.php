@@ -187,7 +187,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateCluster201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ClusterResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createCluster($cluster_in, string $contentType = self::contentTypes['createCluster'][0])
     {
@@ -205,7 +205,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateCluster201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ClusterResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createClusterWithHttpInfo($cluster_in, string $contentType = self::contentTypes['createCluster'][0])
     {
@@ -248,17 +248,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\CreateCluster201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClusterResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateCluster201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ClusterResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateCluster201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClusterResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -324,7 +324,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateCluster201Response';
+            $returnType = '\OpenAPI\Client\Model\ClusterResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -345,7 +345,7 @@ class KubernetesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateCluster201Response',
+                        '\OpenAPI\Client\Model\ClusterResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -421,7 +421,7 @@ class KubernetesApi
      */
     public function createClusterAsyncWithHttpInfo($cluster_in, string $contentType = self::contentTypes['createCluster'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateCluster201Response';
+        $returnType = '\OpenAPI\Client\Model\ClusterResponse';
         $request = $this->createClusterRequest($cluster_in, $contentType);
 
         return $this->client
@@ -566,7 +566,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateClusterNodeGroup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\NodeGroupResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createClusterNodeGroup($cluster_id, $node_group_in, string $contentType = self::contentTypes['createClusterNodeGroup'][0])
     {
@@ -585,7 +585,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateClusterNodeGroup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\NodeGroupResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createClusterNodeGroupWithHttpInfo($cluster_id, $node_group_in, string $contentType = self::contentTypes['createClusterNodeGroup'][0])
     {
@@ -628,17 +628,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\CreateClusterNodeGroup201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\NodeGroupResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateClusterNodeGroup201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\NodeGroupResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateClusterNodeGroup201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NodeGroupResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -734,7 +734,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateClusterNodeGroup201Response';
+            $returnType = '\OpenAPI\Client\Model\NodeGroupResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -755,7 +755,7 @@ class KubernetesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateClusterNodeGroup201Response',
+                        '\OpenAPI\Client\Model\NodeGroupResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -849,7 +849,7 @@ class KubernetesApi
      */
     public function createClusterNodeGroupAsyncWithHttpInfo($cluster_id, $node_group_in, string $contentType = self::contentTypes['createClusterNodeGroup'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateClusterNodeGroup201Response';
+        $returnType = '\OpenAPI\Client\Model\NodeGroupResponse';
         $request = $this->createClusterNodeGroupRequest($cluster_id, $node_group_in, $contentType);
 
         return $this->client
@@ -2066,7 +2066,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateCluster201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ClusterResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getCluster($cluster_id, string $contentType = self::contentTypes['getCluster'][0])
     {
@@ -2084,7 +2084,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateCluster201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ClusterResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getClusterWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getCluster'][0])
     {
@@ -2127,17 +2127,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreateCluster201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClusterResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateCluster201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ClusterResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateCluster201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClusterResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2233,7 +2233,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateCluster201Response';
+            $returnType = '\OpenAPI\Client\Model\ClusterResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2254,7 +2254,7 @@ class KubernetesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateCluster201Response',
+                        '\OpenAPI\Client\Model\ClusterResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2346,7 +2346,7 @@ class KubernetesApi
      */
     public function getClusterAsyncWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getCluster'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateCluster201Response';
+        $returnType = '\OpenAPI\Client\Model\ClusterResponse';
         $request = $this->getClusterRequest($cluster_id, $contentType);
 
         return $this->client
@@ -2917,7 +2917,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateClusterNodeGroup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\NodeGroupResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getClusterNodeGroup($cluster_id, $group_id, string $contentType = self::contentTypes['getClusterNodeGroup'][0])
     {
@@ -2936,7 +2936,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateClusterNodeGroup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\NodeGroupResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getClusterNodeGroupWithHttpInfo($cluster_id, $group_id, string $contentType = self::contentTypes['getClusterNodeGroup'][0])
     {
@@ -2979,17 +2979,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreateClusterNodeGroup201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\NodeGroupResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateClusterNodeGroup201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\NodeGroupResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateClusterNodeGroup201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NodeGroupResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3085,7 +3085,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateClusterNodeGroup201Response';
+            $returnType = '\OpenAPI\Client\Model\NodeGroupResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3106,7 +3106,7 @@ class KubernetesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateClusterNodeGroup201Response',
+                        '\OpenAPI\Client\Model\NodeGroupResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3200,7 +3200,7 @@ class KubernetesApi
      */
     public function getClusterNodeGroupAsyncWithHttpInfo($cluster_id, $group_id, string $contentType = self::contentTypes['getClusterNodeGroup'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateClusterNodeGroup201Response';
+        $returnType = '\OpenAPI\Client\Model\NodeGroupResponse';
         $request = $this->getClusterNodeGroupRequest($cluster_id, $group_id, $contentType);
 
         return $this->client
@@ -3361,7 +3361,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetClusterNodeGroups200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\NodeGroupsResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getClusterNodeGroups($cluster_id, string $contentType = self::contentTypes['getClusterNodeGroups'][0])
     {
@@ -3379,7 +3379,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetClusterNodeGroups200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\NodeGroupsResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getClusterNodeGroupsWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getClusterNodeGroups'][0])
     {
@@ -3422,17 +3422,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetClusterNodeGroups200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\NodeGroupsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetClusterNodeGroups200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\NodeGroupsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetClusterNodeGroups200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NodeGroupsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3528,7 +3528,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetClusterNodeGroups200Response';
+            $returnType = '\OpenAPI\Client\Model\NodeGroupsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3549,7 +3549,7 @@ class KubernetesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetClusterNodeGroups200Response',
+                        '\OpenAPI\Client\Model\NodeGroupsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3641,7 +3641,7 @@ class KubernetesApi
      */
     public function getClusterNodeGroupsAsyncWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getClusterNodeGroups'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetClusterNodeGroups200Response';
+        $returnType = '\OpenAPI\Client\Model\NodeGroupsResponse';
         $request = $this->getClusterNodeGroupsRequest($cluster_id, $contentType);
 
         return $this->client
@@ -3786,7 +3786,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetClusterNodesFromGroup200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\NodesResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getClusterNodes($cluster_id, string $contentType = self::contentTypes['getClusterNodes'][0])
     {
@@ -3804,7 +3804,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetClusterNodesFromGroup200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\NodesResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getClusterNodesWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getClusterNodes'][0])
     {
@@ -3847,17 +3847,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\NodesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\NodesResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NodesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3953,7 +3953,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response';
+            $returnType = '\OpenAPI\Client\Model\NodesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3974,7 +3974,7 @@ class KubernetesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response',
+                        '\OpenAPI\Client\Model\NodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4066,7 +4066,7 @@ class KubernetesApi
      */
     public function getClusterNodesAsyncWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getClusterNodes'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response';
+        $returnType = '\OpenAPI\Client\Model\NodesResponse';
         $request = $this->getClusterNodesRequest($cluster_id, $contentType);
 
         return $this->client
@@ -4214,7 +4214,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetClusterNodesFromGroup200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\NodesResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getClusterNodesFromGroup($cluster_id, $group_id, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getClusterNodesFromGroup'][0])
     {
@@ -4235,7 +4235,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetClusterNodesFromGroup200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\NodesResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getClusterNodesFromGroupWithHttpInfo($cluster_id, $group_id, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getClusterNodesFromGroup'][0])
     {
@@ -4278,17 +4278,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\NodesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\NodesResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NodesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4384,7 +4384,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response';
+            $returnType = '\OpenAPI\Client\Model\NodesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4405,7 +4405,7 @@ class KubernetesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response',
+                        '\OpenAPI\Client\Model\NodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4503,7 +4503,7 @@ class KubernetesApi
      */
     public function getClusterNodesFromGroupAsyncWithHttpInfo($cluster_id, $group_id, $limit = 100, $offset = 0, string $contentType = self::contentTypes['getClusterNodesFromGroup'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response';
+        $returnType = '\OpenAPI\Client\Model\NodesResponse';
         $request = $this->getClusterNodesFromGroupRequest($cluster_id, $group_id, $limit, $offset, $contentType);
 
         return $this->client
@@ -4686,7 +4686,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetClusterResources200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ResourcesResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getClusterResources($cluster_id, string $contentType = self::contentTypes['getClusterResources'][0])
     {
@@ -4704,7 +4704,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetClusterResources200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ResourcesResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getClusterResourcesWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getClusterResources'][0])
     {
@@ -4747,17 +4747,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetClusterResources200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ResourcesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetClusterResources200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ResourcesResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetClusterResources200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ResourcesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4853,7 +4853,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetClusterResources200Response';
+            $returnType = '\OpenAPI\Client\Model\ResourcesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4874,7 +4874,7 @@ class KubernetesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetClusterResources200Response',
+                        '\OpenAPI\Client\Model\ResourcesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4966,7 +4966,7 @@ class KubernetesApi
      */
     public function getClusterResourcesAsyncWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getClusterResources'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetClusterResources200Response';
+        $returnType = '\OpenAPI\Client\Model\ResourcesResponse';
         $request = $this->getClusterResourcesRequest($cluster_id, $contentType);
 
         return $this->client
@@ -5112,7 +5112,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetClusters200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ClustersResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getClusters($limit = 100, $offset = 0, string $contentType = self::contentTypes['getClusters'][0])
     {
@@ -5131,7 +5131,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetClusters200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ClustersResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getClustersWithHttpInfo($limit = 100, $offset = 0, string $contentType = self::contentTypes['getClusters'][0])
     {
@@ -5174,17 +5174,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetClusters200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClustersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetClusters200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ClustersResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetClusters200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClustersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5250,7 +5250,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetClusters200Response';
+            $returnType = '\OpenAPI\Client\Model\ClustersResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5271,7 +5271,7 @@ class KubernetesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetClusters200Response',
+                        '\OpenAPI\Client\Model\ClustersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5349,7 +5349,7 @@ class KubernetesApi
      */
     public function getClustersAsyncWithHttpInfo($limit = 100, $offset = 0, string $contentType = self::contentTypes['getClusters'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetClusters200Response';
+        $returnType = '\OpenAPI\Client\Model\ClustersResponse';
         $request = $this->getClustersRequest($limit, $offset, $contentType);
 
         return $this->client
@@ -5499,7 +5499,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetK8SNetworkDrivers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\NetworkDriversResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getK8SNetworkDrivers(string $contentType = self::contentTypes['getK8SNetworkDrivers'][0])
     {
@@ -5516,7 +5516,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetK8SNetworkDrivers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\NetworkDriversResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getK8SNetworkDriversWithHttpInfo(string $contentType = self::contentTypes['getK8SNetworkDrivers'][0])
     {
@@ -5559,17 +5559,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetK8SNetworkDrivers200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\NetworkDriversResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetK8SNetworkDrivers200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\NetworkDriversResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetK8SNetworkDrivers200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NetworkDriversResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5635,7 +5635,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetK8SNetworkDrivers200Response';
+            $returnType = '\OpenAPI\Client\Model\NetworkDriversResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5656,7 +5656,7 @@ class KubernetesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetK8SNetworkDrivers200Response',
+                        '\OpenAPI\Client\Model\NetworkDriversResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5730,7 +5730,7 @@ class KubernetesApi
      */
     public function getK8SNetworkDriversAsyncWithHttpInfo(string $contentType = self::contentTypes['getK8SNetworkDrivers'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetK8SNetworkDrivers200Response';
+        $returnType = '\OpenAPI\Client\Model\NetworkDriversResponse';
         $request = $this->getK8SNetworkDriversRequest($contentType);
 
         return $this->client
@@ -5858,7 +5858,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetK8SVersions200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\K8SVersionsResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getK8SVersions(string $contentType = self::contentTypes['getK8SVersions'][0])
     {
@@ -5875,7 +5875,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetK8SVersions200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\K8SVersionsResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getK8SVersionsWithHttpInfo(string $contentType = self::contentTypes['getK8SVersions'][0])
     {
@@ -5918,17 +5918,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetK8SVersions200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\K8SVersionsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetK8SVersions200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\K8SVersionsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetK8SVersions200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\K8SVersionsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5994,7 +5994,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetK8SVersions200Response';
+            $returnType = '\OpenAPI\Client\Model\K8SVersionsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6015,7 +6015,7 @@ class KubernetesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetK8SVersions200Response',
+                        '\OpenAPI\Client\Model\K8SVersionsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6089,7 +6089,7 @@ class KubernetesApi
      */
     public function getK8SVersionsAsyncWithHttpInfo(string $contentType = self::contentTypes['getK8SVersions'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetK8SVersions200Response';
+        $returnType = '\OpenAPI\Client\Model\K8SVersionsResponse';
         $request = $this->getK8SVersionsRequest($contentType);
 
         return $this->client
@@ -6217,7 +6217,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetKubernetesPresets200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\PresetsResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getKubernetesPresets(string $contentType = self::contentTypes['getKubernetesPresets'][0])
     {
@@ -6234,7 +6234,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetKubernetesPresets200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\PresetsResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getKubernetesPresetsWithHttpInfo(string $contentType = self::contentTypes['getKubernetesPresets'][0])
     {
@@ -6277,17 +6277,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetKubernetesPresets200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\PresetsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetKubernetesPresets200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\PresetsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetKubernetesPresets200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PresetsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6353,7 +6353,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetKubernetesPresets200Response';
+            $returnType = '\OpenAPI\Client\Model\PresetsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6374,7 +6374,7 @@ class KubernetesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetKubernetesPresets200Response',
+                        '\OpenAPI\Client\Model\PresetsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6448,7 +6448,7 @@ class KubernetesApi
      */
     public function getKubernetesPresetsAsyncWithHttpInfo(string $contentType = self::contentTypes['getKubernetesPresets'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetKubernetesPresets200Response';
+        $returnType = '\OpenAPI\Client\Model\PresetsResponse';
         $request = $this->getKubernetesPresetsRequest($contentType);
 
         return $this->client
@@ -6579,7 +6579,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetClusterNodesFromGroup200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\NodesResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function increaseCountOfNodesInGroup($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
     {
@@ -6599,7 +6599,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetClusterNodesFromGroup200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\NodesResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function increaseCountOfNodesInGroupWithHttpInfo($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
     {
@@ -6642,17 +6642,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\NodesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\NodesResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NodesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6748,7 +6748,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response';
+            $returnType = '\OpenAPI\Client\Model\NodesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6769,7 +6769,7 @@ class KubernetesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response',
+                        '\OpenAPI\Client\Model\NodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6865,7 +6865,7 @@ class KubernetesApi
      */
     public function increaseCountOfNodesInGroupAsyncWithHttpInfo($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetClusterNodesFromGroup200Response';
+        $returnType = '\OpenAPI\Client\Model\NodesResponse';
         $request = $this->increaseCountOfNodesInGroupRequest($cluster_id, $group_id, $node_count, $contentType);
 
         return $this->client
@@ -7362,7 +7362,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateCluster201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ClusterResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateCluster($cluster_id, $cluster_edit, string $contentType = self::contentTypes['updateCluster'][0])
     {
@@ -7381,7 +7381,7 @@ class KubernetesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateCluster201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ClusterResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateClusterWithHttpInfo($cluster_id, $cluster_edit, string $contentType = self::contentTypes['updateCluster'][0])
     {
@@ -7424,17 +7424,17 @@ class KubernetesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreateCluster201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClusterResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateCluster201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ClusterResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateCluster201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClusterResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7530,7 +7530,7 @@ class KubernetesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateCluster201Response';
+            $returnType = '\OpenAPI\Client\Model\ClusterResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7551,7 +7551,7 @@ class KubernetesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateCluster201Response',
+                        '\OpenAPI\Client\Model\ClusterResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7645,7 +7645,7 @@ class KubernetesApi
      */
     public function updateClusterAsyncWithHttpInfo($cluster_id, $cluster_edit, string $contentType = self::contentTypes['updateCluster'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateCluster201Response';
+        $returnType = '\OpenAPI\Client\Model\ClusterResponse';
         $request = $this->updateClusterRequest($cluster_id, $cluster_edit, $contentType);
 
         return $this->client

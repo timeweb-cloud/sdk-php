@@ -59,8 +59,7 @@ class GetTokens200Response implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'api_keys' => '\OpenAPI\Client\Model\ApiKey[]',
-        'response_id' => 'string'
+        'api_keys' => '\OpenAPI\Client\Model\ApiKey[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetTokens200Response implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'api_keys' => null,
-        'response_id' => 'uuid'
+        'api_keys' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetTokens200Response implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'api_keys' => false,
-		'response_id' => false
+		'api_keys' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetTokens200Response implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'api_keys' => 'api_keys',
-        'response_id' => 'response_id'
+        'api_keys' => 'api_keys'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetTokens200Response implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'api_keys' => 'setApiKeys',
-        'response_id' => 'setResponseId'
+        'api_keys' => 'setApiKeys'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetTokens200Response implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'api_keys' => 'getApiKeys',
-        'response_id' => 'getResponseId'
+        'api_keys' => 'getApiKeys'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetTokens200Response implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('api_keys', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetTokens200Response implements ModelInterface, ArrayAccess, \JsonSerializ
         }
         if ($this->container['api_keys'] === null) {
             $invalidProperties[] = "'api_keys' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetTokens200Response implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable api_keys cannot be null');
         }
         $this->container['api_keys'] = $api_keys;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

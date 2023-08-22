@@ -63,7 +63,7 @@ class FirewallRuleOutAPI implements ModelInterface, ArrayAccess, \JsonSerializab
         'direction' => '\OpenAPI\Client\Model\FirewallRuleDirection',
         'protocol' => '\OpenAPI\Client\Model\FirewallRuleProtocol',
         'port' => 'string',
-        'cidr' => '\OpenAPI\Client\Model\Cidr',
+        'cidr' => 'string',
         'group_id' => 'string'
     ];
 
@@ -80,7 +80,7 @@ class FirewallRuleOutAPI implements ModelInterface, ArrayAccess, \JsonSerializab
         'direction' => null,
         'protocol' => null,
         'port' => null,
-        'cidr' => null,
+        'cidr' => 'ipv4',
         'group_id' => null
     ];
 
@@ -485,7 +485,7 @@ class FirewallRuleOutAPI implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets cidr
      *
-     * @return \OpenAPI\Client\Model\Cidr|null
+     * @return string|null
      */
     public function getCidr()
     {
@@ -495,7 +495,7 @@ class FirewallRuleOutAPI implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets cidr
      *
-     * @param \OpenAPI\Client\Model\Cidr|null $cidr cidr
+     * @param string|null $cidr Сетевой адрес или подсеть. Поддерживаются протоколы IPv4  и IPv6
      *
      * @return self
      */

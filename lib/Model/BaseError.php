@@ -60,7 +60,7 @@ class BaseError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'status_code' => 'int',
         'error_code' => 'string',
-        'message' => '\OpenAPI\Client\Model\Message',
+        'message' => 'string',
         'response_id' => 'string'
     ];
 
@@ -377,7 +377,7 @@ class BaseError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets message
      *
-     * @return \OpenAPI\Client\Model\Message
+     * @return string
      */
     public function getMessage()
     {
@@ -387,7 +387,7 @@ class BaseError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets message
      *
-     * @param \OpenAPI\Client\Model\Message $message message
+     * @param string $message message
      *
      * @return self
      */

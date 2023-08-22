@@ -275,6 +275,9 @@ class UpdateDomainMailInfoRequest implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class UpdateDomainMailInfoRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets email
      *
-     * @return string|null
+     * @return string
      */
     public function getEmail()
     {
@@ -303,7 +306,7 @@ class UpdateDomainMailInfoRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets email
      *
-     * @param string|null $email Адрес для сбора почты с ошибочных ящиков
+     * @param string $email Адрес для сбора почты с ошибочных ящиков
      *
      * @return self
      */

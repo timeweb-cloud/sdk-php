@@ -59,8 +59,7 @@ class GetVPCPorts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'vpc_ports' => '\OpenAPI\Client\Model\VpcPort[]',
-        'response_id' => 'string'
+        'vpc_ports' => '\OpenAPI\Client\Model\VpcPort[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetVPCPorts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'vpc_ports' => null,
-        'response_id' => 'uuid'
+        'vpc_ports' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetVPCPorts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'vpc_ports' => false,
-		'response_id' => false
+		'vpc_ports' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetVPCPorts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'vpc_ports' => 'vpc_ports',
-        'response_id' => 'response_id'
+        'vpc_ports' => 'vpc_ports'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetVPCPorts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'vpc_ports' => 'setVpcPorts',
-        'response_id' => 'setResponseId'
+        'vpc_ports' => 'setVpcPorts'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetVPCPorts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'vpc_ports' => 'getVpcPorts',
-        'response_id' => 'getResponseId'
+        'vpc_ports' => 'getVpcPorts'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetVPCPorts200Response implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('vpc_ports', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetVPCPorts200Response implements ModelInterface, ArrayAccess, \JsonSerial
         }
         if ($this->container['vpc_ports'] === null) {
             $invalidProperties[] = "'vpc_ports' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetVPCPorts200Response implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable vpc_ports cannot be null');
         }
         $this->container['vpc_ports'] = $vpc_ports;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

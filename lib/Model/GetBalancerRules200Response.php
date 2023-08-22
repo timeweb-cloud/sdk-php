@@ -59,8 +59,7 @@ class GetBalancerRules200Response implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'rules' => '\OpenAPI\Client\Model\Rule[]',
-        'response_id' => 'string'
+        'rules' => '\OpenAPI\Client\Model\Rule[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetBalancerRules200Response implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'rules' => null,
-        'response_id' => 'uuid'
+        'rules' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetBalancerRules200Response implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'rules' => false,
-		'response_id' => false
+		'rules' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetBalancerRules200Response implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'rules' => 'rules',
-        'response_id' => 'response_id'
+        'rules' => 'rules'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetBalancerRules200Response implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'rules' => 'setRules',
-        'response_id' => 'setResponseId'
+        'rules' => 'setRules'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetBalancerRules200Response implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'rules' => 'getRules',
-        'response_id' => 'getResponseId'
+        'rules' => 'getRules'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetBalancerRules200Response implements ModelInterface, ArrayAccess, \JsonS
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('rules', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetBalancerRules200Response implements ModelInterface, ArrayAccess, \JsonS
         }
         if ($this->container['rules'] === null) {
             $invalidProperties[] = "'rules' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetBalancerRules200Response implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable rules cannot be null');
         }
         $this->container['rules'] = $rules;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

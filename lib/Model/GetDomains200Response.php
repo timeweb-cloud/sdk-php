@@ -59,8 +59,7 @@ class GetDomains200Response implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'domains' => '\OpenAPI\Client\Model\Domain[]',
-        'response_id' => 'string'
+        'domains' => '\OpenAPI\Client\Model\Domain[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetDomains200Response implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'domains' => null,
-        'response_id' => 'uuid'
+        'domains' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetDomains200Response implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'domains' => false,
-		'response_id' => false
+		'domains' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetDomains200Response implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'domains' => 'domains',
-        'response_id' => 'response_id'
+        'domains' => 'domains'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetDomains200Response implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'domains' => 'setDomains',
-        'response_id' => 'setResponseId'
+        'domains' => 'setDomains'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetDomains200Response implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'domains' => 'getDomains',
-        'response_id' => 'getResponseId'
+        'domains' => 'getDomains'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetDomains200Response implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('domains', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetDomains200Response implements ModelInterface, ArrayAccess, \JsonSeriali
         }
         if ($this->container['domains'] === null) {
             $invalidProperties[] = "'domains' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetDomains200Response implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable domains cannot be null');
         }
         $this->container['domains'] = $domains;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

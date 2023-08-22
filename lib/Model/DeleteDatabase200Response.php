@@ -58,8 +58,7 @@ class DeleteDatabase200Response implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'database_delete' => '\OpenAPI\Client\Model\DeleteServiceResponse',
-        'response_id' => 'string'
+        'database_delete' => '\OpenAPI\Client\Model\DeleteServiceResponse'
     ];
 
     /**
@@ -70,8 +69,7 @@ class DeleteDatabase200Response implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'database_delete' => null,
-        'response_id' => 'uuid'
+        'database_delete' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class DeleteDatabase200Response implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'database_delete' => false,
-		'response_id' => false
+        'database_delete' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class DeleteDatabase200Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'database_delete' => 'database_delete',
-        'response_id' => 'response_id'
+        'database_delete' => 'database_delete'
     ];
 
     /**
@@ -180,8 +176,7 @@ class DeleteDatabase200Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'database_delete' => 'setDatabaseDelete',
-        'response_id' => 'setResponseId'
+        'database_delete' => 'setDatabaseDelete'
     ];
 
     /**
@@ -190,8 +185,7 @@ class DeleteDatabase200Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'database_delete' => 'getDatabaseDelete',
-        'response_id' => 'getResponseId'
+        'database_delete' => 'getDatabaseDelete'
     ];
 
     /**
@@ -252,7 +246,6 @@ class DeleteDatabase200Response implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->setIfExists('database_delete', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class DeleteDatabase200Response implements ModelInterface, ArrayAccess, \JsonSer
 
         if ($this->container['database_delete'] === null) {
             $invalidProperties[] = "'database_delete' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class DeleteDatabase200Response implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable database_delete cannot be null');
         }
         $this->container['database_delete'] = $database_delete;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

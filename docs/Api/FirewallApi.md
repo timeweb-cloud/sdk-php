@@ -23,7 +23,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 ## `addResourceToGroup()`
 
 ```php
-addResourceToGroup($group_id, $resource_id, $resource_type): \OpenAPI\Client\Model\AddResourceToGroup201Response
+addResourceToGroup($group_id, $resource_id, $resource_type): \OpenAPI\Client\Model\FirewallGroupResourceOutResponse
 ```
 
 Линковка ресурса в firewall group
@@ -49,7 +49,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
 );
 $group_id = 'group_id_example'; // string | Идентификатор группы правил
 $resource_id = 'resource_id_example'; // string | Идентификатор ресурса
-$resource_type = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ResourceType(); // \OpenAPI\Client\Model\ResourceType
+$resource_type = new \OpenAPI\Client\Model\ResourceType(); // ResourceType
 
 try {
     $result = $apiInstance->addResourceToGroup($group_id, $resource_id, $resource_type);
@@ -65,11 +65,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **group_id** | **string**| Идентификатор группы правил | |
 | **resource_id** | **string**| Идентификатор ресурса | |
-| **resource_type** | [**\OpenAPI\Client\Model\ResourceType**](../Model/.md)|  | [optional] |
+| **resource_type** | [**ResourceType**](../Model/.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AddResourceToGroup201Response**](../Model/AddResourceToGroup201Response.md)
+[**\OpenAPI\Client\Model\FirewallGroupResourceOutResponse**](../Model/FirewallGroupResourceOutResponse.md)
 
 ### Authorization
 
@@ -87,7 +87,7 @@ try {
 ## `createGroup()`
 
 ```php
-createGroup($firewall_group_in_api): \OpenAPI\Client\Model\CreateGroup201Response
+createGroup($firewall_group_in_api): \OpenAPI\Client\Model\FirewallGroupOutResponse
 ```
 
 Создание группы правил
@@ -129,7 +129,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateGroup201Response**](../Model/CreateGroup201Response.md)
+[**\OpenAPI\Client\Model\FirewallGroupOutResponse**](../Model/FirewallGroupOutResponse.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ try {
 ## `createGroupRule()`
 
 ```php
-createGroupRule($group_id, $firewall_rule_in_api): \OpenAPI\Client\Model\CreateGroupRule201Response
+createGroupRule($group_id, $firewall_rule_in_api): \OpenAPI\Client\Model\FirewallRuleOutResponse
 ```
 
 Создание firewall правила
@@ -191,7 +191,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateGroupRule201Response**](../Model/CreateGroupRule201Response.md)
+[**\OpenAPI\Client\Model\FirewallRuleOutResponse**](../Model/FirewallRuleOutResponse.md)
 
 ### Authorization
 
@@ -355,7 +355,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
 );
 $group_id = 'group_id_example'; // string | Идентификатор группы правил
 $resource_id = 'resource_id_example'; // string | Идентификатор ресурса
-$resource_type = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ResourceType(); // \OpenAPI\Client\Model\ResourceType
+$resource_type = new \OpenAPI\Client\Model\ResourceType(); // ResourceType
 
 try {
     $apiInstance->deleteResourceFromGroup($group_id, $resource_id, $resource_type);
@@ -370,7 +370,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **group_id** | **string**| Идентификатор группы правил | |
 | **resource_id** | **string**| Идентификатор ресурса | |
-| **resource_type** | [**\OpenAPI\Client\Model\ResourceType**](../Model/.md)|  | [optional] |
+| **resource_type** | [**ResourceType**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -392,7 +392,7 @@ void (empty response body)
 ## `getGroup()`
 
 ```php
-getGroup($group_id): \OpenAPI\Client\Model\CreateGroup201Response
+getGroup($group_id): \OpenAPI\Client\Model\FirewallGroupOutResponse
 ```
 
 Получение информации о группе правил
@@ -434,7 +434,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateGroup201Response**](../Model/CreateGroup201Response.md)
+[**\OpenAPI\Client\Model\FirewallGroupOutResponse**](../Model/FirewallGroupOutResponse.md)
 
 ### Authorization
 
@@ -452,7 +452,7 @@ try {
 ## `getGroupResources()`
 
 ```php
-getGroupResources($group_id, $limit, $offset): \OpenAPI\Client\Model\GetGroupResources200Response
+getGroupResources($group_id, $limit, $offset): \OpenAPI\Client\Model\FirewallGroupResourcesOutResponse
 ```
 
 Получение слинкованных ресурсов
@@ -498,7 +498,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetGroupResources200Response**](../Model/GetGroupResources200Response.md)
+[**\OpenAPI\Client\Model\FirewallGroupResourcesOutResponse**](../Model/FirewallGroupResourcesOutResponse.md)
 
 ### Authorization
 
@@ -516,7 +516,7 @@ try {
 ## `getGroupRule()`
 
 ```php
-getGroupRule($rule_id, $group_id): \OpenAPI\Client\Model\CreateGroupRule201Response
+getGroupRule($rule_id, $group_id): \OpenAPI\Client\Model\FirewallRuleOutResponse
 ```
 
 Получение информации о правиле
@@ -560,7 +560,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateGroupRule201Response**](../Model/CreateGroupRule201Response.md)
+[**\OpenAPI\Client\Model\FirewallRuleOutResponse**](../Model/FirewallRuleOutResponse.md)
 
 ### Authorization
 
@@ -578,7 +578,7 @@ try {
 ## `getGroupRules()`
 
 ```php
-getGroupRules($group_id, $limit, $offset): \OpenAPI\Client\Model\GetGroupRules200Response
+getGroupRules($group_id, $limit, $offset): \OpenAPI\Client\Model\FirewallRulesOutResponse
 ```
 
 Получение списка правил
@@ -624,7 +624,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetGroupRules200Response**](../Model/GetGroupRules200Response.md)
+[**\OpenAPI\Client\Model\FirewallRulesOutResponse**](../Model/FirewallRulesOutResponse.md)
 
 ### Authorization
 
@@ -642,7 +642,7 @@ try {
 ## `getGroups()`
 
 ```php
-getGroups($limit, $offset): \OpenAPI\Client\Model\GetGroups200Response
+getGroups($limit, $offset): \OpenAPI\Client\Model\FirewallGroupsOutResponse
 ```
 
 Получение групп правил
@@ -686,7 +686,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetGroups200Response**](../Model/GetGroups200Response.md)
+[**\OpenAPI\Client\Model\FirewallGroupsOutResponse**](../Model/FirewallGroupsOutResponse.md)
 
 ### Authorization
 
@@ -704,7 +704,7 @@ try {
 ## `getRulesForResource()`
 
 ```php
-getRulesForResource($resource_id, $resource_type, $limit, $offset): \OpenAPI\Client\Model\GetGroups200Response
+getRulesForResource($resource_id, $resource_type, $limit, $offset): \OpenAPI\Client\Model\FirewallGroupsOutResponse
 ```
 
 Получение групп правил для ресурса
@@ -752,7 +752,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetGroups200Response**](../Model/GetGroups200Response.md)
+[**\OpenAPI\Client\Model\FirewallGroupsOutResponse**](../Model/FirewallGroupsOutResponse.md)
 
 ### Authorization
 
@@ -770,7 +770,7 @@ try {
 ## `updateGroup()`
 
 ```php
-updateGroup($group_id, $firewall_group_in_api): \OpenAPI\Client\Model\CreateGroup201Response
+updateGroup($group_id, $firewall_group_in_api): \OpenAPI\Client\Model\FirewallGroupOutResponse
 ```
 
 Обновление группы правил
@@ -814,7 +814,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateGroup201Response**](../Model/CreateGroup201Response.md)
+[**\OpenAPI\Client\Model\FirewallGroupOutResponse**](../Model/FirewallGroupOutResponse.md)
 
 ### Authorization
 
@@ -832,7 +832,7 @@ try {
 ## `updateGroupRule()`
 
 ```php
-updateGroupRule($group_id, $rule_id, $firewall_rule_in_api): \OpenAPI\Client\Model\CreateGroupRule201Response
+updateGroupRule($group_id, $rule_id, $firewall_rule_in_api): \OpenAPI\Client\Model\FirewallRuleOutResponse
 ```
 
 Обновление firewall правила
@@ -878,7 +878,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateGroupRule201Response**](../Model/CreateGroupRule201Response.md)
+[**\OpenAPI\Client\Model\FirewallRuleOutResponse**](../Model/FirewallRuleOutResponse.md)
 
 ### Authorization
 

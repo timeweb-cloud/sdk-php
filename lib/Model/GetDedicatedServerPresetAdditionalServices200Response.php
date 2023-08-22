@@ -59,8 +59,7 @@ class GetDedicatedServerPresetAdditionalServices200Response implements ModelInte
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'dedicated_server_additional_services' => '\OpenAPI\Client\Model\DedicatedServerAdditionalService[]',
-        'response_id' => 'string'
+        'dedicated_server_additional_services' => '\OpenAPI\Client\Model\DedicatedServerAdditionalService[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetDedicatedServerPresetAdditionalServices200Response implements ModelInte
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'dedicated_server_additional_services' => null,
-        'response_id' => 'uuid'
+        'dedicated_server_additional_services' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetDedicatedServerPresetAdditionalServices200Response implements ModelInte
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'dedicated_server_additional_services' => false,
-		'response_id' => false
+		'dedicated_server_additional_services' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetDedicatedServerPresetAdditionalServices200Response implements ModelInte
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'dedicated_server_additional_services' => 'dedicated_server_additional_services',
-        'response_id' => 'response_id'
+        'dedicated_server_additional_services' => 'dedicated_server_additional_services'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetDedicatedServerPresetAdditionalServices200Response implements ModelInte
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'dedicated_server_additional_services' => 'setDedicatedServerAdditionalServices',
-        'response_id' => 'setResponseId'
+        'dedicated_server_additional_services' => 'setDedicatedServerAdditionalServices'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetDedicatedServerPresetAdditionalServices200Response implements ModelInte
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'dedicated_server_additional_services' => 'getDedicatedServerAdditionalServices',
-        'response_id' => 'getResponseId'
+        'dedicated_server_additional_services' => 'getDedicatedServerAdditionalServices'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetDedicatedServerPresetAdditionalServices200Response implements ModelInte
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('dedicated_server_additional_services', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetDedicatedServerPresetAdditionalServices200Response implements ModelInte
         }
         if ($this->container['dedicated_server_additional_services'] === null) {
             $invalidProperties[] = "'dedicated_server_additional_services' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetDedicatedServerPresetAdditionalServices200Response implements ModelInte
             throw new \InvalidArgumentException('non-nullable dedicated_server_additional_services cannot be null');
         }
         $this->container['dedicated_server_additional_services'] = $dedicated_server_additional_services;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

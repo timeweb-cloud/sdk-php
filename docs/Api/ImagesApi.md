@@ -19,7 +19,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 ## `createImage()`
 
 ```php
-createImage($image_in_api): \OpenAPI\Client\Model\CreateImage201Response
+createImage($image_in_api): \OpenAPI\Client\Model\ImageOutResponse
 ```
 
 Создание образа
@@ -61,7 +61,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateImage201Response**](../Model/CreateImage201Response.md)
+[**\OpenAPI\Client\Model\ImageOutResponse**](../Model/ImageOutResponse.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ try {
 ## `createImageDownloadUrl()`
 
 ```php
-createImageDownloadUrl($image_id, $image_url_in): \OpenAPI\Client\Model\CreateImageDownloadUrl201Response
+createImageDownloadUrl($image_id, $image_url_in): \OpenAPI\Client\Model\ImageDownloadResponse
 ```
 
 Создание ссылки на скачивание образа
@@ -123,7 +123,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateImageDownloadUrl201Response**](../Model/CreateImageDownloadUrl201Response.md)
+[**\OpenAPI\Client\Model\ImageDownloadResponse**](../Model/ImageDownloadResponse.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ void (empty response body)
 ## `getImage()`
 
 ```php
-getImage($image_id): \OpenAPI\Client\Model\CreateImage201Response
+getImage($image_id): \OpenAPI\Client\Model\ImageOutResponse
 ```
 
 Получение информации о образе
@@ -303,7 +303,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateImage201Response**](../Model/CreateImage201Response.md)
+[**\OpenAPI\Client\Model\ImageOutResponse**](../Model/ImageOutResponse.md)
 
 ### Authorization
 
@@ -321,7 +321,7 @@ try {
 ## `getImageDownloadURL()`
 
 ```php
-getImageDownloadURL($image_id, $image_url_id): \OpenAPI\Client\Model\CreateImageDownloadUrl201Response
+getImageDownloadURL($image_id, $image_url_id): \OpenAPI\Client\Model\ImageDownloadResponse
 ```
 
 Получение информации о ссылке на скачивание образа
@@ -365,7 +365,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateImageDownloadUrl201Response**](../Model/CreateImageDownloadUrl201Response.md)
+[**\OpenAPI\Client\Model\ImageDownloadResponse**](../Model/ImageDownloadResponse.md)
 
 ### Authorization
 
@@ -383,7 +383,7 @@ try {
 ## `getImageDownloadURLs()`
 
 ```php
-getImageDownloadURLs($image_id, $limit, $offset): \OpenAPI\Client\Model\GetImageDownloadURLs200Response
+getImageDownloadURLs($image_id, $limit, $offset): \OpenAPI\Client\Model\ImageDownloadsResponse
 ```
 
 Получение информации о ссылках на скачивание образов
@@ -429,7 +429,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetImageDownloadURLs200Response**](../Model/GetImageDownloadURLs200Response.md)
+[**\OpenAPI\Client\Model\ImageDownloadsResponse**](../Model/ImageDownloadsResponse.md)
 
 ### Authorization
 
@@ -447,7 +447,7 @@ try {
 ## `getImages()`
 
 ```php
-getImages($limit, $offset): \OpenAPI\Client\Model\GetImages200Response
+getImages($limit, $offset): \OpenAPI\Client\Model\ImagesOutResponse
 ```
 
 Получение списка образов
@@ -491,7 +491,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetImages200Response**](../Model/GetImages200Response.md)
+[**\OpenAPI\Client\Model\ImagesOutResponse**](../Model/ImagesOutResponse.md)
 
 ### Authorization
 
@@ -509,7 +509,7 @@ try {
 ## `updateImage()`
 
 ```php
-updateImage($image_id, $image_update_api): \OpenAPI\Client\Model\CreateImage201Response
+updateImage($image_id, $image_update_api): \OpenAPI\Client\Model\ImageOutResponse
 ```
 
 Обновление информации о образе
@@ -553,7 +553,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateImage201Response**](../Model/CreateImage201Response.md)
+[**\OpenAPI\Client\Model\ImageOutResponse**](../Model/ImageOutResponse.md)
 
 ### Authorization
 
@@ -571,7 +571,7 @@ try {
 ## `uploadImage()`
 
 ```php
-uploadImage($image_id, $content_disposition): \OpenAPI\Client\Model\UploadImage200Response
+uploadImage($image_id, $content_disposition): \OpenAPI\Client\Model\UploadSuccessfulResponse
 ```
 
 Загрузка образа
@@ -615,7 +615,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\UploadImage200Response**](../Model/UploadImage200Response.md)
+[**\OpenAPI\Client\Model\UploadSuccessfulResponse**](../Model/UploadSuccessfulResponse.md)
 
 ### Authorization
 

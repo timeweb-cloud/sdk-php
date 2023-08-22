@@ -59,8 +59,7 @@ class GetServerLogs200Response implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'server_logs' => '\OpenAPI\Client\Model\ServerLog[]',
-        'response_id' => 'string'
+        'server_logs' => '\OpenAPI\Client\Model\ServerLog[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetServerLogs200Response implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'server_logs' => null,
-        'response_id' => 'uuid'
+        'server_logs' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetServerLogs200Response implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'server_logs' => false,
-		'response_id' => false
+		'server_logs' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetServerLogs200Response implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'server_logs' => 'server_logs',
-        'response_id' => 'response_id'
+        'server_logs' => 'server_logs'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetServerLogs200Response implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'server_logs' => 'setServerLogs',
-        'response_id' => 'setResponseId'
+        'server_logs' => 'setServerLogs'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetServerLogs200Response implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'server_logs' => 'getServerLogs',
-        'response_id' => 'getResponseId'
+        'server_logs' => 'getServerLogs'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetServerLogs200Response implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('server_logs', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetServerLogs200Response implements ModelInterface, ArrayAccess, \JsonSeri
         }
         if ($this->container['server_logs'] === null) {
             $invalidProperties[] = "'server_logs' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetServerLogs200Response implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable server_logs cannot be null');
         }
         $this->container['server_logs'] = $server_logs;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

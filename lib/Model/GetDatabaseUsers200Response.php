@@ -59,8 +59,7 @@ class GetDatabaseUsers200Response implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'admins' => '\OpenAPI\Client\Model\DatabaseAdmin[]',
-        'response_id' => 'string'
+        'admins' => '\OpenAPI\Client\Model\DatabaseAdmin[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetDatabaseUsers200Response implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'admins' => null,
-        'response_id' => 'uuid'
+        'admins' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetDatabaseUsers200Response implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'admins' => false,
-		'response_id' => false
+		'admins' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetDatabaseUsers200Response implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'admins' => 'admins',
-        'response_id' => 'response_id'
+        'admins' => 'admins'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetDatabaseUsers200Response implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'admins' => 'setAdmins',
-        'response_id' => 'setResponseId'
+        'admins' => 'setAdmins'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetDatabaseUsers200Response implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'admins' => 'getAdmins',
-        'response_id' => 'getResponseId'
+        'admins' => 'getAdmins'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetDatabaseUsers200Response implements ModelInterface, ArrayAccess, \JsonS
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('admins', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetDatabaseUsers200Response implements ModelInterface, ArrayAccess, \JsonS
         }
         if ($this->container['admins'] === null) {
             $invalidProperties[] = "'admins' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetDatabaseUsers200Response implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable admins cannot be null');
         }
         $this->container['admins'] = $admins;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

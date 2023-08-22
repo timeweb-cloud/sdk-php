@@ -58,8 +58,7 @@ class DeleteServer200Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'server_delete' => '\OpenAPI\Client\Model\DeleteServiceResponse',
-        'response_id' => 'string'
+        'server_delete' => '\OpenAPI\Client\Model\DeleteServiceResponse'
     ];
 
     /**
@@ -70,8 +69,7 @@ class DeleteServer200Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'server_delete' => null,
-        'response_id' => 'uuid'
+        'server_delete' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class DeleteServer200Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'server_delete' => false,
-		'response_id' => false
+        'server_delete' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class DeleteServer200Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'server_delete' => 'server_delete',
-        'response_id' => 'response_id'
+        'server_delete' => 'server_delete'
     ];
 
     /**
@@ -180,8 +176,7 @@ class DeleteServer200Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'server_delete' => 'setServerDelete',
-        'response_id' => 'setResponseId'
+        'server_delete' => 'setServerDelete'
     ];
 
     /**
@@ -190,8 +185,7 @@ class DeleteServer200Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'server_delete' => 'getServerDelete',
-        'response_id' => 'getResponseId'
+        'server_delete' => 'getServerDelete'
     ];
 
     /**
@@ -252,7 +246,6 @@ class DeleteServer200Response implements ModelInterface, ArrayAccess, \JsonSeria
     public function __construct(array $data = null)
     {
         $this->setIfExists('server_delete', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class DeleteServer200Response implements ModelInterface, ArrayAccess, \JsonSeria
 
         if ($this->container['server_delete'] === null) {
             $invalidProperties[] = "'server_delete' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class DeleteServer200Response implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable server_delete cannot be null');
         }
         $this->container['server_delete'] = $server_delete;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

@@ -58,8 +58,7 @@ class CreateBalancerRule200Response implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'rule' => '\OpenAPI\Client\Model\Rule',
-        'response_id' => 'string'
+        'rule' => '\OpenAPI\Client\Model\Rule'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateBalancerRule200Response implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'rule' => null,
-        'response_id' => 'uuid'
+        'rule' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateBalancerRule200Response implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'rule' => false,
-		'response_id' => false
+        'rule' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateBalancerRule200Response implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'rule' => 'rule',
-        'response_id' => 'response_id'
+        'rule' => 'rule'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateBalancerRule200Response implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'rule' => 'setRule',
-        'response_id' => 'setResponseId'
+        'rule' => 'setRule'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateBalancerRule200Response implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'rule' => 'getRule',
-        'response_id' => 'getResponseId'
+        'rule' => 'getRule'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateBalancerRule200Response implements ModelInterface, ArrayAccess, \Jso
     public function __construct(array $data = null)
     {
         $this->setIfExists('rule', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateBalancerRule200Response implements ModelInterface, ArrayAccess, \Jso
 
         if ($this->container['rule'] === null) {
             $invalidProperties[] = "'rule' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateBalancerRule200Response implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable rule cannot be null');
         }
         $this->container['rule'] = $rule;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

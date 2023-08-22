@@ -59,8 +59,7 @@ class GetServersPresets200Response implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'server_presets' => '\OpenAPI\Client\Model\ServersPreset[]',
-        'response_id' => 'string'
+        'server_presets' => '\OpenAPI\Client\Model\ServersPreset[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetServersPresets200Response implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'server_presets' => null,
-        'response_id' => 'uuid'
+        'server_presets' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetServersPresets200Response implements ModelInterface, ArrayAccess, \Json
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'server_presets' => false,
-		'response_id' => false
+		'server_presets' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetServersPresets200Response implements ModelInterface, ArrayAccess, \Json
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'server_presets' => 'server_presets',
-        'response_id' => 'response_id'
+        'server_presets' => 'server_presets'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetServersPresets200Response implements ModelInterface, ArrayAccess, \Json
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'server_presets' => 'setServerPresets',
-        'response_id' => 'setResponseId'
+        'server_presets' => 'setServerPresets'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetServersPresets200Response implements ModelInterface, ArrayAccess, \Json
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'server_presets' => 'getServerPresets',
-        'response_id' => 'getResponseId'
+        'server_presets' => 'getServerPresets'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetServersPresets200Response implements ModelInterface, ArrayAccess, \Json
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('server_presets', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetServersPresets200Response implements ModelInterface, ArrayAccess, \Json
         }
         if ($this->container['server_presets'] === null) {
             $invalidProperties[] = "'server_presets' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetServersPresets200Response implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable server_presets cannot be null');
         }
         $this->container['server_presets'] = $server_presets;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

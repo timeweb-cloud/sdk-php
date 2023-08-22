@@ -58,8 +58,7 @@ class AddIPsToAllowedList201Response implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ips' => '\OpenAPI\Client\Model\AddIps',
-        'response_id' => 'string'
+        'ips' => '\OpenAPI\Client\Model\AddIps'
     ];
 
     /**
@@ -70,8 +69,7 @@ class AddIPsToAllowedList201Response implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ips' => null,
-        'response_id' => 'uuid'
+        'ips' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class AddIPsToAllowedList201Response implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'ips' => false,
-		'response_id' => false
+        'ips' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class AddIPsToAllowedList201Response implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'ips' => 'ips',
-        'response_id' => 'response_id'
+        'ips' => 'ips'
     ];
 
     /**
@@ -180,8 +176,7 @@ class AddIPsToAllowedList201Response implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'ips' => 'setIps',
-        'response_id' => 'setResponseId'
+        'ips' => 'setIps'
     ];
 
     /**
@@ -190,8 +185,7 @@ class AddIPsToAllowedList201Response implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'ips' => 'getIps',
-        'response_id' => 'getResponseId'
+        'ips' => 'getIps'
     ];
 
     /**
@@ -252,7 +246,6 @@ class AddIPsToAllowedList201Response implements ModelInterface, ArrayAccess, \Js
     public function __construct(array $data = null)
     {
         $this->setIfExists('ips', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class AddIPsToAllowedList201Response implements ModelInterface, ArrayAccess, \Js
 
         if ($this->container['ips'] === null) {
             $invalidProperties[] = "'ips' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class AddIPsToAllowedList201Response implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable ips cannot be null');
         }
         $this->container['ips'] = $ips;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

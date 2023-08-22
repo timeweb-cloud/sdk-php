@@ -59,8 +59,7 @@ class GetOsList200Response implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'servers_os' => '\OpenAPI\Client\Model\ServersOs[]',
-        'response_id' => 'string'
+        'servers_os' => '\OpenAPI\Client\Model\ServersOs[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class GetOsList200Response implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'meta' => null,
-        'servers_os' => null,
-        'response_id' => 'uuid'
+        'servers_os' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class GetOsList200Response implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'meta' => false,
-		'servers_os' => false,
-		'response_id' => false
+		'servers_os' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class GetOsList200Response implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'meta' => 'meta',
-        'servers_os' => 'servers_os',
-        'response_id' => 'response_id'
+        'servers_os' => 'servers_os'
     ];
 
     /**
@@ -185,8 +181,7 @@ class GetOsList200Response implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'meta' => 'setMeta',
-        'servers_os' => 'setServersOs',
-        'response_id' => 'setResponseId'
+        'servers_os' => 'setServersOs'
     ];
 
     /**
@@ -196,8 +191,7 @@ class GetOsList200Response implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'meta' => 'getMeta',
-        'servers_os' => 'getServersOs',
-        'response_id' => 'getResponseId'
+        'servers_os' => 'getServersOs'
     ];
 
     /**
@@ -259,7 +253,6 @@ class GetOsList200Response implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('servers_os', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class GetOsList200Response implements ModelInterface, ArrayAccess, \JsonSerializ
         }
         if ($this->container['servers_os'] === null) {
             $invalidProperties[] = "'servers_os' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class GetOsList200Response implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable servers_os cannot be null');
         }
         $this->container['servers_os'] = $servers_os;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

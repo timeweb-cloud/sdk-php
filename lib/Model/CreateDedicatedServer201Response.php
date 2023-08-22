@@ -58,8 +58,7 @@ class CreateDedicatedServer201Response implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'dedicated_server' => '\OpenAPI\Client\Model\DedicatedServer',
-        'response_id' => 'string'
+        'dedicated_server' => '\OpenAPI\Client\Model\DedicatedServer'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CreateDedicatedServer201Response implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'dedicated_server' => null,
-        'response_id' => 'uuid'
+        'dedicated_server' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CreateDedicatedServer201Response implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'dedicated_server' => false,
-		'response_id' => false
+        'dedicated_server' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CreateDedicatedServer201Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'dedicated_server' => 'dedicated_server',
-        'response_id' => 'response_id'
+        'dedicated_server' => 'dedicated_server'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CreateDedicatedServer201Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'dedicated_server' => 'setDedicatedServer',
-        'response_id' => 'setResponseId'
+        'dedicated_server' => 'setDedicatedServer'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CreateDedicatedServer201Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'dedicated_server' => 'getDedicatedServer',
-        'response_id' => 'getResponseId'
+        'dedicated_server' => 'getDedicatedServer'
     ];
 
     /**
@@ -252,7 +246,6 @@ class CreateDedicatedServer201Response implements ModelInterface, ArrayAccess, \
     public function __construct(array $data = null)
     {
         $this->setIfExists('dedicated_server', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -284,9 +277,6 @@ class CreateDedicatedServer201Response implements ModelInterface, ArrayAccess, \
 
         if ($this->container['dedicated_server'] === null) {
             $invalidProperties[] = "'dedicated_server' can't be null";
-        }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,33 +316,6 @@ class CreateDedicatedServer201Response implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable dedicated_server cannot be null');
         }
         $this->container['dedicated_server'] = $dedicated_server;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }

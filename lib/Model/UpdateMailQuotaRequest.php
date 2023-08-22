@@ -275,6 +275,9 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['total'] === null) {
+            $invalidProperties[] = "'total' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets total
      *
-     * @return float|null
+     * @return float
      */
     public function getTotal()
     {
@@ -303,7 +306,7 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets total
      *
-     * @param float|null $total Общее количество места на почте (в Мб).
+     * @param float $total Общее количество места на почте (в Мб).
      *
      * @return self
      */

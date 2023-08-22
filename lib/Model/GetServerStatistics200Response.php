@@ -58,11 +58,10 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cpu' => '\OpenAPI\Client\Model\GetServerStatistics200ResponseAllOfCpuInner[]',
-        'network_traffic' => '\OpenAPI\Client\Model\GetServerStatistics200ResponseAllOfNetworkTrafficInner[]',
-        'disk' => '\OpenAPI\Client\Model\GetServerStatistics200ResponseAllOfDiskInner[]',
-        'ram' => '\OpenAPI\Client\Model\GetServerStatistics200ResponseAllOfRamInner[]',
-        'response_id' => 'string'
+        'cpu' => '\OpenAPI\Client\Model\GetServerStatistics200ResponseCpuInner[]',
+        'network_traffic' => '\OpenAPI\Client\Model\GetServerStatistics200ResponseNetworkTrafficInner[]',
+        'disk' => '\OpenAPI\Client\Model\GetServerStatistics200ResponseDiskInner[]',
+        'ram' => '\OpenAPI\Client\Model\GetServerStatistics200ResponseRamInner[]'
     ];
 
     /**
@@ -76,8 +75,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
         'cpu' => null,
         'network_traffic' => null,
         'disk' => null,
-        'ram' => null,
-        'response_id' => 'uuid'
+        'ram' => null
     ];
 
     /**
@@ -89,8 +87,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
         'cpu' => false,
 		'network_traffic' => false,
 		'disk' => false,
-		'ram' => false,
-		'response_id' => false
+		'ram' => false
     ];
 
     /**
@@ -182,8 +179,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
         'cpu' => 'cpu',
         'network_traffic' => 'network_traffic',
         'disk' => 'disk',
-        'ram' => 'ram',
-        'response_id' => 'response_id'
+        'ram' => 'ram'
     ];
 
     /**
@@ -195,8 +191,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
         'cpu' => 'setCpu',
         'network_traffic' => 'setNetworkTraffic',
         'disk' => 'setDisk',
-        'ram' => 'setRam',
-        'response_id' => 'setResponseId'
+        'ram' => 'setRam'
     ];
 
     /**
@@ -208,8 +203,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
         'cpu' => 'getCpu',
         'network_traffic' => 'getNetworkTraffic',
         'disk' => 'getDisk',
-        'ram' => 'getRam',
-        'response_id' => 'getResponseId'
+        'ram' => 'getRam'
     ];
 
     /**
@@ -273,7 +267,6 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
         $this->setIfExists('network_traffic', $data ?? [], null);
         $this->setIfExists('disk', $data ?? [], null);
         $this->setIfExists('ram', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -315,9 +308,6 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
         if ($this->container['ram'] === null) {
             $invalidProperties[] = "'ram' can't be null";
         }
-        if ($this->container['response_id'] === null) {
-            $invalidProperties[] = "'response_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -336,7 +326,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets cpu
      *
-     * @return \OpenAPI\Client\Model\GetServerStatistics200ResponseAllOfCpuInner[]
+     * @return \OpenAPI\Client\Model\GetServerStatistics200ResponseCpuInner[]
      */
     public function getCpu()
     {
@@ -346,7 +336,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets cpu
      *
-     * @param \OpenAPI\Client\Model\GetServerStatistics200ResponseAllOfCpuInner[] $cpu cpu
+     * @param \OpenAPI\Client\Model\GetServerStatistics200ResponseCpuInner[] $cpu cpu
      *
      * @return self
      */
@@ -363,7 +353,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets network_traffic
      *
-     * @return \OpenAPI\Client\Model\GetServerStatistics200ResponseAllOfNetworkTrafficInner[]
+     * @return \OpenAPI\Client\Model\GetServerStatistics200ResponseNetworkTrafficInner[]
      */
     public function getNetworkTraffic()
     {
@@ -373,7 +363,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets network_traffic
      *
-     * @param \OpenAPI\Client\Model\GetServerStatistics200ResponseAllOfNetworkTrafficInner[] $network_traffic network_traffic
+     * @param \OpenAPI\Client\Model\GetServerStatistics200ResponseNetworkTrafficInner[] $network_traffic network_traffic
      *
      * @return self
      */
@@ -390,7 +380,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets disk
      *
-     * @return \OpenAPI\Client\Model\GetServerStatistics200ResponseAllOfDiskInner[]
+     * @return \OpenAPI\Client\Model\GetServerStatistics200ResponseDiskInner[]
      */
     public function getDisk()
     {
@@ -400,7 +390,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets disk
      *
-     * @param \OpenAPI\Client\Model\GetServerStatistics200ResponseAllOfDiskInner[] $disk Статистика основного диска
+     * @param \OpenAPI\Client\Model\GetServerStatistics200ResponseDiskInner[] $disk Статистика основного диска
      *
      * @return self
      */
@@ -417,7 +407,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets ram
      *
-     * @return \OpenAPI\Client\Model\GetServerStatistics200ResponseAllOfRamInner[]
+     * @return \OpenAPI\Client\Model\GetServerStatistics200ResponseRamInner[]
      */
     public function getRam()
     {
@@ -427,7 +417,7 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets ram
      *
-     * @param \OpenAPI\Client\Model\GetServerStatistics200ResponseAllOfRamInner[] $ram ram
+     * @param \OpenAPI\Client\Model\GetServerStatistics200ResponseRamInner[] $ram ram
      *
      * @return self
      */
@@ -437,33 +427,6 @@ class GetServerStatistics200Response implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable ram cannot be null');
         }
         $this->container['ram'] = $ram;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_id
-     *
-     * @return string
-     */
-    public function getResponseId()
-    {
-        return $this->container['response_id'];
-    }
-
-    /**
-     * Sets response_id
-     *
-     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
-     *
-     * @return self
-     */
-    public function setResponseId($response_id)
-    {
-        if (is_null($response_id)) {
-            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
-        }
-        $this->container['response_id'] = $response_id;
 
         return $this;
     }
