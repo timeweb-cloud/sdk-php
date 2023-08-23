@@ -1,6 +1,6 @@
 <?php
 /**
- * Register
+ * DomainProlong
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * Register Class Doc Comment
+ * DomainProlong Class Doc Comment
  *
  * @category Class
- * @description Заявка на регистрацию домена
+ * @description Заявка на продление домена
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Register implements ModelInterface, ArrayAccess, \JsonSerializable
+class DomainProlong implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'register';
+    protected static $openAPIModelName = 'domain-prolong';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,11 +61,12 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'action' => 'string',
         'fqdn' => 'string',
+        'is_antispam_enabled' => 'bool',
         'is_autoprolong_enabled' => 'bool',
         'is_whois_privacy_enabled' => 'bool',
-        'ns' => '\OpenAPI\Client\Model\RegisterNsInner[]',
         'period' => '\OpenAPI\Client\Model\DomainPaymentPeriod',
-        'person_id' => 'float'
+        'person_id' => 'float',
+        'prime' => '\OpenAPI\Client\Model\DomainPrimeType'
     ];
 
     /**
@@ -78,11 +79,12 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'action' => null,
         'fqdn' => null,
+        'is_antispam_enabled' => null,
         'is_autoprolong_enabled' => null,
         'is_whois_privacy_enabled' => null,
-        'ns' => null,
         'period' => null,
-        'person_id' => null
+        'person_id' => null,
+        'prime' => null
     ];
 
     /**
@@ -93,11 +95,12 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'action' => false,
 		'fqdn' => false,
+		'is_antispam_enabled' => false,
 		'is_autoprolong_enabled' => false,
 		'is_whois_privacy_enabled' => false,
-		'ns' => false,
 		'period' => false,
-		'person_id' => false
+		'person_id' => false,
+		'prime' => false
     ];
 
     /**
@@ -188,11 +191,12 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'action' => 'action',
         'fqdn' => 'fqdn',
+        'is_antispam_enabled' => 'is_antispam_enabled',
         'is_autoprolong_enabled' => 'is_autoprolong_enabled',
         'is_whois_privacy_enabled' => 'is_whois_privacy_enabled',
-        'ns' => 'ns',
         'period' => 'period',
-        'person_id' => 'person_id'
+        'person_id' => 'person_id',
+        'prime' => 'prime'
     ];
 
     /**
@@ -203,11 +207,12 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'action' => 'setAction',
         'fqdn' => 'setFqdn',
+        'is_antispam_enabled' => 'setIsAntispamEnabled',
         'is_autoprolong_enabled' => 'setIsAutoprolongEnabled',
         'is_whois_privacy_enabled' => 'setIsWhoisPrivacyEnabled',
-        'ns' => 'setNs',
         'period' => 'setPeriod',
-        'person_id' => 'setPersonId'
+        'person_id' => 'setPersonId',
+        'prime' => 'setPrime'
     ];
 
     /**
@@ -218,11 +223,12 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'action' => 'getAction',
         'fqdn' => 'getFqdn',
+        'is_antispam_enabled' => 'getIsAntispamEnabled',
         'is_autoprolong_enabled' => 'getIsAutoprolongEnabled',
         'is_whois_privacy_enabled' => 'getIsWhoisPrivacyEnabled',
-        'ns' => 'getNs',
         'period' => 'getPeriod',
-        'person_id' => 'getPersonId'
+        'person_id' => 'getPersonId',
+        'prime' => 'getPrime'
     ];
 
     /**
@@ -266,7 +272,7 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const ACTION_REGISTER = 'register';
+    public const ACTION_PROLONG = 'prolong';
 
     /**
      * Gets allowable values of the enum
@@ -276,7 +282,7 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getActionAllowableValues()
     {
         return [
-            self::ACTION_REGISTER,
+            self::ACTION_PROLONG,
         ];
     }
 
@@ -297,11 +303,12 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('action', $data ?? [], null);
         $this->setIfExists('fqdn', $data ?? [], null);
+        $this->setIfExists('is_antispam_enabled', $data ?? [], null);
         $this->setIfExists('is_autoprolong_enabled', $data ?? [], null);
         $this->setIfExists('is_whois_privacy_enabled', $data ?? [], null);
-        $this->setIfExists('ns', $data ?? [], null);
         $this->setIfExists('period', $data ?? [], null);
         $this->setIfExists('person_id', $data ?? [], null);
+        $this->setIfExists('prime', $data ?? [], null);
     }
 
     /**
@@ -345,9 +352,6 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if ($this->container['fqdn'] === null) {
             $invalidProperties[] = "'fqdn' can't be null";
-        }
-        if ($this->container['person_id'] === null) {
-            $invalidProperties[] = "'person_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -429,6 +433,33 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets is_antispam_enabled
+     *
+     * @return bool|null
+     */
+    public function getIsAntispamEnabled()
+    {
+        return $this->container['is_antispam_enabled'];
+    }
+
+    /**
+     * Sets is_antispam_enabled
+     *
+     * @param bool|null $is_antispam_enabled Это логическое значение, которое показывает включена ли услуга \"Антиспам\" для домена
+     *
+     * @return self
+     */
+    public function setIsAntispamEnabled($is_antispam_enabled)
+    {
+        if (is_null($is_antispam_enabled)) {
+            throw new \InvalidArgumentException('non-nullable is_antispam_enabled cannot be null');
+        }
+        $this->container['is_antispam_enabled'] = $is_antispam_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets is_autoprolong_enabled
      *
      * @return bool|null
@@ -483,33 +514,6 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets ns
-     *
-     * @return \OpenAPI\Client\Model\RegisterNsInner[]|null
-     */
-    public function getNs()
-    {
-        return $this->container['ns'];
-    }
-
-    /**
-     * Sets ns
-     *
-     * @param \OpenAPI\Client\Model\RegisterNsInner[]|null $ns Name-серверы для регистрации домена. Если не передавать этот параметр, будут использованы наши стандартные name-серверы. Нужно указать как минимум 2 name-сервера.
-     *
-     * @return self
-     */
-    public function setNs($ns)
-    {
-        if (is_null($ns)) {
-            throw new \InvalidArgumentException('non-nullable ns cannot be null');
-        }
-        $this->container['ns'] = $ns;
-
-        return $this;
-    }
-
-    /**
      * Gets period
      *
      * @return \OpenAPI\Client\Model\DomainPaymentPeriod|null
@@ -539,7 +543,7 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets person_id
      *
-     * @return float
+     * @return float|null
      */
     public function getPersonId()
     {
@@ -549,7 +553,7 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets person_id
      *
-     * @param float $person_id Идентификатор администратора, на которого регистрируется домен.
+     * @param float|null $person_id Идентификатор администратора, на которого зарегистрирован домен.
      *
      * @return self
      */
@@ -559,6 +563,33 @@ class Register implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable person_id cannot be null');
         }
         $this->container['person_id'] = $person_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets prime
+     *
+     * @return \OpenAPI\Client\Model\DomainPrimeType|null
+     */
+    public function getPrime()
+    {
+        return $this->container['prime'];
+    }
+
+    /**
+     * Sets prime
+     *
+     * @param \OpenAPI\Client\Model\DomainPrimeType|null $prime prime
+     *
+     * @return self
+     */
+    public function setPrime($prime)
+    {
+        if (is_null($prime)) {
+            throw new \InvalidArgumentException('non-nullable prime cannot be null');
+        }
+        $this->container['prime'] = $prime;
 
         return $this;
     }

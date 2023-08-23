@@ -266,7 +266,7 @@ class SchemasBaseError implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('status_code', $data ?? [], null);
         $this->setIfExists('error_code', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('response_id', $data ?? [], '9c38a13d-ef14-45c7-a23a-1429f6a03824');
+        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**

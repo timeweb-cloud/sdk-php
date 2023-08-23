@@ -1,6 +1,6 @@
 <?php
 /**
- * RegisterNsInnerTest
+ * DomainRegisterTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * RegisterNsInnerTest Class Doc Comment
+ * DomainRegisterTest Class Doc Comment
  *
  * @category    Class
- * @description RegisterNsInner
+ * @description Заявка на регистрацию домена
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class RegisterNsInnerTest extends TestCase
+class DomainRegisterTest extends TestCase
 {
 
     /**
@@ -72,27 +72,72 @@ class RegisterNsInnerTest extends TestCase
     }
 
     /**
-     * Test "RegisterNsInner"
+     * Test "DomainRegister"
      */
-    public function testRegisterNsInner()
+    public function testDomainRegister()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "host"
+     * Test attribute "action"
      */
-    public function testPropertyHost()
+    public function testPropertyAction()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "ips"
+     * Test attribute "fqdn"
      */
-    public function testPropertyIps()
+    public function testPropertyFqdn()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_autoprolong_enabled"
+     */
+    public function testPropertyIsAutoprolongEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_whois_privacy_enabled"
+     */
+    public function testPropertyIsWhoisPrivacyEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ns"
+     */
+    public function testPropertyNs()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "period"
+     */
+    public function testPropertyPeriod()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "person_id"
+     */
+    public function testPropertyPersonId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -140,7 +140,11 @@ docs/Model/DomainNameServer.md
 docs/Model/DomainNameServerItemsInner.md
 docs/Model/DomainPaymentPeriod.md
 docs/Model/DomainPrimeType.md
+docs/Model/DomainProlong.md
+docs/Model/DomainRegister.md
+docs/Model/DomainRegisterNsInner.md
 docs/Model/DomainRequest.md
+docs/Model/DomainTransfer.md
 docs/Model/EditApiKey.md
 docs/Model/Finances.md
 docs/Model/FirewallGroupInAPI.md
@@ -276,11 +280,8 @@ docs/Model/PresetsResponse.md
 docs/Model/PresetsStorage.md
 docs/Model/Project.md
 docs/Model/ProjectResource.md
-docs/Model/Prolong.md
 docs/Model/Quota.md
 docs/Model/RefreshApiKey.md
-docs/Model/Register.md
-docs/Model/RegisterNsInner.md
 docs/Model/RemoveCountries.md
 docs/Model/RemoveIps.md
 docs/Model/RenameStorageFileRequest.md
@@ -315,7 +316,6 @@ docs/Model/StatusCompanyInfo.md
 docs/Model/Subdomain.md
 docs/Model/TopLevelDomain.md
 docs/Model/TopLevelDomainAllowedBuyPeriodsInner.md
-docs/Model/Transfer.md
 docs/Model/TransferStatus.md
 docs/Model/TransferStatusErrorsInner.md
 docs/Model/TransferStorageRequest.md
@@ -506,7 +506,11 @@ lib/Model/DomainNameServer.php
 lib/Model/DomainNameServerItemsInner.php
 lib/Model/DomainPaymentPeriod.php
 lib/Model/DomainPrimeType.php
+lib/Model/DomainProlong.php
+lib/Model/DomainRegister.php
+lib/Model/DomainRegisterNsInner.php
 lib/Model/DomainRequest.php
+lib/Model/DomainTransfer.php
 lib/Model/EditApiKey.php
 lib/Model/Finances.php
 lib/Model/FirewallGroupInAPI.php
@@ -643,11 +647,8 @@ lib/Model/PresetsResponse.php
 lib/Model/PresetsStorage.php
 lib/Model/Project.php
 lib/Model/ProjectResource.php
-lib/Model/Prolong.php
 lib/Model/Quota.php
 lib/Model/RefreshApiKey.php
-lib/Model/Register.php
-lib/Model/RegisterNsInner.php
 lib/Model/RemoveCountries.php
 lib/Model/RemoveIps.php
 lib/Model/RenameStorageFileRequest.php
@@ -682,7 +683,6 @@ lib/Model/StatusCompanyInfo.php
 lib/Model/Subdomain.php
 lib/Model/TopLevelDomain.php
 lib/Model/TopLevelDomainAllowedBuyPeriodsInner.php
-lib/Model/Transfer.php
 lib/Model/TransferStatus.php
 lib/Model/TransferStatusErrorsInner.php
 lib/Model/TransferStorageRequest.php
@@ -870,8 +870,12 @@ test/Model/DomainNameServerItemsInnerTest.php
 test/Model/DomainNameServerTest.php
 test/Model/DomainPaymentPeriodTest.php
 test/Model/DomainPrimeTypeTest.php
+test/Model/DomainProlongTest.php
+test/Model/DomainRegisterNsInnerTest.php
+test/Model/DomainRegisterTest.php
 test/Model/DomainRequestTest.php
 test/Model/DomainTest.php
+test/Model/DomainTransferTest.php
 test/Model/EditApiKeyTest.php
 test/Model/FinancesTest.php
 test/Model/FirewallGroupInAPITest.php
@@ -1007,11 +1011,8 @@ test/Model/PresetsResponseTest.php
 test/Model/PresetsStorageTest.php
 test/Model/ProjectResourceTest.php
 test/Model/ProjectTest.php
-test/Model/ProlongTest.php
 test/Model/QuotaTest.php
 test/Model/RefreshApiKeyTest.php
-test/Model/RegisterNsInnerTest.php
-test/Model/RegisterTest.php
 test/Model/RemoveCountriesTest.php
 test/Model/RemoveIpsTest.php
 test/Model/RenameStorageFileRequestTest.php
@@ -1049,7 +1050,6 @@ test/Model/TopLevelDomainTest.php
 test/Model/TransferStatusErrorsInnerTest.php
 test/Model/TransferStatusTest.php
 test/Model/TransferStorageRequestTest.php
-test/Model/TransferTest.php
 test/Model/URLTypeTest.php
 test/Model/UpdateAdminTest.php
 test/Model/UpdateAuthRestrictionsByCountriesRequestTest.php

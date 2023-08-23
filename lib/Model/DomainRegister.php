@@ -1,6 +1,6 @@
 <?php
 /**
- * Transfer
+ * DomainRegister
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * Transfer Class Doc Comment
+ * DomainRegister Class Doc Comment
  *
  * @category Class
- * @description Заявка на перенос домена
+ * @description Заявка на регистрацию домена
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
+class DomainRegister implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'transfer';
+    protected static $openAPIModelName = 'domain-register';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,12 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'action' => 'string',
-        'auth_code' => 'string',
-        'fqdn' => 'string'
+        'fqdn' => 'string',
+        'is_autoprolong_enabled' => 'bool',
+        'is_whois_privacy_enabled' => 'bool',
+        'ns' => '\OpenAPI\Client\Model\DomainRegisterNsInner[]',
+        'period' => '\OpenAPI\Client\Model\DomainPaymentPeriod',
+        'person_id' => 'float'
     ];
 
     /**
@@ -73,8 +77,12 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'action' => null,
-        'auth_code' => null,
-        'fqdn' => null
+        'fqdn' => null,
+        'is_autoprolong_enabled' => null,
+        'is_whois_privacy_enabled' => null,
+        'ns' => null,
+        'period' => null,
+        'person_id' => null
     ];
 
     /**
@@ -84,8 +92,12 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'action' => false,
-		'auth_code' => false,
-		'fqdn' => false
+		'fqdn' => false,
+		'is_autoprolong_enabled' => false,
+		'is_whois_privacy_enabled' => false,
+		'ns' => false,
+		'period' => false,
+		'person_id' => false
     ];
 
     /**
@@ -175,8 +187,12 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'action' => 'action',
-        'auth_code' => 'auth_code',
-        'fqdn' => 'fqdn'
+        'fqdn' => 'fqdn',
+        'is_autoprolong_enabled' => 'is_autoprolong_enabled',
+        'is_whois_privacy_enabled' => 'is_whois_privacy_enabled',
+        'ns' => 'ns',
+        'period' => 'period',
+        'person_id' => 'person_id'
     ];
 
     /**
@@ -186,8 +202,12 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'action' => 'setAction',
-        'auth_code' => 'setAuthCode',
-        'fqdn' => 'setFqdn'
+        'fqdn' => 'setFqdn',
+        'is_autoprolong_enabled' => 'setIsAutoprolongEnabled',
+        'is_whois_privacy_enabled' => 'setIsWhoisPrivacyEnabled',
+        'ns' => 'setNs',
+        'period' => 'setPeriod',
+        'person_id' => 'setPersonId'
     ];
 
     /**
@@ -197,8 +217,12 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'action' => 'getAction',
-        'auth_code' => 'getAuthCode',
-        'fqdn' => 'getFqdn'
+        'fqdn' => 'getFqdn',
+        'is_autoprolong_enabled' => 'getIsAutoprolongEnabled',
+        'is_whois_privacy_enabled' => 'getIsWhoisPrivacyEnabled',
+        'ns' => 'getNs',
+        'period' => 'getPeriod',
+        'person_id' => 'getPersonId'
     ];
 
     /**
@@ -242,7 +266,7 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const ACTION_TRANSFER = 'transfer';
+    public const ACTION_REGISTER = 'register';
 
     /**
      * Gets allowable values of the enum
@@ -252,7 +276,7 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getActionAllowableValues()
     {
         return [
-            self::ACTION_TRANSFER,
+            self::ACTION_REGISTER,
         ];
     }
 
@@ -272,8 +296,12 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('action', $data ?? [], null);
-        $this->setIfExists('auth_code', $data ?? [], null);
         $this->setIfExists('fqdn', $data ?? [], null);
+        $this->setIfExists('is_autoprolong_enabled', $data ?? [], null);
+        $this->setIfExists('is_whois_privacy_enabled', $data ?? [], null);
+        $this->setIfExists('ns', $data ?? [], null);
+        $this->setIfExists('period', $data ?? [], null);
+        $this->setIfExists('person_id', $data ?? [], null);
     }
 
     /**
@@ -315,11 +343,11 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['auth_code'] === null) {
-            $invalidProperties[] = "'auth_code' can't be null";
-        }
         if ($this->container['fqdn'] === null) {
             $invalidProperties[] = "'fqdn' can't be null";
+        }
+        if ($this->container['person_id'] === null) {
+            $invalidProperties[] = "'person_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -374,33 +402,6 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets auth_code
-     *
-     * @return string
-     */
-    public function getAuthCode()
-    {
-        return $this->container['auth_code'];
-    }
-
-    /**
-     * Sets auth_code
-     *
-     * @param string $auth_code Код авторизации для переноса домена.
-     *
-     * @return self
-     */
-    public function setAuthCode($auth_code)
-    {
-        if (is_null($auth_code)) {
-            throw new \InvalidArgumentException('non-nullable auth_code cannot be null');
-        }
-        $this->container['auth_code'] = $auth_code;
-
-        return $this;
-    }
-
-    /**
      * Gets fqdn
      *
      * @return string
@@ -423,6 +424,141 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable fqdn cannot be null');
         }
         $this->container['fqdn'] = $fqdn;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_autoprolong_enabled
+     *
+     * @return bool|null
+     */
+    public function getIsAutoprolongEnabled()
+    {
+        return $this->container['is_autoprolong_enabled'];
+    }
+
+    /**
+     * Sets is_autoprolong_enabled
+     *
+     * @param bool|null $is_autoprolong_enabled Это логическое значение, которое показывает, включено ли автопродление домена.
+     *
+     * @return self
+     */
+    public function setIsAutoprolongEnabled($is_autoprolong_enabled)
+    {
+        if (is_null($is_autoprolong_enabled)) {
+            throw new \InvalidArgumentException('non-nullable is_autoprolong_enabled cannot be null');
+        }
+        $this->container['is_autoprolong_enabled'] = $is_autoprolong_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_whois_privacy_enabled
+     *
+     * @return bool|null
+     */
+    public function getIsWhoisPrivacyEnabled()
+    {
+        return $this->container['is_whois_privacy_enabled'];
+    }
+
+    /**
+     * Sets is_whois_privacy_enabled
+     *
+     * @param bool|null $is_whois_privacy_enabled Это логическое значение, которое показывает, включено ли скрытие данных администратора домена для whois. Опция недоступна для доменов в зонах .ru и .рф.
+     *
+     * @return self
+     */
+    public function setIsWhoisPrivacyEnabled($is_whois_privacy_enabled)
+    {
+        if (is_null($is_whois_privacy_enabled)) {
+            throw new \InvalidArgumentException('non-nullable is_whois_privacy_enabled cannot be null');
+        }
+        $this->container['is_whois_privacy_enabled'] = $is_whois_privacy_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets ns
+     *
+     * @return \OpenAPI\Client\Model\DomainRegisterNsInner[]|null
+     */
+    public function getNs()
+    {
+        return $this->container['ns'];
+    }
+
+    /**
+     * Sets ns
+     *
+     * @param \OpenAPI\Client\Model\DomainRegisterNsInner[]|null $ns Name-серверы для регистрации домена. Если не передавать этот параметр, будут использованы наши стандартные name-серверы. Нужно указать как минимум 2 name-сервера.
+     *
+     * @return self
+     */
+    public function setNs($ns)
+    {
+        if (is_null($ns)) {
+            throw new \InvalidArgumentException('non-nullable ns cannot be null');
+        }
+        $this->container['ns'] = $ns;
+
+        return $this;
+    }
+
+    /**
+     * Gets period
+     *
+     * @return \OpenAPI\Client\Model\DomainPaymentPeriod|null
+     */
+    public function getPeriod()
+    {
+        return $this->container['period'];
+    }
+
+    /**
+     * Sets period
+     *
+     * @param \OpenAPI\Client\Model\DomainPaymentPeriod|null $period period
+     *
+     * @return self
+     */
+    public function setPeriod($period)
+    {
+        if (is_null($period)) {
+            throw new \InvalidArgumentException('non-nullable period cannot be null');
+        }
+        $this->container['period'] = $period;
+
+        return $this;
+    }
+
+    /**
+     * Gets person_id
+     *
+     * @return float
+     */
+    public function getPersonId()
+    {
+        return $this->container['person_id'];
+    }
+
+    /**
+     * Sets person_id
+     *
+     * @param float $person_id Идентификатор администратора, на которого регистрируется домен.
+     *
+     * @return self
+     */
+    public function setPersonId($person_id)
+    {
+        if (is_null($person_id)) {
+            throw new \InvalidArgumentException('non-nullable person_id cannot be null');
+        }
+        $this->container['person_id'] = $person_id;
 
         return $this;
     }

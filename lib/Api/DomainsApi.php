@@ -1683,16 +1683,16 @@ class DomainsApi
      *
      * Создание заявки на регистрацию/продление/трансфер домена
      *
-     * @param  \OpenAPI\Client\Model\Register $register register (required)
+     * @param  \OpenAPI\Client\Model\DomainRegister $domain_register domain_register (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainRequest'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CreateDomainRequest201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function createDomainRequest($register, string $contentType = self::contentTypes['createDomainRequest'][0])
+    public function createDomainRequest($domain_register, string $contentType = self::contentTypes['createDomainRequest'][0])
     {
-        list($response) = $this->createDomainRequestWithHttpInfo($register, $contentType);
+        list($response) = $this->createDomainRequestWithHttpInfo($domain_register, $contentType);
         return $response;
     }
 
@@ -1701,16 +1701,16 @@ class DomainsApi
      *
      * Создание заявки на регистрацию/продление/трансфер домена
      *
-     * @param  \OpenAPI\Client\Model\Register $register (required)
+     * @param  \OpenAPI\Client\Model\DomainRegister $domain_register (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainRequest'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CreateDomainRequest201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDomainRequestWithHttpInfo($register, string $contentType = self::contentTypes['createDomainRequest'][0])
+    public function createDomainRequestWithHttpInfo($domain_register, string $contentType = self::contentTypes['createDomainRequest'][0])
     {
-        $request = $this->createDomainRequestRequest($register, $contentType);
+        $request = $this->createDomainRequestRequest($domain_register, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1916,15 +1916,15 @@ class DomainsApi
      *
      * Создание заявки на регистрацию/продление/трансфер домена
      *
-     * @param  \OpenAPI\Client\Model\Register $register (required)
+     * @param  \OpenAPI\Client\Model\DomainRegister $domain_register (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainRequest'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDomainRequestAsync($register, string $contentType = self::contentTypes['createDomainRequest'][0])
+    public function createDomainRequestAsync($domain_register, string $contentType = self::contentTypes['createDomainRequest'][0])
     {
-        return $this->createDomainRequestAsyncWithHttpInfo($register, $contentType)
+        return $this->createDomainRequestAsyncWithHttpInfo($domain_register, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1937,16 +1937,16 @@ class DomainsApi
      *
      * Создание заявки на регистрацию/продление/трансфер домена
      *
-     * @param  \OpenAPI\Client\Model\Register $register (required)
+     * @param  \OpenAPI\Client\Model\DomainRegister $domain_register (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainRequest'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDomainRequestAsyncWithHttpInfo($register, string $contentType = self::contentTypes['createDomainRequest'][0])
+    public function createDomainRequestAsyncWithHttpInfo($domain_register, string $contentType = self::contentTypes['createDomainRequest'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CreateDomainRequest201Response';
-        $request = $this->createDomainRequestRequest($register, $contentType);
+        $request = $this->createDomainRequestRequest($domain_register, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1987,19 +1987,19 @@ class DomainsApi
     /**
      * Create request for operation 'createDomainRequest'
      *
-     * @param  \OpenAPI\Client\Model\Register $register (required)
+     * @param  \OpenAPI\Client\Model\DomainRegister $domain_register (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainRequest'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createDomainRequestRequest($register, string $contentType = self::contentTypes['createDomainRequest'][0])
+    public function createDomainRequestRequest($domain_register, string $contentType = self::contentTypes['createDomainRequest'][0])
     {
 
-        // verify the required parameter 'register' is set
-        if ($register === null || (is_array($register) && count($register) === 0)) {
+        // verify the required parameter 'domain_register' is set
+        if ($domain_register === null || (is_array($domain_register) && count($domain_register) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $register when calling createDomainRequest'
+                'Missing the required parameter $domain_register when calling createDomainRequest'
             );
         }
 
@@ -2022,12 +2022,12 @@ class DomainsApi
         );
 
         // for model (json/xml)
-        if (isset($register)) {
+        if (isset($domain_register)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($register));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_register));
             } else {
-                $httpBody = $register;
+                $httpBody = $domain_register;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

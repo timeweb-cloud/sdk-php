@@ -1,6 +1,6 @@
 <?php
 /**
- * ProlongTest
+ * DomainProlongTest
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ProlongTest Class Doc Comment
+ * DomainProlongTest Class Doc Comment
  *
  * @category    Class
  * @description Заявка на продление домена
@@ -40,7 +40,7 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ProlongTest extends TestCase
+class DomainProlongTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class ProlongTest extends TestCase
     }
 
     /**
-     * Test "Prolong"
+     * Test "DomainProlong"
      */
-    public function testProlong()
+    public function testDomainProlong()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -1,4 +1,4 @@
-# # RegisterNsInner
+# # DomainRegisterNsInner
 
 ## Properties
 

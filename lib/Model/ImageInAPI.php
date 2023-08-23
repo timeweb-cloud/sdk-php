@@ -275,8 +275,8 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], '');
-        $this->setIfExists('description', $data ?? [], '');
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('disk_id', $data ?? [], null);
         $this->setIfExists('upload_url', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);

@@ -1,6 +1,6 @@
 <?php
 /**
- * Prolong
+ * DomainRegisterNsInner
  *
  * PHP version 7.4
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * Prolong Class Doc Comment
+ * DomainRegisterNsInner Class Doc Comment
  *
  * @category Class
- * @description Заявка на продление домена
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Prolong implements ModelInterface, ArrayAccess, \JsonSerializable
+class DomainRegisterNsInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class Prolong implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'prolong';
+    protected static $openAPIModelName = 'domain_register_ns_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,14 +58,8 @@ class Prolong implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'action' => 'string',
-        'fqdn' => 'string',
-        'is_antispam_enabled' => 'bool',
-        'is_autoprolong_enabled' => 'bool',
-        'is_whois_privacy_enabled' => 'bool',
-        'period' => '\OpenAPI\Client\Model\DomainPaymentPeriod',
-        'person_id' => 'float',
-        'prime' => '\OpenAPI\Client\Model\DomainPrimeType'
+        'host' => 'string',
+        'ips' => 'string[]'
     ];
 
     /**
@@ -77,14 +70,8 @@ class Prolong implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'action' => null,
-        'fqdn' => null,
-        'is_antispam_enabled' => null,
-        'is_autoprolong_enabled' => null,
-        'is_whois_privacy_enabled' => null,
-        'period' => null,
-        'person_id' => null,
-        'prime' => null
+        'host' => null,
+        'ips' => null
     ];
 
     /**
@@ -93,14 +80,8 @@ class Prolong implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'action' => false,
-		'fqdn' => false,
-		'is_antispam_enabled' => false,
-		'is_autoprolong_enabled' => false,
-		'is_whois_privacy_enabled' => false,
-		'period' => false,
-		'person_id' => false,
-		'prime' => false
+        'host' => false,
+		'ips' => false
     ];
 
     /**
@@ -189,14 +170,8 @@ class Prolong implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'action',
-        'fqdn' => 'fqdn',
-        'is_antispam_enabled' => 'is_antispam_enabled',
-        'is_autoprolong_enabled' => 'is_autoprolong_enabled',
-        'is_whois_privacy_enabled' => 'is_whois_privacy_enabled',
-        'period' => 'period',
-        'person_id' => 'person_id',
-        'prime' => 'prime'
+        'host' => 'host',
+        'ips' => 'ips'
     ];
 
     /**
@@ -205,14 +180,8 @@ class Prolong implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'fqdn' => 'setFqdn',
-        'is_antispam_enabled' => 'setIsAntispamEnabled',
-        'is_autoprolong_enabled' => 'setIsAutoprolongEnabled',
-        'is_whois_privacy_enabled' => 'setIsWhoisPrivacyEnabled',
-        'period' => 'setPeriod',
-        'person_id' => 'setPersonId',
-        'prime' => 'setPrime'
+        'host' => 'setHost',
+        'ips' => 'setIps'
     ];
 
     /**
@@ -221,14 +190,8 @@ class Prolong implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'fqdn' => 'getFqdn',
-        'is_antispam_enabled' => 'getIsAntispamEnabled',
-        'is_autoprolong_enabled' => 'getIsAutoprolongEnabled',
-        'is_whois_privacy_enabled' => 'getIsWhoisPrivacyEnabled',
-        'period' => 'getPeriod',
-        'person_id' => 'getPersonId',
-        'prime' => 'getPrime'
+        'host' => 'getHost',
+        'ips' => 'getIps'
     ];
 
     /**
@@ -272,19 +235,6 @@ class Prolong implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const ACTION_PROLONG = 'prolong';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getActionAllowableValues()
-    {
-        return [
-            self::ACTION_PROLONG,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -301,14 +251,8 @@ class Prolong implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('action', $data ?? [], null);
-        $this->setIfExists('fqdn', $data ?? [], null);
-        $this->setIfExists('is_antispam_enabled', $data ?? [], null);
-        $this->setIfExists('is_autoprolong_enabled', $data ?? [], null);
-        $this->setIfExists('is_whois_privacy_enabled', $data ?? [], null);
-        $this->setIfExists('period', $data ?? [], null);
-        $this->setIfExists('person_id', $data ?? [], null);
-        $this->setIfExists('prime', $data ?? [], null);
+        $this->setIfExists('host', $data ?? [], null);
+        $this->setIfExists('ips', $data ?? [], null);
     }
 
     /**
@@ -338,20 +282,11 @@ class Prolong implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['action'] === null) {
-            $invalidProperties[] = "'action' can't be null";
+        if ($this->container['host'] === null) {
+            $invalidProperties[] = "'host' can't be null";
         }
-        $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'action', must be one of '%s'",
-                $this->container['action'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['fqdn'] === null) {
-            $invalidProperties[] = "'fqdn' can't be null";
+        if ($this->container['ips'] === null) {
+            $invalidProperties[] = "'ips' can't be null";
         }
         return $invalidProperties;
     }
@@ -369,227 +304,55 @@ class Prolong implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets action
+     * Gets host
      *
      * @return string
      */
-    public function getAction()
+    public function getHost()
     {
-        return $this->container['action'];
+        return $this->container['host'];
     }
 
     /**
-     * Sets action
+     * Sets host
      *
-     * @param string $action Тип создаваемой заявки.
+     * @param string $host Хост name-сервера.
      *
      * @return self
      */
-    public function setAction($action)
+    public function setHost($host)
     {
-        if (is_null($action)) {
-            throw new \InvalidArgumentException('non-nullable action cannot be null');
+        if (is_null($host)) {
+            throw new \InvalidArgumentException('non-nullable host cannot be null');
         }
-        $allowedValues = $this->getActionAllowableValues();
-        if (!in_array($action, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'action', must be one of '%s'",
-                    $action,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['action'] = $action;
+        $this->container['host'] = $host;
 
         return $this;
     }
 
     /**
-     * Gets fqdn
+     * Gets ips
      *
-     * @return string
+     * @return string[]
      */
-    public function getFqdn()
+    public function getIps()
     {
-        return $this->container['fqdn'];
+        return $this->container['ips'];
     }
 
     /**
-     * Sets fqdn
+     * Sets ips
      *
-     * @param string $fqdn Полное имя домена.
+     * @param string[] $ips Список IP-адресов name-сервера
      *
      * @return self
      */
-    public function setFqdn($fqdn)
+    public function setIps($ips)
     {
-        if (is_null($fqdn)) {
-            throw new \InvalidArgumentException('non-nullable fqdn cannot be null');
+        if (is_null($ips)) {
+            throw new \InvalidArgumentException('non-nullable ips cannot be null');
         }
-        $this->container['fqdn'] = $fqdn;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_antispam_enabled
-     *
-     * @return bool|null
-     */
-    public function getIsAntispamEnabled()
-    {
-        return $this->container['is_antispam_enabled'];
-    }
-
-    /**
-     * Sets is_antispam_enabled
-     *
-     * @param bool|null $is_antispam_enabled Это логическое значение, которое показывает включена ли услуга \"Антиспам\" для домена
-     *
-     * @return self
-     */
-    public function setIsAntispamEnabled($is_antispam_enabled)
-    {
-        if (is_null($is_antispam_enabled)) {
-            throw new \InvalidArgumentException('non-nullable is_antispam_enabled cannot be null');
-        }
-        $this->container['is_antispam_enabled'] = $is_antispam_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_autoprolong_enabled
-     *
-     * @return bool|null
-     */
-    public function getIsAutoprolongEnabled()
-    {
-        return $this->container['is_autoprolong_enabled'];
-    }
-
-    /**
-     * Sets is_autoprolong_enabled
-     *
-     * @param bool|null $is_autoprolong_enabled Это логическое значение, которое показывает, включено ли автопродление домена.
-     *
-     * @return self
-     */
-    public function setIsAutoprolongEnabled($is_autoprolong_enabled)
-    {
-        if (is_null($is_autoprolong_enabled)) {
-            throw new \InvalidArgumentException('non-nullable is_autoprolong_enabled cannot be null');
-        }
-        $this->container['is_autoprolong_enabled'] = $is_autoprolong_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_whois_privacy_enabled
-     *
-     * @return bool|null
-     */
-    public function getIsWhoisPrivacyEnabled()
-    {
-        return $this->container['is_whois_privacy_enabled'];
-    }
-
-    /**
-     * Sets is_whois_privacy_enabled
-     *
-     * @param bool|null $is_whois_privacy_enabled Это логическое значение, которое показывает, включено ли скрытие данных администратора домена для whois. Опция недоступна для доменов в зонах .ru и .рф.
-     *
-     * @return self
-     */
-    public function setIsWhoisPrivacyEnabled($is_whois_privacy_enabled)
-    {
-        if (is_null($is_whois_privacy_enabled)) {
-            throw new \InvalidArgumentException('non-nullable is_whois_privacy_enabled cannot be null');
-        }
-        $this->container['is_whois_privacy_enabled'] = $is_whois_privacy_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets period
-     *
-     * @return \OpenAPI\Client\Model\DomainPaymentPeriod|null
-     */
-    public function getPeriod()
-    {
-        return $this->container['period'];
-    }
-
-    /**
-     * Sets period
-     *
-     * @param \OpenAPI\Client\Model\DomainPaymentPeriod|null $period period
-     *
-     * @return self
-     */
-    public function setPeriod($period)
-    {
-        if (is_null($period)) {
-            throw new \InvalidArgumentException('non-nullable period cannot be null');
-        }
-        $this->container['period'] = $period;
-
-        return $this;
-    }
-
-    /**
-     * Gets person_id
-     *
-     * @return float|null
-     */
-    public function getPersonId()
-    {
-        return $this->container['person_id'];
-    }
-
-    /**
-     * Sets person_id
-     *
-     * @param float|null $person_id Идентификатор администратора, на которого зарегистрирован домен.
-     *
-     * @return self
-     */
-    public function setPersonId($person_id)
-    {
-        if (is_null($person_id)) {
-            throw new \InvalidArgumentException('non-nullable person_id cannot be null');
-        }
-        $this->container['person_id'] = $person_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets prime
-     *
-     * @return \OpenAPI\Client\Model\DomainPrimeType|null
-     */
-    public function getPrime()
-    {
-        return $this->container['prime'];
-    }
-
-    /**
-     * Sets prime
-     *
-     * @param \OpenAPI\Client\Model\DomainPrimeType|null $prime prime
-     *
-     * @return self
-     */
-    public function setPrime($prime)
-    {
-        if (is_null($prime)) {
-            throw new \InvalidArgumentException('non-nullable prime cannot be null');
-        }
-        $this->container['prime'] = $prime;
+        $this->container['ips'] = $ips;
 
         return $this;
     }

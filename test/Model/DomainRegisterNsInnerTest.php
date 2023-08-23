@@ -1,6 +1,6 @@
 <?php
 /**
- * TransferTest
+ * DomainRegisterNsInnerTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TransferTest Class Doc Comment
+ * DomainRegisterNsInnerTest Class Doc Comment
  *
  * @category    Class
- * @description Заявка на перенос домена
+ * @description DomainRegisterNsInner
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TransferTest extends TestCase
+class DomainRegisterNsInnerTest extends TestCase
 {
 
     /**
@@ -72,36 +72,27 @@ class TransferTest extends TestCase
     }
 
     /**
-     * Test "Transfer"
+     * Test "DomainRegisterNsInner"
      */
-    public function testTransfer()
+    public function testDomainRegisterNsInner()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "action"
+     * Test attribute "host"
      */
-    public function testPropertyAction()
+    public function testPropertyHost()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "auth_code"
+     * Test attribute "ips"
      */
-    public function testPropertyAuthCode()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "fqdn"
-     */
-    public function testPropertyFqdn()
+    public function testPropertyIps()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

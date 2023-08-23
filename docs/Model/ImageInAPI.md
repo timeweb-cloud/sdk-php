@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | Имя образа | [optional] [default to '']
-**description** | **string** | Описание образа | [optional] [default to '']
+**name** | **string** | Имя образа | [optional]
+**description** | **string** | Описание образа | [optional]
 **disk_id** | **int** | Идентификатор диска, для которого создается образ | [optional]
 **upload_url** | **string** | Cсылка для загрузки образа | [optional]
 **location** | [**\OpenAPI\Client\Model\Location**](Location.md) |  | [optional]

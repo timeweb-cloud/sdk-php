@@ -273,7 +273,7 @@ try {
 ## `createDomainRequest()`
 
 ```php
-createDomainRequest($register): \OpenAPI\Client\Model\CreateDomainRequest201Response
+createDomainRequest($domain_register): \OpenAPI\Client\Model\CreateDomainRequest201Response
 ```
 
 Создание заявки на регистрацию/продление/трансфер домена
@@ -297,10 +297,10 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$register = new \OpenAPI\Client\Model\Register(); // \OpenAPI\Client\Model\Register
+$domain_register = new \OpenAPI\Client\Model\DomainRegister(); // \OpenAPI\Client\Model\DomainRegister
 
 try {
-    $result = $apiInstance->createDomainRequest($register);
+    $result = $apiInstance->createDomainRequest($domain_register);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainsApi->createDomainRequest: ', $e->getMessage(), PHP_EOL;
@@ -311,7 +311,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **register** | [**\OpenAPI\Client\Model\Register**](../Model/Register.md)|  | |
+| **domain_register** | [**\OpenAPI\Client\Model\DomainRegister**](../Model/DomainRegister.md)|  | |
 
 ### Return type
 

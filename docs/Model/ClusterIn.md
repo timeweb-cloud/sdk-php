@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Название кластера |
-**description** | **string** | Описание кластера | [optional] [default to '']
+**description** | **string** | Описание кластера | [optional]
 **ha** | **bool** | Описание появится позднее |
 **k8s_version** | **string** | Версия Kubernetes |
 **network_driver** | **string** | Тип используемого сетевого драйвера в кластере |

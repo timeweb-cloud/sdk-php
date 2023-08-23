@@ -288,7 +288,7 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], '');
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('ha', $data ?? [], null);
         $this->setIfExists('k8s_version', $data ?? [], null);
         $this->setIfExists('network_driver', $data ?? [], null);
