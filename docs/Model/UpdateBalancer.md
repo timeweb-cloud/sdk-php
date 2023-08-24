@@ -17,6 +17,5 @@ Name | Type | Description | Notes
 **timeout** | **float** | Таймаут ответа балансировщика. | [optional]
 **fall** | **float** | Порог количества ошибок. | [optional]
 **rise** | **float** | Порог количества успешных ответов. | [optional]
-**preset_id** | **float** | Идентификатор тарифа. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

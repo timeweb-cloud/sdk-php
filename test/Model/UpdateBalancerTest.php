@@ -196,13 +196,4 @@ class UpdateBalancerTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "preset_id"
-     */
-    public function testPropertyPresetId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
 }

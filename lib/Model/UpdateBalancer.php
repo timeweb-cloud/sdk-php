@@ -70,8 +70,7 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'inter' => 'float',
         'timeout' => 'float',
         'fall' => 'float',
-        'rise' => 'float',
-        'preset_id' => 'float'
+        'rise' => 'float'
     ];
 
     /**
@@ -94,8 +93,7 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'inter' => null,
         'timeout' => null,
         'fall' => null,
-        'rise' => null,
-        'preset_id' => null
+        'rise' => null
     ];
 
     /**
@@ -116,8 +114,7 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'inter' => false,
 		'timeout' => false,
 		'fall' => false,
-		'rise' => false,
-		'preset_id' => false
+		'rise' => false
     ];
 
     /**
@@ -218,8 +215,7 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'inter' => 'inter',
         'timeout' => 'timeout',
         'fall' => 'fall',
-        'rise' => 'rise',
-        'preset_id' => 'preset_id'
+        'rise' => 'rise'
     ];
 
     /**
@@ -240,8 +236,7 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'inter' => 'setInter',
         'timeout' => 'setTimeout',
         'fall' => 'setFall',
-        'rise' => 'setRise',
-        'preset_id' => 'setPresetId'
+        'rise' => 'setRise'
     ];
 
     /**
@@ -262,8 +257,7 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'inter' => 'getInter',
         'timeout' => 'getTimeout',
         'fall' => 'getFall',
-        'rise' => 'getRise',
-        'preset_id' => 'getPresetId'
+        'rise' => 'getRise'
     ];
 
     /**
@@ -370,7 +364,6 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('timeout', $data ?? [], null);
         $this->setIfExists('fall', $data ?? [], null);
         $this->setIfExists('rise', $data ?? [], null);
-        $this->setIfExists('preset_id', $data ?? [], null);
     }
 
     /**
@@ -800,33 +793,6 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable rise cannot be null');
         }
         $this->container['rise'] = $rise;
-
-        return $this;
-    }
-
-    /**
-     * Gets preset_id
-     *
-     * @return float|null
-     */
-    public function getPresetId()
-    {
-        return $this->container['preset_id'];
-    }
-
-    /**
-     * Sets preset_id
-     *
-     * @param float|null $preset_id Идентификатор тарифа.
-     *
-     * @return self
-     */
-    public function setPresetId($preset_id)
-    {
-        if (is_null($preset_id)) {
-            throw new \InvalidArgumentException('non-nullable preset_id cannot be null');
-        }
-        $this->container['preset_id'] = $preset_id;
 
         return $this;
     }
