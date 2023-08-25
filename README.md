@@ -793,6 +793,7 @@ Class | Method | HTTP request | Description
 - [UrlStatus](docs/Model/UrlStatus.md)
 - [Vds](docs/Model/Vds.md)
 - [VdsDisksInner](docs/Model/VdsDisksInner.md)
+- [VdsImage](docs/Model/VdsImage.md)
 - [VdsNetworksInner](docs/Model/VdsNetworksInner.md)
 - [VdsNetworksInnerIpsInner](docs/Model/VdsNetworksInnerIpsInner.md)
 - [VdsOs](docs/Model/VdsOs.md)

@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **avatar_id** | **string** | Уникальный идентификатор аватара сервера. Описание методов работы с аватарами появится позднее. |
 **vnc_pass** | **string** | Пароль от VNC. |
 **root_pass** | **string** | Пароль root сервера или пароль Администратора для серверов Windows. |
+**image** | [**\OpenAPI\Client\Model\VdsImage**](VdsImage.md) |  |
 **networks** | [**\OpenAPI\Client\Model\VdsNetworksInner[]**](VdsNetworksInner.md) | Список сетей диска. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

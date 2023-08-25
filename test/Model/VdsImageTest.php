@@ -1,6 +1,6 @@
 <?php
 /**
- * VdsTest
+ * VdsImageTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * VdsTest Class Doc Comment
+ * VdsImageTest Class Doc Comment
  *
  * @category    Class
- * @description Сервер
+ * @description Образ сервера.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class VdsTest extends TestCase
+class VdsImageTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class VdsTest extends TestCase
     }
 
     /**
-     * Test "Vds"
+     * Test "VdsImage"
      */
-    public function testVds()
+    public function testVdsImage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -99,180 +99,9 @@ class VdsTest extends TestCase
     }
 
     /**
-     * Test attribute "comment"
+     * Test attribute "is_custom"
      */
-    public function testPropertyComment()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "created_at"
-     */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "os"
-     */
-    public function testPropertyOs()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "software"
-     */
-    public function testPropertySoftware()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "preset_id"
-     */
-    public function testPropertyPresetId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "location"
-     */
-    public function testPropertyLocation()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "configurator_id"
-     */
-    public function testPropertyConfiguratorId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "boot_mode"
-     */
-    public function testPropertyBootMode()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "status"
-     */
-    public function testPropertyStatus()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "start_at"
-     */
-    public function testPropertyStartAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "is_ddos_guard"
-     */
-    public function testPropertyIsDdosGuard()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "cpu"
-     */
-    public function testPropertyCpu()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "cpu_frequency"
-     */
-    public function testPropertyCpuFrequency()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "ram"
-     */
-    public function testPropertyRam()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "disks"
-     */
-    public function testPropertyDisks()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "avatar_id"
-     */
-    public function testPropertyAvatarId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "vnc_pass"
-     */
-    public function testPropertyVncPass()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "root_pass"
-     */
-    public function testPropertyRootPass()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "image"
-     */
-    public function testPropertyImage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "networks"
-     */
-    public function testPropertyNetworks()
+    public function testPropertyIsCustom()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

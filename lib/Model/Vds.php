@@ -79,6 +79,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatar_id' => 'string',
         'vnc_pass' => 'string',
         'root_pass' => 'string',
+        'image' => '\OpenAPI\Client\Model\VdsImage',
         'networks' => '\OpenAPI\Client\Model\VdsNetworksInner[]'
     ];
 
@@ -110,6 +111,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatar_id' => null,
         'vnc_pass' => null,
         'root_pass' => null,
+        'image' => null,
         'networks' => null
     ];
 
@@ -139,6 +141,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
 		'avatar_id' => true,
 		'vnc_pass' => false,
 		'root_pass' => true,
+		'image' => true,
 		'networks' => false
     ];
 
@@ -248,6 +251,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatar_id' => 'avatar_id',
         'vnc_pass' => 'vnc_pass',
         'root_pass' => 'root_pass',
+        'image' => 'image',
         'networks' => 'networks'
     ];
 
@@ -277,6 +281,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatar_id' => 'setAvatarId',
         'vnc_pass' => 'setVncPass',
         'root_pass' => 'setRootPass',
+        'image' => 'setImage',
         'networks' => 'setNetworks'
     ];
 
@@ -306,6 +311,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatar_id' => 'getAvatarId',
         'vnc_pass' => 'getVncPass',
         'root_pass' => 'getRootPass',
+        'image' => 'getImage',
         'networks' => 'getNetworks'
     ];
 
@@ -469,6 +475,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('avatar_id', $data ?? [], null);
         $this->setIfExists('vnc_pass', $data ?? [], null);
         $this->setIfExists('root_pass', $data ?? [], null);
+        $this->setIfExists('image', $data ?? [], null);
         $this->setIfExists('networks', $data ?? [], null);
     }
 
@@ -585,6 +592,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['root_pass'] === null) {
             $invalidProperties[] = "'root_pass' can't be null";
+        }
+        if ($this->container['image'] === null) {
+            $invalidProperties[] = "'image' can't be null";
         }
         if ($this->container['networks'] === null) {
             $invalidProperties[] = "'networks' can't be null";
@@ -1212,6 +1222,40 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['root_pass'] = $root_pass;
+
+        return $this;
+    }
+
+    /**
+     * Gets image
+     *
+     * @return \OpenAPI\Client\Model\VdsImage
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     *
+     * @param \OpenAPI\Client\Model\VdsImage $image image
+     *
+     * @return self
+     */
+    public function setImage($image)
+    {
+        if (is_null($image)) {
+            array_push($this->openAPINullablesSetToNull, 'image');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['image'] = $image;
 
         return $this;
     }

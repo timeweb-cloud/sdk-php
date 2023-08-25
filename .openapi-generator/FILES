@@ -357,6 +357,7 @@ docs/Model/UploadSuccessfulResponse.md
 docs/Model/UrlStatus.md
 docs/Model/Vds.md
 docs/Model/VdsDisksInner.md
+docs/Model/VdsImage.md
 docs/Model/VdsNetworksInner.md
 docs/Model/VdsNetworksInnerIpsInner.md
 docs/Model/VdsOs.md
@@ -724,6 +725,7 @@ lib/Model/UploadSuccessfulResponse.php
 lib/Model/UrlStatus.php
 lib/Model/Vds.php
 lib/Model/VdsDisksInner.php
+lib/Model/VdsImage.php
 lib/Model/VdsNetworksInner.php
 lib/Model/VdsNetworksInnerIpsInner.php
 lib/Model/VdsOs.php
@@ -1087,6 +1089,7 @@ test/Model/UploadSuccessfulResponseTest.php
 test/Model/UploadSuccessfulTest.php
 test/Model/UrlStatusTest.php
 test/Model/VdsDisksInnerTest.php
+test/Model/VdsImageTest.php
 test/Model/VdsNetworksInnerIpsInnerTest.php
 test/Model/VdsNetworksInnerTest.php
 test/Model/VdsOsTest.php
