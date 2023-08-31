@@ -70,7 +70,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'comment' => 'string',
         'ssh_keys_ids' => 'float[]',
         'is_local_network' => 'bool',
-        'network' => '\OpenAPI\Client\Model\Network'
+        'network' => '\OpenAPI\Client\Model\Network',
+        'cloud_init' => 'string'
     ];
 
     /**
@@ -93,7 +94,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'comment' => null,
         'ssh_keys_ids' => null,
         'is_local_network' => null,
-        'network' => null
+        'network' => null,
+        'cloud_init' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'comment' => false,
 		'ssh_keys_ids' => false,
 		'is_local_network' => false,
-		'network' => false
+		'network' => false,
+		'cloud_init' => false
     ];
 
     /**
@@ -215,7 +218,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'comment' => 'comment',
         'ssh_keys_ids' => 'ssh_keys_ids',
         'is_local_network' => 'is_local_network',
-        'network' => 'network'
+        'network' => 'network',
+        'cloud_init' => 'cloud_init'
     ];
 
     /**
@@ -236,7 +240,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'comment' => 'setComment',
         'ssh_keys_ids' => 'setSshKeysIds',
         'is_local_network' => 'setIsLocalNetwork',
-        'network' => 'setNetwork'
+        'network' => 'setNetwork',
+        'cloud_init' => 'setCloudInit'
     ];
 
     /**
@@ -257,7 +262,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'comment' => 'getComment',
         'ssh_keys_ids' => 'getSshKeysIds',
         'is_local_network' => 'getIsLocalNetwork',
-        'network' => 'getNetwork'
+        'network' => 'getNetwork',
+        'cloud_init' => 'getCloudInit'
     ];
 
     /**
@@ -330,6 +336,7 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('ssh_keys_ids', $data ?? [], null);
         $this->setIfExists('is_local_network', $data ?? [], null);
         $this->setIfExists('network', $data ?? [], null);
+        $this->setIfExists('cloud_init', $data ?? [], null);
     }
 
     /**
@@ -748,6 +755,33 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable network cannot be null');
         }
         $this->container['network'] = $network;
+
+        return $this;
+    }
+
+    /**
+     * Gets cloud_init
+     *
+     * @return string|null
+     */
+    public function getCloudInit()
+    {
+        return $this->container['cloud_init'];
+    }
+
+    /**
+     * Sets cloud_init
+     *
+     * @param string|null $cloud_init Cloud-init скрипт
+     *
+     * @return self
+     */
+    public function setCloudInit($cloud_init)
+    {
+        if (is_null($cloud_init)) {
+            throw new \InvalidArgumentException('non-nullable cloud_init cannot be null');
+        }
+        $this->container['cloud_init'] = $cloud_init;
 
         return $this;
     }

@@ -26,5 +26,6 @@ Name | Type | Description | Notes
 **root_pass** | **string** | Пароль root сервера или пароль Администратора для серверов Windows. |
 **image** | [**\OpenAPI\Client\Model\VdsImage**](VdsImage.md) |  |
 **networks** | [**\OpenAPI\Client\Model\VdsNetworksInner[]**](VdsNetworksInner.md) | Список сетей диска. |
+**cloud_init** | **string** | Cloud-init скрипт |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

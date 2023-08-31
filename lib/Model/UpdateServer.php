@@ -66,7 +66,8 @@ class UpdateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'avatar_id' => 'string',
         'comment' => 'string',
-        'image_id' => 'string'
+        'image_id' => 'string',
+        'cloud_init' => 'string'
     ];
 
     /**
@@ -85,7 +86,8 @@ class UpdateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'avatar_id' => null,
         'comment' => null,
-        'image_id' => 'uuid'
+        'image_id' => 'uuid',
+        'cloud_init' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class UpdateServer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'name' => false,
 		'avatar_id' => false,
 		'comment' => false,
-		'image_id' => false
+		'image_id' => false,
+		'cloud_init' => false
     ];
 
     /**
@@ -199,7 +202,8 @@ class UpdateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'avatar_id' => 'avatar_id',
         'comment' => 'comment',
-        'image_id' => 'image_id'
+        'image_id' => 'image_id',
+        'cloud_init' => 'cloud_init'
     ];
 
     /**
@@ -216,7 +220,8 @@ class UpdateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'avatar_id' => 'setAvatarId',
         'comment' => 'setComment',
-        'image_id' => 'setImageId'
+        'image_id' => 'setImageId',
+        'cloud_init' => 'setCloudInit'
     ];
 
     /**
@@ -233,7 +238,8 @@ class UpdateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'avatar_id' => 'getAvatarId',
         'comment' => 'getComment',
-        'image_id' => 'getImageId'
+        'image_id' => 'getImageId',
+        'cloud_init' => 'getCloudInit'
     ];
 
     /**
@@ -302,6 +308,7 @@ class UpdateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('avatar_id', $data ?? [], null);
         $this->setIfExists('comment', $data ?? [], null);
         $this->setIfExists('image_id', $data ?? [], null);
+        $this->setIfExists('cloud_init', $data ?? [], null);
     }
 
     /**
@@ -601,6 +608,33 @@ class UpdateServer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable image_id cannot be null');
         }
         $this->container['image_id'] = $image_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets cloud_init
+     *
+     * @return string|null
+     */
+    public function getCloudInit()
+    {
+        return $this->container['cloud_init'];
+    }
+
+    /**
+     * Sets cloud_init
+     *
+     * @param string|null $cloud_init Cloud-init скрипт
+     *
+     * @return self
+     */
+    public function setCloudInit($cloud_init)
+    {
+        if (is_null($cloud_init)) {
+            throw new \InvalidArgumentException('non-nullable cloud_init cannot be null');
+        }
+        $this->container['cloud_init'] = $cloud_init;
 
         return $this;
     }

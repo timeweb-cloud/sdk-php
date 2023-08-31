@@ -277,4 +277,13 @@ class VdsTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "cloud_init"
+     */
+    public function testPropertyCloudInit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

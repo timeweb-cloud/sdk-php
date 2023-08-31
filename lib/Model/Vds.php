@@ -80,7 +80,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'vnc_pass' => 'string',
         'root_pass' => 'string',
         'image' => '\OpenAPI\Client\Model\VdsImage',
-        'networks' => '\OpenAPI\Client\Model\VdsNetworksInner[]'
+        'networks' => '\OpenAPI\Client\Model\VdsNetworksInner[]',
+        'cloud_init' => 'string'
     ];
 
     /**
@@ -112,7 +113,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'vnc_pass' => null,
         'root_pass' => null,
         'image' => null,
-        'networks' => null
+        'networks' => null,
+        'cloud_init' => null
     ];
 
     /**
@@ -142,7 +144,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
 		'vnc_pass' => false,
 		'root_pass' => true,
 		'image' => true,
-		'networks' => false
+		'networks' => false,
+		'cloud_init' => true
     ];
 
     /**
@@ -252,7 +255,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'vnc_pass' => 'vnc_pass',
         'root_pass' => 'root_pass',
         'image' => 'image',
-        'networks' => 'networks'
+        'networks' => 'networks',
+        'cloud_init' => 'cloud_init'
     ];
 
     /**
@@ -282,7 +286,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'vnc_pass' => 'setVncPass',
         'root_pass' => 'setRootPass',
         'image' => 'setImage',
-        'networks' => 'setNetworks'
+        'networks' => 'setNetworks',
+        'cloud_init' => 'setCloudInit'
     ];
 
     /**
@@ -312,7 +317,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'vnc_pass' => 'getVncPass',
         'root_pass' => 'getRootPass',
         'image' => 'getImage',
-        'networks' => 'getNetworks'
+        'networks' => 'getNetworks',
+        'cloud_init' => 'getCloudInit'
     ];
 
     /**
@@ -477,6 +483,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('root_pass', $data ?? [], null);
         $this->setIfExists('image', $data ?? [], null);
         $this->setIfExists('networks', $data ?? [], null);
+        $this->setIfExists('cloud_init', $data ?? [], null);
     }
 
     /**
@@ -598,6 +605,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['networks'] === null) {
             $invalidProperties[] = "'networks' can't be null";
+        }
+        if ($this->container['cloud_init'] === null) {
+            $invalidProperties[] = "'cloud_init' can't be null";
         }
         return $invalidProperties;
     }
@@ -1283,6 +1293,40 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable networks cannot be null');
         }
         $this->container['networks'] = $networks;
+
+        return $this;
+    }
+
+    /**
+     * Gets cloud_init
+     *
+     * @return string
+     */
+    public function getCloudInit()
+    {
+        return $this->container['cloud_init'];
+    }
+
+    /**
+     * Sets cloud_init
+     *
+     * @param string $cloud_init Cloud-init скрипт
+     *
+     * @return self
+     */
+    public function setCloudInit($cloud_init)
+    {
+        if (is_null($cloud_init)) {
+            array_push($this->openAPINullablesSetToNull, 'cloud_init');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cloud_init', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['cloud_init'] = $cloud_init;
 
         return $this;
     }

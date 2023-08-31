@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **avatar_id** | **string** | Уникальный идентификатор аватара сервера. Описание методов работы с аватарами появится позднее. | [optional]
 **comment** | **string** | Комментарий к облачному серверу. Максимальная длина — 255 символов. | [optional]
 **image_id** | **string** | Уникальный идентификатор образа, который будет установлен на облачный сервер. Нельзя передавать вместе с &#x60;os_id&#x60;. | [optional]
+**cloud_init** | **string** | Cloud-init скрипт | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
