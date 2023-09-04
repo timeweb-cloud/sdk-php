@@ -60,7 +60,8 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'password' => 'string',
         'privileges' => 'string[]',
-        'description' => 'string'
+        'description' => 'string',
+        'instance_id' => 'float'
     ];
 
     /**
@@ -73,7 +74,8 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'password' => null,
         'privileges' => null,
-        'description' => null
+        'description' => null,
+        'instance_id' => null
     ];
 
     /**
@@ -84,7 +86,8 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'password' => false,
 		'privileges' => false,
-		'description' => false
+		'description' => false,
+		'instance_id' => false
     ];
 
     /**
@@ -175,7 +178,8 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'password' => 'password',
         'privileges' => 'privileges',
-        'description' => 'description'
+        'description' => 'description',
+        'instance_id' => 'instance_id'
     ];
 
     /**
@@ -186,7 +190,8 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'password' => 'setPassword',
         'privileges' => 'setPrivileges',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'instance_id' => 'setInstanceId'
     ];
 
     /**
@@ -197,7 +202,8 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'password' => 'getPassword',
         'privileges' => 'getPrivileges',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'instance_id' => 'getInstanceId'
     ];
 
     /**
@@ -315,6 +321,7 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('password', $data ?? [], null);
         $this->setIfExists('privileges', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('instance_id', $data ?? [], null);
     }
 
     /**
@@ -445,6 +452,33 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return float|null
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param float|null $instance_id Уникальный идентификатор инстанса базы данных для приминения привилегий. В данных момент поле доступно только для кластеров MySQL. Если поле не передано, то привилегии будут применены ко всем инстансам
+     *
+     * @return self
+     */
+    public function setInstanceId($instance_id)
+    {
+        if (is_null($instance_id)) {
+            throw new \InvalidArgumentException('non-nullable instance_id cannot be null');
+        }
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

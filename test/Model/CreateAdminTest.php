@@ -108,6 +108,15 @@ class CreateAdminTest extends TestCase
     }
 
     /**
+     * Test attribute "instance_id"
+     */
+    public function testPropertyInstanceId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "privileges"
      */
     public function testPropertyPrivileges()

@@ -61,6 +61,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'login' => 'string',
         'password' => 'string',
         'host' => 'string',
+        'instance_id' => 'float',
         'privileges' => 'string[]',
         'description' => 'string'
     ];
@@ -76,6 +77,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'login' => null,
         'password' => null,
         'host' => null,
+        'instance_id' => null,
         'privileges' => null,
         'description' => null
     ];
@@ -89,6 +91,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'login' => false,
 		'password' => false,
 		'host' => false,
+		'instance_id' => false,
 		'privileges' => false,
 		'description' => false
     ];
@@ -182,6 +185,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'login' => 'login',
         'password' => 'password',
         'host' => 'host',
+        'instance_id' => 'instance_id',
         'privileges' => 'privileges',
         'description' => 'description'
     ];
@@ -195,6 +199,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'login' => 'setLogin',
         'password' => 'setPassword',
         'host' => 'setHost',
+        'instance_id' => 'setInstanceId',
         'privileges' => 'setPrivileges',
         'description' => 'setDescription'
     ];
@@ -208,6 +213,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'login' => 'getLogin',
         'password' => 'getPassword',
         'host' => 'getHost',
+        'instance_id' => 'getInstanceId',
         'privileges' => 'getPrivileges',
         'description' => 'getDescription'
     ];
@@ -327,6 +333,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('login', $data ?? [], null);
         $this->setIfExists('password', $data ?? [], null);
         $this->setIfExists('host', $data ?? [], null);
+        $this->setIfExists('instance_id', $data ?? [], null);
         $this->setIfExists('privileges', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
     }
@@ -459,6 +466,33 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable host cannot be null');
         }
         $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance_id
+     *
+     * @return float|null
+     */
+    public function getInstanceId()
+    {
+        return $this->container['instance_id'];
+    }
+
+    /**
+     * Sets instance_id
+     *
+     * @param float|null $instance_id Уникальный идентификатор инстанса базы данных для приминения привилегий. В данных момент поле доступно только для кластеров MySQL. Если поле не передано, то привилегии будут применены ко всем инстансам
+     *
+     * @return self
+     */
+    public function setInstanceId($instance_id)
+    {
+        if (is_null($instance_id)) {
+            throw new \InvalidArgumentException('non-nullable instance_id cannot be null');
+        }
+        $this->container['instance_id'] = $instance_id;
 
         return $this;
     }

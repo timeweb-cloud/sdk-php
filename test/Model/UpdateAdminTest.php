@@ -106,4 +106,13 @@ class UpdateAdminTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "instance_id"
+     */
+    public function testPropertyInstanceId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }
