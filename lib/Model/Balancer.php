@@ -79,7 +79,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'timeout' => 'float',
         'is_use_proxy' => 'bool',
         'rules' => '\OpenAPI\Client\Model\Rule[]',
-        'ips' => 'string[]'
+        'ips' => 'string[]',
+        'location' => 'string'
     ];
 
     /**
@@ -110,7 +111,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'timeout' => null,
         'is_use_proxy' => null,
         'rules' => null,
-        'ips' => null
+        'ips' => null,
+        'location' => null
     ];
 
     /**
@@ -139,7 +141,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'timeout' => false,
 		'is_use_proxy' => false,
 		'rules' => false,
-		'ips' => false
+		'ips' => false,
+		'location' => false
     ];
 
     /**
@@ -248,7 +251,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'timeout' => 'timeout',
         'is_use_proxy' => 'is_use_proxy',
         'rules' => 'rules',
-        'ips' => 'ips'
+        'ips' => 'ips',
+        'location' => 'location'
     ];
 
     /**
@@ -277,7 +281,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'timeout' => 'setTimeout',
         'is_use_proxy' => 'setIsUseProxy',
         'rules' => 'setRules',
-        'ips' => 'setIps'
+        'ips' => 'setIps',
+        'location' => 'setLocation'
     ];
 
     /**
@@ -306,7 +311,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'timeout' => 'getTimeout',
         'is_use_proxy' => 'getIsUseProxy',
         'rules' => 'getRules',
-        'ips' => 'getIps'
+        'ips' => 'getIps',
+        'location' => 'getLocation'
     ];
 
     /**
@@ -360,6 +366,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
     public const STATUS_STOPED = 'stoped';
     public const STATUS_STARTING = 'starting';
     public const STATUS_NO_PAID = 'no_paid';
+    public const LOCATION_RU_1 = 'ru-1';
+    public const LOCATION_PL_1 = 'pl-1';
 
     /**
      * Gets allowable values of the enum
@@ -405,6 +413,19 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLocationAllowableValues()
+    {
+        return [
+            self::LOCATION_RU_1,
+            self::LOCATION_PL_1,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -440,6 +461,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('is_use_proxy', $data ?? [], null);
         $this->setIfExists('rules', $data ?? [], null);
         $this->setIfExists('ips', $data ?? [], null);
+        $this->setIfExists('location', $data ?? [], null);
     }
 
     /**
@@ -559,6 +581,18 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['ips'] === null) {
             $invalidProperties[] = "'ips' can't be null";
         }
+        if ($this->container['location'] === null) {
+            $invalidProperties[] = "'location' can't be null";
+        }
+        $allowedValues = $this->getLocationAllowableValues();
+        if (!is_null($this->container['location']) && !in_array($this->container['location'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'location', must be one of '%s'",
+                $this->container['location'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -1181,6 +1215,43 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable ips cannot be null');
         }
         $this->container['ips'] = $ips;
+
+        return $this;
+    }
+
+    /**
+     * Gets location
+     *
+     * @return string
+     */
+    public function getLocation()
+    {
+        return $this->container['location'];
+    }
+
+    /**
+     * Sets location
+     *
+     * @param string $location Географическое расположение балансировщика
+     *
+     * @return self
+     */
+    public function setLocation($location)
+    {
+        if (is_null($location)) {
+            throw new \InvalidArgumentException('non-nullable location cannot be null');
+        }
+        $allowedValues = $this->getLocationAllowableValues();
+        if (!in_array($location, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'location', must be one of '%s'",
+                    $location,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['location'] = $location;
 
         return $this;
     }

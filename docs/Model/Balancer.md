@@ -25,5 +25,6 @@ Name | Type | Description | Notes
 **is_use_proxy** | **bool** | Это логическое значение, которое показывает, выступает ли балансировщик в качестве прокси. |
 **rules** | [**\OpenAPI\Client\Model\Rule[]**](Rule.md) |  |
 **ips** | **string[]** | Список IP-адресов, привязанных к балансировщику |
+**location** | **string** | Географическое расположение балансировщика |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
