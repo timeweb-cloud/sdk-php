@@ -288,9 +288,9 @@ class VdsTest extends TestCase
     }
 
     /**
-     * Test attribute "qemu_agent"
+     * Test attribute "is_qemu_agent"
      */
-    public function testPropertyQemuAgent()
+    public function testPropertyIsQemuAgent()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
