@@ -27,5 +27,6 @@ Name | Type | Description | Notes
 **image** | [**\OpenAPI\Client\Model\VdsImage**](VdsImage.md) |  |
 **networks** | [**\OpenAPI\Client\Model\VdsNetworksInner[]**](VdsNetworksInner.md) | Список сетей диска. |
 **cloud_init** | **string** | Cloud-init скрипт |
+**qemu_agent** | **bool** | Включен ли QEMU-agent на сервере |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

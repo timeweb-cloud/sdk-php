@@ -81,7 +81,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'root_pass' => 'string',
         'image' => '\OpenAPI\Client\Model\VdsImage',
         'networks' => '\OpenAPI\Client\Model\VdsNetworksInner[]',
-        'cloud_init' => 'string'
+        'cloud_init' => 'string',
+        'qemu_agent' => 'bool'
     ];
 
     /**
@@ -114,7 +115,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'root_pass' => null,
         'image' => null,
         'networks' => null,
-        'cloud_init' => null
+        'cloud_init' => null,
+        'qemu_agent' => null
     ];
 
     /**
@@ -145,7 +147,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
 		'root_pass' => true,
 		'image' => true,
 		'networks' => false,
-		'cloud_init' => true
+		'cloud_init' => true,
+		'qemu_agent' => false
     ];
 
     /**
@@ -256,7 +259,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'root_pass' => 'root_pass',
         'image' => 'image',
         'networks' => 'networks',
-        'cloud_init' => 'cloud_init'
+        'cloud_init' => 'cloud_init',
+        'qemu_agent' => 'qemu_agent'
     ];
 
     /**
@@ -287,7 +291,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'root_pass' => 'setRootPass',
         'image' => 'setImage',
         'networks' => 'setNetworks',
-        'cloud_init' => 'setCloudInit'
+        'cloud_init' => 'setCloudInit',
+        'qemu_agent' => 'setQemuAgent'
     ];
 
     /**
@@ -318,7 +323,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'root_pass' => 'getRootPass',
         'image' => 'getImage',
         'networks' => 'getNetworks',
-        'cloud_init' => 'getCloudInit'
+        'cloud_init' => 'getCloudInit',
+        'qemu_agent' => 'getQemuAgent'
     ];
 
     /**
@@ -484,6 +490,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('image', $data ?? [], null);
         $this->setIfExists('networks', $data ?? [], null);
         $this->setIfExists('cloud_init', $data ?? [], null);
+        $this->setIfExists('qemu_agent', $data ?? [], null);
     }
 
     /**
@@ -608,6 +615,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['cloud_init'] === null) {
             $invalidProperties[] = "'cloud_init' can't be null";
+        }
+        if ($this->container['qemu_agent'] === null) {
+            $invalidProperties[] = "'qemu_agent' can't be null";
         }
         return $invalidProperties;
     }
@@ -1327,6 +1337,33 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['cloud_init'] = $cloud_init;
+
+        return $this;
+    }
+
+    /**
+     * Gets qemu_agent
+     *
+     * @return bool
+     */
+    public function getQemuAgent()
+    {
+        return $this->container['qemu_agent'];
+    }
+
+    /**
+     * Sets qemu_agent
+     *
+     * @param bool $qemu_agent Включен ли QEMU-agent на сервере
+     *
+     * @return self
+     */
+    public function setQemuAgent($qemu_agent)
+    {
+        if (is_null($qemu_agent)) {
+            throw new \InvalidArgumentException('non-nullable qemu_agent cannot be null');
+        }
+        $this->container['qemu_agent'] = $qemu_agent;
 
         return $this;
     }
