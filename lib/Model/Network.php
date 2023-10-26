@@ -331,6 +331,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets ip
      *
      * @return string|null
+     * @deprecated
      */
     public function getIp()
     {
@@ -343,6 +344,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $ip IP-адрес в сети.
      *
      * @return self
+     * @deprecated
      */
     public function setIp($ip)
     {
