@@ -394,7 +394,7 @@ class VdsNetworksInnerIpsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets ip
      *
-     * @param string $ip IP-адрес сети
+     * @param string $ip IP-адрес сети.
      *
      * @return self
      */
@@ -421,7 +421,7 @@ class VdsNetworksInnerIpsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets ptr
      *
-     * @param string|null $ptr Запись имени узла
+     * @param string|null $ptr Запись имени узла.
      *
      * @return self
      */

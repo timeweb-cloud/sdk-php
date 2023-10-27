@@ -361,7 +361,7 @@ class ServerIp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type Тип IP-адреса сети
+     * @param string $type Тип IP-адреса сети.
      *
      * @return self
      */
@@ -398,7 +398,7 @@ class ServerIp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ip
      *
-     * @param string $ip IP-адрес сети
+     * @param string $ip IP-адрес сети.
      *
      * @return self
      */
@@ -425,7 +425,7 @@ class ServerIp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ptr
      *
-     * @param string $ptr Запись имени узла
+     * @param string $ptr Запись имени узла.
      *
      * @return self
      */

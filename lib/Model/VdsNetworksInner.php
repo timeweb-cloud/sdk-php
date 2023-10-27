@@ -529,7 +529,7 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_ddos_guard
      *
-     * @param bool|null $is_ddos_guard Подключена ли DDoS-защита. Только для публичных сетей
+     * @param bool|null $is_ddos_guard Подключена ли DDoS-защита. Только для публичных сетей.
      *
      * @return self
      */

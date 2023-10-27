@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * VdsSoftwareTest Class Doc Comment
  *
  * @category    Class
- * @description ПО из маркетплейса
+ * @description ПО из маркетплейса.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

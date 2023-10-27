@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * VdsSoftware Class Doc Comment
  *
  * @category Class
- * @description ПО из маркетплейса
+ * @description ПО из маркетплейса.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -311,7 +311,7 @@ class VdsSoftware implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param float|null $id Уникальный идентификатор ПО из маркетплейса
+     * @param float|null $id Уникальный идентификатор ПО из маркетплейса.
      *
      * @return self
      */
@@ -338,7 +338,7 @@ class VdsSoftware implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Название ПО из маркетплейса
+     * @param string|null $name Название ПО из маркетплейса.
      *
      * @return self
      */

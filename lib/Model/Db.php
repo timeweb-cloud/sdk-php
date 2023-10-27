@@ -640,7 +640,7 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets account_id
      *
-     * @param string $account_id Идентификатор пользователя
+     * @param string $account_id Идентификатор пользователя.
      *
      * @return self
      */

@@ -1317,7 +1317,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cloud_init
      *
-     * @param string $cloud_init Cloud-init скрипт
+     * @param string $cloud_init Cloud-init скрипт.
      *
      * @return self
      */
@@ -1351,7 +1351,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_qemu_agent
      *
-     * @param bool|null $is_qemu_agent Включен ли QEMU-agent на сервере
+     * @param bool|null $is_qemu_agent Включен ли QEMU-agent на сервере.
      *
      * @return self
      */

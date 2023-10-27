@@ -354,7 +354,7 @@ class ServerLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets logged_at
      *
-     * @param \DateTime $logged_at Дата лога
+     * @param \DateTime $logged_at Дата лога.
      *
      * @return self
      */
@@ -381,7 +381,7 @@ class ServerLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets event
      *
-     * @param string $event Событие сервера
+     * @param string $event Событие сервера.
      *
      * @return self
      */
