@@ -762,7 +762,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets autovacuum_analyze_scale_factor
      *
-     * @param string|null $autovacuum_analyze_scale_factor Доля измененных или удаленных записей в таблице, при которой процесс автоочистки выполнит команду `ANALYZE` (`postgres`).
+     * @param string|null $autovacuum_analyze_scale_factor Доля измененных или удаленных записей в таблице, при которой процесс автоочистки выполнит команду `ANALYZE` (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -789,7 +789,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bgwriter_delay
      *
-     * @param string|null $bgwriter_delay Задержка между запусками процесса фоновой записи (`postgres`).
+     * @param string|null $bgwriter_delay Задержка между запусками процесса фоновой записи (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -816,7 +816,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bgwriter_lru_maxpages
      *
-     * @param string|null $bgwriter_lru_maxpages Максимальное число элементов буферного кеша (`postgres`).
+     * @param string|null $bgwriter_lru_maxpages Максимальное число элементов буферного кеша (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -843,7 +843,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets deadlock_timeout
      *
-     * @param string|null $deadlock_timeout Время ожидания, по истечении которого будет выполняться проверка состояния перекрестной блокировки (`postgres`).
+     * @param string|null $deadlock_timeout Время ожидания, по истечении которого будет выполняться проверка состояния перекрестной блокировки (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -870,7 +870,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gin_pending_list_limit
      *
-     * @param string|null $gin_pending_list_limit Максимальный размер очереди записей индекса `GIN` (`postgres`).
+     * @param string|null $gin_pending_list_limit Максимальный размер очереди записей индекса `GIN` (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -897,7 +897,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets idle_in_transaction_session_timeout
      *
-     * @param string|null $idle_in_transaction_session_timeout Время простоя открытой транзакции, при превышении которого будет завершена сессия с этой транзакцией (`postgres`).
+     * @param string|null $idle_in_transaction_session_timeout Время простоя открытой транзакции, при превышении которого будет завершена сессия с этой транзакцией (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -924,7 +924,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets idle_session_timeout
      *
-     * @param string|null $idle_session_timeout Время простоя не открытой транзакции, при превышении которого будет завершена сессия с этой транзакцией (`postgres`).
+     * @param string|null $idle_session_timeout Время простоя не открытой транзакции, при превышении которого будет завершена сессия с этой транзакцией (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -951,7 +951,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets join_collapse_limit
      *
-     * @param string|null $join_collapse_limit Значение количества элементов в списке `FROM` при превышении которого, планировщик будет переносить в список явные инструкции `JOIN` (`postgres`).
+     * @param string|null $join_collapse_limit Значение количества элементов в списке `FROM` при превышении которого, планировщик будет переносить в список явные инструкции `JOIN` (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -978,7 +978,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets lock_timeout
      *
-     * @param string|null $lock_timeout Время ожидания освобождения блокировки (`postgres`).
+     * @param string|null $lock_timeout Время ожидания освобождения блокировки (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -1005,7 +1005,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets max_prepared_transactions
      *
-     * @param string|null $max_prepared_transactions Максимальное число транзакций, которые могут одновременно находиться в подготовленном состоянии (`postgres`).
+     * @param string|null $max_prepared_transactions Максимальное число транзакций, которые могут одновременно находиться в подготовленном состоянии (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -1032,7 +1032,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets max_connections
      *
-     * @param string|null $max_connections Допустимое количество соединений (`postgres` | `mysql`).
+     * @param string|null $max_connections Допустимое количество соединений (`postgres` | `postgres14`| `postgres15` | `mysql`).
      *
      * @return self
      */
@@ -1059,7 +1059,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shared_buffers
      *
-     * @param string|null $shared_buffers Устанавливает количество буферов общей памяти, используемых сервером (`postgres`).
+     * @param string|null $shared_buffers Устанавливает количество буферов общей памяти, используемых сервером (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -1086,7 +1086,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets wal_buffers
      *
-     * @param string|null $wal_buffers Устанавливает количество буферов дисковых страниц в общей памяти для WAL (`postgres`).
+     * @param string|null $wal_buffers Устанавливает количество буферов дисковых страниц в общей памяти для WAL (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -1113,7 +1113,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets temp_buffers
      *
-     * @param string|null $temp_buffers Устанавливает максимальное количество временных буферов, используемых каждой сессией (`postgres`).
+     * @param string|null $temp_buffers Устанавливает максимальное количество временных буферов, используемых каждой сессией (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */
@@ -1140,7 +1140,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets work_mem
      *
-     * @param string|null $work_mem Устанавливает максимальное количество памяти, используемое для рабочих пространств запросов (`postgres`).
+     * @param string|null $work_mem Устанавливает максимальное количество памяти, используемое для рабочих пространств запросов (`postgres` | `postgres14`| `postgres15`).
      *
      * @return self
      */

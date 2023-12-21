@@ -59,6 +59,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
+        'floating_ip' => 'string',
         'ip' => 'string'
     ];
 
@@ -71,6 +72,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => null,
+        'floating_ip' => null,
         'ip' => null
     ];
 
@@ -81,6 +83,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'id' => false,
+		'floating_ip' => false,
 		'ip' => false
     ];
 
@@ -171,6 +174,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'floating_ip' => 'floating_ip',
         'ip' => 'ip'
     ];
 
@@ -181,6 +185,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
+        'floating_ip' => 'setFloatingIp',
         'ip' => 'setIp'
     ];
 
@@ -191,6 +196,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
+        'floating_ip' => 'getFloatingIp',
         'ip' => 'getIp'
     ];
 
@@ -252,6 +258,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('floating_ip', $data ?? [], null);
         $this->setIfExists('ip', $data ?? [], null);
     }
 
@@ -323,6 +330,33 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets floating_ip
+     *
+     * @return string|null
+     */
+    public function getFloatingIp()
+    {
+        return $this->container['floating_ip'];
+    }
+
+    /**
+     * Sets floating_ip
+     *
+     * @param string|null $floating_ip Плавающий IP-адрес
+     *
+     * @return self
+     */
+    public function setFloatingIp($floating_ip)
+    {
+        if (is_null($floating_ip)) {
+            throw new \InvalidArgumentException('non-nullable floating_ip cannot be null');
+        }
+        $this->container['floating_ip'] = $floating_ip;
 
         return $this;
     }

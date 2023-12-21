@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **password** | **string** | Пароль для подключения к базе данных. |
 **name** | **string** | Название базы данных. |
 **host** | **string** | Хост. |
-**type** | **string** | Тип базы данных. |
+**type** | [**\OpenAPI\Client\Model\DbType**](DbType.md) |  |
 **hash_type** | **string** | Тип хеширования базы данных (mysql5 | mysql | postgres). |
 **port** | **int** | Порт |
 **ip** | **string** | IP-адрес сетевого интерфейса IPv4. |
@@ -22,5 +22,6 @@ Name | Type | Description | Notes
 **disk_stats** | [**\OpenAPI\Client\Model\DbDiskStats**](DbDiskStats.md) |  |
 **config_parameters** | [**\OpenAPI\Client\Model\ConfigParameters**](ConfigParameters.md) |  |
 **is_only_local_ip_access** | **bool** | Это логическое значение, которое показывает, доступна ли база данных только по локальному IP адресу. |
+**availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -90,6 +90,15 @@ class NetworkTest extends TestCase
     }
 
     /**
+     * Test attribute "floating_ip"
+     */
+    public function testPropertyFloatingIp()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "ip"
      */
     public function testPropertyIp()

@@ -71,7 +71,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'ssh_keys_ids' => 'float[]',
         'is_local_network' => 'bool',
         'network' => '\OpenAPI\Client\Model\Network',
-        'cloud_init' => 'string'
+        'cloud_init' => 'string',
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
     ];
 
     /**
@@ -95,7 +96,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'ssh_keys_ids' => null,
         'is_local_network' => null,
         'network' => null,
-        'cloud_init' => null
+        'cloud_init' => null,
+        'availability_zone' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'ssh_keys_ids' => false,
 		'is_local_network' => false,
 		'network' => false,
-		'cloud_init' => false
+		'cloud_init' => false,
+		'availability_zone' => false
     ];
 
     /**
@@ -219,7 +222,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'ssh_keys_ids' => 'ssh_keys_ids',
         'is_local_network' => 'is_local_network',
         'network' => 'network',
-        'cloud_init' => 'cloud_init'
+        'cloud_init' => 'cloud_init',
+        'availability_zone' => 'availability_zone'
     ];
 
     /**
@@ -241,7 +245,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'ssh_keys_ids' => 'setSshKeysIds',
         'is_local_network' => 'setIsLocalNetwork',
         'network' => 'setNetwork',
-        'cloud_init' => 'setCloudInit'
+        'cloud_init' => 'setCloudInit',
+        'availability_zone' => 'setAvailabilityZone'
     ];
 
     /**
@@ -263,7 +268,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'ssh_keys_ids' => 'getSshKeysIds',
         'is_local_network' => 'getIsLocalNetwork',
         'network' => 'getNetwork',
-        'cloud_init' => 'getCloudInit'
+        'cloud_init' => 'getCloudInit',
+        'availability_zone' => 'getAvailabilityZone'
     ];
 
     /**
@@ -337,6 +343,7 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('is_local_network', $data ?? [], null);
         $this->setIfExists('network', $data ?? [], null);
         $this->setIfExists('cloud_init', $data ?? [], null);
+        $this->setIfExists('availability_zone', $data ?? [], null);
     }
 
     /**
@@ -782,6 +789,33 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable cloud_init cannot be null');
         }
         $this->container['cloud_init'] = $cloud_init;
+
+        return $this;
+    }
+
+    /**
+     * Gets availability_zone
+     *
+     * @return \OpenAPI\Client\Model\AvailabilityZone|null
+     */
+    public function getAvailabilityZone()
+    {
+        return $this->container['availability_zone'];
+    }
+
+    /**
+     * Sets availability_zone
+     *
+     * @param \OpenAPI\Client\Model\AvailabilityZone|null $availability_zone availability_zone
+     *
+     * @return self
+     */
+    public function setAvailabilityZone($availability_zone)
+    {
+        if (is_null($availability_zone)) {
+            throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
+        }
+        $this->container['availability_zone'] = $availability_zone;
 
         return $this;
     }

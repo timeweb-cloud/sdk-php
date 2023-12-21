@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Название кластера базы данных. |
-**type** | **string** | Тип базы данных. |
+**type** | [**\OpenAPI\Client\Model\DbType**](DbType.md) |  |
 **admin** | [**\OpenAPI\Client\Model\CreateClusterAdmin**](CreateClusterAdmin.md) |  | [optional]
 **instance** | [**\OpenAPI\Client\Model\CreateClusterInstance**](CreateClusterInstance.md) |  | [optional]
 **hash_type** | **string** | Тип хеширования базы данных (mysql5 | mysql | postgres). | [optional]
@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **config_parameters** | [**\OpenAPI\Client\Model\ConfigParameters**](ConfigParameters.md) |  | [optional]
 **network** | [**\OpenAPI\Client\Model\Network**](Network.md) |  | [optional]
 **description** | **string** | Описание кластера базы данных | [optional]
+**availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

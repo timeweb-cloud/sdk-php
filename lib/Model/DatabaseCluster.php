@@ -64,7 +64,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'string',
         'name' => 'string',
         'networks' => '\OpenAPI\Client\Model\DatabaseClusterNetworksInner[]',
-        'type' => 'string',
+        'type' => '\OpenAPI\Client\Model\DbType',
         'hash_type' => 'string',
         'port' => 'int',
         'status' => 'string',
@@ -306,11 +306,6 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     public const LOCATION_RU_2 = 'ru-2';
     public const LOCATION_PL_1 = 'pl-1';
     public const LOCATION_KZ_1 = 'kz-1';
-    public const TYPE_MYSQL = 'mysql';
-    public const TYPE_MYSQL5 = 'mysql5';
-    public const TYPE_POSTGRES = 'postgres';
-    public const TYPE_REDIS = 'redis';
-    public const TYPE_MONGODB = 'mongodb';
     public const HASH_TYPE_CACHING_SHA2 = 'caching_sha2';
     public const HASH_TYPE_MYSQL_NATIVE = 'mysql_native';
     public const HASH_TYPE_NULL = 'null';
@@ -331,22 +326,6 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             self::LOCATION_RU_2,
             self::LOCATION_PL_1,
             self::LOCATION_KZ_1,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_MYSQL,
-            self::TYPE_MYSQL5,
-            self::TYPE_POSTGRES,
-            self::TYPE_REDIS,
-            self::TYPE_MONGODB,
         ];
     }
 
@@ -463,15 +442,6 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['hash_type'] === null) {
             $invalidProperties[] = "'hash_type' can't be null";
         }
@@ -681,7 +651,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\DbType
      */
     public function getType()
     {
@@ -691,7 +661,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type Тип кластера базы данных.
+     * @param \OpenAPI\Client\Model\DbType $type type
      *
      * @return self
      */
@@ -699,16 +669,6 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['type'] = $type;
 

@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **subnet_v4** | **string** | Маска подсети. |
 **location** | **string** | Локация сети. |
 **description** | **string** | Описание. | [optional]
+**availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

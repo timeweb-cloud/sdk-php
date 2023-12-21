@@ -11,6 +11,7 @@ docs/Api/DatabasesApi.md
 docs/Api/DedicatedServersApi.md
 docs/Api/DomainsApi.md
 docs/Api/FirewallApi.md
+docs/Api/FloatingIPApi.md
 docs/Api/ImagesApi.md
 docs/Api/KubernetesApi.md
 docs/Api/MailApi.md
@@ -45,9 +46,11 @@ docs/Model/ApiKey.md
 docs/Model/AutoBackup.md
 docs/Model/AutoReplyIsDisabled.md
 docs/Model/AutoReplyIsEnabled.md
+docs/Model/AvailabilityZone.md
 docs/Model/Backup.md
 docs/Model/Balancer.md
 docs/Model/BaseError.md
+docs/Model/BindFloatingIp.md
 docs/Model/Bonus.md
 docs/Model/Bucket.md
 docs/Model/BucketDiskStats.md
@@ -83,6 +86,8 @@ docs/Model/CreateDomainDNSRecord201Response.md
 docs/Model/CreateDomainMailbox201Response.md
 docs/Model/CreateDomainMailboxRequest.md
 docs/Model/CreateDomainRequest201Response.md
+docs/Model/CreateFloatingIp.md
+docs/Model/CreateFloatingIp201Response.md
 docs/Model/CreateFolderInStorageRequest.md
 docs/Model/CreateInstance.md
 docs/Model/CreateKey201Response.md
@@ -112,6 +117,7 @@ docs/Model/DatabaseClusterNetworksInnerIpsInner.md
 docs/Model/DatabaseInstance.md
 docs/Model/Db.md
 docs/Model/DbDiskStats.md
+docs/Model/DbType.md
 docs/Model/DedicatedServer.md
 docs/Model/DedicatedServerAdditionalService.md
 docs/Model/DedicatedServerPreset.md
@@ -160,6 +166,7 @@ docs/Model/FirewallRuleOutAPI.md
 docs/Model/FirewallRuleOutResponse.md
 docs/Model/FirewallRuleProtocol.md
 docs/Model/FirewallRulesOutResponse.md
+docs/Model/FloatingIp.md
 docs/Model/ForwardingIncomingIsDisabled.md
 docs/Model/ForwardingIncomingIsEnabled.md
 docs/Model/ForwardingOutgoingIsDisabled.md
@@ -198,6 +205,7 @@ docs/Model/GetFinances403Response.md
 docs/Model/GetFinances404Response.md
 docs/Model/GetFinances429Response.md
 docs/Model/GetFinances500Response.md
+docs/Model/GetFloatingIps200Response.md
 docs/Model/GetKey200Response.md
 docs/Model/GetKeys200Response.md
 docs/Model/GetMailQuota200Response.md
@@ -274,6 +282,7 @@ docs/Model/NotificationSettingType.md
 docs/Model/OS.md
 docs/Model/PerformActionOnBackupRequest.md
 docs/Model/PerformActionOnServerRequest.md
+docs/Model/Policy.md
 docs/Model/PresetsBalancer.md
 docs/Model/PresetsDbs.md
 docs/Model/PresetsResponse.md
@@ -331,6 +340,7 @@ docs/Model/UpdateDomainAutoProlongation200Response.md
 docs/Model/UpdateDomainMailInfoRequest.md
 docs/Model/UpdateDomainNameServers.md
 docs/Model/UpdateDomainNameServersNameServersInner.md
+docs/Model/UpdateFloatingIp.md
 docs/Model/UpdateInstance.md
 docs/Model/UpdateKeyRequest.md
 docs/Model/UpdateMailQuotaRequest.md
@@ -375,6 +385,7 @@ lib/Api/DatabasesApi.php
 lib/Api/DedicatedServersApi.php
 lib/Api/DomainsApi.php
 lib/Api/FirewallApi.php
+lib/Api/FloatingIPApi.php
 lib/Api/ImagesApi.php
 lib/Api/KubernetesApi.php
 lib/Api/MailApi.php
@@ -412,9 +423,11 @@ lib/Model/ApiKey.php
 lib/Model/AutoBackup.php
 lib/Model/AutoReplyIsDisabled.php
 lib/Model/AutoReplyIsEnabled.php
+lib/Model/AvailabilityZone.php
 lib/Model/Backup.php
 lib/Model/Balancer.php
 lib/Model/BaseError.php
+lib/Model/BindFloatingIp.php
 lib/Model/Bonus.php
 lib/Model/Bucket.php
 lib/Model/BucketDiskStats.php
@@ -450,6 +463,8 @@ lib/Model/CreateDomainDNSRecord201Response.php
 lib/Model/CreateDomainMailbox201Response.php
 lib/Model/CreateDomainMailboxRequest.php
 lib/Model/CreateDomainRequest201Response.php
+lib/Model/CreateFloatingIp.php
+lib/Model/CreateFloatingIp201Response.php
 lib/Model/CreateFolderInStorageRequest.php
 lib/Model/CreateInstance.php
 lib/Model/CreateKey201Response.php
@@ -479,6 +494,7 @@ lib/Model/DatabaseClusterNetworksInnerIpsInner.php
 lib/Model/DatabaseInstance.php
 lib/Model/Db.php
 lib/Model/DbDiskStats.php
+lib/Model/DbType.php
 lib/Model/DedicatedServer.php
 lib/Model/DedicatedServerAdditionalService.php
 lib/Model/DedicatedServerPreset.php
@@ -527,6 +543,7 @@ lib/Model/FirewallRuleOutAPI.php
 lib/Model/FirewallRuleOutResponse.php
 lib/Model/FirewallRuleProtocol.php
 lib/Model/FirewallRulesOutResponse.php
+lib/Model/FloatingIp.php
 lib/Model/ForwardingIncomingIsDisabled.php
 lib/Model/ForwardingIncomingIsEnabled.php
 lib/Model/ForwardingOutgoingIsDisabled.php
@@ -565,6 +582,7 @@ lib/Model/GetFinances403Response.php
 lib/Model/GetFinances404Response.php
 lib/Model/GetFinances429Response.php
 lib/Model/GetFinances500Response.php
+lib/Model/GetFloatingIps200Response.php
 lib/Model/GetKey200Response.php
 lib/Model/GetKeys200Response.php
 lib/Model/GetMailQuota200Response.php
@@ -642,6 +660,7 @@ lib/Model/NotificationSettingType.php
 lib/Model/OS.php
 lib/Model/PerformActionOnBackupRequest.php
 lib/Model/PerformActionOnServerRequest.php
+lib/Model/Policy.php
 lib/Model/PresetsBalancer.php
 lib/Model/PresetsDbs.php
 lib/Model/PresetsResponse.php
@@ -699,6 +718,7 @@ lib/Model/UpdateDomainAutoProlongation200Response.php
 lib/Model/UpdateDomainMailInfoRequest.php
 lib/Model/UpdateDomainNameServers.php
 lib/Model/UpdateDomainNameServersNameServersInner.php
+lib/Model/UpdateFloatingIp.php
 lib/Model/UpdateInstance.php
 lib/Model/UpdateKeyRequest.php
 lib/Model/UpdateMailQuotaRequest.php
@@ -744,6 +764,7 @@ test/Api/DatabasesApiTest.php
 test/Api/DedicatedServersApiTest.php
 test/Api/DomainsApiTest.php
 test/Api/FirewallApiTest.php
+test/Api/FloatingIPApiTest.php
 test/Api/ImagesApiTest.php
 test/Api/KubernetesApiTest.php
 test/Api/MailApiTest.php
@@ -778,9 +799,11 @@ test/Model/ApiKeyTest.php
 test/Model/AutoBackupTest.php
 test/Model/AutoReplyIsDisabledTest.php
 test/Model/AutoReplyIsEnabledTest.php
+test/Model/AvailabilityZoneTest.php
 test/Model/BackupTest.php
 test/Model/BalancerTest.php
 test/Model/BaseErrorTest.php
+test/Model/BindFloatingIpTest.php
 test/Model/BonusTest.php
 test/Model/BucketDiskStatsTest.php
 test/Model/BucketTest.php
@@ -816,6 +839,8 @@ test/Model/CreateDomainDNSRecord201ResponseTest.php
 test/Model/CreateDomainMailbox201ResponseTest.php
 test/Model/CreateDomainMailboxRequestTest.php
 test/Model/CreateDomainRequest201ResponseTest.php
+test/Model/CreateFloatingIp201ResponseTest.php
+test/Model/CreateFloatingIpTest.php
 test/Model/CreateFolderInStorageRequestTest.php
 test/Model/CreateInstanceTest.php
 test/Model/CreateKey201ResponseTest.php
@@ -845,6 +870,7 @@ test/Model/DatabaseClusterTest.php
 test/Model/DatabaseInstanceTest.php
 test/Model/DbDiskStatsTest.php
 test/Model/DbTest.php
+test/Model/DbTypeTest.php
 test/Model/DedicatedServerAdditionalServiceTest.php
 test/Model/DedicatedServerPresetCpuTest.php
 test/Model/DedicatedServerPresetDiskTest.php
@@ -893,6 +919,7 @@ test/Model/FirewallRuleOutAPITest.php
 test/Model/FirewallRuleOutResponseTest.php
 test/Model/FirewallRuleProtocolTest.php
 test/Model/FirewallRulesOutResponseTest.php
+test/Model/FloatingIpTest.php
 test/Model/ForwardingIncomingIsDisabledTest.php
 test/Model/ForwardingIncomingIsEnabledTest.php
 test/Model/ForwardingOutgoingIsDisabledTest.php
@@ -931,6 +958,7 @@ test/Model/GetFinances403ResponseTest.php
 test/Model/GetFinances404ResponseTest.php
 test/Model/GetFinances429ResponseTest.php
 test/Model/GetFinances500ResponseTest.php
+test/Model/GetFloatingIps200ResponseTest.php
 test/Model/GetKey200ResponseTest.php
 test/Model/GetKeys200ResponseTest.php
 test/Model/GetMailQuota200ResponseTest.php
@@ -1007,6 +1035,7 @@ test/Model/NotificationSettingTypeTest.php
 test/Model/OSTest.php
 test/Model/PerformActionOnBackupRequestTest.php
 test/Model/PerformActionOnServerRequestTest.php
+test/Model/PolicyTest.php
 test/Model/PresetsBalancerTest.php
 test/Model/PresetsDbsTest.php
 test/Model/PresetsResponseTest.php
@@ -1064,6 +1093,7 @@ test/Model/UpdateDomainMailInfoRequestTest.php
 test/Model/UpdateDomainNameServersNameServersInnerTest.php
 test/Model/UpdateDomainNameServersTest.php
 test/Model/UpdateDomainTest.php
+test/Model/UpdateFloatingIpTest.php
 test/Model/UpdateInstanceTest.php
 test/Model/UpdateKeyRequestTest.php
 test/Model/UpdateMailQuotaRequestTest.php

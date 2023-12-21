@@ -82,7 +82,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'image' => '\OpenAPI\Client\Model\VdsImage',
         'networks' => '\OpenAPI\Client\Model\VdsNetworksInner[]',
         'cloud_init' => 'string',
-        'is_qemu_agent' => 'bool'
+        'is_qemu_agent' => 'bool',
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
     ];
 
     /**
@@ -116,7 +117,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'image' => null,
         'networks' => null,
         'cloud_init' => null,
-        'is_qemu_agent' => null
+        'is_qemu_agent' => null,
+        'availability_zone' => null
     ];
 
     /**
@@ -148,7 +150,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
 		'image' => true,
 		'networks' => false,
 		'cloud_init' => true,
-		'is_qemu_agent' => false
+		'is_qemu_agent' => false,
+		'availability_zone' => false
     ];
 
     /**
@@ -260,7 +263,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'image' => 'image',
         'networks' => 'networks',
         'cloud_init' => 'cloud_init',
-        'is_qemu_agent' => 'is_qemu_agent'
+        'is_qemu_agent' => 'is_qemu_agent',
+        'availability_zone' => 'availability_zone'
     ];
 
     /**
@@ -292,7 +296,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'image' => 'setImage',
         'networks' => 'setNetworks',
         'cloud_init' => 'setCloudInit',
-        'is_qemu_agent' => 'setIsQemuAgent'
+        'is_qemu_agent' => 'setIsQemuAgent',
+        'availability_zone' => 'setAvailabilityZone'
     ];
 
     /**
@@ -324,7 +329,8 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'image' => 'getImage',
         'networks' => 'getNetworks',
         'cloud_init' => 'getCloudInit',
-        'is_qemu_agent' => 'getIsQemuAgent'
+        'is_qemu_agent' => 'getIsQemuAgent',
+        'availability_zone' => 'getAvailabilityZone'
     ];
 
     /**
@@ -491,6 +497,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('networks', $data ?? [], null);
         $this->setIfExists('cloud_init', $data ?? [], null);
         $this->setIfExists('is_qemu_agent', $data ?? [], null);
+        $this->setIfExists('availability_zone', $data ?? [], null);
     }
 
     /**
@@ -615,6 +622,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['cloud_init'] === null) {
             $invalidProperties[] = "'cloud_init' can't be null";
+        }
+        if ($this->container['availability_zone'] === null) {
+            $invalidProperties[] = "'availability_zone' can't be null";
         }
         return $invalidProperties;
     }
@@ -1026,7 +1036,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_ddos_guard
      *
-     * @param bool $is_ddos_guard Это логическое значение, которое показывает, включена ли защита от DDOS у данного сервера.
+     * @param bool $is_ddos_guard Это логическое значение, которое показывает, включена ли защита от DDoS у данного сервера.
      *
      * @return self
      */
@@ -1361,6 +1371,33 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_qemu_agent cannot be null');
         }
         $this->container['is_qemu_agent'] = $is_qemu_agent;
+
+        return $this;
+    }
+
+    /**
+     * Gets availability_zone
+     *
+     * @return \OpenAPI\Client\Model\AvailabilityZone
+     */
+    public function getAvailabilityZone()
+    {
+        return $this->container['availability_zone'];
+    }
+
+    /**
+     * Sets availability_zone
+     *
+     * @param \OpenAPI\Client\Model\AvailabilityZone $availability_zone availability_zone
+     *
+     * @return self
+     */
+    public function setAvailabilityZone($availability_zone)
+    {
+        if (is_null($availability_zone)) {
+            throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
+        }
+        $this->container['availability_zone'] = $availability_zone;
 
         return $this;
     }

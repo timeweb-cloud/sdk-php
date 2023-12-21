@@ -67,7 +67,7 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
         'password' => 'string',
         'name' => 'string',
         'host' => 'string',
-        'type' => 'string',
+        'type' => '\OpenAPI\Client\Model\DbType',
         'hash_type' => 'string',
         'port' => 'int',
         'ip' => 'string',
@@ -76,7 +76,8 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'int',
         'disk_stats' => '\OpenAPI\Client\Model\DbDiskStats',
         'config_parameters' => '\OpenAPI\Client\Model\ConfigParameters',
-        'is_only_local_ip_access' => 'bool'
+        'is_only_local_ip_access' => 'bool',
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
     ];
 
     /**
@@ -104,7 +105,8 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => null,
         'disk_stats' => null,
         'config_parameters' => null,
-        'is_only_local_ip_access' => null
+        'is_only_local_ip_access' => null,
+        'availability_zone' => null
     ];
 
     /**
@@ -130,7 +132,8 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
 		'preset_id' => false,
 		'disk_stats' => true,
 		'config_parameters' => false,
-		'is_only_local_ip_access' => false
+		'is_only_local_ip_access' => false,
+		'availability_zone' => false
     ];
 
     /**
@@ -236,7 +239,8 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'preset_id',
         'disk_stats' => 'disk_stats',
         'config_parameters' => 'config_parameters',
-        'is_only_local_ip_access' => 'is_only_local_ip_access'
+        'is_only_local_ip_access' => 'is_only_local_ip_access',
+        'availability_zone' => 'availability_zone'
     ];
 
     /**
@@ -262,7 +266,8 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'setPresetId',
         'disk_stats' => 'setDiskStats',
         'config_parameters' => 'setConfigParameters',
-        'is_only_local_ip_access' => 'setIsOnlyLocalIpAccess'
+        'is_only_local_ip_access' => 'setIsOnlyLocalIpAccess',
+        'availability_zone' => 'setAvailabilityZone'
     ];
 
     /**
@@ -288,7 +293,8 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'getPresetId',
         'disk_stats' => 'getDiskStats',
         'config_parameters' => 'getConfigParameters',
-        'is_only_local_ip_access' => 'getIsOnlyLocalIpAccess'
+        'is_only_local_ip_access' => 'getIsOnlyLocalIpAccess',
+        'availability_zone' => 'getAvailabilityZone'
     ];
 
     /**
@@ -336,11 +342,6 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
     public const LOCATION_RU_2 = 'ru-2';
     public const LOCATION_PL_1 = 'pl-1';
     public const LOCATION_KZ_1 = 'kz-1';
-    public const TYPE_MYSQL = 'mysql';
-    public const TYPE_MYSQL5 = 'mysql5';
-    public const TYPE_POSTGRES = 'postgres';
-    public const TYPE_REDIS = 'redis';
-    public const TYPE_MONGODB = 'mongodb';
     public const HASH_TYPE_CACHING_SHA2 = 'caching_sha2';
     public const HASH_TYPE_MYSQL_NATIVE = 'mysql_native';
     public const HASH_TYPE_NULL = 'null';
@@ -361,22 +362,6 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
             self::LOCATION_RU_2,
             self::LOCATION_PL_1,
             self::LOCATION_KZ_1,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_MYSQL,
-            self::TYPE_MYSQL5,
-            self::TYPE_POSTGRES,
-            self::TYPE_REDIS,
-            self::TYPE_MONGODB,
         ];
     }
 
@@ -442,6 +427,7 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('disk_stats', $data ?? [], null);
         $this->setIfExists('config_parameters', $data ?? [], null);
         $this->setIfExists('is_only_local_ip_access', $data ?? [], null);
+        $this->setIfExists('availability_zone', $data ?? [], null);
     }
 
     /**
@@ -504,15 +490,6 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['hash_type'] === null) {
             $invalidProperties[] = "'hash_type' can't be null";
         }
@@ -557,6 +534,9 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['is_only_local_ip_access'] === null) {
             $invalidProperties[] = "'is_only_local_ip_access' can't be null";
+        }
+        if ($this->container['availability_zone'] === null) {
+            $invalidProperties[] = "'availability_zone' can't be null";
         }
         return $invalidProperties;
     }
@@ -809,7 +789,7 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\DbType
      */
     public function getType()
     {
@@ -819,7 +799,7 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type Тип базы данных.
+     * @param \OpenAPI\Client\Model\DbType $type type
      *
      * @return self
      */
@@ -827,16 +807,6 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['type'] = $type;
 
@@ -1130,6 +1100,33 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_only_local_ip_access cannot be null');
         }
         $this->container['is_only_local_ip_access'] = $is_only_local_ip_access;
+
+        return $this;
+    }
+
+    /**
+     * Gets availability_zone
+     *
+     * @return \OpenAPI\Client\Model\AvailabilityZone
+     */
+    public function getAvailabilityZone()
+    {
+        return $this->container['availability_zone'];
+    }
+
+    /**
+     * Sets availability_zone
+     *
+     * @param \OpenAPI\Client\Model\AvailabilityZone $availability_zone availability_zone
+     *
+     * @return self
+     */
+    public function setAvailabilityZone($availability_zone)
+    {
+        if (is_null($availability_zone)) {
+            throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
+        }
+        $this->container['availability_zone'] = $availability_zone;
 
         return $this;
     }

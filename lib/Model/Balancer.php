@@ -80,7 +80,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_use_proxy' => 'bool',
         'rules' => '\OpenAPI\Client\Model\Rule[]',
         'ips' => 'string[]',
-        'location' => 'string'
+        'location' => 'string',
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
     ];
 
     /**
@@ -112,7 +113,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_use_proxy' => null,
         'rules' => null,
         'ips' => null,
-        'location' => null
+        'location' => null,
+        'availability_zone' => null
     ];
 
     /**
@@ -142,7 +144,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'is_use_proxy' => false,
 		'rules' => false,
 		'ips' => false,
-		'location' => false
+		'location' => false,
+		'availability_zone' => false
     ];
 
     /**
@@ -252,7 +255,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_use_proxy' => 'is_use_proxy',
         'rules' => 'rules',
         'ips' => 'ips',
-        'location' => 'location'
+        'location' => 'location',
+        'availability_zone' => 'availability_zone'
     ];
 
     /**
@@ -282,7 +286,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_use_proxy' => 'setIsUseProxy',
         'rules' => 'setRules',
         'ips' => 'setIps',
-        'location' => 'setLocation'
+        'location' => 'setLocation',
+        'availability_zone' => 'setAvailabilityZone'
     ];
 
     /**
@@ -312,7 +317,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_use_proxy' => 'getIsUseProxy',
         'rules' => 'getRules',
         'ips' => 'getIps',
-        'location' => 'getLocation'
+        'location' => 'getLocation',
+        'availability_zone' => 'getAvailabilityZone'
     ];
 
     /**
@@ -462,6 +468,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('rules', $data ?? [], null);
         $this->setIfExists('ips', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
+        $this->setIfExists('availability_zone', $data ?? [], null);
     }
 
     /**
@@ -593,6 +600,9 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['availability_zone'] === null) {
+            $invalidProperties[] = "'availability_zone' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -1252,6 +1262,33 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['location'] = $location;
+
+        return $this;
+    }
+
+    /**
+     * Gets availability_zone
+     *
+     * @return \OpenAPI\Client\Model\AvailabilityZone
+     */
+    public function getAvailabilityZone()
+    {
+        return $this->container['availability_zone'];
+    }
+
+    /**
+     * Sets availability_zone
+     *
+     * @param \OpenAPI\Client\Model\AvailabilityZone $availability_zone availability_zone
+     *
+     * @return self
+     */
+    public function setAvailabilityZone($availability_zone)
+    {
+        if (is_null($availability_zone)) {
+            throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
+        }
+        $this->container['availability_zone'] = $availability_zone;
 
         return $this;
     }

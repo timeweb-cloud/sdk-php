@@ -18,5 +18,6 @@ Name | Type | Description | Notes
 **is_local_network** | **bool** | Локальная сеть. | [optional]
 **network** | [**\OpenAPI\Client\Model\Network**](Network.md) |  | [optional]
 **cloud_init** | **string** | Cloud-init скрипт | [optional]
+**availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

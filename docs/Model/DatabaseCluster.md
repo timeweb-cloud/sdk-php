@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **location** | **string** | Локация сервера. |
 **name** | **string** | Название кластера базы данных. |
 **networks** | [**\OpenAPI\Client\Model\DatabaseClusterNetworksInner[]**](DatabaseClusterNetworksInner.md) | Список сетей кластера базы данных. |
-**type** | **string** | Тип кластера базы данных. |
+**type** | [**\OpenAPI\Client\Model\DbType**](DbType.md) |  |
 **hash_type** | **string** | Тип хеширования кластера базы данных (mysql5 | mysql | postgres). |
 **port** | **int** | Порт |
 **status** | **string** | Текущий статус кластера базы данных. |

@@ -124,4 +124,13 @@ class FirewallGroupOutAPITest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "policy"
+     */
+    public function testPropertyPolicy()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -582,15 +582,16 @@ class FirewallApi
      * Создание группы правил
      *
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api firewall_group_in_api (required)
+     * @param  string $policy Тип группы правил (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\FirewallGroupOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function createGroup($firewall_group_in_api, string $contentType = self::contentTypes['createGroup'][0])
+    public function createGroup($firewall_group_in_api, $policy = null, string $contentType = self::contentTypes['createGroup'][0])
     {
-        list($response) = $this->createGroupWithHttpInfo($firewall_group_in_api, $contentType);
+        list($response) = $this->createGroupWithHttpInfo($firewall_group_in_api, $policy, $contentType);
         return $response;
     }
 
@@ -600,15 +601,16 @@ class FirewallApi
      * Создание группы правил
      *
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api (required)
+     * @param  string $policy Тип группы правил (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\FirewallGroupOutResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createGroupWithHttpInfo($firewall_group_in_api, string $contentType = self::contentTypes['createGroup'][0])
+    public function createGroupWithHttpInfo($firewall_group_in_api, $policy = null, string $contentType = self::contentTypes['createGroup'][0])
     {
-        $request = $this->createGroupRequest($firewall_group_in_api, $contentType);
+        $request = $this->createGroupRequest($firewall_group_in_api, $policy, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -792,14 +794,15 @@ class FirewallApi
      * Создание группы правил
      *
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api (required)
+     * @param  string $policy Тип группы правил (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createGroupAsync($firewall_group_in_api, string $contentType = self::contentTypes['createGroup'][0])
+    public function createGroupAsync($firewall_group_in_api, $policy = null, string $contentType = self::contentTypes['createGroup'][0])
     {
-        return $this->createGroupAsyncWithHttpInfo($firewall_group_in_api, $contentType)
+        return $this->createGroupAsyncWithHttpInfo($firewall_group_in_api, $policy, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -813,15 +816,16 @@ class FirewallApi
      * Создание группы правил
      *
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api (required)
+     * @param  string $policy Тип группы правил (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createGroupAsyncWithHttpInfo($firewall_group_in_api, string $contentType = self::contentTypes['createGroup'][0])
+    public function createGroupAsyncWithHttpInfo($firewall_group_in_api, $policy = null, string $contentType = self::contentTypes['createGroup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FirewallGroupOutResponse';
-        $request = $this->createGroupRequest($firewall_group_in_api, $contentType);
+        $request = $this->createGroupRequest($firewall_group_in_api, $policy, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -863,12 +867,13 @@ class FirewallApi
      * Create request for operation 'createGroup'
      *
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api (required)
+     * @param  string $policy Тип группы правил (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createGroupRequest($firewall_group_in_api, string $contentType = self::contentTypes['createGroup'][0])
+    public function createGroupRequest($firewall_group_in_api, $policy = null, string $contentType = self::contentTypes['createGroup'][0])
     {
 
         // verify the required parameter 'firewall_group_in_api' is set
@@ -879,6 +884,7 @@ class FirewallApi
         }
 
 
+
         $resourcePath = '/api/v1/firewall/groups';
         $formParams = [];
         $queryParams = [];
@@ -886,6 +892,15 @@ class FirewallApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $policy,
+            'policy', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
 

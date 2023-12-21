@@ -59,14 +59,15 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'type' => 'string',
+        'type' => '\OpenAPI\Client\Model\DbType',
         'admin' => '\OpenAPI\Client\Model\CreateClusterAdmin',
         'instance' => '\OpenAPI\Client\Model\CreateClusterInstance',
         'hash_type' => 'string',
         'preset_id' => 'int',
         'config_parameters' => '\OpenAPI\Client\Model\ConfigParameters',
         'network' => '\OpenAPI\Client\Model\Network',
-        'description' => 'string'
+        'description' => 'string',
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
     ];
 
     /**
@@ -85,7 +86,8 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => null,
         'config_parameters' => null,
         'network' => null,
-        'description' => null
+        'description' => null,
+        'availability_zone' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
 		'preset_id' => false,
 		'config_parameters' => false,
 		'network' => false,
-		'description' => false
+		'description' => false,
+		'availability_zone' => false
     ];
 
     /**
@@ -199,7 +202,8 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'preset_id',
         'config_parameters' => 'config_parameters',
         'network' => 'network',
-        'description' => 'description'
+        'description' => 'description',
+        'availability_zone' => 'availability_zone'
     ];
 
     /**
@@ -216,7 +220,8 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'setPresetId',
         'config_parameters' => 'setConfigParameters',
         'network' => 'setNetwork',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'availability_zone' => 'setAvailabilityZone'
     ];
 
     /**
@@ -233,7 +238,8 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'getPresetId',
         'config_parameters' => 'getConfigParameters',
         'network' => 'getNetwork',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'availability_zone' => 'getAvailabilityZone'
     ];
 
     /**
@@ -277,29 +283,8 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_MYSQL = 'mysql';
-    public const TYPE_MYSQL5 = 'mysql5';
-    public const TYPE_POSTGRES = 'postgres';
-    public const TYPE_REDIS = 'redis';
-    public const TYPE_MONGODB = 'mongodb';
     public const HASH_TYPE_CACHING_SHA2 = 'caching_sha2';
     public const HASH_TYPE_MYSQL_NATIVE = 'mysql_native';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_MYSQL,
-            self::TYPE_MYSQL5,
-            self::TYPE_POSTGRES,
-            self::TYPE_REDIS,
-            self::TYPE_MONGODB,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -338,6 +323,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('config_parameters', $data ?? [], null);
         $this->setIfExists('network', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('availability_zone', $data ?? [], null);
     }
 
     /**
@@ -373,15 +359,6 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getHashTypeAllowableValues();
         if (!is_null($this->container['hash_type']) && !in_array($this->container['hash_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -439,7 +416,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\DbType
      */
     public function getType()
     {
@@ -449,7 +426,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type Тип базы данных.
+     * @param \OpenAPI\Client\Model\DbType $type type
      *
      * @return self
      */
@@ -457,16 +434,6 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['type'] = $type;
 
@@ -668,6 +635,33 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets availability_zone
+     *
+     * @return \OpenAPI\Client\Model\AvailabilityZone|null
+     */
+    public function getAvailabilityZone()
+    {
+        return $this->container['availability_zone'];
+    }
+
+    /**
+     * Sets availability_zone
+     *
+     * @param \OpenAPI\Client\Model\AvailabilityZone|null $availability_zone availability_zone
+     *
+     * @return self
+     */
+    public function setAvailabilityZone($availability_zone)
+    {
+        if (is_null($availability_zone)) {
+            throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
+        }
+        $this->container['availability_zone'] = $availability_zone;
 
         return $this;
     }

@@ -64,7 +64,7 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
         'cpu' => 'float',
         'ram' => 'float',
         'disk' => 'float',
-        'type' => 'string',
+        'type' => '\OpenAPI\Client\Model\DbType',
         'price' => 'float',
         'location' => 'string'
     ];
@@ -277,30 +277,9 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_MYSQL = 'mysql';
-    public const TYPE_MYSQL5 = 'mysql5';
-    public const TYPE_POSTGRES = 'postgres';
-    public const TYPE_REDIS = 'redis';
-    public const TYPE_MONGODB = 'mongodb';
     public const LOCATION_RU_1 = 'ru-1';
     public const LOCATION_PL_1 = 'pl-1';
     public const LOCATION_KZ_1 = 'kz-1';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_MYSQL,
-            self::TYPE_MYSQL5,
-            self::TYPE_POSTGRES,
-            self::TYPE_REDIS,
-            self::TYPE_MONGODB,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -368,15 +347,6 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         $allowedValues = $this->getLocationAllowableValues();
         if (!is_null($this->container['location']) && !in_array($this->container['location'], $allowedValues, true)) {
@@ -567,7 +537,7 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\DbType|null
      */
     public function getType()
     {
@@ -577,7 +547,7 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string|null $type Тип тарифа базы данных
+     * @param \OpenAPI\Client\Model\DbType|null $type type
      *
      * @return self
      */
@@ -585,16 +555,6 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['type'] = $type;
 

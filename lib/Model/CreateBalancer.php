@@ -72,7 +72,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'fall' => 'float',
         'rise' => 'float',
         'preset_id' => 'float',
-        'network' => '\OpenAPI\Client\Model\Network'
+        'network' => '\OpenAPI\Client\Model\Network',
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
     ];
 
     /**
@@ -97,7 +98,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'fall' => null,
         'rise' => null,
         'preset_id' => null,
-        'network' => null
+        'network' => null,
+        'availability_zone' => null
     ];
 
     /**
@@ -120,7 +122,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'fall' => false,
 		'rise' => false,
 		'preset_id' => false,
-		'network' => false
+		'network' => false,
+		'availability_zone' => false
     ];
 
     /**
@@ -223,7 +226,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'fall' => 'fall',
         'rise' => 'rise',
         'preset_id' => 'preset_id',
-        'network' => 'network'
+        'network' => 'network',
+        'availability_zone' => 'availability_zone'
     ];
 
     /**
@@ -246,7 +250,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'fall' => 'setFall',
         'rise' => 'setRise',
         'preset_id' => 'setPresetId',
-        'network' => 'setNetwork'
+        'network' => 'setNetwork',
+        'availability_zone' => 'setAvailabilityZone'
     ];
 
     /**
@@ -269,7 +274,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'fall' => 'getFall',
         'rise' => 'getRise',
         'preset_id' => 'getPresetId',
-        'network' => 'getNetwork'
+        'network' => 'getNetwork',
+        'availability_zone' => 'getAvailabilityZone'
     ];
 
     /**
@@ -378,6 +384,7 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('rise', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
         $this->setIfExists('network', $data ?? [], null);
+        $this->setIfExists('availability_zone', $data ?? [], null);
     }
 
     /**
@@ -903,6 +910,33 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable network cannot be null');
         }
         $this->container['network'] = $network;
+
+        return $this;
+    }
+
+    /**
+     * Gets availability_zone
+     *
+     * @return \OpenAPI\Client\Model\AvailabilityZone|null
+     */
+    public function getAvailabilityZone()
+    {
+        return $this->container['availability_zone'];
+    }
+
+    /**
+     * Sets availability_zone
+     *
+     * @param \OpenAPI\Client\Model\AvailabilityZone|null $availability_zone availability_zone
+     *
+     * @return self
+     */
+    public function setAvailabilityZone($availability_zone)
+    {
+        if (is_null($availability_zone)) {
+            throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
+        }
+        $this->container['availability_zone'] = $availability_zone;
 
         return $this;
     }

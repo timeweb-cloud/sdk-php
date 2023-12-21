@@ -63,7 +63,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'subnet_v4' => 'string',
         'location' => 'string',
         'created_at' => '\DateTime',
-        'description' => 'string'
+        'description' => 'string',
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
     ];
 
     /**
@@ -79,7 +80,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'subnet_v4' => null,
         'location' => null,
         'created_at' => 'date-time',
-        'description' => null
+        'description' => null,
+        'availability_zone' => null
     ];
 
     /**
@@ -93,7 +95,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
 		'subnet_v4' => false,
 		'location' => false,
 		'created_at' => false,
-		'description' => false
+		'description' => false,
+		'availability_zone' => false
     ];
 
     /**
@@ -187,7 +190,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'subnet_v4' => 'subnet_v4',
         'location' => 'location',
         'created_at' => 'created_at',
-        'description' => 'description'
+        'description' => 'description',
+        'availability_zone' => 'availability_zone'
     ];
 
     /**
@@ -201,7 +205,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'subnet_v4' => 'setSubnetV4',
         'location' => 'setLocation',
         'created_at' => 'setCreatedAt',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'availability_zone' => 'setAvailabilityZone'
     ];
 
     /**
@@ -215,7 +220,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'subnet_v4' => 'getSubnetV4',
         'location' => 'getLocation',
         'created_at' => 'getCreatedAt',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'availability_zone' => 'getAvailabilityZone'
     ];
 
     /**
@@ -296,6 +302,7 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('availability_zone', $data ?? [], null);
     }
 
     /**
@@ -348,6 +355,9 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['availability_zone'] === null) {
+            $invalidProperties[] = "'availability_zone' can't be null";
         }
         return $invalidProperties;
     }
@@ -532,6 +542,33 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets availability_zone
+     *
+     * @return \OpenAPI\Client\Model\AvailabilityZone
+     */
+    public function getAvailabilityZone()
+    {
+        return $this->container['availability_zone'];
+    }
+
+    /**
+     * Sets availability_zone
+     *
+     * @param \OpenAPI\Client\Model\AvailabilityZone $availability_zone availability_zone
+     *
+     * @return self
+     */
+    public function setAvailabilityZone($availability_zone)
+    {
+        if (is_null($availability_zone)) {
+            throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
+        }
+        $this->container['availability_zone'] = $availability_zone;
 
         return $this;
     }

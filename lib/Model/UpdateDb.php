@@ -440,7 +440,7 @@ class UpdateDb implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_external_ip
      *
-     * @param bool|null $is_external_ip Использовать или нет внешний ip.
+     * @param bool|null $is_external_ip Использовать или нет внешний IP.
      *
      * @return self
      */

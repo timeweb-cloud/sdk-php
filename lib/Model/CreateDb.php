@@ -61,7 +61,7 @@ class CreateDb implements ModelInterface, ArrayAccess, \JsonSerializable
         'login' => 'string',
         'password' => 'string',
         'name' => 'string',
-        'type' => 'string',
+        'type' => '\OpenAPI\Client\Model\DbType',
         'hash_type' => 'string',
         'preset_id' => 'int',
         'config_parameters' => '\OpenAPI\Client\Model\ConfigParameters',
@@ -271,29 +271,8 @@ class CreateDb implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_MYSQL = 'mysql';
-    public const TYPE_MYSQL5 = 'mysql5';
-    public const TYPE_POSTGRES = 'postgres';
-    public const TYPE_REDIS = 'redis';
-    public const TYPE_MONGODB = 'mongodb';
     public const HASH_TYPE_CACHING_SHA2 = 'caching_sha2';
     public const HASH_TYPE_MYSQL_NATIVE = 'mysql_native';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_MYSQL,
-            self::TYPE_MYSQL5,
-            self::TYPE_POSTGRES,
-            self::TYPE_REDIS,
-            self::TYPE_MONGODB,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -369,15 +348,6 @@ class CreateDb implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getHashTypeAllowableValues();
         if (!is_null($this->container['hash_type']) && !in_array($this->container['hash_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -489,7 +459,7 @@ class CreateDb implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\DbType
      */
     public function getType()
     {
@@ -499,7 +469,7 @@ class CreateDb implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type Тип базы данных.
+     * @param \OpenAPI\Client\Model\DbType $type type
      *
      * @return self
      */
@@ -507,16 +477,6 @@ class CreateDb implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['type'] = $type;
 

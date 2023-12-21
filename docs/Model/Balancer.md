@@ -26,5 +26,6 @@ Name | Type | Description | Notes
 **rules** | [**\OpenAPI\Client\Model\Rule[]**](Rule.md) |  |
 **ips** | **string[]** | Список IP-адресов, привязанных к балансировщику |
 **location** | **string** | Географическое расположение балансировщика |
+**availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

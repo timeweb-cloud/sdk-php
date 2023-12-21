@@ -61,7 +61,8 @@ class CreateVpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'subnet_v4' => 'string',
         'location' => 'string',
-        'description' => 'string'
+        'description' => 'string',
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
     ];
 
     /**
@@ -75,7 +76,8 @@ class CreateVpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'subnet_v4' => null,
         'location' => null,
-        'description' => null
+        'description' => null,
+        'availability_zone' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class CreateVpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
 		'subnet_v4' => false,
 		'location' => false,
-		'description' => false
+		'description' => false,
+		'availability_zone' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class CreateVpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'subnet_v4' => 'subnet_v4',
         'location' => 'location',
-        'description' => 'description'
+        'description' => 'description',
+        'availability_zone' => 'availability_zone'
     ];
 
     /**
@@ -191,7 +195,8 @@ class CreateVpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'subnet_v4' => 'setSubnetV4',
         'location' => 'setLocation',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'availability_zone' => 'setAvailabilityZone'
     ];
 
     /**
@@ -203,7 +208,8 @@ class CreateVpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'subnet_v4' => 'getSubnetV4',
         'location' => 'getLocation',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'availability_zone' => 'getAvailabilityZone'
     ];
 
     /**
@@ -282,6 +288,7 @@ class CreateVpc implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('subnet_v4', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('availability_zone', $data ?? [], null);
     }
 
     /**
@@ -458,6 +465,33 @@ class CreateVpc implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets availability_zone
+     *
+     * @return \OpenAPI\Client\Model\AvailabilityZone|null
+     */
+    public function getAvailabilityZone()
+    {
+        return $this->container['availability_zone'];
+    }
+
+    /**
+     * Sets availability_zone
+     *
+     * @param \OpenAPI\Client\Model\AvailabilityZone|null $availability_zone availability_zone
+     *
+     * @return self
+     */
+    public function setAvailabilityZone($availability_zone)
+    {
+        if (is_null($availability_zone)) {
+            throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
+        }
+        $this->container['availability_zone'] = $availability_zone;
 
         return $this;
     }

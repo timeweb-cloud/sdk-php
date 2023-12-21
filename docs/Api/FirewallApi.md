@@ -87,7 +87,7 @@ try {
 ## `createGroup()`
 
 ```php
-createGroup($firewall_group_in_api): \OpenAPI\Client\Model\FirewallGroupOutResponse
+createGroup($firewall_group_in_api, $policy): \OpenAPI\Client\Model\FirewallGroupOutResponse
 ```
 
 Создание группы правил
@@ -112,9 +112,10 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     $config
 );
 $firewall_group_in_api = new \OpenAPI\Client\Model\FirewallGroupInAPI(); // \OpenAPI\Client\Model\FirewallGroupInAPI
+$policy = 'policy_example'; // string | Тип группы правил
 
 try {
-    $result = $apiInstance->createGroup($firewall_group_in_api);
+    $result = $apiInstance->createGroup($firewall_group_in_api, $policy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FirewallApi->createGroup: ', $e->getMessage(), PHP_EOL;
@@ -126,6 +127,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **firewall_group_in_api** | [**\OpenAPI\Client\Model\FirewallGroupInAPI**](../Model/FirewallGroupInAPI.md)|  | |
+| **policy** | **string**| Тип группы правил | [optional] |
 
 ### Return type
 

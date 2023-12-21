@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **cpu** | **float** | Описание процессора тарифа. | [optional]
 **ram** | **float** | Описание ОЗУ тарифа. | [optional]
 **disk** | **float** | Описание диска тарифа. | [optional]
-**type** | **string** | Тип тарифа базы данных | [optional]
+**type** | [**\OpenAPI\Client\Model\DbType**](DbType.md) |  | [optional]
 **price** | **float** | Стоимость тарифа базы данных | [optional]
 **location** | **string** | Географическое расположение тарифа. | [optional]
 

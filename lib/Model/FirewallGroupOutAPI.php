@@ -62,7 +62,8 @@ class FirewallGroupOutAPI implements ModelInterface, ArrayAccess, \JsonSerializa
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'name' => 'string',
-        'description' => 'string'
+        'description' => 'string',
+        'policy' => '\OpenAPI\Client\Model\Policy'
     ];
 
     /**
@@ -77,7 +78,8 @@ class FirewallGroupOutAPI implements ModelInterface, ArrayAccess, \JsonSerializa
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'name' => null,
-        'description' => null
+        'description' => null,
+        'policy' => null
     ];
 
     /**
@@ -90,7 +92,8 @@ class FirewallGroupOutAPI implements ModelInterface, ArrayAccess, \JsonSerializa
 		'created_at' => false,
 		'updated_at' => false,
 		'name' => false,
-		'description' => false
+		'description' => false,
+		'policy' => false
     ];
 
     /**
@@ -183,7 +186,8 @@ class FirewallGroupOutAPI implements ModelInterface, ArrayAccess, \JsonSerializa
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'name' => 'name',
-        'description' => 'description'
+        'description' => 'description',
+        'policy' => 'policy'
     ];
 
     /**
@@ -196,7 +200,8 @@ class FirewallGroupOutAPI implements ModelInterface, ArrayAccess, \JsonSerializa
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'name' => 'setName',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'policy' => 'setPolicy'
     ];
 
     /**
@@ -209,7 +214,8 @@ class FirewallGroupOutAPI implements ModelInterface, ArrayAccess, \JsonSerializa
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'name' => 'getName',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'policy' => 'getPolicy'
     ];
 
     /**
@@ -274,6 +280,7 @@ class FirewallGroupOutAPI implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('policy', $data ?? [], null);
     }
 
     /**
@@ -317,6 +324,9 @@ class FirewallGroupOutAPI implements ModelInterface, ArrayAccess, \JsonSerializa
         }
         if ($this->container['description'] === null) {
             $invalidProperties[] = "'description' can't be null";
+        }
+        if ($this->container['policy'] === null) {
+            $invalidProperties[] = "'policy' can't be null";
         }
         return $invalidProperties;
     }
@@ -464,6 +474,33 @@ class FirewallGroupOutAPI implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets policy
+     *
+     * @return \OpenAPI\Client\Model\Policy
+     */
+    public function getPolicy()
+    {
+        return $this->container['policy'];
+    }
+
+    /**
+     * Sets policy
+     *
+     * @param \OpenAPI\Client\Model\Policy $policy policy
+     *
+     * @return self
+     */
+    public function setPolicy($policy)
+    {
+        if (is_null($policy)) {
+            throw new \InvalidArgumentException('non-nullable policy cannot be null');
+        }
+        $this->container['policy'] = $policy;
 
         return $this;
     }

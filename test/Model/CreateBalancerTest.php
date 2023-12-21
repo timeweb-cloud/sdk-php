@@ -214,4 +214,13 @@ class CreateBalancerTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "availability_zone"
+     */
+    public function testPropertyAvailabilityZone()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }
