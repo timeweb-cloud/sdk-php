@@ -67,7 +67,8 @@ class NodeOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'cpu' => 'int',
         'ram' => 'int',
         'disk' => 'int',
-        'network' => 'int'
+        'network' => 'int',
+        'node_ip' => 'string'
     ];
 
     /**
@@ -87,7 +88,8 @@ class NodeOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'cpu' => null,
         'ram' => null,
         'disk' => null,
-        'network' => null
+        'network' => null,
+        'node_ip' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class NodeOut implements ModelInterface, ArrayAccess, \JsonSerializable
 		'cpu' => false,
 		'ram' => false,
 		'disk' => false,
-		'network' => false
+		'network' => false,
+		'node_ip' => false
     ];
 
     /**
@@ -203,7 +206,8 @@ class NodeOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'cpu' => 'cpu',
         'ram' => 'ram',
         'disk' => 'disk',
-        'network' => 'network'
+        'network' => 'network',
+        'node_ip' => 'node_ip'
     ];
 
     /**
@@ -221,7 +225,8 @@ class NodeOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'cpu' => 'setCpu',
         'ram' => 'setRam',
         'disk' => 'setDisk',
-        'network' => 'setNetwork'
+        'network' => 'setNetwork',
+        'node_ip' => 'setNodeIp'
     ];
 
     /**
@@ -239,7 +244,8 @@ class NodeOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'cpu' => 'getCpu',
         'ram' => 'getRam',
         'disk' => 'getDisk',
-        'network' => 'getNetwork'
+        'network' => 'getNetwork',
+        'node_ip' => 'getNodeIp'
     ];
 
     /**
@@ -309,6 +315,7 @@ class NodeOut implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('ram', $data ?? [], null);
         $this->setIfExists('disk', $data ?? [], null);
         $this->setIfExists('network', $data ?? [], null);
+        $this->setIfExists('node_ip', $data ?? [], null);
     }
 
     /**
@@ -367,6 +374,9 @@ class NodeOut implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['network'] === null) {
             $invalidProperties[] = "'network' can't be null";
+        }
+        if ($this->container['node_ip'] === null) {
+            $invalidProperties[] = "'node_ip' can't be null";
         }
         return $invalidProperties;
     }
@@ -649,6 +659,33 @@ class NodeOut implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable network cannot be null');
         }
         $this->container['network'] = $network;
+
+        return $this;
+    }
+
+    /**
+     * Gets node_ip
+     *
+     * @return string
+     */
+    public function getNodeIp()
+    {
+        return $this->container['node_ip'];
+    }
+
+    /**
+     * Sets node_ip
+     *
+     * @param string $node_ip Ip-адрес ноды
+     *
+     * @return self
+     */
+    public function setNodeIp($node_ip)
+    {
+        if (is_null($node_ip)) {
+            throw new \InvalidArgumentException('non-nullable node_ip cannot be null');
+        }
+        $this->container['node_ip'] = $node_ip;
 
         return $this;
     }

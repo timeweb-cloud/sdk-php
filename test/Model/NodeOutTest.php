@@ -169,4 +169,13 @@ class NodeOutTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "node_ip"
+     */
+    public function testPropertyNodeIp()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **ram** | **int** | Количество памяти |
 **disk** | **int** | Количество пространства |
 **network** | **int** | Пропускная способность сети |
+**node_ip** | **string** | Ip-адрес ноды |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
