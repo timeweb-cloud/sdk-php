@@ -58,6 +58,7 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
         'type' => 'string',
         'nat_mode' => 'string',
         'bandwidth' => 'float',
@@ -73,6 +74,7 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
         'type' => null,
         'nat_mode' => null,
         'bandwidth' => null,
@@ -86,7 +88,8 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
+        'id' => false,
+		'type' => false,
 		'nat_mode' => false,
 		'bandwidth' => true,
 		'ips' => true,
@@ -179,6 +182,7 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'type' => 'type',
         'nat_mode' => 'nat_mode',
         'bandwidth' => 'bandwidth',
@@ -192,6 +196,7 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'type' => 'setType',
         'nat_mode' => 'setNatMode',
         'bandwidth' => 'setBandwidth',
@@ -205,6 +210,7 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'type' => 'getType',
         'nat_mode' => 'getNatMode',
         'bandwidth' => 'getBandwidth',
@@ -301,6 +307,7 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('nat_mode', $data ?? [], null);
         $this->setIfExists('bandwidth', $data ?? [], null);
@@ -373,6 +380,33 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Уникальный идентификатор сети. Есть только у приватных сетей.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets type

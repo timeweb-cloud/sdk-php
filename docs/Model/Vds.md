@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **vnc_pass** | **string** | Пароль от VNC. |
 **root_pass** | **string** | Пароль root сервера или пароль Администратора для серверов Windows. |
 **image** | [**\OpenAPI\Client\Model\VdsImage**](VdsImage.md) |  |
-**networks** | [**\OpenAPI\Client\Model\VdsNetworksInner[]**](VdsNetworksInner.md) | Список сетей диска. |
+**networks** | [**\OpenAPI\Client\Model\VdsNetworksInner[]**](VdsNetworksInner.md) | Список сетей сервера. |
 **cloud_init** | **string** | Cloud-init скрипт. |
 **is_qemu_agent** | **bool** | Включен ли QEMU-agent на сервере. | [optional]
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  |

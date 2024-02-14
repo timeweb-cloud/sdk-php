@@ -1300,7 +1300,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets networks
      *
-     * @param \OpenAPI\Client\Model\VdsNetworksInner[] $networks Список сетей диска.
+     * @param \OpenAPI\Client\Model\VdsNetworksInner[] $networks Список сетей сервера.
      *
      * @return self
      */
