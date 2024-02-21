@@ -64,6 +64,8 @@ class DbType
 
     public const RABBITMQ = 'rabbitmq';
 
+    public const CLICKHOUSE = 'clickhouse';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -80,7 +82,8 @@ class DbType
             self::MONGODB,
             self::OPENSEARCH,
             self::KAFKA,
-            self::RABBITMQ
+            self::RABBITMQ,
+            self::CLICKHOUSE
         ];
     }
 }
