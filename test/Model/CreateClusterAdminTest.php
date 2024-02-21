@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CreateClusterAdminTest Class Doc Comment
  *
  * @category    Class
- * @description CreateClusterAdmin
+ * @description Пользователь базы данных.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

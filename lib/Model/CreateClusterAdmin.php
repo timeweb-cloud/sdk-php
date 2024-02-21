@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CreateClusterAdmin Class Doc Comment
  *
  * @category Class
+ * @description Пользователь базы данных.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
