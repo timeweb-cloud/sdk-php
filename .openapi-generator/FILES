@@ -79,6 +79,7 @@ docs/Model/CreateDatabaseCluster201Response.md
 docs/Model/CreateDatabaseInstance201Response.md
 docs/Model/CreateDatabaseUser201Response.md
 docs/Model/CreateDb.md
+docs/Model/CreateDbAutoBackups.md
 docs/Model/CreateDedicatedServer.md
 docs/Model/CreateDedicatedServer201Response.md
 docs/Model/CreateDns.md
@@ -456,6 +457,7 @@ lib/Model/CreateDatabaseCluster201Response.php
 lib/Model/CreateDatabaseInstance201Response.php
 lib/Model/CreateDatabaseUser201Response.php
 lib/Model/CreateDb.php
+lib/Model/CreateDbAutoBackups.php
 lib/Model/CreateDedicatedServer.php
 lib/Model/CreateDedicatedServer201Response.php
 lib/Model/CreateDns.php
@@ -831,6 +833,7 @@ test/Model/CreateDatabaseBackup409ResponseTest.php
 test/Model/CreateDatabaseCluster201ResponseTest.php
 test/Model/CreateDatabaseInstance201ResponseTest.php
 test/Model/CreateDatabaseUser201ResponseTest.php
+test/Model/CreateDbAutoBackupsTest.php
 test/Model/CreateDbTest.php
 test/Model/CreateDedicatedServer201ResponseTest.php
 test/Model/CreateDedicatedServerTest.php

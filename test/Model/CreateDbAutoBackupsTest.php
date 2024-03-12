@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateClusterTest
+ * CreateDbAutoBackupsTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreateClusterTest Class Doc Comment
+ * CreateDbAutoBackupsTest Class Doc Comment
  *
  * @category    Class
- * @description CreateCluster
+ * @description База данных
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreateClusterTest extends TestCase
+class CreateDbAutoBackupsTest extends TestCase
 {
 
     /**
@@ -72,108 +72,45 @@ class CreateClusterTest extends TestCase
     }
 
     /**
-     * Test "CreateCluster"
+     * Test "CreateDbAutoBackups"
      */
-    public function testCreateCluster()
+    public function testCreateDbAutoBackups()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "copy_count"
      */
-    public function testPropertyName()
+    public function testPropertyCopyCount()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "creation_start_at"
      */
-    public function testPropertyType()
+    public function testPropertyCreationStartAt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "admin"
+     * Test attribute "interval"
      */
-    public function testPropertyAdmin()
+    public function testPropertyInterval()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "instance"
+     * Test attribute "day_of_week"
      */
-    public function testPropertyInstance()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "hash_type"
-     */
-    public function testPropertyHashType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "preset_id"
-     */
-    public function testPropertyPresetId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "config_parameters"
-     */
-    public function testPropertyConfigParameters()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "network"
-     */
-    public function testPropertyNetwork()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "availability_zone"
-     */
-    public function testPropertyAvailabilityZone()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "auto_backups"
-     */
-    public function testPropertyAutoBackups()
+    public function testPropertyDayOfWeek()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

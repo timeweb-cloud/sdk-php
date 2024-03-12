@@ -521,6 +521,7 @@ Class | Method | HTTP request | Description
 - [CreateDatabaseInstance201Response](docs/Model/CreateDatabaseInstance201Response.md)
 - [CreateDatabaseUser201Response](docs/Model/CreateDatabaseUser201Response.md)
 - [CreateDb](docs/Model/CreateDb.md)
+- [CreateDbAutoBackups](docs/Model/CreateDbAutoBackups.md)
 - [CreateDedicatedServer](docs/Model/CreateDedicatedServer.md)
 - [CreateDedicatedServer201Response](docs/Model/CreateDedicatedServer201Response.md)
 - [CreateDns](docs/Model/CreateDns.md)

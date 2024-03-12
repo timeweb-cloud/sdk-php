@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateCluster
+ * CreateDbAutoBackups
  *
  * PHP version 7.4
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * CreateCluster Class Doc Comment
+ * CreateDbAutoBackups Class Doc Comment
  *
  * @category Class
+ * @description База данных
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateDbAutoBackups implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'create-cluster';
+    protected static $openAPIModelName = 'create-db-auto-backups';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,17 +59,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'type' => '\OpenAPI\Client\Model\DbType',
-        'admin' => '\OpenAPI\Client\Model\CreateClusterAdmin',
-        'instance' => '\OpenAPI\Client\Model\CreateClusterInstance',
-        'hash_type' => 'string',
-        'preset_id' => 'int',
-        'config_parameters' => '\OpenAPI\Client\Model\ConfigParameters',
-        'network' => '\OpenAPI\Client\Model\Network',
-        'description' => 'string',
-        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone',
-        'auto_backups' => '\OpenAPI\Client\Model\CreateDbAutoBackups'
+        'copy_count' => 'float',
+        'creation_start_at' => '\DateTime',
+        'interval' => 'string',
+        'day_of_week' => 'float'
     ];
 
     /**
@@ -79,17 +73,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'type' => null,
-        'admin' => null,
-        'instance' => null,
-        'hash_type' => null,
-        'preset_id' => null,
-        'config_parameters' => null,
-        'network' => null,
-        'description' => null,
-        'availability_zone' => null,
-        'auto_backups' => null
+        'copy_count' => null,
+        'creation_start_at' => 'date-time',
+        'interval' => null,
+        'day_of_week' => null
     ];
 
     /**
@@ -98,17 +85,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'type' => false,
-		'admin' => false,
-		'instance' => false,
-		'hash_type' => false,
-		'preset_id' => false,
-		'config_parameters' => false,
-		'network' => false,
-		'description' => false,
-		'availability_zone' => false,
-		'auto_backups' => false
+        'copy_count' => false,
+		'creation_start_at' => false,
+		'interval' => false,
+		'day_of_week' => false
     ];
 
     /**
@@ -197,17 +177,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'type' => 'type',
-        'admin' => 'admin',
-        'instance' => 'instance',
-        'hash_type' => 'hash_type',
-        'preset_id' => 'preset_id',
-        'config_parameters' => 'config_parameters',
-        'network' => 'network',
-        'description' => 'description',
-        'availability_zone' => 'availability_zone',
-        'auto_backups' => 'auto_backups'
+        'copy_count' => 'copy_count',
+        'creation_start_at' => 'creation_start_at',
+        'interval' => 'interval',
+        'day_of_week' => 'day_of_week'
     ];
 
     /**
@@ -216,17 +189,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'type' => 'setType',
-        'admin' => 'setAdmin',
-        'instance' => 'setInstance',
-        'hash_type' => 'setHashType',
-        'preset_id' => 'setPresetId',
-        'config_parameters' => 'setConfigParameters',
-        'network' => 'setNetwork',
-        'description' => 'setDescription',
-        'availability_zone' => 'setAvailabilityZone',
-        'auto_backups' => 'setAutoBackups'
+        'copy_count' => 'setCopyCount',
+        'creation_start_at' => 'setCreationStartAt',
+        'interval' => 'setInterval',
+        'day_of_week' => 'setDayOfWeek'
     ];
 
     /**
@@ -235,17 +201,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'type' => 'getType',
-        'admin' => 'getAdmin',
-        'instance' => 'getInstance',
-        'hash_type' => 'getHashType',
-        'preset_id' => 'getPresetId',
-        'config_parameters' => 'getConfigParameters',
-        'network' => 'getNetwork',
-        'description' => 'getDescription',
-        'availability_zone' => 'getAvailabilityZone',
-        'auto_backups' => 'getAutoBackups'
+        'copy_count' => 'getCopyCount',
+        'creation_start_at' => 'getCreationStartAt',
+        'interval' => 'getInterval',
+        'day_of_week' => 'getDayOfWeek'
     ];
 
     /**
@@ -289,19 +248,21 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const HASH_TYPE_CACHING_SHA2 = 'caching_sha2';
-    public const HASH_TYPE_MYSQL_NATIVE = 'mysql_native';
+    public const INTERVAL_DAY = 'day';
+    public const INTERVAL_WEEK = 'week';
+    public const INTERVAL_MONTH = 'month';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getHashTypeAllowableValues()
+    public function getIntervalAllowableValues()
     {
         return [
-            self::HASH_TYPE_CACHING_SHA2,
-            self::HASH_TYPE_MYSQL_NATIVE,
+            self::INTERVAL_DAY,
+            self::INTERVAL_WEEK,
+            self::INTERVAL_MONTH,
         ];
     }
 
@@ -320,17 +281,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('admin', $data ?? [], null);
-        $this->setIfExists('instance', $data ?? [], null);
-        $this->setIfExists('hash_type', $data ?? [], null);
-        $this->setIfExists('preset_id', $data ?? [], null);
-        $this->setIfExists('config_parameters', $data ?? [], null);
-        $this->setIfExists('network', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('availability_zone', $data ?? [], null);
-        $this->setIfExists('auto_backups', $data ?? [], null);
+        $this->setIfExists('copy_count', $data ?? [], null);
+        $this->setIfExists('creation_start_at', $data ?? [], null);
+        $this->setIfExists('interval', $data ?? [], null);
+        $this->setIfExists('day_of_week', $data ?? [], null);
     }
 
     /**
@@ -360,23 +314,26 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['copy_count'] === null) {
+            $invalidProperties[] = "'copy_count' can't be null";
         }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['creation_start_at'] === null) {
+            $invalidProperties[] = "'creation_start_at' can't be null";
         }
-        $allowedValues = $this->getHashTypeAllowableValues();
-        if (!is_null($this->container['hash_type']) && !in_array($this->container['hash_type'], $allowedValues, true)) {
+        if ($this->container['interval'] === null) {
+            $invalidProperties[] = "'interval' can't be null";
+        }
+        $allowedValues = $this->getIntervalAllowableValues();
+        if (!is_null($this->container['interval']) && !in_array($this->container['interval'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'hash_type', must be one of '%s'",
-                $this->container['hash_type'],
+                "invalid value '%s' for 'interval', must be one of '%s'",
+                $this->container['interval'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['preset_id'] === null) {
-            $invalidProperties[] = "'preset_id' can't be null";
+        if ($this->container['day_of_week'] === null) {
+            $invalidProperties[] = "'day_of_week' can't be null";
         }
         return $invalidProperties;
     }
@@ -394,308 +351,119 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets copy_count
+     *
+     * @return float
+     */
+    public function getCopyCount()
+    {
+        return $this->container['copy_count'];
+    }
+
+    /**
+     * Sets copy_count
+     *
+     * @param float $copy_count Количество копий для хранения. Минимальное количество `1`, максимальное `99`
+     *
+     * @return self
+     */
+    public function setCopyCount($copy_count)
+    {
+        if (is_null($copy_count)) {
+            throw new \InvalidArgumentException('non-nullable copy_count cannot be null');
+        }
+        $this->container['copy_count'] = $copy_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets creation_start_at
+     *
+     * @return \DateTime
+     */
+    public function getCreationStartAt()
+    {
+        return $this->container['creation_start_at'];
+    }
+
+    /**
+     * Sets creation_start_at
+     *
+     * @param \DateTime $creation_start_at Дата начала создания первого автобэкапа. Значение в формате `ISO8601`. Время не учитывается.
+     *
+     * @return self
+     */
+    public function setCreationStartAt($creation_start_at)
+    {
+        if (is_null($creation_start_at)) {
+            throw new \InvalidArgumentException('non-nullable creation_start_at cannot be null');
+        }
+        $this->container['creation_start_at'] = $creation_start_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets interval
      *
      * @return string
      */
-    public function getName()
+    public function getInterval()
     {
-        return $this->container['name'];
+        return $this->container['interval'];
     }
 
     /**
-     * Sets name
+     * Sets interval
      *
-     * @param string $name Название кластера базы данных.
+     * @param string $interval Периодичность создания автобэкапов
      *
      * @return self
      */
-    public function setName($name)
+    public function setInterval($interval)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($interval)) {
+            throw new \InvalidArgumentException('non-nullable interval cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return \OpenAPI\Client\Model\DbType
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \OpenAPI\Client\Model\DbType $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets admin
-     *
-     * @return \OpenAPI\Client\Model\CreateClusterAdmin|null
-     */
-    public function getAdmin()
-    {
-        return $this->container['admin'];
-    }
-
-    /**
-     * Sets admin
-     *
-     * @param \OpenAPI\Client\Model\CreateClusterAdmin|null $admin admin
-     *
-     * @return self
-     */
-    public function setAdmin($admin)
-    {
-        if (is_null($admin)) {
-            throw new \InvalidArgumentException('non-nullable admin cannot be null');
-        }
-        $this->container['admin'] = $admin;
-
-        return $this;
-    }
-
-    /**
-     * Gets instance
-     *
-     * @return \OpenAPI\Client\Model\CreateClusterInstance|null
-     */
-    public function getInstance()
-    {
-        return $this->container['instance'];
-    }
-
-    /**
-     * Sets instance
-     *
-     * @param \OpenAPI\Client\Model\CreateClusterInstance|null $instance instance
-     *
-     * @return self
-     */
-    public function setInstance($instance)
-    {
-        if (is_null($instance)) {
-            throw new \InvalidArgumentException('non-nullable instance cannot be null');
-        }
-        $this->container['instance'] = $instance;
-
-        return $this;
-    }
-
-    /**
-     * Gets hash_type
-     *
-     * @return string|null
-     */
-    public function getHashType()
-    {
-        return $this->container['hash_type'];
-    }
-
-    /**
-     * Sets hash_type
-     *
-     * @param string|null $hash_type Тип хеширования базы данных (mysql5 | mysql | postgres).
-     *
-     * @return self
-     */
-    public function setHashType($hash_type)
-    {
-        if (is_null($hash_type)) {
-            throw new \InvalidArgumentException('non-nullable hash_type cannot be null');
-        }
-        $allowedValues = $this->getHashTypeAllowableValues();
-        if (!in_array($hash_type, $allowedValues, true)) {
+        $allowedValues = $this->getIntervalAllowableValues();
+        if (!in_array($interval, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'hash_type', must be one of '%s'",
-                    $hash_type,
+                    "Invalid value '%s' for 'interval', must be one of '%s'",
+                    $interval,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['hash_type'] = $hash_type;
+        $this->container['interval'] = $interval;
 
         return $this;
     }
 
     /**
-     * Gets preset_id
+     * Gets day_of_week
      *
-     * @return int
+     * @return float
      */
-    public function getPresetId()
+    public function getDayOfWeek()
     {
-        return $this->container['preset_id'];
+        return $this->container['day_of_week'];
     }
 
     /**
-     * Sets preset_id
+     * Sets day_of_week
      *
-     * @param int $preset_id Идентификатор тарифа.
+     * @param float $day_of_week День недели, в который будут создаваться автобэкапы. Работает только со значением `interval`: `week`. Доступные значение от `1 `до `7`.
      *
      * @return self
      */
-    public function setPresetId($preset_id)
+    public function setDayOfWeek($day_of_week)
     {
-        if (is_null($preset_id)) {
-            throw new \InvalidArgumentException('non-nullable preset_id cannot be null');
+        if (is_null($day_of_week)) {
+            throw new \InvalidArgumentException('non-nullable day_of_week cannot be null');
         }
-        $this->container['preset_id'] = $preset_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets config_parameters
-     *
-     * @return \OpenAPI\Client\Model\ConfigParameters|null
-     */
-    public function getConfigParameters()
-    {
-        return $this->container['config_parameters'];
-    }
-
-    /**
-     * Sets config_parameters
-     *
-     * @param \OpenAPI\Client\Model\ConfigParameters|null $config_parameters config_parameters
-     *
-     * @return self
-     */
-    public function setConfigParameters($config_parameters)
-    {
-        if (is_null($config_parameters)) {
-            throw new \InvalidArgumentException('non-nullable config_parameters cannot be null');
-        }
-        $this->container['config_parameters'] = $config_parameters;
-
-        return $this;
-    }
-
-    /**
-     * Gets network
-     *
-     * @return \OpenAPI\Client\Model\Network|null
-     */
-    public function getNetwork()
-    {
-        return $this->container['network'];
-    }
-
-    /**
-     * Sets network
-     *
-     * @param \OpenAPI\Client\Model\Network|null $network network
-     *
-     * @return self
-     */
-    public function setNetwork($network)
-    {
-        if (is_null($network)) {
-            throw new \InvalidArgumentException('non-nullable network cannot be null');
-        }
-        $this->container['network'] = $network;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Описание кластера базы данных
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets availability_zone
-     *
-     * @return \OpenAPI\Client\Model\AvailabilityZone|null
-     */
-    public function getAvailabilityZone()
-    {
-        return $this->container['availability_zone'];
-    }
-
-    /**
-     * Sets availability_zone
-     *
-     * @param \OpenAPI\Client\Model\AvailabilityZone|null $availability_zone availability_zone
-     *
-     * @return self
-     */
-    public function setAvailabilityZone($availability_zone)
-    {
-        if (is_null($availability_zone)) {
-            throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
-        }
-        $this->container['availability_zone'] = $availability_zone;
-
-        return $this;
-    }
-
-    /**
-     * Gets auto_backups
-     *
-     * @return \OpenAPI\Client\Model\CreateDbAutoBackups|null
-     */
-    public function getAutoBackups()
-    {
-        return $this->container['auto_backups'];
-    }
-
-    /**
-     * Sets auto_backups
-     *
-     * @param \OpenAPI\Client\Model\CreateDbAutoBackups|null $auto_backups auto_backups
-     *
-     * @return self
-     */
-    public function setAutoBackups($auto_backups)
-    {
-        if (is_null($auto_backups)) {
-            throw new \InvalidArgumentException('non-nullable auto_backups cannot be null');
-        }
-        $this->container['auto_backups'] = $auto_backups;
+        $this->container['day_of_week'] = $day_of_week;
 
         return $this;
     }

@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **network** | [**\OpenAPI\Client\Model\Network**](Network.md) |  | [optional]
 **description** | **string** | Описание кластера базы данных | [optional]
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  | [optional]
+**auto_backups** | [**\OpenAPI\Client\Model\CreateDbAutoBackups**](CreateDbAutoBackups.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
