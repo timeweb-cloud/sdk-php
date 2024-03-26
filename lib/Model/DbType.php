@@ -54,9 +54,17 @@ class DbType
 
     public const POSTGRES15 = 'postgres15';
 
+    public const POSTGRES16 = 'postgres16';
+
     public const REDIS = 'redis';
 
+    public const MONGODB4 = 'mongodb4';
+
     public const MONGODB = 'mongodb';
+
+    public const MONGODB6 = 'mongodb6';
+
+    public const MONGODB7 = 'mongodb7';
 
     public const OPENSEARCH = 'opensearch';
 
@@ -78,8 +86,12 @@ class DbType
             self::POSTGRES,
             self::POSTGRES14,
             self::POSTGRES15,
+            self::POSTGRES16,
             self::REDIS,
+            self::MONGODB4,
             self::MONGODB,
+            self::MONGODB6,
+            self::MONGODB7,
             self::OPENSEARCH,
             self::KAFKA,
             self::RABBITMQ,
