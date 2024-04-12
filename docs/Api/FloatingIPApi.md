@@ -82,7 +82,7 @@ createFloatingIp($create_floating_ip): \OpenAPI\Client\Model\CreateFloatingIp201
 
 Создание плавающего IP
 
-Чтобы создать создать плавающий IP, отправьте POST-запрос в `/api/v1/floating-ip`, задав необходимые атрибуты.
+Чтобы создать создать плавающий IP, отправьте POST-запрос в `/api/v1/floating-ips`, задав необходимые атрибуты.
 
 ### Example
 

@@ -238,6 +238,7 @@ class BindFloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
     public const RESOURCE_TYPE_SERVER = 'server';
     public const RESOURCE_TYPE_BALANCER = 'balancer';
     public const RESOURCE_TYPE_DATABASE = 'database';
+    public const RESOURCE_TYPE_NETWORK = 'network';
 
     /**
      * Gets allowable values of the enum
@@ -250,6 +251,7 @@ class BindFloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
             self::RESOURCE_TYPE_SERVER,
             self::RESOURCE_TYPE_BALANCER,
             self::RESOURCE_TYPE_DATABASE,
+            self::RESOURCE_TYPE_NETWORK,
         ];
     }
 

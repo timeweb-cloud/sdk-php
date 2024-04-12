@@ -275,6 +275,10 @@ class UpdateNotificationSettingsRequest implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['settings']) && (count($this->container['settings']) < 1)) {
+            $invalidProperties[] = "invalid value for 'settings', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -311,6 +315,11 @@ class UpdateNotificationSettingsRequest implements ModelInterface, ArrayAccess, 
     {
         if (is_null($settings)) {
             throw new \InvalidArgumentException('non-nullable settings cannot be null');
+        }
+
+
+        if ((count($settings) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $settings when calling UpdateNotificationSettingsRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['settings'] = $settings;
 

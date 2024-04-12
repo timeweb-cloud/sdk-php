@@ -93,13 +93,13 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'ip' => false,
+		'ip' => true,
 		'is_ddos_guard' => false,
 		'availability_zone' => false,
-		'resource_type' => false,
-		'resource_id' => false,
-		'comment' => false,
-		'ptr' => false
+		'resource_type' => true,
+		'resource_id' => true,
+		'comment' => true,
+		'ptr' => true
     ];
 
     /**
@@ -274,6 +274,7 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
     public const RESOURCE_TYPE_SERVER = 'server';
     public const RESOURCE_TYPE_BALANCER = 'balancer';
     public const RESOURCE_TYPE_DATABASE = 'database';
+    public const RESOURCE_TYPE_NETWORK = 'network';
 
     /**
      * Gets allowable values of the enum
@@ -286,6 +287,7 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
             self::RESOURCE_TYPE_SERVER,
             self::RESOURCE_TYPE_BALANCER,
             self::RESOURCE_TYPE_DATABASE,
+            self::RESOURCE_TYPE_NETWORK,
         ];
     }
 
@@ -353,6 +355,9 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['availability_zone'] === null) {
             $invalidProperties[] = "'availability_zone' can't be null";
         }
+        if ($this->container['resource_type'] === null) {
+            $invalidProperties[] = "'resource_type' can't be null";
+        }
         $allowedValues = $this->getResourceTypeAllowableValues();
         if (!is_null($this->container['resource_type']) && !in_array($this->container['resource_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -362,6 +367,15 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['resource_id'] === null) {
+            $invalidProperties[] = "'resource_id' can't be null";
+        }
+        if ($this->container['comment'] === null) {
+            $invalidProperties[] = "'comment' can't be null";
+        }
+        if ($this->container['ptr'] === null) {
+            $invalidProperties[] = "'ptr' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -424,7 +438,14 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIp($ip)
     {
         if (is_null($ip)) {
-            throw new \InvalidArgumentException('non-nullable ip cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ip');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ip', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['ip'] = $ip;
 
@@ -488,7 +509,7 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets resource_type
      *
-     * @return string|null
+     * @return string
      */
     public function getResourceType()
     {
@@ -498,17 +519,24 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets resource_type
      *
-     * @param string|null $resource_type Тип ресурса.
+     * @param string $resource_type Тип ресурса.
      *
      * @return self
      */
     public function setResourceType($resource_type)
     {
         if (is_null($resource_type)) {
-            throw new \InvalidArgumentException('non-nullable resource_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'resource_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('resource_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getResourceTypeAllowableValues();
-        if (!in_array($resource_type, $allowedValues, true)) {
+        if (!is_null($resource_type) && !in_array($resource_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'resource_type', must be one of '%s'",
@@ -525,7 +553,7 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets resource_id
      *
-     * @return float|null
+     * @return float
      */
     public function getResourceId()
     {
@@ -535,14 +563,21 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets resource_id
      *
-     * @param float|null $resource_id Id ресурса.
+     * @param float $resource_id Id ресурса.
      *
      * @return self
      */
     public function setResourceId($resource_id)
     {
         if (is_null($resource_id)) {
-            throw new \InvalidArgumentException('non-nullable resource_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'resource_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('resource_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['resource_id'] = $resource_id;
 
@@ -552,7 +587,7 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets comment
      *
-     * @return string|null
+     * @return string
      */
     public function getComment()
     {
@@ -562,14 +597,21 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets comment
      *
-     * @param string|null $comment Комментарий
+     * @param string $comment Комментарий
      *
      * @return self
      */
     public function setComment($comment)
     {
         if (is_null($comment)) {
-            throw new \InvalidArgumentException('non-nullable comment cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'comment');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('comment', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['comment'] = $comment;
 
@@ -579,7 +621,7 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets ptr
      *
-     * @return string|null
+     * @return string
      */
     public function getPtr()
     {
@@ -589,14 +631,21 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ptr
      *
-     * @param string|null $ptr Запись имени узла.
+     * @param string $ptr Запись имени узла.
      *
      * @return self
      */
     public function setPtr($ptr)
     {
         if (is_null($ptr)) {
-            throw new \InvalidArgumentException('non-nullable ptr cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ptr');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ptr', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['ptr'] = $ptr;
 
