@@ -56,10 +56,6 @@ class Location
 
     public const NL_1 = 'nl-1';
 
-    public const US_1 = 'us-1';
-
-    public const US_2 = 'us-2';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -72,9 +68,7 @@ class Location
             self::RU_3,
             self::PL_1,
             self::KZ_1,
-            self::NL_1,
-            self::US_1,
-            self::US_2
+            self::NL_1
         ];
     }
 }

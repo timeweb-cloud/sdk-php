@@ -19,6 +19,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getDatabaseBackup()**](DatabasesApi.md#getDatabaseBackup) | **GET** /api/v1/dbs/{db_id}/backups/{backup_id} | Получение бэкапа базы данных |
 | [**getDatabaseBackups()**](DatabasesApi.md#getDatabaseBackups) | **GET** /api/v1/dbs/{db_id}/backups | Список бэкапов базы данных |
 | [**getDatabaseCluster()**](DatabasesApi.md#getDatabaseCluster) | **GET** /api/v1/databases/{db_cluster_id} | Получение кластера базы данных |
+| [**getDatabaseClusterTypes()**](DatabasesApi.md#getDatabaseClusterTypes) | **GET** /api/v1/database-types | Получение списка типов кластеров баз данных |
 | [**getDatabaseClusters()**](DatabasesApi.md#getDatabaseClusters) | **GET** /api/v1/databases | Получение списка кластеров баз данных |
 | [**getDatabaseInstance()**](DatabasesApi.md#getDatabaseInstance) | **GET** /api/v1/databases/{db_cluster_id}/instances/{instance_id} | Получение инстанса базы данных |
 | [**getDatabaseInstances()**](DatabasesApi.md#getDatabaseInstances) | **GET** /api/v1/databases/{db_cluster_id}/instances | Получение списка инстансов баз данных |
@@ -941,6 +942,63 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\CreateDatabaseCluster201Response**](../Model/CreateDatabaseCluster201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDatabaseClusterTypes()`
+
+```php
+getDatabaseClusterTypes(): \OpenAPI\Client\Model\GetDatabaseClusterTypes200Response
+```
+
+Получение списка типов кластеров баз данных
+
+Чтобы получить список типов баз данных на вашем аккаунте, отправьте GET-запрос на `/api/v1/database-types`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getDatabaseClusterTypes();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DatabasesApi->getDatabaseClusterTypes: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\OpenAPI\Client\Model\GetDatabaseClusterTypes200Response**](../Model/GetDatabaseClusterTypes200Response.md)
 
 ### Authorization
 
