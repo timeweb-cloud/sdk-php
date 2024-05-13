@@ -14,6 +14,7 @@ docs/Api/FirewallApi.md
 docs/Api/FloatingIPApi.md
 docs/Api/ImagesApi.md
 docs/Api/KubernetesApi.md
+docs/Api/LocationsApi.md
 docs/Api/MailApi.md
 docs/Api/ProjectsApi.md
 docs/Api/S3Api.md
@@ -209,6 +210,7 @@ docs/Model/GetFinances500Response.md
 docs/Model/GetFloatingIps200Response.md
 docs/Model/GetKey200Response.md
 docs/Model/GetKeys200Response.md
+docs/Model/GetLocations200Response.md
 docs/Model/GetMailQuota200Response.md
 docs/Model/GetMailboxes200Response.md
 docs/Model/GetNotificationSettings200Response.md
@@ -259,6 +261,7 @@ docs/Model/ImagesOutResponse.md
 docs/Model/Invoice.md
 docs/Model/K8SVersionsResponse.md
 docs/Model/Location.md
+docs/Model/LocationDto.md
 docs/Model/Mailbox.md
 docs/Model/MailboxAutoReply.md
 docs/Model/MailboxForwardingIncoming.md
@@ -389,6 +392,7 @@ lib/Api/FirewallApi.php
 lib/Api/FloatingIPApi.php
 lib/Api/ImagesApi.php
 lib/Api/KubernetesApi.php
+lib/Api/LocationsApi.php
 lib/Api/MailApi.php
 lib/Api/ProjectsApi.php
 lib/Api/S3Api.php
@@ -587,6 +591,7 @@ lib/Model/GetFinances500Response.php
 lib/Model/GetFloatingIps200Response.php
 lib/Model/GetKey200Response.php
 lib/Model/GetKeys200Response.php
+lib/Model/GetLocations200Response.php
 lib/Model/GetMailQuota200Response.php
 lib/Model/GetMailboxes200Response.php
 lib/Model/GetNotificationSettings200Response.php
@@ -637,6 +642,7 @@ lib/Model/ImagesOutResponse.php
 lib/Model/Invoice.php
 lib/Model/K8SVersionsResponse.php
 lib/Model/Location.php
+lib/Model/LocationDto.php
 lib/Model/Mailbox.php
 lib/Model/MailboxAutoReply.php
 lib/Model/MailboxForwardingIncoming.php
@@ -769,6 +775,7 @@ test/Api/FirewallApiTest.php
 test/Api/FloatingIPApiTest.php
 test/Api/ImagesApiTest.php
 test/Api/KubernetesApiTest.php
+test/Api/LocationsApiTest.php
 test/Api/MailApiTest.php
 test/Api/ProjectsApiTest.php
 test/Api/S3ApiTest.php
@@ -964,6 +971,7 @@ test/Model/GetFinances500ResponseTest.php
 test/Model/GetFloatingIps200ResponseTest.php
 test/Model/GetKey200ResponseTest.php
 test/Model/GetKeys200ResponseTest.php
+test/Model/GetLocations200ResponseTest.php
 test/Model/GetMailQuota200ResponseTest.php
 test/Model/GetMailboxes200ResponseTest.php
 test/Model/GetNotificationSettings200ResponseTest.php
@@ -1013,6 +1021,7 @@ test/Model/ImageUrlInTest.php
 test/Model/ImagesOutResponseTest.php
 test/Model/InvoiceTest.php
 test/Model/K8SVersionsResponseTest.php
+test/Model/LocationDtoTest.php
 test/Model/LocationTest.php
 test/Model/MailboxAutoReplyTest.php
 test/Model/MailboxForwardingIncomingTest.php

@@ -1,6 +1,6 @@
 <?php
 /**
- * LocationTest
+ * LocationDtoTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * LocationTest Class Doc Comment
+ * LocationDtoTest Class Doc Comment
  *
  * @category    Class
- * @description Локация.
+ * @description Локация
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class LocationTest extends TestCase
+class LocationDtoTest extends TestCase
 {
 
     /**
@@ -72,9 +72,36 @@ class LocationTest extends TestCase
     }
 
     /**
-     * Test "Location"
+     * Test "LocationDto"
      */
-    public function testLocation()
+    public function testLocationDto()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "location"
+     */
+    public function testPropertyLocation()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "location_code"
+     */
+    public function testPropertyLocationCode()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "availability_zones"
+     */
+    public function testPropertyAvailabilityZones()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -1,6 +1,6 @@
 <?php
 /**
- * LocationTest
+ * GetLocations200ResponseTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * LocationTest Class Doc Comment
+ * GetLocations200ResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Локация.
+ * @description GetLocations200Response
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class LocationTest extends TestCase
+class GetLocations200ResponseTest extends TestCase
 {
 
     /**
@@ -72,9 +72,27 @@ class LocationTest extends TestCase
     }
 
     /**
-     * Test "Location"
+     * Test "GetLocations200Response"
      */
-    public function testLocation()
+    public function testGetLocations200Response()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "meta"
+     */
+    public function testPropertyMeta()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "locations"
+     */
+    public function testPropertyLocations()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

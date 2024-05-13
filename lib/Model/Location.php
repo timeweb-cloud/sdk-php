@@ -34,7 +34,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * Location Class Doc Comment
  *
  * @category Class
- * @description An enumeration.
+ * @description Локация.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -48,9 +48,17 @@ class Location
 
     public const RU_2 = 'ru-2';
 
+    public const RU_3 = 'ru-3';
+
     public const PL_1 = 'pl-1';
 
     public const KZ_1 = 'kz-1';
+
+    public const NL_1 = 'nl-1';
+
+    public const US_1 = 'us-1';
+
+    public const US_2 = 'us-2';
 
     /**
      * Gets allowable values of the enum
@@ -61,8 +69,12 @@ class Location
         return [
             self::RU_1,
             self::RU_2,
+            self::RU_3,
             self::PL_1,
-            self::KZ_1
+            self::KZ_1,
+            self::NL_1,
+            self::US_1,
+            self::US_2
         ];
     }
 }
