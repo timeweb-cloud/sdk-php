@@ -21,7 +21,7 @@ bindFloatingIp($floating_ip_id, $bind_floating_ip)
 
 Привязать IP к сервису
 
-Чтобы привязать IP к сервису, отправьте POST-запрос на `/api/v1/floating-ip/{floating_ip_id}/bind`.
+Чтобы привязать IP к сервису, отправьте POST-запрос на `/api/v1/floating-ips/{floating_ip_id}/bind`.
 
 ### Example
 
@@ -318,7 +318,7 @@ unbindFloatingIp($floating_ip_id)
 
 Отвязать IP от сервиса
 
-Чтобы отвязать IP от сервиса, отправьте POST-запрос на `/api/v1/floating-ip/{floating_ip_id}/unbind`.
+Чтобы отвязать IP от сервиса, отправьте POST-запрос на `/api/v1/floating-ips/{floating_ip_id}/unbind`.
 
 ### Example
 
