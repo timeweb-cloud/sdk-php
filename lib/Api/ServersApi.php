@@ -10754,6 +10754,7 @@ class ServersApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
+     * @deprecated
      */
     public function performActionOnServer($server_id, $perform_action_on_server_request, string $contentType = self::contentTypes['performActionOnServer'][0])
     {
@@ -10772,6 +10773,7 @@ class ServersApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function performActionOnServerWithHttpInfo($server_id, $perform_action_on_server_request, string $contentType = self::contentTypes['performActionOnServer'][0])
     {
@@ -10888,6 +10890,7 @@ class ServersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function performActionOnServerAsync($server_id, $perform_action_on_server_request, string $contentType = self::contentTypes['performActionOnServer'][0])
     {
@@ -10910,6 +10913,7 @@ class ServersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function performActionOnServerAsyncWithHttpInfo($server_id, $perform_action_on_server_request, string $contentType = self::contentTypes['performActionOnServer'][0])
     {
@@ -10948,6 +10952,7 @@ class ServersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function performActionOnServerRequest($server_id, $perform_action_on_server_request, string $contentType = self::contentTypes['performActionOnServer'][0])
     {
