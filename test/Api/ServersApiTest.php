@@ -73,6 +73,18 @@ class ServersApiTest extends TestCase
     }
 
     /**
+     * Test case for actionOnServer
+     *
+     * Выполнение действия над сервером.
+     *
+     */
+    public function testActionOnServer()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for addServerIP
      *
      * Добавление IP-адреса сервера.

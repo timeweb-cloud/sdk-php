@@ -4,6 +4,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**actionOnServer()**](ServersApi.md#actionOnServer) | **POST** /api/v2/{account_id}/servers/{server_id}/{action} | Выполнение действия над сервером |
 | [**addServerIP()**](ServersApi.md#addServerIP) | **POST** /api/v1/servers/{server_id}/ips | Добавление IP-адреса сервера |
 | [**cloneServer()**](ServersApi.md#cloneServer) | **POST** /api/v1/servers/{server_id}/clone | Клонирование сервера |
 | [**createServer()**](ServersApi.md#createServer) | **POST** /api/v1/servers | Создание сервера |
@@ -38,6 +39,67 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**updateServerNAT()**](ServersApi.md#updateServerNAT) | **PATCH** /api/v1/servers/{server_id}/local-networks/nat-mode | Изменение правил маршрутизации трафика сервера (NAT) |
 | [**updateServerOSBootMode()**](ServersApi.md#updateServerOSBootMode) | **POST** /api/v1/servers/{server_id}/boot-mode | Выбор типа загрузки операционной системы сервера |
 
+
+## `actionOnServer()`
+
+```php
+actionOnServer($server_id, $action)
+```
+
+Выполнение действия над сервером
+
+Чтобы выполнить действие над сервером, отправьте POST-запрос на `/api/v2/{account_id}/servers/{server_id}/{action}`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ServersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$action = install; // string | Действие над сервером
+
+try {
+    $apiInstance->actionOnServer($server_id, $action);
+} catch (Exception $e) {
+    echo 'Exception when calling ServersApi->actionOnServer: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **action** | **string**| Действие над сервером | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `addServerIP()`
 
@@ -1612,7 +1674,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **perform_action_on_server_request** | [**\OpenAPI\Client\Model\PerformActionOnServerRequest**](../Model/PerformActionOnServerRequest.md)|  | |
+| **perform_action_on_server_request** | [**\OpenAPI\Client\Model\PerformActionOnServerRequest**](../Model/PerformActionOnServerRequest.md)|  | [optional] |
 
 ### Return type
 

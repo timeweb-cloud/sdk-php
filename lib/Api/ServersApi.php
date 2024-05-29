@@ -72,6 +72,9 @@ class ServersApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'actionOnServer' => [
+            'application/json',
+        ],
         'addServerIP' => [
             'application/json',
         ],
@@ -217,6 +220,318 @@ class ServersApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation actionOnServer
+     *
+     * Выполнение действия над сервером
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $action Действие над сервером (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionOnServer'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function actionOnServer($server_id, $action, string $contentType = self::contentTypes['actionOnServer'][0])
+    {
+        $this->actionOnServerWithHttpInfo($server_id, $action, $contentType);
+    }
+
+    /**
+     * Operation actionOnServerWithHttpInfo
+     *
+     * Выполнение действия над сервером
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $action Действие над сервером (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionOnServer'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function actionOnServerWithHttpInfo($server_id, $action, string $contentType = self::contentTypes['actionOnServer'][0])
+    {
+        $request = $this->actionOnServerRequest($server_id, $action, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation actionOnServerAsync
+     *
+     * Выполнение действия над сервером
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $action Действие над сервером (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionOnServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function actionOnServerAsync($server_id, $action, string $contentType = self::contentTypes['actionOnServer'][0])
+    {
+        return $this->actionOnServerAsyncWithHttpInfo($server_id, $action, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation actionOnServerAsyncWithHttpInfo
+     *
+     * Выполнение действия над сервером
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $action Действие над сервером (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionOnServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function actionOnServerAsyncWithHttpInfo($server_id, $action, string $contentType = self::contentTypes['actionOnServer'][0])
+    {
+        $returnType = '';
+        $request = $this->actionOnServerRequest($server_id, $action, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'actionOnServer'
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $action Действие над сервером (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionOnServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function actionOnServerRequest($server_id, $action, string $contentType = self::contentTypes['actionOnServer'][0])
+    {
+
+        // verify the required parameter 'server_id' is set
+        if ($server_id === null || (is_array($server_id) && count($server_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $server_id when calling actionOnServer'
+            );
+        }
+        if ($server_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$server_id" when calling ServersApi.actionOnServer, must be bigger than or equal to 1.');
+        }
+        
+        // verify the required parameter 'action' is set
+        if ($action === null || (is_array($action) && count($action) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $action when calling actionOnServer'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/{account_id}/servers/{server_id}/{action}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($server_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'server_id' . '}',
+                ObjectSerializer::toPathValue($server_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($action !== null) {
+            $resourcePath = str_replace(
+                '{' . 'action' . '}',
+                ObjectSerializer::toPathValue($action),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -10748,7 +11063,7 @@ class ServersApi
      * Выполнение действия над сервером
      *
      * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request perform_action_on_server_request (required)
+     * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request perform_action_on_server_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -10756,7 +11071,7 @@ class ServersApi
      * @return void
      * @deprecated
      */
-    public function performActionOnServer($server_id, $perform_action_on_server_request, string $contentType = self::contentTypes['performActionOnServer'][0])
+    public function performActionOnServer($server_id, $perform_action_on_server_request = null, string $contentType = self::contentTypes['performActionOnServer'][0])
     {
         $this->performActionOnServerWithHttpInfo($server_id, $perform_action_on_server_request, $contentType);
     }
@@ -10767,7 +11082,7 @@ class ServersApi
      * Выполнение действия над сервером
      *
      * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request (required)
+     * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -10775,7 +11090,7 @@ class ServersApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @deprecated
      */
-    public function performActionOnServerWithHttpInfo($server_id, $perform_action_on_server_request, string $contentType = self::contentTypes['performActionOnServer'][0])
+    public function performActionOnServerWithHttpInfo($server_id, $perform_action_on_server_request = null, string $contentType = self::contentTypes['performActionOnServer'][0])
     {
         $request = $this->performActionOnServerRequest($server_id, $perform_action_on_server_request, $contentType);
 
@@ -10885,14 +11200,14 @@ class ServersApi
      * Выполнение действия над сервером
      *
      * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request (required)
+     * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function performActionOnServerAsync($server_id, $perform_action_on_server_request, string $contentType = self::contentTypes['performActionOnServer'][0])
+    public function performActionOnServerAsync($server_id, $perform_action_on_server_request = null, string $contentType = self::contentTypes['performActionOnServer'][0])
     {
         return $this->performActionOnServerAsyncWithHttpInfo($server_id, $perform_action_on_server_request, $contentType)
             ->then(
@@ -10908,14 +11223,14 @@ class ServersApi
      * Выполнение действия над сервером
      *
      * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request (required)
+     * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function performActionOnServerAsyncWithHttpInfo($server_id, $perform_action_on_server_request, string $contentType = self::contentTypes['performActionOnServer'][0])
+    public function performActionOnServerAsyncWithHttpInfo($server_id, $perform_action_on_server_request = null, string $contentType = self::contentTypes['performActionOnServer'][0])
     {
         $returnType = '';
         $request = $this->performActionOnServerRequest($server_id, $perform_action_on_server_request, $contentType);
@@ -10947,14 +11262,14 @@ class ServersApi
      * Create request for operation 'performActionOnServer'
      *
      * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request (required)
+     * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      * @deprecated
      */
-    public function performActionOnServerRequest($server_id, $perform_action_on_server_request, string $contentType = self::contentTypes['performActionOnServer'][0])
+    public function performActionOnServerRequest($server_id, $perform_action_on_server_request = null, string $contentType = self::contentTypes['performActionOnServer'][0])
     {
 
         // verify the required parameter 'server_id' is set
@@ -10967,12 +11282,6 @@ class ServersApi
             throw new \InvalidArgumentException('invalid value for "$server_id" when calling ServersApi.performActionOnServer, must be bigger than or equal to 1.');
         }
         
-        // verify the required parameter 'perform_action_on_server_request' is set
-        if ($perform_action_on_server_request === null || (is_array($perform_action_on_server_request) && count($perform_action_on_server_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $perform_action_on_server_request when calling performActionOnServer'
-            );
-        }
 
 
         $resourcePath = '/api/v1/servers/{server_id}/action';

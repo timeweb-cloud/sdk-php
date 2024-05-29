@@ -421,6 +421,7 @@ Class | Method | HTTP request | Description
 *SSHApi* | [**getKey**](docs/Api/SSHApi.md#getkey) | **GET** /api/v1/ssh-keys/{ssh_key_id} | Получение SSH-ключа по уникальному идентификатору
 *SSHApi* | [**getKeys**](docs/Api/SSHApi.md#getkeys) | **GET** /api/v1/ssh-keys | Получение списка SSH-ключей
 *SSHApi* | [**updateKey**](docs/Api/SSHApi.md#updatekey) | **PATCH** /api/v1/ssh-keys/{ssh_key_id} | Изменение SSH-ключа по уникальному идентификатору
+*ServersApi* | [**actionOnServer**](docs/Api/ServersApi.md#actiononserver) | **POST** /api/v2/{account_id}/servers/{server_id}/{action} | Выполнение действия над сервером
 *ServersApi* | [**addServerIP**](docs/Api/ServersApi.md#addserverip) | **POST** /api/v1/servers/{server_id}/ips | Добавление IP-адреса сервера
 *ServersApi* | [**cloneServer**](docs/Api/ServersApi.md#cloneserver) | **POST** /api/v1/servers/{server_id}/clone | Клонирование сервера
 *ServersApi* | [**createServer**](docs/Api/ServersApi.md#createserver) | **POST** /api/v1/servers | Создание сервера
