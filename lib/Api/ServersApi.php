@@ -72,9 +72,6 @@ class ServersApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'actionOnServer' => [
-            'application/json',
-        ],
         'addServerIP' => [
             'application/json',
         ],
@@ -144,13 +141,31 @@ class ServersApi
         'getSoftware' => [
             'application/json',
         ],
+        'hardShutdownServer' => [
+            'application/json',
+        ],
         'imageUnmountAndServerReload' => [
+            'application/json',
+        ],
+        'installServer' => [
             'application/json',
         ],
         'performActionOnBackup' => [
             'application/json',
         ],
         'performActionOnServer' => [
+            'application/json',
+        ],
+        'rebootServer' => [
+            'application/json',
+        ],
+        'resetServerPassword' => [
+            'application/json',
+        ],
+        'shutdownServer' => [
+            'application/json',
+        ],
+        'startServer' => [
             'application/json',
         ],
         'updateServer' => [
@@ -220,318 +235,6 @@ class ServersApi
     public function getConfig()
     {
         return $this->config;
-    }
-
-    /**
-     * Operation actionOnServer
-     *
-     * Выполнение действия над сервером
-     *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  string $action Действие над сервером (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionOnServer'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function actionOnServer($server_id, $action, string $contentType = self::contentTypes['actionOnServer'][0])
-    {
-        $this->actionOnServerWithHttpInfo($server_id, $action, $contentType);
-    }
-
-    /**
-     * Operation actionOnServerWithHttpInfo
-     *
-     * Выполнение действия над сервером
-     *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  string $action Действие над сервером (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionOnServer'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function actionOnServerWithHttpInfo($server_id, $action, string $contentType = self::contentTypes['actionOnServer'][0])
-    {
-        $request = $this->actionOnServerRequest($server_id, $action, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances404Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 409:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances429Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances500Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation actionOnServerAsync
-     *
-     * Выполнение действия над сервером
-     *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  string $action Действие над сервером (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionOnServer'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function actionOnServerAsync($server_id, $action, string $contentType = self::contentTypes['actionOnServer'][0])
-    {
-        return $this->actionOnServerAsyncWithHttpInfo($server_id, $action, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation actionOnServerAsyncWithHttpInfo
-     *
-     * Выполнение действия над сервером
-     *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  string $action Действие над сервером (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionOnServer'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function actionOnServerAsyncWithHttpInfo($server_id, $action, string $contentType = self::contentTypes['actionOnServer'][0])
-    {
-        $returnType = '';
-        $request = $this->actionOnServerRequest($server_id, $action, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'actionOnServer'
-     *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  string $action Действие над сервером (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['actionOnServer'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function actionOnServerRequest($server_id, $action, string $contentType = self::contentTypes['actionOnServer'][0])
-    {
-
-        // verify the required parameter 'server_id' is set
-        if ($server_id === null || (is_array($server_id) && count($server_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $server_id when calling actionOnServer'
-            );
-        }
-        if ($server_id < 1) {
-            throw new \InvalidArgumentException('invalid value for "$server_id" when calling ServersApi.actionOnServer, must be bigger than or equal to 1.');
-        }
-        
-        // verify the required parameter 'action' is set
-        if ($action === null || (is_array($action) && count($action) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $action when calling actionOnServer'
-            );
-        }
-
-
-        $resourcePath = '/api/v2/{account_id}/servers/{server_id}/{action}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($server_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'server_id' . '}',
-                ObjectSerializer::toPathValue($server_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($action !== null) {
-            $resourcePath = str_replace(
-                '{' . 'action' . '}',
-                ObjectSerializer::toPathValue($action),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
@@ -10431,6 +10134,290 @@ class ServersApi
     }
 
     /**
+     * Operation hardShutdownServer
+     *
+     * Принудительное выключение сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hardShutdownServer'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function hardShutdownServer($server_id, string $contentType = self::contentTypes['hardShutdownServer'][0])
+    {
+        $this->hardShutdownServerWithHttpInfo($server_id, $contentType);
+    }
+
+    /**
+     * Operation hardShutdownServerWithHttpInfo
+     *
+     * Принудительное выключение сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hardShutdownServer'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function hardShutdownServerWithHttpInfo($server_id, string $contentType = self::contentTypes['hardShutdownServer'][0])
+    {
+        $request = $this->hardShutdownServerRequest($server_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation hardShutdownServerAsync
+     *
+     * Принудительное выключение сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hardShutdownServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function hardShutdownServerAsync($server_id, string $contentType = self::contentTypes['hardShutdownServer'][0])
+    {
+        return $this->hardShutdownServerAsyncWithHttpInfo($server_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation hardShutdownServerAsyncWithHttpInfo
+     *
+     * Принудительное выключение сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hardShutdownServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function hardShutdownServerAsyncWithHttpInfo($server_id, string $contentType = self::contentTypes['hardShutdownServer'][0])
+    {
+        $returnType = '';
+        $request = $this->hardShutdownServerRequest($server_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'hardShutdownServer'
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hardShutdownServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function hardShutdownServerRequest($server_id, string $contentType = self::contentTypes['hardShutdownServer'][0])
+    {
+
+        // verify the required parameter 'server_id' is set
+        if ($server_id === null || (is_array($server_id) && count($server_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $server_id when calling hardShutdownServer'
+            );
+        }
+        if ($server_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$server_id" when calling ServersApi.hardShutdownServer, must be bigger than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/api/v1/servers/{server_id}/hard-shutdown';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($server_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'server_id' . '}',
+                ObjectSerializer::toPathValue($server_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation imageUnmountAndServerReload
      *
      * Отмонтирование ISO образа и перезагрузка сервера
@@ -10631,6 +10618,290 @@ class ServersApi
         
 
         $resourcePath = '/api/v1/servers/{server_id}/image-unmount';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($server_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'server_id' . '}',
+                ObjectSerializer::toPathValue($server_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation installServer
+     *
+     * Установка сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['installServer'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function installServer($server_id, string $contentType = self::contentTypes['installServer'][0])
+    {
+        $this->installServerWithHttpInfo($server_id, $contentType);
+    }
+
+    /**
+     * Operation installServerWithHttpInfo
+     *
+     * Установка сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['installServer'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function installServerWithHttpInfo($server_id, string $contentType = self::contentTypes['installServer'][0])
+    {
+        $request = $this->installServerRequest($server_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation installServerAsync
+     *
+     * Установка сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['installServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function installServerAsync($server_id, string $contentType = self::contentTypes['installServer'][0])
+    {
+        return $this->installServerAsyncWithHttpInfo($server_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation installServerAsyncWithHttpInfo
+     *
+     * Установка сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['installServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function installServerAsyncWithHttpInfo($server_id, string $contentType = self::contentTypes['installServer'][0])
+    {
+        $returnType = '';
+        $request = $this->installServerRequest($server_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'installServer'
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['installServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function installServerRequest($server_id, string $contentType = self::contentTypes['installServer'][0])
+    {
+
+        // verify the required parameter 'server_id' is set
+        if ($server_id === null || (is_array($server_id) && count($server_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $server_id when calling installServer'
+            );
+        }
+        if ($server_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$server_id" when calling ServersApi.installServer, must be bigger than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/api/v1/servers/{server_id}/install';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -11318,6 +11589,1126 @@ class ServersApi
                 $httpBody = $perform_action_on_server_request;
             }
         } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation rebootServer
+     *
+     * Перезагрузка сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rebootServer'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function rebootServer($server_id, string $contentType = self::contentTypes['rebootServer'][0])
+    {
+        $this->rebootServerWithHttpInfo($server_id, $contentType);
+    }
+
+    /**
+     * Operation rebootServerWithHttpInfo
+     *
+     * Перезагрузка сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rebootServer'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function rebootServerWithHttpInfo($server_id, string $contentType = self::contentTypes['rebootServer'][0])
+    {
+        $request = $this->rebootServerRequest($server_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation rebootServerAsync
+     *
+     * Перезагрузка сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rebootServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rebootServerAsync($server_id, string $contentType = self::contentTypes['rebootServer'][0])
+    {
+        return $this->rebootServerAsyncWithHttpInfo($server_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation rebootServerAsyncWithHttpInfo
+     *
+     * Перезагрузка сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rebootServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rebootServerAsyncWithHttpInfo($server_id, string $contentType = self::contentTypes['rebootServer'][0])
+    {
+        $returnType = '';
+        $request = $this->rebootServerRequest($server_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'rebootServer'
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rebootServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function rebootServerRequest($server_id, string $contentType = self::contentTypes['rebootServer'][0])
+    {
+
+        // verify the required parameter 'server_id' is set
+        if ($server_id === null || (is_array($server_id) && count($server_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $server_id when calling rebootServer'
+            );
+        }
+        if ($server_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$server_id" when calling ServersApi.rebootServer, must be bigger than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/api/v1/servers/{server_id}/reboot';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($server_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'server_id' . '}',
+                ObjectSerializer::toPathValue($server_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation resetServerPassword
+     *
+     * Сброс пароля сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetServerPassword'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function resetServerPassword($server_id, string $contentType = self::contentTypes['resetServerPassword'][0])
+    {
+        $this->resetServerPasswordWithHttpInfo($server_id, $contentType);
+    }
+
+    /**
+     * Operation resetServerPasswordWithHttpInfo
+     *
+     * Сброс пароля сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetServerPassword'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function resetServerPasswordWithHttpInfo($server_id, string $contentType = self::contentTypes['resetServerPassword'][0])
+    {
+        $request = $this->resetServerPasswordRequest($server_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation resetServerPasswordAsync
+     *
+     * Сброс пароля сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetServerPassword'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function resetServerPasswordAsync($server_id, string $contentType = self::contentTypes['resetServerPassword'][0])
+    {
+        return $this->resetServerPasswordAsyncWithHttpInfo($server_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation resetServerPasswordAsyncWithHttpInfo
+     *
+     * Сброс пароля сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetServerPassword'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function resetServerPasswordAsyncWithHttpInfo($server_id, string $contentType = self::contentTypes['resetServerPassword'][0])
+    {
+        $returnType = '';
+        $request = $this->resetServerPasswordRequest($server_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'resetServerPassword'
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetServerPassword'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function resetServerPasswordRequest($server_id, string $contentType = self::contentTypes['resetServerPassword'][0])
+    {
+
+        // verify the required parameter 'server_id' is set
+        if ($server_id === null || (is_array($server_id) && count($server_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $server_id when calling resetServerPassword'
+            );
+        }
+        if ($server_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$server_id" when calling ServersApi.resetServerPassword, must be bigger than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/api/v1/servers/{server_id}/reset-password';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($server_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'server_id' . '}',
+                ObjectSerializer::toPathValue($server_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation shutdownServer
+     *
+     * Выключение сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['shutdownServer'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function shutdownServer($server_id, string $contentType = self::contentTypes['shutdownServer'][0])
+    {
+        $this->shutdownServerWithHttpInfo($server_id, $contentType);
+    }
+
+    /**
+     * Operation shutdownServerWithHttpInfo
+     *
+     * Выключение сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['shutdownServer'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function shutdownServerWithHttpInfo($server_id, string $contentType = self::contentTypes['shutdownServer'][0])
+    {
+        $request = $this->shutdownServerRequest($server_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation shutdownServerAsync
+     *
+     * Выключение сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['shutdownServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function shutdownServerAsync($server_id, string $contentType = self::contentTypes['shutdownServer'][0])
+    {
+        return $this->shutdownServerAsyncWithHttpInfo($server_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation shutdownServerAsyncWithHttpInfo
+     *
+     * Выключение сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['shutdownServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function shutdownServerAsyncWithHttpInfo($server_id, string $contentType = self::contentTypes['shutdownServer'][0])
+    {
+        $returnType = '';
+        $request = $this->shutdownServerRequest($server_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'shutdownServer'
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['shutdownServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function shutdownServerRequest($server_id, string $contentType = self::contentTypes['shutdownServer'][0])
+    {
+
+        // verify the required parameter 'server_id' is set
+        if ($server_id === null || (is_array($server_id) && count($server_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $server_id when calling shutdownServer'
+            );
+        }
+        if ($server_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$server_id" when calling ServersApi.shutdownServer, must be bigger than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/api/v1/servers/{server_id}/shutdown';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($server_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'server_id' . '}',
+                ObjectSerializer::toPathValue($server_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation startServer
+     *
+     * Запуск сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startServer'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function startServer($server_id, string $contentType = self::contentTypes['startServer'][0])
+    {
+        $this->startServerWithHttpInfo($server_id, $contentType);
+    }
+
+    /**
+     * Operation startServerWithHttpInfo
+     *
+     * Запуск сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startServer'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function startServerWithHttpInfo($server_id, string $contentType = self::contentTypes['startServer'][0])
+    {
+        $request = $this->startServerRequest($server_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation startServerAsync
+     *
+     * Запуск сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function startServerAsync($server_id, string $contentType = self::contentTypes['startServer'][0])
+    {
+        return $this->startServerAsyncWithHttpInfo($server_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation startServerAsyncWithHttpInfo
+     *
+     * Запуск сервера
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function startServerAsyncWithHttpInfo($server_id, string $contentType = self::contentTypes['startServer'][0])
+    {
+        $returnType = '';
+        $request = $this->startServerRequest($server_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'startServer'
+     *
+     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startServer'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function startServerRequest($server_id, string $contentType = self::contentTypes['startServer'][0])
+    {
+
+        // verify the required parameter 'server_id' is set
+        if ($server_id === null || (is_array($server_id) && count($server_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $server_id when calling startServer'
+            );
+        }
+        if ($server_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$server_id" when calling ServersApi.startServer, must be bigger than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/api/v1/servers/{server_id}/start';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($server_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'server_id' . '}',
+                ObjectSerializer::toPathValue($server_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

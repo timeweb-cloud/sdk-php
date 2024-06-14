@@ -73,18 +73,6 @@ class ServersApiTest extends TestCase
     }
 
     /**
-     * Test case for actionOnServer
-     *
-     * Выполнение действия над сервером.
-     *
-     */
-    public function testActionOnServer()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for addServerIP
      *
      * Добавление IP-адреса сервера.
@@ -361,12 +349,36 @@ class ServersApiTest extends TestCase
     }
 
     /**
+     * Test case for hardShutdownServer
+     *
+     * Принудительное выключение сервера.
+     *
+     */
+    public function testHardShutdownServer()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for imageUnmountAndServerReload
      *
      * Отмонтирование ISO образа и перезагрузка сервера.
      *
      */
     public function testImageUnmountAndServerReload()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for installServer
+     *
+     * Установка сервера.
+     *
+     */
+    public function testInstallServer()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -391,6 +403,54 @@ class ServersApiTest extends TestCase
      *
      */
     public function testPerformActionOnServer()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for rebootServer
+     *
+     * Перезагрузка сервера.
+     *
+     */
+    public function testRebootServer()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for resetServerPassword
+     *
+     * Сброс пароля сервера.
+     *
+     */
+    public function testResetServerPassword()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for shutdownServer
+     *
+     * Выключение сервера.
+     *
+     */
+    public function testShutdownServer()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for startServer
+     *
+     * Запуск сервера.
+     *
+     */
+    public function testStartServer()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
