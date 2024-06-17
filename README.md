@@ -600,7 +600,6 @@ Class | Method | HTTP request | Description
 - [DomainPrimeType](docs/Model/DomainPrimeType.md)
 - [DomainProlong](docs/Model/DomainProlong.md)
 - [DomainRegister](docs/Model/DomainRegister.md)
-- [DomainRegisterNsInner](docs/Model/DomainRegisterNsInner.md)
 - [DomainRequest](docs/Model/DomainRequest.md)
 - [DomainTransfer](docs/Model/DomainTransfer.md)
 - [EditApiKey](docs/Model/EditApiKey.md)

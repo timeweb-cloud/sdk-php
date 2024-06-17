@@ -151,7 +151,6 @@ docs/Model/DomainPaymentPeriod.md
 docs/Model/DomainPrimeType.md
 docs/Model/DomainProlong.md
 docs/Model/DomainRegister.md
-docs/Model/DomainRegisterNsInner.md
 docs/Model/DomainRequest.md
 docs/Model/DomainTransfer.md
 docs/Model/EditApiKey.md
@@ -534,7 +533,6 @@ lib/Model/DomainPaymentPeriod.php
 lib/Model/DomainPrimeType.php
 lib/Model/DomainProlong.php
 lib/Model/DomainRegister.php
-lib/Model/DomainRegisterNsInner.php
 lib/Model/DomainRequest.php
 lib/Model/DomainTransfer.php
 lib/Model/EditApiKey.php
@@ -914,7 +912,6 @@ test/Model/DomainNameServerTest.php
 test/Model/DomainPaymentPeriodTest.php
 test/Model/DomainPrimeTypeTest.php
 test/Model/DomainProlongTest.php
-test/Model/DomainRegisterNsInnerTest.php
 test/Model/DomainRegisterTest.php
 test/Model/DomainRequestTest.php
 test/Model/DomainTest.php

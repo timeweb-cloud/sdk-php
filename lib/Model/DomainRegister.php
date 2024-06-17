@@ -63,7 +63,6 @@ class DomainRegister implements ModelInterface, ArrayAccess, \JsonSerializable
         'fqdn' => 'string',
         'is_autoprolong_enabled' => 'bool',
         'is_whois_privacy_enabled' => 'bool',
-        'ns' => '\OpenAPI\Client\Model\DomainRegisterNsInner[]',
         'period' => '\OpenAPI\Client\Model\DomainPaymentPeriod',
         'person_id' => 'float'
     ];
@@ -80,7 +79,6 @@ class DomainRegister implements ModelInterface, ArrayAccess, \JsonSerializable
         'fqdn' => null,
         'is_autoprolong_enabled' => null,
         'is_whois_privacy_enabled' => null,
-        'ns' => null,
         'period' => null,
         'person_id' => null
     ];
@@ -95,7 +93,6 @@ class DomainRegister implements ModelInterface, ArrayAccess, \JsonSerializable
 		'fqdn' => false,
 		'is_autoprolong_enabled' => false,
 		'is_whois_privacy_enabled' => false,
-		'ns' => false,
 		'period' => false,
 		'person_id' => false
     ];
@@ -190,7 +187,6 @@ class DomainRegister implements ModelInterface, ArrayAccess, \JsonSerializable
         'fqdn' => 'fqdn',
         'is_autoprolong_enabled' => 'is_autoprolong_enabled',
         'is_whois_privacy_enabled' => 'is_whois_privacy_enabled',
-        'ns' => 'ns',
         'period' => 'period',
         'person_id' => 'person_id'
     ];
@@ -205,7 +201,6 @@ class DomainRegister implements ModelInterface, ArrayAccess, \JsonSerializable
         'fqdn' => 'setFqdn',
         'is_autoprolong_enabled' => 'setIsAutoprolongEnabled',
         'is_whois_privacy_enabled' => 'setIsWhoisPrivacyEnabled',
-        'ns' => 'setNs',
         'period' => 'setPeriod',
         'person_id' => 'setPersonId'
     ];
@@ -220,7 +215,6 @@ class DomainRegister implements ModelInterface, ArrayAccess, \JsonSerializable
         'fqdn' => 'getFqdn',
         'is_autoprolong_enabled' => 'getIsAutoprolongEnabled',
         'is_whois_privacy_enabled' => 'getIsWhoisPrivacyEnabled',
-        'ns' => 'getNs',
         'period' => 'getPeriod',
         'person_id' => 'getPersonId'
     ];
@@ -299,7 +293,6 @@ class DomainRegister implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('fqdn', $data ?? [], null);
         $this->setIfExists('is_autoprolong_enabled', $data ?? [], null);
         $this->setIfExists('is_whois_privacy_enabled', $data ?? [], null);
-        $this->setIfExists('ns', $data ?? [], null);
         $this->setIfExists('period', $data ?? [], null);
         $this->setIfExists('person_id', $data ?? [], null);
     }
@@ -478,33 +471,6 @@ class DomainRegister implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_whois_privacy_enabled cannot be null');
         }
         $this->container['is_whois_privacy_enabled'] = $is_whois_privacy_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets ns
-     *
-     * @return \OpenAPI\Client\Model\DomainRegisterNsInner[]|null
-     */
-    public function getNs()
-    {
-        return $this->container['ns'];
-    }
-
-    /**
-     * Sets ns
-     *
-     * @param \OpenAPI\Client\Model\DomainRegisterNsInner[]|null $ns Name-серверы для регистрации домена. Если не передавать этот параметр, будут использованы наши стандартные name-серверы. Нужно указать как минимум 2 name-сервера.
-     *
-     * @return self
-     */
-    public function setNs($ns)
-    {
-        if (is_null($ns)) {
-            throw new \InvalidArgumentException('non-nullable ns cannot be null');
-        }
-        $this->container['ns'] = $ns;
 
         return $this;
     }

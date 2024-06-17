@@ -117,15 +117,6 @@ class DomainRegisterTest extends TestCase
     }
 
     /**
-     * Test attribute "ns"
-     */
-    public function testPropertyNs()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "period"
      */
     public function testPropertyPeriod()
