@@ -29,7 +29,6 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getSoftware()**](ServersApi.md#getSoftware) | **GET** /api/v1/software/servers | Получение списка ПО из маркетплейса |
 | [**hardShutdownServer()**](ServersApi.md#hardShutdownServer) | **POST** /api/v1/servers/{server_id}/hard-shutdown | Принудительное выключение сервера |
 | [**imageUnmountAndServerReload()**](ServersApi.md#imageUnmountAndServerReload) | **POST** /api/v1/servers/{server_id}/image-unmount | Отмонтирование ISO образа и перезагрузка сервера |
-| [**installServer()**](ServersApi.md#installServer) | **POST** /api/v1/servers/{server_id}/install | Установка сервера |
 | [**performActionOnBackup()**](ServersApi.md#performActionOnBackup) | **POST** /api/v1/servers/{server_id}/disks/{disk_id}/backups/{backup_id}/action | Выполнение действия над бэкапом диска сервера |
 | [**performActionOnServer()**](ServersApi.md#performActionOnServer) | **POST** /api/v1/servers/{server_id}/action | Выполнение действия над сервером |
 | [**rebootServer()**](ServersApi.md#rebootServer) | **POST** /api/v1/servers/{server_id}/reboot | Перезагрузка сервера |
@@ -1544,65 +1543,6 @@ try {
     $apiInstance->imageUnmountAndServerReload($server_id);
 } catch (Exception $e) {
     echo 'Exception when calling ServersApi->imageUnmountAndServerReload: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `installServer()`
-
-```php
-installServer($server_id)
-```
-
-Установка сервера
-
-Чтобы установить сервер, отправьте POST-запрос на `/api/v1/servers/{server_id}/install`.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\ServersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-
-try {
-    $apiInstance->installServer($server_id);
-} catch (Exception $e) {
-    echo 'Exception when calling ServersApi->installServer: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

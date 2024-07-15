@@ -373,18 +373,6 @@ class ServersApiTest extends TestCase
     }
 
     /**
-     * Test case for installServer
-     *
-     * Установка сервера.
-     *
-     */
-    public function testInstallServer()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for performActionOnBackup
      *
      * Выполнение действия над бэкапом диска сервера.
