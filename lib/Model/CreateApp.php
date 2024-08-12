@@ -819,7 +819,7 @@ class CreateApp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets index_dir
      *
-     * @param string|null $index_dir Директория с индексным файлом. Обязателен для приложений `type: frontend`. Не используется для приложений `type: backend`. Должно начинаться с `/`.
+     * @param string|null $index_dir Путь к директории с индексным файлом. Обязателен для приложений `type: frontend`. Не используется для приложений `type: backend`. Значение всегда должно начинаться с `/`.
      *
      * @return self
      */

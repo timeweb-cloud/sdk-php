@@ -542,7 +542,7 @@ class UpdeteSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets index_dir
      *
-     * @param string|null $index_dir Директория с индексным файлом. Обязателен для приложений `type: frontend`. Не используется для приложений `type: backend`.
+     * @param string|null $index_dir Путь к директории с индексным файлом. Используется для приложений `type: frontend`. Не используется для приложений `type: backend`. Значение всегда должно начинаться с `/`.
      *
      * @return self
      */
@@ -569,7 +569,7 @@ class UpdeteSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets run_cmd
      *
-     * @param string|null $run_cmd Команда для запуска приложения. Обязателен для приложений `type: backend`. Не используется для приложений `type: frontend`.
+     * @param string|null $run_cmd Команда для запуска приложения. Используется для приложений `type: backend`. Не используется для приложений `type: frontend`.
      *
      * @return self
      */

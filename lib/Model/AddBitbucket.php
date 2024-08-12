@@ -413,7 +413,7 @@ class AddBitbucket implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets login
      *
-     * @param string $login Логин пользователя BitBucket.
+     * @param string $login Логин пользователя Bitbucket.
      *
      * @return self
      */

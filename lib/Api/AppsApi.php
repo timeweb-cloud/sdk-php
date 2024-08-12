@@ -2492,7 +2492,7 @@ class AppsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetApp200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateApp201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getApp($app_id, string $contentType = self::contentTypes['getApp'][0])
     {
@@ -2510,7 +2510,7 @@ class AppsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetApp200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateApp201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAppWithHttpInfo($app_id, string $contentType = self::contentTypes['getApp'][0])
     {
@@ -2553,17 +2553,17 @@ class AppsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetApp200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\CreateApp201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetApp200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\CreateApp201Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetApp200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateApp201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2659,7 +2659,7 @@ class AppsApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetApp200Response';
+            $returnType = '\OpenAPI\Client\Model\CreateApp201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2680,7 +2680,7 @@ class AppsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetApp200Response',
+                        '\OpenAPI\Client\Model\CreateApp201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2772,7 +2772,7 @@ class AppsApi
      */
     public function getAppAsyncWithHttpInfo($app_id, string $contentType = self::contentTypes['getApp'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetApp200Response';
+        $returnType = '\OpenAPI\Client\Model\CreateApp201Response';
         $request = $this->getAppRequest($app_id, $contentType);
 
         return $this->client

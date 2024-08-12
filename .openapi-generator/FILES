@@ -203,7 +203,6 @@ docs/Model/Frameworks.md
 docs/Model/Free.md
 docs/Model/GetAccountStatus200Response.md
 docs/Model/GetAllProjectResources200Response.md
-docs/Model/GetApp200Response.md
 docs/Model/GetAppDeploys200Response.md
 docs/Model/GetAppLogs200Response.md
 docs/Model/GetApps200Response.md
@@ -627,7 +626,6 @@ lib/Model/Frameworks.php
 lib/Model/Free.php
 lib/Model/GetAccountStatus200Response.php
 lib/Model/GetAllProjectResources200Response.php
-lib/Model/GetApp200Response.php
 lib/Model/GetAppDeploys200Response.php
 lib/Model/GetAppLogs200Response.php
 lib/Model/GetApps200Response.php
@@ -1050,7 +1048,6 @@ test/Model/FrameworksTest.php
 test/Model/FreeTest.php
 test/Model/GetAccountStatus200ResponseTest.php
 test/Model/GetAllProjectResources200ResponseTest.php
-test/Model/GetApp200ResponseTest.php
 test/Model/GetAppDeploys200ResponseTest.php
 test/Model/GetAppLogs200ResponseTest.php
 test/Model/GetApps200ResponseTest.php

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * AddGitlab Class Doc Comment
  *
  * @category Class
- * @description Добавление аккаунта gitlab
+ * @description Добавление аккаунта GitLab
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -236,7 +236,7 @@ class AddGitlab implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const PROVIDER_TYPE_GITLAB = 'gitlab';
+    public const PROVIDER_TYPE_GITLAB = 'Gitlab';
 
     /**
      * Gets allowable values of the enum
@@ -376,7 +376,7 @@ class AddGitlab implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets provider_token
      *
-     * @param string $provider_token Токен доступа. <br> Для Gitlab необходимо использовать персональный токен доступа. Инструкции по созданию можно найти в <a target='_blank' href='https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token'>документации GitLab</a>. <br> Установите следующие разрешения: `api`
+     * @param string $provider_token Токен доступа. <br> Для GitLab необходимо использовать персональный токен доступа. Инструкции по созданию можно найти в <a target='_blank' href='https://docs.GitLab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token'>документации GitLab</a>. <br> Установите следующие разрешения: `api`
      *
      * @return self
      */

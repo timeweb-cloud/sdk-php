@@ -58,7 +58,7 @@ class UpdateAppSettings200Response implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'app' => '\OpenAPI\Client\Model\App[]',
+        'app' => '\OpenAPI\Client\Model\App',
         'meta' => '\OpenAPI\Client\Model\Meta'
     ];
 
@@ -306,7 +306,7 @@ class UpdateAppSettings200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets app
      *
-     * @return \OpenAPI\Client\Model\App[]
+     * @return \OpenAPI\Client\Model\App
      */
     public function getApp()
     {
@@ -316,7 +316,7 @@ class UpdateAppSettings200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets app
      *
-     * @param \OpenAPI\Client\Model\App[] $app app
+     * @param \OpenAPI\Client\Model\App $app app
      *
      * @return self
      */

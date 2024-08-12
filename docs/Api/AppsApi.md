@@ -392,7 +392,7 @@ try {
 ## `getApp()`
 
 ```php
-getApp($app_id): \OpenAPI\Client\Model\GetApp200Response
+getApp($app_id): \OpenAPI\Client\Model\CreateApp201Response
 ```
 
 Получение приложения по id
@@ -434,7 +434,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetApp200Response**](../Model/GetApp200Response.md)
+[**\OpenAPI\Client\Model\CreateApp201Response**](../Model/CreateApp201Response.md)
 
 ### Authorization
 

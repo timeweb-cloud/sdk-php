@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AddGithubTest Class Doc Comment
  *
  * @category    Class
- * @description Добавление аккаунта github
+ * @description Добавление аккаунта GitHub
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

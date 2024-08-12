@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * AddGithub Class Doc Comment
  *
  * @category Class
- * @description Добавление аккаунта github
+ * @description Добавление аккаунта GitHub
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -236,7 +236,7 @@ class AddGithub implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const PROVIDER_TYPE_GITHUB = 'github';
+    public const PROVIDER_TYPE_GITHUB = 'Github';
 
     /**
      * Gets allowable values of the enum
@@ -376,7 +376,7 @@ class AddGithub implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets provider_token
      *
-     * @param string $provider_token Токен доступа. <br> Для GitHub необходимо использовать 'Fine-grained personal access token'. Инструкции по созданию можно найти в <a target='_blank' href='https://docs.github.com/ru/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token'>документации GitHub</a>. <br> Выберите репозитории, к которым хотите предоставить доступ, и установите следующие разрешения: `Webhooks: read and write`, `Contents: read-only`.
+     * @param string $provider_token Токен доступа. <br> Для GitHub необходимо использовать 'Fine-grained personal access token'. Инструкции по созданию можно найти в <a target='_blank' href='https://docs.GitHub.com/ru/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token'>документации GitHub</a>. <br> Выберите репозитории, к которым хотите предоставить доступ, и установите следующие разрешения: `Webhooks: read and write`, `Contents: read-only`.
      *
      * @return self
      */
