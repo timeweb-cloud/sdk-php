@@ -1129,7 +1129,7 @@ class App implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets index_dir
      *
-     * @param string $index_dir Директория с индексным файлом. Определено для приложений `type: frontend`. Для приложений `type: backend` всегда null.
+     * @param string $index_dir Путь к директории с индексным файлом. Определен для приложений `type: frontend`. Для приложений `type: backend` всегда null.
      *
      * @return self
      */
@@ -1190,7 +1190,7 @@ class App implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets run_cmd
      *
-     * @param string $run_cmd Команда для запуска приложения. Определено для приложений `type: backend`. Для приложений `type: frontend` всегда null.
+     * @param string $run_cmd Команда для запуска приложения. Определена для приложений `type: backend`. Для приложений `type: frontend` всегда null.
      *
      * @return self
      */

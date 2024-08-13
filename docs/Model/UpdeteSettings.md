@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **run_cmd** | **string** | Команда для запуска приложения. Используется для приложений &#x60;type: backend&#x60;. Не используется для приложений &#x60;type: frontend&#x60;. | [optional]
 **framework** | [**\OpenAPI\Client\Model\Frameworks**](Frameworks.md) |  | [optional]
 **name** | **string** | Имя приложения. | [optional]
-**comment** | **string** | Комментарий к приложения. | [optional]
+**comment** | **string** | Комментарий к приложению. | [optional]
 **preset_id** | **float** | Идентификатор тарифа. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

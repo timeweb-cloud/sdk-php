@@ -650,7 +650,7 @@ class UpdeteSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets comment
      *
-     * @param string|null $comment Комментарий к приложения.
+     * @param string|null $comment Комментарий к приложению.
      *
      * @return self
      */

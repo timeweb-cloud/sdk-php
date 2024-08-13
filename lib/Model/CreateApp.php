@@ -711,7 +711,7 @@ class CreateApp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets comment
      *
-     * @param string $comment Комментарий к приложения.
+     * @param string $comment Комментарий к приложению.
      *
      * @return self
      */
@@ -846,7 +846,7 @@ class CreateApp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets run_cmd
      *
-     * @param string|null $run_cmd Команда для запуска приложения. Обязателен для приложений `type: backend`. Не используется для приложений `type: frontend`.
+     * @param string|null $run_cmd Команда для запуска приложения. Обязательна для приложений `type: backend`. Не используется для приложений `type: frontend`.
      *
      * @return self
      */

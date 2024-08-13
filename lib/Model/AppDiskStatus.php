@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * AppDiskStatus Class Doc Comment
  *
  * @category Class
- * @description Объект с конфигурацией диска. Определено для приложений &#x60;type: backend&#x60;.Для приложений &#x60;type: frontend&#x60; всегда null.
+ * @description Объект с конфигурацией диска. Определен для приложений &#x60;type: backend&#x60;.Для приложений &#x60;type: frontend&#x60; всегда null.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
