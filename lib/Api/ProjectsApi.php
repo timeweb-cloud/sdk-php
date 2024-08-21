@@ -207,7 +207,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AddBalancerToProject200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function addBalancerToProject($project_id, $add_balancer_to_project_request, string $contentType = self::contentTypes['addBalancerToProject'][0])
     {
@@ -227,7 +226,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AddBalancerToProject200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function addBalancerToProjectWithHttpInfo($project_id, $add_balancer_to_project_request, string $contentType = self::contentTypes['addBalancerToProject'][0])
     {
@@ -443,7 +441,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function addBalancerToProjectAsync($project_id, $add_balancer_to_project_request, string $contentType = self::contentTypes['addBalancerToProject'][0])
     {
@@ -466,7 +463,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function addBalancerToProjectAsyncWithHttpInfo($project_id, $add_balancer_to_project_request, string $contentType = self::contentTypes['addBalancerToProject'][0])
     {
@@ -518,7 +514,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function addBalancerToProjectRequest($project_id, $add_balancer_to_project_request, string $contentType = self::contentTypes['addBalancerToProject'][0])
     {
@@ -636,7 +631,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AddBalancerToProject200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function addClusterToProject($project_id, $add_cluster_to_project_request, string $contentType = self::contentTypes['addClusterToProject'][0])
     {
@@ -656,7 +650,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AddBalancerToProject200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function addClusterToProjectWithHttpInfo($project_id, $add_cluster_to_project_request, string $contentType = self::contentTypes['addClusterToProject'][0])
     {
@@ -872,7 +865,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function addClusterToProjectAsync($project_id, $add_cluster_to_project_request, string $contentType = self::contentTypes['addClusterToProject'][0])
     {
@@ -895,7 +887,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function addClusterToProjectAsyncWithHttpInfo($project_id, $add_cluster_to_project_request, string $contentType = self::contentTypes['addClusterToProject'][0])
     {
@@ -947,7 +938,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function addClusterToProjectRequest($project_id, $add_cluster_to_project_request, string $contentType = self::contentTypes['addClusterToProject'][0])
     {
@@ -1065,7 +1055,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AddBalancerToProject200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function addDatabaseToProject($project_id, $add_database_to_project_request, string $contentType = self::contentTypes['addDatabaseToProject'][0])
     {
@@ -1085,7 +1074,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AddBalancerToProject200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function addDatabaseToProjectWithHttpInfo($project_id, $add_database_to_project_request, string $contentType = self::contentTypes['addDatabaseToProject'][0])
     {
@@ -1301,7 +1289,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function addDatabaseToProjectAsync($project_id, $add_database_to_project_request, string $contentType = self::contentTypes['addDatabaseToProject'][0])
     {
@@ -1324,7 +1311,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function addDatabaseToProjectAsyncWithHttpInfo($project_id, $add_database_to_project_request, string $contentType = self::contentTypes['addDatabaseToProject'][0])
     {
@@ -1376,7 +1362,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function addDatabaseToProjectRequest($project_id, $add_database_to_project_request, string $contentType = self::contentTypes['addDatabaseToProject'][0])
     {
@@ -1494,7 +1479,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AddBalancerToProject200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function addDedicatedServerToProject($project_id, $add_dedicated_server_to_project_request, string $contentType = self::contentTypes['addDedicatedServerToProject'][0])
     {
@@ -1514,7 +1498,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AddBalancerToProject200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function addDedicatedServerToProjectWithHttpInfo($project_id, $add_dedicated_server_to_project_request, string $contentType = self::contentTypes['addDedicatedServerToProject'][0])
     {
@@ -1730,7 +1713,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function addDedicatedServerToProjectAsync($project_id, $add_dedicated_server_to_project_request, string $contentType = self::contentTypes['addDedicatedServerToProject'][0])
     {
@@ -1753,7 +1735,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function addDedicatedServerToProjectAsyncWithHttpInfo($project_id, $add_dedicated_server_to_project_request, string $contentType = self::contentTypes['addDedicatedServerToProject'][0])
     {
@@ -1805,7 +1786,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function addDedicatedServerToProjectRequest($project_id, $add_dedicated_server_to_project_request, string $contentType = self::contentTypes['addDedicatedServerToProject'][0])
     {
@@ -1923,7 +1903,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AddBalancerToProject200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function addServerToProject($project_id, $add_server_to_project_request, string $contentType = self::contentTypes['addServerToProject'][0])
     {
@@ -1943,7 +1922,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AddBalancerToProject200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function addServerToProjectWithHttpInfo($project_id, $add_server_to_project_request, string $contentType = self::contentTypes['addServerToProject'][0])
     {
@@ -2159,7 +2137,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function addServerToProjectAsync($project_id, $add_server_to_project_request, string $contentType = self::contentTypes['addServerToProject'][0])
     {
@@ -2182,7 +2159,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function addServerToProjectAsyncWithHttpInfo($project_id, $add_server_to_project_request, string $contentType = self::contentTypes['addServerToProject'][0])
     {
@@ -2234,7 +2210,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function addServerToProjectRequest($project_id, $add_server_to_project_request, string $contentType = self::contentTypes['addServerToProject'][0])
     {
@@ -2352,7 +2327,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AddBalancerToProject200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function addStorageToProject($project_id, $add_storage_to_project_request, string $contentType = self::contentTypes['addStorageToProject'][0])
     {
@@ -2372,7 +2346,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AddBalancerToProject200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function addStorageToProjectWithHttpInfo($project_id, $add_storage_to_project_request, string $contentType = self::contentTypes['addStorageToProject'][0])
     {
@@ -2588,7 +2561,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function addStorageToProjectAsync($project_id, $add_storage_to_project_request, string $contentType = self::contentTypes['addStorageToProject'][0])
     {
@@ -2611,7 +2583,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function addStorageToProjectAsyncWithHttpInfo($project_id, $add_storage_to_project_request, string $contentType = self::contentTypes['addStorageToProject'][0])
     {
@@ -2663,7 +2634,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function addStorageToProjectRequest($project_id, $add_storage_to_project_request, string $contentType = self::contentTypes['addStorageToProject'][0])
     {
@@ -3433,7 +3403,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetProjectBalancers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getAccountBalancers(string $contentType = self::contentTypes['getAccountBalancers'][0])
     {
@@ -3451,7 +3420,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetProjectBalancers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getAccountBalancersWithHttpInfo(string $contentType = self::contentTypes['getAccountBalancers'][0])
     {
@@ -3665,7 +3633,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAccountBalancersAsync(string $contentType = self::contentTypes['getAccountBalancers'][0])
     {
@@ -3686,7 +3653,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAccountBalancersAsyncWithHttpInfo(string $contentType = self::contentTypes['getAccountBalancers'][0])
     {
@@ -3736,7 +3702,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getAccountBalancersRequest(string $contentType = self::contentTypes['getAccountBalancers'][0])
     {
@@ -3820,7 +3785,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetProjectClusters200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getAccountClusters(string $contentType = self::contentTypes['getAccountClusters'][0])
     {
@@ -3838,7 +3802,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetProjectClusters200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getAccountClustersWithHttpInfo(string $contentType = self::contentTypes['getAccountClusters'][0])
     {
@@ -4052,7 +4015,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAccountClustersAsync(string $contentType = self::contentTypes['getAccountClusters'][0])
     {
@@ -4073,7 +4035,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAccountClustersAsyncWithHttpInfo(string $contentType = self::contentTypes['getAccountClusters'][0])
     {
@@ -4123,7 +4084,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getAccountClustersRequest(string $contentType = self::contentTypes['getAccountClusters'][0])
     {
@@ -4207,7 +4167,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetProjectDatabases200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getAccountDatabases(string $contentType = self::contentTypes['getAccountDatabases'][0])
     {
@@ -4225,7 +4184,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetProjectDatabases200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getAccountDatabasesWithHttpInfo(string $contentType = self::contentTypes['getAccountDatabases'][0])
     {
@@ -4439,7 +4397,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAccountDatabasesAsync(string $contentType = self::contentTypes['getAccountDatabases'][0])
     {
@@ -4460,7 +4417,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAccountDatabasesAsyncWithHttpInfo(string $contentType = self::contentTypes['getAccountDatabases'][0])
     {
@@ -4510,7 +4466,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getAccountDatabasesRequest(string $contentType = self::contentTypes['getAccountDatabases'][0])
     {
@@ -4594,7 +4549,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetProjectDedicatedServers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getAccountDedicatedServers(string $contentType = self::contentTypes['getAccountDedicatedServers'][0])
     {
@@ -4612,7 +4566,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetProjectDedicatedServers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getAccountDedicatedServersWithHttpInfo(string $contentType = self::contentTypes['getAccountDedicatedServers'][0])
     {
@@ -4826,7 +4779,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAccountDedicatedServersAsync(string $contentType = self::contentTypes['getAccountDedicatedServers'][0])
     {
@@ -4847,7 +4799,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAccountDedicatedServersAsyncWithHttpInfo(string $contentType = self::contentTypes['getAccountDedicatedServers'][0])
     {
@@ -4897,7 +4848,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getAccountDedicatedServersRequest(string $contentType = self::contentTypes['getAccountDedicatedServers'][0])
     {
@@ -4981,7 +4931,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetProjectServers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getAccountServers(string $contentType = self::contentTypes['getAccountServers'][0])
     {
@@ -4999,7 +4948,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetProjectServers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getAccountServersWithHttpInfo(string $contentType = self::contentTypes['getAccountServers'][0])
     {
@@ -5213,7 +5161,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAccountServersAsync(string $contentType = self::contentTypes['getAccountServers'][0])
     {
@@ -5234,7 +5181,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAccountServersAsyncWithHttpInfo(string $contentType = self::contentTypes['getAccountServers'][0])
     {
@@ -5284,7 +5230,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getAccountServersRequest(string $contentType = self::contentTypes['getAccountServers'][0])
     {
@@ -5368,7 +5313,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetProjectStorages200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getAccountStorages(string $contentType = self::contentTypes['getAccountStorages'][0])
     {
@@ -5386,7 +5330,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetProjectStorages200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getAccountStoragesWithHttpInfo(string $contentType = self::contentTypes['getAccountStorages'][0])
     {
@@ -5600,7 +5543,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAccountStoragesAsync(string $contentType = self::contentTypes['getAccountStorages'][0])
     {
@@ -5621,7 +5563,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAccountStoragesAsyncWithHttpInfo(string $contentType = self::contentTypes['getAccountStorages'][0])
     {
@@ -5671,7 +5612,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getAccountStoragesRequest(string $contentType = self::contentTypes['getAccountStorages'][0])
     {
@@ -5756,7 +5696,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetAllProjectResources200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getAllProjectResources($project_id, string $contentType = self::contentTypes['getAllProjectResources'][0])
     {
@@ -5775,7 +5714,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetAllProjectResources200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getAllProjectResourcesWithHttpInfo($project_id, string $contentType = self::contentTypes['getAllProjectResources'][0])
     {
@@ -5990,7 +5928,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAllProjectResourcesAsync($project_id, string $contentType = self::contentTypes['getAllProjectResources'][0])
     {
@@ -6012,7 +5949,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getAllProjectResourcesAsyncWithHttpInfo($project_id, string $contentType = self::contentTypes['getAllProjectResources'][0])
     {
@@ -6063,7 +5999,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getAllProjectResourcesRequest($project_id, string $contentType = self::contentTypes['getAllProjectResources'][0])
     {
@@ -6571,7 +6506,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetProjectBalancers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getProjectBalancers($project_id, string $contentType = self::contentTypes['getProjectBalancers'][0])
     {
@@ -6590,7 +6524,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetProjectBalancers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getProjectBalancersWithHttpInfo($project_id, string $contentType = self::contentTypes['getProjectBalancers'][0])
     {
@@ -6805,7 +6738,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getProjectBalancersAsync($project_id, string $contentType = self::contentTypes['getProjectBalancers'][0])
     {
@@ -6827,7 +6759,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getProjectBalancersAsyncWithHttpInfo($project_id, string $contentType = self::contentTypes['getProjectBalancers'][0])
     {
@@ -6878,7 +6809,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getProjectBalancersRequest($project_id, string $contentType = self::contentTypes['getProjectBalancers'][0])
     {
@@ -6981,7 +6911,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetProjectClusters200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getProjectClusters($project_id, string $contentType = self::contentTypes['getProjectClusters'][0])
     {
@@ -7000,7 +6929,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetProjectClusters200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getProjectClustersWithHttpInfo($project_id, string $contentType = self::contentTypes['getProjectClusters'][0])
     {
@@ -7215,7 +7143,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getProjectClustersAsync($project_id, string $contentType = self::contentTypes['getProjectClusters'][0])
     {
@@ -7237,7 +7164,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getProjectClustersAsyncWithHttpInfo($project_id, string $contentType = self::contentTypes['getProjectClusters'][0])
     {
@@ -7288,7 +7214,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getProjectClustersRequest($project_id, string $contentType = self::contentTypes['getProjectClusters'][0])
     {
@@ -7391,7 +7316,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetProjectDatabases200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getProjectDatabases($project_id, string $contentType = self::contentTypes['getProjectDatabases'][0])
     {
@@ -7410,7 +7334,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetProjectDatabases200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getProjectDatabasesWithHttpInfo($project_id, string $contentType = self::contentTypes['getProjectDatabases'][0])
     {
@@ -7625,7 +7548,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getProjectDatabasesAsync($project_id, string $contentType = self::contentTypes['getProjectDatabases'][0])
     {
@@ -7647,7 +7569,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getProjectDatabasesAsyncWithHttpInfo($project_id, string $contentType = self::contentTypes['getProjectDatabases'][0])
     {
@@ -7698,7 +7619,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getProjectDatabasesRequest($project_id, string $contentType = self::contentTypes['getProjectDatabases'][0])
     {
@@ -7801,7 +7721,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetProjectDedicatedServers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getProjectDedicatedServers($project_id, string $contentType = self::contentTypes['getProjectDedicatedServers'][0])
     {
@@ -7820,7 +7739,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetProjectDedicatedServers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getProjectDedicatedServersWithHttpInfo($project_id, string $contentType = self::contentTypes['getProjectDedicatedServers'][0])
     {
@@ -8035,7 +7953,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getProjectDedicatedServersAsync($project_id, string $contentType = self::contentTypes['getProjectDedicatedServers'][0])
     {
@@ -8057,7 +7974,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getProjectDedicatedServersAsyncWithHttpInfo($project_id, string $contentType = self::contentTypes['getProjectDedicatedServers'][0])
     {
@@ -8108,7 +8024,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getProjectDedicatedServersRequest($project_id, string $contentType = self::contentTypes['getProjectDedicatedServers'][0])
     {
@@ -8211,7 +8126,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetProjectServers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getProjectServers($project_id, string $contentType = self::contentTypes['getProjectServers'][0])
     {
@@ -8230,7 +8144,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetProjectServers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getProjectServersWithHttpInfo($project_id, string $contentType = self::contentTypes['getProjectServers'][0])
     {
@@ -8445,7 +8358,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getProjectServersAsync($project_id, string $contentType = self::contentTypes['getProjectServers'][0])
     {
@@ -8467,7 +8379,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getProjectServersAsyncWithHttpInfo($project_id, string $contentType = self::contentTypes['getProjectServers'][0])
     {
@@ -8518,7 +8429,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getProjectServersRequest($project_id, string $contentType = self::contentTypes['getProjectServers'][0])
     {
@@ -8621,7 +8531,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetProjectStorages200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     * @deprecated
      */
     public function getProjectStorages($project_id, string $contentType = self::contentTypes['getProjectStorages'][0])
     {
@@ -8640,7 +8549,6 @@ class ProjectsApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetProjectStorages200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
      */
     public function getProjectStoragesWithHttpInfo($project_id, string $contentType = self::contentTypes['getProjectStorages'][0])
     {
@@ -8855,7 +8763,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getProjectStoragesAsync($project_id, string $contentType = self::contentTypes['getProjectStorages'][0])
     {
@@ -8877,7 +8784,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
      */
     public function getProjectStoragesAsyncWithHttpInfo($project_id, string $contentType = self::contentTypes['getProjectStorages'][0])
     {
@@ -8928,7 +8834,6 @@ class ProjectsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
      */
     public function getProjectStoragesRequest($project_id, string $contentType = self::contentTypes['getProjectStorages'][0])
     {
