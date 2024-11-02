@@ -4687,6 +4687,7 @@ class KubernetesApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ResourcesResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @deprecated
      */
     public function getClusterResources($cluster_id, string $contentType = self::contentTypes['getClusterResources'][0])
     {
@@ -4705,6 +4706,7 @@ class KubernetesApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ResourcesResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetFinances404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getClusterResourcesWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getClusterResources'][0])
     {
@@ -4942,6 +4944,7 @@ class KubernetesApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getClusterResourcesAsync($cluster_id, string $contentType = self::contentTypes['getClusterResources'][0])
     {
@@ -4963,6 +4966,7 @@ class KubernetesApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getClusterResourcesAsyncWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getClusterResources'][0])
     {
@@ -5013,6 +5017,7 @@ class KubernetesApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getClusterResourcesRequest($cluster_id, string $contentType = self::contentTypes['getClusterResources'][0])
     {
