@@ -17,8 +17,8 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getClusterNodesFromGroup()**](KubernetesApi.md#getClusterNodesFromGroup) | **GET** /api/v1/k8s/clusters/{cluster_id}/groups/{group_id}/nodes | Получение списка нод, принадлежащих группе |
 | [**getClusterResources()**](KubernetesApi.md#getClusterResources) | **GET** /api/v1/k8s/clusters/{cluster_id}/resources | Получение ресурсов кластера |
 | [**getClusters()**](KubernetesApi.md#getClusters) | **GET** /api/v1/k8s/clusters | Получение списка кластеров |
-| [**getK8SNetworkDrivers()**](KubernetesApi.md#getK8SNetworkDrivers) | **GET** /api/v1/k8s/network_drivers | Получение списка сетевых драйверов k8s |
-| [**getK8SVersions()**](KubernetesApi.md#getK8SVersions) | **GET** /api/v1/k8s/k8s_versions | Получение списка версий k8s |
+| [**getK8SNetworkDrivers()**](KubernetesApi.md#getK8SNetworkDrivers) | **GET** /api/v1/k8s/network-drivers | Получение списка сетевых драйверов k8s |
+| [**getK8SVersions()**](KubernetesApi.md#getK8SVersions) | **GET** /api/v1/k8s/k8s-versions | Получение списка версий k8s |
 | [**getKubernetesPresets()**](KubernetesApi.md#getKubernetesPresets) | **GET** /api/v1/presets/k8s | Получение списка тарифов |
 | [**increaseCountOfNodesInGroup()**](KubernetesApi.md#increaseCountOfNodesInGroup) | **POST** /api/v1/k8s/clusters/{cluster_id}/groups/{group_id}/nodes | Увеличение количества нод в группе на указанное количество |
 | [**reduceCountOfNodesInGroup()**](KubernetesApi.md#reduceCountOfNodesInGroup) | **DELETE** /api/v1/k8s/clusters/{cluster_id}/groups/{group_id}/nodes | Уменьшение количества нод в группе на указанное количество |
@@ -831,7 +831,7 @@ getK8SNetworkDrivers(): \OpenAPI\Client\Model\NetworkDriversResponse
 
 Получение списка сетевых драйверов k8s
 
-Чтобы получить список сетевых драйверов k8s, отправьте GET-запрос в `/api/v1/k8s/network_drivers`.
+Чтобы получить список сетевых драйверов k8s, отправьте GET-запрос в `/api/v1/k8s/network-drivers`.
 
 ### Example
 
@@ -888,7 +888,7 @@ getK8SVersions(): \OpenAPI\Client\Model\K8SVersionsResponse
 
 Получение списка версий k8s
 
-Чтобы получить список версий k8s, отправьте GET-запрос в `/api/v1/k8s/k8s_versions`.
+Чтобы получить список версий k8s, отправьте GET-запрос в `/api/v1/k8s/k8s-versions`.
 
 ### Example
 

@@ -5786,7 +5786,7 @@ class KubernetesApi
     {
 
 
-        $resourcePath = '/api/v1/k8s/network_drivers';
+        $resourcePath = '/api/v1/k8s/network-drivers';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6145,7 +6145,7 @@ class KubernetesApi
     {
 
 
-        $resourcePath = '/api/v1/k8s/k8s_versions';
+        $resourcePath = '/api/v1/k8s/k8s-versions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
