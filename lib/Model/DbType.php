@@ -48,15 +48,17 @@ class DbType
 
     public const MYSQL5 = 'mysql5';
 
-    public const POSTGRES = 'postgres';
-
     public const POSTGRES14 = 'postgres14';
 
     public const POSTGRES15 = 'postgres15';
 
     public const POSTGRES16 = 'postgres16';
 
+    public const POSTGRES17 = 'postgres17';
+
     public const REDIS = 'redis';
+
+    public const REDIS7 = 'redis7';
 
     public const MONGODB4 = 'mongodb4';
 
@@ -83,11 +85,12 @@ class DbType
         return [
             self::MYSQL,
             self::MYSQL5,
-            self::POSTGRES,
             self::POSTGRES14,
             self::POSTGRES15,
             self::POSTGRES16,
+            self::POSTGRES17,
             self::REDIS,
+            self::REDIS7,
             self::MONGODB4,
             self::MONGODB,
             self::MONGODB6,
