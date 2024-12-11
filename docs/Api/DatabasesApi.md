@@ -23,6 +23,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getDatabaseClusters()**](DatabasesApi.md#getDatabaseClusters) | **GET** /api/v1/databases | Получение списка кластеров баз данных |
 | [**getDatabaseInstance()**](DatabasesApi.md#getDatabaseInstance) | **GET** /api/v1/databases/{db_cluster_id}/instances/{instance_id} | Получение инстанса базы данных |
 | [**getDatabaseInstances()**](DatabasesApi.md#getDatabaseInstances) | **GET** /api/v1/databases/{db_cluster_id}/instances | Получение списка инстансов баз данных |
+| [**getDatabaseParameters()**](DatabasesApi.md#getDatabaseParameters) | **GET** /api/v1/dbs/parameters | Получение списка параметров баз данных |
 | [**getDatabaseUser()**](DatabasesApi.md#getDatabaseUser) | **GET** /api/v1/databases/{db_cluster_id}/admins/{admin_id} | Получение пользователя базы данных |
 | [**getDatabaseUsers()**](DatabasesApi.md#getDatabaseUsers) | **GET** /api/v1/databases/{db_cluster_id}/admins | Получение списка пользователей базы данных |
 | [**getDatabases()**](DatabasesApi.md#getDatabases) | **GET** /api/v1/dbs | Получение списка всех баз данных |
@@ -1183,6 +1184,63 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\GetDatabaseInstances200Response**](../Model/GetDatabaseInstances200Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDatabaseParameters()`
+
+```php
+getDatabaseParameters(): array<string,string[]>
+```
+
+Получение списка параметров баз данных
+
+Чтобы получить список параметров баз данных, отправьте GET-запрос на `/api/v1/dbs/parameters`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getDatabaseParameters();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DatabasesApi->getDatabaseParameters: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**array<string,string[]>**
 
 ### Authorization
 

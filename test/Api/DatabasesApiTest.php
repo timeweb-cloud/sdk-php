@@ -301,6 +301,18 @@ class DatabasesApiTest extends TestCase
     }
 
     /**
+     * Test case for getDatabaseParameters
+     *
+     * Получение списка параметров баз данных.
+     *
+     */
+    public function testGetDatabaseParameters()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getDatabaseUser
      *
      * Получение пользователя базы данных.

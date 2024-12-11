@@ -292,6 +292,7 @@ Class | Method | HTTP request | Description
 *DatabasesApi* | [**getDatabaseClusters**](docs/Api/DatabasesApi.md#getdatabaseclusters) | **GET** /api/v1/databases | Получение списка кластеров баз данных
 *DatabasesApi* | [**getDatabaseInstance**](docs/Api/DatabasesApi.md#getdatabaseinstance) | **GET** /api/v1/databases/{db_cluster_id}/instances/{instance_id} | Получение инстанса базы данных
 *DatabasesApi* | [**getDatabaseInstances**](docs/Api/DatabasesApi.md#getdatabaseinstances) | **GET** /api/v1/databases/{db_cluster_id}/instances | Получение списка инстансов баз данных
+*DatabasesApi* | [**getDatabaseParameters**](docs/Api/DatabasesApi.md#getdatabaseparameters) | **GET** /api/v1/dbs/parameters | Получение списка параметров баз данных
 *DatabasesApi* | [**getDatabaseUser**](docs/Api/DatabasesApi.md#getdatabaseuser) | **GET** /api/v1/databases/{db_cluster_id}/admins/{admin_id} | Получение пользователя базы данных
 *DatabasesApi* | [**getDatabaseUsers**](docs/Api/DatabasesApi.md#getdatabaseusers) | **GET** /api/v1/databases/{db_cluster_id}/admins | Получение списка пользователей базы данных
 *DatabasesApi* | [**getDatabases**](docs/Api/DatabasesApi.md#getdatabases) | **GET** /api/v1/dbs | Получение списка всех баз данных
