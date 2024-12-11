@@ -1,6 +1,6 @@
 <?php
 /**
- * DatabaseTypeTest
+ * DatabaseTypeRequirementsTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DatabaseTypeTest Class Doc Comment
+ * DatabaseTypeRequirementsTest Class Doc Comment
  *
  * @category    Class
- * @description Тип кластера базы данных
+ * @description Требования к кластеру базы данных.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DatabaseTypeTest extends TestCase
+class DatabaseTypeRequirementsTest extends TestCase
 {
 
     /**
@@ -72,54 +72,36 @@ class DatabaseTypeTest extends TestCase
     }
 
     /**
-     * Test "DatabaseType"
+     * Test "DatabaseTypeRequirements"
      */
-    public function testDatabaseType()
+    public function testDatabaseTypeRequirements()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "cpu_min"
      */
-    public function testPropertyName()
+    public function testPropertyCpuMin()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "version"
+     * Test attribute "ram_min"
      */
-    public function testPropertyVersion()
+    public function testPropertyRamMin()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "disk_min"
      */
-    public function testPropertyType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "is_available_replication"
-     */
-    public function testPropertyIsAvailableReplication()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "requirements"
-     */
-    public function testPropertyRequirements()
+    public function testPropertyDiskMin()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

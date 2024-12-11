@@ -61,7 +61,9 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'name' => 'string',
         'version' => 'string',
-        'type' => 'string'
+        'type' => 'string',
+        'is_available_replication' => 'bool',
+        'requirements' => '\OpenAPI\Client\Model\DatabaseTypeRequirements'
     ];
 
     /**
@@ -74,7 +76,9 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'name' => null,
         'version' => null,
-        'type' => null
+        'type' => null,
+        'is_available_replication' => null,
+        'requirements' => null
     ];
 
     /**
@@ -85,7 +89,9 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'name' => false,
 		'version' => false,
-		'type' => false
+		'type' => false,
+		'is_available_replication' => false,
+		'requirements' => false
     ];
 
     /**
@@ -176,7 +182,9 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'name' => 'name',
         'version' => 'version',
-        'type' => 'type'
+        'type' => 'type',
+        'is_available_replication' => 'is_available_replication',
+        'requirements' => 'requirements'
     ];
 
     /**
@@ -187,7 +195,9 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'name' => 'setName',
         'version' => 'setVersion',
-        'type' => 'setType'
+        'type' => 'setType',
+        'is_available_replication' => 'setIsAvailableReplication',
+        'requirements' => 'setRequirements'
     ];
 
     /**
@@ -198,7 +208,9 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'name' => 'getName',
         'version' => 'getVersion',
-        'type' => 'getType'
+        'type' => 'getType',
+        'is_available_replication' => 'getIsAvailableReplication',
+        'requirements' => 'getRequirements'
     ];
 
     /**
@@ -261,6 +273,8 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('version', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('is_available_replication', $data ?? [], null);
+        $this->setIfExists('requirements', $data ?? [], null);
     }
 
     /**
@@ -298,6 +312,9 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['is_available_replication'] === null) {
+            $invalidProperties[] = "'is_available_replication' can't be null";
         }
         return $invalidProperties;
     }
@@ -391,6 +408,60 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_available_replication
+     *
+     * @return bool
+     */
+    public function getIsAvailableReplication()
+    {
+        return $this->container['is_available_replication'];
+    }
+
+    /**
+     * Sets is_available_replication
+     *
+     * @param bool $is_available_replication Поддерживает ли база данных репликацию.
+     *
+     * @return self
+     */
+    public function setIsAvailableReplication($is_available_replication)
+    {
+        if (is_null($is_available_replication)) {
+            throw new \InvalidArgumentException('non-nullable is_available_replication cannot be null');
+        }
+        $this->container['is_available_replication'] = $is_available_replication;
+
+        return $this;
+    }
+
+    /**
+     * Gets requirements
+     *
+     * @return \OpenAPI\Client\Model\DatabaseTypeRequirements|null
+     */
+    public function getRequirements()
+    {
+        return $this->container['requirements'];
+    }
+
+    /**
+     * Sets requirements
+     *
+     * @param \OpenAPI\Client\Model\DatabaseTypeRequirements|null $requirements requirements
+     *
+     * @return self
+     */
+    public function setRequirements($requirements)
+    {
+        if (is_null($requirements)) {
+            throw new \InvalidArgumentException('non-nullable requirements cannot be null');
+        }
+        $this->container['requirements'] = $requirements;
 
         return $this;
     }

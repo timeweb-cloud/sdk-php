@@ -609,6 +609,7 @@ Class | Method | HTTP request | Description
 - [DatabaseClusterNetworksInnerIpsInner](docs/Model/DatabaseClusterNetworksInnerIpsInner.md)
 - [DatabaseInstance](docs/Model/DatabaseInstance.md)
 - [DatabaseType](docs/Model/DatabaseType.md)
+- [DatabaseTypeRequirements](docs/Model/DatabaseTypeRequirements.md)
 - [Db](docs/Model/Db.md)
 - [DbDiskStats](docs/Model/DbDiskStats.md)
 - [DbType](docs/Model/DbType.md)

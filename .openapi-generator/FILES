@@ -141,6 +141,7 @@ docs/Model/DatabaseClusterNetworksInner.md
 docs/Model/DatabaseClusterNetworksInnerIpsInner.md
 docs/Model/DatabaseInstance.md
 docs/Model/DatabaseType.md
+docs/Model/DatabaseTypeRequirements.md
 docs/Model/Db.md
 docs/Model/DbDiskStats.md
 docs/Model/DbType.md
@@ -564,6 +565,7 @@ lib/Model/DatabaseClusterNetworksInner.php
 lib/Model/DatabaseClusterNetworksInnerIpsInner.php
 lib/Model/DatabaseInstance.php
 lib/Model/DatabaseType.php
+lib/Model/DatabaseTypeRequirements.php
 lib/Model/Db.php
 lib/Model/DbDiskStats.php
 lib/Model/DbType.php
@@ -985,6 +987,7 @@ test/Model/DatabaseClusterNetworksInnerIpsInnerTest.php
 test/Model/DatabaseClusterNetworksInnerTest.php
 test/Model/DatabaseClusterTest.php
 test/Model/DatabaseInstanceTest.php
+test/Model/DatabaseTypeRequirementsTest.php
 test/Model/DatabaseTypeTest.php
 test/Model/DbDiskStatsTest.php
 test/Model/DbTest.php
