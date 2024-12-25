@@ -748,7 +748,7 @@ class NetworkDrive implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preset_id
      *
-     * @param int $preset_id Идентификатор сетевого диска.
+     * @param int $preset_id Идентификатор тарифа.
      *
      * @return self
      */
