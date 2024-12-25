@@ -17,6 +17,7 @@ docs/Api/ImagesApi.md
 docs/Api/KubernetesApi.md
 docs/Api/LocationsApi.md
 docs/Api/MailApi.md
+docs/Api/NetworkDrivesApi.md
 docs/Api/ProjectsApi.md
 docs/Api/S3Api.md
 docs/Api/SSHApi.md
@@ -117,6 +118,8 @@ docs/Model/CreateFolderInStorageRequest.md
 docs/Model/CreateInstance.md
 docs/Model/CreateKey201Response.md
 docs/Model/CreateKeyRequest.md
+docs/Model/CreateNetworkDrive.md
+docs/Model/CreateNetworkDrive201Response.md
 docs/Model/CreateProject.md
 docs/Model/CreateProject201Response.md
 docs/Model/CreateRule.md
@@ -249,6 +252,9 @@ docs/Model/GetKeys200Response.md
 docs/Model/GetLocations200Response.md
 docs/Model/GetMailQuota200Response.md
 docs/Model/GetMailboxes200Response.md
+docs/Model/GetNetworkDrives200Response.md
+docs/Model/GetNetworkDrivesAvailableResources200Response.md
+docs/Model/GetNetworkDrivesPresets200Response.md
 docs/Model/GetNotificationSettings200Response.md
 docs/Model/GetOsList200Response.md
 docs/Model/GetProjectBalancers200Response.md
@@ -308,7 +314,14 @@ docs/Model/MailboxSpamFilter.md
 docs/Model/MasterPresetOutApi.md
 docs/Model/Meta.md
 docs/Model/ModelUse.md
+docs/Model/MountNetworkDrive.md
 docs/Model/Network.md
+docs/Model/NetworkDrive.md
+docs/Model/NetworkDriveAvailableResource.md
+docs/Model/NetworkDrivePreset.md
+docs/Model/NetworkDrivePresetRead.md
+docs/Model/NetworkDrivePresetWrite.md
+docs/Model/NetworkDriveServiceListInner.md
 docs/Model/NetworkDriversResponse.md
 docs/Model/NodeCount.md
 docs/Model/NodeGroupIn.md
@@ -391,6 +404,7 @@ docs/Model/UpdateInstance.md
 docs/Model/UpdateKeyRequest.md
 docs/Model/UpdateMailQuotaRequest.md
 docs/Model/UpdateMailbox.md
+docs/Model/UpdateNetworkDrive.md
 docs/Model/UpdateNotificationSettingsRequest.md
 docs/Model/UpdateNotificationSettingsRequestSettingsInner.md
 docs/Model/UpdateNotificationSettingsRequestSettingsInnerChannels.md
@@ -438,6 +452,7 @@ lib/Api/ImagesApi.php
 lib/Api/KubernetesApi.php
 lib/Api/LocationsApi.php
 lib/Api/MailApi.php
+lib/Api/NetworkDrivesApi.php
 lib/Api/ProjectsApi.php
 lib/Api/S3Api.php
 lib/Api/SSHApi.php
@@ -541,6 +556,8 @@ lib/Model/CreateFolderInStorageRequest.php
 lib/Model/CreateInstance.php
 lib/Model/CreateKey201Response.php
 lib/Model/CreateKeyRequest.php
+lib/Model/CreateNetworkDrive.php
+lib/Model/CreateNetworkDrive201Response.php
 lib/Model/CreateProject.php
 lib/Model/CreateProject201Response.php
 lib/Model/CreateRule.php
@@ -673,6 +690,9 @@ lib/Model/GetKeys200Response.php
 lib/Model/GetLocations200Response.php
 lib/Model/GetMailQuota200Response.php
 lib/Model/GetMailboxes200Response.php
+lib/Model/GetNetworkDrives200Response.php
+lib/Model/GetNetworkDrivesAvailableResources200Response.php
+lib/Model/GetNetworkDrivesPresets200Response.php
 lib/Model/GetNotificationSettings200Response.php
 lib/Model/GetOsList200Response.php
 lib/Model/GetProjectBalancers200Response.php
@@ -733,7 +753,14 @@ lib/Model/MasterPresetOutApi.php
 lib/Model/Meta.php
 lib/Model/ModelInterface.php
 lib/Model/ModelUse.php
+lib/Model/MountNetworkDrive.php
 lib/Model/Network.php
+lib/Model/NetworkDrive.php
+lib/Model/NetworkDriveAvailableResource.php
+lib/Model/NetworkDrivePreset.php
+lib/Model/NetworkDrivePresetRead.php
+lib/Model/NetworkDrivePresetWrite.php
+lib/Model/NetworkDriveServiceListInner.php
 lib/Model/NetworkDriversResponse.php
 lib/Model/NodeCount.php
 lib/Model/NodeGroupIn.php
@@ -816,6 +843,7 @@ lib/Model/UpdateInstance.php
 lib/Model/UpdateKeyRequest.php
 lib/Model/UpdateMailQuotaRequest.php
 lib/Model/UpdateMailbox.php
+lib/Model/UpdateNetworkDrive.php
 lib/Model/UpdateNotificationSettingsRequest.php
 lib/Model/UpdateNotificationSettingsRequestSettingsInner.php
 lib/Model/UpdateNotificationSettingsRequestSettingsInnerChannels.php
@@ -864,6 +892,7 @@ test/Api/ImagesApiTest.php
 test/Api/KubernetesApiTest.php
 test/Api/LocationsApiTest.php
 test/Api/MailApiTest.php
+test/Api/NetworkDrivesApiTest.php
 test/Api/ProjectsApiTest.php
 test/Api/S3ApiTest.php
 test/Api/SSHApiTest.php
@@ -964,6 +993,8 @@ test/Model/CreateFolderInStorageRequestTest.php
 test/Model/CreateInstanceTest.php
 test/Model/CreateKey201ResponseTest.php
 test/Model/CreateKeyRequestTest.php
+test/Model/CreateNetworkDrive201ResponseTest.php
+test/Model/CreateNetworkDriveTest.php
 test/Model/CreateProject201ResponseTest.php
 test/Model/CreateProjectTest.php
 test/Model/CreateRuleTest.php
@@ -1096,6 +1127,9 @@ test/Model/GetKeys200ResponseTest.php
 test/Model/GetLocations200ResponseTest.php
 test/Model/GetMailQuota200ResponseTest.php
 test/Model/GetMailboxes200ResponseTest.php
+test/Model/GetNetworkDrives200ResponseTest.php
+test/Model/GetNetworkDrivesAvailableResources200ResponseTest.php
+test/Model/GetNetworkDrivesPresets200ResponseTest.php
 test/Model/GetNotificationSettings200ResponseTest.php
 test/Model/GetOsList200ResponseTest.php
 test/Model/GetProjectBalancers200ResponseTest.php
@@ -1155,6 +1189,13 @@ test/Model/MailboxTest.php
 test/Model/MasterPresetOutApiTest.php
 test/Model/MetaTest.php
 test/Model/ModelUseTest.php
+test/Model/MountNetworkDriveTest.php
+test/Model/NetworkDriveAvailableResourceTest.php
+test/Model/NetworkDrivePresetReadTest.php
+test/Model/NetworkDrivePresetTest.php
+test/Model/NetworkDrivePresetWriteTest.php
+test/Model/NetworkDriveServiceListInnerTest.php
+test/Model/NetworkDriveTest.php
 test/Model/NetworkDriversResponseTest.php
 test/Model/NetworkTest.php
 test/Model/NodeCountTest.php
@@ -1238,6 +1279,7 @@ test/Model/UpdateInstanceTest.php
 test/Model/UpdateKeyRequestTest.php
 test/Model/UpdateMailQuotaRequestTest.php
 test/Model/UpdateMailboxTest.php
+test/Model/UpdateNetworkDriveTest.php
 test/Model/UpdateNotificationSettingsRequestSettingsInnerChannelsTest.php
 test/Model/UpdateNotificationSettingsRequestSettingsInnerTest.php
 test/Model/UpdateNotificationSettingsRequestTest.php
