@@ -433,7 +433,7 @@ class ProjectResource implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets resource_id
      *
-     * @param float $resource_id Идентификатор ресурса проекта (сервера, хранилища, кластера, балансировщика, базы данных или выделенного сервера).
+     * @param float $resource_id ID ресурса проекта (сервера, хранилища, кластера, балансировщика, базы данных или выделенного сервера).
      *
      * @return self
      */

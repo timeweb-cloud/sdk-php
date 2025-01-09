@@ -46,7 +46,7 @@ $apiInstance = new OpenAPI\Client\Api\BalancersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$balancer_id = 56; // int | Идентификатор балансировщика
+$balancer_id = 56; // int | ID балансировщика
 $add_ips_to_balancer_request = new \OpenAPI\Client\Model\AddIPsToBalancerRequest(); // \OpenAPI\Client\Model\AddIPsToBalancerRequest
 
 try {
@@ -60,7 +60,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **balancer_id** | **int**| Идентификатор балансировщика | |
+| **balancer_id** | **int**| ID балансировщика | |
 | **add_ips_to_balancer_request** | [**\OpenAPI\Client\Model\AddIPsToBalancerRequest**](../Model/AddIPsToBalancerRequest.md)|  | |
 
 ### Return type
@@ -167,7 +167,7 @@ $apiInstance = new OpenAPI\Client\Api\BalancersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$balancer_id = 56; // int | Идентификатор балансировщика
+$balancer_id = 56; // int | ID балансировщика
 $create_rule = new \OpenAPI\Client\Model\CreateRule(); // \OpenAPI\Client\Model\CreateRule
 
 try {
@@ -182,7 +182,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **balancer_id** | **int**| Идентификатор балансировщика | |
+| **balancer_id** | **int**| ID балансировщика | |
 | **create_rule** | [**\OpenAPI\Client\Model\CreateRule**](../Model/CreateRule.md)|  | |
 
 ### Return type
@@ -229,7 +229,7 @@ $apiInstance = new OpenAPI\Client\Api\BalancersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$balancer_id = 56; // int | Идентификатор балансировщика
+$balancer_id = 56; // int | ID балансировщика
 $hash = 15095f25-aac3-4d60-a788-96cb5136f186; // string | Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм.
 $code = 0000; // string | Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена `is_able_to_delete` установлен в значение `true`
 
@@ -245,7 +245,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **balancer_id** | **int**| Идентификатор балансировщика | |
+| **balancer_id** | **int**| ID балансировщика | |
 | **hash** | **string**| Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. | [optional] |
 | **code** | **string**| Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; | [optional] |
 
@@ -293,8 +293,8 @@ $apiInstance = new OpenAPI\Client\Api\BalancersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$balancer_id = 56; // int | Идентификатор балансировщика
-$rule_id = 56; // int | Идентификатор правила для балансировщика
+$balancer_id = 56; // int | ID балансировщика
+$rule_id = 56; // int | ID правила для балансировщика
 
 try {
     $apiInstance->deleteBalancerRule($balancer_id, $rule_id);
@@ -307,8 +307,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **balancer_id** | **int**| Идентификатор балансировщика | |
-| **rule_id** | **int**| Идентификатор правила для балансировщика | |
+| **balancer_id** | **int**| ID балансировщика | |
+| **rule_id** | **int**| ID правила для балансировщика | |
 
 ### Return type
 
@@ -354,7 +354,7 @@ $apiInstance = new OpenAPI\Client\Api\BalancersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$balancer_id = 56; // int | Идентификатор балансировщика
+$balancer_id = 56; // int | ID балансировщика
 $add_ips_to_balancer_request = new \OpenAPI\Client\Model\AddIPsToBalancerRequest(); // \OpenAPI\Client\Model\AddIPsToBalancerRequest
 
 try {
@@ -368,7 +368,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **balancer_id** | **int**| Идентификатор балансировщика | |
+| **balancer_id** | **int**| ID балансировщика | |
 | **add_ips_to_balancer_request** | [**\OpenAPI\Client\Model\AddIPsToBalancerRequest**](../Model/AddIPsToBalancerRequest.md)|  | |
 
 ### Return type
@@ -415,7 +415,7 @@ $apiInstance = new OpenAPI\Client\Api\BalancersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$balancer_id = 56; // int | Идентификатор балансировщика
+$balancer_id = 56; // int | ID балансировщика
 
 try {
     $result = $apiInstance->getBalancer($balancer_id);
@@ -429,7 +429,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **balancer_id** | **int**| Идентификатор балансировщика | |
+| **balancer_id** | **int**| ID балансировщика | |
 
 ### Return type
 
@@ -475,7 +475,7 @@ $apiInstance = new OpenAPI\Client\Api\BalancersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$balancer_id = 56; // int | Идентификатор балансировщика
+$balancer_id = 56; // int | ID балансировщика
 
 try {
     $result = $apiInstance->getBalancerIPs($balancer_id);
@@ -489,7 +489,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **balancer_id** | **int**| Идентификатор балансировщика | |
+| **balancer_id** | **int**| ID балансировщика | |
 
 ### Return type
 
@@ -535,7 +535,7 @@ $apiInstance = new OpenAPI\Client\Api\BalancersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$balancer_id = 56; // int | Идентификатор балансировщика
+$balancer_id = 56; // int | ID балансировщика
 
 try {
     $result = $apiInstance->getBalancerRules($balancer_id);
@@ -549,7 +549,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **balancer_id** | **int**| Идентификатор балансировщика | |
+| **balancer_id** | **int**| ID балансировщика | |
 
 ### Return type
 
@@ -714,7 +714,7 @@ $apiInstance = new OpenAPI\Client\Api\BalancersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$balancer_id = 56; // int | Идентификатор балансировщика
+$balancer_id = 56; // int | ID балансировщика
 $update_balancer = new \OpenAPI\Client\Model\UpdateBalancer(); // \OpenAPI\Client\Model\UpdateBalancer
 
 try {
@@ -729,7 +729,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **balancer_id** | **int**| Идентификатор балансировщика | |
+| **balancer_id** | **int**| ID балансировщика | |
 | **update_balancer** | [**\OpenAPI\Client\Model\UpdateBalancer**](../Model/UpdateBalancer.md)|  | |
 
 ### Return type
@@ -776,8 +776,8 @@ $apiInstance = new OpenAPI\Client\Api\BalancersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$balancer_id = 56; // int | Идентификатор балансировщика
-$rule_id = 56; // int | Идентификатор правила для балансировщика
+$balancer_id = 56; // int | ID балансировщика
+$rule_id = 56; // int | ID правила для балансировщика
 $update_rule = new \OpenAPI\Client\Model\UpdateRule(); // \OpenAPI\Client\Model\UpdateRule
 
 try {
@@ -792,8 +792,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **balancer_id** | **int**| Идентификатор балансировщика | |
-| **rule_id** | **int**| Идентификатор правила для балансировщика | |
+| **balancer_id** | **int**| ID балансировщика | |
+| **rule_id** | **int**| ID правила для балансировщика | |
 | **update_rule** | [**\OpenAPI\Client\Model\UpdateRule**](../Model/UpdateRule.md)|  | |
 
 ### Return type

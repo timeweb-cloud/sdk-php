@@ -1,6 +1,6 @@
 <?php
 /**
- * FirewallGroupResourceOutAPI
+ * SchemasMeta
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * FirewallGroupResourceOutAPI Class Doc Comment
+ * SchemasMeta Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FirewallGroupResourceOutAPI implements ModelInterface, ArrayAccess, \JsonSerializable
+class SchemasMeta implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class FirewallGroupResourceOutAPI implements ModelInterface, ArrayAccess, \JsonS
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FirewallGroupResourceOutAPI';
+    protected static $openAPIModelName = 'schemas-Meta';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class FirewallGroupResourceOutAPI implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'type' => '\OpenAPI\Client\Model\ResourceType'
+        'total' => 'int'
     ];
 
     /**
@@ -70,8 +69,7 @@ class FirewallGroupResourceOutAPI implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'type' => null
+        'total' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class FirewallGroupResourceOutAPI implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'type' => false
+        'total' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class FirewallGroupResourceOutAPI implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'type' => 'type'
+        'total' => 'total'
     ];
 
     /**
@@ -180,8 +176,7 @@ class FirewallGroupResourceOutAPI implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'type' => 'setType'
+        'total' => 'setTotal'
     ];
 
     /**
@@ -190,8 +185,7 @@ class FirewallGroupResourceOutAPI implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'type' => 'getType'
+        'total' => 'getTotal'
     ];
 
     /**
@@ -251,8 +245,7 @@ class FirewallGroupResourceOutAPI implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('total', $data ?? [], null);
     }
 
     /**
@@ -282,11 +275,8 @@ class FirewallGroupResourceOutAPI implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['total'] === null) {
+            $invalidProperties[] = "'total' can't be null";
         }
         return $invalidProperties;
     }
@@ -304,55 +294,28 @@ class FirewallGroupResourceOutAPI implements ModelInterface, ArrayAccess, \JsonS
 
 
     /**
-     * Gets id
+     * Gets total
      *
      * @return int
      */
-    public function getId()
+    public function getTotal()
     {
-        return $this->container['id'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets id
+     * Sets total
      *
-     * @param int $id resource id
+     * @param int $total Число элементов в результате
      *
      * @return self
      */
-    public function setId($id)
+    public function setTotal($total)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($total)) {
+            throw new \InvalidArgumentException('non-nullable total cannot be null');
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return \OpenAPI\Client\Model\ResourceType
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \OpenAPI\Client\Model\ResourceType $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
+        $this->container['total'] = $total;
 
         return $this;
     }

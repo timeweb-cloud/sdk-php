@@ -28,5 +28,6 @@ Name | Type | Description | Notes
 **price** | **float** | Стоимость выделенного сервера. |
 **location** | **string** | Локация сервера. |
 **autoinstall_ready** | **float** | Количество готовых к автоматической выдаче серверов. Если значение равно 0, сервер будет установлен через инженеров. |
+**password** | **string** | Пароль root сервера или пароль Администратора для серверов Windows. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

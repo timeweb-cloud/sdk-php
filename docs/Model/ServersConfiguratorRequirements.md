@@ -16,5 +16,8 @@ Name | Type | Description | Notes
 **network_bandwidth_min** | **float** | Минимальныая пропускная способноть интернет-канала (в Мб) |
 **network_bandwidth_step** | **float** | Размер шага пропускной способноти интернет-канала (в Мб) |
 **network_bandwidth_max** | **float** | Максимальная пропускная способноть интернет-канала (в Мб) |
+**gpu_min** | **float** | Минимальное количество видеокарт |
+**gpu_max** | **float** | Максимальное количество видеокарт |
+**gpu_step** | **float** | Размер шага видеокарт |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

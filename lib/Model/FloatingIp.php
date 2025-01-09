@@ -404,7 +404,7 @@ class FloatingIp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string $id Идентификатор IP.
+     * @param string $id ID IP.
      *
      * @return self
      */

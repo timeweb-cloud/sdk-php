@@ -99,7 +99,7 @@ class FloatingIPApiTest extends TestCase
     /**
      * Test case for deleteFloatingIP
      *
-     * Удаление плавающего IP по идентификатору.
+     * Удаление плавающего IP по ID.
      *
      */
     public function testDeleteFloatingIP()
@@ -147,7 +147,7 @@ class FloatingIPApiTest extends TestCase
     /**
      * Test case for updateFloatingIP
      *
-     * Изменение плавающего IP по идентификатору.
+     * Изменение плавающего IP по ID.
      *
      */
     public function testUpdateFloatingIP()

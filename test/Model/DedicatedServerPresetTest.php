@@ -108,6 +108,15 @@ class DedicatedServerPresetTest extends TestCase
     }
 
     /**
+     * Test attribute "is_pre_installed"
+     */
+    public function testPropertyIsPreInstalled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "cpu"
      */
     public function testPropertyCpu()

@@ -164,7 +164,7 @@ class BalancersApi
      *
      * Добавление IP-адресов к балансировщику
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\AddIPsToBalancerRequest $add_ips_to_balancer_request add_ips_to_balancer_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addIPsToBalancer'] to see the possible values for this operation
      *
@@ -182,7 +182,7 @@ class BalancersApi
      *
      * Добавление IP-адресов к балансировщику
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\AddIPsToBalancerRequest $add_ips_to_balancer_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addIPsToBalancer'] to see the possible values for this operation
      *
@@ -291,7 +291,7 @@ class BalancersApi
      *
      * Добавление IP-адресов к балансировщику
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\AddIPsToBalancerRequest $add_ips_to_balancer_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addIPsToBalancer'] to see the possible values for this operation
      *
@@ -313,7 +313,7 @@ class BalancersApi
      *
      * Добавление IP-адресов к балансировщику
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\AddIPsToBalancerRequest $add_ips_to_balancer_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addIPsToBalancer'] to see the possible values for this operation
      *
@@ -351,7 +351,7 @@ class BalancersApi
     /**
      * Create request for operation 'addIPsToBalancer'
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\AddIPsToBalancerRequest $add_ips_to_balancer_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addIPsToBalancer'] to see the possible values for this operation
      *
@@ -888,7 +888,7 @@ class BalancersApi
      *
      * Создание правила для балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\CreateRule $create_rule create_rule (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBalancerRule'] to see the possible values for this operation
      *
@@ -907,7 +907,7 @@ class BalancersApi
      *
      * Создание правила для балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\CreateRule $create_rule (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBalancerRule'] to see the possible values for this operation
      *
@@ -1146,7 +1146,7 @@ class BalancersApi
      *
      * Создание правила для балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\CreateRule $create_rule (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBalancerRule'] to see the possible values for this operation
      *
@@ -1168,7 +1168,7 @@ class BalancersApi
      *
      * Создание правила для балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\CreateRule $create_rule (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBalancerRule'] to see the possible values for this operation
      *
@@ -1219,7 +1219,7 @@ class BalancersApi
     /**
      * Create request for operation 'createBalancerRule'
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\CreateRule $create_rule (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBalancerRule'] to see the possible values for this operation
      *
@@ -1332,7 +1332,7 @@ class BalancersApi
      *
      * Удаление балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
      * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBalancer'] to see the possible values for this operation
@@ -1352,7 +1352,7 @@ class BalancersApi
      *
      * Удаление балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
      * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBalancer'] to see the possible values for this operation
@@ -1592,7 +1592,7 @@ class BalancersApi
      *
      * Удаление балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
      * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBalancer'] to see the possible values for this operation
@@ -1615,7 +1615,7 @@ class BalancersApi
      *
      * Удаление балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
      * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBalancer'] to see the possible values for this operation
@@ -1667,7 +1667,7 @@ class BalancersApi
     /**
      * Create request for operation 'deleteBalancer'
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
      * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBalancer'] to see the possible values for this operation
@@ -1787,8 +1787,8 @@ class BalancersApi
      *
      * Удаление правила для балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
-     * @param  int $rule_id Идентификатор правила для балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
+     * @param  int $rule_id ID правила для балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBalancerRule'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1805,8 +1805,8 @@ class BalancersApi
      *
      * Удаление правила для балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
-     * @param  int $rule_id Идентификатор правила для балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
+     * @param  int $rule_id ID правила для балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBalancerRule'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1914,8 +1914,8 @@ class BalancersApi
      *
      * Удаление правила для балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
-     * @param  int $rule_id Идентификатор правила для балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
+     * @param  int $rule_id ID правила для балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBalancerRule'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1936,8 +1936,8 @@ class BalancersApi
      *
      * Удаление правила для балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
-     * @param  int $rule_id Идентификатор правила для балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
+     * @param  int $rule_id ID правила для балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBalancerRule'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1974,8 +1974,8 @@ class BalancersApi
     /**
      * Create request for operation 'deleteBalancerRule'
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
-     * @param  int $rule_id Идентификатор правила для балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
+     * @param  int $rule_id ID правила для балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBalancerRule'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2088,7 +2088,7 @@ class BalancersApi
      *
      * Удаление IP-адресов из балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\AddIPsToBalancerRequest $add_ips_to_balancer_request add_ips_to_balancer_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteIPsFromBalancer'] to see the possible values for this operation
      *
@@ -2106,7 +2106,7 @@ class BalancersApi
      *
      * Удаление IP-адресов из балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\AddIPsToBalancerRequest $add_ips_to_balancer_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteIPsFromBalancer'] to see the possible values for this operation
      *
@@ -2215,7 +2215,7 @@ class BalancersApi
      *
      * Удаление IP-адресов из балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\AddIPsToBalancerRequest $add_ips_to_balancer_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteIPsFromBalancer'] to see the possible values for this operation
      *
@@ -2237,7 +2237,7 @@ class BalancersApi
      *
      * Удаление IP-адресов из балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\AddIPsToBalancerRequest $add_ips_to_balancer_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteIPsFromBalancer'] to see the possible values for this operation
      *
@@ -2275,7 +2275,7 @@ class BalancersApi
     /**
      * Create request for operation 'deleteIPsFromBalancer'
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\AddIPsToBalancerRequest $add_ips_to_balancer_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteIPsFromBalancer'] to see the possible values for this operation
      *
@@ -2388,7 +2388,7 @@ class BalancersApi
      *
      * Получение бaлансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2406,7 +2406,7 @@ class BalancersApi
      *
      * Получение бaлансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2644,7 +2644,7 @@ class BalancersApi
      *
      * Получение бaлансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2665,7 +2665,7 @@ class BalancersApi
      *
      * Получение бaлансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2715,7 +2715,7 @@ class BalancersApi
     /**
      * Create request for operation 'getBalancer'
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2813,7 +2813,7 @@ class BalancersApi
      *
      * Получение списка IP-адресов балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancerIPs'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2831,7 +2831,7 @@ class BalancersApi
      *
      * Получение списка IP-адресов балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancerIPs'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3069,7 +3069,7 @@ class BalancersApi
      *
      * Получение списка IP-адресов балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancerIPs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3090,7 +3090,7 @@ class BalancersApi
      *
      * Получение списка IP-адресов балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancerIPs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3140,7 +3140,7 @@ class BalancersApi
     /**
      * Create request for operation 'getBalancerIPs'
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancerIPs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3238,7 +3238,7 @@ class BalancersApi
      *
      * Получение правил балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancerRules'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3256,7 +3256,7 @@ class BalancersApi
      *
      * Получение правил балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancerRules'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3494,7 +3494,7 @@ class BalancersApi
      *
      * Получение правил балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancerRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3515,7 +3515,7 @@ class BalancersApi
      *
      * Получение правил балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancerRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3565,7 +3565,7 @@ class BalancersApi
     /**
      * Create request for operation 'getBalancerRules'
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalancerRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4503,7 +4503,7 @@ class BalancersApi
      *
      * Обновление балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\UpdateBalancer $update_balancer update_balancer (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBalancer'] to see the possible values for this operation
      *
@@ -4522,7 +4522,7 @@ class BalancersApi
      *
      * Обновление балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\UpdateBalancer $update_balancer (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBalancer'] to see the possible values for this operation
      *
@@ -4761,7 +4761,7 @@ class BalancersApi
      *
      * Обновление балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\UpdateBalancer $update_balancer (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBalancer'] to see the possible values for this operation
      *
@@ -4783,7 +4783,7 @@ class BalancersApi
      *
      * Обновление балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\UpdateBalancer $update_balancer (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBalancer'] to see the possible values for this operation
      *
@@ -4834,7 +4834,7 @@ class BalancersApi
     /**
      * Create request for operation 'updateBalancer'
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
      * @param  \OpenAPI\Client\Model\UpdateBalancer $update_balancer (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBalancer'] to see the possible values for this operation
      *
@@ -4947,8 +4947,8 @@ class BalancersApi
      *
      * Обновление правила для балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
-     * @param  int $rule_id Идентификатор правила для балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
+     * @param  int $rule_id ID правила для балансировщика (required)
      * @param  \OpenAPI\Client\Model\UpdateRule $update_rule update_rule (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBalancerRule'] to see the possible values for this operation
      *
@@ -4967,8 +4967,8 @@ class BalancersApi
      *
      * Обновление правила для балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
-     * @param  int $rule_id Идентификатор правила для балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
+     * @param  int $rule_id ID правила для балансировщика (required)
      * @param  \OpenAPI\Client\Model\UpdateRule $update_rule (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBalancerRule'] to see the possible values for this operation
      *
@@ -5207,8 +5207,8 @@ class BalancersApi
      *
      * Обновление правила для балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
-     * @param  int $rule_id Идентификатор правила для балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
+     * @param  int $rule_id ID правила для балансировщика (required)
      * @param  \OpenAPI\Client\Model\UpdateRule $update_rule (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBalancerRule'] to see the possible values for this operation
      *
@@ -5230,8 +5230,8 @@ class BalancersApi
      *
      * Обновление правила для балансировщика
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
-     * @param  int $rule_id Идентификатор правила для балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
+     * @param  int $rule_id ID правила для балансировщика (required)
      * @param  \OpenAPI\Client\Model\UpdateRule $update_rule (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBalancerRule'] to see the possible values for this operation
      *
@@ -5282,8 +5282,8 @@ class BalancersApi
     /**
      * Create request for operation 'updateBalancerRule'
      *
-     * @param  int $balancer_id Идентификатор балансировщика (required)
-     * @param  int $rule_id Идентификатор правила для балансировщика (required)
+     * @param  int $balancer_id ID балансировщика (required)
+     * @param  int $rule_id ID правила для балансировщика (required)
      * @param  \OpenAPI\Client\Model\UpdateRule $update_rule (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBalancerRule'] to see the possible values for this operation
      *

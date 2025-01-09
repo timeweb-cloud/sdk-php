@@ -306,7 +306,7 @@ class AddDatabaseToProjectRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets resource_id
      *
-     * @param float $resource_id Идентификатор добавляемой базы данных.
+     * @param float $resource_id ID добавляемой базы данных.
      *
      * @return self
      */

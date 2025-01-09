@@ -871,9 +871,9 @@ class SSHApi
     /**
      * Operation deleteKey
      *
-     * Удаление SSH-ключа по уникальному идентификатору
+     * Удаление SSH-ключа по ID
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKey'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -888,9 +888,9 @@ class SSHApi
     /**
      * Operation deleteKeyWithHttpInfo
      *
-     * Удаление SSH-ключа по уникальному идентификатору
+     * Удаление SSH-ключа по ID
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKey'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -996,9 +996,9 @@ class SSHApi
     /**
      * Operation deleteKeyAsync
      *
-     * Удаление SSH-ключа по уникальному идентификатору
+     * Удаление SSH-ключа по ID
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1017,9 +1017,9 @@ class SSHApi
     /**
      * Operation deleteKeyAsyncWithHttpInfo
      *
-     * Удаление SSH-ключа по уникальному идентификатору
+     * Удаление SSH-ключа по ID
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1056,7 +1056,7 @@ class SSHApi
     /**
      * Create request for operation 'deleteKey'
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1158,7 +1158,7 @@ class SSHApi
      * Удаление SSH-ключей с сервера
      *
      * @param  int $server_id ID облачного сервера. (required)
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKeyFromServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1176,7 +1176,7 @@ class SSHApi
      * Удаление SSH-ключей с сервера
      *
      * @param  int $server_id ID облачного сервера. (required)
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKeyFromServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1285,7 +1285,7 @@ class SSHApi
      * Удаление SSH-ключей с сервера
      *
      * @param  int $server_id ID облачного сервера. (required)
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKeyFromServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1307,7 +1307,7 @@ class SSHApi
      * Удаление SSH-ключей с сервера
      *
      * @param  int $server_id ID облачного сервера. (required)
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKeyFromServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1345,7 +1345,7 @@ class SSHApi
      * Create request for operation 'deleteKeyFromServer'
      *
      * @param  int $server_id ID облачного сервера. (required)
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKeyFromServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1462,9 +1462,9 @@ class SSHApi
     /**
      * Operation getKey
      *
-     * Получение SSH-ключа по уникальному идентификатору
+     * Получение SSH-ключа по ID
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKey'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1480,9 +1480,9 @@ class SSHApi
     /**
      * Operation getKeyWithHttpInfo
      *
-     * Получение SSH-ключа по уникальному идентификатору
+     * Получение SSH-ключа по ID
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKey'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1718,9 +1718,9 @@ class SSHApi
     /**
      * Operation getKeyAsync
      *
-     * Получение SSH-ключа по уникальному идентификатору
+     * Получение SSH-ключа по ID
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1739,9 +1739,9 @@ class SSHApi
     /**
      * Operation getKeyAsyncWithHttpInfo
      *
-     * Получение SSH-ключа по уникальному идентификатору
+     * Получение SSH-ключа по ID
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1791,7 +1791,7 @@ class SSHApi
     /**
      * Create request for operation 'getKey'
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2295,9 +2295,9 @@ class SSHApi
     /**
      * Operation updateKey
      *
-     * Изменение SSH-ключа по уникальному идентификатору
+     * Изменение SSH-ключа по ID
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  \OpenAPI\Client\Model\UpdateKeyRequest $update_key_request update_key_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKey'] to see the possible values for this operation
      *
@@ -2314,9 +2314,9 @@ class SSHApi
     /**
      * Operation updateKeyWithHttpInfo
      *
-     * Изменение SSH-ключа по уникальному идентификатору
+     * Изменение SSH-ключа по ID
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  \OpenAPI\Client\Model\UpdateKeyRequest $update_key_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKey'] to see the possible values for this operation
      *
@@ -2553,9 +2553,9 @@ class SSHApi
     /**
      * Operation updateKeyAsync
      *
-     * Изменение SSH-ключа по уникальному идентификатору
+     * Изменение SSH-ключа по ID
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  \OpenAPI\Client\Model\UpdateKeyRequest $update_key_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKey'] to see the possible values for this operation
      *
@@ -2575,9 +2575,9 @@ class SSHApi
     /**
      * Operation updateKeyAsyncWithHttpInfo
      *
-     * Изменение SSH-ключа по уникальному идентификатору
+     * Изменение SSH-ключа по ID
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  \OpenAPI\Client\Model\UpdateKeyRequest $update_key_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKey'] to see the possible values for this operation
      *
@@ -2628,7 +2628,7 @@ class SSHApi
     /**
      * Create request for operation 'updateKey'
      *
-     * @param  int $ssh_key_id ID SSH-ключа (required)
+     * @param  int $ssh_key_id ID SSH-ключа. (required)
      * @param  \OpenAPI\Client\Model\UpdateKeyRequest $update_key_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKey'] to see the possible values for this operation
      *

@@ -12,7 +12,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getNetworkDrivesPresets()**](NetworkDrivesApi.md#getNetworkDrivesPresets) | **GET** /api/v1/presets/network-drives | Получение списка доступных тарифов для сетевого диска |
 | [**mountNetworkDrive()**](NetworkDrivesApi.md#mountNetworkDrive) | **POST** /api/v1/network-drives/{network_drive_id}/bind | Подключить сетевой диск к сервису |
 | [**unmountNetworkDrive()**](NetworkDrivesApi.md#unmountNetworkDrive) | **POST** /api/v1/network-drives/{network_drive_id}/unbind | Отключить сетевой диск от сервиса |
-| [**updateNetworkDrive()**](NetworkDrivesApi.md#updateNetworkDrive) | **PATCH** /api/v1/network-drives/{network_drive_id} | Изменение сетевого диска по идентификатору |
+| [**updateNetworkDrive()**](NetworkDrivesApi.md#updateNetworkDrive) | **PATCH** /api/v1/network-drives/{network_drive_id} | Изменение сетевого диска по ID |
 
 
 ## `createNetworkDrive()`
@@ -102,7 +102,7 @@ $apiInstance = new OpenAPI\Client\Api\NetworkDrivesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$network_drive_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | Идентификатор сетевого диска
+$network_drive_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | ID сетевого диска
 
 try {
     $apiInstance->deleteNetworkDrive($network_drive_id);
@@ -115,7 +115,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **network_drive_id** | **string**| Идентификатор сетевого диска | |
+| **network_drive_id** | **string**| ID сетевого диска | |
 
 ### Return type
 
@@ -161,7 +161,7 @@ $apiInstance = new OpenAPI\Client\Api\NetworkDrivesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$network_drive_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | Идентификатор сетевого диска
+$network_drive_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | ID сетевого диска
 
 try {
     $result = $apiInstance->getNetworkDrive($network_drive_id);
@@ -175,7 +175,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **network_drive_id** | **string**| Идентификатор сетевого диска | |
+| **network_drive_id** | **string**| ID сетевого диска | |
 
 ### Return type
 
@@ -392,7 +392,7 @@ $apiInstance = new OpenAPI\Client\Api\NetworkDrivesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$network_drive_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | Идентификатор сетевого диска
+$network_drive_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | ID сетевого диска
 $mount_network_drive = new \OpenAPI\Client\Model\MountNetworkDrive(); // \OpenAPI\Client\Model\MountNetworkDrive
 
 try {
@@ -406,7 +406,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **network_drive_id** | **string**| Идентификатор сетевого диска | |
+| **network_drive_id** | **string**| ID сетевого диска | |
 | **mount_network_drive** | [**\OpenAPI\Client\Model\MountNetworkDrive**](../Model/MountNetworkDrive.md)|  | |
 
 ### Return type
@@ -453,7 +453,7 @@ $apiInstance = new OpenAPI\Client\Api\NetworkDrivesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$network_drive_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | Идентификатор сетевого диска
+$network_drive_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | ID сетевого диска
 
 try {
     $apiInstance->unmountNetworkDrive($network_drive_id);
@@ -466,7 +466,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **network_drive_id** | **string**| Идентификатор сетевого диска | |
+| **network_drive_id** | **string**| ID сетевого диска | |
 
 ### Return type
 
@@ -491,7 +491,7 @@ void (empty response body)
 updateNetworkDrive($network_drive_id, $update_network_drive): \OpenAPI\Client\Model\CreateNetworkDrive201Response
 ```
 
-Изменение сетевого диска по идентификатору
+Изменение сетевого диска по ID
 
 Чтобы изменить сетевой диск, отправьте PATCH-запрос на `/api/v1/network-drives/{network_drive_id}`
 
@@ -512,7 +512,7 @@ $apiInstance = new OpenAPI\Client\Api\NetworkDrivesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$network_drive_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | Идентификатор сетевого диска
+$network_drive_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | ID сетевого диска
 $update_network_drive = new \OpenAPI\Client\Model\UpdateNetworkDrive(); // \OpenAPI\Client\Model\UpdateNetworkDrive
 
 try {
@@ -527,7 +527,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **network_drive_id** | **string**| Идентификатор сетевого диска | |
+| **network_drive_id** | **string**| ID сетевого диска | |
 | **update_network_drive** | [**\OpenAPI\Client\Model\UpdateNetworkDrive**](../Model/UpdateNetworkDrive.md)|  | |
 
 ### Return type

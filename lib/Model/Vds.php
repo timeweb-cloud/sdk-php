@@ -72,6 +72,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'string',
         'start_at' => '\DateTime',
         'is_ddos_guard' => 'bool',
+        'is_master_ssh' => 'bool',
+        'is_dedicated_cpu' => 'bool',
+        'gpu' => 'float',
         'cpu' => 'float',
         'cpu_frequency' => 'string',
         'ram' => 'float',
@@ -107,6 +110,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => null,
         'start_at' => 'date-time',
         'is_ddos_guard' => null,
+        'is_master_ssh' => null,
+        'is_dedicated_cpu' => null,
+        'gpu' => null,
         'cpu' => null,
         'cpu_frequency' => null,
         'ram' => null,
@@ -140,6 +146,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
 		'status' => false,
 		'start_at' => true,
 		'is_ddos_guard' => false,
+		'is_master_ssh' => false,
+		'is_dedicated_cpu' => false,
+		'gpu' => false,
 		'cpu' => false,
 		'cpu_frequency' => false,
 		'ram' => false,
@@ -253,6 +262,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'status',
         'start_at' => 'start_at',
         'is_ddos_guard' => 'is_ddos_guard',
+        'is_master_ssh' => 'is_master_ssh',
+        'is_dedicated_cpu' => 'is_dedicated_cpu',
+        'gpu' => 'gpu',
         'cpu' => 'cpu',
         'cpu_frequency' => 'cpu_frequency',
         'ram' => 'ram',
@@ -286,6 +298,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'setStatus',
         'start_at' => 'setStartAt',
         'is_ddos_guard' => 'setIsDdosGuard',
+        'is_master_ssh' => 'setIsMasterSsh',
+        'is_dedicated_cpu' => 'setIsDedicatedCpu',
+        'gpu' => 'setGpu',
         'cpu' => 'setCpu',
         'cpu_frequency' => 'setCpuFrequency',
         'ram' => 'setRam',
@@ -319,6 +334,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'getStatus',
         'start_at' => 'getStartAt',
         'is_ddos_guard' => 'getIsDdosGuard',
+        'is_master_ssh' => 'getIsMasterSsh',
+        'is_dedicated_cpu' => 'getIsDedicatedCpu',
+        'gpu' => 'getGpu',
         'cpu' => 'getCpu',
         'cpu_frequency' => 'getCpuFrequency',
         'ram' => 'getRam',
@@ -376,8 +394,10 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
 
     public const LOCATION_RU_1 = 'ru-1';
     public const LOCATION_RU_2 = 'ru-2';
+    public const LOCATION_RU_3 = 'ru-3';
     public const LOCATION_PL_1 = 'pl-1';
     public const LOCATION_KZ_1 = 'kz-1';
+    public const LOCATION_NL_1 = 'nl-1';
     public const BOOT_MODE_STD = 'std';
     public const BOOT_MODE_SINGLE = 'single';
     public const BOOT_MODE_CD = 'cd';
@@ -410,8 +430,10 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::LOCATION_RU_1,
             self::LOCATION_RU_2,
+            self::LOCATION_RU_3,
             self::LOCATION_PL_1,
             self::LOCATION_KZ_1,
+            self::LOCATION_NL_1,
         ];
     }
 
@@ -486,6 +508,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('start_at', $data ?? [], null);
         $this->setIfExists('is_ddos_guard', $data ?? [], null);
+        $this->setIfExists('is_master_ssh', $data ?? [], null);
+        $this->setIfExists('is_dedicated_cpu', $data ?? [], null);
+        $this->setIfExists('gpu', $data ?? [], null);
         $this->setIfExists('cpu', $data ?? [], null);
         $this->setIfExists('cpu_frequency', $data ?? [], null);
         $this->setIfExists('ram', $data ?? [], null);
@@ -593,6 +618,15 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['is_ddos_guard'] === null) {
             $invalidProperties[] = "'is_ddos_guard' can't be null";
         }
+        if ($this->container['is_master_ssh'] === null) {
+            $invalidProperties[] = "'is_master_ssh' can't be null";
+        }
+        if ($this->container['is_dedicated_cpu'] === null) {
+            $invalidProperties[] = "'is_dedicated_cpu' can't be null";
+        }
+        if ($this->container['gpu'] === null) {
+            $invalidProperties[] = "'gpu' can't be null";
+        }
         if ($this->container['cpu'] === null) {
             $invalidProperties[] = "'cpu' can't be null";
         }
@@ -622,6 +656,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['cloud_init'] === null) {
             $invalidProperties[] = "'cloud_init' can't be null";
+        }
+        if ($this->container['is_qemu_agent'] === null) {
+            $invalidProperties[] = "'is_qemu_agent' can't be null";
         }
         if ($this->container['availability_zone'] === null) {
             $invalidProperties[] = "'availability_zone' can't be null";
@@ -681,7 +718,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Удобочитаемое имя, установленное для выделенного сервера.
+     * @param string $name Удобочитаемое имя, установленное для сервера.
      *
      * @return self
      */
@@ -708,7 +745,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets comment
      *
-     * @param string $comment Комментарий к выделенному серверу.
+     * @param string $comment Комментарий к серверу.
      *
      * @return self
      */
@@ -1051,6 +1088,87 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets is_master_ssh
+     *
+     * @return bool
+     */
+    public function getIsMasterSsh()
+    {
+        return $this->container['is_master_ssh'];
+    }
+
+    /**
+     * Sets is_master_ssh
+     *
+     * @param bool $is_master_ssh Это логическое значение, которое показывает, доступно ли подключение по SSH для поддержки.
+     *
+     * @return self
+     */
+    public function setIsMasterSsh($is_master_ssh)
+    {
+        if (is_null($is_master_ssh)) {
+            throw new \InvalidArgumentException('non-nullable is_master_ssh cannot be null');
+        }
+        $this->container['is_master_ssh'] = $is_master_ssh;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_dedicated_cpu
+     *
+     * @return bool
+     */
+    public function getIsDedicatedCpu()
+    {
+        return $this->container['is_dedicated_cpu'];
+    }
+
+    /**
+     * Sets is_dedicated_cpu
+     *
+     * @param bool $is_dedicated_cpu Это логическое значение, которое показывает, является ли CPU выделенным.
+     *
+     * @return self
+     */
+    public function setIsDedicatedCpu($is_dedicated_cpu)
+    {
+        if (is_null($is_dedicated_cpu)) {
+            throw new \InvalidArgumentException('non-nullable is_dedicated_cpu cannot be null');
+        }
+        $this->container['is_dedicated_cpu'] = $is_dedicated_cpu;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu
+     *
+     * @return float
+     */
+    public function getGpu()
+    {
+        return $this->container['gpu'];
+    }
+
+    /**
+     * Sets gpu
+     *
+     * @param float $gpu Количество видеокарт сервера.
+     *
+     * @return self
+     */
+    public function setGpu($gpu)
+    {
+        if (is_null($gpu)) {
+            throw new \InvalidArgumentException('non-nullable gpu cannot be null');
+        }
+        $this->container['gpu'] = $gpu;
+
+        return $this;
+    }
+
+    /**
      * Gets cpu
      *
      * @return float
@@ -1351,7 +1469,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets is_qemu_agent
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIsQemuAgent()
     {
@@ -1361,7 +1479,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_qemu_agent
      *
-     * @param bool|null $is_qemu_agent Включен ли QEMU-agent на сервере.
+     * @param bool $is_qemu_agent Это логическое значение, которое показывает, включен ли QEMU-agent на сервере.
      *
      * @return self
      */

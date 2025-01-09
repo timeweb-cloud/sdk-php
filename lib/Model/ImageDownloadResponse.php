@@ -59,7 +59,7 @@ class ImageDownloadResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'response_id' => 'string',
-        'download' => '\OpenAPI\Client\Model\ImageDownloadAPI'
+        'download' => '\OpenAPI\Client\Model\ImageDownload'
     ];
 
     /**
@@ -313,7 +313,7 @@ class ImageDownloadResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets response_id
      *
-     * @param string|null $response_id ID запроса
+     * @param string|null $response_id ID запроса.
      *
      * @return self
      */
@@ -330,7 +330,7 @@ class ImageDownloadResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets download
      *
-     * @return \OpenAPI\Client\Model\ImageDownloadAPI
+     * @return \OpenAPI\Client\Model\ImageDownload
      */
     public function getDownload()
     {
@@ -340,7 +340,7 @@ class ImageDownloadResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets download
      *
-     * @param \OpenAPI\Client\Model\ImageDownloadAPI $download download
+     * @param \OpenAPI\Client\Model\ImageDownload $download download
      *
      * @return self
      */

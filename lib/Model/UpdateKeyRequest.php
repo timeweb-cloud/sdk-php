@@ -317,7 +317,7 @@ class UpdateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets body
      *
-     * @param string|null $body Тело SSH-ключа
+     * @param string|null $body Тело SSH-ключа.
      *
      * @return self
      */
@@ -344,7 +344,7 @@ class UpdateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_default
      *
-     * @param bool|null $is_default Будет ли выбираться SSH-ключ по умолчанию при создании сервера
+     * @param bool|null $is_default Будет ли выбираться SSH-ключ по умолчанию при создании сервера.
      *
      * @return self
      */
@@ -371,7 +371,7 @@ class UpdateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Название SSH-ключа
+     * @param string|null $name Название SSH-ключа.
      *
      * @return self
      */

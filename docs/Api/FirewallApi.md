@@ -47,7 +47,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group_id = 'group_id_example'; // string | ID группы правил
+$group_id = 'group_id_example'; // string | ID группы правил.
 $resource_id = 'resource_id_example'; // string | ID ресурса
 $resource_type = new \OpenAPI\Client\Model\ResourceType(); // ResourceType
 
@@ -63,7 +63,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **group_id** | **string**| ID группы правил | |
+| **group_id** | **string**| ID группы правил. | |
 | **resource_id** | **string**| ID ресурса | |
 | **resource_type** | [**ResourceType**](../Model/.md)|  | [optional] |
 
@@ -112,7 +112,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     $config
 );
 $firewall_group_in_api = new \OpenAPI\Client\Model\FirewallGroupInAPI(); // \OpenAPI\Client\Model\FirewallGroupInAPI
-$policy = 'policy_example'; // string | Тип группы правил
+$policy = 'policy_example'; // string | Тип группы правил.
 
 try {
     $result = $apiInstance->createGroup($firewall_group_in_api, $policy);
@@ -127,7 +127,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **firewall_group_in_api** | [**\OpenAPI\Client\Model\FirewallGroupInAPI**](../Model/FirewallGroupInAPI.md)|  | |
-| **policy** | **string**| Тип группы правил | [optional] |
+| **policy** | **string**| Тип группы правил. | [optional] |
 
 ### Return type
 
@@ -173,7 +173,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group_id = 'group_id_example'; // string | ID группы правил
+$group_id = 'group_id_example'; // string | ID группы правил.
 $firewall_rule_in_api = new \OpenAPI\Client\Model\FirewallRuleInAPI(); // \OpenAPI\Client\Model\FirewallRuleInAPI
 
 try {
@@ -188,7 +188,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **group_id** | **string**| ID группы правил | |
+| **group_id** | **string**| ID группы правил. | |
 | **firewall_rule_in_api** | [**\OpenAPI\Client\Model\FirewallRuleInAPI**](../Model/FirewallRuleInAPI.md)|  | |
 
 ### Return type
@@ -235,7 +235,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group_id = 'group_id_example'; // string | ID группы правил
+$group_id = 'group_id_example'; // string | ID группы правил.
 
 try {
     $apiInstance->deleteGroup($group_id);
@@ -248,7 +248,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **group_id** | **string**| ID группы правил | |
+| **group_id** | **string**| ID группы правил. | |
 
 ### Return type
 
@@ -294,7 +294,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group_id = 'group_id_example'; // string | ID группы правил
+$group_id = 'group_id_example'; // string | ID группы правил.
 $rule_id = 'rule_id_example'; // string | ID правила
 
 try {
@@ -308,7 +308,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **group_id** | **string**| ID группы правил | |
+| **group_id** | **string**| ID группы правил. | |
 | **rule_id** | **string**| ID правила | |
 
 ### Return type
@@ -355,7 +355,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group_id = 'group_id_example'; // string | ID группы правил
+$group_id = 'group_id_example'; // string | ID группы правил.
 $resource_id = 'resource_id_example'; // string | ID ресурса
 $resource_type = new \OpenAPI\Client\Model\ResourceType(); // ResourceType
 
@@ -370,7 +370,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **group_id** | **string**| ID группы правил | |
+| **group_id** | **string**| ID группы правил. | |
 | **resource_id** | **string**| ID ресурса | |
 | **resource_type** | [**ResourceType**](../Model/.md)|  | [optional] |
 
@@ -418,7 +418,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group_id = 'group_id_example'; // string | ID группы правил
+$group_id = 'group_id_example'; // string | ID группы правил.
 
 try {
     $result = $apiInstance->getGroup($group_id);
@@ -432,7 +432,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **group_id** | **string**| ID группы правил | |
+| **group_id** | **string**| ID группы правил. | |
 
 ### Return type
 
@@ -478,7 +478,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group_id = 'group_id_example'; // string | ID группы правил
+$group_id = 'group_id_example'; // string | ID группы правил.
 $limit = 100; // int | Обозначает количество записей, которое необходимо вернуть.
 $offset = 0; // int | Указывает на смещение относительно начала списка.
 
@@ -494,7 +494,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **group_id** | **string**| ID группы правил | |
+| **group_id** | **string**| ID группы правил. | |
 | **limit** | **int**| Обозначает количество записей, которое необходимо вернуть. | [optional] [default to 100] |
 | **offset** | **int**| Указывает на смещение относительно начала списка. | [optional] [default to 0] |
 
@@ -542,8 +542,8 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     new GuzzleHttp\Client(),
     $config
 );
-$rule_id = 'rule_id_example'; // string | ID правила
-$group_id = 'group_id_example'; // string | ID группы правил
+$rule_id = 'rule_id_example'; // string | ID правила.
+$group_id = 'group_id_example'; // string | ID группы правил.
 
 try {
     $result = $apiInstance->getGroupRule($rule_id, $group_id);
@@ -557,8 +557,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **rule_id** | **string**| ID правила | |
-| **group_id** | **string**| ID группы правил | |
+| **rule_id** | **string**| ID правила. | |
+| **group_id** | **string**| ID группы правил. | |
 
 ### Return type
 
@@ -604,7 +604,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group_id = 'group_id_example'; // string | ID группы правил
+$group_id = 'group_id_example'; // string | ID группы правил.
 $limit = 100; // int | Обозначает количество записей, которое необходимо вернуть.
 $offset = 0; // int | Указывает на смещение относительно начала списка.
 
@@ -620,7 +620,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **group_id** | **string**| ID группы правил | |
+| **group_id** | **string**| ID группы правил. | |
 | **limit** | **int**| Обозначает количество записей, которое необходимо вернуть. | [optional] [default to 100] |
 | **offset** | **int**| Указывает на смещение относительно начала списка. | [optional] [default to 0] |
 
@@ -730,7 +730,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     new GuzzleHttp\Client(),
     $config
 );
-$resource_id = 'resource_id_example'; // string | Идентификатор ресурса
+$resource_id = 'resource_id_example'; // string | ID ресурса
 $resource_type = new \OpenAPI\Client\Model\ResourceType(); // ResourceType
 $limit = 100; // int | Обозначает количество записей, которое необходимо вернуть.
 $offset = 0; // int | Указывает на смещение относительно начала списка.
@@ -747,7 +747,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **resource_id** | **string**| Идентификатор ресурса | |
+| **resource_id** | **string**| ID ресурса | |
 | **resource_type** | [**ResourceType**](../Model/.md)|  | |
 | **limit** | **int**| Обозначает количество записей, которое необходимо вернуть. | [optional] [default to 100] |
 | **offset** | **int**| Указывает на смещение относительно начала списка. | [optional] [default to 0] |
@@ -796,7 +796,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group_id = 'group_id_example'; // string | ID группы правил
+$group_id = 'group_id_example'; // string | ID группы правил.
 $firewall_group_in_api = new \OpenAPI\Client\Model\FirewallGroupInAPI(); // \OpenAPI\Client\Model\FirewallGroupInAPI
 
 try {
@@ -811,7 +811,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **group_id** | **string**| ID группы правил | |
+| **group_id** | **string**| ID группы правил. | |
 | **firewall_group_in_api** | [**\OpenAPI\Client\Model\FirewallGroupInAPI**](../Model/FirewallGroupInAPI.md)|  | |
 
 ### Return type
@@ -858,7 +858,7 @@ $apiInstance = new OpenAPI\Client\Api\FirewallApi(
     new GuzzleHttp\Client(),
     $config
 );
-$group_id = 'group_id_example'; // string | ID группы правил
+$group_id = 'group_id_example'; // string | ID группы правил.
 $rule_id = 'rule_id_example'; // string | ID правила
 $firewall_rule_in_api = new \OpenAPI\Client\Model\FirewallRuleInAPI(); // \OpenAPI\Client\Model\FirewallRuleInAPI
 
@@ -874,7 +874,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **group_id** | **string**| ID группы правил | |
+| **group_id** | **string**| ID группы правил. | |
 | **rule_id** | **string**| ID правила | |
 | **firewall_rule_in_api** | [**\OpenAPI\Client\Model\FirewallRuleInAPI**](../Model/FirewallRuleInAPI.md)|  | |
 

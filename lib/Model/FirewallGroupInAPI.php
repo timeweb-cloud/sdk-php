@@ -313,7 +313,7 @@ class FirewallGroupInAPI implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets name
      *
-     * @param string $name Имя группы правил
+     * @param string $name Имя группы правил.
      *
      * @return self
      */
@@ -340,7 +340,7 @@ class FirewallGroupInAPI implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets description
      *
-     * @param string|null $description Описание группы правил
+     * @param string|null $description Описание группы правил.
      *
      * @return self
      */

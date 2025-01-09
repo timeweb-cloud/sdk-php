@@ -306,7 +306,7 @@ class AddClusterToProjectRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets resource_id
      *
-     * @param float $resource_id Идентификатор добавляемого кластера.
+     * @param float $resource_id ID добавляемого кластера.
      *
      * @return self
      */

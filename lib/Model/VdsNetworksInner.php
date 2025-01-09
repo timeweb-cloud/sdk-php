@@ -63,7 +63,9 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
         'nat_mode' => 'string',
         'bandwidth' => 'float',
         'ips' => '\OpenAPI\Client\Model\VdsNetworksInnerIpsInner[]',
-        'is_ddos_guard' => 'bool'
+        'is_ddos_guard' => 'bool',
+        'is_image_mounted' => 'bool',
+        'blocked_ports' => 'int[]'
     ];
 
     /**
@@ -79,7 +81,9 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
         'nat_mode' => null,
         'bandwidth' => null,
         'ips' => null,
-        'is_ddos_guard' => null
+        'is_ddos_guard' => null,
+        'is_image_mounted' => null,
+        'blocked_ports' => null
     ];
 
     /**
@@ -93,7 +97,9 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
 		'nat_mode' => false,
 		'bandwidth' => true,
 		'ips' => true,
-		'is_ddos_guard' => false
+		'is_ddos_guard' => false,
+		'is_image_mounted' => false,
+		'blocked_ports' => false
     ];
 
     /**
@@ -187,7 +193,9 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
         'nat_mode' => 'nat_mode',
         'bandwidth' => 'bandwidth',
         'ips' => 'ips',
-        'is_ddos_guard' => 'is_ddos_guard'
+        'is_ddos_guard' => 'is_ddos_guard',
+        'is_image_mounted' => 'is_image_mounted',
+        'blocked_ports' => 'blocked_ports'
     ];
 
     /**
@@ -201,7 +209,9 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
         'nat_mode' => 'setNatMode',
         'bandwidth' => 'setBandwidth',
         'ips' => 'setIps',
-        'is_ddos_guard' => 'setIsDdosGuard'
+        'is_ddos_guard' => 'setIsDdosGuard',
+        'is_image_mounted' => 'setIsImageMounted',
+        'blocked_ports' => 'setBlockedPorts'
     ];
 
     /**
@@ -215,7 +225,9 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
         'nat_mode' => 'getNatMode',
         'bandwidth' => 'getBandwidth',
         'ips' => 'getIps',
-        'is_ddos_guard' => 'getIsDdosGuard'
+        'is_ddos_guard' => 'getIsDdosGuard',
+        'is_image_mounted' => 'getIsImageMounted',
+        'blocked_ports' => 'getBlockedPorts'
     ];
 
     /**
@@ -313,6 +325,8 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('bandwidth', $data ?? [], null);
         $this->setIfExists('ips', $data ?? [], null);
         $this->setIfExists('is_ddos_guard', $data ?? [], null);
+        $this->setIfExists('is_image_mounted', $data ?? [], null);
+        $this->setIfExists('blocked_ports', $data ?? [], null);
     }
 
     /**
@@ -563,7 +577,7 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_ddos_guard
      *
-     * @param bool|null $is_ddos_guard Подключена ли DDoS-защита. Только для публичных сетей.
+     * @param bool|null $is_ddos_guard Это логическое значение, которое показывает, подключена ли DDoS-защита. Только для публичных сетей.
      *
      * @return self
      */
@@ -573,6 +587,60 @@ class VdsNetworksInner implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_ddos_guard cannot be null');
         }
         $this->container['is_ddos_guard'] = $is_ddos_guard;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_image_mounted
+     *
+     * @return bool|null
+     */
+    public function getIsImageMounted()
+    {
+        return $this->container['is_image_mounted'];
+    }
+
+    /**
+     * Sets is_image_mounted
+     *
+     * @param bool|null $is_image_mounted Это логическое значение, которое показывает, примонтирован ли образ к серверу.
+     *
+     * @return self
+     */
+    public function setIsImageMounted($is_image_mounted)
+    {
+        if (is_null($is_image_mounted)) {
+            throw new \InvalidArgumentException('non-nullable is_image_mounted cannot be null');
+        }
+        $this->container['is_image_mounted'] = $is_image_mounted;
+
+        return $this;
+    }
+
+    /**
+     * Gets blocked_ports
+     *
+     * @return int[]|null
+     */
+    public function getBlockedPorts()
+    {
+        return $this->container['blocked_ports'];
+    }
+
+    /**
+     * Sets blocked_ports
+     *
+     * @param int[]|null $blocked_ports Список заблокированных портов на сервере.
+     *
+     * @return self
+     */
+    public function setBlockedPorts($blocked_ports)
+    {
+        if (is_null($blocked_ports)) {
+            throw new \InvalidArgumentException('non-nullable blocked_ports cannot be null');
+        }
+        $this->container['blocked_ports'] = $blocked_ports;
 
         return $this;
     }

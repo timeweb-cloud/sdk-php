@@ -358,7 +358,7 @@ class ResourceTransfer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets to_project
      *
-     * @param float $to_project Идентификатор проекта, куда переносится ресурс.
+     * @param float $to_project ID проекта, куда переносится ресурс.
      *
      * @return self
      */
@@ -385,7 +385,7 @@ class ResourceTransfer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets resource_id
      *
-     * @param float $resource_id Идентификатор перемещаемого ресурса (сервера, хранилища, кластера, балансировщика, базы данных или выделенного сервера).
+     * @param float $resource_id ID перемещаемого ресурса (сервера, хранилища, кластера, балансировщика, базы данных или выделенного сервера).
      *
      * @return self
      */

@@ -59,7 +59,7 @@ class FirewallGroupResourceOutResponse implements ModelInterface, ArrayAccess, \
       */
     protected static $openAPITypes = [
         'response_id' => 'string',
-        'resource' => '\OpenAPI\Client\Model\FirewallGroupResourceOutAPI'
+        'resource' => '\OpenAPI\Client\Model\FirewallGroupResource'
     ];
 
     /**
@@ -313,7 +313,7 @@ class FirewallGroupResourceOutResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets response_id
      *
-     * @param string|null $response_id Идентификатор запроса
+     * @param string|null $response_id ID запроса.
      *
      * @return self
      */
@@ -330,7 +330,7 @@ class FirewallGroupResourceOutResponse implements ModelInterface, ArrayAccess, \
     /**
      * Gets resource
      *
-     * @return \OpenAPI\Client\Model\FirewallGroupResourceOutAPI
+     * @return \OpenAPI\Client\Model\FirewallGroupResource
      */
     public function getResource()
     {
@@ -340,7 +340,7 @@ class FirewallGroupResourceOutResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets resource
      *
-     * @param \OpenAPI\Client\Model\FirewallGroupResourceOutAPI $resource resource
+     * @param \OpenAPI\Client\Model\FirewallGroupResource $resource resource
      *
      * @return self
      */

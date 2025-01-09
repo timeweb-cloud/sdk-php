@@ -353,7 +353,7 @@ class SshKey implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param float $id ID SSH-ключа
+     * @param float $id ID SSH-ключа.
      *
      * @return self
      */
@@ -380,7 +380,7 @@ class SshKey implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Название SSH-ключа
+     * @param string $name Название SSH-ключа.
      *
      * @return self
      */
@@ -407,7 +407,7 @@ class SshKey implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets body
      *
-     * @param string $body Тело SSH-ключа
+     * @param string $body Тело SSH-ключа.
      *
      * @return self
      */
@@ -434,7 +434,7 @@ class SshKey implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Дата создания ключа
+     * @param \DateTime $created_at Значение времени, указанное в комбинированном формате даты и времени ISO8601, которое представляет, когда был создан SSH-ключ.
      *
      * @return self
      */
@@ -461,7 +461,7 @@ class SshKey implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets used_by
      *
-     * @param \OpenAPI\Client\Model\SshKeyUsedByInner[] $used_by Список серверов, которые используют SSH-ключ
+     * @param \OpenAPI\Client\Model\SshKeyUsedByInner[] $used_by Список серверов, которые используют SSH-ключ.
      *
      * @return self
      */
@@ -488,7 +488,7 @@ class SshKey implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_default
      *
-     * @param bool|null $is_default Будет ли выбираться SSh-ключ по умолчанию при создании сервера
+     * @param bool|null $is_default Это логическое значение, которое показывает, будет ли выбираться SSH-ключ по умолчанию при создании сервера.
      *
      * @return self
      */

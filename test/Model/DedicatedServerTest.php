@@ -295,4 +295,13 @@ class DedicatedServerTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "password"
+     */
+    public function testPropertyPassword()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

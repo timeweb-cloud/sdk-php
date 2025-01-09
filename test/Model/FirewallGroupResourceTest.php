@@ -1,6 +1,6 @@
 <?php
 /**
- * ImageOutAPITest
+ * FirewallGroupResourceTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ImageOutAPITest Class Doc Comment
+ * FirewallGroupResourceTest Class Doc Comment
  *
  * @category    Class
- * @description ImageOutAPI
+ * @description FirewallGroupResource
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ImageOutAPITest extends TestCase
+class FirewallGroupResourceTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class ImageOutAPITest extends TestCase
     }
 
     /**
-     * Test "ImageOutAPI"
+     * Test "FirewallGroupResource"
      */
-    public function testImageOutAPI()
+    public function testFirewallGroupResource()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -90,99 +90,9 @@ class ImageOutAPITest extends TestCase
     }
 
     /**
-     * Test attribute "status"
+     * Test attribute "type"
      */
-    public function testPropertyStatus()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "created_at"
-     */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "deleted_at"
-     */
-    public function testPropertyDeletedAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "size"
-     */
-    public function testPropertySize()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "disk_id"
-     */
-    public function testPropertyDiskId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "location"
-     */
-    public function testPropertyLocation()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "os"
-     */
-    public function testPropertyOs()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "progress"
-     */
-    public function testPropertyProgress()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "is_custom"
-     */
-    public function testPropertyIsCustom()
+    public function testPropertyType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

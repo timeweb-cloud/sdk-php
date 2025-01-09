@@ -306,7 +306,7 @@ class AddKeyToServerRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets ssh_key_ids
      *
-     * @param float[] $ssh_key_ids Массив уникальных идентификаторов SSH-ключей
+     * @param float[] $ssh_key_ids Массив ID SSH-ключей
      *
      * @return self
      */

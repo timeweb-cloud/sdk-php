@@ -337,7 +337,7 @@ class FirewallRuleInAPI implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets description
      *
-     * @param string|null $description Описание правила
+     * @param string|null $description Описание правила.
      *
      * @return self
      */
@@ -391,7 +391,7 @@ class FirewallRuleInAPI implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets port
      *
-     * @param string|null $port Порт или диапазон портов, в случае tcp или udp
+     * @param string|null $port Порт или диапазон портов, в случае tcp или udp.
      *
      * @return self
      */
@@ -445,7 +445,7 @@ class FirewallRuleInAPI implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets cidr
      *
-     * @param string|null $cidr Сетевой адрес или подсеть. Поддерживаются протоколы IPv4  и IPv6
+     * @param string|null $cidr Сетевой адрес или подсеть. Поддерживаются протоколы IPv4  и IPv.6
      *
      * @return self
      */

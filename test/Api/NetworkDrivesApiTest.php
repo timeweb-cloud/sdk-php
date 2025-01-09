@@ -171,7 +171,7 @@ class NetworkDrivesApiTest extends TestCase
     /**
      * Test case for updateNetworkDrive
      *
-     * Изменение сетевого диска по идентификатору.
+     * Изменение сетевого диска по ID.
      *
      */
     public function testUpdateNetworkDrive()

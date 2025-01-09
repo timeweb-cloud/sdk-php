@@ -344,7 +344,7 @@ class ImageUrlIn implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets filename
      *
-     * @param string|null $filename Имя файла для загрузки в облачное хранилище
+     * @param string|null $filename Имя файла для загрузки в облачное хранилище.
      *
      * @return self
      */

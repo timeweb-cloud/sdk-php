@@ -62,6 +62,7 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'float',
         'description' => 'string',
         'is_ipmi_enabled' => 'bool',
+        'is_pre_installed' => 'bool',
         'cpu' => '\OpenAPI\Client\Model\DedicatedServerPresetCpu',
         'disk' => '\OpenAPI\Client\Model\DedicatedServerPresetDisk',
         'price' => 'float',
@@ -80,6 +81,7 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => null,
         'description' => null,
         'is_ipmi_enabled' => null,
+        'is_pre_installed' => null,
         'cpu' => null,
         'disk' => null,
         'price' => null,
@@ -96,6 +98,7 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => false,
 		'description' => false,
 		'is_ipmi_enabled' => false,
+		'is_pre_installed' => false,
 		'cpu' => false,
 		'disk' => false,
 		'price' => false,
@@ -192,6 +195,7 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'id',
         'description' => 'description',
         'is_ipmi_enabled' => 'is_ipmi_enabled',
+        'is_pre_installed' => 'is_pre_installed',
         'cpu' => 'cpu',
         'disk' => 'disk',
         'price' => 'price',
@@ -208,6 +212,7 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'setId',
         'description' => 'setDescription',
         'is_ipmi_enabled' => 'setIsIpmiEnabled',
+        'is_pre_installed' => 'setIsPreInstalled',
         'cpu' => 'setCpu',
         'disk' => 'setDisk',
         'price' => 'setPrice',
@@ -224,6 +229,7 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'getId',
         'description' => 'getDescription',
         'is_ipmi_enabled' => 'getIsIpmiEnabled',
+        'is_pre_installed' => 'getIsPreInstalled',
         'cpu' => 'getCpu',
         'disk' => 'getDisk',
         'price' => 'getPrice',
@@ -276,6 +282,11 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
     public const LOCATION_RU_2 = 'ru-2';
     public const LOCATION_KZ_1 = 'kz-1';
     public const LOCATION_PL_1 = 'pl-1';
+    public const LOCATION_NL_1 = 'nl-1';
+    public const LOCATION_US_2 = 'us-2';
+    public const LOCATION_TR_1 = 'tr-1';
+    public const LOCATION_DE_1 = 'de-1';
+    public const LOCATION_FI_1 = 'fi-1';
 
     /**
      * Gets allowable values of the enum
@@ -289,6 +300,11 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
             self::LOCATION_RU_2,
             self::LOCATION_KZ_1,
             self::LOCATION_PL_1,
+            self::LOCATION_NL_1,
+            self::LOCATION_US_2,
+            self::LOCATION_TR_1,
+            self::LOCATION_DE_1,
+            self::LOCATION_FI_1,
         ];
     }
 
@@ -310,6 +326,7 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('is_ipmi_enabled', $data ?? [], null);
+        $this->setIfExists('is_pre_installed', $data ?? [], null);
         $this->setIfExists('cpu', $data ?? [], null);
         $this->setIfExists('disk', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
@@ -352,6 +369,9 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
         }
         if ($this->container['is_ipmi_enabled'] === null) {
             $invalidProperties[] = "'is_ipmi_enabled' can't be null";
+        }
+        if ($this->container['is_pre_installed'] === null) {
+            $invalidProperties[] = "'is_pre_installed' can't be null";
         }
         if ($this->container['cpu'] === null) {
             $invalidProperties[] = "'cpu' can't be null";
@@ -466,6 +486,33 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable is_ipmi_enabled cannot be null');
         }
         $this->container['is_ipmi_enabled'] = $is_ipmi_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_pre_installed
+     *
+     * @return bool
+     */
+    public function getIsPreInstalled()
+    {
+        return $this->container['is_pre_installed'];
+    }
+
+    /**
+     * Sets is_pre_installed
+     *
+     * @param bool $is_pre_installed Это логическое значение, которое показывает, готов ли выделенный сервер к моментальной выдаче.
+     *
+     * @return self
+     */
+    public function setIsPreInstalled($is_pre_installed)
+    {
+        if (is_null($is_pre_installed)) {
+            throw new \InvalidArgumentException('non-nullable is_pre_installed cannot be null');
+        }
+        $this->container['is_pre_installed'] = $is_pre_installed;
 
         return $this;
     }

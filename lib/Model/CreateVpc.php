@@ -254,7 +254,9 @@ class CreateVpc implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const LOCATION_RU_1 = 'ru-1';
+    public const LOCATION_RU_2 = 'ru-2';
     public const LOCATION_PL_1 = 'pl-1';
+    public const LOCATION_NL_1 = 'nl-1';
 
     /**
      * Gets allowable values of the enum
@@ -265,7 +267,9 @@ class CreateVpc implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::LOCATION_RU_1,
+            self::LOCATION_RU_2,
             self::LOCATION_PL_1,
+            self::LOCATION_NL_1,
         ];
     }
 

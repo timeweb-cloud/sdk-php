@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Идентификатор сетевого диска. |
+**id** | **string** | ID сетевого диска. |
 **name** | **string** | Название сетевого диска. |
 **comment** | **string** | Комментарий |
 **size** | **float** | Размер диска в Гб |
@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **status** | **string** | Статус сетевого диска. |
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  |
 **type** | **string** | Тип сетевого диска. |
-**preset_id** | **int** | Идентификатор тарифа. |
+**preset_id** | **int** | ID тарифа. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

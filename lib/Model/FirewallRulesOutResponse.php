@@ -60,7 +60,7 @@ class FirewallRulesOutResponse implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPITypes = [
         'response_id' => 'string',
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'rules' => '\OpenAPI\Client\Model\FirewallRuleOutAPI[]'
+        'rules' => '\OpenAPI\Client\Model\FirewallRule[]'
     ];
 
     /**
@@ -323,7 +323,7 @@ class FirewallRulesOutResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets response_id
      *
-     * @param string|null $response_id Идентификатор запроса
+     * @param string|null $response_id ID запроса.
      *
      * @return self
      */
@@ -367,7 +367,7 @@ class FirewallRulesOutResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets rules
      *
-     * @return \OpenAPI\Client\Model\FirewallRuleOutAPI[]
+     * @return \OpenAPI\Client\Model\FirewallRule[]
      */
     public function getRules()
     {
@@ -377,7 +377,7 @@ class FirewallRulesOutResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets rules
      *
-     * @param \OpenAPI\Client\Model\FirewallRuleOutAPI[] $rules Массив объектов Firewall правил
+     * @param \OpenAPI\Client\Model\FirewallRule[] $rules rules
      *
      * @return self
      */

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Название группы |
-**preset_id** | **int** | Идентификатор тарифа воркер-ноды. Нельзя передавать вместе с &#x60;configuration&#x60;. Локация воркер-нод должна совпадать с локацией кластера | [optional]
+**preset_id** | **int** | ID тарифа воркер-ноды. Нельзя передавать вместе с &#x60;configuration&#x60;. Локация воркер-нод должна совпадать с локацией кластера | [optional]
 **configuration** | [**\OpenAPI\Client\Model\NodeGroupInConfiguration**](NodeGroupInConfiguration.md) |  | [optional]
 **node_count** | **int** | Количество нод в группе |
 **labels** | [**\OpenAPI\Client\Model\SetLabels[]**](SetLabels.md) | Лейблы для группы нод | [optional]

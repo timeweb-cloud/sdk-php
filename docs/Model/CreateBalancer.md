@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **timeout** | **float** | Таймаут ответа балансировщика. |
 **fall** | **float** | Порог количества ошибок. |
 **rise** | **float** | Порог количества успешных ответов. |
-**preset_id** | **float** | Идентификатор тарифа. |
+**preset_id** | **float** | ID тарифа. |
 **network** | [**\OpenAPI\Client\Model\Network**](Network.md) |  | [optional]
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  | [optional]
 

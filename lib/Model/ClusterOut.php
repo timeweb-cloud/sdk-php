@@ -846,7 +846,7 @@ class ClusterOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets project_id
      *
-     * @param int|null $project_id Идентификатор проекта
+     * @param int|null $project_id ID проекта
      *
      * @return self
      */

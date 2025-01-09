@@ -533,7 +533,7 @@ class ImagesApi
      *
      * Создание ссылки на скачивание образа
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  \OpenAPI\Client\Model\ImageUrlIn $image_url_in image_url_in (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImageDownloadUrl'] to see the possible values for this operation
      *
@@ -552,7 +552,7 @@ class ImagesApi
      *
      * Создание ссылки на скачивание образа
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  \OpenAPI\Client\Model\ImageUrlIn $image_url_in (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImageDownloadUrl'] to see the possible values for this operation
      *
@@ -791,7 +791,7 @@ class ImagesApi
      *
      * Создание ссылки на скачивание образа
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  \OpenAPI\Client\Model\ImageUrlIn $image_url_in (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImageDownloadUrl'] to see the possible values for this operation
      *
@@ -813,7 +813,7 @@ class ImagesApi
      *
      * Создание ссылки на скачивание образа
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  \OpenAPI\Client\Model\ImageUrlIn $image_url_in (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImageDownloadUrl'] to see the possible values for this operation
      *
@@ -864,7 +864,7 @@ class ImagesApi
     /**
      * Create request for operation 'createImageDownloadUrl'
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  \OpenAPI\Client\Model\ImageUrlIn $image_url_in (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImageDownloadUrl'] to see the possible values for this operation
      *
@@ -977,7 +977,7 @@ class ImagesApi
      *
      * Удаление образа
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -994,7 +994,7 @@ class ImagesApi
      *
      * Удаление образа
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1086,7 +1086,7 @@ class ImagesApi
      *
      * Удаление образа
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1107,7 +1107,7 @@ class ImagesApi
      *
      * Удаление образа
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1144,7 +1144,7 @@ class ImagesApi
     /**
      * Create request for operation 'deleteImage'
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1242,8 +1242,8 @@ class ImagesApi
      *
      * Удаление ссылки на образ
      *
-     * @param  string $image_id ID образа (required)
-     * @param  string $image_url_id ID ссылки (required)
+     * @param  string $image_id ID образа. (required)
+     * @param  string $image_url_id ID ссылки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteImageDownloadURL'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1260,8 +1260,8 @@ class ImagesApi
      *
      * Удаление ссылки на образ
      *
-     * @param  string $image_id ID образа (required)
-     * @param  string $image_url_id ID ссылки (required)
+     * @param  string $image_id ID образа. (required)
+     * @param  string $image_url_id ID ссылки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteImageDownloadURL'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1353,8 +1353,8 @@ class ImagesApi
      *
      * Удаление ссылки на образ
      *
-     * @param  string $image_id ID образа (required)
-     * @param  string $image_url_id ID ссылки (required)
+     * @param  string $image_id ID образа. (required)
+     * @param  string $image_url_id ID ссылки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteImageDownloadURL'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1375,8 +1375,8 @@ class ImagesApi
      *
      * Удаление ссылки на образ
      *
-     * @param  string $image_id ID образа (required)
-     * @param  string $image_url_id ID ссылки (required)
+     * @param  string $image_id ID образа. (required)
+     * @param  string $image_url_id ID ссылки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteImageDownloadURL'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1413,8 +1413,8 @@ class ImagesApi
     /**
      * Create request for operation 'deleteImageDownloadURL'
      *
-     * @param  string $image_id ID образа (required)
-     * @param  string $image_url_id ID ссылки (required)
+     * @param  string $image_id ID образа. (required)
+     * @param  string $image_url_id ID ссылки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteImageDownloadURL'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1527,7 +1527,7 @@ class ImagesApi
      *
      * Получение информации о образе
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1545,7 +1545,7 @@ class ImagesApi
      *
      * Получение информации о образе
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1760,7 +1760,7 @@ class ImagesApi
      *
      * Получение информации о образе
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1781,7 +1781,7 @@ class ImagesApi
      *
      * Получение информации о образе
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1831,7 +1831,7 @@ class ImagesApi
     /**
      * Create request for operation 'getImage'
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1929,8 +1929,8 @@ class ImagesApi
      *
      * Получение информации о ссылке на скачивание образа
      *
-     * @param  string $image_id ID образа (required)
-     * @param  string $image_url_id ID ссылки (required)
+     * @param  string $image_id ID образа. (required)
+     * @param  string $image_url_id ID ссылки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageDownloadURL'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1948,8 +1948,8 @@ class ImagesApi
      *
      * Получение информации о ссылке на скачивание образа
      *
-     * @param  string $image_id ID образа (required)
-     * @param  string $image_url_id ID ссылки (required)
+     * @param  string $image_id ID образа. (required)
+     * @param  string $image_url_id ID ссылки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageDownloadURL'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2164,8 +2164,8 @@ class ImagesApi
      *
      * Получение информации о ссылке на скачивание образа
      *
-     * @param  string $image_id ID образа (required)
-     * @param  string $image_url_id ID ссылки (required)
+     * @param  string $image_id ID образа. (required)
+     * @param  string $image_url_id ID ссылки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageDownloadURL'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2186,8 +2186,8 @@ class ImagesApi
      *
      * Получение информации о ссылке на скачивание образа
      *
-     * @param  string $image_id ID образа (required)
-     * @param  string $image_url_id ID ссылки (required)
+     * @param  string $image_id ID образа. (required)
+     * @param  string $image_url_id ID ссылки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageDownloadURL'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2237,8 +2237,8 @@ class ImagesApi
     /**
      * Create request for operation 'getImageDownloadURL'
      *
-     * @param  string $image_id ID образа (required)
-     * @param  string $image_url_id ID ссылки (required)
+     * @param  string $image_id ID образа. (required)
+     * @param  string $image_url_id ID ссылки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageDownloadURL'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2351,7 +2351,7 @@ class ImagesApi
      *
      * Получение информации о ссылках на скачивание образов
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  int $limit limit (optional, default to 100)
      * @param  int $offset offset (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageDownloadURLs'] to see the possible values for this operation
@@ -2371,7 +2371,7 @@ class ImagesApi
      *
      * Получение информации о ссылках на скачивание образов
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  int $limit (optional, default to 100)
      * @param  int $offset (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageDownloadURLs'] to see the possible values for this operation
@@ -2588,7 +2588,7 @@ class ImagesApi
      *
      * Получение информации о ссылках на скачивание образов
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  int $limit (optional, default to 100)
      * @param  int $offset (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageDownloadURLs'] to see the possible values for this operation
@@ -2611,7 +2611,7 @@ class ImagesApi
      *
      * Получение информации о ссылках на скачивание образов
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  int $limit (optional, default to 100)
      * @param  int $offset (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageDownloadURLs'] to see the possible values for this operation
@@ -2663,7 +2663,7 @@ class ImagesApi
     /**
      * Create request for operation 'getImageDownloadURLs'
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  int $limit (optional, default to 100)
      * @param  int $offset (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageDownloadURLs'] to see the possible values for this operation
@@ -3172,7 +3172,7 @@ class ImagesApi
      *
      * Обновление информации о образе
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  \OpenAPI\Client\Model\ImageUpdateAPI $image_update_api image_update_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateImage'] to see the possible values for this operation
      *
@@ -3191,7 +3191,7 @@ class ImagesApi
      *
      * Обновление информации о образе
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  \OpenAPI\Client\Model\ImageUpdateAPI $image_update_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateImage'] to see the possible values for this operation
      *
@@ -3407,7 +3407,7 @@ class ImagesApi
      *
      * Обновление информации о образе
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  \OpenAPI\Client\Model\ImageUpdateAPI $image_update_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateImage'] to see the possible values for this operation
      *
@@ -3429,7 +3429,7 @@ class ImagesApi
      *
      * Обновление информации о образе
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  \OpenAPI\Client\Model\ImageUpdateAPI $image_update_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateImage'] to see the possible values for this operation
      *
@@ -3480,7 +3480,7 @@ class ImagesApi
     /**
      * Create request for operation 'updateImage'
      *
-     * @param  string $image_id ID образа (required)
+     * @param  string $image_id ID образа. (required)
      * @param  \OpenAPI\Client\Model\ImageUpdateAPI $image_update_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateImage'] to see the possible values for this operation
      *

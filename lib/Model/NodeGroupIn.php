@@ -401,7 +401,7 @@ class NodeGroupIn implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preset_id
      *
-     * @param int|null $preset_id Идентификатор тарифа воркер-ноды. Нельзя передавать вместе с `configuration`. Локация воркер-нод должна совпадать с локацией кластера
+     * @param int|null $preset_id ID тарифа воркер-ноды. Нельзя передавать вместе с `configuration`. Локация воркер-нод должна совпадать с локацией кластера
      *
      * @return self
      */

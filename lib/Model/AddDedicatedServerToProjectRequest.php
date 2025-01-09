@@ -306,7 +306,7 @@ class AddDedicatedServerToProjectRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets resource_id
      *
-     * @param float $resource_id Идентификатор добавляемого выделенного сервера.
+     * @param float $resource_id ID добавляемого выделенного сервера.
      *
      * @return self
      */

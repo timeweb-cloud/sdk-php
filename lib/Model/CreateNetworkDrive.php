@@ -421,7 +421,7 @@ class CreateNetworkDrive implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets preset_id
      *
-     * @param int $preset_id Идентификатор сетевого диска.
+     * @param int $preset_id ID сетевого диска.
      *
      * @return self
      */

@@ -64,7 +64,9 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'string',
         'created_at' => '\DateTime',
         'description' => 'string',
-        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone',
+        'public_ip' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -81,7 +83,9 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => null,
         'created_at' => 'date-time',
         'description' => null,
-        'availability_zone' => null
+        'availability_zone' => null,
+        'public_ip' => null,
+        'type' => null
     ];
 
     /**
@@ -96,7 +100,9 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
 		'location' => false,
 		'created_at' => false,
 		'description' => false,
-		'availability_zone' => false
+		'availability_zone' => false,
+		'public_ip' => true,
+		'type' => false
     ];
 
     /**
@@ -191,7 +197,9 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'location',
         'created_at' => 'created_at',
         'description' => 'description',
-        'availability_zone' => 'availability_zone'
+        'availability_zone' => 'availability_zone',
+        'public_ip' => 'public_ip',
+        'type' => 'type'
     ];
 
     /**
@@ -206,7 +214,9 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'setLocation',
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
-        'availability_zone' => 'setAvailabilityZone'
+        'availability_zone' => 'setAvailabilityZone',
+        'public_ip' => 'setPublicIp',
+        'type' => 'setType'
     ];
 
     /**
@@ -221,7 +231,9 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'getLocation',
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
-        'availability_zone' => 'getAvailabilityZone'
+        'availability_zone' => 'getAvailabilityZone',
+        'public_ip' => 'getPublicIp',
+        'type' => 'getType'
     ];
 
     /**
@@ -266,7 +278,11 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const LOCATION_RU_1 = 'ru-1';
+    public const LOCATION_RU_2 = 'ru-2';
     public const LOCATION_PL_1 = 'pl-1';
+    public const LOCATION_NL_1 = 'nl-1';
+    public const TYPE_BGP = 'bgp';
+    public const TYPE_OVN = 'ovn';
 
     /**
      * Gets allowable values of the enum
@@ -277,7 +293,22 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::LOCATION_RU_1,
+            self::LOCATION_RU_2,
             self::LOCATION_PL_1,
+            self::LOCATION_NL_1,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_BGP,
+            self::TYPE_OVN,
         ];
     }
 
@@ -303,6 +334,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('availability_zone', $data ?? [], null);
+        $this->setIfExists('public_ip', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -356,9 +389,27 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
         if ($this->container['availability_zone'] === null) {
             $invalidProperties[] = "'availability_zone' can't be null";
         }
+        if ($this->container['public_ip'] === null) {
+            $invalidProperties[] = "'public_ip' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -522,7 +573,7 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets description
      *
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -532,7 +583,7 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string|null $description Описание.
+     * @param string $description Описание.
      *
      * @return self
      */
@@ -569,6 +620,77 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
         }
         $this->container['availability_zone'] = $availability_zone;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_ip
+     *
+     * @return string
+     */
+    public function getPublicIp()
+    {
+        return $this->container['public_ip'];
+    }
+
+    /**
+     * Sets public_ip
+     *
+     * @param string $public_ip Публичный IP-адрес сети.
+     *
+     * @return self
+     */
+    public function setPublicIp($public_ip)
+    {
+        if (is_null($public_ip)) {
+            array_push($this->openAPINullablesSetToNull, 'public_ip');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('public_ip', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['public_ip'] = $public_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type Тип сети.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

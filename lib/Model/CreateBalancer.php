@@ -873,7 +873,7 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preset_id
      *
-     * @param float $preset_id Идентификатор тарифа.
+     * @param float $preset_id ID тарифа.
      *
      * @return self
      */

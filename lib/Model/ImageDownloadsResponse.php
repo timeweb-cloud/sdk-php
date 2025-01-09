@@ -60,7 +60,7 @@ class ImageDownloadsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'response_id' => 'string',
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'downloads' => '\OpenAPI\Client\Model\ImageDownloadAPI[]'
+        'downloads' => '\OpenAPI\Client\Model\ImageDownload[]'
     ];
 
     /**
@@ -323,7 +323,7 @@ class ImageDownloadsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets response_id
      *
-     * @param string|null $response_id ID запроса
+     * @param string|null $response_id ID запроса.
      *
      * @return self
      */
@@ -367,7 +367,7 @@ class ImageDownloadsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets downloads
      *
-     * @return \OpenAPI\Client\Model\ImageDownloadAPI[]
+     * @return \OpenAPI\Client\Model\ImageDownload[]
      */
     public function getDownloads()
     {
@@ -377,7 +377,7 @@ class ImageDownloadsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets downloads
      *
-     * @param \OpenAPI\Client\Model\ImageDownloadAPI[] $downloads Массив объектов \"Ссылка на загрузку\"
+     * @param \OpenAPI\Client\Model\ImageDownload[] $downloads downloads
      *
      * @return self
      */

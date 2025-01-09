@@ -318,6 +318,12 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'upload_url', the character length must be bigger than or equal to 1.";
         }
 
+        if ($this->container['location'] === null) {
+            $invalidProperties[] = "'location' can't be null";
+        }
+        if ($this->container['os'] === null) {
+            $invalidProperties[] = "'os' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -346,7 +352,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Имя образа
+     * @param string|null $name Имя образа.
      *
      * @return self
      */
@@ -373,7 +379,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string|null $description Описание образа
+     * @param string|null $description Описание образа.
      *
      * @return self
      */
@@ -400,7 +406,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets disk_id
      *
-     * @param int|null $disk_id Идентификатор диска, для которого создается образ
+     * @param int|null $disk_id ID диска, для которого создается образ.
      *
      * @return self
      */
@@ -427,7 +433,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets upload_url
      *
-     * @param string|null $upload_url Cсылка для загрузки образа
+     * @param string|null $upload_url Ссылка для загрузки образа.
      *
      * @return self
      */
@@ -451,7 +457,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets location
      *
-     * @return \OpenAPI\Client\Model\Location|null
+     * @return \OpenAPI\Client\Model\Location
      */
     public function getLocation()
     {
@@ -461,7 +467,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets location
      *
-     * @param \OpenAPI\Client\Model\Location|null $location location
+     * @param \OpenAPI\Client\Model\Location $location location
      *
      * @return self
      */
@@ -478,7 +484,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets os
      *
-     * @return \OpenAPI\Client\Model\OS|null
+     * @return \OpenAPI\Client\Model\OS
      */
     public function getOs()
     {
@@ -488,7 +494,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets os
      *
-     * @param \OpenAPI\Client\Model\OS|null $os os
+     * @param \OpenAPI\Client\Model\OS $os os
      *
      * @return self
      */

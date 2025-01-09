@@ -398,7 +398,7 @@ class UpdateProject implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets avatar_id
      *
-     * @param string|null $avatar_id Идентификатор аватара пользователя. Описание методов работы с аватарами появится позднее.
+     * @param string|null $avatar_id ID аватара пользователя. Описание методов работы с аватарами появится позднее.
      *
      * @return self
      */

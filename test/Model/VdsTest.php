@@ -198,6 +198,33 @@ class VdsTest extends TestCase
     }
 
     /**
+     * Test attribute "is_master_ssh"
+     */
+    public function testPropertyIsMasterSsh()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_dedicated_cpu"
+     */
+    public function testPropertyIsDedicatedCpu()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gpu"
+     */
+    public function testPropertyGpu()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "cpu"
      */
     public function testPropertyCpu()

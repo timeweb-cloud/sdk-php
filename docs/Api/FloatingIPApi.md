@@ -6,11 +6,11 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | ------------- | ------------- | ------------- |
 | [**bindFloatingIp()**](FloatingIPApi.md#bindFloatingIp) | **POST** /api/v1/floating-ips/{floating_ip_id}/bind | Привязать IP к сервису |
 | [**createFloatingIp()**](FloatingIPApi.md#createFloatingIp) | **POST** /api/v1/floating-ips | Создание плавающего IP |
-| [**deleteFloatingIP()**](FloatingIPApi.md#deleteFloatingIP) | **DELETE** /api/v1/floating-ips/{floating_ip_id} | Удаление плавающего IP по идентификатору |
+| [**deleteFloatingIP()**](FloatingIPApi.md#deleteFloatingIP) | **DELETE** /api/v1/floating-ips/{floating_ip_id} | Удаление плавающего IP по ID |
 | [**getFloatingIp()**](FloatingIPApi.md#getFloatingIp) | **GET** /api/v1/floating-ips/{floating_ip_id} | Получение плавающего IP |
 | [**getFloatingIps()**](FloatingIPApi.md#getFloatingIps) | **GET** /api/v1/floating-ips | Получение списка плавающих IP |
 | [**unbindFloatingIp()**](FloatingIPApi.md#unbindFloatingIp) | **POST** /api/v1/floating-ips/{floating_ip_id}/unbind | Отвязать IP от сервиса |
-| [**updateFloatingIP()**](FloatingIPApi.md#updateFloatingIP) | **PATCH** /api/v1/floating-ips/{floating_ip_id} | Изменение плавающего IP по идентификатору |
+| [**updateFloatingIP()**](FloatingIPApi.md#updateFloatingIP) | **PATCH** /api/v1/floating-ips/{floating_ip_id} | Изменение плавающего IP по ID |
 
 
 ## `bindFloatingIp()`
@@ -40,7 +40,7 @@ $apiInstance = new OpenAPI\Client\Api\FloatingIPApi(
     new GuzzleHttp\Client(),
     $config
 );
-$floating_ip_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | Идентификатор плавающего IP
+$floating_ip_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | ID плавающего IP
 $bind_floating_ip = new \OpenAPI\Client\Model\BindFloatingIp(); // \OpenAPI\Client\Model\BindFloatingIp
 
 try {
@@ -54,7 +54,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **floating_ip_id** | **string**| Идентификатор плавающего IP | |
+| **floating_ip_id** | **string**| ID плавающего IP | |
 | **bind_floating_ip** | [**\OpenAPI\Client\Model\BindFloatingIp**](../Model/BindFloatingIp.md)|  | |
 
 ### Return type
@@ -140,7 +140,7 @@ try {
 deleteFloatingIP($floating_ip_id)
 ```
 
-Удаление плавающего IP по идентификатору
+Удаление плавающего IP по ID
 
 Чтобы удалить плавающий IP, отправьте DELETE-запрос на `/api/v1/floating-ips/{floating_ip_id}`
 
@@ -161,7 +161,7 @@ $apiInstance = new OpenAPI\Client\Api\FloatingIPApi(
     new GuzzleHttp\Client(),
     $config
 );
-$floating_ip_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | Идентификатор плавающего IP
+$floating_ip_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | ID плавающего IP
 
 try {
     $apiInstance->deleteFloatingIP($floating_ip_id);
@@ -174,7 +174,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **floating_ip_id** | **string**| Идентификатор плавающего IP | |
+| **floating_ip_id** | **string**| ID плавающего IP | |
 
 ### Return type
 
@@ -220,7 +220,7 @@ $apiInstance = new OpenAPI\Client\Api\FloatingIPApi(
     new GuzzleHttp\Client(),
     $config
 );
-$floating_ip_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | Идентификатор плавающего IP
+$floating_ip_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | ID плавающего IP
 
 try {
     $result = $apiInstance->getFloatingIp($floating_ip_id);
@@ -234,7 +234,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **floating_ip_id** | **string**| Идентификатор плавающего IP | |
+| **floating_ip_id** | **string**| ID плавающего IP | |
 
 ### Return type
 
@@ -337,7 +337,7 @@ $apiInstance = new OpenAPI\Client\Api\FloatingIPApi(
     new GuzzleHttp\Client(),
     $config
 );
-$floating_ip_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | Идентификатор плавающего IP
+$floating_ip_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | ID плавающего IP
 
 try {
     $apiInstance->unbindFloatingIp($floating_ip_id);
@@ -350,7 +350,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **floating_ip_id** | **string**| Идентификатор плавающего IP | |
+| **floating_ip_id** | **string**| ID плавающего IP | |
 
 ### Return type
 
@@ -375,7 +375,7 @@ void (empty response body)
 updateFloatingIP($floating_ip_id, $update_floating_ip): \OpenAPI\Client\Model\CreateFloatingIp201Response
 ```
 
-Изменение плавающего IP по идентификатору
+Изменение плавающего IP по ID
 
 Чтобы изменить плавающий IP, отправьте PATCH-запрос на `/api/v1/floating-ips/{floating_ip_id}`
 
@@ -396,7 +396,7 @@ $apiInstance = new OpenAPI\Client\Api\FloatingIPApi(
     new GuzzleHttp\Client(),
     $config
 );
-$floating_ip_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | Идентификатор плавающего IP
+$floating_ip_id = 87fa289f-1513-4c4d-8d49-5707f411f14b; // string | ID плавающего IP
 $update_floating_ip = new \OpenAPI\Client\Model\UpdateFloatingIp(); // \OpenAPI\Client\Model\UpdateFloatingIp
 
 try {
@@ -411,7 +411,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **floating_ip_id** | **string**| Идентификатор плавающего IP | |
+| **floating_ip_id** | **string**| ID плавающего IP | |
 | **update_floating_ip** | [**\OpenAPI\Client\Model\UpdateFloatingIp**](../Model/UpdateFloatingIp.md)|  | |
 
 ### Return type

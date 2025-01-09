@@ -60,7 +60,7 @@ class ImagesOutResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'response_id' => 'string',
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'images' => '\OpenAPI\Client\Model\ImageOutAPI[]'
+        'images' => '\OpenAPI\Client\Model\Image[]'
     ];
 
     /**
@@ -323,7 +323,7 @@ class ImagesOutResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets response_id
      *
-     * @param string|null $response_id Идентификатор запроса
+     * @param string|null $response_id ID запроса.
      *
      * @return self
      */
@@ -367,7 +367,7 @@ class ImagesOutResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets images
      *
-     * @return \OpenAPI\Client\Model\ImageOutAPI[]
+     * @return \OpenAPI\Client\Model\Image[]
      */
     public function getImages()
     {
@@ -377,7 +377,7 @@ class ImagesOutResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets images
      *
-     * @param \OpenAPI\Client\Model\ImageOutAPI[] $images Массив объектов Образ
+     * @param \OpenAPI\Client\Model\Image[] $images images
      *
      * @return self
      */

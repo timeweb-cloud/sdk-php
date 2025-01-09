@@ -306,7 +306,7 @@ class AddServerToProjectRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets resource_id
      *
-     * @param float $resource_id Идентификатор добавляемого сервера.
+     * @param float $resource_id ID добавляемого сервера.
      *
      * @return self
      */

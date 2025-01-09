@@ -6,11 +6,11 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | ------------- | ------------- | ------------- |
 | [**addKeyToServer()**](SSHApi.md#addKeyToServer) | **POST** /api/v1/servers/{server_id}/ssh-keys | Добавление SSH-ключей на сервер |
 | [**createKey()**](SSHApi.md#createKey) | **POST** /api/v1/ssh-keys | Создание SSH-ключа |
-| [**deleteKey()**](SSHApi.md#deleteKey) | **DELETE** /api/v1/ssh-keys/{ssh_key_id} | Удаление SSH-ключа по уникальному идентификатору |
+| [**deleteKey()**](SSHApi.md#deleteKey) | **DELETE** /api/v1/ssh-keys/{ssh_key_id} | Удаление SSH-ключа по ID |
 | [**deleteKeyFromServer()**](SSHApi.md#deleteKeyFromServer) | **DELETE** /api/v1/servers/{server_id}/ssh-keys/{ssh_key_id} | Удаление SSH-ключей с сервера |
-| [**getKey()**](SSHApi.md#getKey) | **GET** /api/v1/ssh-keys/{ssh_key_id} | Получение SSH-ключа по уникальному идентификатору |
+| [**getKey()**](SSHApi.md#getKey) | **GET** /api/v1/ssh-keys/{ssh_key_id} | Получение SSH-ключа по ID |
 | [**getKeys()**](SSHApi.md#getKeys) | **GET** /api/v1/ssh-keys | Получение списка SSH-ключей |
-| [**updateKey()**](SSHApi.md#updateKey) | **PATCH** /api/v1/ssh-keys/{ssh_key_id} | Изменение SSH-ключа по уникальному идентификатору |
+| [**updateKey()**](SSHApi.md#updateKey) | **PATCH** /api/v1/ssh-keys/{ssh_key_id} | Изменение SSH-ключа по ID |
 
 
 ## `addKeyToServer()`
@@ -140,7 +140,7 @@ try {
 deleteKey($ssh_key_id)
 ```
 
-Удаление SSH-ключа по уникальному идентификатору
+Удаление SSH-ключа по ID
 
 Чтобы удалить SSH-ключ, отправьте DELETE-запрос на `/api/v1/ssh-keys/{ssh_key_id}`
 
@@ -161,7 +161,7 @@ $apiInstance = new OpenAPI\Client\Api\SSHApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ssh_key_id = 1051; // int | ID SSH-ключа
+$ssh_key_id = 1051; // int | ID SSH-ключа.
 
 try {
     $apiInstance->deleteKey($ssh_key_id);
@@ -174,7 +174,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ssh_key_id** | **int**| ID SSH-ключа | |
+| **ssh_key_id** | **int**| ID SSH-ключа. | |
 
 ### Return type
 
@@ -221,7 +221,7 @@ $apiInstance = new OpenAPI\Client\Api\SSHApi(
     $config
 );
 $server_id = 1051; // int | ID облачного сервера.
-$ssh_key_id = 1051; // int | ID SSH-ключа
+$ssh_key_id = 1051; // int | ID SSH-ключа.
 
 try {
     $apiInstance->deleteKeyFromServer($server_id, $ssh_key_id);
@@ -235,7 +235,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **int**| ID облачного сервера. | |
-| **ssh_key_id** | **int**| ID SSH-ключа | |
+| **ssh_key_id** | **int**| ID SSH-ключа. | |
 
 ### Return type
 
@@ -260,7 +260,7 @@ void (empty response body)
 getKey($ssh_key_id): \OpenAPI\Client\Model\GetKey200Response
 ```
 
-Получение SSH-ключа по уникальному идентификатору
+Получение SSH-ключа по ID
 
 Чтобы получить SSH-ключ, отправьте GET-запрос на `/api/v1/ssh-keys/{ssh_key_id}`
 
@@ -281,7 +281,7 @@ $apiInstance = new OpenAPI\Client\Api\SSHApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ssh_key_id = 1051; // int | ID SSH-ключа
+$ssh_key_id = 1051; // int | ID SSH-ключа.
 
 try {
     $result = $apiInstance->getKey($ssh_key_id);
@@ -295,7 +295,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ssh_key_id** | **int**| ID SSH-ключа | |
+| **ssh_key_id** | **int**| ID SSH-ключа. | |
 
 ### Return type
 
@@ -377,7 +377,7 @@ This endpoint does not need any parameter.
 updateKey($ssh_key_id, $update_key_request): \OpenAPI\Client\Model\GetKey200Response
 ```
 
-Изменение SSH-ключа по уникальному идентификатору
+Изменение SSH-ключа по ID
 
 Чтобы изменить SSH-ключ, отправьте PATCH-запрос на `/api/v1/ssh-keys/{ssh_key_id}`
 
@@ -398,7 +398,7 @@ $apiInstance = new OpenAPI\Client\Api\SSHApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ssh_key_id = 1051; // int | ID SSH-ключа
+$ssh_key_id = 1051; // int | ID SSH-ключа.
 $update_key_request = new \OpenAPI\Client\Model\UpdateKeyRequest(); // \OpenAPI\Client\Model\UpdateKeyRequest
 
 try {
@@ -413,7 +413,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ssh_key_id** | **int**| ID SSH-ключа | |
+| **ssh_key_id** | **int**| ID SSH-ключа. | |
 | **update_key_request** | [**\OpenAPI\Client\Model\UpdateKeyRequest**](../Model/UpdateKeyRequest.md)|  | |
 
 ### Return type

@@ -76,7 +76,7 @@ try {
 ## `deleteVPC()`
 
 ```php
-deleteVPC($vpc_id): \OpenAPI\Client\Model\CreateVPC201Response
+deleteVPC($vpc_id)
 ```
 
 Удаление VPC по ID сети
@@ -103,8 +103,7 @@ $apiInstance = new OpenAPI\Client\Api\VPCApi(
 $vpc_id = network-1234567890; // string | ID сети
 
 try {
-    $result = $apiInstance->deleteVPC($vpc_id);
-    print_r($result);
+    $apiInstance->deleteVPC($vpc_id);
 } catch (Exception $e) {
     echo 'Exception when calling VPCApi->deleteVPC: ', $e->getMessage(), PHP_EOL;
 }
@@ -118,7 +117,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreateVPC201Response**](../Model/CreateVPC201Response.md)
+void (empty response body)
 
 ### Authorization
 

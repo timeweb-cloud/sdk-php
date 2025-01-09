@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **disk** | **float** | Размер диска в МБ. | [optional]
 **cpu** | **float** | Количество ядер процессора. | [optional]
 **ram** | **float** | Размер ОЗУ сервера в МБ. | [optional]
+**gpu** | **float** | Количество видеокарт. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

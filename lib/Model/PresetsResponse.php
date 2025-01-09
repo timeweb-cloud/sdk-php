@@ -59,7 +59,7 @@ class PresetsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'response_id' => 'string',
-        'meta' => '\OpenAPI\Client\Model\Meta',
+        'meta' => '\OpenAPI\Client\Model\SchemasMeta',
         'k8s_presets' => '\OpenAPI\Client\Model\WorkerPresetOutApi[]'
     ];
 
@@ -323,7 +323,7 @@ class PresetsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets response_id
      *
-     * @param string|null $response_id Идентификатор запроса
+     * @param string|null $response_id ID запроса
      *
      * @return self
      */
@@ -340,7 +340,7 @@ class PresetsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta
+     * @return \OpenAPI\Client\Model\SchemasMeta
      */
     public function getMeta()
     {
@@ -350,7 +350,7 @@ class PresetsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta $meta meta
+     * @param \OpenAPI\Client\Model\SchemasMeta $meta meta
      *
      * @return self
      */

@@ -82,7 +82,8 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'plan_id' => 'float',
         'price' => 'float',
         'location' => 'string',
-        'autoinstall_ready' => 'float'
+        'autoinstall_ready' => 'float',
+        'password' => 'string'
     ];
 
     /**
@@ -116,7 +117,8 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'plan_id' => null,
         'price' => null,
         'location' => null,
-        'autoinstall_ready' => null
+        'autoinstall_ready' => null,
+        'password' => null
     ];
 
     /**
@@ -148,7 +150,8 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'plan_id' => true,
 		'price' => false,
 		'location' => false,
-		'autoinstall_ready' => false
+		'autoinstall_ready' => false,
+		'password' => true
     ];
 
     /**
@@ -260,7 +263,8 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'plan_id' => 'plan_id',
         'price' => 'price',
         'location' => 'location',
-        'autoinstall_ready' => 'autoinstall_ready'
+        'autoinstall_ready' => 'autoinstall_ready',
+        'password' => 'password'
     ];
 
     /**
@@ -292,7 +296,8 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'plan_id' => 'setPlanId',
         'price' => 'setPrice',
         'location' => 'setLocation',
-        'autoinstall_ready' => 'setAutoinstallReady'
+        'autoinstall_ready' => 'setAutoinstallReady',
+        'password' => 'setPassword'
     ];
 
     /**
@@ -324,7 +329,8 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'plan_id' => 'getPlanId',
         'price' => 'getPrice',
         'location' => 'getLocation',
-        'autoinstall_ready' => 'getAutoinstallReady'
+        'autoinstall_ready' => 'getAutoinstallReady',
+        'password' => 'getPassword'
     ];
 
     /**
@@ -375,6 +381,11 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
     public const LOCATION_RU_1 = 'ru-1';
     public const LOCATION_PL_1 = 'pl-1';
     public const LOCATION_KZ_1 = 'kz-1';
+    public const LOCATION_NL_1 = 'nl-1';
+    public const LOCATION_TR_1 = 'tr-1';
+    public const LOCATION_US_2 = 'us-2';
+    public const LOCATION_DE_1 = 'de-1';
+    public const LOCATION_FI_1 = 'fi-1';
 
     /**
      * Gets allowable values of the enum
@@ -402,6 +413,11 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
             self::LOCATION_RU_1,
             self::LOCATION_PL_1,
             self::LOCATION_KZ_1,
+            self::LOCATION_NL_1,
+            self::LOCATION_TR_1,
+            self::LOCATION_US_2,
+            self::LOCATION_DE_1,
+            self::LOCATION_FI_1,
         ];
     }
 
@@ -444,6 +460,7 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('autoinstall_ready', $data ?? [], null);
+        $this->setIfExists('password', $data ?? [], null);
     }
 
     /**
@@ -562,6 +579,9 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if ($this->container['autoinstall_ready'] === null) {
             $invalidProperties[] = "'autoinstall_ready' can't be null";
+        }
+        if ($this->container['password'] === null) {
+            $invalidProperties[] = "'password' can't be null";
         }
         return $invalidProperties;
     }
@@ -1333,6 +1353,40 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable autoinstall_ready cannot be null');
         }
         $this->container['autoinstall_ready'] = $autoinstall_ready;
+
+        return $this;
+    }
+
+    /**
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->container['password'];
+    }
+
+    /**
+     * Sets password
+     *
+     * @param string $password Пароль root сервера или пароль Администратора для серверов Windows.
+     *
+     * @return self
+     */
+    public function setPassword($password)
+    {
+        if (is_null($password)) {
+            array_push($this->openAPINullablesSetToNull, 'password');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('password', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['password'] = $password;
 
         return $this;
     }

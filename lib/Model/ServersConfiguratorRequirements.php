@@ -69,7 +69,10 @@ class ServersConfiguratorRequirements implements ModelInterface, ArrayAccess, \J
         'disk_max' => 'float',
         'network_bandwidth_min' => 'float',
         'network_bandwidth_step' => 'float',
-        'network_bandwidth_max' => 'float'
+        'network_bandwidth_max' => 'float',
+        'gpu_min' => 'float',
+        'gpu_max' => 'float',
+        'gpu_step' => 'float'
     ];
 
     /**
@@ -91,7 +94,10 @@ class ServersConfiguratorRequirements implements ModelInterface, ArrayAccess, \J
         'disk_max' => null,
         'network_bandwidth_min' => null,
         'network_bandwidth_step' => null,
-        'network_bandwidth_max' => null
+        'network_bandwidth_max' => null,
+        'gpu_min' => null,
+        'gpu_max' => null,
+        'gpu_step' => null
     ];
 
     /**
@@ -111,7 +117,10 @@ class ServersConfiguratorRequirements implements ModelInterface, ArrayAccess, \J
 		'disk_max' => false,
 		'network_bandwidth_min' => false,
 		'network_bandwidth_step' => false,
-		'network_bandwidth_max' => false
+		'network_bandwidth_max' => false,
+		'gpu_min' => true,
+		'gpu_max' => true,
+		'gpu_step' => true
     ];
 
     /**
@@ -211,7 +220,10 @@ class ServersConfiguratorRequirements implements ModelInterface, ArrayAccess, \J
         'disk_max' => 'disk_max',
         'network_bandwidth_min' => 'network_bandwidth_min',
         'network_bandwidth_step' => 'network_bandwidth_step',
-        'network_bandwidth_max' => 'network_bandwidth_max'
+        'network_bandwidth_max' => 'network_bandwidth_max',
+        'gpu_min' => 'gpu_min',
+        'gpu_max' => 'gpu_max',
+        'gpu_step' => 'gpu_step'
     ];
 
     /**
@@ -231,7 +243,10 @@ class ServersConfiguratorRequirements implements ModelInterface, ArrayAccess, \J
         'disk_max' => 'setDiskMax',
         'network_bandwidth_min' => 'setNetworkBandwidthMin',
         'network_bandwidth_step' => 'setNetworkBandwidthStep',
-        'network_bandwidth_max' => 'setNetworkBandwidthMax'
+        'network_bandwidth_max' => 'setNetworkBandwidthMax',
+        'gpu_min' => 'setGpuMin',
+        'gpu_max' => 'setGpuMax',
+        'gpu_step' => 'setGpuStep'
     ];
 
     /**
@@ -251,7 +266,10 @@ class ServersConfiguratorRequirements implements ModelInterface, ArrayAccess, \J
         'disk_max' => 'getDiskMax',
         'network_bandwidth_min' => 'getNetworkBandwidthMin',
         'network_bandwidth_step' => 'getNetworkBandwidthStep',
-        'network_bandwidth_max' => 'getNetworkBandwidthMax'
+        'network_bandwidth_max' => 'getNetworkBandwidthMax',
+        'gpu_min' => 'getGpuMin',
+        'gpu_max' => 'getGpuMax',
+        'gpu_step' => 'getGpuStep'
     ];
 
     /**
@@ -323,6 +341,9 @@ class ServersConfiguratorRequirements implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('network_bandwidth_min', $data ?? [], null);
         $this->setIfExists('network_bandwidth_step', $data ?? [], null);
         $this->setIfExists('network_bandwidth_max', $data ?? [], null);
+        $this->setIfExists('gpu_min', $data ?? [], null);
+        $this->setIfExists('gpu_max', $data ?? [], null);
+        $this->setIfExists('gpu_step', $data ?? [], null);
     }
 
     /**
@@ -387,6 +408,15 @@ class ServersConfiguratorRequirements implements ModelInterface, ArrayAccess, \J
         }
         if ($this->container['network_bandwidth_max'] === null) {
             $invalidProperties[] = "'network_bandwidth_max' can't be null";
+        }
+        if ($this->container['gpu_min'] === null) {
+            $invalidProperties[] = "'gpu_min' can't be null";
+        }
+        if ($this->container['gpu_max'] === null) {
+            $invalidProperties[] = "'gpu_max' can't be null";
+        }
+        if ($this->container['gpu_step'] === null) {
+            $invalidProperties[] = "'gpu_step' can't be null";
         }
         return $invalidProperties;
     }
@@ -723,6 +753,108 @@ class ServersConfiguratorRequirements implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable network_bandwidth_max cannot be null');
         }
         $this->container['network_bandwidth_max'] = $network_bandwidth_max;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu_min
+     *
+     * @return float
+     */
+    public function getGpuMin()
+    {
+        return $this->container['gpu_min'];
+    }
+
+    /**
+     * Sets gpu_min
+     *
+     * @param float $gpu_min Минимальное количество видеокарт
+     *
+     * @return self
+     */
+    public function setGpuMin($gpu_min)
+    {
+        if (is_null($gpu_min)) {
+            array_push($this->openAPINullablesSetToNull, 'gpu_min');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gpu_min', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['gpu_min'] = $gpu_min;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu_max
+     *
+     * @return float
+     */
+    public function getGpuMax()
+    {
+        return $this->container['gpu_max'];
+    }
+
+    /**
+     * Sets gpu_max
+     *
+     * @param float $gpu_max Максимальное количество видеокарт
+     *
+     * @return self
+     */
+    public function setGpuMax($gpu_max)
+    {
+        if (is_null($gpu_max)) {
+            array_push($this->openAPINullablesSetToNull, 'gpu_max');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gpu_max', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['gpu_max'] = $gpu_max;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu_step
+     *
+     * @return float
+     */
+    public function getGpuStep()
+    {
+        return $this->container['gpu_step'];
+    }
+
+    /**
+     * Sets gpu_step
+     *
+     * @param float $gpu_step Размер шага видеокарт
+     *
+     * @return self
+     */
+    public function setGpuStep($gpu_step)
+    {
+        if (is_null($gpu_step)) {
+            array_push($this->openAPINullablesSetToNull, 'gpu_step');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gpu_step', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['gpu_step'] = $gpu_step;
 
         return $this;
     }

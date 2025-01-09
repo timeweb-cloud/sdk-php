@@ -59,7 +59,7 @@ class NetworkDriversResponse implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'response_id' => 'string',
-        'meta' => '\OpenAPI\Client\Model\Meta',
+        'meta' => '\OpenAPI\Client\Model\SchemasMeta',
         'network_drivers' => 'string[]'
     ];
 
@@ -323,7 +323,7 @@ class NetworkDriversResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets response_id
      *
-     * @param string|null $response_id Идентификатор запроса
+     * @param string|null $response_id ID запроса
      *
      * @return self
      */
@@ -340,7 +340,7 @@ class NetworkDriversResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\Meta
+     * @return \OpenAPI\Client\Model\SchemasMeta
      */
     public function getMeta()
     {
@@ -350,7 +350,7 @@ class NetworkDriversResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\Meta $meta meta
+     * @param \OpenAPI\Client\Model\SchemasMeta $meta meta
      *
      * @return self
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * ImageDownloadAPITest
+ * FirewallGroupTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ImageDownloadAPITest Class Doc Comment
+ * FirewallGroupTest Class Doc Comment
  *
  * @category    Class
- * @description ImageDownloadAPI
+ * @description FirewallGroup
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ImageDownloadAPITest extends TestCase
+class FirewallGroupTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class ImageDownloadAPITest extends TestCase
     }
 
     /**
-     * Test "ImageDownloadAPI"
+     * Test "FirewallGroup"
      */
-    public function testImageDownloadAPI()
+    public function testFirewallGroup()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -99,45 +99,36 @@ class ImageDownloadAPITest extends TestCase
     }
 
     /**
-     * Test attribute "image"
+     * Test attribute "updated_at"
      */
-    public function testPropertyImage()
+    public function testPropertyUpdatedAt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "name"
      */
-    public function testPropertyType()
+    public function testPropertyName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "url"
+     * Test attribute "description"
      */
-    public function testPropertyUrl()
+    public function testPropertyDescription()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "status"
+     * Test attribute "policy"
      */
-    public function testPropertyStatus()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "progress"
-     */
-    public function testPropertyProgress()
+    public function testPropertyPolicy()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

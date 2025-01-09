@@ -576,7 +576,7 @@ class NetworkDrivesApi
      *
      * Удаление сетевого диска по идентификатору
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNetworkDrive'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -593,7 +593,7 @@ class NetworkDrivesApi
      *
      * Удаление сетевого диска по идентификатору
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNetworkDrive'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -701,7 +701,7 @@ class NetworkDrivesApi
      *
      * Удаление сетевого диска по идентификатору
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNetworkDrive'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -722,7 +722,7 @@ class NetworkDrivesApi
      *
      * Удаление сетевого диска по идентификатору
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNetworkDrive'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -759,7 +759,7 @@ class NetworkDrivesApi
     /**
      * Create request for operation 'deleteNetworkDrive'
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteNetworkDrive'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -857,7 +857,7 @@ class NetworkDrivesApi
      *
      * Получение сетевого диска
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNetworkDrive'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -875,7 +875,7 @@ class NetworkDrivesApi
      *
      * Получение сетевого диска
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNetworkDrive'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1113,7 +1113,7 @@ class NetworkDrivesApi
      *
      * Получение сетевого диска
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNetworkDrive'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1134,7 +1134,7 @@ class NetworkDrivesApi
      *
      * Получение сетевого диска
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNetworkDrive'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1184,7 +1184,7 @@ class NetworkDrivesApi
     /**
      * Create request for operation 'getNetworkDrive'
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNetworkDrive'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2497,7 +2497,7 @@ class NetworkDrivesApi
      *
      * Подключить сетевой диск к сервису
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  \OpenAPI\Client\Model\MountNetworkDrive $mount_network_drive mount_network_drive (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mountNetworkDrive'] to see the possible values for this operation
      *
@@ -2515,7 +2515,7 @@ class NetworkDrivesApi
      *
      * Подключить сетевой диск к сервису
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  \OpenAPI\Client\Model\MountNetworkDrive $mount_network_drive (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mountNetworkDrive'] to see the possible values for this operation
      *
@@ -2624,7 +2624,7 @@ class NetworkDrivesApi
      *
      * Подключить сетевой диск к сервису
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  \OpenAPI\Client\Model\MountNetworkDrive $mount_network_drive (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mountNetworkDrive'] to see the possible values for this operation
      *
@@ -2646,7 +2646,7 @@ class NetworkDrivesApi
      *
      * Подключить сетевой диск к сервису
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  \OpenAPI\Client\Model\MountNetworkDrive $mount_network_drive (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mountNetworkDrive'] to see the possible values for this operation
      *
@@ -2684,7 +2684,7 @@ class NetworkDrivesApi
     /**
      * Create request for operation 'mountNetworkDrive'
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  \OpenAPI\Client\Model\MountNetworkDrive $mount_network_drive (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mountNetworkDrive'] to see the possible values for this operation
      *
@@ -2797,7 +2797,7 @@ class NetworkDrivesApi
      *
      * Отключить сетевой диск от сервиса
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unmountNetworkDrive'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2814,7 +2814,7 @@ class NetworkDrivesApi
      *
      * Отключить сетевой диск от сервиса
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unmountNetworkDrive'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2922,7 +2922,7 @@ class NetworkDrivesApi
      *
      * Отключить сетевой диск от сервиса
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unmountNetworkDrive'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2943,7 +2943,7 @@ class NetworkDrivesApi
      *
      * Отключить сетевой диск от сервиса
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unmountNetworkDrive'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2980,7 +2980,7 @@ class NetworkDrivesApi
     /**
      * Create request for operation 'unmountNetworkDrive'
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unmountNetworkDrive'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3076,9 +3076,9 @@ class NetworkDrivesApi
     /**
      * Operation updateNetworkDrive
      *
-     * Изменение сетевого диска по идентификатору
+     * Изменение сетевого диска по ID
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  \OpenAPI\Client\Model\UpdateNetworkDrive $update_network_drive update_network_drive (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateNetworkDrive'] to see the possible values for this operation
      *
@@ -3095,9 +3095,9 @@ class NetworkDrivesApi
     /**
      * Operation updateNetworkDriveWithHttpInfo
      *
-     * Изменение сетевого диска по идентификатору
+     * Изменение сетевого диска по ID
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  \OpenAPI\Client\Model\UpdateNetworkDrive $update_network_drive (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateNetworkDrive'] to see the possible values for this operation
      *
@@ -3334,9 +3334,9 @@ class NetworkDrivesApi
     /**
      * Operation updateNetworkDriveAsync
      *
-     * Изменение сетевого диска по идентификатору
+     * Изменение сетевого диска по ID
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  \OpenAPI\Client\Model\UpdateNetworkDrive $update_network_drive (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateNetworkDrive'] to see the possible values for this operation
      *
@@ -3356,9 +3356,9 @@ class NetworkDrivesApi
     /**
      * Operation updateNetworkDriveAsyncWithHttpInfo
      *
-     * Изменение сетевого диска по идентификатору
+     * Изменение сетевого диска по ID
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  \OpenAPI\Client\Model\UpdateNetworkDrive $update_network_drive (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateNetworkDrive'] to see the possible values for this operation
      *
@@ -3409,7 +3409,7 @@ class NetworkDrivesApi
     /**
      * Create request for operation 'updateNetworkDrive'
      *
-     * @param  string $network_drive_id Идентификатор сетевого диска (required)
+     * @param  string $network_drive_id ID сетевого диска (required)
      * @param  \OpenAPI\Client\Model\UpdateNetworkDrive $update_network_drive (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateNetworkDrive'] to see the possible values for this operation
      *

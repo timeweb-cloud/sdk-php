@@ -306,7 +306,7 @@ class AddStorageToProjectRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets resource_id
      *
-     * @param float $resource_id Идентификатор добавляемого хранилища.
+     * @param float $resource_id ID добавляемого хранилища.
      *
      * @return self
      */

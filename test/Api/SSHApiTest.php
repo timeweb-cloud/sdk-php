@@ -99,7 +99,7 @@ class SSHApiTest extends TestCase
     /**
      * Test case for deleteKey
      *
-     * Удаление SSH-ключа по уникальному идентификатору.
+     * Удаление SSH-ключа по ID.
      *
      */
     public function testDeleteKey()
@@ -123,7 +123,7 @@ class SSHApiTest extends TestCase
     /**
      * Test case for getKey
      *
-     * Получение SSH-ключа по уникальному идентификатору.
+     * Получение SSH-ключа по ID.
      *
      */
     public function testGetKey()
@@ -147,7 +147,7 @@ class SSHApiTest extends TestCase
     /**
      * Test case for updateKey
      *
-     * Изменение SSH-ключа по уникальному идентификатору.
+     * Изменение SSH-ключа по ID.
      *
      */
     public function testUpdateKey()

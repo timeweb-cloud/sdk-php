@@ -187,4 +187,31 @@ class ServersConfiguratorRequirementsTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "gpu_min"
+     */
+    public function testPropertyGpuMin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gpu_max"
+     */
+    public function testPropertyGpuMax()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gpu_step"
+     */
+    public function testPropertyGpuStep()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -103,7 +103,7 @@ $apiInstance = new OpenAPI\Client\Api\ImagesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$image_id = 'image_id_example'; // string | ID образа
+$image_id = 'image_id_example'; // string | ID образа.
 $image_url_in = new \OpenAPI\Client\Model\ImageUrlIn(); // \OpenAPI\Client\Model\ImageUrlIn
 
 try {
@@ -118,7 +118,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **image_id** | **string**| ID образа | |
+| **image_id** | **string**| ID образа. | |
 | **image_url_in** | [**\OpenAPI\Client\Model\ImageUrlIn**](../Model/ImageUrlIn.md)|  | |
 
 ### Return type
@@ -165,7 +165,7 @@ $apiInstance = new OpenAPI\Client\Api\ImagesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$image_id = 'image_id_example'; // string | ID образа
+$image_id = 'image_id_example'; // string | ID образа.
 
 try {
     $apiInstance->deleteImage($image_id);
@@ -178,7 +178,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **image_id** | **string**| ID образа | |
+| **image_id** | **string**| ID образа. | |
 
 ### Return type
 
@@ -224,8 +224,8 @@ $apiInstance = new OpenAPI\Client\Api\ImagesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$image_id = 'image_id_example'; // string | ID образа
-$image_url_id = 'image_url_id_example'; // string | ID ссылки
+$image_id = 'image_id_example'; // string | ID образа.
+$image_url_id = 'image_url_id_example'; // string | ID ссылки.
 
 try {
     $apiInstance->deleteImageDownloadURL($image_id, $image_url_id);
@@ -238,8 +238,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **image_id** | **string**| ID образа | |
-| **image_url_id** | **string**| ID ссылки | |
+| **image_id** | **string**| ID образа. | |
+| **image_url_id** | **string**| ID ссылки. | |
 
 ### Return type
 
@@ -285,7 +285,7 @@ $apiInstance = new OpenAPI\Client\Api\ImagesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$image_id = 'image_id_example'; // string | ID образа
+$image_id = 'image_id_example'; // string | ID образа.
 
 try {
     $result = $apiInstance->getImage($image_id);
@@ -299,7 +299,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **image_id** | **string**| ID образа | |
+| **image_id** | **string**| ID образа. | |
 
 ### Return type
 
@@ -345,8 +345,8 @@ $apiInstance = new OpenAPI\Client\Api\ImagesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$image_id = 'image_id_example'; // string | ID образа
-$image_url_id = 'image_url_id_example'; // string | ID ссылки
+$image_id = 'image_id_example'; // string | ID образа.
+$image_url_id = 'image_url_id_example'; // string | ID ссылки.
 
 try {
     $result = $apiInstance->getImageDownloadURL($image_id, $image_url_id);
@@ -360,8 +360,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **image_id** | **string**| ID образа | |
-| **image_url_id** | **string**| ID ссылки | |
+| **image_id** | **string**| ID образа. | |
+| **image_url_id** | **string**| ID ссылки. | |
 
 ### Return type
 
@@ -407,7 +407,7 @@ $apiInstance = new OpenAPI\Client\Api\ImagesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$image_id = 'image_id_example'; // string | ID образа
+$image_id = 'image_id_example'; // string | ID образа.
 $limit = 100; // int
 $offset = 0; // int
 
@@ -423,7 +423,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **image_id** | **string**| ID образа | |
+| **image_id** | **string**| ID образа. | |
 | **limit** | **int**|  | [optional] [default to 100] |
 | **offset** | **int**|  | [optional] [default to 0] |
 
@@ -533,7 +533,7 @@ $apiInstance = new OpenAPI\Client\Api\ImagesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$image_id = 'image_id_example'; // string | ID образа
+$image_id = 'image_id_example'; // string | ID образа.
 $image_update_api = new \OpenAPI\Client\Model\ImageUpdateAPI(); // \OpenAPI\Client\Model\ImageUpdateAPI
 
 try {
@@ -548,7 +548,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **image_id** | **string**| ID образа | |
+| **image_id** | **string**| ID образа. | |
 | **image_update_api** | [**\OpenAPI\Client\Model\ImageUpdateAPI**](../Model/ImageUpdateAPI.md)|  | |
 
 ### Return type

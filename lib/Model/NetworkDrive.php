@@ -468,7 +468,7 @@ class NetworkDrive implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string $id Идентификатор сетевого диска.
+     * @param string $id ID сетевого диска.
      *
      * @return self
      */
@@ -748,7 +748,7 @@ class NetworkDrive implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preset_id
      *
-     * @param int $preset_id Идентификатор тарифа.
+     * @param int $preset_id ID тарифа.
      *
      * @return self
      */

@@ -427,7 +427,7 @@ class NodeGroupOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preset_id
      *
-     * @param int $preset_id Идентификатор тарифа мастер-ноды
+     * @param int $preset_id ID тарифа мастер-ноды
      *
      * @return self
      */

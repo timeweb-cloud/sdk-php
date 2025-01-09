@@ -326,7 +326,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets body
      *
-     * @param string $body Тело SSH-ключа
+     * @param string $body Тело SSH-ключа.
      *
      * @return self
      */
@@ -353,7 +353,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_default
      *
-     * @param bool $is_default Будет ли выбираться SSH-ключ по умолчанию при создании сервера
+     * @param bool $is_default Будет ли выбираться SSH-ключ по умолчанию при создании сервера.
      *
      * @return self
      */
@@ -380,7 +380,7 @@ class CreateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Название SSH-ключа
+     * @param string $name Название SSH-ключа.
      *
      * @return self
      */

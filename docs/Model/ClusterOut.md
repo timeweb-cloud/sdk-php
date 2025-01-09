@@ -17,6 +17,6 @@ Name | Type | Description | Notes
 **ram** | **int** | Общее количество памяти | [optional] [default to 0]
 **disk** | **int** | Общее дисковое пространство | [optional] [default to 0]
 **availability_zone** | **string** | Зона доступности | [optional]
-**project_id** | **int** | Идентификатор проекта | [optional]
+**project_id** | **int** | ID проекта | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

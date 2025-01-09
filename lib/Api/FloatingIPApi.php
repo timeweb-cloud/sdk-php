@@ -146,7 +146,7 @@ class FloatingIPApi
      *
      * Привязать IP к сервису
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  \OpenAPI\Client\Model\BindFloatingIp $bind_floating_ip bind_floating_ip (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bindFloatingIp'] to see the possible values for this operation
      *
@@ -164,7 +164,7 @@ class FloatingIPApi
      *
      * Привязать IP к сервису
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  \OpenAPI\Client\Model\BindFloatingIp $bind_floating_ip (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bindFloatingIp'] to see the possible values for this operation
      *
@@ -273,7 +273,7 @@ class FloatingIPApi
      *
      * Привязать IP к сервису
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  \OpenAPI\Client\Model\BindFloatingIp $bind_floating_ip (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bindFloatingIp'] to see the possible values for this operation
      *
@@ -295,7 +295,7 @@ class FloatingIPApi
      *
      * Привязать IP к сервису
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  \OpenAPI\Client\Model\BindFloatingIp $bind_floating_ip (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bindFloatingIp'] to see the possible values for this operation
      *
@@ -333,7 +333,7 @@ class FloatingIPApi
     /**
      * Create request for operation 'bindFloatingIp'
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  \OpenAPI\Client\Model\BindFloatingIp $bind_floating_ip (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bindFloatingIp'] to see the possible values for this operation
      *
@@ -868,9 +868,9 @@ class FloatingIPApi
     /**
      * Operation deleteFloatingIP
      *
-     * Удаление плавающего IP по идентификатору
+     * Удаление плавающего IP по ID
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFloatingIP'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -885,9 +885,9 @@ class FloatingIPApi
     /**
      * Operation deleteFloatingIPWithHttpInfo
      *
-     * Удаление плавающего IP по идентификатору
+     * Удаление плавающего IP по ID
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFloatingIP'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -993,9 +993,9 @@ class FloatingIPApi
     /**
      * Operation deleteFloatingIPAsync
      *
-     * Удаление плавающего IP по идентификатору
+     * Удаление плавающего IP по ID
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFloatingIP'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1014,9 +1014,9 @@ class FloatingIPApi
     /**
      * Operation deleteFloatingIPAsyncWithHttpInfo
      *
-     * Удаление плавающего IP по идентификатору
+     * Удаление плавающего IP по ID
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFloatingIP'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1053,7 +1053,7 @@ class FloatingIPApi
     /**
      * Create request for operation 'deleteFloatingIP'
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFloatingIP'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1151,7 +1151,7 @@ class FloatingIPApi
      *
      * Получение плавающего IP
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFloatingIp'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1169,7 +1169,7 @@ class FloatingIPApi
      *
      * Получение плавающего IP
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFloatingIp'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1407,7 +1407,7 @@ class FloatingIPApi
      *
      * Получение плавающего IP
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFloatingIp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1428,7 +1428,7 @@ class FloatingIPApi
      *
      * Получение плавающего IP
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFloatingIp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1478,7 +1478,7 @@ class FloatingIPApi
     /**
      * Create request for operation 'getFloatingIp'
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFloatingIp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1981,7 +1981,7 @@ class FloatingIPApi
      *
      * Отвязать IP от сервиса
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unbindFloatingIp'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1998,7 +1998,7 @@ class FloatingIPApi
      *
      * Отвязать IP от сервиса
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unbindFloatingIp'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2106,7 +2106,7 @@ class FloatingIPApi
      *
      * Отвязать IP от сервиса
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unbindFloatingIp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2127,7 +2127,7 @@ class FloatingIPApi
      *
      * Отвязать IP от сервиса
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unbindFloatingIp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2164,7 +2164,7 @@ class FloatingIPApi
     /**
      * Create request for operation 'unbindFloatingIp'
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unbindFloatingIp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2260,9 +2260,9 @@ class FloatingIPApi
     /**
      * Operation updateFloatingIP
      *
-     * Изменение плавающего IP по идентификатору
+     * Изменение плавающего IP по ID
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  \OpenAPI\Client\Model\UpdateFloatingIp $update_floating_ip update_floating_ip (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFloatingIP'] to see the possible values for this operation
      *
@@ -2279,9 +2279,9 @@ class FloatingIPApi
     /**
      * Operation updateFloatingIPWithHttpInfo
      *
-     * Изменение плавающего IP по идентификатору
+     * Изменение плавающего IP по ID
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  \OpenAPI\Client\Model\UpdateFloatingIp $update_floating_ip (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFloatingIP'] to see the possible values for this operation
      *
@@ -2518,9 +2518,9 @@ class FloatingIPApi
     /**
      * Operation updateFloatingIPAsync
      *
-     * Изменение плавающего IP по идентификатору
+     * Изменение плавающего IP по ID
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  \OpenAPI\Client\Model\UpdateFloatingIp $update_floating_ip (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFloatingIP'] to see the possible values for this operation
      *
@@ -2540,9 +2540,9 @@ class FloatingIPApi
     /**
      * Operation updateFloatingIPAsyncWithHttpInfo
      *
-     * Изменение плавающего IP по идентификатору
+     * Изменение плавающего IP по ID
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  \OpenAPI\Client\Model\UpdateFloatingIp $update_floating_ip (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFloatingIP'] to see the possible values for this operation
      *
@@ -2593,7 +2593,7 @@ class FloatingIPApi
     /**
      * Create request for operation 'updateFloatingIP'
      *
-     * @param  string $floating_ip_id Идентификатор плавающего IP (required)
+     * @param  string $floating_ip_id ID плавающего IP (required)
      * @param  \OpenAPI\Client\Model\UpdateFloatingIp $update_floating_ip (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFloatingIP'] to see the possible values for this operation
      *

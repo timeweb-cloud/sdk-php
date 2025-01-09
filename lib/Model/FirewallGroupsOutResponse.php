@@ -60,7 +60,7 @@ class FirewallGroupsOutResponse implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'response_id' => 'string',
         'meta' => '\OpenAPI\Client\Model\Meta',
-        'groups' => '\OpenAPI\Client\Model\FirewallGroupOutAPI[]'
+        'groups' => '\OpenAPI\Client\Model\FirewallGroup[]'
     ];
 
     /**
@@ -323,7 +323,7 @@ class FirewallGroupsOutResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets response_id
      *
-     * @param string|null $response_id Идентификатор запроса
+     * @param string|null $response_id ID запроса.
      *
      * @return self
      */
@@ -367,7 +367,7 @@ class FirewallGroupsOutResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets groups
      *
-     * @return \OpenAPI\Client\Model\FirewallGroupOutAPI[]
+     * @return \OpenAPI\Client\Model\FirewallGroup[]
      */
     public function getGroups()
     {
@@ -377,7 +377,7 @@ class FirewallGroupsOutResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets groups
      *
-     * @param \OpenAPI\Client\Model\FirewallGroupOutAPI[] $groups Массив объектов Групп правил
+     * @param \OpenAPI\Client\Model\FirewallGroup[] $groups groups
      *
      * @return self
      */

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Идентификатор IP. |
+**id** | **string** | ID IP. |
 **ip** | **string** | IP-адрес |
 **is_ddos_guard** | **bool** | Это логическое значение, которое показывает, включена ли защита от DDoS. |
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  |

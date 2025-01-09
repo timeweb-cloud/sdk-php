@@ -316,7 +316,7 @@ class SshKeyUsedByInner implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets id
      *
-     * @param float $id ID сервера
+     * @param float $id ID сервер.а
      *
      * @return self
      */
@@ -343,7 +343,7 @@ class SshKeyUsedByInner implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets name
      *
-     * @param string $name Название сервера
+     * @param string $name Название сервера.
      *
      * @return self
      */

@@ -62,7 +62,8 @@ class CreateServerConfiguration implements ModelInterface, ArrayAccess, \JsonSer
         'configurator_id' => 'float',
         'disk' => 'float',
         'cpu' => 'float',
-        'ram' => 'float'
+        'ram' => 'float',
+        'gpu' => 'float'
     ];
 
     /**
@@ -76,7 +77,8 @@ class CreateServerConfiguration implements ModelInterface, ArrayAccess, \JsonSer
         'configurator_id' => null,
         'disk' => null,
         'cpu' => null,
-        'ram' => null
+        'ram' => null,
+        'gpu' => null
     ];
 
     /**
@@ -88,7 +90,8 @@ class CreateServerConfiguration implements ModelInterface, ArrayAccess, \JsonSer
         'configurator_id' => false,
 		'disk' => false,
 		'cpu' => false,
-		'ram' => false
+		'ram' => false,
+		'gpu' => false
     ];
 
     /**
@@ -180,7 +183,8 @@ class CreateServerConfiguration implements ModelInterface, ArrayAccess, \JsonSer
         'configurator_id' => 'configurator_id',
         'disk' => 'disk',
         'cpu' => 'cpu',
-        'ram' => 'ram'
+        'ram' => 'ram',
+        'gpu' => 'gpu'
     ];
 
     /**
@@ -192,7 +196,8 @@ class CreateServerConfiguration implements ModelInterface, ArrayAccess, \JsonSer
         'configurator_id' => 'setConfiguratorId',
         'disk' => 'setDisk',
         'cpu' => 'setCpu',
-        'ram' => 'setRam'
+        'ram' => 'setRam',
+        'gpu' => 'setGpu'
     ];
 
     /**
@@ -204,7 +209,8 @@ class CreateServerConfiguration implements ModelInterface, ArrayAccess, \JsonSer
         'configurator_id' => 'getConfiguratorId',
         'disk' => 'getDisk',
         'cpu' => 'getCpu',
-        'ram' => 'getRam'
+        'ram' => 'getRam',
+        'gpu' => 'getGpu'
     ];
 
     /**
@@ -268,6 +274,7 @@ class CreateServerConfiguration implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('disk', $data ?? [], null);
         $this->setIfExists('cpu', $data ?? [], null);
         $this->setIfExists('ram', $data ?? [], null);
+        $this->setIfExists('gpu', $data ?? [], null);
     }
 
     /**
@@ -428,6 +435,33 @@ class CreateServerConfiguration implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable ram cannot be null');
         }
         $this->container['ram'] = $ram;
+
+        return $this;
+    }
+
+    /**
+     * Gets gpu
+     *
+     * @return float|null
+     */
+    public function getGpu()
+    {
+        return $this->container['gpu'];
+    }
+
+    /**
+     * Sets gpu
+     *
+     * @param float|null $gpu Количество видеокарт.
+     *
+     * @return self
+     */
+    public function setGpu($gpu)
+    {
+        if (is_null($gpu)) {
+            throw new \InvalidArgumentException('non-nullable gpu cannot be null');
+        }
+        $this->container['gpu'] = $gpu;
 
         return $this;
     }

@@ -313,7 +313,7 @@ class ResourcesResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets response_id
      *
-     * @param string|null $response_id Идентификатор запроса
+     * @param string|null $response_id ID запроса
      *
      * @return self
      */

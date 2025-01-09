@@ -487,7 +487,7 @@ class NodeOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets group_id
      *
-     * @param int $group_id Идентификатор группы нод
+     * @param int $group_id ID группы нод
      *
      * @return self
      */
@@ -541,7 +541,7 @@ class NodeOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preset_id
      *
-     * @param int $preset_id Идентификатор тарифа ноды
+     * @param int $preset_id ID тарифа ноды
      *
      * @return self
      */

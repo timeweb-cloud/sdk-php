@@ -310,7 +310,7 @@ class ImageUpdateAPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Имя образа
+     * @param string|null $name Имя образа.
      *
      * @return self
      */
@@ -337,7 +337,7 @@ class ImageUpdateAPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string|null $description Описание образа
+     * @param string|null $description Описание образа.
      *
      * @return self
      */

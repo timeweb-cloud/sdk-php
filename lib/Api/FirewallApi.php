@@ -167,7 +167,7 @@ class FirewallApi
      *
      * Линковка ресурса в firewall group
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addResourceToGroup'] to see the possible values for this operation
@@ -187,7 +187,7 @@ class FirewallApi
      *
      * Линковка ресурса в firewall group
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addResourceToGroup'] to see the possible values for this operation
@@ -381,7 +381,7 @@ class FirewallApi
      *
      * Линковка ресурса в firewall group
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addResourceToGroup'] to see the possible values for this operation
@@ -404,7 +404,7 @@ class FirewallApi
      *
      * Линковка ресурса в firewall group
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addResourceToGroup'] to see the possible values for this operation
@@ -456,7 +456,7 @@ class FirewallApi
     /**
      * Create request for operation 'addResourceToGroup'
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addResourceToGroup'] to see the possible values for this operation
@@ -582,7 +582,7 @@ class FirewallApi
      * Создание группы правил
      *
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api firewall_group_in_api (required)
-     * @param  string $policy Тип группы правил (optional)
+     * @param  string $policy Тип группы правил. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -601,7 +601,7 @@ class FirewallApi
      * Создание группы правил
      *
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api (required)
-     * @param  string $policy Тип группы правил (optional)
+     * @param  string $policy Тип группы правил. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -794,7 +794,7 @@ class FirewallApi
      * Создание группы правил
      *
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api (required)
-     * @param  string $policy Тип группы правил (optional)
+     * @param  string $policy Тип группы правил. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -816,7 +816,7 @@ class FirewallApi
      * Создание группы правил
      *
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api (required)
-     * @param  string $policy Тип группы правил (optional)
+     * @param  string $policy Тип группы правил. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -867,7 +867,7 @@ class FirewallApi
      * Create request for operation 'createGroup'
      *
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api (required)
-     * @param  string $policy Тип группы правил (optional)
+     * @param  string $policy Тип группы правил. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -974,7 +974,7 @@ class FirewallApi
      *
      * Создание firewall правила
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  \OpenAPI\Client\Model\FirewallRuleInAPI $firewall_rule_in_api firewall_rule_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroupRule'] to see the possible values for this operation
      *
@@ -993,7 +993,7 @@ class FirewallApi
      *
      * Создание firewall правила
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  \OpenAPI\Client\Model\FirewallRuleInAPI $firewall_rule_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroupRule'] to see the possible values for this operation
      *
@@ -1186,7 +1186,7 @@ class FirewallApi
      *
      * Создание firewall правила
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  \OpenAPI\Client\Model\FirewallRuleInAPI $firewall_rule_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroupRule'] to see the possible values for this operation
      *
@@ -1208,7 +1208,7 @@ class FirewallApi
      *
      * Создание firewall правила
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  \OpenAPI\Client\Model\FirewallRuleInAPI $firewall_rule_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroupRule'] to see the possible values for this operation
      *
@@ -1259,7 +1259,7 @@ class FirewallApi
     /**
      * Create request for operation 'createGroupRule'
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  \OpenAPI\Client\Model\FirewallRuleInAPI $firewall_rule_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroupRule'] to see the possible values for this operation
      *
@@ -1372,7 +1372,7 @@ class FirewallApi
      *
      * Удаление группы правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1389,7 +1389,7 @@ class FirewallApi
      *
      * Удаление группы правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1489,7 +1489,7 @@ class FirewallApi
      *
      * Удаление группы правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1510,7 +1510,7 @@ class FirewallApi
      *
      * Удаление группы правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1547,7 +1547,7 @@ class FirewallApi
     /**
      * Create request for operation 'deleteGroup'
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1645,7 +1645,7 @@ class FirewallApi
      *
      * Удаление firewall правила
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $rule_id ID правила (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGroupRule'] to see the possible values for this operation
      *
@@ -1663,7 +1663,7 @@ class FirewallApi
      *
      * Удаление firewall правила
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $rule_id ID правила (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGroupRule'] to see the possible values for this operation
      *
@@ -1764,7 +1764,7 @@ class FirewallApi
      *
      * Удаление firewall правила
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $rule_id ID правила (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGroupRule'] to see the possible values for this operation
      *
@@ -1786,7 +1786,7 @@ class FirewallApi
      *
      * Удаление firewall правила
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $rule_id ID правила (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGroupRule'] to see the possible values for this operation
      *
@@ -1824,7 +1824,7 @@ class FirewallApi
     /**
      * Create request for operation 'deleteGroupRule'
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $rule_id ID правила (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGroupRule'] to see the possible values for this operation
      *
@@ -1938,7 +1938,7 @@ class FirewallApi
      *
      * Отлинковка ресурса из firewall group
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteResourceFromGroup'] to see the possible values for this operation
@@ -1957,7 +1957,7 @@ class FirewallApi
      *
      * Отлинковка ресурса из firewall group
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteResourceFromGroup'] to see the possible values for this operation
@@ -2059,7 +2059,7 @@ class FirewallApi
      *
      * Отлинковка ресурса из firewall group
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteResourceFromGroup'] to see the possible values for this operation
@@ -2082,7 +2082,7 @@ class FirewallApi
      *
      * Отлинковка ресурса из firewall group
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteResourceFromGroup'] to see the possible values for this operation
@@ -2121,7 +2121,7 @@ class FirewallApi
     /**
      * Create request for operation 'deleteResourceFromGroup'
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteResourceFromGroup'] to see the possible values for this operation
@@ -2246,7 +2246,7 @@ class FirewallApi
      *
      * Получение информации о группе правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2264,7 +2264,7 @@ class FirewallApi
      *
      * Получение информации о группе правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2479,7 +2479,7 @@ class FirewallApi
      *
      * Получение информации о группе правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2500,7 +2500,7 @@ class FirewallApi
      *
      * Получение информации о группе правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2550,7 +2550,7 @@ class FirewallApi
     /**
      * Create request for operation 'getGroup'
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2648,7 +2648,7 @@ class FirewallApi
      *
      * Получение слинкованных ресурсов
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupResources'] to see the possible values for this operation
@@ -2668,7 +2668,7 @@ class FirewallApi
      *
      * Получение слинкованных ресурсов
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupResources'] to see the possible values for this operation
@@ -2862,7 +2862,7 @@ class FirewallApi
      *
      * Получение слинкованных ресурсов
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupResources'] to see the possible values for this operation
@@ -2885,7 +2885,7 @@ class FirewallApi
      *
      * Получение слинкованных ресурсов
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupResources'] to see the possible values for this operation
@@ -2937,7 +2937,7 @@ class FirewallApi
     /**
      * Create request for operation 'getGroupResources'
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupResources'] to see the possible values for this operation
@@ -3057,8 +3057,8 @@ class FirewallApi
      *
      * Получение информации о правиле
      *
-     * @param  string $rule_id ID правила (required)
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $rule_id ID правила. (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupRule'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3076,8 +3076,8 @@ class FirewallApi
      *
      * Получение информации о правиле
      *
-     * @param  string $rule_id ID правила (required)
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $rule_id ID правила. (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupRule'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3292,8 +3292,8 @@ class FirewallApi
      *
      * Получение информации о правиле
      *
-     * @param  string $rule_id ID правила (required)
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $rule_id ID правила. (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupRule'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3314,8 +3314,8 @@ class FirewallApi
      *
      * Получение информации о правиле
      *
-     * @param  string $rule_id ID правила (required)
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $rule_id ID правила. (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupRule'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3365,8 +3365,8 @@ class FirewallApi
     /**
      * Create request for operation 'getGroupRule'
      *
-     * @param  string $rule_id ID правила (required)
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $rule_id ID правила. (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupRule'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3479,7 +3479,7 @@ class FirewallApi
      *
      * Получение списка правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupRules'] to see the possible values for this operation
@@ -3499,7 +3499,7 @@ class FirewallApi
      *
      * Получение списка правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupRules'] to see the possible values for this operation
@@ -3693,7 +3693,7 @@ class FirewallApi
      *
      * Получение списка правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupRules'] to see the possible values for this operation
@@ -3716,7 +3716,7 @@ class FirewallApi
      *
      * Получение списка правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupRules'] to see the possible values for this operation
@@ -3768,7 +3768,7 @@ class FirewallApi
     /**
      * Create request for operation 'getGroupRules'
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupRules'] to see the possible values for this operation
@@ -4277,7 +4277,7 @@ class FirewallApi
      *
      * Получение групп правил для ресурса
      *
-     * @param  string $resource_id Идентификатор ресурса (required)
+     * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type resource_type (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
@@ -4298,7 +4298,7 @@ class FirewallApi
      *
      * Получение групп правил для ресурса
      *
-     * @param  string $resource_id Идентификатор ресурса (required)
+     * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
@@ -4493,7 +4493,7 @@ class FirewallApi
      *
      * Получение групп правил для ресурса
      *
-     * @param  string $resource_id Идентификатор ресурса (required)
+     * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
@@ -4517,7 +4517,7 @@ class FirewallApi
      *
      * Получение групп правил для ресурса
      *
-     * @param  string $resource_id Идентификатор ресурса (required)
+     * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
@@ -4570,7 +4570,7 @@ class FirewallApi
     /**
      * Create request for operation 'getRulesForResource'
      *
-     * @param  string $resource_id Идентификатор ресурса (required)
+     * @param  string $resource_id ID ресурса (required)
      * @param  ResourceType $resource_type (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
@@ -4706,7 +4706,7 @@ class FirewallApi
      *
      * Обновление группы правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api firewall_group_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateGroup'] to see the possible values for this operation
      *
@@ -4725,7 +4725,7 @@ class FirewallApi
      *
      * Обновление группы правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateGroup'] to see the possible values for this operation
      *
@@ -4941,7 +4941,7 @@ class FirewallApi
      *
      * Обновление группы правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateGroup'] to see the possible values for this operation
      *
@@ -4963,7 +4963,7 @@ class FirewallApi
      *
      * Обновление группы правил
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateGroup'] to see the possible values for this operation
      *
@@ -5014,7 +5014,7 @@ class FirewallApi
     /**
      * Create request for operation 'updateGroup'
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  \OpenAPI\Client\Model\FirewallGroupInAPI $firewall_group_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateGroup'] to see the possible values for this operation
      *
@@ -5127,7 +5127,7 @@ class FirewallApi
      *
      * Обновление firewall правила
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $rule_id ID правила (required)
      * @param  \OpenAPI\Client\Model\FirewallRuleInAPI $firewall_rule_in_api firewall_rule_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateGroupRule'] to see the possible values for this operation
@@ -5147,7 +5147,7 @@ class FirewallApi
      *
      * Обновление firewall правила
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $rule_id ID правила (required)
      * @param  \OpenAPI\Client\Model\FirewallRuleInAPI $firewall_rule_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateGroupRule'] to see the possible values for this operation
@@ -5364,7 +5364,7 @@ class FirewallApi
      *
      * Обновление firewall правила
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $rule_id ID правила (required)
      * @param  \OpenAPI\Client\Model\FirewallRuleInAPI $firewall_rule_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateGroupRule'] to see the possible values for this operation
@@ -5387,7 +5387,7 @@ class FirewallApi
      *
      * Обновление firewall правила
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $rule_id ID правила (required)
      * @param  \OpenAPI\Client\Model\FirewallRuleInAPI $firewall_rule_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateGroupRule'] to see the possible values for this operation
@@ -5439,7 +5439,7 @@ class FirewallApi
     /**
      * Create request for operation 'updateGroupRule'
      *
-     * @param  string $group_id ID группы правил (required)
+     * @param  string $group_id ID группы правил. (required)
      * @param  string $rule_id ID правила (required)
      * @param  \OpenAPI\Client\Model\FirewallRuleInAPI $firewall_rule_in_api (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateGroupRule'] to see the possible values for this operation

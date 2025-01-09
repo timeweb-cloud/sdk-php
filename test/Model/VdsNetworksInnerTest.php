@@ -133,4 +133,22 @@ class VdsNetworksInnerTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "is_image_mounted"
+     */
+    public function testPropertyIsImageMounted()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "blocked_ports"
+     */
+    public function testPropertyBlockedPorts()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

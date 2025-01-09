@@ -1,6 +1,6 @@
 <?php
 /**
- * ImageOutAPI
+ * ComponentsSchemasBaseError
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * ImageOutAPI Class Doc Comment
+ * ComponentsSchemasBaseError Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ImageOutAPI implements ModelInterface, ArrayAccess, \JsonSerializable
+class ComponentsSchemasBaseError implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ImageOutAPI implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ImageOutAPI';
+    protected static $openAPIModelName = 'components-schemas-BaseError';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,18 +58,10 @@ class ImageOutAPI implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'status' => '\OpenAPI\Client\Model\ImageStatus',
-        'created_at' => '\DateTime',
-        'deleted_at' => '\DateTime',
-        'size' => 'int',
-        'name' => 'string',
-        'description' => 'string',
-        'disk_id' => 'int',
-        'location' => 'string',
-        'os' => '\OpenAPI\Client\Model\OS',
-        'progress' => 'int',
-        'is_custom' => 'bool'
+        'status_code' => 'int',
+        'error_code' => 'string',
+        'message' => 'string',
+        'response_id' => 'string'
     ];
 
     /**
@@ -80,18 +72,10 @@ class ImageOutAPI implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'status' => null,
-        'created_at' => 'date-time',
-        'deleted_at' => 'date-time',
-        'size' => null,
-        'name' => null,
-        'description' => null,
-        'disk_id' => null,
-        'location' => null,
-        'os' => null,
-        'progress' => null,
-        'is_custom' => null
+        'status_code' => null,
+        'error_code' => null,
+        'message' => null,
+        'response_id' => null
     ];
 
     /**
@@ -100,18 +84,10 @@ class ImageOutAPI implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'status' => false,
-		'created_at' => false,
-		'deleted_at' => false,
-		'size' => false,
-		'name' => false,
-		'description' => false,
-		'disk_id' => false,
-		'location' => false,
-		'os' => false,
-		'progress' => false,
-		'is_custom' => false
+        'status_code' => false,
+		'error_code' => false,
+		'message' => false,
+		'response_id' => false
     ];
 
     /**
@@ -200,18 +176,10 @@ class ImageOutAPI implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'status' => 'status',
-        'created_at' => 'created_at',
-        'deleted_at' => 'deleted_at',
-        'size' => 'size',
-        'name' => 'name',
-        'description' => 'description',
-        'disk_id' => 'disk_id',
-        'location' => 'location',
-        'os' => 'os',
-        'progress' => 'progress',
-        'is_custom' => 'is_custom'
+        'status_code' => 'status_code',
+        'error_code' => 'error_code',
+        'message' => 'message',
+        'response_id' => 'response_id'
     ];
 
     /**
@@ -220,18 +188,10 @@ class ImageOutAPI implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'status' => 'setStatus',
-        'created_at' => 'setCreatedAt',
-        'deleted_at' => 'setDeletedAt',
-        'size' => 'setSize',
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'disk_id' => 'setDiskId',
-        'location' => 'setLocation',
-        'os' => 'setOs',
-        'progress' => 'setProgress',
-        'is_custom' => 'setIsCustom'
+        'status_code' => 'setStatusCode',
+        'error_code' => 'setErrorCode',
+        'message' => 'setMessage',
+        'response_id' => 'setResponseId'
     ];
 
     /**
@@ -240,18 +200,10 @@ class ImageOutAPI implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'status' => 'getStatus',
-        'created_at' => 'getCreatedAt',
-        'deleted_at' => 'getDeletedAt',
-        'size' => 'getSize',
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'disk_id' => 'getDiskId',
-        'location' => 'getLocation',
-        'os' => 'getOs',
-        'progress' => 'getProgress',
-        'is_custom' => 'getIsCustom'
+        'status_code' => 'getStatusCode',
+        'error_code' => 'getErrorCode',
+        'message' => 'getMessage',
+        'response_id' => 'getResponseId'
     ];
 
     /**
@@ -311,18 +263,10 @@ class ImageOutAPI implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('deleted_at', $data ?? [], null);
-        $this->setIfExists('size', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('disk_id', $data ?? [], null);
-        $this->setIfExists('location', $data ?? [], null);
-        $this->setIfExists('os', $data ?? [], null);
-        $this->setIfExists('progress', $data ?? [], null);
-        $this->setIfExists('is_custom', $data ?? [], null);
+        $this->setIfExists('status_code', $data ?? [], null);
+        $this->setIfExists('error_code', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -352,38 +296,14 @@ class ImageOutAPI implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['status_code'] === null) {
+            $invalidProperties[] = "'status_code' can't be null";
         }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
+        if ($this->container['error_code'] === null) {
+            $invalidProperties[] = "'error_code' can't be null";
         }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['deleted_at'] === null) {
-            $invalidProperties[] = "'deleted_at' can't be null";
-        }
-        if ($this->container['size'] === null) {
-            $invalidProperties[] = "'size' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
-        if ($this->container['disk_id'] === null) {
-            $invalidProperties[] = "'disk_id' can't be null";
-        }
-        if ($this->container['os'] === null) {
-            $invalidProperties[] = "'os' can't be null";
-        }
-        if ($this->container['progress'] === null) {
-            $invalidProperties[] = "'progress' can't be null";
-        }
-        if ($this->container['is_custom'] === null) {
-            $invalidProperties[] = "'is_custom' can't be null";
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
         return $invalidProperties;
     }
@@ -401,325 +321,109 @@ class ImageOutAPI implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Идентификатор образа
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return \OpenAPI\Client\Model\ImageStatus
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param \OpenAPI\Client\Model\ImageStatus $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime $created_at Дата и время создания
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets deleted_at
-     *
-     * @return \DateTime
-     */
-    public function getDeletedAt()
-    {
-        return $this->container['deleted_at'];
-    }
-
-    /**
-     * Sets deleted_at
-     *
-     * @param \DateTime $deleted_at Дата и время удаления
-     *
-     * @return self
-     */
-    public function setDeletedAt($deleted_at)
-    {
-        if (is_null($deleted_at)) {
-            throw new \InvalidArgumentException('non-nullable deleted_at cannot be null');
-        }
-        $this->container['deleted_at'] = $deleted_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets size
+     * Gets status_code
      *
      * @return int
      */
-    public function getSize()
+    public function getStatusCode()
     {
-        return $this->container['size'];
+        return $this->container['status_code'];
     }
 
     /**
-     * Sets size
+     * Sets status_code
      *
-     * @param int $size Размер в мегабайтах
+     * @param int $status_code status_code
      *
      * @return self
      */
-    public function setSize($size)
+    public function setStatusCode($status_code)
     {
-        if (is_null($size)) {
-            throw new \InvalidArgumentException('non-nullable size cannot be null');
+        if (is_null($status_code)) {
+            throw new \InvalidArgumentException('non-nullable status_code cannot be null');
         }
-        $this->container['size'] = $size;
+        $this->container['status_code'] = $status_code;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets error_code
      *
      * @return string
      */
-    public function getName()
+    public function getErrorCode()
     {
-        return $this->container['name'];
+        return $this->container['error_code'];
     }
 
     /**
-     * Sets name
+     * Sets error_code
      *
-     * @param string $name Имя образа
+     * @param string $error_code error_code
      *
      * @return self
      */
-    public function setName($name)
+    public function setErrorCode($error_code)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($error_code)) {
+            throw new \InvalidArgumentException('non-nullable error_code cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['error_code'] = $error_code;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets message
      *
      * @return string
      */
-    public function getDescription()
+    public function getMessage()
     {
-        return $this->container['description'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets description
+     * Sets message
      *
-     * @param string $description Описание образа
+     * @param string $message message
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setMessage($message)
     {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['description'] = $description;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets disk_id
-     *
-     * @return int
-     */
-    public function getDiskId()
-    {
-        return $this->container['disk_id'];
-    }
-
-    /**
-     * Sets disk_id
-     *
-     * @param int $disk_id Идентификатор связанного с образом диска
-     *
-     * @return self
-     */
-    public function setDiskId($disk_id)
-    {
-        if (is_null($disk_id)) {
-            throw new \InvalidArgumentException('non-nullable disk_id cannot be null');
-        }
-        $this->container['disk_id'] = $disk_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets location
+     * Gets response_id
      *
      * @return string|null
      */
-    public function getLocation()
+    public function getResponseId()
     {
-        return $this->container['location'];
+        return $this->container['response_id'];
     }
 
     /**
-     * Sets location
+     * Sets response_id
      *
-     * @param string|null $location Локация, в которой создан образ
+     * @param string|null $response_id response_id
      *
      * @return self
      */
-    public function setLocation($location)
+    public function setResponseId($response_id)
     {
-        if (is_null($location)) {
-            throw new \InvalidArgumentException('non-nullable location cannot be null');
+        if (is_null($response_id)) {
+            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
         }
-        $this->container['location'] = $location;
-
-        return $this;
-    }
-
-    /**
-     * Gets os
-     *
-     * @return \OpenAPI\Client\Model\OS
-     */
-    public function getOs()
-    {
-        return $this->container['os'];
-    }
-
-    /**
-     * Sets os
-     *
-     * @param \OpenAPI\Client\Model\OS $os os
-     *
-     * @return self
-     */
-    public function setOs($os)
-    {
-        if (is_null($os)) {
-            throw new \InvalidArgumentException('non-nullable os cannot be null');
-        }
-        $this->container['os'] = $os;
-
-        return $this;
-    }
-
-    /**
-     * Gets progress
-     *
-     * @return int
-     */
-    public function getProgress()
-    {
-        return $this->container['progress'];
-    }
-
-    /**
-     * Sets progress
-     *
-     * @param int $progress Процент создания образа
-     *
-     * @return self
-     */
-    public function setProgress($progress)
-    {
-        if (is_null($progress)) {
-            throw new \InvalidArgumentException('non-nullable progress cannot be null');
-        }
-        $this->container['progress'] = $progress;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_custom
-     *
-     * @return bool
-     */
-    public function getIsCustom()
-    {
-        return $this->container['is_custom'];
-    }
-
-    /**
-     * Sets is_custom
-     *
-     * @param bool $is_custom Признак указывающий на то является ли образ кастомным
-     *
-     * @return self
-     */
-    public function setIsCustom($is_custom)
-    {
-        if (is_null($is_custom)) {
-            throw new \InvalidArgumentException('non-nullable is_custom cannot be null');
-        }
-        $this->container['is_custom'] = $is_custom;
+        $this->container['response_id'] = $response_id;
 
         return $this;
     }
