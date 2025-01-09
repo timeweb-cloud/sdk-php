@@ -123,7 +123,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_id = 56; // int | Идентификатор базы данных
+$db_id = 56; // int | ID базы данных
 
 try {
     $result = $apiInstance->createDatabaseBackup($db_id);
@@ -137,7 +137,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| Идентификатор базы данных | |
+| **db_id** | **int**| ID базы данных | |
 
 ### Return type
 
@@ -243,7 +243,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
 $create_instance = new \OpenAPI\Client\Model\CreateInstance(); // \OpenAPI\Client\Model\CreateInstance
 
 try {
@@ -258,7 +258,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
 | **create_instance** | [**\OpenAPI\Client\Model\CreateInstance**](../Model/CreateInstance.md)|  | |
 
 ### Return type
@@ -305,7 +305,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
 $create_admin = new \OpenAPI\Client\Model\CreateAdmin(); // \OpenAPI\Client\Model\CreateAdmin
 
 try {
@@ -320,7 +320,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
 | **create_admin** | [**\OpenAPI\Client\Model\CreateAdmin**](../Model/CreateAdmin.md)|  | |
 
 ### Return type
@@ -367,7 +367,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_id = 56; // int | Идентификатор базы данных
+$db_id = 56; // int | ID базы данных
 $hash = 15095f25-aac3-4d60-a788-96cb5136f186; // string | Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм.
 $code = 0000; // string | Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена `is_able_to_delete` установлен в значение `true`
 
@@ -383,7 +383,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| Идентификатор базы данных | |
+| **db_id** | **int**| ID базы данных | |
 | **hash** | **string**| Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. | [optional] |
 | **code** | **string**| Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; | [optional] |
 
@@ -431,8 +431,8 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_id = 56; // int | Идентификатор базы данных
-$backup_id = 56; // int | Идентификатор резевной копии
+$db_id = 56; // int | ID базы данных
+$backup_id = 56; // int | ID резевной копии
 
 try {
     $apiInstance->deleteDatabaseBackup($db_id, $backup_id);
@@ -445,8 +445,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| Идентификатор базы данных | |
-| **backup_id** | **int**| Идентификатор резевной копии | |
+| **db_id** | **int**| ID базы данных | |
+| **backup_id** | **int**| ID резевной копии | |
 
 ### Return type
 
@@ -492,7 +492,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
 $hash = 15095f25-aac3-4d60-a788-96cb5136f186; // string | Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм.
 $code = 0000; // string | Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена `is_able_to_delete` установлен в значение `true`
 
@@ -508,7 +508,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
 | **hash** | **string**| Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. | [optional] |
 | **code** | **string**| Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; | [optional] |
 
@@ -556,8 +556,8 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
-$instance_id = 56; // int | Идентификатор инстанса базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
+$instance_id = 56; // int | ID инстанса базы данных
 
 try {
     $apiInstance->deleteDatabaseInstance($db_cluster_id, $instance_id);
@@ -570,8 +570,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
-| **instance_id** | **int**| Идентификатор инстанса базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
+| **instance_id** | **int**| ID инстанса базы данных | |
 
 ### Return type
 
@@ -617,8 +617,8 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
-$admin_id = 56; // int | Идентификатор пользователя базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
+$admin_id = 56; // int | ID пользователя базы данных
 
 try {
     $apiInstance->deleteDatabaseUser($db_cluster_id, $admin_id);
@@ -631,8 +631,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
-| **admin_id** | **int**| Идентификатор пользователя базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
+| **admin_id** | **int**| ID пользователя базы данных | |
 
 ### Return type
 
@@ -678,7 +678,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_id = 56; // int | Идентификатор базы данных
+$db_id = 56; // int | ID базы данных
 
 try {
     $result = $apiInstance->getDatabase($db_id);
@@ -692,7 +692,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| Идентификатор базы данных | |
+| **db_id** | **int**| ID базы данных | |
 
 ### Return type
 
@@ -738,7 +738,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_id = 56; // int | Идентификатор базы данных
+$db_id = 56; // int | ID базы данных
 
 try {
     $result = $apiInstance->getDatabaseAutoBackupsSettings($db_id);
@@ -752,7 +752,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| Идентификатор базы данных | |
+| **db_id** | **int**| ID базы данных | |
 
 ### Return type
 
@@ -798,8 +798,8 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_id = 56; // int | Идентификатор базы данных
-$backup_id = 56; // int | Идентификатор резевной копии
+$db_id = 56; // int | ID базы данных
+$backup_id = 56; // int | ID резевной копии
 
 try {
     $result = $apiInstance->getDatabaseBackup($db_id, $backup_id);
@@ -813,8 +813,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| Идентификатор базы данных | |
-| **backup_id** | **int**| Идентификатор резевной копии | |
+| **db_id** | **int**| ID базы данных | |
+| **backup_id** | **int**| ID резевной копии | |
 
 ### Return type
 
@@ -860,7 +860,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_id = 56; // int | Идентификатор базы данных
+$db_id = 56; // int | ID базы данных
 $limit = 100; // int | Обозначает количество записей, которое необходимо вернуть.
 $offset = 0; // int | Указывает на смещение относительно начала списка.
 
@@ -876,7 +876,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| Идентификатор базы данных | |
+| **db_id** | **int**| ID базы данных | |
 | **limit** | **int**| Обозначает количество записей, которое необходимо вернуть. | [optional] [default to 100] |
 | **offset** | **int**| Указывает на смещение относительно начала списка. | [optional] [default to 0] |
 
@@ -924,7 +924,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
 
 try {
     $result = $apiInstance->getDatabaseCluster($db_cluster_id);
@@ -938,7 +938,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
 
 ### Return type
 
@@ -1103,8 +1103,8 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
-$instance_id = 56; // int | Идентификатор инстанса базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
+$instance_id = 56; // int | ID инстанса базы данных
 
 try {
     $result = $apiInstance->getDatabaseInstance($db_cluster_id, $instance_id);
@@ -1118,8 +1118,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
-| **instance_id** | **int**| Идентификатор инстанса базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
+| **instance_id** | **int**| ID инстанса базы данных | |
 
 ### Return type
 
@@ -1165,7 +1165,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
 
 try {
     $result = $apiInstance->getDatabaseInstances($db_cluster_id);
@@ -1179,7 +1179,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
 
 ### Return type
 
@@ -1282,8 +1282,8 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
-$admin_id = 56; // int | Идентификатор пользователя базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
+$admin_id = 56; // int | ID пользователя базы данных
 
 try {
     $result = $apiInstance->getDatabaseUser($db_cluster_id, $admin_id);
@@ -1297,8 +1297,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
-| **admin_id** | **int**| Идентификатор пользователя базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
+| **admin_id** | **int**| ID пользователя базы данных | |
 
 ### Return type
 
@@ -1344,7 +1344,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
 
 try {
     $result = $apiInstance->getDatabaseUsers($db_cluster_id);
@@ -1358,7 +1358,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
 
 ### Return type
 
@@ -1523,8 +1523,8 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_id = 56; // int | Идентификатор базы данных
-$backup_id = 56; // int | Идентификатор резевной копии
+$db_id = 56; // int | ID базы данных
+$backup_id = 56; // int | ID резевной копии
 
 try {
     $apiInstance->restoreDatabaseFromBackup($db_id, $backup_id);
@@ -1537,8 +1537,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| Идентификатор базы данных | |
-| **backup_id** | **int**| Идентификатор резевной копии | |
+| **db_id** | **int**| ID базы данных | |
+| **backup_id** | **int**| ID резевной копии | |
 
 ### Return type
 
@@ -1584,7 +1584,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_id = 56; // int | Идентификатор базы данных
+$db_id = 56; // int | ID базы данных
 $update_db = new \OpenAPI\Client\Model\UpdateDb(); // \OpenAPI\Client\Model\UpdateDb
 
 try {
@@ -1599,7 +1599,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| Идентификатор базы данных | |
+| **db_id** | **int**| ID базы данных | |
 | **update_db** | [**\OpenAPI\Client\Model\UpdateDb**](../Model/UpdateDb.md)|  | |
 
 ### Return type
@@ -1646,7 +1646,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_id = 56; // int | Идентификатор базы данных
+$db_id = 56; // int | ID базы данных
 $auto_backup = new \OpenAPI\Client\Model\AutoBackup(); // \OpenAPI\Client\Model\AutoBackup | При значении `is_enabled`: `true`, поля `copy_count`, `creation_start_at`, `interval` являются обязательными
 
 try {
@@ -1661,7 +1661,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| Идентификатор базы данных | |
+| **db_id** | **int**| ID базы данных | |
 | **auto_backup** | [**\OpenAPI\Client\Model\AutoBackup**](../Model/AutoBackup.md)| При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными | [optional] |
 
 ### Return type
@@ -1708,7 +1708,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
 $update_cluster = new \OpenAPI\Client\Model\UpdateCluster(); // \OpenAPI\Client\Model\UpdateCluster
 
 try {
@@ -1723,7 +1723,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
 | **update_cluster** | [**\OpenAPI\Client\Model\UpdateCluster**](../Model/UpdateCluster.md)|  | |
 
 ### Return type
@@ -1770,7 +1770,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
 $update_instance = new \OpenAPI\Client\Model\UpdateInstance(); // \OpenAPI\Client\Model\UpdateInstance
 
 try {
@@ -1785,7 +1785,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
 | **update_instance** | [**\OpenAPI\Client\Model\UpdateInstance**](../Model/UpdateInstance.md)|  | |
 
 ### Return type
@@ -1832,8 +1832,8 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$db_cluster_id = 56; // int | Идентификатор кластера базы данных
-$admin_id = 56; // int | Идентификатор пользователя базы данных
+$db_cluster_id = 56; // int | ID кластера базы данных
+$admin_id = 56; // int | ID пользователя базы данных
 $update_admin = new \OpenAPI\Client\Model\UpdateAdmin(); // \OpenAPI\Client\Model\UpdateAdmin
 
 try {
@@ -1848,8 +1848,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **db_cluster_id** | **int**| Идентификатор кластера базы данных | |
-| **admin_id** | **int**| Идентификатор пользователя базы данных | |
+| **db_cluster_id** | **int**| ID кластера базы данных | |
+| **admin_id** | **int**| ID пользователя базы данных | |
 | **update_admin** | [**\OpenAPI\Client\Model\UpdateAdmin**](../Model/UpdateAdmin.md)|  | |
 
 ### Return type

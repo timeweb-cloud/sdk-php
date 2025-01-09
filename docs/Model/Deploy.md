@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**app_id** | **string** | Идентификатор приложения. |
+**app_id** | **string** | ID приложения. |
 **commit_sha** | **string** | Хэш коммита. |
-**id** | **string** | Идентификатор. |
+**id** | **string** | ID. |
 **started_at** | **\DateTime** | Время запуска деплоя. |
 **ended_at** | **\DateTime** | Время окончания деплоя. Определено для завершенных деплоев |
 **status** | [**\OpenAPI\Client\Model\DeployStatus**](DeployStatus.md) |  |

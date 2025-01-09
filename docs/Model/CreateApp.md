@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**provider_id** | **string** | Уникальный идентификатор провайдера. |
+**provider_id** | **string** | ID провайдера. |
 **type** | **string** | Тип приложения. |
-**repository_id** | **string** | Уникальный идентификатор репозитория. |
+**repository_id** | **string** | ID репозитория. |
 **build_cmd** | **string** | Команда сборки приложения. |
 **envs** | **object** | Переменные окружения приложения. Объект с ключами и значениями типа string. | [optional]
 **branch_name** | **string** | Название ветки репозитория из которой необходимо собрать приложение. |
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **commit_sha** | **string** | Хэш коммита из которого необходимо собрать приложение. |
 **name** | **string** | Имя приложения. |
 **comment** | **string** | Комментарий к приложению. |
-**preset_id** | **float** | Идентификатор тарифа. |
+**preset_id** | **float** | ID тарифа. |
 **env_version** | **string** | Версия окружения. | [optional]
 **framework** | [**\OpenAPI\Client\Model\Frameworks**](Frameworks.md) |  |
 **index_dir** | **string** | Путь к директории с индексным файлом. Обязателен для приложений &#x60;type: frontend&#x60;. Не используется для приложений &#x60;type: backend&#x60;. Значение всегда должно начинаться с &#x60;/&#x60;. | [optional]

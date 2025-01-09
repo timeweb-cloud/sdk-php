@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Идентификатор ссылки |
+**id** | **string** | ID ссылки |
 **created_at** | **\DateTime** | Дата и время создания ссылки |
-**image** | **string** | Идентификатор образа |
+**image** | **string** | ID образа |
 **type** | [**\OpenAPI\Client\Model\URLType**](URLType.md) |  |
 **url** | **string** | Ссылка на скачивание | [optional]
 **status** | [**\OpenAPI\Client\Model\UrlStatus**](UrlStatus.md) |  |

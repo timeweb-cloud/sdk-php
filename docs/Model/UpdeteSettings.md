@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **framework** | [**\OpenAPI\Client\Model\Frameworks**](Frameworks.md) |  | [optional]
 **name** | **string** | Имя приложения. | [optional]
 **comment** | **string** | Комментарий к приложению. | [optional]
-**preset_id** | **float** | Идентификатор тарифа. | [optional]
+**preset_id** | **float** | ID тарифа. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

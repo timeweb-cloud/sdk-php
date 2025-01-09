@@ -5,12 +5,12 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createVPC()**](VPCApi.md#createVPC) | **POST** /api/v2/vpcs | Создание VPC |
-| [**deleteVPC()**](VPCApi.md#deleteVPC) | **DELETE** /api/v1/vpcs/{vpc_id} | Удаление VPC по идентификатору сети |
+| [**deleteVPC()**](VPCApi.md#deleteVPC) | **DELETE** /api/v1/vpcs/{vpc_id} | Удаление VPC по ID сети |
 | [**getVPC()**](VPCApi.md#getVPC) | **GET** /api/v2/vpcs/{vpc_id} | Получение VPC |
 | [**getVPCPorts()**](VPCApi.md#getVPCPorts) | **GET** /api/v1/vpcs/{vpc_id}/ports | Получение списка портов для VPC |
 | [**getVPCServices()**](VPCApi.md#getVPCServices) | **GET** /api/v2/vpcs/{vpc_id}/services | Получение списка сервисов в VPC |
 | [**getVPCs()**](VPCApi.md#getVPCs) | **GET** /api/v2/vpcs | Получение списка VPCs |
-| [**updateVPCs()**](VPCApi.md#updateVPCs) | **PATCH** /api/v2/vpcs/{vpc_id} | Изменение VPC по идентификатору сети |
+| [**updateVPCs()**](VPCApi.md#updateVPCs) | **PATCH** /api/v2/vpcs/{vpc_id} | Изменение VPC по ID сети |
 
 
 ## `createVPC()`
@@ -79,7 +79,7 @@ try {
 deleteVPC($vpc_id): \OpenAPI\Client\Model\CreateVPC201Response
 ```
 
-Удаление VPC по идентификатору сети
+Удаление VPC по ID сети
 
 Чтобы удалить VPC, отправьте DELETE-запрос на `/api/v1/vpcs/{vpc_id}`
 
@@ -100,7 +100,7 @@ $apiInstance = new OpenAPI\Client\Api\VPCApi(
     new GuzzleHttp\Client(),
     $config
 );
-$vpc_id = network-1234567890; // string | Идентификатор сети
+$vpc_id = network-1234567890; // string | ID сети
 
 try {
     $result = $apiInstance->deleteVPC($vpc_id);
@@ -114,7 +114,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **vpc_id** | **string**| Идентификатор сети | |
+| **vpc_id** | **string**| ID сети | |
 
 ### Return type
 
@@ -160,7 +160,7 @@ $apiInstance = new OpenAPI\Client\Api\VPCApi(
     new GuzzleHttp\Client(),
     $config
 );
-$vpc_id = network-1234567890; // string | Идентификатор сети
+$vpc_id = network-1234567890; // string | ID сети
 
 try {
     $result = $apiInstance->getVPC($vpc_id);
@@ -174,7 +174,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **vpc_id** | **string**| Идентификатор сети | |
+| **vpc_id** | **string**| ID сети | |
 
 ### Return type
 
@@ -220,7 +220,7 @@ $apiInstance = new OpenAPI\Client\Api\VPCApi(
     new GuzzleHttp\Client(),
     $config
 );
-$vpc_id = network-1234567890; // string | Идентификатор сети
+$vpc_id = network-1234567890; // string | ID сети
 
 try {
     $result = $apiInstance->getVPCPorts($vpc_id);
@@ -234,7 +234,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **vpc_id** | **string**| Идентификатор сети | |
+| **vpc_id** | **string**| ID сети | |
 
 ### Return type
 
@@ -280,7 +280,7 @@ $apiInstance = new OpenAPI\Client\Api\VPCApi(
     new GuzzleHttp\Client(),
     $config
 );
-$vpc_id = network-1234567890; // string | Идентификатор сети
+$vpc_id = network-1234567890; // string | ID сети
 
 try {
     $result = $apiInstance->getVPCServices($vpc_id);
@@ -294,7 +294,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **vpc_id** | **string**| Идентификатор сети | |
+| **vpc_id** | **string**| ID сети | |
 
 ### Return type
 
@@ -376,7 +376,7 @@ This endpoint does not need any parameter.
 updateVPCs($vpc_id, $update_vpc): \OpenAPI\Client\Model\CreateVPC201Response
 ```
 
-Изменение VPC по идентификатору сети
+Изменение VPC по ID сети
 
 Чтобы изменить VPC, отправьте PATCH-запрос на `/api/v2/vpcs/{vpc_id}`
 
@@ -397,7 +397,7 @@ $apiInstance = new OpenAPI\Client\Api\VPCApi(
     new GuzzleHttp\Client(),
     $config
 );
-$vpc_id = network-1234567890; // string | Идентификатор сети
+$vpc_id = network-1234567890; // string | ID сети
 $update_vpc = new \OpenAPI\Client\Model\UpdateVpc(); // \OpenAPI\Client\Model\UpdateVpc
 
 try {
@@ -412,7 +412,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **vpc_id** | **string**| Идентификатор сети | |
+| **vpc_id** | **string**| ID сети | |
 | **update_vpc** | [**\OpenAPI\Client\Model\UpdateVpc**](../Model/UpdateVpc.md)|  | |
 
 ### Return type

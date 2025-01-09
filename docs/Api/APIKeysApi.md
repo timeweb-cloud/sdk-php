@@ -98,7 +98,7 @@ $apiInstance = new OpenAPI\Client\Api\APIKeysApi(
     new GuzzleHttp\Client(),
     $config
 );
-$token_id = 'token_id_example'; // string | Идентификатор токена
+$token_id = 'token_id_example'; // string | ID токена
 
 try {
     $apiInstance->deleteToken($token_id);
@@ -111,7 +111,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **token_id** | **string**| Идентификатор токена | |
+| **token_id** | **string**| ID токена | |
 
 ### Return type
 
@@ -214,7 +214,7 @@ $apiInstance = new OpenAPI\Client\Api\APIKeysApi(
     new GuzzleHttp\Client(),
     $config
 );
-$token_id = 'token_id_example'; // string | Идентификатор токена
+$token_id = 'token_id_example'; // string | ID токена
 $refresh_api_key = new \OpenAPI\Client\Model\RefreshApiKey(); // \OpenAPI\Client\Model\RefreshApiKey
 
 try {
@@ -229,7 +229,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **token_id** | **string**| Идентификатор токена | |
+| **token_id** | **string**| ID токена | |
 | **refresh_api_key** | [**\OpenAPI\Client\Model\RefreshApiKey**](../Model/RefreshApiKey.md)|  | |
 
 ### Return type
@@ -276,7 +276,7 @@ $apiInstance = new OpenAPI\Client\Api\APIKeysApi(
     new GuzzleHttp\Client(),
     $config
 );
-$token_id = 'token_id_example'; // string | Идентификатор токена
+$token_id = 'token_id_example'; // string | ID токена
 $edit_api_key = new \OpenAPI\Client\Model\EditApiKey(); // \OpenAPI\Client\Model\EditApiKey
 
 try {
@@ -291,7 +291,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **token_id** | **string**| Идентификатор токена | |
+| **token_id** | **string**| ID токена | |
 | **edit_api_key** | [**\OpenAPI\Client\Model\EditApiKey**](../Model/EditApiKey.md)|  | |
 
 ### Return type

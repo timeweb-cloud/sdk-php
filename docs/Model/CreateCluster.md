@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **admin** | [**\OpenAPI\Client\Model\CreateClusterAdmin**](CreateClusterAdmin.md) |  | [optional]
 **instance** | [**\OpenAPI\Client\Model\CreateClusterInstance**](CreateClusterInstance.md) |  | [optional]
 **hash_type** | **string** | Тип хеширования базы данных (mysql5 | mysql | postgres). | [optional]
-**preset_id** | **int** | Идентификатор тарифа. |
+**preset_id** | **int** | ID тарифа. |
 **config_parameters** | [**\OpenAPI\Client\Model\ConfigParameters**](ConfigParameters.md) |  | [optional]
 **network** | [**\OpenAPI\Client\Model\Network**](Network.md) |  | [optional]
 **description** | **string** | Описание кластера базы данных | [optional]

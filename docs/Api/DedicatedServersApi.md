@@ -100,7 +100,7 @@ $apiInstance = new OpenAPI\Client\Api\DedicatedServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$dedicated_id = 1051; // int | Уникальный идентификатор выделенного сервера.
+$dedicated_id = 1051; // int | ID выделенного сервера.
 
 try {
     $apiInstance->deleteDedicatedServer($dedicated_id);
@@ -113,7 +113,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dedicated_id** | **int**| Уникальный идентификатор выделенного сервера. | |
+| **dedicated_id** | **int**| ID выделенного сервера. | |
 
 ### Return type
 
@@ -159,7 +159,7 @@ $apiInstance = new OpenAPI\Client\Api\DedicatedServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$dedicated_id = 1051; // int | Уникальный идентификатор выделенного сервера.
+$dedicated_id = 1051; // int | ID выделенного сервера.
 
 try {
     $result = $apiInstance->getDedicatedServer($dedicated_id);
@@ -173,7 +173,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dedicated_id** | **int**| Уникальный идентификатор выделенного сервера. | |
+| **dedicated_id** | **int**| ID выделенного сервера. | |
 
 ### Return type
 
@@ -219,7 +219,7 @@ $apiInstance = new OpenAPI\Client\Api\DedicatedServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$preset_id = 1051; // int | Уникальный идентификатор тарифа выделенного сервера.
+$preset_id = 1051; // int | ID тарифа выделенного сервера.
 
 try {
     $result = $apiInstance->getDedicatedServerPresetAdditionalServices($preset_id);
@@ -233,7 +233,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **preset_id** | **int**| Уникальный идентификатор тарифа выделенного сервера. | |
+| **preset_id** | **int**| ID тарифа выделенного сервера. | |
 
 ### Return type
 
@@ -396,7 +396,7 @@ $apiInstance = new OpenAPI\Client\Api\DedicatedServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$dedicated_id = 1051; // int | Уникальный идентификатор выделенного сервера.
+$dedicated_id = 1051; // int | ID выделенного сервера.
 $update_dedicated_server_request = new \OpenAPI\Client\Model\UpdateDedicatedServerRequest(); // \OpenAPI\Client\Model\UpdateDedicatedServerRequest
 
 try {
@@ -411,7 +411,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dedicated_id** | **int**| Уникальный идентификатор выделенного сервера. | |
+| **dedicated_id** | **int**| ID выделенного сервера. | |
 | **update_dedicated_server_request** | [**\OpenAPI\Client\Model\UpdateDedicatedServerRequest**](../Model/UpdateDedicatedServerRequest.md)|  | [optional] |
 
 ### Return type

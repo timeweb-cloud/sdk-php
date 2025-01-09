@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**configurator_id** | **float** | Уникальный идентификатор конфигуратора сервера. | [optional]
+**configurator_id** | **float** | ID конфигуратора сервера. | [optional]
 **disk** | **float** | Размер диска в МБ. | [optional]
 **cpu** | **float** | Количество ядер процессора. | [optional]
 **ram** | **float** | Размер ОЗУ сервера в МБ. | [optional]

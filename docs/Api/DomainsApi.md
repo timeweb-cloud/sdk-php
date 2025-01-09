@@ -19,7 +19,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getDomainRequest()**](DomainsApi.md#getDomainRequest) | **GET** /api/v1/domains-requests/{request_id} | Получение заявки на регистрацию/продление/трансфер домена |
 | [**getDomainRequests()**](DomainsApi.md#getDomainRequests) | **GET** /api/v1/domains-requests | Получение списка заявок на регистрацию/продление/трансфер домена |
 | [**getDomains()**](DomainsApi.md#getDomains) | **GET** /api/v1/domains | Получение списка всех доменов |
-| [**getTLD()**](DomainsApi.md#getTLD) | **GET** /api/v1/tlds/{tld_id} | Получить информацию о доменной зоне по идентификатору |
+| [**getTLD()**](DomainsApi.md#getTLD) | **GET** /api/v1/tlds/{tld_id} | Получить информацию о доменной зоне по ID |
 | [**getTLDs()**](DomainsApi.md#getTLDs) | **GET** /api/v1/tlds | Получить информацию о доменных зонах |
 | [**updateDomainAutoProlongation()**](DomainsApi.md#updateDomainAutoProlongation) | **PATCH** /api/v1/domains/{fqdn} | Включение/выключение автопродления домена |
 | [**updateDomainDNSRecord()**](DomainsApi.md#updateDomainDNSRecord) | **PATCH** /api/v1/domains/{fqdn}/dns-records/{record_id} | Обновить информацию о DNS-записи домена или поддомена |
@@ -417,7 +417,7 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     $config
 );
 $fqdn = somedomain.ru; // string | Полное имя домена или поддомена.
-$record_id = 123; // int | Идентификатор DNS-записи домена или поддомена.
+$record_id = 123; // int | ID DNS-записи домена или поддомена.
 
 try {
     $apiInstance->deleteDomainDNSRecord($fqdn, $record_id);
@@ -431,7 +431,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **fqdn** | **string**| Полное имя домена или поддомена. | |
-| **record_id** | **int**| Идентификатор DNS-записи домена или поддомена. | |
+| **record_id** | **int**| ID DNS-записи домена или поддомена. | |
 
 ### Return type
 
@@ -786,7 +786,7 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_id = 123; // int | Идентификатор заявки на регистрацию/продление/трансфер домена.
+$request_id = 123; // int | ID заявки на регистрацию/продление/трансфер домена.
 
 try {
     $result = $apiInstance->getDomainRequest($request_id);
@@ -800,7 +800,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **request_id** | **int**| Идентификатор заявки на регистрацию/продление/трансфер домена. | |
+| **request_id** | **int**| ID заявки на регистрацию/продление/трансфер домена. | |
 
 ### Return type
 
@@ -846,7 +846,7 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$person_id = 123; // int | Идентификатор администратора, на которого зарегистрирован домен.
+$person_id = 123; // int | ID администратора, на которого зарегистрирован домен.
 
 try {
     $result = $apiInstance->getDomainRequests($person_id);
@@ -860,7 +860,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **person_id** | **int**| Идентификатор администратора, на которого зарегистрирован домен. | [optional] |
+| **person_id** | **int**| ID администратора, на которого зарегистрирован домен. | [optional] |
 
 ### Return type
 
@@ -955,9 +955,9 @@ try {
 getTLD($tld_id): \OpenAPI\Client\Model\GetTLD200Response
 ```
 
-Получить информацию о доменной зоне по идентификатору
+Получить информацию о доменной зоне по ID
 
-Чтобы получить информацию о доменной зоне по идентификатору, отправьте запрос GET на `/api/v1/tlds/{tld_id}`.
+Чтобы получить информацию о доменной зоне по ID, отправьте запрос GET на `/api/v1/tlds/{tld_id}`.
 
 ### Example
 
@@ -976,7 +976,7 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$tld_id = 123; // int | Идентификатор доменной зоны.
+$tld_id = 123; // int | ID доменной зоны.
 
 try {
     $result = $apiInstance->getTLD($tld_id);
@@ -990,7 +990,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tld_id** | **int**| Идентификатор доменной зоны. | |
+| **tld_id** | **int**| ID доменной зоны. | |
 
 ### Return type
 
@@ -1161,7 +1161,7 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     $config
 );
 $fqdn = somedomain.ru; // string | Полное имя домена или поддомена.
-$record_id = 123; // int | Идентификатор DNS-записи домена или поддомена.
+$record_id = 123; // int | ID DNS-записи домена или поддомена.
 $create_dns = new \OpenAPI\Client\Model\CreateDns(); // \OpenAPI\Client\Model\CreateDns
 
 try {
@@ -1177,7 +1177,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **fqdn** | **string**| Полное имя домена или поддомена. | |
-| **record_id** | **int**| Идентификатор DNS-записи домена или поддомена. | |
+| **record_id** | **int**| ID DNS-записи домена или поддомена. | |
 | **create_dns** | [**\OpenAPI\Client\Model\CreateDns**](../Model/CreateDns.md)|  | |
 
 ### Return type
@@ -1286,7 +1286,7 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_id = 123; // int | Идентификатор заявки на регистрацию/продление/трансфер домена.
+$request_id = 123; // int | ID заявки на регистрацию/продление/трансфер домена.
 $model_use = new \OpenAPI\Client\Model\ModelUse(); // \OpenAPI\Client\Model\ModelUse
 
 try {
@@ -1301,7 +1301,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **request_id** | **int**| Идентификатор заявки на регистрацию/продление/трансфер домена. | |
+| **request_id** | **int**| ID заявки на регистрацию/продление/трансфер домена. | |
 | **model_use** | [**\OpenAPI\Client\Model\ModelUse**](../Model/ModelUse.md)|  | |
 
 ### Return type

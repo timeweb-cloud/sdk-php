@@ -112,7 +112,7 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
+$cluster_id = 56; // int | ID кластера
 $node_group_in = new \OpenAPI\Client\Model\NodeGroupIn(); // \OpenAPI\Client\Model\NodeGroupIn
 
 try {
@@ -127,7 +127,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
+| **cluster_id** | **int**| ID кластера | |
 | **node_group_in** | [**\OpenAPI\Client\Model\NodeGroupIn**](../Model/NodeGroupIn.md)|  | |
 
 ### Return type
@@ -174,7 +174,7 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
+$cluster_id = 56; // int | ID кластера
 $hash = 15095f25-aac3-4d60-a788-96cb5136f186; // string | Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм.
 $code = 0000; // string | Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена `is_able_to_delete` установлен в значение `true`
 
@@ -190,7 +190,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
+| **cluster_id** | **int**| ID кластера | |
 | **hash** | **string**| Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. | [optional] |
 | **code** | **string**| Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; | [optional] |
 
@@ -238,8 +238,8 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
-$node_id = 56; // int | Уникальный идентификатор группы нод
+$cluster_id = 56; // int | ID кластера
+$node_id = 56; // int | ID группы нод
 
 try {
     $apiInstance->deleteClusterNode($cluster_id, $node_id);
@@ -252,8 +252,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
-| **node_id** | **int**| Уникальный идентификатор группы нод | |
+| **cluster_id** | **int**| ID кластера | |
+| **node_id** | **int**| ID группы нод | |
 
 ### Return type
 
@@ -299,8 +299,8 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
-$group_id = 56; // int | Уникальный идентификатор группы
+$cluster_id = 56; // int | ID кластера
+$group_id = 56; // int | ID группы
 
 try {
     $apiInstance->deleteClusterNodeGroup($cluster_id, $group_id);
@@ -313,8 +313,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
-| **group_id** | **int**| Уникальный идентификатор группы | |
+| **cluster_id** | **int**| ID кластера | |
+| **group_id** | **int**| ID группы | |
 
 ### Return type
 
@@ -360,7 +360,7 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
+$cluster_id = 56; // int | ID кластера
 
 try {
     $result = $apiInstance->getCluster($cluster_id);
@@ -374,7 +374,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
+| **cluster_id** | **int**| ID кластера | |
 
 ### Return type
 
@@ -420,7 +420,7 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
+$cluster_id = 56; // int | ID кластера
 
 try {
     $result = $apiInstance->getClusterKubeconfig($cluster_id);
@@ -434,7 +434,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
+| **cluster_id** | **int**| ID кластера | |
 
 ### Return type
 
@@ -480,8 +480,8 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
-$group_id = 56; // int | Уникальный идентификатор группы
+$cluster_id = 56; // int | ID кластера
+$group_id = 56; // int | ID группы
 
 try {
     $result = $apiInstance->getClusterNodeGroup($cluster_id, $group_id);
@@ -495,8 +495,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
-| **group_id** | **int**| Уникальный идентификатор группы | |
+| **cluster_id** | **int**| ID кластера | |
+| **group_id** | **int**| ID группы | |
 
 ### Return type
 
@@ -542,7 +542,7 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
+$cluster_id = 56; // int | ID кластера
 
 try {
     $result = $apiInstance->getClusterNodeGroups($cluster_id);
@@ -556,7 +556,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
+| **cluster_id** | **int**| ID кластера | |
 
 ### Return type
 
@@ -602,7 +602,7 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
+$cluster_id = 56; // int | ID кластера
 
 try {
     $result = $apiInstance->getClusterNodes($cluster_id);
@@ -616,7 +616,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
+| **cluster_id** | **int**| ID кластера | |
 
 ### Return type
 
@@ -662,8 +662,8 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
-$group_id = 56; // int | Уникальный идентификатор группы
+$cluster_id = 56; // int | ID кластера
+$group_id = 56; // int | ID группы
 $limit = 100; // int | Обозначает количество записей, которое необходимо вернуть.
 $offset = 0; // int | Указывает на смещение, относительно начала списка.
 
@@ -679,8 +679,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
-| **group_id** | **int**| Уникальный идентификатор группы | |
+| **cluster_id** | **int**| ID кластера | |
+| **group_id** | **int**| ID группы | |
 | **limit** | **int**| Обозначает количество записей, которое необходимо вернуть. | [optional] [default to 100] |
 | **offset** | **int**| Указывает на смещение, относительно начала списка. | [optional] [default to 0] |
 
@@ -728,7 +728,7 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
+$cluster_id = 56; // int | ID кластера
 
 try {
     $result = $apiInstance->getClusterResources($cluster_id);
@@ -742,7 +742,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
+| **cluster_id** | **int**| ID кластера | |
 
 ### Return type
 
@@ -1021,8 +1021,8 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
-$group_id = 56; // int | Уникальный идентификатор группы
+$cluster_id = 56; // int | ID кластера
+$group_id = 56; // int | ID группы
 $node_count = new \OpenAPI\Client\Model\NodeCount(); // \OpenAPI\Client\Model\NodeCount
 
 try {
@@ -1037,8 +1037,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
-| **group_id** | **int**| Уникальный идентификатор группы | |
+| **cluster_id** | **int**| ID кластера | |
+| **group_id** | **int**| ID группы | |
 | **node_count** | [**\OpenAPI\Client\Model\NodeCount**](../Model/NodeCount.md)|  | |
 
 ### Return type
@@ -1085,8 +1085,8 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
-$group_id = 56; // int | Уникальный идентификатор группы
+$cluster_id = 56; // int | ID кластера
+$group_id = 56; // int | ID группы
 $node_count = new \OpenAPI\Client\Model\NodeCount(); // \OpenAPI\Client\Model\NodeCount
 
 try {
@@ -1100,8 +1100,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
-| **group_id** | **int**| Уникальный идентификатор группы | |
+| **cluster_id** | **int**| ID кластера | |
+| **group_id** | **int**| ID группы | |
 | **node_count** | [**\OpenAPI\Client\Model\NodeCount**](../Model/NodeCount.md)|  | |
 
 ### Return type
@@ -1148,7 +1148,7 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cluster_id = 56; // int | Уникальный идентификатор кластера
+$cluster_id = 56; // int | ID кластера
 $cluster_edit = new \OpenAPI\Client\Model\ClusterEdit(); // \OpenAPI\Client\Model\ClusterEdit
 
 try {
@@ -1163,7 +1163,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **cluster_id** | **int**| Уникальный идентификатор кластера | |
+| **cluster_id** | **int**| ID кластера | |
 | **cluster_edit** | [**\OpenAPI\Client\Model\ClusterEdit**](../Model/ClusterEdit.md)|  | |
 
 ### Return type

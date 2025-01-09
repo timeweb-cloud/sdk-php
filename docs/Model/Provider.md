@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**provider_id** | **string** | Идентификатор провайдера. |
+**provider_id** | **string** | ID провайдера. |
 **login** | **string** | Логин пользователя. |
 **provider_type** | [**\OpenAPI\Client\Model\Providers**](Providers.md) |  |
 

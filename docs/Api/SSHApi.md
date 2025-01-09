@@ -40,7 +40,7 @@ $apiInstance = new OpenAPI\Client\Api\SSHApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 $add_key_to_server_request = new \OpenAPI\Client\Model\AddKeyToServerRequest(); // \OpenAPI\Client\Model\AddKeyToServerRequest
 
 try {
@@ -54,7 +54,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 | **add_key_to_server_request** | [**\OpenAPI\Client\Model\AddKeyToServerRequest**](../Model/AddKeyToServerRequest.md)|  | |
 
 ### Return type
@@ -161,7 +161,7 @@ $apiInstance = new OpenAPI\Client\Api\SSHApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ssh_key_id = 1051; // int | Уникальный идентификатор SSH-ключа
+$ssh_key_id = 1051; // int | ID SSH-ключа
 
 try {
     $apiInstance->deleteKey($ssh_key_id);
@@ -174,7 +174,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ssh_key_id** | **int**| Уникальный идентификатор SSH-ключа | |
+| **ssh_key_id** | **int**| ID SSH-ключа | |
 
 ### Return type
 
@@ -220,8 +220,8 @@ $apiInstance = new OpenAPI\Client\Api\SSHApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-$ssh_key_id = 1051; // int | Уникальный идентификатор SSH-ключа
+$server_id = 1051; // int | ID облачного сервера.
+$ssh_key_id = 1051; // int | ID SSH-ключа
 
 try {
     $apiInstance->deleteKeyFromServer($server_id, $ssh_key_id);
@@ -234,8 +234,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **ssh_key_id** | **int**| Уникальный идентификатор SSH-ключа | |
+| **server_id** | **int**| ID облачного сервера. | |
+| **ssh_key_id** | **int**| ID SSH-ключа | |
 
 ### Return type
 
@@ -281,7 +281,7 @@ $apiInstance = new OpenAPI\Client\Api\SSHApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ssh_key_id = 1051; // int | Уникальный идентификатор SSH-ключа
+$ssh_key_id = 1051; // int | ID SSH-ключа
 
 try {
     $result = $apiInstance->getKey($ssh_key_id);
@@ -295,7 +295,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ssh_key_id** | **int**| Уникальный идентификатор SSH-ключа | |
+| **ssh_key_id** | **int**| ID SSH-ключа | |
 
 ### Return type
 
@@ -398,7 +398,7 @@ $apiInstance = new OpenAPI\Client\Api\SSHApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ssh_key_id = 1051; // int | Уникальный идентификатор SSH-ключа
+$ssh_key_id = 1051; // int | ID SSH-ключа
 $update_key_request = new \OpenAPI\Client\Model\UpdateKeyRequest(); // \OpenAPI\Client\Model\UpdateKeyRequest
 
 try {
@@ -413,7 +413,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ssh_key_id** | **int**| Уникальный идентификатор SSH-ключа | |
+| **ssh_key_id** | **int**| ID SSH-ключа | |
 | **update_key_request** | [**\OpenAPI\Client\Model\UpdateKeyRequest**](../Model/UpdateKeyRequest.md)|  | |
 
 ### Return type

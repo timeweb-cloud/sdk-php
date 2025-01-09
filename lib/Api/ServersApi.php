@@ -12,7 +12,7 @@
 /**
  * Timeweb Cloud API
  *
- * # Введение API Timeweb Cloud позволяет вам управлять ресурсами в облаке программным способом с использованием обычных HTTP-запросов.  Множество функций, которые доступны в панели управления Timeweb Cloud, также доступны через API, что позволяет вам автоматизировать ваши собственные сценарии.  В этой документации сперва будет описан общий дизайн и принципы работы API, а после этого конкретные конечные точки. Также будут приведены примеры запросов к ним.   ## Запросы Запросы должны выполняться по протоколу `HTTPS`, чтобы гарантировать шифрование транзакций. Поддерживаются следующие методы запроса: |Метод|Применение| |--- |--- | |GET|Извлекает данные о коллекциях и отдельных ресурсах.| |POST|Для коллекций создает новый ресурс этого типа. Также используется для выполнения действий с конкретным ресурсом.| |PUT|Обновляет существующий ресурс.| |PATCH|Некоторые ресурсы поддерживают частичное обновление, то есть обновление только части атрибутов ресурса, в этом случае вместо метода PUT будет использован PATCH.| |DELETE|Удаляет ресурс.|  Методы `POST`, `PUT` и `PATCH` могут включать объект в тело запроса с типом содержимого `application/json`.  ### Параметры в запросах Некоторые коллекции поддерживают пагинацию, поиск или сортировку в запросах. В параметрах запроса требуется передать: - `limit` — обозначает количество записей, которое необходимо вернуть  - `offset` — указывает на смещение, относительно начала списка  - `search` — позволяет указать набор символов для поиска  - `sort` — можно задать правило сортировки коллекции  ## Ответы Запросы вернут один из следующих кодов состояния ответа HTTP:  |Статус|Описание| |--- |--- | |200 OK|Действие с ресурсом было выполнено успешно.| |201 Created|Ресурс был успешно создан. При этом ресурс может быть как уже готовым к использованию, так и находиться в процессе запуска.| |204 No Content|Действие с ресурсом было выполнено успешно, и ответ не содержит дополнительной информации в теле.| |400 Bad Request|Был отправлен неверный запрос, например, в нем отсутствуют обязательные параметры и т. д. Тело ответа будет содержать дополнительную информацию об ошибке.| |401 Unauthorized|Ошибка аутентификации.| |403 Forbidden|Аутентификация прошла успешно, но недостаточно прав для выполнения действия.| |404 Not Found|Запрашиваемый ресурс не найден.| |409 Conflict|Запрос конфликтует с текущим состоянием.| |423 Locked|Ресурс из запроса заблокирован от применения к нему указанного метода.| |429 Too Many Requests|Был достигнут лимит по количеству запросов в единицу времени.| |500 Internal Server Error|При выполнении запроса произошла какая-то внутренняя ошибка. Чтобы решить эту проблему, лучше всего создать тикет в панели управления.|  ### Структура успешного ответа Все конечные точки будут возвращать данные в формате `JSON`. Ответы на `GET`-запросы будут иметь на верхнем уровне следующую структуру атрибутов:  |Название поля|Тип|Описание| |--- |--- |--- | |[entity_name]|object, object[], string[], number[], boolean|Динамическое поле, которое будет меняться в зависимости от запрашиваемого ресурса и будет содержать все атрибуты, необходимые для описания этого ресурса. Например, при запросе списка баз данных будет возвращаться поле `dbs`, а при запросе конкретного облачного сервера `server`. Для некоторых конечных точек в ответе может возвращаться сразу несколько ресурсов.| |meta|object|Опционально. Объект, который содержит вспомогательную информацию о ресурсе. Чаще всего будет встречаться при запросе коллекций и содержать поле `total`, которое будет указывать на количество элементов в коллекции.| |response_id|string|Опционально. В большинстве случаев в ответе будет содержаться уникальный идентификатор ответа в формате UUIDv4, который однозначно указывает на ваш запрос внутри нашей системы. Если вам потребуется задать вопрос нашей поддержке, приложите к вопросу этот идентификатор — так мы сможем найти ответ на него намного быстрее. Также вы можете использовать этот идентификатор, чтобы убедиться, что это новый ответ на запрос и результат не был получен из кэша.|  Пример запроса на получение списка SSH-ключей: ```     HTTP/2.0 200 OK     {       \"ssh_keys\":[           {             \"body\":\"ssh-rsa AAAAB3NzaC1sdfghjkOAsBwWhs= example@device.local\",             \"created_at\":\"2021-09-15T19:52:27Z\",             \"expired_at\":null,             \"id\":5297,             \"is_default\":false,             \"name\":\"example@device.local\",             \"used_at\":null,             \"used_by\":[]           }       ],       \"meta\":{           \"total\":1       },       \"response_id\":\"94608d15-8672-4eed-8ab6-28bd6fa3cdf7\"     } ```  ### Структура ответа с ошибкой |Название поля|Тип|Описание| |--- |--- |--- | |status_code|number|Короткий числовой идентификатор ошибки.| |error_code|string|Короткий текстовый идентификатор ошибки, который уточняет числовой идентификатор и удобен для программной обработки. Самый простой пример — это код `not_found` для ошибки 404.| |message|string, string[]|Опционально. В большинстве случаев в ответе будет содержаться человекочитаемое подробное описание ошибки или ошибок, которые помогут понять, что нужно исправить.| |response_id|string|Опционально. В большинстве случае в ответе будет содержаться уникальный идентификатор ответа в формате UUIDv4, который однозначно указывает на ваш запрос внутри нашей системы. Если вам потребуется задать вопрос нашей поддержке, приложите к вопросу этот идентификатор — так мы сможем найти ответ на него намного быстрее.|  Пример: ```     HTTP/2.0 403 Forbidden     {       \"status_code\": 403,       \"error_code\":  \"forbidden\",       \"message\":     \"You do not have access for the attempted action\",       \"response_id\": \"94608d15-8672-4eed-8ab6-28bd6fa3cdf7\"     } ```  ## Статусы ресурсов Важно учесть, что при создании большинства ресурсов внутри платформы вам будет сразу возвращен ответ от сервера со статусом `200 OK` или `201 Created` и идентификатором созданного ресурса в теле ответа, но при этом этот ресурс может быть ещё в *состоянии запуска*.  Для того чтобы понять, в каком состоянии сейчас находится ваш ресурс, мы добавили поле `status` в ответ на получение информации о ресурсе.  Список статусов будет отличаться в зависимости от типа ресурса. Увидеть поддерживаемый список статусов вы сможете в описании каждого конкретного ресурса.     ## Ограничение скорости запросов (Rate Limiting) Чтобы обеспечить стабильность для всех пользователей, Timeweb Cloud защищает API от всплесков входящего трафика, анализируя количество запросов c каждого аккаунта к каждой конечной точке.  Если ваше приложение отправляет более 20 запросов в секунду на одну конечную точку, то для этого запроса API может вернуть код состояния HTTP `429 Too Many Requests`.   ## Аутентификация Доступ к API осуществляется с помощью JWT-токена. Токенами можно управлять внутри панели управления Timeweb Cloud в разделе *API и Terraform*.  Токен необходимо передавать в заголовке каждого запроса в формате: ```   Authorization: Bearer $TIMEWEB_CLOUD_TOKEN ```  ## Формат примеров API Примеры в этой документации описаны с помощью `curl`, HTTP-клиента командной строки. На компьютерах `Linux` и `macOS` обычно по умолчанию установлен `curl`, и он доступен для загрузки на всех популярных платформах, включая `Windows`.  Каждый пример разделен на несколько строк символом `\\`, который совместим с `bash`. Типичный пример выглядит так: ```   curl -X PATCH      -H \"Content-Type: application/json\"      -H \"Authorization: Bearer $TIMEWEB_CLOUD_TOKEN\"      -d '{\"name\":\"Cute Corvus\",\"comment\":\"Development Server\"}'      \"https://api.timeweb.cloud/api/v1/dedicated/1051\" ``` - Параметр `-X` задает метод запроса. Для согласованности метод будет указан во всех примерах, даже если он явно не требуется для методов `GET`. - Строки `-H` задают требуемые HTTP-заголовки. - Примеры, для которых требуется объект JSON в теле запроса, передают требуемые данные через параметр `-d`.  Чтобы использовать приведенные примеры, не подставляя каждый раз в них свой токен, вы можете добавить токен один раз в переменные окружения в вашей консоли. Например, на `Linux` это можно сделать с помощью команды:  ``` TIMEWEB_CLOUD_TOKEN=\"token\" ```  После этого токен будет автоматически подставляться в ваши запросы.  Обратите внимание, что все значения в этой документации являются примерами. Не полагайтесь на идентификаторы операционных систем, тарифов и т.д., используемые в примерах. Используйте соответствующую конечную точку для получения значений перед созданием ресурсов.   ## Версионирование API построено согласно принципам [семантического версионирования](https://semver.org/lang/ru). Это значит, что мы гарантируем обратную совместимость всех изменений в пределах одной мажорной версии.  Мажорная версия каждой конечной точки обозначается в пути запроса, например, запрос `/api/v1/servers` указывает, что этот метод имеет версию 1.
+ * # Введение API Timeweb Cloud позволяет вам управлять ресурсами в облаке программным способом с использованием обычных HTTP-запросов.  Множество функций, которые доступны в панели управления Timeweb Cloud, также доступны через API, что позволяет вам автоматизировать ваши собственные сценарии.  В этой документации сперва будет описан общий дизайн и принципы работы API, а после этого конкретные конечные точки. Также будут приведены примеры запросов к ним.   ## Запросы Запросы должны выполняться по протоколу `HTTPS`, чтобы гарантировать шифрование транзакций. Поддерживаются следующие методы запроса: |Метод|Применение| |--- |--- | |GET|Извлекает данные о коллекциях и отдельных ресурсах.| |POST|Для коллекций создает новый ресурс этого типа. Также используется для выполнения действий с конкретным ресурсом.| |PUT|Обновляет существующий ресурс.| |PATCH|Некоторые ресурсы поддерживают частичное обновление, то есть обновление только части атрибутов ресурса, в этом случае вместо метода PUT будет использован PATCH.| |DELETE|Удаляет ресурс.|  Методы `POST`, `PUT` и `PATCH` могут включать объект в тело запроса с типом содержимого `application/json`.  ### Параметры в запросах Некоторые коллекции поддерживают пагинацию, поиск или сортировку в запросах. В параметрах запроса требуется передать: - `limit` — обозначает количество записей, которое необходимо вернуть  - `offset` — указывает на смещение, относительно начала списка  - `search` — позволяет указать набор символов для поиска  - `sort` — можно задать правило сортировки коллекции  ## Ответы Запросы вернут один из следующих кодов состояния ответа HTTP:  |Статус|Описание| |--- |--- | |200 OK|Действие с ресурсом было выполнено успешно.| |201 Created|Ресурс был успешно создан. При этом ресурс может быть как уже готовым к использованию, так и находиться в процессе запуска.| |204 No Content|Действие с ресурсом было выполнено успешно, и ответ не содержит дополнительной информации в теле.| |400 Bad Request|Был отправлен неверный запрос, например, в нем отсутствуют обязательные параметры и т. д. Тело ответа будет содержать дополнительную информацию об ошибке.| |401 Unauthorized|Ошибка аутентификации.| |403 Forbidden|Аутентификация прошла успешно, но недостаточно прав для выполнения действия.| |404 Not Found|Запрашиваемый ресурс не найден.| |409 Conflict|Запрос конфликтует с текущим состоянием.| |423 Locked|Ресурс из запроса заблокирован от применения к нему указанного метода.| |429 Too Many Requests|Был достигнут лимит по количеству запросов в единицу времени.| |500 Internal Server Error|При выполнении запроса произошла какая-то внутренняя ошибка. Чтобы решить эту проблему, лучше всего создать тикет в панели управления.|  ### Структура успешного ответа Все конечные точки будут возвращать данные в формате `JSON`. Ответы на `GET`-запросы будут иметь на верхнем уровне следующую структуру атрибутов:  |Название поля|Тип|Описание| |--- |--- |--- | |[entity_name]|object, object[], string[], number[], boolean|Динамическое поле, которое будет меняться в зависимости от запрашиваемого ресурса и будет содержать все атрибуты, необходимые для описания этого ресурса. Например, при запросе списка баз данных будет возвращаться поле `dbs`, а при запросе конкретного облачного сервера `server`. Для некоторых конечных точек в ответе может возвращаться сразу несколько ресурсов.| |meta|object|Опционально. Объект, который содержит вспомогательную информацию о ресурсе. Чаще всего будет встречаться при запросе коллекций и содержать поле `total`, которое будет указывать на количество элементов в коллекции.| |response_id|string|Опционально. В большинстве случаев в ответе будет содержаться ID ответа в формате UUIDv4, который однозначно указывает на ваш запрос внутри нашей системы. Если вам потребуется задать вопрос нашей поддержке, приложите к вопросу этот ID— так мы сможем найти ответ на него намного быстрее. Также вы можете использовать этот ID, чтобы убедиться, что это новый ответ на запрос и результат не был получен из кэша.|  Пример запроса на получение списка SSH-ключей: ```     HTTP/2.0 200 OK     {       \"ssh_keys\":[           {             \"body\":\"ssh-rsa AAAAB3NzaC1sdfghjkOAsBwWhs= example@device.local\",             \"created_at\":\"2021-09-15T19:52:27Z\",             \"expired_at\":null,             \"id\":5297,             \"is_default\":false,             \"name\":\"example@device.local\",             \"used_at\":null,             \"used_by\":[]           }       ],       \"meta\":{           \"total\":1       },       \"response_id\":\"94608d15-8672-4eed-8ab6-28bd6fa3cdf7\"     } ```  ### Структура ответа с ошибкой |Название поля|Тип|Описание| |--- |--- |--- | |status_code|number|Короткий числовой идентификатор ошибки.| |error_code|string|Короткий текстовый идентификатор ошибки, который уточняет числовой идентификатор и удобен для программной обработки. Самый простой пример — это код `not_found` для ошибки 404.| |message|string, string[]|Опционально. В большинстве случаев в ответе будет содержаться человекочитаемое подробное описание ошибки или ошибок, которые помогут понять, что нужно исправить.| |response_id|string|Опционально. В большинстве случае в ответе будет содержаться ID ответа в формате UUIDv4, который однозначно указывает на ваш запрос внутри нашей системы. Если вам потребуется задать вопрос нашей поддержке, приложите к вопросу этот ID — так мы сможем найти ответ на него намного быстрее.|  Пример: ```     HTTP/2.0 403 Forbidden     {       \"status_code\": 403,       \"error_code\":  \"forbidden\",       \"message\":     \"You do not have access for the attempted action\",       \"response_id\": \"94608d15-8672-4eed-8ab6-28bd6fa3cdf7\"     } ```  ## Статусы ресурсов Важно учесть, что при создании большинства ресурсов внутри платформы вам будет сразу возвращен ответ от сервера со статусом `200 OK` или `201 Created` и ID созданного ресурса в теле ответа, но при этом этот ресурс может быть ещё в *состоянии запуска*.  Для того чтобы понять, в каком состоянии сейчас находится ваш ресурс, мы добавили поле `status` в ответ на получение информации о ресурсе.  Список статусов будет отличаться в зависимости от типа ресурса. Увидеть поддерживаемый список статусов вы сможете в описании каждого конкретного ресурса.     ## Ограничение скорости запросов (Rate Limiting) Чтобы обеспечить стабильность для всех пользователей, Timeweb Cloud защищает API от всплесков входящего трафика, анализируя количество запросов c каждого аккаунта к каждой конечной точке.  Если ваше приложение отправляет более 20 запросов в секунду на одну конечную точку, то для этого запроса API может вернуть код состояния HTTP `429 Too Many Requests`.   ## Аутентификация Доступ к API осуществляется с помощью JWT-токена. Токенами можно управлять внутри панели управления Timeweb Cloud в разделе *API и Terraform*.  Токен необходимо передавать в заголовке каждого запроса в формате: ```   Authorization: Bearer $TIMEWEB_CLOUD_TOKEN ```  ## Формат примеров API Примеры в этой документации описаны с помощью `curl`, HTTP-клиента командной строки. На компьютерах `Linux` и `macOS` обычно по умолчанию установлен `curl`, и он доступен для загрузки на всех популярных платформах, включая `Windows`.  Каждый пример разделен на несколько строк символом `\\`, который совместим с `bash`. Типичный пример выглядит так: ```   curl -X PATCH      -H \"Content-Type: application/json\"      -H \"Authorization: Bearer $TIMEWEB_CLOUD_TOKEN\"      -d '{\"name\":\"Cute Corvus\",\"comment\":\"Development Server\"}'      \"https://api.timeweb.cloud/api/v1/dedicated/1051\" ``` - Параметр `-X` задает метод запроса. Для согласованности метод будет указан во всех примерах, даже если он явно не требуется для методов `GET`. - Строки `-H` задают требуемые HTTP-заголовки. - Примеры, для которых требуется объект JSON в теле запроса, передают требуемые данные через параметр `-d`.  Чтобы использовать приведенные примеры, не подставляя каждый раз в них свой токен, вы можете добавить токен один раз в переменные окружения в вашей консоли. Например, на `Linux` это можно сделать с помощью команды:  ``` TIMEWEB_CLOUD_TOKEN=\"token\" ```  После этого токен будет автоматически подставляться в ваши запросы.  Обратите внимание, что все значения в этой документации являются примерами. Не полагайтесь на IDы операционных систем, тарифов и т.д., используемые в примерах. Используйте соответствующую конечную точку для получения значений перед созданием ресурсов.   ## Версионирование API построено согласно принципам [семантического версионирования](https://semver.org/lang/ru). Это значит, что мы гарантируем обратную совместимость всех изменений в пределах одной мажорной версии.  Мажорная версия каждой конечной точки обозначается в пути запроса, например, запрос `/api/v1/servers` указывает, что этот метод имеет версию 1.
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@timeweb.cloud
@@ -239,7 +239,7 @@ class ServersApi
      *
      * Добавление IP-адреса сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\AddServerIPRequest $add_server_ip_request add_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addServerIP'] to see the possible values for this operation
      *
@@ -258,7 +258,7 @@ class ServersApi
      *
      * Добавление IP-адреса сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\AddServerIPRequest $add_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addServerIP'] to see the possible values for this operation
      *
@@ -520,7 +520,7 @@ class ServersApi
      *
      * Добавление IP-адреса сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\AddServerIPRequest $add_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addServerIP'] to see the possible values for this operation
      *
@@ -542,7 +542,7 @@ class ServersApi
      *
      * Добавление IP-адреса сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\AddServerIPRequest $add_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addServerIP'] to see the possible values for this operation
      *
@@ -593,7 +593,7 @@ class ServersApi
     /**
      * Create request for operation 'addServerIP'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\AddServerIPRequest $add_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addServerIP'] to see the possible values for this operation
      *
@@ -709,7 +709,7 @@ class ServersApi
      *
      * Клонирование сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -727,7 +727,7 @@ class ServersApi
      *
      * Клонирование сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -965,7 +965,7 @@ class ServersApi
      *
      * Клонирование сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -986,7 +986,7 @@ class ServersApi
      *
      * Клонирование сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1036,7 +1036,7 @@ class ServersApi
     /**
      * Create request for operation 'cloneServer'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1561,7 +1561,7 @@ class ServersApi
      *
      * Создание диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\CreateServerDiskRequest $create_server_disk_request create_server_disk_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDisk'] to see the possible values for this operation
      *
@@ -1580,7 +1580,7 @@ class ServersApi
      *
      * Создание диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\CreateServerDiskRequest $create_server_disk_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDisk'] to see the possible values for this operation
      *
@@ -1842,7 +1842,7 @@ class ServersApi
      *
      * Создание диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\CreateServerDiskRequest $create_server_disk_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDisk'] to see the possible values for this operation
      *
@@ -1864,7 +1864,7 @@ class ServersApi
      *
      * Создание диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\CreateServerDiskRequest $create_server_disk_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDisk'] to see the possible values for this operation
      *
@@ -1915,7 +1915,7 @@ class ServersApi
     /**
      * Create request for operation 'createServerDisk'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\CreateServerDiskRequest $create_server_disk_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDisk'] to see the possible values for this operation
      *
@@ -2025,8 +2025,8 @@ class ServersApi
      *
      * Создание бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\CreateServerDiskBackupRequest $create_server_disk_backup_request create_server_disk_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDiskBackup'] to see the possible values for this operation
      *
@@ -2045,8 +2045,8 @@ class ServersApi
      *
      * Создание бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\CreateServerDiskBackupRequest $create_server_disk_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDiskBackup'] to see the possible values for this operation
      *
@@ -2285,8 +2285,8 @@ class ServersApi
      *
      * Создание бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\CreateServerDiskBackupRequest $create_server_disk_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDiskBackup'] to see the possible values for this operation
      *
@@ -2308,8 +2308,8 @@ class ServersApi
      *
      * Создание бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\CreateServerDiskBackupRequest $create_server_disk_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDiskBackup'] to see the possible values for this operation
      *
@@ -2360,8 +2360,8 @@ class ServersApi
     /**
      * Create request for operation 'createServerDiskBackup'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\CreateServerDiskBackupRequest $create_server_disk_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDiskBackup'] to see the possible values for this operation
      *
@@ -2489,7 +2489,7 @@ class ServersApi
      *
      * Удаление сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
      * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServer'] to see the possible values for this operation
@@ -2509,7 +2509,7 @@ class ServersApi
      *
      * Удаление сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
      * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServer'] to see the possible values for this operation
@@ -2772,7 +2772,7 @@ class ServersApi
      *
      * Удаление сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
      * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServer'] to see the possible values for this operation
@@ -2795,7 +2795,7 @@ class ServersApi
      *
      * Удаление сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
      * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServer'] to see the possible values for this operation
@@ -2847,7 +2847,7 @@ class ServersApi
     /**
      * Create request for operation 'deleteServer'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
      * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServer'] to see the possible values for this operation
@@ -2970,8 +2970,8 @@ class ServersApi
      *
      * Удаление диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerDisk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2988,8 +2988,8 @@ class ServersApi
      *
      * Удаление диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerDisk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3105,8 +3105,8 @@ class ServersApi
      *
      * Удаление диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerDisk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3127,8 +3127,8 @@ class ServersApi
      *
      * Удаление диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerDisk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3165,8 +3165,8 @@ class ServersApi
     /**
      * Create request for operation 'deleteServerDisk'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerDisk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3285,9 +3285,9 @@ class ServersApi
      *
      * Удаление бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerDiskBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3304,9 +3304,9 @@ class ServersApi
      *
      * Удаление бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerDiskBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3422,9 +3422,9 @@ class ServersApi
      *
      * Удаление бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerDiskBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3445,9 +3445,9 @@ class ServersApi
      *
      * Удаление бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerDiskBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3484,9 +3484,9 @@ class ServersApi
     /**
      * Create request for operation 'deleteServerDiskBackup'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerDiskBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3623,7 +3623,7 @@ class ServersApi
      *
      * Удаление IP-адреса сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\DeleteServerIPRequest $delete_server_ip_request delete_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerIP'] to see the possible values for this operation
      *
@@ -3641,7 +3641,7 @@ class ServersApi
      *
      * Удаление IP-адреса сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\DeleteServerIPRequest $delete_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerIP'] to see the possible values for this operation
      *
@@ -3758,7 +3758,7 @@ class ServersApi
      *
      * Удаление IP-адреса сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\DeleteServerIPRequest $delete_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerIP'] to see the possible values for this operation
      *
@@ -3780,7 +3780,7 @@ class ServersApi
      *
      * Удаление IP-адреса сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\DeleteServerIPRequest $delete_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerIP'] to see the possible values for this operation
      *
@@ -3818,7 +3818,7 @@ class ServersApi
     /**
      * Create request for operation 'deleteServerIP'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\DeleteServerIPRequest $delete_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteServerIP'] to see the possible values for this operation
      *
@@ -4721,7 +4721,7 @@ class ServersApi
      *
      * Получение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -4739,7 +4739,7 @@ class ServersApi
      *
      * Получение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -5000,7 +5000,7 @@ class ServersApi
      *
      * Получение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5021,7 +5021,7 @@ class ServersApi
      *
      * Получение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5071,7 +5071,7 @@ class ServersApi
     /**
      * Create request for operation 'getServer'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5172,8 +5172,8 @@ class ServersApi
      *
      * Получение диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDisk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -5191,8 +5191,8 @@ class ServersApi
      *
      * Получение диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDisk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -5453,8 +5453,8 @@ class ServersApi
      *
      * Получение диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDisk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5475,8 +5475,8 @@ class ServersApi
      *
      * Получение диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDisk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5526,8 +5526,8 @@ class ServersApi
     /**
      * Create request for operation 'getServerDisk'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDisk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5646,8 +5646,8 @@ class ServersApi
      *
      * Получить настройки автобэкапов диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskAutoBackupSettings'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -5665,8 +5665,8 @@ class ServersApi
      *
      * Получить настройки автобэкапов диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskAutoBackupSettings'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -5904,8 +5904,8 @@ class ServersApi
      *
      * Получить настройки автобэкапов диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskAutoBackupSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5926,8 +5926,8 @@ class ServersApi
      *
      * Получить настройки автобэкапов диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskAutoBackupSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5977,8 +5977,8 @@ class ServersApi
     /**
      * Create request for operation 'getServerDiskAutoBackupSettings'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskAutoBackupSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6097,9 +6097,9 @@ class ServersApi
      *
      * Получение бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6117,9 +6117,9 @@ class ServersApi
      *
      * Получение бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6357,9 +6357,9 @@ class ServersApi
      *
      * Получение бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6380,9 +6380,9 @@ class ServersApi
      *
      * Получение бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6432,9 +6432,9 @@ class ServersApi
     /**
      * Create request for operation 'getServerDiskBackup'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6571,8 +6571,8 @@ class ServersApi
      *
      * Получение списка бэкапов диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskBackups'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6590,8 +6590,8 @@ class ServersApi
      *
      * Получение списка бэкапов диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskBackups'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6829,8 +6829,8 @@ class ServersApi
      *
      * Получение списка бэкапов диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskBackups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6851,8 +6851,8 @@ class ServersApi
      *
      * Получение списка бэкапов диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskBackups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6902,8 +6902,8 @@ class ServersApi
     /**
      * Create request for operation 'getServerDiskBackups'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDiskBackups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7022,7 +7022,7 @@ class ServersApi
      *
      * Получение списка дисков сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDisks'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -7040,7 +7040,7 @@ class ServersApi
      *
      * Получение списка дисков сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDisks'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -7301,7 +7301,7 @@ class ServersApi
      *
      * Получение списка дисков сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDisks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7322,7 +7322,7 @@ class ServersApi
      *
      * Получение списка дисков сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDisks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7372,7 +7372,7 @@ class ServersApi
     /**
      * Create request for operation 'getServerDisks'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerDisks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7473,7 +7473,7 @@ class ServersApi
      *
      * Получение списка IP-адресов сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerIPs'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -7491,7 +7491,7 @@ class ServersApi
      *
      * Получение списка IP-адресов сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerIPs'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -7752,7 +7752,7 @@ class ServersApi
      *
      * Получение списка IP-адресов сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerIPs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7773,7 +7773,7 @@ class ServersApi
      *
      * Получение списка IP-адресов сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerIPs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7823,7 +7823,7 @@ class ServersApi
     /**
      * Create request for operation 'getServerIPs'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerIPs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7924,7 +7924,7 @@ class ServersApi
      *
      * Получение списка логов сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $order Сортировка элементов по дате (optional, default to 'asc')
@@ -7945,7 +7945,7 @@ class ServersApi
      *
      * Получение списка логов сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $order Сортировка элементов по дате (optional, default to 'asc')
@@ -8209,7 +8209,7 @@ class ServersApi
      *
      * Получение списка логов сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $order Сортировка элементов по дате (optional, default to 'asc')
@@ -8233,7 +8233,7 @@ class ServersApi
      *
      * Получение списка логов сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $order Сортировка элементов по дате (optional, default to 'asc')
@@ -8286,7 +8286,7 @@ class ServersApi
     /**
      * Create request for operation 'getServerLogs'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
      * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
      * @param  string $order Сортировка элементов по дате (optional, default to 'asc')
@@ -8420,7 +8420,7 @@ class ServersApi
      *
      * Получение статистики сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatistics'] to see the possible values for this operation
@@ -8440,7 +8440,7 @@ class ServersApi
      *
      * Получение статистики сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatistics'] to see the possible values for this operation
@@ -8703,7 +8703,7 @@ class ServersApi
      *
      * Получение статистики сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatistics'] to see the possible values for this operation
@@ -8726,7 +8726,7 @@ class ServersApi
      *
      * Получение статистики сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatistics'] to see the possible values for this operation
@@ -8778,7 +8778,7 @@ class ServersApi
     /**
      * Create request for operation 'getServerStatistics'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatistics'] to see the possible values for this operation
@@ -10135,7 +10135,7 @@ class ServersApi
      *
      * Принудительное выключение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hardShutdownServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -10152,7 +10152,7 @@ class ServersApi
      *
      * Принудительное выключение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hardShutdownServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -10260,7 +10260,7 @@ class ServersApi
      *
      * Принудительное выключение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hardShutdownServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10281,7 +10281,7 @@ class ServersApi
      *
      * Принудительное выключение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hardShutdownServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10318,7 +10318,7 @@ class ServersApi
     /**
      * Create request for operation 'hardShutdownServer'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hardShutdownServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10419,7 +10419,7 @@ class ServersApi
      *
      * Отмонтирование ISO образа и перезагрузка сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageUnmountAndServerReload'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -10436,7 +10436,7 @@ class ServersApi
      *
      * Отмонтирование ISO образа и перезагрузка сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageUnmountAndServerReload'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -10536,7 +10536,7 @@ class ServersApi
      *
      * Отмонтирование ISO образа и перезагрузка сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageUnmountAndServerReload'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10557,7 +10557,7 @@ class ServersApi
      *
      * Отмонтирование ISO образа и перезагрузка сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageUnmountAndServerReload'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10594,7 +10594,7 @@ class ServersApi
     /**
      * Create request for operation 'imageUnmountAndServerReload'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageUnmountAndServerReload'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10695,9 +10695,9 @@ class ServersApi
      *
      * Выполнение действия над бэкапом диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  \OpenAPI\Client\Model\PerformActionOnBackupRequest $perform_action_on_backup_request perform_action_on_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnBackup'] to see the possible values for this operation
      *
@@ -10715,9 +10715,9 @@ class ServersApi
      *
      * Выполнение действия над бэкапом диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  \OpenAPI\Client\Model\PerformActionOnBackupRequest $perform_action_on_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnBackup'] to see the possible values for this operation
      *
@@ -10834,9 +10834,9 @@ class ServersApi
      *
      * Выполнение действия над бэкапом диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  \OpenAPI\Client\Model\PerformActionOnBackupRequest $perform_action_on_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnBackup'] to see the possible values for this operation
      *
@@ -10858,9 +10858,9 @@ class ServersApi
      *
      * Выполнение действия над бэкапом диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  \OpenAPI\Client\Model\PerformActionOnBackupRequest $perform_action_on_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnBackup'] to see the possible values for this operation
      *
@@ -10898,9 +10898,9 @@ class ServersApi
     /**
      * Create request for operation 'performActionOnBackup'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  \OpenAPI\Client\Model\PerformActionOnBackupRequest $perform_action_on_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnBackup'] to see the possible values for this operation
      *
@@ -11046,7 +11046,7 @@ class ServersApi
      *
      * Выполнение действия над сервером
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request perform_action_on_server_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnServer'] to see the possible values for this operation
      *
@@ -11065,7 +11065,7 @@ class ServersApi
      *
      * Выполнение действия над сервером
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnServer'] to see the possible values for this operation
      *
@@ -11183,7 +11183,7 @@ class ServersApi
      *
      * Выполнение действия над сервером
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnServer'] to see the possible values for this operation
      *
@@ -11206,7 +11206,7 @@ class ServersApi
      *
      * Выполнение действия над сервером
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnServer'] to see the possible values for this operation
      *
@@ -11245,7 +11245,7 @@ class ServersApi
     /**
      * Create request for operation 'performActionOnServer'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\PerformActionOnServerRequest $perform_action_on_server_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performActionOnServer'] to see the possible values for this operation
      *
@@ -11356,7 +11356,7 @@ class ServersApi
      *
      * Перезагрузка сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rebootServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -11373,7 +11373,7 @@ class ServersApi
      *
      * Перезагрузка сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rebootServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -11481,7 +11481,7 @@ class ServersApi
      *
      * Перезагрузка сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rebootServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11502,7 +11502,7 @@ class ServersApi
      *
      * Перезагрузка сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rebootServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11539,7 +11539,7 @@ class ServersApi
     /**
      * Create request for operation 'rebootServer'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rebootServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11640,7 +11640,7 @@ class ServersApi
      *
      * Сброс пароля сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetServerPassword'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -11657,7 +11657,7 @@ class ServersApi
      *
      * Сброс пароля сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetServerPassword'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -11757,7 +11757,7 @@ class ServersApi
      *
      * Сброс пароля сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetServerPassword'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11778,7 +11778,7 @@ class ServersApi
      *
      * Сброс пароля сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetServerPassword'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11815,7 +11815,7 @@ class ServersApi
     /**
      * Create request for operation 'resetServerPassword'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetServerPassword'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11916,7 +11916,7 @@ class ServersApi
      *
      * Выключение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['shutdownServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -11933,7 +11933,7 @@ class ServersApi
      *
      * Выключение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['shutdownServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -12041,7 +12041,7 @@ class ServersApi
      *
      * Выключение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['shutdownServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12062,7 +12062,7 @@ class ServersApi
      *
      * Выключение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['shutdownServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12099,7 +12099,7 @@ class ServersApi
     /**
      * Create request for operation 'shutdownServer'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['shutdownServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12200,7 +12200,7 @@ class ServersApi
      *
      * Запуск сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -12217,7 +12217,7 @@ class ServersApi
      *
      * Запуск сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startServer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -12317,7 +12317,7 @@ class ServersApi
      *
      * Запуск сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12338,7 +12338,7 @@ class ServersApi
      *
      * Запуск сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12375,7 +12375,7 @@ class ServersApi
     /**
      * Create request for operation 'startServer'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['startServer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12476,7 +12476,7 @@ class ServersApi
      *
      * Изменение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServer $update_server update_server (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServer'] to see the possible values for this operation
      *
@@ -12495,7 +12495,7 @@ class ServersApi
      *
      * Изменение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServer $update_server (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServer'] to see the possible values for this operation
      *
@@ -12757,7 +12757,7 @@ class ServersApi
      *
      * Изменение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServer $update_server (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServer'] to see the possible values for this operation
      *
@@ -12779,7 +12779,7 @@ class ServersApi
      *
      * Изменение сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServer $update_server (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServer'] to see the possible values for this operation
      *
@@ -12830,7 +12830,7 @@ class ServersApi
     /**
      * Create request for operation 'updateServer'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServer $update_server (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServer'] to see the possible values for this operation
      *
@@ -12946,8 +12946,8 @@ class ServersApi
      *
      * Изменение параметров диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerDiskRequest $update_server_disk_request update_server_disk_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDisk'] to see the possible values for this operation
      *
@@ -12966,8 +12966,8 @@ class ServersApi
      *
      * Изменение параметров диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerDiskRequest $update_server_disk_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDisk'] to see the possible values for this operation
      *
@@ -13229,8 +13229,8 @@ class ServersApi
      *
      * Изменение параметров диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerDiskRequest $update_server_disk_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDisk'] to see the possible values for this operation
      *
@@ -13252,8 +13252,8 @@ class ServersApi
      *
      * Изменение параметров диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerDiskRequest $update_server_disk_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDisk'] to see the possible values for this operation
      *
@@ -13304,8 +13304,8 @@ class ServersApi
     /**
      * Create request for operation 'updateServerDisk'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerDiskRequest $update_server_disk_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDisk'] to see the possible values for this operation
      *
@@ -13433,8 +13433,8 @@ class ServersApi
      *
      * Изменение настроек автобэкапов диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\AutoBackup $auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDiskAutoBackupSettings'] to see the possible values for this operation
      *
@@ -13453,8 +13453,8 @@ class ServersApi
      *
      * Изменение настроек автобэкапов диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\AutoBackup $auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDiskAutoBackupSettings'] to see the possible values for this operation
      *
@@ -13693,8 +13693,8 @@ class ServersApi
      *
      * Изменение настроек автобэкапов диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\AutoBackup $auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDiskAutoBackupSettings'] to see the possible values for this operation
      *
@@ -13716,8 +13716,8 @@ class ServersApi
      *
      * Изменение настроек автобэкапов диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\AutoBackup $auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDiskAutoBackupSettings'] to see the possible values for this operation
      *
@@ -13768,8 +13768,8 @@ class ServersApi
     /**
      * Create request for operation 'updateServerDiskAutoBackupSettings'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
      * @param  \OpenAPI\Client\Model\AutoBackup $auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDiskAutoBackupSettings'] to see the possible values for this operation
      *
@@ -13897,9 +13897,9 @@ class ServersApi
      *
      * Изменение бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerDiskBackupRequest $update_server_disk_backup_request update_server_disk_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDiskBackup'] to see the possible values for this operation
      *
@@ -13918,9 +13918,9 @@ class ServersApi
      *
      * Изменение бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerDiskBackupRequest $update_server_disk_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDiskBackup'] to see the possible values for this operation
      *
@@ -14159,9 +14159,9 @@ class ServersApi
      *
      * Изменение бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerDiskBackupRequest $update_server_disk_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDiskBackup'] to see the possible values for this operation
      *
@@ -14183,9 +14183,9 @@ class ServersApi
      *
      * Изменение бэкапа диска сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerDiskBackupRequest $update_server_disk_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDiskBackup'] to see the possible values for this operation
      *
@@ -14236,9 +14236,9 @@ class ServersApi
     /**
      * Create request for operation 'updateServerDiskBackup'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
-     * @param  int $disk_id Уникальный идентификатор диска сервера. (required)
-     * @param  int $backup_id Уникальный идентификатор бэкапа сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerDiskBackupRequest $update_server_disk_backup_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerDiskBackup'] to see the possible values for this operation
      *
@@ -14384,7 +14384,7 @@ class ServersApi
      *
      * Изменение IP-адреса сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerIPRequest $update_server_ip_request update_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerIP'] to see the possible values for this operation
      *
@@ -14403,7 +14403,7 @@ class ServersApi
      *
      * Изменение IP-адреса сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerIPRequest $update_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerIP'] to see the possible values for this operation
      *
@@ -14665,7 +14665,7 @@ class ServersApi
      *
      * Изменение IP-адреса сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerIPRequest $update_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerIP'] to see the possible values for this operation
      *
@@ -14687,7 +14687,7 @@ class ServersApi
      *
      * Изменение IP-адреса сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerIPRequest $update_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerIP'] to see the possible values for this operation
      *
@@ -14738,7 +14738,7 @@ class ServersApi
     /**
      * Create request for operation 'updateServerIP'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerIPRequest $update_server_ip_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerIP'] to see the possible values for this operation
      *
@@ -14854,7 +14854,7 @@ class ServersApi
      *
      * Изменение правил маршрутизации трафика сервера (NAT)
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerNATRequest $update_server_nat_request update_server_nat_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerNAT'] to see the possible values for this operation
      *
@@ -14872,7 +14872,7 @@ class ServersApi
      *
      * Изменение правил маршрутизации трафика сервера (NAT)
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerNATRequest $update_server_nat_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerNAT'] to see the possible values for this operation
      *
@@ -14989,7 +14989,7 @@ class ServersApi
      *
      * Изменение правил маршрутизации трафика сервера (NAT)
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerNATRequest $update_server_nat_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerNAT'] to see the possible values for this operation
      *
@@ -15011,7 +15011,7 @@ class ServersApi
      *
      * Изменение правил маршрутизации трафика сервера (NAT)
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerNATRequest $update_server_nat_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerNAT'] to see the possible values for this operation
      *
@@ -15049,7 +15049,7 @@ class ServersApi
     /**
      * Create request for operation 'updateServerNAT'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerNATRequest $update_server_nat_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerNAT'] to see the possible values for this operation
      *
@@ -15159,7 +15159,7 @@ class ServersApi
      *
      * Выбор типа загрузки операционной системы сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerOSBootModeRequest $update_server_os_boot_mode_request update_server_os_boot_mode_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerOSBootMode'] to see the possible values for this operation
      *
@@ -15177,7 +15177,7 @@ class ServersApi
      *
      * Выбор типа загрузки операционной системы сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerOSBootModeRequest $update_server_os_boot_mode_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerOSBootMode'] to see the possible values for this operation
      *
@@ -15294,7 +15294,7 @@ class ServersApi
      *
      * Выбор типа загрузки операционной системы сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerOSBootModeRequest $update_server_os_boot_mode_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerOSBootMode'] to see the possible values for this operation
      *
@@ -15316,7 +15316,7 @@ class ServersApi
      *
      * Выбор типа загрузки операционной системы сервера
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerOSBootModeRequest $update_server_os_boot_mode_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerOSBootMode'] to see the possible values for this operation
      *
@@ -15354,7 +15354,7 @@ class ServersApi
     /**
      * Create request for operation 'updateServerOSBootMode'
      *
-     * @param  int $server_id Уникальный идентификатор облачного сервера. (required)
+     * @param  int $server_id ID облачного сервера. (required)
      * @param  \OpenAPI\Client\Model\UpdateServerOSBootModeRequest $update_server_os_boot_mode_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateServerOSBootMode'] to see the possible values for this operation
      *

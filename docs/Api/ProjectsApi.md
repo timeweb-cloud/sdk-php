@@ -19,7 +19,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getAccountServers()**](ProjectsApi.md#getAccountServers) | **GET** /api/v1/projects/resources/servers | Получение списка всех серверов на аккаунте |
 | [**getAccountStorages()**](ProjectsApi.md#getAccountStorages) | **GET** /api/v1/projects/resources/buckets | Получение списка всех хранилищ на аккаунте |
 | [**getAllProjectResources()**](ProjectsApi.md#getAllProjectResources) | **GET** /api/v1/projects/{project_id}/resources | Получение всех ресурсов проекта |
-| [**getProject()**](ProjectsApi.md#getProject) | **GET** /api/v1/projects/{project_id} | Получение проекта по идентификатору |
+| [**getProject()**](ProjectsApi.md#getProject) | **GET** /api/v1/projects/{project_id} | Получение проекта по ID |
 | [**getProjectBalancers()**](ProjectsApi.md#getProjectBalancers) | **GET** /api/v1/projects/{project_id}/resources/balancers | Получение списка балансировщиков проекта |
 | [**getProjectClusters()**](ProjectsApi.md#getProjectClusters) | **GET** /api/v1/projects/{project_id}/resources/clusters | Получение списка кластеров проекта |
 | [**getProjectDatabases()**](ProjectsApi.md#getProjectDatabases) | **GET** /api/v1/projects/{project_id}/resources/databases | Получение списка баз данных проекта |
@@ -58,7 +58,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 $add_balancer_to_project_request = new \OpenAPI\Client\Model\AddBalancerToProjectRequest(); // \OpenAPI\Client\Model\AddBalancerToProjectRequest
 
 try {
@@ -73,7 +73,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 | **add_balancer_to_project_request** | [**\OpenAPI\Client\Model\AddBalancerToProjectRequest**](../Model/AddBalancerToProjectRequest.md)|  | |
 
 ### Return type
@@ -120,7 +120,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 $add_cluster_to_project_request = new \OpenAPI\Client\Model\AddClusterToProjectRequest(); // \OpenAPI\Client\Model\AddClusterToProjectRequest
 
 try {
@@ -135,7 +135,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 | **add_cluster_to_project_request** | [**\OpenAPI\Client\Model\AddClusterToProjectRequest**](../Model/AddClusterToProjectRequest.md)|  | |
 
 ### Return type
@@ -182,7 +182,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 $add_database_to_project_request = new \OpenAPI\Client\Model\AddDatabaseToProjectRequest(); // \OpenAPI\Client\Model\AddDatabaseToProjectRequest
 
 try {
@@ -197,7 +197,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 | **add_database_to_project_request** | [**\OpenAPI\Client\Model\AddDatabaseToProjectRequest**](../Model/AddDatabaseToProjectRequest.md)|  | |
 
 ### Return type
@@ -244,7 +244,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 $add_dedicated_server_to_project_request = new \OpenAPI\Client\Model\AddDedicatedServerToProjectRequest(); // \OpenAPI\Client\Model\AddDedicatedServerToProjectRequest
 
 try {
@@ -259,7 +259,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 | **add_dedicated_server_to_project_request** | [**\OpenAPI\Client\Model\AddDedicatedServerToProjectRequest**](../Model/AddDedicatedServerToProjectRequest.md)|  | |
 
 ### Return type
@@ -306,7 +306,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 $add_server_to_project_request = new \OpenAPI\Client\Model\AddServerToProjectRequest(); // \OpenAPI\Client\Model\AddServerToProjectRequest
 
 try {
@@ -321,7 +321,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 | **add_server_to_project_request** | [**\OpenAPI\Client\Model\AddServerToProjectRequest**](../Model/AddServerToProjectRequest.md)|  | |
 
 ### Return type
@@ -368,7 +368,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 $add_storage_to_project_request = new \OpenAPI\Client\Model\AddStorageToProjectRequest(); // \OpenAPI\Client\Model\AddStorageToProjectRequest
 
 try {
@@ -383,7 +383,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 | **add_storage_to_project_request** | [**\OpenAPI\Client\Model\AddStorageToProjectRequest**](../Model/AddStorageToProjectRequest.md)|  | |
 
 ### Return type
@@ -490,7 +490,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 
 try {
     $apiInstance->deleteProject($project_id);
@@ -503,7 +503,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 
 ### Return type
 
@@ -891,7 +891,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 
 try {
     $result = $apiInstance->getAllProjectResources($project_id);
@@ -905,7 +905,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 
 ### Return type
 
@@ -930,9 +930,9 @@ try {
 getProject($project_id): \OpenAPI\Client\Model\CreateProject201Response
 ```
 
-Получение проекта по идентификатору
+Получение проекта по ID
 
-Чтобы получить проект по идентификатору, отправьте GET-запрос на `/api/v1/projects/{project_id}`.
+Чтобы получить проект по ID, отправьте GET-запрос на `/api/v1/projects/{project_id}`.
 
 ### Example
 
@@ -951,7 +951,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 
 try {
     $result = $apiInstance->getProject($project_id);
@@ -965,7 +965,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 
 ### Return type
 
@@ -1011,7 +1011,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 
 try {
     $result = $apiInstance->getProjectBalancers($project_id);
@@ -1025,7 +1025,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 
 ### Return type
 
@@ -1071,7 +1071,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 
 try {
     $result = $apiInstance->getProjectClusters($project_id);
@@ -1085,7 +1085,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 
 ### Return type
 
@@ -1131,7 +1131,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 
 try {
     $result = $apiInstance->getProjectDatabases($project_id);
@@ -1145,7 +1145,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 
 ### Return type
 
@@ -1191,7 +1191,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 
 try {
     $result = $apiInstance->getProjectDedicatedServers($project_id);
@@ -1205,7 +1205,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 
 ### Return type
 
@@ -1251,7 +1251,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 
 try {
     $result = $apiInstance->getProjectServers($project_id);
@@ -1265,7 +1265,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 
 ### Return type
 
@@ -1311,7 +1311,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 
 try {
     $result = $apiInstance->getProjectStorages($project_id);
@@ -1325,7 +1325,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 
 ### Return type
 
@@ -1428,7 +1428,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 $resource_transfer = new \OpenAPI\Client\Model\ResourceTransfer(); // \OpenAPI\Client\Model\ResourceTransfer
 
 try {
@@ -1443,7 +1443,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 | **resource_transfer** | [**\OpenAPI\Client\Model\ResourceTransfer**](../Model/ResourceTransfer.md)|  | |
 
 ### Return type
@@ -1490,7 +1490,7 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 99; // int | Уникальный идентификатор проекта.
+$project_id = 99; // int | ID проекта.
 $update_project = new \OpenAPI\Client\Model\UpdateProject(); // \OpenAPI\Client\Model\UpdateProject
 
 try {
@@ -1505,7 +1505,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Уникальный идентификатор проекта. | |
+| **project_id** | **int**| ID проекта. | |
 | **update_project** | [**\OpenAPI\Client\Model\UpdateProject**](../Model/UpdateProject.md)|  | |
 
 ### Return type

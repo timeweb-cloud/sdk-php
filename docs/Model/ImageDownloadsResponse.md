@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response_id** | **string** | Идентификатор запроса | [optional]
+**response_id** | **string** | ID запроса | [optional]
 **meta** | [**\OpenAPI\Client\Model\Meta**](Meta.md) |  |
 **downloads** | [**\OpenAPI\Client\Model\ImageDownloadAPI[]**](ImageDownloadAPI.md) | Массив объектов \&quot;Ссылка на загрузку\&quot; |
 

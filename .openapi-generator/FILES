@@ -328,6 +328,7 @@ docs/Model/NetworkDriveServiceListInner.md
 docs/Model/NetworkDriversResponse.md
 docs/Model/NodeCount.md
 docs/Model/NodeGroupIn.md
+docs/Model/NodeGroupInConfiguration.md
 docs/Model/NodeGroupOut.md
 docs/Model/NodeGroupResponse.md
 docs/Model/NodeGroupsResponse.md
@@ -376,6 +377,7 @@ docs/Model/ServersOsRequirements.md
 docs/Model/ServersPreset.md
 docs/Model/ServersSoftware.md
 docs/Model/ServersSoftwareRequirements.md
+docs/Model/SetLabels.md
 docs/Model/SettingCondition.md
 docs/Model/SpamFilterIsDisabled.md
 docs/Model/SpamFilterIsEnabled.md
@@ -770,6 +772,7 @@ lib/Model/NetworkDriveServiceListInner.php
 lib/Model/NetworkDriversResponse.php
 lib/Model/NodeCount.php
 lib/Model/NodeGroupIn.php
+lib/Model/NodeGroupInConfiguration.php
 lib/Model/NodeGroupOut.php
 lib/Model/NodeGroupResponse.php
 lib/Model/NodeGroupsResponse.php
@@ -818,6 +821,7 @@ lib/Model/ServersOsRequirements.php
 lib/Model/ServersPreset.php
 lib/Model/ServersSoftware.php
 lib/Model/ServersSoftwareRequirements.php
+lib/Model/SetLabels.php
 lib/Model/SettingCondition.php
 lib/Model/SpamFilterIsDisabled.php
 lib/Model/SpamFilterIsEnabled.php
@@ -1208,6 +1212,7 @@ test/Model/NetworkDriveTest.php
 test/Model/NetworkDriversResponseTest.php
 test/Model/NetworkTest.php
 test/Model/NodeCountTest.php
+test/Model/NodeGroupInConfigurationTest.php
 test/Model/NodeGroupInTest.php
 test/Model/NodeGroupOutTest.php
 test/Model/NodeGroupResponseTest.php
@@ -1257,6 +1262,7 @@ test/Model/ServersOsTest.php
 test/Model/ServersPresetTest.php
 test/Model/ServersSoftwareRequirementsTest.php
 test/Model/ServersSoftwareTest.php
+test/Model/SetLabelsTest.php
 test/Model/SettingConditionTest.php
 test/Model/SpamFilterIsDisabledTest.php
 test/Model/SpamFilterIsEnabledTest.php

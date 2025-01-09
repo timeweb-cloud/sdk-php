@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Идентификатор пресета. |
+**id** | **int** | ID пресета. |
 **description** | **string** | Описание пресета. | [optional]
 **description_short** | **string** | Краткое описание пресета. |
 **price** | **int** | Цена пресета. |

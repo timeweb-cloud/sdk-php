@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **name** | **string** | Название базы данных. |
 **type** | [**\OpenAPI\Client\Model\DbType**](DbType.md) |  |
 **hash_type** | **string** | Тип хеширования базы данных (mysql5 | mysql | postgres). | [optional]
-**preset_id** | **int** | Идентификатор тарифа. |
+**preset_id** | **int** | ID тарифа. |
 **config_parameters** | [**\OpenAPI\Client\Model\ConfigParameters**](ConfigParameters.md) |  | [optional]
 **network** | [**\OpenAPI\Client\Model\Network**](Network.md) |  | [optional]
 

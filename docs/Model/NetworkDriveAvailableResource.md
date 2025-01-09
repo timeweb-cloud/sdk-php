@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**resource_id** | **float** | Уникальный идентификатор сервиса. |
+**resource_id** | **float** | ID сервиса. |
 **resource_type** | **string** | Тип ресурса. |
 **ip** | **string** | IP-адрес сервиса. | [optional]
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  |

@@ -71,7 +71,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 $add_server_ip_request = new \OpenAPI\Client\Model\AddServerIPRequest(); // \OpenAPI\Client\Model\AddServerIPRequest
 
 try {
@@ -86,7 +86,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 | **add_server_ip_request** | [**\OpenAPI\Client\Model\AddServerIPRequest**](../Model/AddServerIPRequest.md)|  | |
 
 ### Return type
@@ -133,7 +133,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 
 try {
     $result = $apiInstance->cloneServer($server_id);
@@ -147,7 +147,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 
 ### Return type
 
@@ -253,7 +253,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 $create_server_disk_request = new \OpenAPI\Client\Model\CreateServerDiskRequest(); // \OpenAPI\Client\Model\CreateServerDiskRequest
 
 try {
@@ -268,7 +268,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 | **create_server_disk_request** | [**\OpenAPI\Client\Model\CreateServerDiskRequest**](../Model/CreateServerDiskRequest.md)|  | [optional] |
 
 ### Return type
@@ -315,8 +315,8 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-$disk_id = 1051; // int | Уникальный идентификатор диска сервера.
+$server_id = 1051; // int | ID облачного сервера.
+$disk_id = 1051; // int | ID диска сервера.
 $create_server_disk_backup_request = new \OpenAPI\Client\Model\CreateServerDiskBackupRequest(); // \OpenAPI\Client\Model\CreateServerDiskBackupRequest
 
 try {
@@ -331,8 +331,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **disk_id** | **int**| Уникальный идентификатор диска сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
+| **disk_id** | **int**| ID диска сервера. | |
 | **create_server_disk_backup_request** | [**\OpenAPI\Client\Model\CreateServerDiskBackupRequest**](../Model/CreateServerDiskBackupRequest.md)|  | [optional] |
 
 ### Return type
@@ -379,7 +379,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 $hash = 15095f25-aac3-4d60-a788-96cb5136f186; // string | Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм.
 $code = 0000; // string | Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена `is_able_to_delete` установлен в значение `true`
 
@@ -395,7 +395,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 | **hash** | **string**| Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. | [optional] |
 | **code** | **string**| Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; | [optional] |
 
@@ -443,8 +443,8 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-$disk_id = 1051; // int | Уникальный идентификатор диска сервера.
+$server_id = 1051; // int | ID облачного сервера.
+$disk_id = 1051; // int | ID диска сервера.
 
 try {
     $apiInstance->deleteServerDisk($server_id, $disk_id);
@@ -457,8 +457,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **disk_id** | **int**| Уникальный идентификатор диска сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
+| **disk_id** | **int**| ID диска сервера. | |
 
 ### Return type
 
@@ -504,9 +504,9 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-$disk_id = 1051; // int | Уникальный идентификатор диска сервера.
-$backup_id = 1051; // int | Уникальный идентификатор бэкапа сервера.
+$server_id = 1051; // int | ID облачного сервера.
+$disk_id = 1051; // int | ID диска сервера.
+$backup_id = 1051; // int | ID бэкапа сервера.
 
 try {
     $apiInstance->deleteServerDiskBackup($server_id, $disk_id, $backup_id);
@@ -519,9 +519,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **disk_id** | **int**| Уникальный идентификатор диска сервера. | |
-| **backup_id** | **int**| Уникальный идентификатор бэкапа сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
+| **disk_id** | **int**| ID диска сервера. | |
+| **backup_id** | **int**| ID бэкапа сервера. | |
 
 ### Return type
 
@@ -567,7 +567,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 $delete_server_ip_request = new \OpenAPI\Client\Model\DeleteServerIPRequest(); // \OpenAPI\Client\Model\DeleteServerIPRequest
 
 try {
@@ -581,7 +581,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 | **delete_server_ip_request** | [**\OpenAPI\Client\Model\DeleteServerIPRequest**](../Model/DeleteServerIPRequest.md)|  | |
 
 ### Return type
@@ -742,7 +742,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 
 try {
     $result = $apiInstance->getServer($server_id);
@@ -756,7 +756,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 
 ### Return type
 
@@ -802,8 +802,8 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-$disk_id = 1051; // int | Уникальный идентификатор диска сервера.
+$server_id = 1051; // int | ID облачного сервера.
+$disk_id = 1051; // int | ID диска сервера.
 
 try {
     $result = $apiInstance->getServerDisk($server_id, $disk_id);
@@ -817,8 +817,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **disk_id** | **int**| Уникальный идентификатор диска сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
+| **disk_id** | **int**| ID диска сервера. | |
 
 ### Return type
 
@@ -864,8 +864,8 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-$disk_id = 1051; // int | Уникальный идентификатор диска сервера.
+$server_id = 1051; // int | ID облачного сервера.
+$disk_id = 1051; // int | ID диска сервера.
 
 try {
     $result = $apiInstance->getServerDiskAutoBackupSettings($server_id, $disk_id);
@@ -879,8 +879,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **disk_id** | **int**| Уникальный идентификатор диска сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
+| **disk_id** | **int**| ID диска сервера. | |
 
 ### Return type
 
@@ -926,9 +926,9 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-$disk_id = 1051; // int | Уникальный идентификатор диска сервера.
-$backup_id = 1051; // int | Уникальный идентификатор бэкапа сервера.
+$server_id = 1051; // int | ID облачного сервера.
+$disk_id = 1051; // int | ID диска сервера.
+$backup_id = 1051; // int | ID бэкапа сервера.
 
 try {
     $result = $apiInstance->getServerDiskBackup($server_id, $disk_id, $backup_id);
@@ -942,9 +942,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **disk_id** | **int**| Уникальный идентификатор диска сервера. | |
-| **backup_id** | **int**| Уникальный идентификатор бэкапа сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
+| **disk_id** | **int**| ID диска сервера. | |
+| **backup_id** | **int**| ID бэкапа сервера. | |
 
 ### Return type
 
@@ -990,8 +990,8 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-$disk_id = 1051; // int | Уникальный идентификатор диска сервера.
+$server_id = 1051; // int | ID облачного сервера.
+$disk_id = 1051; // int | ID диска сервера.
 
 try {
     $result = $apiInstance->getServerDiskBackups($server_id, $disk_id);
@@ -1005,8 +1005,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **disk_id** | **int**| Уникальный идентификатор диска сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
+| **disk_id** | **int**| ID диска сервера. | |
 
 ### Return type
 
@@ -1052,7 +1052,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 
 try {
     $result = $apiInstance->getServerDisks($server_id);
@@ -1066,7 +1066,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 
 ### Return type
 
@@ -1112,7 +1112,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 
 try {
     $result = $apiInstance->getServerIPs($server_id);
@@ -1126,7 +1126,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 
 ### Return type
 
@@ -1172,7 +1172,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 $limit = 100; // int | Обозначает количество записей, которое необходимо вернуть.
 $offset = 0; // int | Указывает на смещение относительно начала списка.
 $order = 'asc'; // string | Сортировка элементов по дате
@@ -1189,7 +1189,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 | **limit** | **int**| Обозначает количество записей, которое необходимо вернуть. | [optional] [default to 100] |
 | **offset** | **int**| Указывает на смещение относительно начала списка. | [optional] [default to 0] |
 | **order** | **string**| Сортировка элементов по дате | [optional] [default to &#39;asc&#39;] |
@@ -1238,7 +1238,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 $date_from = 'date_from_example'; // string | Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: `2023-05-25%202023-05-25T14%3A35%3A38`
 $date_to = 'date_to_example'; // string | Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: `2023-05-26%202023-05-25T14%3A35%3A38`
 
@@ -1254,7 +1254,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 | **date_from** | **string**| Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; | |
 | **date_to** | **string**| Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; | |
 
@@ -1478,7 +1478,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 
 try {
     $apiInstance->hardShutdownServer($server_id);
@@ -1491,7 +1491,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 
 ### Return type
 
@@ -1537,7 +1537,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 
 try {
     $apiInstance->imageUnmountAndServerReload($server_id);
@@ -1550,7 +1550,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 
 ### Return type
 
@@ -1596,9 +1596,9 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-$disk_id = 1051; // int | Уникальный идентификатор диска сервера.
-$backup_id = 1051; // int | Уникальный идентификатор бэкапа сервера.
+$server_id = 1051; // int | ID облачного сервера.
+$disk_id = 1051; // int | ID диска сервера.
+$backup_id = 1051; // int | ID бэкапа сервера.
 $perform_action_on_backup_request = new \OpenAPI\Client\Model\PerformActionOnBackupRequest(); // \OpenAPI\Client\Model\PerformActionOnBackupRequest
 
 try {
@@ -1612,9 +1612,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **disk_id** | **int**| Уникальный идентификатор диска сервера. | |
-| **backup_id** | **int**| Уникальный идентификатор бэкапа сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
+| **disk_id** | **int**| ID диска сервера. | |
+| **backup_id** | **int**| ID бэкапа сервера. | |
 | **perform_action_on_backup_request** | [**\OpenAPI\Client\Model\PerformActionOnBackupRequest**](../Model/PerformActionOnBackupRequest.md)|  | [optional] |
 
 ### Return type
@@ -1661,7 +1661,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 $perform_action_on_server_request = new \OpenAPI\Client\Model\PerformActionOnServerRequest(); // \OpenAPI\Client\Model\PerformActionOnServerRequest
 
 try {
@@ -1675,7 +1675,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 | **perform_action_on_server_request** | [**\OpenAPI\Client\Model\PerformActionOnServerRequest**](../Model/PerformActionOnServerRequest.md)|  | [optional] |
 
 ### Return type
@@ -1722,7 +1722,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 
 try {
     $apiInstance->rebootServer($server_id);
@@ -1735,7 +1735,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 
 ### Return type
 
@@ -1781,7 +1781,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 
 try {
     $apiInstance->resetServerPassword($server_id);
@@ -1794,7 +1794,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 
 ### Return type
 
@@ -1840,7 +1840,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 
 try {
     $apiInstance->shutdownServer($server_id);
@@ -1853,7 +1853,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 
 ### Return type
 
@@ -1899,7 +1899,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 
 try {
     $apiInstance->startServer($server_id);
@@ -1912,7 +1912,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 
 ### Return type
 
@@ -1958,7 +1958,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 $update_server = new \OpenAPI\Client\Model\UpdateServer(); // \OpenAPI\Client\Model\UpdateServer
 
 try {
@@ -1973,7 +1973,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 | **update_server** | [**\OpenAPI\Client\Model\UpdateServer**](../Model/UpdateServer.md)|  | |
 
 ### Return type
@@ -2020,8 +2020,8 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-$disk_id = 1051; // int | Уникальный идентификатор диска сервера.
+$server_id = 1051; // int | ID облачного сервера.
+$disk_id = 1051; // int | ID диска сервера.
 $update_server_disk_request = new \OpenAPI\Client\Model\UpdateServerDiskRequest(); // \OpenAPI\Client\Model\UpdateServerDiskRequest
 
 try {
@@ -2036,8 +2036,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **disk_id** | **int**| Уникальный идентификатор диска сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
+| **disk_id** | **int**| ID диска сервера. | |
 | **update_server_disk_request** | [**\OpenAPI\Client\Model\UpdateServerDiskRequest**](../Model/UpdateServerDiskRequest.md)|  | [optional] |
 
 ### Return type
@@ -2084,8 +2084,8 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-$disk_id = 1051; // int | Уникальный идентификатор диска сервера.
+$server_id = 1051; // int | ID облачного сервера.
+$disk_id = 1051; // int | ID диска сервера.
 $auto_backup = new \OpenAPI\Client\Model\AutoBackup(); // \OpenAPI\Client\Model\AutoBackup | При значении `is_enabled`: `true`, поля `copy_count`, `creation_start_at`, `interval` являются обязательными
 
 try {
@@ -2100,8 +2100,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **disk_id** | **int**| Уникальный идентификатор диска сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
+| **disk_id** | **int**| ID диска сервера. | |
 | **auto_backup** | [**\OpenAPI\Client\Model\AutoBackup**](../Model/AutoBackup.md)| При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными | [optional] |
 
 ### Return type
@@ -2148,9 +2148,9 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
-$disk_id = 1051; // int | Уникальный идентификатор диска сервера.
-$backup_id = 1051; // int | Уникальный идентификатор бэкапа сервера.
+$server_id = 1051; // int | ID облачного сервера.
+$disk_id = 1051; // int | ID диска сервера.
+$backup_id = 1051; // int | ID бэкапа сервера.
 $update_server_disk_backup_request = new \OpenAPI\Client\Model\UpdateServerDiskBackupRequest(); // \OpenAPI\Client\Model\UpdateServerDiskBackupRequest
 
 try {
@@ -2165,9 +2165,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
-| **disk_id** | **int**| Уникальный идентификатор диска сервера. | |
-| **backup_id** | **int**| Уникальный идентификатор бэкапа сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
+| **disk_id** | **int**| ID диска сервера. | |
+| **backup_id** | **int**| ID бэкапа сервера. | |
 | **update_server_disk_backup_request** | [**\OpenAPI\Client\Model\UpdateServerDiskBackupRequest**](../Model/UpdateServerDiskBackupRequest.md)|  | [optional] |
 
 ### Return type
@@ -2214,7 +2214,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 $update_server_ip_request = new \OpenAPI\Client\Model\UpdateServerIPRequest(); // \OpenAPI\Client\Model\UpdateServerIPRequest
 
 try {
@@ -2229,7 +2229,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 | **update_server_ip_request** | [**\OpenAPI\Client\Model\UpdateServerIPRequest**](../Model/UpdateServerIPRequest.md)|  | |
 
 ### Return type
@@ -2276,7 +2276,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 $update_server_nat_request = new \OpenAPI\Client\Model\UpdateServerNATRequest(); // \OpenAPI\Client\Model\UpdateServerNATRequest
 
 try {
@@ -2290,7 +2290,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 | **update_server_nat_request** | [**\OpenAPI\Client\Model\UpdateServerNATRequest**](../Model/UpdateServerNATRequest.md)|  | [optional] |
 
 ### Return type
@@ -2337,7 +2337,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_id = 1051; // int | Уникальный идентификатор облачного сервера.
+$server_id = 1051; // int | ID облачного сервера.
 $update_server_os_boot_mode_request = new \OpenAPI\Client\Model\UpdateServerOSBootModeRequest(); // \OpenAPI\Client\Model\UpdateServerOSBootModeRequest
 
 try {
@@ -2351,7 +2351,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **int**| Уникальный идентификатор облачного сервера. | |
+| **server_id** | **int**| ID облачного сервера. | |
 | **update_server_os_boot_mode_request** | [**\OpenAPI\Client\Model\UpdateServerOSBootModeRequest**](../Model/UpdateServerOSBootModeRequest.md)|  | [optional] |
 
 ### Return type

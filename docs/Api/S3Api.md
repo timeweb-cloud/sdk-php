@@ -111,7 +111,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_id = 1051; // int | Уникальный идентификатор хранилища.
+$bucket_id = 1051; // int | ID хранилища.
 $add_storage_subdomains_request = new \OpenAPI\Client\Model\AddStorageSubdomainsRequest(); // \OpenAPI\Client\Model\AddStorageSubdomainsRequest
 
 try {
@@ -126,7 +126,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_id** | **int**| Уникальный идентификатор хранилища. | |
+| **bucket_id** | **int**| ID хранилища. | |
 | **add_storage_subdomains_request** | [**\OpenAPI\Client\Model\AddStorageSubdomainsRequest**](../Model/AddStorageSubdomainsRequest.md)|  | |
 
 ### Return type
@@ -173,7 +173,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_id = 1051; // int | Уникальный идентификатор хранилища.
+$bucket_id = 1051; // int | ID хранилища.
 $copy_storage_file_request = new \OpenAPI\Client\Model\CopyStorageFileRequest(); // \OpenAPI\Client\Model\CopyStorageFileRequest
 
 try {
@@ -187,7 +187,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_id** | **int**| Уникальный идентификатор хранилища. | |
+| **bucket_id** | **int**| ID хранилища. | |
 | **copy_storage_file_request** | [**\OpenAPI\Client\Model\CopyStorageFileRequest**](../Model/CopyStorageFileRequest.md)|  | |
 
 ### Return type
@@ -234,7 +234,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_id = 1051; // int | Уникальный идентификатор хранилища.
+$bucket_id = 1051; // int | ID хранилища.
 $create_folder_in_storage_request = new \OpenAPI\Client\Model\CreateFolderInStorageRequest(); // \OpenAPI\Client\Model\CreateFolderInStorageRequest
 
 try {
@@ -248,7 +248,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_id** | **int**| Уникальный идентификатор хранилища. | |
+| **bucket_id** | **int**| ID хранилища. | |
 | **create_folder_in_storage_request** | [**\OpenAPI\Client\Model\CreateFolderInStorageRequest**](../Model/CreateFolderInStorageRequest.md)|  | |
 
 ### Return type
@@ -355,7 +355,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_id = 1051; // int | Уникальный идентификатор хранилища.
+$bucket_id = 1051; // int | ID хранилища.
 $hash = 15095f25-aac3-4d60-a788-96cb5136f186; // string | Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм.
 $code = 0000; // string | Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена `is_able_to_delete` установлен в значение `true`
 
@@ -371,7 +371,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_id** | **int**| Уникальный идентификатор хранилища. | |
+| **bucket_id** | **int**| ID хранилища. | |
 | **hash** | **string**| Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. | [optional] |
 | **code** | **string**| Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; | [optional] |
 
@@ -419,7 +419,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_id = 1051; // int | Уникальный идентификатор хранилища.
+$bucket_id = 1051; // int | ID хранилища.
 $delete_storage_file_request = new \OpenAPI\Client\Model\DeleteStorageFileRequest(); // \OpenAPI\Client\Model\DeleteStorageFileRequest
 $is_multipart = true; // bool | Это логическое значение, которое используется для обозначения multipart-загрузки.
 
@@ -434,7 +434,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_id** | **int**| Уникальный идентификатор хранилища. | |
+| **bucket_id** | **int**| ID хранилища. | |
 | **delete_storage_file_request** | [**\OpenAPI\Client\Model\DeleteStorageFileRequest**](../Model/DeleteStorageFileRequest.md)|  | |
 | **is_multipart** | **bool**| Это логическое значение, которое используется для обозначения multipart-загрузки. | [optional] |
 
@@ -482,7 +482,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_id = 1051; // int | Уникальный идентификатор хранилища.
+$bucket_id = 1051; // int | ID хранилища.
 $add_storage_subdomains_request = new \OpenAPI\Client\Model\AddStorageSubdomainsRequest(); // \OpenAPI\Client\Model\AddStorageSubdomainsRequest
 
 try {
@@ -497,7 +497,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_id** | **int**| Уникальный идентификатор хранилища. | |
+| **bucket_id** | **int**| ID хранилища. | |
 | **add_storage_subdomains_request** | [**\OpenAPI\Client\Model\AddStorageSubdomainsRequest**](../Model/AddStorageSubdomainsRequest.md)|  | |
 
 ### Return type
@@ -544,7 +544,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_id = 1051; // int | Уникальный идентификатор хранилища.
+$bucket_id = 1051; // int | ID хранилища.
 $prefix = example; // string | Префикс для поиска файла.
 $is_multipart = true; // bool | Это логическое значение, которое используется для обозначения multipart-загрузки.
 
@@ -560,7 +560,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_id** | **int**| Уникальный идентификатор хранилища. | |
+| **bucket_id** | **int**| ID хранилища. | |
 | **prefix** | **string**| Префикс для поиска файла. | [optional] |
 | **is_multipart** | **bool**| Это логическое значение, которое используется для обозначения multipart-загрузки. | [optional] |
 
@@ -608,7 +608,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_id = 1051; // int | Уникальный идентификатор хранилища.
+$bucket_id = 1051; // int | ID хранилища.
 
 try {
     $result = $apiInstance->getStorageSubdomains($bucket_id);
@@ -622,7 +622,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_id** | **int**| Уникальный идентификатор хранилища. | |
+| **bucket_id** | **int**| ID хранилища. | |
 
 ### Return type
 
@@ -668,7 +668,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_id = 1051; // int | Уникальный идентификатор хранилища.
+$bucket_id = 1051; // int | ID хранилища.
 
 try {
     $result = $apiInstance->getStorageTransferStatus($bucket_id);
@@ -682,7 +682,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_id** | **int**| Уникальный идентификатор хранилища. | |
+| **bucket_id** | **int**| ID хранилища. | |
 
 ### Return type
 
@@ -899,7 +899,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_id = 1051; // int | Уникальный идентификатор хранилища.
+$bucket_id = 1051; // int | ID хранилища.
 $rename_storage_file_request = new \OpenAPI\Client\Model\RenameStorageFileRequest(); // \OpenAPI\Client\Model\RenameStorageFileRequest
 
 try {
@@ -913,7 +913,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_id** | **int**| Уникальный идентификатор хранилища. | |
+| **bucket_id** | **int**| ID хранилища. | |
 | **rename_storage_file_request** | [**\OpenAPI\Client\Model\RenameStorageFileRequest**](../Model/RenameStorageFileRequest.md)|  | |
 
 ### Return type
@@ -1019,7 +1019,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_id = 1051; // int | Уникальный идентификатор хранилища.
+$bucket_id = 1051; // int | ID хранилища.
 $update_storage_request = new \OpenAPI\Client\Model\UpdateStorageRequest(); // \OpenAPI\Client\Model\UpdateStorageRequest
 
 try {
@@ -1034,7 +1034,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_id** | **int**| Уникальный идентификатор хранилища. | |
+| **bucket_id** | **int**| ID хранилища. | |
 | **update_storage_request** | [**\OpenAPI\Client\Model\UpdateStorageRequest**](../Model/UpdateStorageRequest.md)|  | |
 
 ### Return type
@@ -1081,7 +1081,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id = 1051; // int | Уникальный идентификатор пользователя хранилища.
+$user_id = 1051; // int | ID пользователя хранилища.
 $update_storage_user_request = new \OpenAPI\Client\Model\UpdateStorageUserRequest(); // \OpenAPI\Client\Model\UpdateStorageUserRequest
 
 try {
@@ -1096,7 +1096,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **user_id** | **int**| Уникальный идентификатор пользователя хранилища. | |
+| **user_id** | **int**| ID пользователя хранилища. | |
 | **update_storage_user_request** | [**\OpenAPI\Client\Model\UpdateStorageUserRequest**](../Model/UpdateStorageUserRequest.md)|  | |
 
 ### Return type
@@ -1143,7 +1143,7 @@ $apiInstance = new OpenAPI\Client\Api\S3Api(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_id = 1051; // int | Уникальный идентификатор хранилища.
+$bucket_id = 1051; // int | ID хранилища.
 $files = array("/path/to/file.txt"); // \SplFileObject[]
 $path = test1/tes2; // string | Путь до директории в хранилище
 
@@ -1158,7 +1158,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_id** | **int**| Уникальный идентификатор хранилища. | |
+| **bucket_id** | **int**| ID хранилища. | |
 | **files** | **\SplFileObject[]**|  | |
 | **path** | **string**| Путь до директории в хранилище | [optional] |
 

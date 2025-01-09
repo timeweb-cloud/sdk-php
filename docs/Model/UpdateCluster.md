@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Название кластера базы данных. | [optional]
-**preset_id** | **int** | Идентификатор тарифа. | [optional]
+**preset_id** | **int** | ID тарифа. | [optional]
 **description** | **string** | Описание кластера базы данных | [optional]
 **is_enabled_public_network** | **bool** | Доступность публичного IP-адреса | [optional]
 
