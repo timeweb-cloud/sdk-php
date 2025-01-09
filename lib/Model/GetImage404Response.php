@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateApiKey
+ * GetImage404Response
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * CreateApiKey Class Doc Comment
+ * GetImage404Response Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetImage404Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'create-api-key';
+    protected static $openAPIModelName = 'getImage_404_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'expire' => '\DateTime',
-        'is_able_to_delete' => 'bool',
-        'roles' => 'string[]',
-        'projects' => 'float[]'
+        'status_code' => 'float',
+        'message' => 'string',
+        'error_code' => 'string',
+        'response_id' => 'string'
     ];
 
     /**
@@ -73,11 +72,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'expire' => 'date-time',
-        'is_able_to_delete' => null,
-        'roles' => null,
-        'projects' => null
+        'status_code' => null,
+        'message' => null,
+        'error_code' => null,
+        'response_id' => 'uuid'
     ];
 
     /**
@@ -86,11 +84,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'expire' => false,
-		'is_able_to_delete' => false,
-		'roles' => false,
-		'projects' => true
+        'status_code' => false,
+		'message' => false,
+		'error_code' => false,
+		'response_id' => false
     ];
 
     /**
@@ -179,11 +176,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'expire' => 'expire',
-        'is_able_to_delete' => 'is_able_to_delete',
-        'roles' => 'roles',
-        'projects' => 'projects'
+        'status_code' => 'status_code',
+        'message' => 'message',
+        'error_code' => 'error_code',
+        'response_id' => 'response_id'
     ];
 
     /**
@@ -192,11 +188,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'expire' => 'setExpire',
-        'is_able_to_delete' => 'setIsAbleToDelete',
-        'roles' => 'setRoles',
-        'projects' => 'setProjects'
+        'status_code' => 'setStatusCode',
+        'message' => 'setMessage',
+        'error_code' => 'setErrorCode',
+        'response_id' => 'setResponseId'
     ];
 
     /**
@@ -205,11 +200,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'expire' => 'getExpire',
-        'is_able_to_delete' => 'getIsAbleToDelete',
-        'roles' => 'getRoles',
-        'projects' => 'getProjects'
+        'status_code' => 'getStatusCode',
+        'message' => 'getMessage',
+        'error_code' => 'getErrorCode',
+        'response_id' => 'getResponseId'
     ];
 
     /**
@@ -253,81 +247,6 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const ROLES_SERVERSREAD = 'servers:read';
-    public const ROLES_SERVERSWRITE = 'servers:write';
-    public const ROLES_DATABASESREAD = 'databases:read';
-    public const ROLES_DATABASESWRITE = 'databases:write';
-    public const ROLES_BALANCERSREAD = 'balancers:read';
-    public const ROLES_BALANCERSWRITE = 'balancers:write';
-    public const ROLES_STORAGESREAD = 'storages:read';
-    public const ROLES_STORAGESWRITE = 'storages:write';
-    public const ROLES_DEDICATEDREAD = 'dedicated:read';
-    public const ROLES_DEDICATEDWRITE = 'dedicated:write';
-    public const ROLES_CLUSTERSREAD = 'clusters:read';
-    public const ROLES_CLUSTERSWRITE = 'clusters:write';
-    public const ROLES_VPCREAD = 'vpc:read';
-    public const ROLES_VPCWRITE = 'vpc:write';
-    public const ROLES_FLOATING_IPSREAD = 'floating-ips:read';
-    public const ROLES_FLOATING_IPSWRITE = 'floating-ips:write';
-    public const ROLES_DOMAINSREAD = 'domains:read';
-    public const ROLES_DOMAINSWRITE = 'domains:write';
-    public const ROLES_ADMINISTRATORSWRITE = 'administrators:write';
-    public const ROLES_FIREWALLREAD = 'firewall:read';
-    public const ROLES_FIREWALLREAD = 'firewall:read';
-    public const ROLES_FINANCESWRITE = 'finances:write';
-    public const ROLES_SUPPORTREAD = 'support:read';
-    public const ROLES_SUPPORTWRITE = 'support:write';
-    public const ROLES_VPNREAD = 'vpn:read';
-    public const ROLES_VPNWRITE = 'vpn:write';
-    public const ROLES_MAILREAD = 'mail:read';
-    public const ROLES_MAILWRITE = 'mail:write';
-    public const ROLES_APPSREAD = 'apps:read';
-    public const ROLES_APPSWRITE = 'apps:write';
-    public const ROLES_NETWORK_DRIVESREAD = 'network-drives:read';
-    public const ROLES_NETWORK_DRIVESWRITE = 'network-drives:write';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRolesAllowableValues()
-    {
-        return [
-            self::ROLES_SERVERSREAD,
-            self::ROLES_SERVERSWRITE,
-            self::ROLES_DATABASESREAD,
-            self::ROLES_DATABASESWRITE,
-            self::ROLES_BALANCERSREAD,
-            self::ROLES_BALANCERSWRITE,
-            self::ROLES_STORAGESREAD,
-            self::ROLES_STORAGESWRITE,
-            self::ROLES_DEDICATEDREAD,
-            self::ROLES_DEDICATEDWRITE,
-            self::ROLES_CLUSTERSREAD,
-            self::ROLES_CLUSTERSWRITE,
-            self::ROLES_VPCREAD,
-            self::ROLES_VPCWRITE,
-            self::ROLES_FLOATING_IPSREAD,
-            self::ROLES_FLOATING_IPSWRITE,
-            self::ROLES_DOMAINSREAD,
-            self::ROLES_DOMAINSWRITE,
-            self::ROLES_ADMINISTRATORSWRITE,
-            self::ROLES_FIREWALLREAD,
-            self::ROLES_FIREWALLREAD,
-            self::ROLES_FINANCESWRITE,
-            self::ROLES_SUPPORTREAD,
-            self::ROLES_SUPPORTWRITE,
-            self::ROLES_VPNREAD,
-            self::ROLES_VPNWRITE,
-            self::ROLES_MAILREAD,
-            self::ROLES_MAILWRITE,
-            self::ROLES_APPSREAD,
-            self::ROLES_APPSWRITE,
-            self::ROLES_NETWORK_DRIVESREAD,
-            self::ROLES_NETWORK_DRIVESWRITE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -344,11 +263,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('expire', $data ?? [], null);
-        $this->setIfExists('is_able_to_delete', $data ?? [], null);
-        $this->setIfExists('roles', $data ?? [], null);
-        $this->setIfExists('projects', $data ?? [], null);
+        $this->setIfExists('status_code', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('error_code', $data ?? [], null);
+        $this->setIfExists('response_id', $data ?? [], null);
     }
 
     /**
@@ -378,8 +296,14 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['status_code'] === null) {
+            $invalidProperties[] = "'status_code' can't be null";
+        }
+        if ($this->container['error_code'] === null) {
+            $invalidProperties[] = "'error_code' can't be null";
+        }
+        if ($this->container['response_id'] === null) {
+            $invalidProperties[] = "'response_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -397,152 +321,109 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets status_code
+     *
+     * @return float
+     */
+    public function getStatusCode()
+    {
+        return $this->container['status_code'];
+    }
+
+    /**
+     * Sets status_code
+     *
+     * @param float $status_code Короткий идентификатор, соответствующий возвращаемому коду состояния HTTP.
+     *
+     * @return self
+     */
+    public function setStatusCode($status_code)
+    {
+        if (is_null($status_code)) {
+            throw new \InvalidArgumentException('non-nullable status_code cannot be null');
+        }
+        $this->container['status_code'] = $status_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message Сообщение, предоставляющее дополнительную информацию об ошибке, в том числе сведения, помогающие устранить ее, когда это возможно.
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
+        }
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_code
      *
      * @return string
      */
-    public function getName()
+    public function getErrorCode()
     {
-        return $this->container['name'];
+        return $this->container['error_code'];
     }
 
     /**
-     * Sets name
+     * Sets error_code
      *
-     * @param string $name Имя, установленное для токена.
+     * @param string $error_code Краткое описание ошибки HTTP на основе статуса.
      *
      * @return self
      */
-    public function setName($name)
+    public function setErrorCode($error_code)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($error_code)) {
+            throw new \InvalidArgumentException('non-nullable error_code cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['error_code'] = $error_code;
 
         return $this;
     }
 
     /**
-     * Gets expire
+     * Gets response_id
      *
-     * @return \DateTime|null
+     * @return string
      */
-    public function getExpire()
+    public function getResponseId()
     {
-        return $this->container['expire'];
+        return $this->container['response_id'];
     }
 
     /**
-     * Sets expire
+     * Sets response_id
      *
-     * @param \DateTime|null $expire Значение времени, указанное в комбинированном формате даты и времени ISO8601, которое представляет, когда истекает токен.
+     * @param string $response_id Идентификатор запроса, который можно указывать при обращении в службу технической поддержки, чтобы помочь определить проблему.
      *
      * @return self
      */
-    public function setExpire($expire)
+    public function setResponseId($response_id)
     {
-        if (is_null($expire)) {
-            throw new \InvalidArgumentException('non-nullable expire cannot be null');
+        if (is_null($response_id)) {
+            throw new \InvalidArgumentException('non-nullable response_id cannot be null');
         }
-        $this->container['expire'] = $expire;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_able_to_delete
-     *
-     * @return bool|null
-     */
-    public function getIsAbleToDelete()
-    {
-        return $this->container['is_able_to_delete'];
-    }
-
-    /**
-     * Sets is_able_to_delete
-     *
-     * @param bool|null $is_able_to_delete Это логическое значение, которое показывает, можно ли удалять управляемые сервисы при помощи данного токена без подтверждения через Телеграм, когда это подтверждение включено.
-     *
-     * @return self
-     */
-    public function setIsAbleToDelete($is_able_to_delete)
-    {
-        if (is_null($is_able_to_delete)) {
-            throw new \InvalidArgumentException('non-nullable is_able_to_delete cannot be null');
-        }
-        $this->container['is_able_to_delete'] = $is_able_to_delete;
-
-        return $this;
-    }
-
-    /**
-     * Gets roles
-     *
-     * @return string[]|null
-     */
-    public function getRoles()
-    {
-        return $this->container['roles'];
-    }
-
-    /**
-     * Sets roles
-     *
-     * @param string[]|null $roles Роли, которые могут быть назначены токену.
-     *
-     * @return self
-     */
-    public function setRoles($roles)
-    {
-        if (is_null($roles)) {
-            throw new \InvalidArgumentException('non-nullable roles cannot be null');
-        }
-        $allowedValues = $this->getRolesAllowableValues();
-        if (array_diff($roles, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'roles', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['roles'] = $roles;
-
-        return $this;
-    }
-
-    /**
-     * Gets projects
-     *
-     * @return float[]|null
-     */
-    public function getProjects()
-    {
-        return $this->container['projects'];
-    }
-
-    /**
-     * Sets projects
-     *
-     * @param float[]|null $projects Список идентификаторов проектов, к которым привязан токен. Если передан null - доступ к проектам не ограничен.
-     *
-     * @return self
-     */
-    public function setProjects($projects)
-    {
-        if (is_null($projects)) {
-            array_push($this->openAPINullablesSetToNull, 'projects');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('projects', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['projects'] = $projects;
+        $this->container['response_id'] = $response_id;
 
         return $this;
     }

@@ -383,6 +383,7 @@ Class | Method | HTTP request | Description
 *KubernetesApi* | [**updateCluster**](docs/Api/KubernetesApi.md#updatecluster) | **PATCH** /api/v1/k8s/clusters/{cluster_id} | Обновление информации о кластере
 *LocationsApi* | [**getLocations**](docs/Api/LocationsApi.md#getlocations) | **GET** /api/v2/locations | Получение списка локаций
 *MailApi* | [**createDomainMailbox**](docs/Api/MailApi.md#createdomainmailbox) | **POST** /api/v1/mail/domains/{domain} | Создание почтового ящика
+*MailApi* | [**createMultipleDomainMailboxes**](docs/Api/MailApi.md#createmultipledomainmailboxes) | **POST** /api/v1/mail/domains/{domain}/batch | Множественное создание почтовых ящиков
 *MailApi* | [**deleteMailbox**](docs/Api/MailApi.md#deletemailbox) | **DELETE** /api/v1/mail/domains/{domain}/mailboxes/{mailbox} | Удаление почтового ящика
 *MailApi* | [**getDomainMailInfo**](docs/Api/MailApi.md#getdomainmailinfo) | **GET** /api/v1/mail/domains/{domain}/info | Получение почтовой информации о домене
 *MailApi* | [**getDomainMailboxes**](docs/Api/MailApi.md#getdomainmailboxes) | **GET** /api/v1/mail/domains/{domain} | Получение списка почтовых ящиков домена
@@ -595,6 +596,9 @@ Class | Method | HTTP request | Description
 - [CreateInstance](docs/Model/CreateInstance.md)
 - [CreateKey201Response](docs/Model/CreateKey201Response.md)
 - [CreateKeyRequest](docs/Model/CreateKeyRequest.md)
+- [CreateMultipleDomainMailboxes201Response](docs/Model/CreateMultipleDomainMailboxes201Response.md)
+- [CreateMultipleDomainMailboxesRequest](docs/Model/CreateMultipleDomainMailboxesRequest.md)
+- [CreateMultipleDomainMailboxesRequestMailboxesInner](docs/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.md)
 - [CreateNetworkDrive](docs/Model/CreateNetworkDrive.md)
 - [CreateNetworkDrive201Response](docs/Model/CreateNetworkDrive201Response.md)
 - [CreateProject](docs/Model/CreateProject.md)
@@ -720,10 +724,10 @@ Class | Method | HTTP request | Description
 - [GetFinances400Response](docs/Model/GetFinances400Response.md)
 - [GetFinances401Response](docs/Model/GetFinances401Response.md)
 - [GetFinances403Response](docs/Model/GetFinances403Response.md)
-- [GetFinances404Response](docs/Model/GetFinances404Response.md)
 - [GetFinances429Response](docs/Model/GetFinances429Response.md)
 - [GetFinances500Response](docs/Model/GetFinances500Response.md)
 - [GetFloatingIps200Response](docs/Model/GetFloatingIps200Response.md)
+- [GetImage404Response](docs/Model/GetImage404Response.md)
 - [GetKey200Response](docs/Model/GetKey200Response.md)
 - [GetKeys200Response](docs/Model/GetKeys200Response.md)
 - [GetLocations200Response](docs/Model/GetLocations200Response.md)

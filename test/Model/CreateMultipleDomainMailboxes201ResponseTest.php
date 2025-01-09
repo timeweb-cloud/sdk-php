@@ -1,6 +1,6 @@
 <?php
 /**
- * GetFinances404ResponseTest
+ * CreateMultipleDomainMailboxes201ResponseTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * GetFinances404ResponseTest Class Doc Comment
+ * CreateMultipleDomainMailboxes201ResponseTest Class Doc Comment
  *
  * @category    Class
- * @description GetFinances404Response
+ * @description CreateMultipleDomainMailboxes201Response
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetFinances404ResponseTest extends TestCase
+class CreateMultipleDomainMailboxes201ResponseTest extends TestCase
 {
 
     /**
@@ -72,45 +72,18 @@ class GetFinances404ResponseTest extends TestCase
     }
 
     /**
-     * Test "GetFinances404Response"
+     * Test "CreateMultipleDomainMailboxes201Response"
      */
-    public function testGetFinances404Response()
+    public function testCreateMultipleDomainMailboxes201Response()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "status_code"
+     * Test attribute "mailboxes"
      */
-    public function testPropertyStatusCode()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "message"
-     */
-    public function testPropertyMessage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "error_code"
-     */
-    public function testPropertyErrorCode()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "response_id"
-     */
-    public function testPropertyResponseId()
+    public function testPropertyMailboxes()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

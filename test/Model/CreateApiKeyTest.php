@@ -106,4 +106,22 @@ class CreateApiKeyTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "roles"
+     */
+    public function testPropertyRoles()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "projects"
+     */
+    public function testPropertyProjects()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

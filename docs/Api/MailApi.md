@@ -5,6 +5,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createDomainMailbox()**](MailApi.md#createDomainMailbox) | **POST** /api/v1/mail/domains/{domain} | Создание почтового ящика |
+| [**createMultipleDomainMailboxes()**](MailApi.md#createMultipleDomainMailboxes) | **POST** /api/v1/mail/domains/{domain}/batch | Множественное создание почтовых ящиков |
 | [**deleteMailbox()**](MailApi.md#deleteMailbox) | **DELETE** /api/v1/mail/domains/{domain}/mailboxes/{mailbox} | Удаление почтового ящика |
 | [**getDomainMailInfo()**](MailApi.md#getDomainMailInfo) | **GET** /api/v1/mail/domains/{domain}/info | Получение почтовой информации о домене |
 | [**getDomainMailboxes()**](MailApi.md#getDomainMailboxes) | **GET** /api/v1/mail/domains/{domain} | Получение списка почтовых ящиков домена |
@@ -64,6 +65,68 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\CreateDomainMailbox201Response**](../Model/CreateDomainMailbox201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createMultipleDomainMailboxes()`
+
+```php
+createMultipleDomainMailboxes($domain, $create_multiple_domain_mailboxes_request): \OpenAPI\Client\Model\CreateMultipleDomainMailboxes201Response
+```
+
+Множественное создание почтовых ящиков
+
+Чтобы создать почтовый ящики, отправьте POST-запрос на `/api/v1/mail/domains/{domain}/batch`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\MailApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$domain = somedomain.ru; // string | Полное имя домена
+$create_multiple_domain_mailboxes_request = new \OpenAPI\Client\Model\CreateMultipleDomainMailboxesRequest(); // \OpenAPI\Client\Model\CreateMultipleDomainMailboxesRequest
+
+try {
+    $result = $apiInstance->createMultipleDomainMailboxes($domain, $create_multiple_domain_mailboxes_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MailApi->createMultipleDomainMailboxes: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **domain** | **string**| Полное имя домена | |
+| **create_multiple_domain_mailboxes_request** | [**\OpenAPI\Client\Model\CreateMultipleDomainMailboxesRequest**](../Model/CreateMultipleDomainMailboxesRequest.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreateMultipleDomainMailboxes201Response**](../Model/CreateMultipleDomainMailboxes201Response.md)
 
 ### Authorization
 

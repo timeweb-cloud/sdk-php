@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateApiKey
+ * CreateMultipleDomainMailboxesRequestMailboxesInner
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * CreateApiKey Class Doc Comment
+ * CreateMultipleDomainMailboxesRequestMailboxesInner Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateMultipleDomainMailboxesRequestMailboxesInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'create-api-key';
+    protected static $openAPIModelName = 'createMultipleDomainMailboxes_request_mailboxes_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'expire' => '\DateTime',
-        'is_able_to_delete' => 'bool',
-        'roles' => 'string[]',
-        'projects' => 'float[]'
+        'login' => 'string',
+        'password' => 'string',
+        'owner_full_name' => 'string',
+        'comment' => 'string'
     ];
 
     /**
@@ -73,11 +72,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'expire' => 'date-time',
-        'is_able_to_delete' => null,
-        'roles' => null,
-        'projects' => null
+        'login' => null,
+        'password' => null,
+        'owner_full_name' => null,
+        'comment' => null
     ];
 
     /**
@@ -86,11 +84,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'expire' => false,
-		'is_able_to_delete' => false,
-		'roles' => false,
-		'projects' => true
+        'login' => false,
+		'password' => false,
+		'owner_full_name' => false,
+		'comment' => false
     ];
 
     /**
@@ -179,11 +176,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'expire' => 'expire',
-        'is_able_to_delete' => 'is_able_to_delete',
-        'roles' => 'roles',
-        'projects' => 'projects'
+        'login' => 'login',
+        'password' => 'password',
+        'owner_full_name' => 'owner_full_name',
+        'comment' => 'comment'
     ];
 
     /**
@@ -192,11 +188,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'expire' => 'setExpire',
-        'is_able_to_delete' => 'setIsAbleToDelete',
-        'roles' => 'setRoles',
-        'projects' => 'setProjects'
+        'login' => 'setLogin',
+        'password' => 'setPassword',
+        'owner_full_name' => 'setOwnerFullName',
+        'comment' => 'setComment'
     ];
 
     /**
@@ -205,11 +200,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'expire' => 'getExpire',
-        'is_able_to_delete' => 'getIsAbleToDelete',
-        'roles' => 'getRoles',
-        'projects' => 'getProjects'
+        'login' => 'getLogin',
+        'password' => 'getPassword',
+        'owner_full_name' => 'getOwnerFullName',
+        'comment' => 'getComment'
     ];
 
     /**
@@ -253,81 +247,6 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const ROLES_SERVERSREAD = 'servers:read';
-    public const ROLES_SERVERSWRITE = 'servers:write';
-    public const ROLES_DATABASESREAD = 'databases:read';
-    public const ROLES_DATABASESWRITE = 'databases:write';
-    public const ROLES_BALANCERSREAD = 'balancers:read';
-    public const ROLES_BALANCERSWRITE = 'balancers:write';
-    public const ROLES_STORAGESREAD = 'storages:read';
-    public const ROLES_STORAGESWRITE = 'storages:write';
-    public const ROLES_DEDICATEDREAD = 'dedicated:read';
-    public const ROLES_DEDICATEDWRITE = 'dedicated:write';
-    public const ROLES_CLUSTERSREAD = 'clusters:read';
-    public const ROLES_CLUSTERSWRITE = 'clusters:write';
-    public const ROLES_VPCREAD = 'vpc:read';
-    public const ROLES_VPCWRITE = 'vpc:write';
-    public const ROLES_FLOATING_IPSREAD = 'floating-ips:read';
-    public const ROLES_FLOATING_IPSWRITE = 'floating-ips:write';
-    public const ROLES_DOMAINSREAD = 'domains:read';
-    public const ROLES_DOMAINSWRITE = 'domains:write';
-    public const ROLES_ADMINISTRATORSWRITE = 'administrators:write';
-    public const ROLES_FIREWALLREAD = 'firewall:read';
-    public const ROLES_FIREWALLREAD = 'firewall:read';
-    public const ROLES_FINANCESWRITE = 'finances:write';
-    public const ROLES_SUPPORTREAD = 'support:read';
-    public const ROLES_SUPPORTWRITE = 'support:write';
-    public const ROLES_VPNREAD = 'vpn:read';
-    public const ROLES_VPNWRITE = 'vpn:write';
-    public const ROLES_MAILREAD = 'mail:read';
-    public const ROLES_MAILWRITE = 'mail:write';
-    public const ROLES_APPSREAD = 'apps:read';
-    public const ROLES_APPSWRITE = 'apps:write';
-    public const ROLES_NETWORK_DRIVESREAD = 'network-drives:read';
-    public const ROLES_NETWORK_DRIVESWRITE = 'network-drives:write';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRolesAllowableValues()
-    {
-        return [
-            self::ROLES_SERVERSREAD,
-            self::ROLES_SERVERSWRITE,
-            self::ROLES_DATABASESREAD,
-            self::ROLES_DATABASESWRITE,
-            self::ROLES_BALANCERSREAD,
-            self::ROLES_BALANCERSWRITE,
-            self::ROLES_STORAGESREAD,
-            self::ROLES_STORAGESWRITE,
-            self::ROLES_DEDICATEDREAD,
-            self::ROLES_DEDICATEDWRITE,
-            self::ROLES_CLUSTERSREAD,
-            self::ROLES_CLUSTERSWRITE,
-            self::ROLES_VPCREAD,
-            self::ROLES_VPCWRITE,
-            self::ROLES_FLOATING_IPSREAD,
-            self::ROLES_FLOATING_IPSWRITE,
-            self::ROLES_DOMAINSREAD,
-            self::ROLES_DOMAINSWRITE,
-            self::ROLES_ADMINISTRATORSWRITE,
-            self::ROLES_FIREWALLREAD,
-            self::ROLES_FIREWALLREAD,
-            self::ROLES_FINANCESWRITE,
-            self::ROLES_SUPPORTREAD,
-            self::ROLES_SUPPORTWRITE,
-            self::ROLES_VPNREAD,
-            self::ROLES_VPNWRITE,
-            self::ROLES_MAILREAD,
-            self::ROLES_MAILWRITE,
-            self::ROLES_APPSREAD,
-            self::ROLES_APPSWRITE,
-            self::ROLES_NETWORK_DRIVESREAD,
-            self::ROLES_NETWORK_DRIVESWRITE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -344,11 +263,10 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('expire', $data ?? [], null);
-        $this->setIfExists('is_able_to_delete', $data ?? [], null);
-        $this->setIfExists('roles', $data ?? [], null);
-        $this->setIfExists('projects', $data ?? [], null);
+        $this->setIfExists('login', $data ?? [], null);
+        $this->setIfExists('password', $data ?? [], null);
+        $this->setIfExists('owner_full_name', $data ?? [], null);
+        $this->setIfExists('comment', $data ?? [], null);
     }
 
     /**
@@ -378,8 +296,11 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['login'] === null) {
+            $invalidProperties[] = "'login' can't be null";
+        }
+        if ($this->container['password'] === null) {
+            $invalidProperties[] = "'password' can't be null";
         }
         return $invalidProperties;
     }
@@ -397,152 +318,109 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets login
      *
      * @return string
      */
-    public function getName()
+    public function getLogin()
     {
-        return $this->container['name'];
+        return $this->container['login'];
     }
 
     /**
-     * Sets name
+     * Sets login
      *
-     * @param string $name Имя, установленное для токена.
+     * @param string $login Название почтового ящика
      *
      * @return self
      */
-    public function setName($name)
+    public function setLogin($login)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($login)) {
+            throw new \InvalidArgumentException('non-nullable login cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['login'] = $login;
 
         return $this;
     }
 
     /**
-     * Gets expire
+     * Gets password
      *
-     * @return \DateTime|null
+     * @return string
      */
-    public function getExpire()
+    public function getPassword()
     {
-        return $this->container['expire'];
+        return $this->container['password'];
     }
 
     /**
-     * Sets expire
+     * Sets password
      *
-     * @param \DateTime|null $expire Значение времени, указанное в комбинированном формате даты и времени ISO8601, которое представляет, когда истекает токен.
+     * @param string $password Пароль почтового ящика
      *
      * @return self
      */
-    public function setExpire($expire)
+    public function setPassword($password)
     {
-        if (is_null($expire)) {
-            throw new \InvalidArgumentException('non-nullable expire cannot be null');
+        if (is_null($password)) {
+            throw new \InvalidArgumentException('non-nullable password cannot be null');
         }
-        $this->container['expire'] = $expire;
+        $this->container['password'] = $password;
 
         return $this;
     }
 
     /**
-     * Gets is_able_to_delete
+     * Gets owner_full_name
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getIsAbleToDelete()
+    public function getOwnerFullName()
     {
-        return $this->container['is_able_to_delete'];
+        return $this->container['owner_full_name'];
     }
 
     /**
-     * Sets is_able_to_delete
+     * Sets owner_full_name
      *
-     * @param bool|null $is_able_to_delete Это логическое значение, которое показывает, можно ли удалять управляемые сервисы при помощи данного токена без подтверждения через Телеграм, когда это подтверждение включено.
+     * @param string|null $owner_full_name ФИО владельца почтового ящика
      *
      * @return self
      */
-    public function setIsAbleToDelete($is_able_to_delete)
+    public function setOwnerFullName($owner_full_name)
     {
-        if (is_null($is_able_to_delete)) {
-            throw new \InvalidArgumentException('non-nullable is_able_to_delete cannot be null');
+        if (is_null($owner_full_name)) {
+            throw new \InvalidArgumentException('non-nullable owner_full_name cannot be null');
         }
-        $this->container['is_able_to_delete'] = $is_able_to_delete;
+        $this->container['owner_full_name'] = $owner_full_name;
 
         return $this;
     }
 
     /**
-     * Gets roles
+     * Gets comment
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getRoles()
+    public function getComment()
     {
-        return $this->container['roles'];
+        return $this->container['comment'];
     }
 
     /**
-     * Sets roles
+     * Sets comment
      *
-     * @param string[]|null $roles Роли, которые могут быть назначены токену.
+     * @param string|null $comment Комментарий почтового ящика
      *
      * @return self
      */
-    public function setRoles($roles)
+    public function setComment($comment)
     {
-        if (is_null($roles)) {
-            throw new \InvalidArgumentException('non-nullable roles cannot be null');
+        if (is_null($comment)) {
+            throw new \InvalidArgumentException('non-nullable comment cannot be null');
         }
-        $allowedValues = $this->getRolesAllowableValues();
-        if (array_diff($roles, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'roles', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['roles'] = $roles;
-
-        return $this;
-    }
-
-    /**
-     * Gets projects
-     *
-     * @return float[]|null
-     */
-    public function getProjects()
-    {
-        return $this->container['projects'];
-    }
-
-    /**
-     * Sets projects
-     *
-     * @param float[]|null $projects Список идентификаторов проектов, к которым привязан токен. Если передан null - доступ к проектам не ограничен.
-     *
-     * @return self
-     */
-    public function setProjects($projects)
-    {
-        if (is_null($projects)) {
-            array_push($this->openAPINullablesSetToNull, 'projects');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('projects', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['projects'] = $projects;
+        $this->container['comment'] = $comment;
 
         return $this;
     }

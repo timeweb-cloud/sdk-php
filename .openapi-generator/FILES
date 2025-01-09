@@ -118,6 +118,9 @@ docs/Model/CreateFolderInStorageRequest.md
 docs/Model/CreateInstance.md
 docs/Model/CreateKey201Response.md
 docs/Model/CreateKeyRequest.md
+docs/Model/CreateMultipleDomainMailboxes201Response.md
+docs/Model/CreateMultipleDomainMailboxesRequest.md
+docs/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.md
 docs/Model/CreateNetworkDrive.md
 docs/Model/CreateNetworkDrive201Response.md
 docs/Model/CreateProject.md
@@ -243,10 +246,10 @@ docs/Model/GetFinances200Response.md
 docs/Model/GetFinances400Response.md
 docs/Model/GetFinances401Response.md
 docs/Model/GetFinances403Response.md
-docs/Model/GetFinances404Response.md
 docs/Model/GetFinances429Response.md
 docs/Model/GetFinances500Response.md
 docs/Model/GetFloatingIps200Response.md
+docs/Model/GetImage404Response.md
 docs/Model/GetKey200Response.md
 docs/Model/GetKeys200Response.md
 docs/Model/GetLocations200Response.md
@@ -556,6 +559,9 @@ lib/Model/CreateFolderInStorageRequest.php
 lib/Model/CreateInstance.php
 lib/Model/CreateKey201Response.php
 lib/Model/CreateKeyRequest.php
+lib/Model/CreateMultipleDomainMailboxes201Response.php
+lib/Model/CreateMultipleDomainMailboxesRequest.php
+lib/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.php
 lib/Model/CreateNetworkDrive.php
 lib/Model/CreateNetworkDrive201Response.php
 lib/Model/CreateProject.php
@@ -681,10 +687,10 @@ lib/Model/GetFinances200Response.php
 lib/Model/GetFinances400Response.php
 lib/Model/GetFinances401Response.php
 lib/Model/GetFinances403Response.php
-lib/Model/GetFinances404Response.php
 lib/Model/GetFinances429Response.php
 lib/Model/GetFinances500Response.php
 lib/Model/GetFloatingIps200Response.php
+lib/Model/GetImage404Response.php
 lib/Model/GetKey200Response.php
 lib/Model/GetKeys200Response.php
 lib/Model/GetLocations200Response.php
@@ -993,6 +999,9 @@ test/Model/CreateFolderInStorageRequestTest.php
 test/Model/CreateInstanceTest.php
 test/Model/CreateKey201ResponseTest.php
 test/Model/CreateKeyRequestTest.php
+test/Model/CreateMultipleDomainMailboxes201ResponseTest.php
+test/Model/CreateMultipleDomainMailboxesRequestMailboxesInnerTest.php
+test/Model/CreateMultipleDomainMailboxesRequestTest.php
 test/Model/CreateNetworkDrive201ResponseTest.php
 test/Model/CreateNetworkDriveTest.php
 test/Model/CreateProject201ResponseTest.php
@@ -1118,10 +1127,10 @@ test/Model/GetFinances200ResponseTest.php
 test/Model/GetFinances400ResponseTest.php
 test/Model/GetFinances401ResponseTest.php
 test/Model/GetFinances403ResponseTest.php
-test/Model/GetFinances404ResponseTest.php
 test/Model/GetFinances429ResponseTest.php
 test/Model/GetFinances500ResponseTest.php
 test/Model/GetFloatingIps200ResponseTest.php
+test/Model/GetImage404ResponseTest.php
 test/Model/GetKey200ResponseTest.php
 test/Model/GetKeys200ResponseTest.php
 test/Model/GetLocations200ResponseTest.php

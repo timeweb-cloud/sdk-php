@@ -1,4 +1,4 @@
-# # GetFinances404Response
+# # GetImage404Response
 
 ## Properties
 
