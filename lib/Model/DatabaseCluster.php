@@ -313,6 +313,13 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     public const STATUS_STARTING = 'starting';
     public const STATUS_STOPPED = 'stopped';
     public const STATUS_NO_PAID = 'no_paid';
+    public const STATUS_LAN_TRANSFER = 'lan_transfer';
+    public const STATUS_ERROR = 'error';
+    public const STATUS_BLOCKED = 'blocked';
+    public const STATUS_BACKUP_RECOVERY = 'backup_recovery';
+    public const STATUS_REBOOTING = 'rebooting';
+    public const STATUS_TURNING_OFF = 'turning_off';
+    public const STATUS_TURNING_ON = 'turning_on';
 
     /**
      * Gets allowable values of the enum
@@ -355,6 +362,13 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             self::STATUS_STARTING,
             self::STATUS_STOPPED,
             self::STATUS_NO_PAID,
+            self::STATUS_LAN_TRANSFER,
+            self::STATUS_ERROR,
+            self::STATUS_BLOCKED,
+            self::STATUS_BACKUP_RECOVERY,
+            self::STATUS_REBOOTING,
+            self::STATUS_TURNING_OFF,
+            self::STATUS_TURNING_ON,
         ];
     }
 
