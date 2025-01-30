@@ -61,7 +61,8 @@ class DnsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'type' => 'string',
         'id' => 'float',
-        'data' => '\OpenAPI\Client\Model\DnsRecordData'
+        'data' => '\OpenAPI\Client\Model\DnsRecordData',
+        'ttl' => 'float'
     ];
 
     /**
@@ -74,7 +75,8 @@ class DnsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'type' => null,
         'id' => null,
-        'data' => null
+        'data' => null,
+        'ttl' => null
     ];
 
     /**
@@ -85,7 +87,8 @@ class DnsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'type' => false,
 		'id' => true,
-		'data' => false
+		'data' => false,
+		'ttl' => true
     ];
 
     /**
@@ -176,7 +179,8 @@ class DnsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'type' => 'type',
         'id' => 'id',
-        'data' => 'data'
+        'data' => 'data',
+        'ttl' => 'ttl'
     ];
 
     /**
@@ -187,7 +191,8 @@ class DnsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'type' => 'setType',
         'id' => 'setId',
-        'data' => 'setData'
+        'data' => 'setData',
+        'ttl' => 'setTtl'
     ];
 
     /**
@@ -198,7 +203,8 @@ class DnsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'type' => 'getType',
         'id' => 'getId',
-        'data' => 'getData'
+        'data' => 'getData',
+        'ttl' => 'getTtl'
     ];
 
     /**
@@ -284,6 +290,7 @@ class DnsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('ttl', $data ?? [], null);
     }
 
     /**
@@ -437,6 +444,40 @@ class DnsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets ttl
+     *
+     * @return float|null
+     */
+    public function getTtl()
+    {
+        return $this->container['ttl'];
+    }
+
+    /**
+     * Sets ttl
+     *
+     * @param float|null $ttl Время жизни DNS-записи.
+     *
+     * @return self
+     */
+    public function setTtl($ttl)
+    {
+        if (is_null($ttl)) {
+            array_push($this->openAPINullablesSetToNull, 'ttl');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ttl', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ttl'] = $ttl;
 
         return $this;
     }

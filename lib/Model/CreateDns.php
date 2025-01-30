@@ -61,7 +61,8 @@ class CreateDns implements ModelInterface, ArrayAccess, \JsonSerializable
         'priority' => 'float',
         'subdomain' => 'string',
         'type' => 'string',
-        'value' => 'string'
+        'value' => 'string',
+        'ttl' => 'float'
     ];
 
     /**
@@ -75,7 +76,8 @@ class CreateDns implements ModelInterface, ArrayAccess, \JsonSerializable
         'priority' => null,
         'subdomain' => null,
         'type' => null,
-        'value' => null
+        'value' => null,
+        'ttl' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class CreateDns implements ModelInterface, ArrayAccess, \JsonSerializable
         'priority' => false,
 		'subdomain' => false,
 		'type' => false,
-		'value' => false
+		'value' => false,
+		'ttl' => true
     ];
 
     /**
@@ -179,7 +182,8 @@ class CreateDns implements ModelInterface, ArrayAccess, \JsonSerializable
         'priority' => 'priority',
         'subdomain' => 'subdomain',
         'type' => 'type',
-        'value' => 'value'
+        'value' => 'value',
+        'ttl' => 'ttl'
     ];
 
     /**
@@ -191,7 +195,8 @@ class CreateDns implements ModelInterface, ArrayAccess, \JsonSerializable
         'priority' => 'setPriority',
         'subdomain' => 'setSubdomain',
         'type' => 'setType',
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'ttl' => 'setTtl'
     ];
 
     /**
@@ -203,7 +208,8 @@ class CreateDns implements ModelInterface, ArrayAccess, \JsonSerializable
         'priority' => 'getPriority',
         'subdomain' => 'getSubdomain',
         'type' => 'getType',
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'ttl' => 'getTtl'
     ];
 
     /**
@@ -290,6 +296,7 @@ class CreateDns implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('subdomain', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('ttl', $data ?? [], null);
     }
 
     /**
@@ -463,6 +470,40 @@ class CreateDns implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable value cannot be null');
         }
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets ttl
+     *
+     * @return float|null
+     */
+    public function getTtl()
+    {
+        return $this->container['ttl'];
+    }
+
+    /**
+     * Sets ttl
+     *
+     * @param float|null $ttl Время жизни DNS-записи.
+     *
+     * @return self
+     */
+    public function setTtl($ttl)
+    {
+        if (is_null($ttl)) {
+            array_push($this->openAPINullablesSetToNull, 'ttl');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ttl', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ttl'] = $ttl;
 
         return $this;
     }

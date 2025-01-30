@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **subdomain** | **string** | Полное имя поддомена. | [optional]
 **type** | **string** | Тип DNS-записи. |
 **value** | **string** | Значение DNS-записи. |
+**ttl** | **float** | Время жизни DNS-записи. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

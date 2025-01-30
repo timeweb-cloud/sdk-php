@@ -106,4 +106,13 @@ class DnsRecordTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "ttl"
+     */
+    public function testPropertyTtl()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }
