@@ -88,7 +88,7 @@ class DnsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => false,
 		'id' => true,
 		'data' => false,
-		'ttl' => true
+		'ttl' => false
     ];
 
     /**
@@ -468,14 +468,7 @@ class DnsRecord implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTtl($ttl)
     {
         if (is_null($ttl)) {
-            array_push($this->openAPINullablesSetToNull, 'ttl');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ttl', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable ttl cannot be null');
         }
         $this->container['ttl'] = $ttl;
 
