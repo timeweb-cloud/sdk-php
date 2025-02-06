@@ -273,7 +273,6 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
     public const ROLES_DOMAINSWRITE = 'domains:write';
     public const ROLES_ADMINISTRATORSWRITE = 'administrators:write';
     public const ROLES_FIREWALLREAD = 'firewall:read';
-    public const ROLES_FIREWALLREAD = 'firewall:read';
     public const ROLES_FINANCESWRITE = 'finances:write';
     public const ROLES_SUPPORTREAD = 'support:read';
     public const ROLES_SUPPORTWRITE = 'support:write';
@@ -313,7 +312,6 @@ class CreateApiKey implements ModelInterface, ArrayAccess, \JsonSerializable
             self::ROLES_DOMAINSREAD,
             self::ROLES_DOMAINSWRITE,
             self::ROLES_ADMINISTRATORSWRITE,
-            self::ROLES_FIREWALLREAD,
             self::ROLES_FIREWALLREAD,
             self::ROLES_FINANCESWRITE,
             self::ROLES_SUPPORTREAD,
