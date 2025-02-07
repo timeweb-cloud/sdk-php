@@ -2709,7 +2709,7 @@ class NetworkDrivesApi
         }
 
 
-        $resourcePath = '/api/v1/network-drives/{network_drive_id}/bind';
+        $resourcePath = '/api/v1/network-drives/{network_drive_id}/mount';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2997,7 +2997,7 @@ class NetworkDrivesApi
         }
 
 
-        $resourcePath = '/api/v1/network-drives/{network_drive_id}/unbind';
+        $resourcePath = '/api/v1/network-drives/{network_drive_id}/unmount';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
