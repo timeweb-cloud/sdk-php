@@ -99,6 +99,15 @@ class NetworkTest extends TestCase
     }
 
     /**
+     * Test attribute "local_ip"
+     */
+    public function testPropertyLocalIp()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "ip"
      */
     public function testPropertyIp()

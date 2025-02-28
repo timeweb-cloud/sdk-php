@@ -60,6 +60,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'floating_ip' => 'string',
+        'local_ip' => 'string',
         'ip' => 'string'
     ];
 
@@ -73,6 +74,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => null,
         'floating_ip' => null,
+        'local_ip' => null,
         'ip' => null
     ];
 
@@ -84,6 +86,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'id' => false,
 		'floating_ip' => false,
+		'local_ip' => false,
 		'ip' => false
     ];
 
@@ -175,6 +178,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'floating_ip' => 'floating_ip',
+        'local_ip' => 'local_ip',
         'ip' => 'ip'
     ];
 
@@ -186,6 +190,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'floating_ip' => 'setFloatingIp',
+        'local_ip' => 'setLocalIp',
         'ip' => 'setIp'
     ];
 
@@ -197,6 +202,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'floating_ip' => 'getFloatingIp',
+        'local_ip' => 'getLocalIp',
         'ip' => 'getIp'
     ];
 
@@ -259,6 +265,7 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('floating_ip', $data ?? [], null);
+        $this->setIfExists('local_ip', $data ?? [], null);
         $this->setIfExists('ip', $data ?? [], null);
     }
 
@@ -357,6 +364,33 @@ class Network implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable floating_ip cannot be null');
         }
         $this->container['floating_ip'] = $floating_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets local_ip
+     *
+     * @return string|null
+     */
+    public function getLocalIp()
+    {
+        return $this->container['local_ip'];
+    }
+
+    /**
+     * Sets local_ip
+     *
+     * @param string|null $local_ip IP-адрес в сети.
+     *
+     * @return self
+     */
+    public function setLocalIp($local_ip)
+    {
+        if (is_null($local_ip)) {
+            throw new \InvalidArgumentException('non-nullable local_ip cannot be null');
+        }
+        $this->container['local_ip'] = $local_ip;
 
         return $this;
     }

@@ -373,12 +373,6 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['is_ddos_guard'] === null) {
-            $invalidProperties[] = "'is_ddos_guard' can't be null";
-        }
-        if ($this->container['bandwidth'] === null) {
-            $invalidProperties[] = "'bandwidth' can't be null";
-        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -435,7 +429,7 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets is_ddos_guard
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIsDdosGuard()
     {
@@ -445,7 +439,7 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_ddos_guard
      *
-     * @param bool $is_ddos_guard Защита от DDoS. Серверу выдается защищенный IP-адрес с защитой уровня L3 / L4. Для включения защиты уровня L7 необходимо создать тикет в техническую поддержку.
+     * @param bool|null $is_ddos_guard Защита от DDoS. Серверу выдается защищенный IP-адрес с защитой уровня L3 / L4. Для включения защиты уровня L7 необходимо создать тикет в техническую поддержку.
      *
      * @return self
      */
@@ -570,7 +564,7 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets bandwidth
      *
-     * @return float
+     * @return float|null
      */
     public function getBandwidth()
     {
@@ -580,7 +574,7 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bandwidth
      *
-     * @param float $bandwidth Пропускная способность тарифа. Доступные значения от 100 до 1000 с шагом 100.
+     * @param float|null $bandwidth Пропускная способность тарифа. Доступные значения от 100 до 1000 с шагом 100.
      *
      * @return self
      */

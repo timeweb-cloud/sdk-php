@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  |
 **public_ip** | **string** | Публичный IP-адрес сети. |
 **type** | **string** | Тип сети. |
+**busy_address** | **string[]** | Занятые адреса в сети |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

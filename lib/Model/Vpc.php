@@ -66,7 +66,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'string',
         'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone',
         'public_ip' => 'string',
-        'type' => 'string'
+        'type' => 'string',
+        'busy_address' => 'string[]'
     ];
 
     /**
@@ -85,7 +86,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => null,
         'availability_zone' => null,
         'public_ip' => null,
-        'type' => null
+        'type' => null,
+        'busy_address' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
 		'description' => false,
 		'availability_zone' => false,
 		'public_ip' => true,
-		'type' => false
+		'type' => false,
+		'busy_address' => false
     ];
 
     /**
@@ -199,7 +202,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'description',
         'availability_zone' => 'availability_zone',
         'public_ip' => 'public_ip',
-        'type' => 'type'
+        'type' => 'type',
+        'busy_address' => 'busy_address'
     ];
 
     /**
@@ -216,7 +220,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'setDescription',
         'availability_zone' => 'setAvailabilityZone',
         'public_ip' => 'setPublicIp',
-        'type' => 'setType'
+        'type' => 'setType',
+        'busy_address' => 'setBusyAddress'
     ];
 
     /**
@@ -233,7 +238,8 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'getDescription',
         'availability_zone' => 'getAvailabilityZone',
         'public_ip' => 'getPublicIp',
-        'type' => 'getType'
+        'type' => 'getType',
+        'busy_address' => 'getBusyAddress'
     ];
 
     /**
@@ -336,6 +342,7 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('availability_zone', $data ?? [], null);
         $this->setIfExists('public_ip', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('busy_address', $data ?? [], null);
     }
 
     /**
@@ -410,6 +417,9 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['busy_address'] === null) {
+            $invalidProperties[] = "'busy_address' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -691,6 +701,33 @@ class Vpc implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets busy_address
+     *
+     * @return string[]
+     */
+    public function getBusyAddress()
+    {
+        return $this->container['busy_address'];
+    }
+
+    /**
+     * Sets busy_address
+     *
+     * @param string[] $busy_address Занятые адреса в сети
+     *
+     * @return self
+     */
+    public function setBusyAddress($busy_address)
+    {
+        if (is_null($busy_address)) {
+            throw new \InvalidArgumentException('non-nullable busy_address cannot be null');
+        }
+        $this->container['busy_address'] = $busy_address;
 
         return $this;
     }

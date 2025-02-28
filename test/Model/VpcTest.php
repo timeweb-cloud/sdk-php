@@ -160,4 +160,13 @@ class VpcTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "busy_address"
+     */
+    public function testPropertyBusyAddress()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }
