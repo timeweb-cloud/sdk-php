@@ -46,7 +46,7 @@ class DbType
      */
     public const MYSQL = 'mysql';
 
-    public const MYSQL5 = 'mysql5';
+    public const MYSQL8_4 = 'mysql8_4';
 
     public const POSTGRES14 = 'postgres14';
 
@@ -76,6 +76,10 @@ class DbType
 
     public const CLICKHOUSE = 'clickhouse';
 
+    public const CLICKHOUSE24 = 'clickhouse24';
+
+    public const CLICKHOUSE25 = 'clickhouse25';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -84,7 +88,7 @@ class DbType
     {
         return [
             self::MYSQL,
-            self::MYSQL5,
+            self::MYSQL8_4,
             self::POSTGRES14,
             self::POSTGRES15,
             self::POSTGRES16,
@@ -98,7 +102,9 @@ class DbType
             self::OPENSEARCH,
             self::KAFKA,
             self::RABBITMQ,
-            self::CLICKHOUSE
+            self::CLICKHOUSE,
+            self::CLICKHOUSE24,
+            self::CLICKHOUSE25
         ];
     }
 }

@@ -63,6 +63,7 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
         'version' => 'string',
         'type' => 'string',
         'is_available_replication' => 'bool',
+        'is_deprecated' => 'bool',
         'requirements' => '\OpenAPI\Client\Model\DatabaseTypeRequirements'
     ];
 
@@ -78,6 +79,7 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
         'version' => null,
         'type' => null,
         'is_available_replication' => null,
+        'is_deprecated' => null,
         'requirements' => null
     ];
 
@@ -91,6 +93,7 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
 		'version' => false,
 		'type' => false,
 		'is_available_replication' => false,
+		'is_deprecated' => false,
 		'requirements' => false
     ];
 
@@ -184,6 +187,7 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
         'version' => 'version',
         'type' => 'type',
         'is_available_replication' => 'is_available_replication',
+        'is_deprecated' => 'is_deprecated',
         'requirements' => 'requirements'
     ];
 
@@ -197,6 +201,7 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
         'version' => 'setVersion',
         'type' => 'setType',
         'is_available_replication' => 'setIsAvailableReplication',
+        'is_deprecated' => 'setIsDeprecated',
         'requirements' => 'setRequirements'
     ];
 
@@ -210,6 +215,7 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
         'version' => 'getVersion',
         'type' => 'getType',
         'is_available_replication' => 'getIsAvailableReplication',
+        'is_deprecated' => 'getIsDeprecated',
         'requirements' => 'getRequirements'
     ];
 
@@ -274,6 +280,7 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('version', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('is_available_replication', $data ?? [], null);
+        $this->setIfExists('is_deprecated', $data ?? [], null);
         $this->setIfExists('requirements', $data ?? [], null);
     }
 
@@ -315,6 +322,9 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['is_available_replication'] === null) {
             $invalidProperties[] = "'is_available_replication' can't be null";
+        }
+        if ($this->container['is_deprecated'] === null) {
+            $invalidProperties[] = "'is_deprecated' can't be null";
         }
         return $invalidProperties;
     }
@@ -435,6 +445,33 @@ class DatabaseType implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_available_replication cannot be null');
         }
         $this->container['is_available_replication'] = $is_available_replication;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_deprecated
+     *
+     * @return bool
+     */
+    public function getIsDeprecated()
+    {
+        return $this->container['is_deprecated'];
+    }
+
+    /**
+     * Sets is_deprecated
+     *
+     * @param bool $is_deprecated Устарела ли версия базы.
+     *
+     * @return self
+     */
+    public function setIsDeprecated($is_deprecated)
+    {
+        if (is_null($is_deprecated)) {
+            throw new \InvalidArgumentException('non-nullable is_deprecated cannot be null');
+        }
+        $this->container['is_deprecated'] = $is_deprecated;
 
         return $this;
     }

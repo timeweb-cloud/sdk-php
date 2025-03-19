@@ -61,6 +61,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'float',
         'name' => 'string',
+        'description' => 'string',
         'disk_stats' => '\OpenAPI\Client\Model\BucketDiskStats',
         'type' => 'string',
         'preset_id' => 'float',
@@ -82,6 +83,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => null,
         'name' => null,
+        'description' => null,
         'disk_stats' => null,
         'type' => null,
         'preset_id' => null,
@@ -101,6 +103,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'id' => false,
 		'name' => false,
+		'description' => false,
 		'disk_stats' => false,
 		'type' => false,
 		'preset_id' => true,
@@ -200,6 +203,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
+        'description' => 'description',
         'disk_stats' => 'disk_stats',
         'type' => 'type',
         'preset_id' => 'preset_id',
@@ -219,6 +223,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
+        'description' => 'setDescription',
         'disk_stats' => 'setDiskStats',
         'type' => 'setType',
         'preset_id' => 'setPresetId',
@@ -238,6 +243,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
+        'description' => 'getDescription',
         'disk_stats' => 'getDiskStats',
         'type' => 'getType',
         'preset_id' => 'getPresetId',
@@ -340,6 +346,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('disk_stats', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
@@ -494,6 +501,33 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Комментарий к хранилищу.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        $this->container['description'] = $description;
 
         return $this;
     }

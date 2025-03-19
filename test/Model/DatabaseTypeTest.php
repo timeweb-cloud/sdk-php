@@ -117,6 +117,15 @@ class DatabaseTypeTest extends TestCase
     }
 
     /**
+     * Test attribute "is_deprecated"
+     */
+    public function testPropertyIsDeprecated()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "requirements"
      */
     public function testPropertyRequirements()

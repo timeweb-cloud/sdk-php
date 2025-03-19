@@ -99,6 +99,15 @@ class BucketTest extends TestCase
     }
 
     /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "disk_stats"
      */
     public function testPropertyDiskStats()

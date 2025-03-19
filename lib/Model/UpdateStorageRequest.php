@@ -59,7 +59,8 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'preset_id' => 'float',
-        'bucket_type' => 'string'
+        'bucket_type' => 'string',
+        'description' => 'string'
     ];
 
     /**
@@ -71,7 +72,8 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'preset_id' => null,
-        'bucket_type' => null
+        'bucket_type' => null,
+        'description' => null
     ];
 
     /**
@@ -81,7 +83,8 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'preset_id' => false,
-		'bucket_type' => false
+		'bucket_type' => false,
+		'description' => false
     ];
 
     /**
@@ -171,7 +174,8 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'preset_id' => 'preset_id',
-        'bucket_type' => 'bucket_type'
+        'bucket_type' => 'bucket_type',
+        'description' => 'description'
     ];
 
     /**
@@ -181,7 +185,8 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'preset_id' => 'setPresetId',
-        'bucket_type' => 'setBucketType'
+        'bucket_type' => 'setBucketType',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -191,7 +196,8 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'preset_id' => 'getPresetId',
-        'bucket_type' => 'getBucketType'
+        'bucket_type' => 'getBucketType',
+        'description' => 'getDescription'
     ];
 
     /**
@@ -268,6 +274,7 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $this->setIfExists('preset_id', $data ?? [], null);
         $this->setIfExists('bucket_type', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
     }
 
     /**
@@ -304,6 +311,14 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
                 $this->container['bucket_type'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 255)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 255.";
+        }
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 1)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -381,6 +396,40 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             );
         }
         $this->container['bucket_type'] = $bucket_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Комментарий к хранилищу.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        if ((mb_strlen($description) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling UpdateStorageRequest., must be smaller than or equal to 255.');
+        }
+        if ((mb_strlen($description) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling UpdateStorageRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['description'] = $description;
 
         return $this;
     }

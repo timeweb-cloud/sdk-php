@@ -514,7 +514,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets hash_type
      *
-     * @param string|null $hash_type Тип хеширования базы данных (mysql5 | mysql | postgres).
+     * @param string|null $hash_type Тип хеширования базы данных (mysql | postgres).
      *
      * @return self
      */

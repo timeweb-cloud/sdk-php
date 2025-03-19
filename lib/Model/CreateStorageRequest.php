@@ -59,6 +59,7 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'name' => 'string',
+        'description' => 'string',
         'type' => 'string',
         'preset_id' => 'float'
     ];
@@ -72,6 +73,7 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'name' => null,
+        'description' => null,
         'type' => null,
         'preset_id' => null
     ];
@@ -83,6 +85,7 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'name' => false,
+		'description' => false,
 		'type' => false,
 		'preset_id' => false
     ];
@@ -174,6 +177,7 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'name' => 'name',
+        'description' => 'description',
         'type' => 'type',
         'preset_id' => 'preset_id'
     ];
@@ -185,6 +189,7 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'name' => 'setName',
+        'description' => 'setDescription',
         'type' => 'setType',
         'preset_id' => 'setPresetId'
     ];
@@ -196,6 +201,7 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'name' => 'getName',
+        'description' => 'getDescription',
         'type' => 'getType',
         'preset_id' => 'getPresetId'
     ];
@@ -273,6 +279,7 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
     }
@@ -313,6 +320,14 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
         if ((mb_strlen($this->container['name']) < 1)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 255)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 255.";
+        }
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 1)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 1.";
         }
 
         if ($this->container['type'] === null) {
@@ -375,6 +390,40 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         }
 
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Комментарий к хранилищу.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        if ((mb_strlen($description) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling CreateStorageRequest., must be smaller than or equal to 255.');
+        }
+        if ((mb_strlen($description) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling CreateStorageRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['description'] = $description;
 
         return $this;
     }
