@@ -135,6 +135,15 @@ class BucketTest extends TestCase
     }
 
     /**
+     * Test attribute "configurator_id"
+     */
+    public function testPropertyConfiguratorId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "status"
      */
     public function testPropertyStatus()
@@ -183,6 +192,24 @@ class BucketTest extends TestCase
      * Test attribute "secret_key"
      */
     public function testPropertySecretKey()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "moved_in_quarantine_at"
+     */
+    public function testPropertyMovedInQuarantineAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "storage_class"
+     */
+    public function testPropertyStorageClass()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -88,4 +88,13 @@ class DeleteServiceResponseTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "is_moved_in_quarantine"
+     */
+    public function testPropertyIsMovedInQuarantine()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

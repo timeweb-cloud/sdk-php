@@ -90,6 +90,15 @@ class UpdateStorageRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "configurator_id"
+     */
+    public function testPropertyConfiguratorId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "bucket_type"
      */
     public function testPropertyBucketType()

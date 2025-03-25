@@ -65,12 +65,15 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'disk_stats' => '\OpenAPI\Client\Model\BucketDiskStats',
         'type' => 'string',
         'preset_id' => 'float',
+        'configurator_id' => 'float',
         'status' => 'string',
         'object_amount' => 'float',
         'location' => 'string',
         'hostname' => 'string',
         'access_key' => 'string',
-        'secret_key' => 'string'
+        'secret_key' => 'string',
+        'moved_in_quarantine_at' => '\DateTime',
+        'storage_class' => 'string'
     ];
 
     /**
@@ -87,12 +90,15 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'disk_stats' => null,
         'type' => null,
         'preset_id' => null,
+        'configurator_id' => null,
         'status' => null,
         'object_amount' => null,
         'location' => null,
         'hostname' => null,
         'access_key' => null,
-        'secret_key' => null
+        'secret_key' => null,
+        'moved_in_quarantine_at' => 'date-time',
+        'storage_class' => null
     ];
 
     /**
@@ -107,12 +113,15 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
 		'disk_stats' => false,
 		'type' => false,
 		'preset_id' => true,
+		'configurator_id' => false,
 		'status' => false,
 		'object_amount' => false,
 		'location' => false,
 		'hostname' => false,
 		'access_key' => false,
-		'secret_key' => false
+		'secret_key' => false,
+		'moved_in_quarantine_at' => false,
+		'storage_class' => false
     ];
 
     /**
@@ -207,12 +216,15 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'disk_stats' => 'disk_stats',
         'type' => 'type',
         'preset_id' => 'preset_id',
+        'configurator_id' => 'configurator_id',
         'status' => 'status',
         'object_amount' => 'object_amount',
         'location' => 'location',
         'hostname' => 'hostname',
         'access_key' => 'access_key',
-        'secret_key' => 'secret_key'
+        'secret_key' => 'secret_key',
+        'moved_in_quarantine_at' => 'moved_in_quarantine_at',
+        'storage_class' => 'storage_class'
     ];
 
     /**
@@ -227,12 +239,15 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'disk_stats' => 'setDiskStats',
         'type' => 'setType',
         'preset_id' => 'setPresetId',
+        'configurator_id' => 'setConfiguratorId',
         'status' => 'setStatus',
         'object_amount' => 'setObjectAmount',
         'location' => 'setLocation',
         'hostname' => 'setHostname',
         'access_key' => 'setAccessKey',
-        'secret_key' => 'setSecretKey'
+        'secret_key' => 'setSecretKey',
+        'moved_in_quarantine_at' => 'setMovedInQuarantineAt',
+        'storage_class' => 'setStorageClass'
     ];
 
     /**
@@ -247,12 +262,15 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'disk_stats' => 'getDiskStats',
         'type' => 'getType',
         'preset_id' => 'getPresetId',
+        'configurator_id' => 'getConfiguratorId',
         'status' => 'getStatus',
         'object_amount' => 'getObjectAmount',
         'location' => 'getLocation',
         'hostname' => 'getHostname',
         'access_key' => 'getAccessKey',
-        'secret_key' => 'getSecretKey'
+        'secret_key' => 'getSecretKey',
+        'moved_in_quarantine_at' => 'getMovedInQuarantineAt',
+        'storage_class' => 'getStorageClass'
     ];
 
     /**
@@ -301,6 +319,8 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     public const STATUS_NO_PAID = 'no_paid';
     public const STATUS_CREATED = 'created';
     public const STATUS_TRANSFER = 'transfer';
+    public const STORAGE_CLASS_COLD = 'cold';
+    public const STORAGE_CLASS_HOT = 'hot';
 
     /**
      * Gets allowable values of the enum
@@ -330,6 +350,19 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStorageClassAllowableValues()
+    {
+        return [
+            self::STORAGE_CLASS_COLD,
+            self::STORAGE_CLASS_HOT,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -350,12 +383,15 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('disk_stats', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
+        $this->setIfExists('configurator_id', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('object_amount', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('hostname', $data ?? [], null);
         $this->setIfExists('access_key', $data ?? [], null);
         $this->setIfExists('secret_key', $data ?? [], null);
+        $this->setIfExists('moved_in_quarantine_at', $data ?? [], null);
+        $this->setIfExists('storage_class', $data ?? [], null);
     }
 
     /**
@@ -409,6 +445,9 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['preset_id'] === null) {
             $invalidProperties[] = "'preset_id' can't be null";
         }
+        if ($this->container['configurator_id'] === null) {
+            $invalidProperties[] = "'configurator_id' can't be null";
+        }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
@@ -436,6 +475,21 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['secret_key'] === null) {
             $invalidProperties[] = "'secret_key' can't be null";
         }
+        if ($this->container['moved_in_quarantine_at'] === null) {
+            $invalidProperties[] = "'moved_in_quarantine_at' can't be null";
+        }
+        if ($this->container['storage_class'] === null) {
+            $invalidProperties[] = "'storage_class' can't be null";
+        }
+        $allowedValues = $this->getStorageClassAllowableValues();
+        if (!is_null($this->container['storage_class']) && !in_array($this->container['storage_class'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'storage_class', must be one of '%s'",
+                $this->container['storage_class'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -631,6 +685,33 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets configurator_id
+     *
+     * @return float
+     */
+    public function getConfiguratorId()
+    {
+        return $this->container['configurator_id'];
+    }
+
+    /**
+     * Sets configurator_id
+     *
+     * @param float $configurator_id ID конфигуратора хранилища.
+     *
+     * @return self
+     */
+    public function setConfiguratorId($configurator_id)
+    {
+        if (is_null($configurator_id)) {
+            throw new \InvalidArgumentException('non-nullable configurator_id cannot be null');
+        }
+        $this->container['configurator_id'] = $configurator_id;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string
@@ -798,6 +879,70 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable secret_key cannot be null');
         }
         $this->container['secret_key'] = $secret_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets moved_in_quarantine_at
+     *
+     * @return \DateTime
+     */
+    public function getMovedInQuarantineAt()
+    {
+        return $this->container['moved_in_quarantine_at'];
+    }
+
+    /**
+     * Sets moved_in_quarantine_at
+     *
+     * @param \DateTime $moved_in_quarantine_at Дата перемещения в карантин.
+     *
+     * @return self
+     */
+    public function setMovedInQuarantineAt($moved_in_quarantine_at)
+    {
+        if (is_null($moved_in_quarantine_at)) {
+            throw new \InvalidArgumentException('non-nullable moved_in_quarantine_at cannot be null');
+        }
+        $this->container['moved_in_quarantine_at'] = $moved_in_quarantine_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets storage_class
+     *
+     * @return string
+     */
+    public function getStorageClass()
+    {
+        return $this->container['storage_class'];
+    }
+
+    /**
+     * Sets storage_class
+     *
+     * @param string $storage_class Класс хранилища.
+     *
+     * @return self
+     */
+    public function setStorageClass($storage_class)
+    {
+        if (is_null($storage_class)) {
+            throw new \InvalidArgumentException('non-nullable storage_class cannot be null');
+        }
+        $allowedValues = $this->getStorageClassAllowableValues();
+        if (!in_array($storage_class, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'storage_class', must be one of '%s'",
+                    $storage_class,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['storage_class'] = $storage_class;
 
         return $this;
     }

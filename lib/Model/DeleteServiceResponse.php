@@ -58,7 +58,8 @@ class DeleteServiceResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'hash' => 'string'
+        'hash' => 'string',
+        'is_moved_in_quarantine' => 'bool'
     ];
 
     /**
@@ -69,7 +70,8 @@ class DeleteServiceResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'hash' => null
+        'hash' => null,
+        'is_moved_in_quarantine' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class DeleteServiceResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'hash' => false
+        'hash' => false,
+		'is_moved_in_quarantine' => false
     ];
 
     /**
@@ -167,7 +170,8 @@ class DeleteServiceResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'hash' => 'hash'
+        'hash' => 'hash',
+        'is_moved_in_quarantine' => 'is_moved_in_quarantine'
     ];
 
     /**
@@ -176,7 +180,8 @@ class DeleteServiceResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'hash' => 'setHash'
+        'hash' => 'setHash',
+        'is_moved_in_quarantine' => 'setIsMovedInQuarantine'
     ];
 
     /**
@@ -185,7 +190,8 @@ class DeleteServiceResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'hash' => 'getHash'
+        'hash' => 'getHash',
+        'is_moved_in_quarantine' => 'getIsMovedInQuarantine'
     ];
 
     /**
@@ -246,6 +252,7 @@ class DeleteServiceResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     public function __construct(array $data = null)
     {
         $this->setIfExists('hash', $data ?? [], null);
+        $this->setIfExists('is_moved_in_quarantine', $data ?? [], null);
     }
 
     /**
@@ -275,9 +282,6 @@ class DeleteServiceResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['hash'] === null) {
-            $invalidProperties[] = "'hash' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -296,7 +300,7 @@ class DeleteServiceResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets hash
      *
-     * @return string
+     * @return string|null
      */
     public function getHash()
     {
@@ -306,7 +310,7 @@ class DeleteServiceResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets hash
      *
-     * @param string $hash Хеш, который совместно с кодом авторизации надо будет отправить для удаления.
+     * @param string|null $hash Хеш, который совместно с кодом авторизации надо будет отправить для удаления.
      *
      * @return self
      */
@@ -316,6 +320,33 @@ class DeleteServiceResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable hash cannot be null');
         }
         $this->container['hash'] = $hash;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_moved_in_quarantine
+     *
+     * @return bool|null
+     */
+    public function getIsMovedInQuarantine()
+    {
+        return $this->container['is_moved_in_quarantine'];
+    }
+
+    /**
+     * Sets is_moved_in_quarantine
+     *
+     * @param bool|null $is_moved_in_quarantine Флаг, указывающий на то, что сервис был перемещен в карантин или был удален немедленно.
+     *
+     * @return self
+     */
+    public function setIsMovedInQuarantine($is_moved_in_quarantine)
+    {
+        if (is_null($is_moved_in_quarantine)) {
+            throw new \InvalidArgumentException('non-nullable is_moved_in_quarantine cannot be null');
+        }
+        $this->container['is_moved_in_quarantine'] = $is_moved_in_quarantine;
 
         return $this;
     }

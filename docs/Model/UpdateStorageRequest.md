@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **preset_id** | **float** | ID тарифа. | [optional]
+**configurator_id** | **float** | ID конфигуратора хранилища. | [optional]
 **bucket_type** | **string** | Тип хранилища. | [optional]
 **description** | **string** | Комментарий к хранилищу. | [optional]
 
