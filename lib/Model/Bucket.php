@@ -113,14 +113,14 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
 		'disk_stats' => false,
 		'type' => false,
 		'preset_id' => true,
-		'configurator_id' => false,
+		'configurator_id' => true,
 		'status' => false,
 		'object_amount' => false,
 		'location' => false,
 		'hostname' => false,
 		'access_key' => false,
 		'secret_key' => false,
-		'moved_in_quarantine_at' => false,
+		'moved_in_quarantine_at' => true,
 		'storage_class' => false
     ];
 
@@ -704,7 +704,14 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setConfiguratorId($configurator_id)
     {
         if (is_null($configurator_id)) {
-            throw new \InvalidArgumentException('non-nullable configurator_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'configurator_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('configurator_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['configurator_id'] = $configurator_id;
 
@@ -903,7 +910,14 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMovedInQuarantineAt($moved_in_quarantine_at)
     {
         if (is_null($moved_in_quarantine_at)) {
-            throw new \InvalidArgumentException('non-nullable moved_in_quarantine_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'moved_in_quarantine_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('moved_in_quarantine_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['moved_in_quarantine_at'] = $moved_in_quarantine_at;
 
