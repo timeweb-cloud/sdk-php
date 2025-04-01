@@ -623,6 +623,7 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets avatar_id
      *
      * @return string|null
+     * @deprecated
      */
     public function getAvatarId()
     {
@@ -632,9 +633,10 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets avatar_id
      *
-     * @param string|null $avatar_id ID аватара сервера. Описание методов работы с аватарами появится позднее.
+     * @param string|null $avatar_id ID аватара сервера.
      *
      * @return self
+     * @deprecated
      */
     public function setAvatarId($avatar_id)
     {

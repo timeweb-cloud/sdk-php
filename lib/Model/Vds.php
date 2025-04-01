@@ -80,6 +80,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'ram' => 'float',
         'disks' => '\OpenAPI\Client\Model\VdsDisksInner[]',
         'avatar_id' => 'string',
+        'avatar_link' => 'string',
         'vnc_pass' => 'string',
         'root_pass' => 'string',
         'image' => '\OpenAPI\Client\Model\VdsImage',
@@ -118,6 +119,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'ram' => null,
         'disks' => null,
         'avatar_id' => null,
+        'avatar_link' => null,
         'vnc_pass' => null,
         'root_pass' => null,
         'image' => null,
@@ -154,6 +156,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
 		'ram' => false,
 		'disks' => false,
 		'avatar_id' => true,
+		'avatar_link' => true,
 		'vnc_pass' => false,
 		'root_pass' => true,
 		'image' => true,
@@ -270,6 +273,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'ram' => 'ram',
         'disks' => 'disks',
         'avatar_id' => 'avatar_id',
+        'avatar_link' => 'avatar_link',
         'vnc_pass' => 'vnc_pass',
         'root_pass' => 'root_pass',
         'image' => 'image',
@@ -306,6 +310,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'ram' => 'setRam',
         'disks' => 'setDisks',
         'avatar_id' => 'setAvatarId',
+        'avatar_link' => 'setAvatarLink',
         'vnc_pass' => 'setVncPass',
         'root_pass' => 'setRootPass',
         'image' => 'setImage',
@@ -342,6 +347,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         'ram' => 'getRam',
         'disks' => 'getDisks',
         'avatar_id' => 'getAvatarId',
+        'avatar_link' => 'getAvatarLink',
         'vnc_pass' => 'getVncPass',
         'root_pass' => 'getRootPass',
         'image' => 'getImage',
@@ -516,6 +522,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('ram', $data ?? [], null);
         $this->setIfExists('disks', $data ?? [], null);
         $this->setIfExists('avatar_id', $data ?? [], null);
+        $this->setIfExists('avatar_link', $data ?? [], null);
         $this->setIfExists('vnc_pass', $data ?? [], null);
         $this->setIfExists('root_pass', $data ?? [], null);
         $this->setIfExists('image', $data ?? [], null);
@@ -641,6 +648,9 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['avatar_id'] === null) {
             $invalidProperties[] = "'avatar_id' can't be null";
+        }
+        if ($this->container['avatar_link'] === null) {
+            $invalidProperties[] = "'avatar_link' can't be null";
         }
         if ($this->container['vnc_pass'] === null) {
             $invalidProperties[] = "'vnc_pass' can't be null";
@@ -1280,6 +1290,7 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets avatar_id
      *
      * @return string
+     * @deprecated
      */
     public function getAvatarId()
     {
@@ -1289,9 +1300,10 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets avatar_id
      *
-     * @param string $avatar_id ID аватара сервера. Описание методов работы с аватарами появится позднее.
+     * @param string $avatar_id ID аватара сервера.
      *
      * @return self
+     * @deprecated
      */
     public function setAvatarId($avatar_id)
     {
@@ -1306,6 +1318,40 @@ class Vds implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['avatar_id'] = $avatar_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets avatar_link
+     *
+     * @return string
+     */
+    public function getAvatarLink()
+    {
+        return $this->container['avatar_link'];
+    }
+
+    /**
+     * Sets avatar_link
+     *
+     * @param string $avatar_link Ссылка на аватар сервера.
+     *
+     * @return self
+     */
+    public function setAvatarLink($avatar_link)
+    {
+        if (is_null($avatar_link)) {
+            array_push($this->openAPINullablesSetToNull, 'avatar_link');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avatar_link', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avatar_link'] = $avatar_link;
 
         return $this;
     }

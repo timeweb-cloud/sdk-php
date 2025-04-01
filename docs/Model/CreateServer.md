@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **preset_id** | **float** | ID тарифа сервера. Нельзя передавать вместе с ключом &#x60;configurator&#x60;. | [optional]
 **bandwidth** | **float** | Пропускная способность тарифа. Доступные значения от 100 до 1000 с шагом 100. | [optional]
 **name** | **string** | Имя облачного сервера. Максимальная длина — 255 символов, имя должно быть уникальным. |
-**avatar_id** | **string** | ID аватара сервера. Описание методов работы с аватарами появится позднее. | [optional]
+**avatar_id** | **string** | ID аватара сервера. | [optional]
 **comment** | **string** | Комментарий к облачному серверу. Максимальная длина — 255 символов. | [optional]
 **ssh_keys_ids** | **float[]** | Список SSH-ключей. | [optional]
 **is_local_network** | **bool** | Локальная сеть. | [optional]
