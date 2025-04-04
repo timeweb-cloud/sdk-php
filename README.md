@@ -613,6 +613,7 @@ Class | Method | HTTP request | Description
 - [CreateServerDiskBackup201Response](docs/Model/CreateServerDiskBackup201Response.md)
 - [CreateServerDiskBackupRequest](docs/Model/CreateServerDiskBackupRequest.md)
 - [CreateServerDiskRequest](docs/Model/CreateServerDiskRequest.md)
+- [CreateServerNetwork](docs/Model/CreateServerNetwork.md)
 - [CreateStorage201Response](docs/Model/CreateStorage201Response.md)
 - [CreateStorageRequest](docs/Model/CreateStorageRequest.md)
 - [CreateToken201Response](docs/Model/CreateToken201Response.md)

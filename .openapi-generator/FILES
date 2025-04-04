@@ -134,6 +134,7 @@ docs/Model/CreateServerDisk201Response.md
 docs/Model/CreateServerDiskBackup201Response.md
 docs/Model/CreateServerDiskBackupRequest.md
 docs/Model/CreateServerDiskRequest.md
+docs/Model/CreateServerNetwork.md
 docs/Model/CreateStorage201Response.md
 docs/Model/CreateStorageRequest.md
 docs/Model/CreateToken201Response.md
@@ -583,6 +584,7 @@ lib/Model/CreateServerDisk201Response.php
 lib/Model/CreateServerDiskBackup201Response.php
 lib/Model/CreateServerDiskBackupRequest.php
 lib/Model/CreateServerDiskRequest.php
+lib/Model/CreateServerNetwork.php
 lib/Model/CreateStorage201Response.php
 lib/Model/CreateStorageRequest.php
 lib/Model/CreateToken201Response.php
@@ -1030,6 +1032,7 @@ test/Model/CreateServerDisk201ResponseTest.php
 test/Model/CreateServerDiskBackup201ResponseTest.php
 test/Model/CreateServerDiskBackupRequestTest.php
 test/Model/CreateServerDiskRequestTest.php
+test/Model/CreateServerNetworkTest.php
 test/Model/CreateServerTest.php
 test/Model/CreateStorage201ResponseTest.php
 test/Model/CreateStorageRequestTest.php

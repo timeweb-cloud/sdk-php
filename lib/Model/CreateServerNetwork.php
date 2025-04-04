@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateServer
+ * CreateServerNetwork
  *
  * PHP version 7.4
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * CreateServer Class Doc Comment
+ * CreateServerNetwork Class Doc Comment
  *
  * @category Class
+ * @description Параметры конфигурации приватной сети сервера
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateServerNetwork implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'create-server';
+    protected static $openAPIModelName = 'create_server_network';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,21 +59,11 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'configuration' => '\OpenAPI\Client\Model\CreateServerConfiguration',
-        'is_ddos_guard' => 'bool',
-        'os_id' => 'float',
-        'image_id' => 'string',
-        'software_id' => 'float',
-        'preset_id' => 'float',
-        'bandwidth' => 'float',
-        'name' => 'string',
-        'avatar_id' => 'string',
-        'comment' => 'string',
-        'ssh_keys_ids' => 'float[]',
-        'is_local_network' => 'bool',
-        'network' => '\OpenAPI\Client\Model\CreateServerNetwork',
-        'cloud_init' => 'string',
-        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
+        'id' => 'string',
+        'floating_ip' => 'string',
+        'local_ip' => 'string',
+        'ip' => 'string',
+        'network_drive_ids' => 'string[]'
     ];
 
     /**
@@ -83,21 +74,11 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'configuration' => null,
-        'is_ddos_guard' => null,
-        'os_id' => null,
-        'image_id' => 'uuid',
-        'software_id' => null,
-        'preset_id' => null,
-        'bandwidth' => null,
-        'name' => null,
-        'avatar_id' => null,
-        'comment' => null,
-        'ssh_keys_ids' => null,
-        'is_local_network' => null,
-        'network' => null,
-        'cloud_init' => null,
-        'availability_zone' => null
+        'id' => null,
+        'floating_ip' => null,
+        'local_ip' => null,
+        'ip' => null,
+        'network_drive_ids' => null
     ];
 
     /**
@@ -106,21 +87,11 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'configuration' => false,
-		'is_ddos_guard' => false,
-		'os_id' => false,
-		'image_id' => false,
-		'software_id' => false,
-		'preset_id' => false,
-		'bandwidth' => false,
-		'name' => false,
-		'avatar_id' => false,
-		'comment' => false,
-		'ssh_keys_ids' => false,
-		'is_local_network' => false,
-		'network' => false,
-		'cloud_init' => false,
-		'availability_zone' => false
+        'id' => false,
+		'floating_ip' => false,
+		'local_ip' => false,
+		'ip' => false,
+		'network_drive_ids' => false
     ];
 
     /**
@@ -209,21 +180,11 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'configuration' => 'configuration',
-        'is_ddos_guard' => 'is_ddos_guard',
-        'os_id' => 'os_id',
-        'image_id' => 'image_id',
-        'software_id' => 'software_id',
-        'preset_id' => 'preset_id',
-        'bandwidth' => 'bandwidth',
-        'name' => 'name',
-        'avatar_id' => 'avatar_id',
-        'comment' => 'comment',
-        'ssh_keys_ids' => 'ssh_keys_ids',
-        'is_local_network' => 'is_local_network',
-        'network' => 'network',
-        'cloud_init' => 'cloud_init',
-        'availability_zone' => 'availability_zone'
+        'id' => 'id',
+        'floating_ip' => 'floating_ip',
+        'local_ip' => 'local_ip',
+        'ip' => 'ip',
+        'network_drive_ids' => 'network_drive_ids'
     ];
 
     /**
@@ -232,21 +193,11 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'configuration' => 'setConfiguration',
-        'is_ddos_guard' => 'setIsDdosGuard',
-        'os_id' => 'setOsId',
-        'image_id' => 'setImageId',
-        'software_id' => 'setSoftwareId',
-        'preset_id' => 'setPresetId',
-        'bandwidth' => 'setBandwidth',
-        'name' => 'setName',
-        'avatar_id' => 'setAvatarId',
-        'comment' => 'setComment',
-        'ssh_keys_ids' => 'setSshKeysIds',
-        'is_local_network' => 'setIsLocalNetwork',
-        'network' => 'setNetwork',
-        'cloud_init' => 'setCloudInit',
-        'availability_zone' => 'setAvailabilityZone'
+        'id' => 'setId',
+        'floating_ip' => 'setFloatingIp',
+        'local_ip' => 'setLocalIp',
+        'ip' => 'setIp',
+        'network_drive_ids' => 'setNetworkDriveIds'
     ];
 
     /**
@@ -255,21 +206,11 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'configuration' => 'getConfiguration',
-        'is_ddos_guard' => 'getIsDdosGuard',
-        'os_id' => 'getOsId',
-        'image_id' => 'getImageId',
-        'software_id' => 'getSoftwareId',
-        'preset_id' => 'getPresetId',
-        'bandwidth' => 'getBandwidth',
-        'name' => 'getName',
-        'avatar_id' => 'getAvatarId',
-        'comment' => 'getComment',
-        'ssh_keys_ids' => 'getSshKeysIds',
-        'is_local_network' => 'getIsLocalNetwork',
-        'network' => 'getNetwork',
-        'cloud_init' => 'getCloudInit',
-        'availability_zone' => 'getAvailabilityZone'
+        'id' => 'getId',
+        'floating_ip' => 'getFloatingIp',
+        'local_ip' => 'getLocalIp',
+        'ip' => 'getIp',
+        'network_drive_ids' => 'getNetworkDriveIds'
     ];
 
     /**
@@ -329,21 +270,11 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('configuration', $data ?? [], null);
-        $this->setIfExists('is_ddos_guard', $data ?? [], null);
-        $this->setIfExists('os_id', $data ?? [], null);
-        $this->setIfExists('image_id', $data ?? [], null);
-        $this->setIfExists('software_id', $data ?? [], null);
-        $this->setIfExists('preset_id', $data ?? [], null);
-        $this->setIfExists('bandwidth', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('avatar_id', $data ?? [], null);
-        $this->setIfExists('comment', $data ?? [], null);
-        $this->setIfExists('ssh_keys_ids', $data ?? [], null);
-        $this->setIfExists('is_local_network', $data ?? [], null);
-        $this->setIfExists('network', $data ?? [], null);
-        $this->setIfExists('cloud_init', $data ?? [], null);
-        $this->setIfExists('availability_zone', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('floating_ip', $data ?? [], null);
+        $this->setIfExists('local_ip', $data ?? [], null);
+        $this->setIfExists('ip', $data ?? [], null);
+        $this->setIfExists('network_drive_ids', $data ?? [], null);
     }
 
     /**
@@ -373,17 +304,6 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ((mb_strlen($this->container['name']) > 255)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 255.";
-        }
-
-        if (!is_null($this->container['comment']) && (mb_strlen($this->container['comment']) > 255)) {
-            $invalidProperties[] = "invalid value for 'comment', the character length must be smaller than or equal to 255.";
-        }
-
         return $invalidProperties;
     }
 
@@ -400,418 +320,138 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets configuration
-     *
-     * @return \OpenAPI\Client\Model\CreateServerConfiguration|null
-     */
-    public function getConfiguration()
-    {
-        return $this->container['configuration'];
-    }
-
-    /**
-     * Sets configuration
-     *
-     * @param \OpenAPI\Client\Model\CreateServerConfiguration|null $configuration configuration
-     *
-     * @return self
-     */
-    public function setConfiguration($configuration)
-    {
-        if (is_null($configuration)) {
-            throw new \InvalidArgumentException('non-nullable configuration cannot be null');
-        }
-        $this->container['configuration'] = $configuration;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_ddos_guard
-     *
-     * @return bool|null
-     */
-    public function getIsDdosGuard()
-    {
-        return $this->container['is_ddos_guard'];
-    }
-
-    /**
-     * Sets is_ddos_guard
-     *
-     * @param bool|null $is_ddos_guard Защита от DDoS. Серверу выдается защищенный IP-адрес с защитой уровня L3 / L4. Для включения защиты уровня L7 необходимо создать тикет в техническую поддержку.
-     *
-     * @return self
-     */
-    public function setIsDdosGuard($is_ddos_guard)
-    {
-        if (is_null($is_ddos_guard)) {
-            throw new \InvalidArgumentException('non-nullable is_ddos_guard cannot be null');
-        }
-        $this->container['is_ddos_guard'] = $is_ddos_guard;
-
-        return $this;
-    }
-
-    /**
-     * Gets os_id
-     *
-     * @return float|null
-     */
-    public function getOsId()
-    {
-        return $this->container['os_id'];
-    }
-
-    /**
-     * Sets os_id
-     *
-     * @param float|null $os_id ID операционной системы, которая будет установлена на облачный сервер. Нельзя передавать вместе с `image_id`.
-     *
-     * @return self
-     */
-    public function setOsId($os_id)
-    {
-        if (is_null($os_id)) {
-            throw new \InvalidArgumentException('non-nullable os_id cannot be null');
-        }
-        $this->container['os_id'] = $os_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_id
+     * Gets id
      *
      * @return string|null
      */
-    public function getImageId()
+    public function getId()
     {
-        return $this->container['image_id'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets image_id
+     * Sets id
      *
-     * @param string|null $image_id ID образа, который будет установлен на облачный сервер. Нельзя передавать вместе с `os_id`.
+     * @param string|null $id ID сети
      *
      * @return self
      */
-    public function setImageId($image_id)
+    public function setId($id)
     {
-        if (is_null($image_id)) {
-            throw new \InvalidArgumentException('non-nullable image_id cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['image_id'] = $image_id;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets software_id
+     * Gets floating_ip
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getSoftwareId()
+    public function getFloatingIp()
     {
-        return $this->container['software_id'];
+        return $this->container['floating_ip'];
     }
 
     /**
-     * Sets software_id
+     * Sets floating_ip
      *
-     * @param float|null $software_id ID программного обеспечения сервера.
+     * @param string|null $floating_ip Публичный IP
      *
      * @return self
      */
-    public function setSoftwareId($software_id)
+    public function setFloatingIp($floating_ip)
     {
-        if (is_null($software_id)) {
-            throw new \InvalidArgumentException('non-nullable software_id cannot be null');
+        if (is_null($floating_ip)) {
+            throw new \InvalidArgumentException('non-nullable floating_ip cannot be null');
         }
-        $this->container['software_id'] = $software_id;
+        $this->container['floating_ip'] = $floating_ip;
 
         return $this;
     }
 
     /**
-     * Gets preset_id
+     * Gets local_ip
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getPresetId()
+    public function getLocalIp()
     {
-        return $this->container['preset_id'];
+        return $this->container['local_ip'];
     }
 
     /**
-     * Sets preset_id
+     * Sets local_ip
      *
-     * @param float|null $preset_id ID тарифа сервера. Нельзя передавать вместе с ключом `configurator`.
+     * @param string|null $local_ip Приватный IP
      *
      * @return self
      */
-    public function setPresetId($preset_id)
+    public function setLocalIp($local_ip)
     {
-        if (is_null($preset_id)) {
-            throw new \InvalidArgumentException('non-nullable preset_id cannot be null');
+        if (is_null($local_ip)) {
+            throw new \InvalidArgumentException('non-nullable local_ip cannot be null');
         }
-        $this->container['preset_id'] = $preset_id;
+        $this->container['local_ip'] = $local_ip;
 
         return $this;
     }
 
     /**
-     * Gets bandwidth
-     *
-     * @return float|null
-     */
-    public function getBandwidth()
-    {
-        return $this->container['bandwidth'];
-    }
-
-    /**
-     * Sets bandwidth
-     *
-     * @param float|null $bandwidth Пропускная способность тарифа. Доступные значения от 100 до 1000 с шагом 100.
-     *
-     * @return self
-     */
-    public function setBandwidth($bandwidth)
-    {
-        if (is_null($bandwidth)) {
-            throw new \InvalidArgumentException('non-nullable bandwidth cannot be null');
-        }
-        $this->container['bandwidth'] = $bandwidth;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name Имя облачного сервера. Максимальная длина — 255 символов, имя должно быть уникальным.
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        if ((mb_strlen($name) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling CreateServer., must be smaller than or equal to 255.');
-        }
-
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets avatar_id
+     * Gets ip
      *
      * @return string|null
      * @deprecated
      */
-    public function getAvatarId()
+    public function getIp()
     {
-        return $this->container['avatar_id'];
+        return $this->container['ip'];
     }
 
     /**
-     * Sets avatar_id
+     * Sets ip
      *
-     * @param string|null $avatar_id ID аватара сервера.
+     * @param string|null $ip Приватный IP
      *
      * @return self
      * @deprecated
      */
-    public function setAvatarId($avatar_id)
+    public function setIp($ip)
     {
-        if (is_null($avatar_id)) {
-            throw new \InvalidArgumentException('non-nullable avatar_id cannot be null');
+        if (is_null($ip)) {
+            throw new \InvalidArgumentException('non-nullable ip cannot be null');
         }
-        $this->container['avatar_id'] = $avatar_id;
+        $this->container['ip'] = $ip;
 
         return $this;
     }
 
     /**
-     * Gets comment
+     * Gets network_drive_ids
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getComment()
+    public function getNetworkDriveIds()
     {
-        return $this->container['comment'];
+        return $this->container['network_drive_ids'];
     }
 
     /**
-     * Sets comment
+     * Sets network_drive_ids
      *
-     * @param string|null $comment Комментарий к облачному серверу. Максимальная длина — 255 символов.
+     * @param string[]|null $network_drive_ids Массив ID сетевых дисков
      *
      * @return self
      */
-    public function setComment($comment)
+    public function setNetworkDriveIds($network_drive_ids)
     {
-        if (is_null($comment)) {
-            throw new \InvalidArgumentException('non-nullable comment cannot be null');
+        if (is_null($network_drive_ids)) {
+            throw new \InvalidArgumentException('non-nullable network_drive_ids cannot be null');
         }
-        if ((mb_strlen($comment) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $comment when calling CreateServer., must be smaller than or equal to 255.');
-        }
-
-        $this->container['comment'] = $comment;
-
-        return $this;
-    }
-
-    /**
-     * Gets ssh_keys_ids
-     *
-     * @return float[]|null
-     */
-    public function getSshKeysIds()
-    {
-        return $this->container['ssh_keys_ids'];
-    }
-
-    /**
-     * Sets ssh_keys_ids
-     *
-     * @param float[]|null $ssh_keys_ids Список SSH-ключей.
-     *
-     * @return self
-     */
-    public function setSshKeysIds($ssh_keys_ids)
-    {
-        if (is_null($ssh_keys_ids)) {
-            throw new \InvalidArgumentException('non-nullable ssh_keys_ids cannot be null');
-        }
-        $this->container['ssh_keys_ids'] = $ssh_keys_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_local_network
-     *
-     * @return bool|null
-     * @deprecated
-     */
-    public function getIsLocalNetwork()
-    {
-        return $this->container['is_local_network'];
-    }
-
-    /**
-     * Sets is_local_network
-     *
-     * @param bool|null $is_local_network Локальная сеть.
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setIsLocalNetwork($is_local_network)
-    {
-        if (is_null($is_local_network)) {
-            throw new \InvalidArgumentException('non-nullable is_local_network cannot be null');
-        }
-        $this->container['is_local_network'] = $is_local_network;
-
-        return $this;
-    }
-
-    /**
-     * Gets network
-     *
-     * @return \OpenAPI\Client\Model\CreateServerNetwork|null
-     */
-    public function getNetwork()
-    {
-        return $this->container['network'];
-    }
-
-    /**
-     * Sets network
-     *
-     * @param \OpenAPI\Client\Model\CreateServerNetwork|null $network network
-     *
-     * @return self
-     */
-    public function setNetwork($network)
-    {
-        if (is_null($network)) {
-            throw new \InvalidArgumentException('non-nullable network cannot be null');
-        }
-        $this->container['network'] = $network;
-
-        return $this;
-    }
-
-    /**
-     * Gets cloud_init
-     *
-     * @return string|null
-     */
-    public function getCloudInit()
-    {
-        return $this->container['cloud_init'];
-    }
-
-    /**
-     * Sets cloud_init
-     *
-     * @param string|null $cloud_init Cloud-init скрипт
-     *
-     * @return self
-     */
-    public function setCloudInit($cloud_init)
-    {
-        if (is_null($cloud_init)) {
-            throw new \InvalidArgumentException('non-nullable cloud_init cannot be null');
-        }
-        $this->container['cloud_init'] = $cloud_init;
-
-        return $this;
-    }
-
-    /**
-     * Gets availability_zone
-     *
-     * @return \OpenAPI\Client\Model\AvailabilityZone|null
-     */
-    public function getAvailabilityZone()
-    {
-        return $this->container['availability_zone'];
-    }
-
-    /**
-     * Sets availability_zone
-     *
-     * @param \OpenAPI\Client\Model\AvailabilityZone|null $availability_zone availability_zone
-     *
-     * @return self
-     */
-    public function setAvailabilityZone($availability_zone)
-    {
-        if (is_null($availability_zone)) {
-            throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
-        }
-        $this->container['availability_zone'] = $availability_zone;
+        $this->container['network_drive_ids'] = $network_drive_ids;
 
         return $this;
     }

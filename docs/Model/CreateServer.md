@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **comment** | **string** | Комментарий к облачному серверу. Максимальная длина — 255 символов. | [optional]
 **ssh_keys_ids** | **float[]** | Список SSH-ключей. | [optional]
 **is_local_network** | **bool** | Локальная сеть. | [optional]
-**network** | [**\OpenAPI\Client\Model\Network**](Network.md) |  | [optional]
+**network** | [**\OpenAPI\Client\Model\CreateServerNetwork**](CreateServerNetwork.md) |  | [optional]
 **cloud_init** | **string** | Cloud-init скрипт | [optional]
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  | [optional]
 
