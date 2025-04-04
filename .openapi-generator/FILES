@@ -281,6 +281,7 @@ docs/Model/GetServerStatistics200ResponseCpuInner.md
 docs/Model/GetServerStatistics200ResponseDiskInner.md
 docs/Model/GetServerStatistics200ResponseNetworkTrafficInner.md
 docs/Model/GetServerStatistics200ResponseRamInner.md
+docs/Model/GetServerStatisticsNew200Response.md
 docs/Model/GetServers200Response.md
 docs/Model/GetServersPresets200Response.md
 docs/Model/GetSoftware200Response.md
@@ -379,6 +380,9 @@ docs/Model/ServersOsRequirements.md
 docs/Model/ServersPreset.md
 docs/Model/ServersSoftware.md
 docs/Model/ServersSoftwareRequirements.md
+docs/Model/ServersStatistics.md
+docs/Model/ServersStatisticsListInner.md
+docs/Model/ServersStatisticsMeta.md
 docs/Model/SetLabels.md
 docs/Model/SettingCondition.md
 docs/Model/SpamFilterIsDisabled.md
@@ -726,6 +730,7 @@ lib/Model/GetServerStatistics200ResponseCpuInner.php
 lib/Model/GetServerStatistics200ResponseDiskInner.php
 lib/Model/GetServerStatistics200ResponseNetworkTrafficInner.php
 lib/Model/GetServerStatistics200ResponseRamInner.php
+lib/Model/GetServerStatisticsNew200Response.php
 lib/Model/GetServers200Response.php
 lib/Model/GetServersPresets200Response.php
 lib/Model/GetSoftware200Response.php
@@ -825,6 +830,9 @@ lib/Model/ServersOsRequirements.php
 lib/Model/ServersPreset.php
 lib/Model/ServersSoftware.php
 lib/Model/ServersSoftwareRequirements.php
+lib/Model/ServersStatistics.php
+lib/Model/ServersStatisticsListInner.php
+lib/Model/ServersStatisticsMeta.php
 lib/Model/SetLabels.php
 lib/Model/SettingCondition.php
 lib/Model/SpamFilterIsDisabled.php
@@ -1170,6 +1178,7 @@ test/Model/GetServerStatistics200ResponseDiskInnerTest.php
 test/Model/GetServerStatistics200ResponseNetworkTrafficInnerTest.php
 test/Model/GetServerStatistics200ResponseRamInnerTest.php
 test/Model/GetServerStatistics200ResponseTest.php
+test/Model/GetServerStatisticsNew200ResponseTest.php
 test/Model/GetServers200ResponseTest.php
 test/Model/GetServersPresets200ResponseTest.php
 test/Model/GetSoftware200ResponseTest.php
@@ -1268,6 +1277,9 @@ test/Model/ServersOsTest.php
 test/Model/ServersPresetTest.php
 test/Model/ServersSoftwareRequirementsTest.php
 test/Model/ServersSoftwareTest.php
+test/Model/ServersStatisticsListInnerTest.php
+test/Model/ServersStatisticsMetaTest.php
+test/Model/ServersStatisticsTest.php
 test/Model/SetLabelsTest.php
 test/Model/SettingConditionTest.php
 test/Model/SpamFilterIsDisabledTest.php

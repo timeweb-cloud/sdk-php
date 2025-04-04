@@ -473,6 +473,7 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**getServerIPs**](docs/Api/ServersApi.md#getserverips) | **GET** /api/v1/servers/{server_id}/ips | Получение списка IP-адресов сервера
 *ServersApi* | [**getServerLogs**](docs/Api/ServersApi.md#getserverlogs) | **GET** /api/v1/servers/{server_id}/logs | Получение списка логов сервера
 *ServersApi* | [**getServerStatistics**](docs/Api/ServersApi.md#getserverstatistics) | **GET** /api/v1/servers/{server_id}/statistics | Получение статистики сервера
+*ServersApi* | [**getServerStatisticsNew**](docs/Api/ServersApi.md#getserverstatisticsnew) | **GET** /api/v1/servers/{server_id}/statistics/{time_from}/{period}/{keys} | Получение статистики сервера
 *ServersApi* | [**getServers**](docs/Api/ServersApi.md#getservers) | **GET** /api/v1/servers | Получение списка серверов
 *ServersApi* | [**getServersPresets**](docs/Api/ServersApi.md#getserverspresets) | **GET** /api/v1/presets/servers | Получение списка тарифов серверов
 *ServersApi* | [**getSoftware**](docs/Api/ServersApi.md#getsoftware) | **GET** /api/v1/software/servers | Получение списка ПО из маркетплейса
@@ -759,6 +760,7 @@ Class | Method | HTTP request | Description
 - [GetServerStatistics200ResponseDiskInner](docs/Model/GetServerStatistics200ResponseDiskInner.md)
 - [GetServerStatistics200ResponseNetworkTrafficInner](docs/Model/GetServerStatistics200ResponseNetworkTrafficInner.md)
 - [GetServerStatistics200ResponseRamInner](docs/Model/GetServerStatistics200ResponseRamInner.md)
+- [GetServerStatisticsNew200Response](docs/Model/GetServerStatisticsNew200Response.md)
 - [GetServers200Response](docs/Model/GetServers200Response.md)
 - [GetServersPresets200Response](docs/Model/GetServersPresets200Response.md)
 - [GetSoftware200Response](docs/Model/GetSoftware200Response.md)
@@ -857,6 +859,9 @@ Class | Method | HTTP request | Description
 - [ServersPreset](docs/Model/ServersPreset.md)
 - [ServersSoftware](docs/Model/ServersSoftware.md)
 - [ServersSoftwareRequirements](docs/Model/ServersSoftwareRequirements.md)
+- [ServersStatistics](docs/Model/ServersStatistics.md)
+- [ServersStatisticsListInner](docs/Model/ServersStatisticsListInner.md)
+- [ServersStatisticsMeta](docs/Model/ServersStatisticsMeta.md)
 - [SetLabels](docs/Model/SetLabels.md)
 - [SettingCondition](docs/Model/SettingCondition.md)
 - [SpamFilterIsDisabled](docs/Model/SpamFilterIsDisabled.md)

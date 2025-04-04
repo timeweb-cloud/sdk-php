@@ -24,6 +24,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getServerIPs()**](ServersApi.md#getServerIPs) | **GET** /api/v1/servers/{server_id}/ips | Получение списка IP-адресов сервера |
 | [**getServerLogs()**](ServersApi.md#getServerLogs) | **GET** /api/v1/servers/{server_id}/logs | Получение списка логов сервера |
 | [**getServerStatistics()**](ServersApi.md#getServerStatistics) | **GET** /api/v1/servers/{server_id}/statistics | Получение статистики сервера |
+| [**getServerStatisticsNew()**](ServersApi.md#getServerStatisticsNew) | **GET** /api/v1/servers/{server_id}/statistics/{time_from}/{period}/{keys} | Получение статистики сервера |
 | [**getServers()**](ServersApi.md#getServers) | **GET** /api/v1/servers | Получение списка серверов |
 | [**getServersPresets()**](ServersApi.md#getServersPresets) | **GET** /api/v1/presets/servers | Получение списка тарифов серверов |
 | [**getSoftware()**](ServersApi.md#getSoftware) | **GET** /api/v1/software/servers | Получение списка ПО из маркетплейса |
@@ -1261,6 +1262,72 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\GetServerStatistics200Response**](../Model/GetServerStatistics200Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getServerStatisticsNew()`
+
+```php
+getServerStatisticsNew($server_id, $time_from, $period, $keys): \OpenAPI\Client\Model\GetServerStatisticsNew200Response
+```
+
+Получение статистики сервера
+
+Чтобы получить статистику сервера, отправьте GET-запрос на `/api/v1/servers/{server_id}/{time_from}/{period}/{keys}`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ServersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$server_id = 1051; // int | ID облачного сервера.
+$time_from = Wed Apr 02 2025 13:27:02 GMT+0300 (Москва, стандартное время); // string | Дата начала сбора статистики.
+$period = 24; // string | Количество часов за период которых нужна статистика.
+$keys = system.cpu.util;network.request;network.response; // string | Ключи выбираемых видов статистики.
+
+try {
+    $result = $apiInstance->getServerStatisticsNew($server_id, $time_from, $period, $keys);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ServersApi->getServerStatisticsNew: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **server_id** | **int**| ID облачного сервера. | |
+| **time_from** | **string**| Дата начала сбора статистики. | |
+| **period** | **string**| Количество часов за период которых нужна статистика. | |
+| **keys** | **string**| Ключи выбираемых видов статистики. | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\GetServerStatisticsNew200Response**](../Model/GetServerStatisticsNew200Response.md)
 
 ### Authorization
 
