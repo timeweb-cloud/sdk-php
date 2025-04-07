@@ -1284,7 +1284,7 @@ getServerStatisticsNew($server_id, $time_from, $period, $keys): \OpenAPI\Client\
 
 Получение статистики сервера
 
-Чтобы получить статистику сервера, отправьте GET-запрос на `/api/v1/servers/{server_id}/{time_from}/{period}/{keys}`.
+Чтобы получить статистику сервера, отправьте GET-запрос на `/api/v1/servers/{server_id}/statistics/{time_from}/{period}/{keys}`.
 
 ### Example
 
