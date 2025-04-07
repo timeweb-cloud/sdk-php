@@ -196,4 +196,49 @@ class UpdateBalancerTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "maxconn"
+     */
+    public function testPropertyMaxconn()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "connect_timeout"
+     */
+    public function testPropertyConnectTimeout()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "client_timeout"
+     */
+    public function testPropertyClientTimeout()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "server_timeout"
+     */
+    public function testPropertyServerTimeout()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "httprequest_timeout"
+     */
+    public function testPropertyHttprequestTimeout()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -70,7 +70,12 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'inter' => 'float',
         'timeout' => 'float',
         'fall' => 'float',
-        'rise' => 'float'
+        'rise' => 'float',
+        'maxconn' => 'float',
+        'connect_timeout' => 'float',
+        'client_timeout' => 'float',
+        'server_timeout' => 'float',
+        'httprequest_timeout' => 'float'
     ];
 
     /**
@@ -93,7 +98,12 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'inter' => null,
         'timeout' => null,
         'fall' => null,
-        'rise' => null
+        'rise' => null,
+        'maxconn' => null,
+        'connect_timeout' => null,
+        'client_timeout' => null,
+        'server_timeout' => null,
+        'httprequest_timeout' => null
     ];
 
     /**
@@ -114,7 +124,12 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'inter' => false,
 		'timeout' => false,
 		'fall' => false,
-		'rise' => false
+		'rise' => false,
+		'maxconn' => false,
+		'connect_timeout' => false,
+		'client_timeout' => false,
+		'server_timeout' => false,
+		'httprequest_timeout' => false
     ];
 
     /**
@@ -215,7 +230,12 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'inter' => 'inter',
         'timeout' => 'timeout',
         'fall' => 'fall',
-        'rise' => 'rise'
+        'rise' => 'rise',
+        'maxconn' => 'maxconn',
+        'connect_timeout' => 'connect_timeout',
+        'client_timeout' => 'client_timeout',
+        'server_timeout' => 'server_timeout',
+        'httprequest_timeout' => 'httprequest_timeout'
     ];
 
     /**
@@ -236,7 +256,12 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'inter' => 'setInter',
         'timeout' => 'setTimeout',
         'fall' => 'setFall',
-        'rise' => 'setRise'
+        'rise' => 'setRise',
+        'maxconn' => 'setMaxconn',
+        'connect_timeout' => 'setConnectTimeout',
+        'client_timeout' => 'setClientTimeout',
+        'server_timeout' => 'setServerTimeout',
+        'httprequest_timeout' => 'setHttprequestTimeout'
     ];
 
     /**
@@ -257,7 +282,12 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'inter' => 'getInter',
         'timeout' => 'getTimeout',
         'fall' => 'getFall',
-        'rise' => 'getRise'
+        'rise' => 'getRise',
+        'maxconn' => 'getMaxconn',
+        'connect_timeout' => 'getConnectTimeout',
+        'client_timeout' => 'getClientTimeout',
+        'server_timeout' => 'getServerTimeout',
+        'httprequest_timeout' => 'getHttprequestTimeout'
     ];
 
     /**
@@ -364,6 +394,11 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('timeout', $data ?? [], null);
         $this->setIfExists('fall', $data ?? [], null);
         $this->setIfExists('rise', $data ?? [], null);
+        $this->setIfExists('maxconn', $data ?? [], null);
+        $this->setIfExists('connect_timeout', $data ?? [], null);
+        $this->setIfExists('client_timeout', $data ?? [], null);
+        $this->setIfExists('server_timeout', $data ?? [], null);
+        $this->setIfExists('httprequest_timeout', $data ?? [], null);
     }
 
     /**
@@ -793,6 +828,141 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable rise cannot be null');
         }
         $this->container['rise'] = $rise;
+
+        return $this;
+    }
+
+    /**
+     * Gets maxconn
+     *
+     * @return float|null
+     */
+    public function getMaxconn()
+    {
+        return $this->container['maxconn'];
+    }
+
+    /**
+     * Sets maxconn
+     *
+     * @param float|null $maxconn Максимальное количество соединений.
+     *
+     * @return self
+     */
+    public function setMaxconn($maxconn)
+    {
+        if (is_null($maxconn)) {
+            throw new \InvalidArgumentException('non-nullable maxconn cannot be null');
+        }
+        $this->container['maxconn'] = $maxconn;
+
+        return $this;
+    }
+
+    /**
+     * Gets connect_timeout
+     *
+     * @return float|null
+     */
+    public function getConnectTimeout()
+    {
+        return $this->container['connect_timeout'];
+    }
+
+    /**
+     * Sets connect_timeout
+     *
+     * @param float|null $connect_timeout Таймаут подключения.
+     *
+     * @return self
+     */
+    public function setConnectTimeout($connect_timeout)
+    {
+        if (is_null($connect_timeout)) {
+            throw new \InvalidArgumentException('non-nullable connect_timeout cannot be null');
+        }
+        $this->container['connect_timeout'] = $connect_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_timeout
+     *
+     * @return float|null
+     */
+    public function getClientTimeout()
+    {
+        return $this->container['client_timeout'];
+    }
+
+    /**
+     * Sets client_timeout
+     *
+     * @param float|null $client_timeout Таймаут клиента.
+     *
+     * @return self
+     */
+    public function setClientTimeout($client_timeout)
+    {
+        if (is_null($client_timeout)) {
+            throw new \InvalidArgumentException('non-nullable client_timeout cannot be null');
+        }
+        $this->container['client_timeout'] = $client_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets server_timeout
+     *
+     * @return float|null
+     */
+    public function getServerTimeout()
+    {
+        return $this->container['server_timeout'];
+    }
+
+    /**
+     * Sets server_timeout
+     *
+     * @param float|null $server_timeout Таймаут сервера.
+     *
+     * @return self
+     */
+    public function setServerTimeout($server_timeout)
+    {
+        if (is_null($server_timeout)) {
+            throw new \InvalidArgumentException('non-nullable server_timeout cannot be null');
+        }
+        $this->container['server_timeout'] = $server_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets httprequest_timeout
+     *
+     * @return float|null
+     */
+    public function getHttprequestTimeout()
+    {
+        return $this->container['httprequest_timeout'];
+    }
+
+    /**
+     * Sets httprequest_timeout
+     *
+     * @param float|null $httprequest_timeout Таймаут HTTP запроса.
+     *
+     * @return self
+     */
+    public function setHttprequestTimeout($httprequest_timeout)
+    {
+        if (is_null($httprequest_timeout)) {
+            throw new \InvalidArgumentException('non-nullable httprequest_timeout cannot be null');
+        }
+        $this->container['httprequest_timeout'] = $httprequest_timeout;
 
         return $this;
     }

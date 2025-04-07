@@ -17,6 +17,11 @@ Name | Type | Description | Notes
 **port** | **float** | Порт балансировщика. |
 **proto** | **string** | Протокол. |
 **rise** | **float** | Порог количества успешных ответов. |
+**maxconn** | **float** | Максимальное количество соединений. |
+**connect_timeout** | **float** | Таймаут подключения. |
+**client_timeout** | **float** | Таймаут клиента. |
+**server_timeout** | **float** | Таймаут сервера. |
+**httprequest_timeout** | **float** | Таймаут HTTP запроса. |
 **preset_id** | **float** | ID тарифа. |
 **is_ssl** | **bool** | Это логическое значение, которое показывает, требуется ли перенаправление на SSL. |
 **status** | **string** | Статус балансировщика. |

@@ -17,5 +17,10 @@ Name | Type | Description | Notes
 **timeout** | **float** | Таймаут ответа балансировщика. | [optional]
 **fall** | **float** | Порог количества ошибок. | [optional]
 **rise** | **float** | Порог количества успешных ответов. | [optional]
+**maxconn** | **float** | Максимальное количество соединений. | [optional]
+**connect_timeout** | **float** | Таймаут подключения. | [optional]
+**client_timeout** | **float** | Таймаут клиента. | [optional]
+**server_timeout** | **float** | Таймаут сервера. | [optional]
+**httprequest_timeout** | **float** | Таймаут HTTP запроса. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
