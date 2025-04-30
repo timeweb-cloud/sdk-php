@@ -144,6 +144,15 @@ class BucketTest extends TestCase
     }
 
     /**
+     * Test attribute "avatar_link"
+     */
+    public function testPropertyAvatarLink()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "status"
      */
     public function testPropertyStatus()

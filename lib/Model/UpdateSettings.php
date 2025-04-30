@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdeteSettings
+ * UpdateSettings
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * UpdeteSettings Class Doc Comment
+ * UpdateSettings Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdeteSettings implements ModelInterface, ArrayAccess, \JsonSerializable
+class UpdateSettings implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdeteSettings implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'updete-settings';
+    protected static $openAPIModelName = 'update-settings';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

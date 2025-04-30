@@ -78,6 +78,7 @@ class App implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'float',
         'index_dir' => 'string',
         'build_cmd' => 'string',
+        'avatar_link' => 'string',
         'run_cmd' => 'string',
         'configuration' => '\OpenAPI\Client\Model\AppConfiguration',
         'disk_status' => '\OpenAPI\Client\Model\AppDiskStatus',
@@ -113,6 +114,7 @@ class App implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => null,
         'index_dir' => null,
         'build_cmd' => null,
+        'avatar_link' => null,
         'run_cmd' => null,
         'configuration' => null,
         'disk_status' => null,
@@ -146,6 +148,7 @@ class App implements ModelInterface, ArrayAccess, \JsonSerializable
 		'preset_id' => false,
 		'index_dir' => true,
 		'build_cmd' => false,
+		'avatar_link' => true,
 		'run_cmd' => true,
 		'configuration' => true,
 		'disk_status' => true,
@@ -259,6 +262,7 @@ class App implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'preset_id',
         'index_dir' => 'index_dir',
         'build_cmd' => 'build_cmd',
+        'avatar_link' => 'avatar_link',
         'run_cmd' => 'run_cmd',
         'configuration' => 'configuration',
         'disk_status' => 'disk_status',
@@ -292,6 +296,7 @@ class App implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'setPresetId',
         'index_dir' => 'setIndexDir',
         'build_cmd' => 'setBuildCmd',
+        'avatar_link' => 'setAvatarLink',
         'run_cmd' => 'setRunCmd',
         'configuration' => 'setConfiguration',
         'disk_status' => 'setDiskStatus',
@@ -325,6 +330,7 @@ class App implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'getPresetId',
         'index_dir' => 'getIndexDir',
         'build_cmd' => 'getBuildCmd',
+        'avatar_link' => 'getAvatarLink',
         'run_cmd' => 'getRunCmd',
         'configuration' => 'getConfiguration',
         'disk_status' => 'getDiskStatus',
@@ -468,6 +474,7 @@ class App implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('preset_id', $data ?? [], null);
         $this->setIfExists('index_dir', $data ?? [], null);
         $this->setIfExists('build_cmd', $data ?? [], null);
+        $this->setIfExists('avatar_link', $data ?? [], null);
         $this->setIfExists('run_cmd', $data ?? [], null);
         $this->setIfExists('configuration', $data ?? [], null);
         $this->setIfExists('disk_status', $data ?? [], null);
@@ -586,6 +593,9 @@ class App implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['build_cmd'] === null) {
             $invalidProperties[] = "'build_cmd' can't be null";
+        }
+        if ($this->container['avatar_link'] === null) {
+            $invalidProperties[] = "'avatar_link' can't be null";
         }
         if ($this->container['run_cmd'] === null) {
             $invalidProperties[] = "'run_cmd' can't be null";
@@ -1173,6 +1183,40 @@ class App implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable build_cmd cannot be null');
         }
         $this->container['build_cmd'] = $build_cmd;
+
+        return $this;
+    }
+
+    /**
+     * Gets avatar_link
+     *
+     * @return string
+     */
+    public function getAvatarLink()
+    {
+        return $this->container['avatar_link'];
+    }
+
+    /**
+     * Sets avatar_link
+     *
+     * @param string $avatar_link Ссылка на аватар приложения.
+     *
+     * @return self
+     */
+    public function setAvatarLink($avatar_link)
+    {
+        if (is_null($avatar_link)) {
+            array_push($this->openAPINullablesSetToNull, 'avatar_link');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avatar_link', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avatar_link'] = $avatar_link;
 
         return $this;
     }

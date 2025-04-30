@@ -66,6 +66,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'networks' => '\OpenAPI\Client\Model\DatabaseClusterNetworksInner[]',
         'type' => '\OpenAPI\Client\Model\DbType',
         'hash_type' => 'string',
+        'avatar_link' => 'string',
         'port' => 'int',
         'status' => 'string',
         'preset_id' => 'int',
@@ -89,6 +90,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'networks' => null,
         'type' => null,
         'hash_type' => null,
+        'avatar_link' => null,
         'port' => null,
         'status' => null,
         'preset_id' => null,
@@ -110,6 +112,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
 		'networks' => false,
 		'type' => false,
 		'hash_type' => true,
+		'avatar_link' => true,
 		'port' => true,
 		'status' => false,
 		'preset_id' => false,
@@ -211,6 +214,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'networks' => 'networks',
         'type' => 'type',
         'hash_type' => 'hash_type',
+        'avatar_link' => 'avatar_link',
         'port' => 'port',
         'status' => 'status',
         'preset_id' => 'preset_id',
@@ -232,6 +236,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'networks' => 'setNetworks',
         'type' => 'setType',
         'hash_type' => 'setHashType',
+        'avatar_link' => 'setAvatarLink',
         'port' => 'setPort',
         'status' => 'setStatus',
         'preset_id' => 'setPresetId',
@@ -253,6 +258,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'networks' => 'getNetworks',
         'type' => 'getType',
         'hash_type' => 'getHashType',
+        'avatar_link' => 'getAvatarLink',
         'port' => 'getPort',
         'status' => 'getStatus',
         'preset_id' => 'getPresetId',
@@ -394,6 +400,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('networks', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('hash_type', $data ?? [], null);
+        $this->setIfExists('avatar_link', $data ?? [], null);
         $this->setIfExists('port', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
@@ -468,6 +475,9 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['avatar_link'] === null) {
+            $invalidProperties[] = "'avatar_link' can't be null";
+        }
         if ($this->container['port'] === null) {
             $invalidProperties[] = "'port' can't be null";
         }
@@ -729,6 +739,40 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['hash_type'] = $hash_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets avatar_link
+     *
+     * @return string
+     */
+    public function getAvatarLink()
+    {
+        return $this->container['avatar_link'];
+    }
+
+    /**
+     * Sets avatar_link
+     *
+     * @param string $avatar_link Ссылка на аватар для базы данных.
+     *
+     * @return self
+     */
+    public function setAvatarLink($avatar_link)
+    {
+        if (is_null($avatar_link)) {
+            array_push($this->openAPINullablesSetToNull, 'avatar_link');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avatar_link', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avatar_link'] = $avatar_link;
 
         return $this;
     }

@@ -1186,7 +1186,7 @@ try {
 ## `updateAppSettings()`
 
 ```php
-updateAppSettings($app_id, $updete_settings): \OpenAPI\Client\Model\UpdateAppSettings200Response
+updateAppSettings($app_id, $update_settings): \OpenAPI\Client\Model\UpdateAppSettings200Response
 ```
 
 Изменение настроек приложения
@@ -1211,10 +1211,10 @@ $apiInstance = new OpenAPI\Client\Api\AppsApi(
     $config
 );
 $app_id = 'app_id_example'; // string
-$updete_settings = new \OpenAPI\Client\Model\UpdeteSettings(); // \OpenAPI\Client\Model\UpdeteSettings
+$update_settings = new \OpenAPI\Client\Model\UpdateSettings(); // \OpenAPI\Client\Model\UpdateSettings
 
 try {
-    $result = $apiInstance->updateAppSettings($app_id, $updete_settings);
+    $result = $apiInstance->updateAppSettings($app_id, $update_settings);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AppsApi->updateAppSettings: ', $e->getMessage(), PHP_EOL;
@@ -1226,7 +1226,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **app_id** | **string**|  | |
-| **updete_settings** | [**\OpenAPI\Client\Model\UpdeteSettings**](../Model/UpdeteSettings.md)|  | |
+| **update_settings** | [**\OpenAPI\Client\Model\UpdateSettings**](../Model/UpdateSettings.md)|  | |
 
 ### Return type
 

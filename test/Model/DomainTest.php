@@ -135,6 +135,15 @@ class DomainTest extends TestCase
     }
 
     /**
+     * Test attribute "avatar_link"
+     */
+    public function testPropertyAvatarLink()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "is_autoprolong_enabled"
      */
     public function testPropertyIsAutoprolongEnabled()

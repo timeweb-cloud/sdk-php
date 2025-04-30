@@ -8184,16 +8184,16 @@ class AppsApi
      * Изменение настроек приложения
      *
      * @param  string $app_id app_id (required)
-     * @param  \OpenAPI\Client\Model\UpdeteSettings $updete_settings updete_settings (required)
+     * @param  \OpenAPI\Client\Model\UpdateSettings $update_settings update_settings (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAppSettings'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\UpdateAppSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function updateAppSettings($app_id, $updete_settings, string $contentType = self::contentTypes['updateAppSettings'][0])
+    public function updateAppSettings($app_id, $update_settings, string $contentType = self::contentTypes['updateAppSettings'][0])
     {
-        list($response) = $this->updateAppSettingsWithHttpInfo($app_id, $updete_settings, $contentType);
+        list($response) = $this->updateAppSettingsWithHttpInfo($app_id, $update_settings, $contentType);
         return $response;
     }
 
@@ -8203,16 +8203,16 @@ class AppsApi
      * Изменение настроек приложения
      *
      * @param  string $app_id (required)
-     * @param  \OpenAPI\Client\Model\UpdeteSettings $updete_settings (required)
+     * @param  \OpenAPI\Client\Model\UpdateSettings $update_settings (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAppSettings'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\UpdateAppSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAppSettingsWithHttpInfo($app_id, $updete_settings, string $contentType = self::contentTypes['updateAppSettings'][0])
+    public function updateAppSettingsWithHttpInfo($app_id, $update_settings, string $contentType = self::contentTypes['updateAppSettings'][0])
     {
-        $request = $this->updateAppSettingsRequest($app_id, $updete_settings, $contentType);
+        $request = $this->updateAppSettingsRequest($app_id, $update_settings, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8396,15 +8396,15 @@ class AppsApi
      * Изменение настроек приложения
      *
      * @param  string $app_id (required)
-     * @param  \OpenAPI\Client\Model\UpdeteSettings $updete_settings (required)
+     * @param  \OpenAPI\Client\Model\UpdateSettings $update_settings (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAppSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAppSettingsAsync($app_id, $updete_settings, string $contentType = self::contentTypes['updateAppSettings'][0])
+    public function updateAppSettingsAsync($app_id, $update_settings, string $contentType = self::contentTypes['updateAppSettings'][0])
     {
-        return $this->updateAppSettingsAsyncWithHttpInfo($app_id, $updete_settings, $contentType)
+        return $this->updateAppSettingsAsyncWithHttpInfo($app_id, $update_settings, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8418,16 +8418,16 @@ class AppsApi
      * Изменение настроек приложения
      *
      * @param  string $app_id (required)
-     * @param  \OpenAPI\Client\Model\UpdeteSettings $updete_settings (required)
+     * @param  \OpenAPI\Client\Model\UpdateSettings $update_settings (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAppSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAppSettingsAsyncWithHttpInfo($app_id, $updete_settings, string $contentType = self::contentTypes['updateAppSettings'][0])
+    public function updateAppSettingsAsyncWithHttpInfo($app_id, $update_settings, string $contentType = self::contentTypes['updateAppSettings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\UpdateAppSettings200Response';
-        $request = $this->updateAppSettingsRequest($app_id, $updete_settings, $contentType);
+        $request = $this->updateAppSettingsRequest($app_id, $update_settings, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8469,13 +8469,13 @@ class AppsApi
      * Create request for operation 'updateAppSettings'
      *
      * @param  string $app_id (required)
-     * @param  \OpenAPI\Client\Model\UpdeteSettings $updete_settings (required)
+     * @param  \OpenAPI\Client\Model\UpdateSettings $update_settings (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAppSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateAppSettingsRequest($app_id, $updete_settings, string $contentType = self::contentTypes['updateAppSettings'][0])
+    public function updateAppSettingsRequest($app_id, $update_settings, string $contentType = self::contentTypes['updateAppSettings'][0])
     {
 
         // verify the required parameter 'app_id' is set
@@ -8485,10 +8485,10 @@ class AppsApi
             );
         }
 
-        // verify the required parameter 'updete_settings' is set
-        if ($updete_settings === null || (is_array($updete_settings) && count($updete_settings) === 0)) {
+        // verify the required parameter 'update_settings' is set
+        if ($update_settings === null || (is_array($update_settings) && count($update_settings) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $updete_settings when calling updateAppSettings'
+                'Missing the required parameter $update_settings when calling updateAppSettings'
             );
         }
 
@@ -8519,12 +8519,12 @@ class AppsApi
         );
 
         // for model (json/xml)
-        if (isset($updete_settings)) {
+        if (isset($update_settings)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($updete_settings));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_settings));
             } else {
-                $httpBody = $updete_settings;
+                $httpBody = $update_settings;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **preset_id** | **float** | ID тарифа. |
 **index_dir** | **string** | Путь к директории с индексным файлом. Определен для приложений &#x60;type: frontend&#x60;. Для приложений &#x60;type: backend&#x60; всегда null. |
 **build_cmd** | **string** | Команда сборки приложения. |
+**avatar_link** | **string** | Ссылка на аватар приложения. |
 **run_cmd** | **string** | Команда для запуска приложения. Определена для приложений &#x60;type: backend&#x60;. Для приложений &#x60;type: frontend&#x60; всегда null. |
 **configuration** | [**\OpenAPI\Client\Model\AppConfiguration**](AppConfiguration.md) |  |
 **disk_status** | [**\OpenAPI\Client\Model\AppDiskStatus**](AppDiskStatus.md) |  |

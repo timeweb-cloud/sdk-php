@@ -65,6 +65,7 @@ class Domain implements ModelInterface, ArrayAccess, \JsonSerializable
         'expiration' => 'string',
         'fqdn' => 'string',
         'id' => 'float',
+        'avatar_link' => 'string',
         'is_autoprolong_enabled' => 'bool',
         'is_premium' => 'bool',
         'is_prolong_allowed' => 'bool',
@@ -94,6 +95,7 @@ class Domain implements ModelInterface, ArrayAccess, \JsonSerializable
         'expiration' => null,
         'fqdn' => null,
         'id' => null,
+        'avatar_link' => null,
         'is_autoprolong_enabled' => null,
         'is_premium' => null,
         'is_prolong_allowed' => null,
@@ -121,6 +123,7 @@ class Domain implements ModelInterface, ArrayAccess, \JsonSerializable
 		'expiration' => false,
 		'fqdn' => false,
 		'id' => false,
+		'avatar_link' => true,
 		'is_autoprolong_enabled' => true,
 		'is_premium' => false,
 		'is_prolong_allowed' => false,
@@ -228,6 +231,7 @@ class Domain implements ModelInterface, ArrayAccess, \JsonSerializable
         'expiration' => 'expiration',
         'fqdn' => 'fqdn',
         'id' => 'id',
+        'avatar_link' => 'avatar_link',
         'is_autoprolong_enabled' => 'is_autoprolong_enabled',
         'is_premium' => 'is_premium',
         'is_prolong_allowed' => 'is_prolong_allowed',
@@ -255,6 +259,7 @@ class Domain implements ModelInterface, ArrayAccess, \JsonSerializable
         'expiration' => 'setExpiration',
         'fqdn' => 'setFqdn',
         'id' => 'setId',
+        'avatar_link' => 'setAvatarLink',
         'is_autoprolong_enabled' => 'setIsAutoprolongEnabled',
         'is_premium' => 'setIsPremium',
         'is_prolong_allowed' => 'setIsProlongAllowed',
@@ -282,6 +287,7 @@ class Domain implements ModelInterface, ArrayAccess, \JsonSerializable
         'expiration' => 'getExpiration',
         'fqdn' => 'getFqdn',
         'id' => 'getId',
+        'avatar_link' => 'getAvatarLink',
         'is_autoprolong_enabled' => 'getIsAutoprolongEnabled',
         'is_premium' => 'getIsPremium',
         'is_prolong_allowed' => 'getIsProlongAllowed',
@@ -414,6 +420,7 @@ class Domain implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('expiration', $data ?? [], null);
         $this->setIfExists('fqdn', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('avatar_link', $data ?? [], null);
         $this->setIfExists('is_autoprolong_enabled', $data ?? [], null);
         $this->setIfExists('is_premium', $data ?? [], null);
         $this->setIfExists('is_prolong_allowed', $data ?? [], null);
@@ -482,6 +489,9 @@ class Domain implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['avatar_link'] === null) {
+            $invalidProperties[] = "'avatar_link' can't be null";
         }
         if ($this->container['is_autoprolong_enabled'] === null) {
             $invalidProperties[] = "'is_autoprolong_enabled' can't be null";
@@ -714,6 +724,40 @@ class Domain implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets avatar_link
+     *
+     * @return string
+     */
+    public function getAvatarLink()
+    {
+        return $this->container['avatar_link'];
+    }
+
+    /**
+     * Sets avatar_link
+     *
+     * @param string $avatar_link Ссылка на аватар домена.
+     *
+     * @return self
+     */
+    public function setAvatarLink($avatar_link)
+    {
+        if (is_null($avatar_link)) {
+            array_push($this->openAPINullablesSetToNull, 'avatar_link');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avatar_link', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avatar_link'] = $avatar_link;
 
         return $this;
     }

@@ -144,6 +144,15 @@ class DatabaseClusterTest extends TestCase
     }
 
     /**
+     * Test attribute "avatar_link"
+     */
+    public function testPropertyAvatarLink()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "port"
      */
     public function testPropertyPort()

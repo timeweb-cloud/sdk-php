@@ -65,6 +65,7 @@ class ClusterOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'string',
         'k8s_version' => 'string',
         'network_driver' => 'string',
+        'avatar_link' => 'string',
         'ingress' => 'bool',
         'preset_id' => 'int',
         'cpu' => 'int',
@@ -89,6 +90,7 @@ class ClusterOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => null,
         'k8s_version' => null,
         'network_driver' => null,
+        'avatar_link' => null,
         'ingress' => null,
         'preset_id' => null,
         'cpu' => null,
@@ -111,6 +113,7 @@ class ClusterOut implements ModelInterface, ArrayAccess, \JsonSerializable
 		'description' => false,
 		'k8s_version' => false,
 		'network_driver' => false,
+		'avatar_link' => true,
 		'ingress' => false,
 		'preset_id' => false,
 		'cpu' => false,
@@ -213,6 +216,7 @@ class ClusterOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'description',
         'k8s_version' => 'k8s_version',
         'network_driver' => 'network_driver',
+        'avatar_link' => 'avatar_link',
         'ingress' => 'ingress',
         'preset_id' => 'preset_id',
         'cpu' => 'cpu',
@@ -235,6 +239,7 @@ class ClusterOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'setDescription',
         'k8s_version' => 'setK8sVersion',
         'network_driver' => 'setNetworkDriver',
+        'avatar_link' => 'setAvatarLink',
         'ingress' => 'setIngress',
         'preset_id' => 'setPresetId',
         'cpu' => 'setCpu',
@@ -257,6 +262,7 @@ class ClusterOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'getDescription',
         'k8s_version' => 'getK8sVersion',
         'network_driver' => 'getNetworkDriver',
+        'avatar_link' => 'getAvatarLink',
         'ingress' => 'getIngress',
         'preset_id' => 'getPresetId',
         'cpu' => 'getCpu',
@@ -366,6 +372,7 @@ class ClusterOut implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('k8s_version', $data ?? [], null);
         $this->setIfExists('network_driver', $data ?? [], null);
+        $this->setIfExists('avatar_link', $data ?? [], null);
         $this->setIfExists('ingress', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
         $this->setIfExists('cpu', $data ?? [], 0);
@@ -432,6 +439,9 @@ class ClusterOut implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['avatar_link'] === null) {
+            $invalidProperties[] = "'avatar_link' can't be null";
+        }
         if ($this->container['ingress'] === null) {
             $invalidProperties[] = "'ingress' can't be null";
         }
@@ -657,6 +667,40 @@ class ClusterOut implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['network_driver'] = $network_driver;
+
+        return $this;
+    }
+
+    /**
+     * Gets avatar_link
+     *
+     * @return string
+     */
+    public function getAvatarLink()
+    {
+        return $this->container['avatar_link'];
+    }
+
+    /**
+     * Sets avatar_link
+     *
+     * @param string $avatar_link Ссылка на аватар кластера.
+     *
+     * @return self
+     */
+    public function setAvatarLink($avatar_link)
+    {
+        if (is_null($avatar_link)) {
+            array_push($this->openAPINullablesSetToNull, 'avatar_link');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avatar_link', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avatar_link'] = $avatar_link;
 
         return $this;
     }

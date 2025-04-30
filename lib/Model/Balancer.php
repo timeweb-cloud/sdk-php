@@ -82,6 +82,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'string',
         'is_sticky' => 'bool',
         'timeout' => 'float',
+        'avatar_link' => 'string',
         'is_use_proxy' => 'bool',
         'rules' => '\OpenAPI\Client\Model\Rule[]',
         'ips' => 'string[]',
@@ -120,6 +121,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => null,
         'is_sticky' => null,
         'timeout' => null,
+        'avatar_link' => null,
         'is_use_proxy' => null,
         'rules' => null,
         'ips' => null,
@@ -156,6 +158,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'status' => false,
 		'is_sticky' => false,
 		'timeout' => false,
+		'avatar_link' => true,
 		'is_use_proxy' => false,
 		'rules' => false,
 		'ips' => false,
@@ -272,6 +275,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'status',
         'is_sticky' => 'is_sticky',
         'timeout' => 'timeout',
+        'avatar_link' => 'avatar_link',
         'is_use_proxy' => 'is_use_proxy',
         'rules' => 'rules',
         'ips' => 'ips',
@@ -308,6 +312,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'setStatus',
         'is_sticky' => 'setIsSticky',
         'timeout' => 'setTimeout',
+        'avatar_link' => 'setAvatarLink',
         'is_use_proxy' => 'setIsUseProxy',
         'rules' => 'setRules',
         'ips' => 'setIps',
@@ -344,6 +349,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'getStatus',
         'is_sticky' => 'getIsSticky',
         'timeout' => 'getTimeout',
+        'avatar_link' => 'getAvatarLink',
         'is_use_proxy' => 'getIsUseProxy',
         'rules' => 'getRules',
         'ips' => 'getIps',
@@ -499,6 +505,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('is_sticky', $data ?? [], null);
         $this->setIfExists('timeout', $data ?? [], null);
+        $this->setIfExists('avatar_link', $data ?? [], null);
         $this->setIfExists('is_use_proxy', $data ?? [], null);
         $this->setIfExists('rules', $data ?? [], null);
         $this->setIfExists('ips', $data ?? [], null);
@@ -628,6 +635,9 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['timeout'] === null) {
             $invalidProperties[] = "'timeout' can't be null";
+        }
+        if ($this->container['avatar_link'] === null) {
+            $invalidProperties[] = "'avatar_link' can't be null";
         }
         if ($this->container['is_use_proxy'] === null) {
             $invalidProperties[] = "'is_use_proxy' can't be null";
@@ -1329,6 +1339,40 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable timeout cannot be null');
         }
         $this->container['timeout'] = $timeout;
+
+        return $this;
+    }
+
+    /**
+     * Gets avatar_link
+     *
+     * @return string
+     */
+    public function getAvatarLink()
+    {
+        return $this->container['avatar_link'];
+    }
+
+    /**
+     * Sets avatar_link
+     *
+     * @param string $avatar_link Ссылка на аватар балансировщика.
+     *
+     * @return self
+     */
+    public function setAvatarLink($avatar_link)
+    {
+        if (is_null($avatar_link)) {
+            array_push($this->openAPINullablesSetToNull, 'avatar_link');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avatar_link', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avatar_link'] = $avatar_link;
 
         return $this;
     }

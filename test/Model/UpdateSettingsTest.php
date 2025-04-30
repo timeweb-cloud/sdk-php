@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdeteSettingsTest
+ * UpdateSettingsTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * UpdeteSettingsTest Class Doc Comment
+ * UpdateSettingsTest Class Doc Comment
  *
  * @category    Class
- * @description UpdeteSettings
+ * @description UpdateSettings
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class UpdeteSettingsTest extends TestCase
+class UpdateSettingsTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class UpdeteSettingsTest extends TestCase
     }
 
     /**
-     * Test "UpdeteSettings"
+     * Test "UpdateSettings"
      */
-    public function testUpdeteSettings()
+    public function testUpdateSettings()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -66,6 +66,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'string',
         'preset_id' => 'float',
         'configurator_id' => 'float',
+        'avatar_link' => 'string',
         'status' => 'string',
         'object_amount' => 'float',
         'location' => 'string',
@@ -91,6 +92,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => null,
         'preset_id' => null,
         'configurator_id' => null,
+        'avatar_link' => null,
         'status' => null,
         'object_amount' => null,
         'location' => null,
@@ -114,6 +116,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
 		'type' => false,
 		'preset_id' => true,
 		'configurator_id' => true,
+		'avatar_link' => true,
 		'status' => false,
 		'object_amount' => false,
 		'location' => false,
@@ -217,6 +220,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'type',
         'preset_id' => 'preset_id',
         'configurator_id' => 'configurator_id',
+        'avatar_link' => 'avatar_link',
         'status' => 'status',
         'object_amount' => 'object_amount',
         'location' => 'location',
@@ -240,6 +244,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'setType',
         'preset_id' => 'setPresetId',
         'configurator_id' => 'setConfiguratorId',
+        'avatar_link' => 'setAvatarLink',
         'status' => 'setStatus',
         'object_amount' => 'setObjectAmount',
         'location' => 'setLocation',
@@ -263,6 +268,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'getType',
         'preset_id' => 'getPresetId',
         'configurator_id' => 'getConfiguratorId',
+        'avatar_link' => 'getAvatarLink',
         'status' => 'getStatus',
         'object_amount' => 'getObjectAmount',
         'location' => 'getLocation',
@@ -384,6 +390,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
         $this->setIfExists('configurator_id', $data ?? [], null);
+        $this->setIfExists('avatar_link', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('object_amount', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
@@ -447,6 +454,9 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['configurator_id'] === null) {
             $invalidProperties[] = "'configurator_id' can't be null";
+        }
+        if ($this->container['avatar_link'] === null) {
+            $invalidProperties[] = "'avatar_link' can't be null";
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
@@ -714,6 +724,40 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['configurator_id'] = $configurator_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets avatar_link
+     *
+     * @return string
+     */
+    public function getAvatarLink()
+    {
+        return $this->container['avatar_link'];
+    }
+
+    /**
+     * Sets avatar_link
+     *
+     * @param string $avatar_link Ссылка на аватар хранилища.
+     *
+     * @return self
+     */
+    public function setAvatarLink($avatar_link)
+    {
+        if (is_null($avatar_link)) {
+            array_push($this->openAPINullablesSetToNull, 'avatar_link');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avatar_link', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avatar_link'] = $avatar_link;
 
         return $this;
     }
