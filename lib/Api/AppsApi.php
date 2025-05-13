@@ -3793,8 +3793,8 @@ class AppsApi
      * Получение статистики приложения
      *
      * @param  string $app_id app_id (required)
-     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
-     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppStatistics'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3813,8 +3813,8 @@ class AppsApi
      * Получение статистики приложения
      *
      * @param  string $app_id (required)
-     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
-     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppStatistics'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -4076,8 +4076,8 @@ class AppsApi
      * Получение статистики приложения
      *
      * @param  string $app_id (required)
-     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
-     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppStatistics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4099,8 +4099,8 @@ class AppsApi
      * Получение статистики приложения
      *
      * @param  string $app_id (required)
-     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
-     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppStatistics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4151,8 +4151,8 @@ class AppsApi
      * Create request for operation 'getAppStatistics'
      *
      * @param  string $app_id (required)
-     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
-     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppStatistics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

@@ -236,7 +236,7 @@ class AddGitlab implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const PROVIDER_TYPE_GITLAB = 'Gitlab';
+    public const PROVIDER_TYPE_GITLAB = 'gitlab';
 
     /**
      * Gets allowable values of the enum

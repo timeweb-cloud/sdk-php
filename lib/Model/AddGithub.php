@@ -236,7 +236,7 @@ class AddGithub implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const PROVIDER_TYPE_GITHUB = 'Github';
+    public const PROVIDER_TYPE_GITHUB = 'github';
 
     /**
      * Gets allowable values of the enum

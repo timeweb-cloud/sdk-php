@@ -19,5 +19,7 @@ Name | Type | Description | Notes
 **framework** | [**\OpenAPI\Client\Model\Frameworks**](Frameworks.md) |  |
 **index_dir** | **string** | Путь к директории с индексным файлом. Обязателен для приложений &#x60;type: frontend&#x60;. Не используется для приложений &#x60;type: backend&#x60;. Значение всегда должно начинаться с &#x60;/&#x60;. | [optional]
 **run_cmd** | **string** | Команда для запуска приложения. Обязательна для приложений &#x60;type: backend&#x60;. Не используется для приложений &#x60;type: frontend&#x60;. | [optional]
+**system_dependencies** | **string[]** | Системные зависимости. | [optional]
+**project_id** | **float** | ID проекта. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

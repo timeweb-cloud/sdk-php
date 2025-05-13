@@ -72,7 +72,9 @@ class CreateApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'env_version' => 'string',
         'framework' => '\OpenAPI\Client\Model\Frameworks',
         'index_dir' => 'string',
-        'run_cmd' => 'string'
+        'run_cmd' => 'string',
+        'system_dependencies' => 'string[]',
+        'project_id' => 'float'
     ];
 
     /**
@@ -97,7 +99,9 @@ class CreateApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'env_version' => null,
         'framework' => null,
         'index_dir' => null,
-        'run_cmd' => null
+        'run_cmd' => null,
+        'system_dependencies' => null,
+        'project_id' => null
     ];
 
     /**
@@ -120,7 +124,9 @@ class CreateApp implements ModelInterface, ArrayAccess, \JsonSerializable
 		'env_version' => false,
 		'framework' => false,
 		'index_dir' => false,
-		'run_cmd' => false
+		'run_cmd' => false,
+		'system_dependencies' => false,
+		'project_id' => false
     ];
 
     /**
@@ -223,7 +229,9 @@ class CreateApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'env_version' => 'env_version',
         'framework' => 'framework',
         'index_dir' => 'index_dir',
-        'run_cmd' => 'run_cmd'
+        'run_cmd' => 'run_cmd',
+        'system_dependencies' => 'system_dependencies',
+        'project_id' => 'project_id'
     ];
 
     /**
@@ -246,7 +254,9 @@ class CreateApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'env_version' => 'setEnvVersion',
         'framework' => 'setFramework',
         'index_dir' => 'setIndexDir',
-        'run_cmd' => 'setRunCmd'
+        'run_cmd' => 'setRunCmd',
+        'system_dependencies' => 'setSystemDependencies',
+        'project_id' => 'setProjectId'
     ];
 
     /**
@@ -269,7 +279,9 @@ class CreateApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'env_version' => 'getEnvVersion',
         'framework' => 'getFramework',
         'index_dir' => 'getIndexDir',
-        'run_cmd' => 'getRunCmd'
+        'run_cmd' => 'getRunCmd',
+        'system_dependencies' => 'getSystemDependencies',
+        'project_id' => 'getProjectId'
     ];
 
     /**
@@ -359,6 +371,8 @@ class CreateApp implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('framework', $data ?? [], null);
         $this->setIfExists('index_dir', $data ?? [], null);
         $this->setIfExists('run_cmd', $data ?? [], null);
+        $this->setIfExists('system_dependencies', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
     }
 
     /**
@@ -856,6 +870,60 @@ class CreateApp implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable run_cmd cannot be null');
         }
         $this->container['run_cmd'] = $run_cmd;
+
+        return $this;
+    }
+
+    /**
+     * Gets system_dependencies
+     *
+     * @return string[]|null
+     */
+    public function getSystemDependencies()
+    {
+        return $this->container['system_dependencies'];
+    }
+
+    /**
+     * Sets system_dependencies
+     *
+     * @param string[]|null $system_dependencies Системные зависимости.
+     *
+     * @return self
+     */
+    public function setSystemDependencies($system_dependencies)
+    {
+        if (is_null($system_dependencies)) {
+            throw new \InvalidArgumentException('non-nullable system_dependencies cannot be null');
+        }
+        $this->container['system_dependencies'] = $system_dependencies;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return float|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param float|null $project_id ID проекта.
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
+        }
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
