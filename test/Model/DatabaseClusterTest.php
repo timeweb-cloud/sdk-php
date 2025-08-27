@@ -180,9 +180,9 @@ class DatabaseClusterTest extends TestCase
     }
 
     /**
-     * Test attribute "disk_stats"
+     * Test attribute "disk"
      */
-    public function testPropertyDiskStats()
+    public function testPropertyDisk()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

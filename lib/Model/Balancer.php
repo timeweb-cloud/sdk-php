@@ -60,6 +60,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'float',
+        'account_id' => 'string',
         'algo' => 'string',
         'created_at' => '\DateTime',
         'fall' => 'float',
@@ -87,7 +88,9 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'rules' => '\OpenAPI\Client\Model\Rule[]',
         'ips' => 'string[]',
         'location' => 'string',
-        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone',
+        'project_id' => 'int',
+        'networks' => '\OpenAPI\Client\Model\BalancerNetworksInner[]'
     ];
 
     /**
@@ -99,6 +102,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => null,
+        'account_id' => null,
         'algo' => null,
         'created_at' => 'date-time',
         'fall' => null,
@@ -126,7 +130,9 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'rules' => null,
         'ips' => null,
         'location' => null,
-        'availability_zone' => null
+        'availability_zone' => null,
+        'project_id' => null,
+        'networks' => null
     ];
 
     /**
@@ -136,6 +142,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'id' => false,
+		'account_id' => false,
 		'algo' => false,
 		'created_at' => false,
 		'fall' => false,
@@ -163,7 +170,9 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'rules' => false,
 		'ips' => false,
 		'location' => false,
-		'availability_zone' => false
+		'availability_zone' => false,
+		'project_id' => false,
+		'networks' => false
     ];
 
     /**
@@ -253,6 +262,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'account_id' => 'account_id',
         'algo' => 'algo',
         'created_at' => 'created_at',
         'fall' => 'fall',
@@ -280,7 +290,9 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'rules' => 'rules',
         'ips' => 'ips',
         'location' => 'location',
-        'availability_zone' => 'availability_zone'
+        'availability_zone' => 'availability_zone',
+        'project_id' => 'project_id',
+        'networks' => 'networks'
     ];
 
     /**
@@ -290,6 +302,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
+        'account_id' => 'setAccountId',
         'algo' => 'setAlgo',
         'created_at' => 'setCreatedAt',
         'fall' => 'setFall',
@@ -317,7 +330,9 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'rules' => 'setRules',
         'ips' => 'setIps',
         'location' => 'setLocation',
-        'availability_zone' => 'setAvailabilityZone'
+        'availability_zone' => 'setAvailabilityZone',
+        'project_id' => 'setProjectId',
+        'networks' => 'setNetworks'
     ];
 
     /**
@@ -327,6 +342,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
+        'account_id' => 'getAccountId',
         'algo' => 'getAlgo',
         'created_at' => 'getCreatedAt',
         'fall' => 'getFall',
@@ -354,7 +370,9 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'rules' => 'getRules',
         'ips' => 'getIps',
         'location' => 'getLocation',
-        'availability_zone' => 'getAvailabilityZone'
+        'availability_zone' => 'getAvailabilityZone',
+        'project_id' => 'getProjectId',
+        'networks' => 'getNetworks'
     ];
 
     /**
@@ -483,6 +501,7 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('account_id', $data ?? [], null);
         $this->setIfExists('algo', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('fall', $data ?? [], null);
@@ -511,6 +530,8 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('ips', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('availability_zone', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
+        $this->setIfExists('networks', $data ?? [], null);
     }
 
     /**
@@ -663,6 +684,12 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['availability_zone'] === null) {
             $invalidProperties[] = "'availability_zone' can't be null";
         }
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['networks'] === null) {
+            $invalidProperties[] = "'networks' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -701,6 +728,33 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_id
+     *
+     * @return string|null
+     */
+    public function getAccountId()
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id
+     *
+     * @param string|null $account_id ID пользователя.
+     *
+     * @return self
+     */
+    public function setAccountId($account_id)
+    {
+        if (is_null($account_id)) {
+            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
+        }
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }
@@ -1518,6 +1572,60 @@ class Balancer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
         }
         $this->container['availability_zone'] = $availability_zone;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return int
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param int $project_id ID проекта
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
+        }
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets networks
+     *
+     * @return \OpenAPI\Client\Model\BalancerNetworksInner[]
+     */
+    public function getNetworks()
+    {
+        return $this->container['networks'];
+    }
+
+    /**
+     * Sets networks
+     *
+     * @param \OpenAPI\Client\Model\BalancerNetworksInner[] $networks Список сетей сервера.
+     *
+     * @return self
+     */
+    public function setNetworks($networks)
+    {
+        if (is_null($networks)) {
+            throw new \InvalidArgumentException('non-nullable networks cannot be null');
+        }
+        $this->container['networks'] = $networks;
 
         return $this;
     }

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **software_id** | **float** | ID программного обеспечения сервера. | [optional]
 **preset_id** | **float** | ID тарифа сервера. Нельзя передавать вместе с ключом &#x60;configurator&#x60;. | [optional]
 **bandwidth** | **float** | Пропускная способность тарифа. Доступные значения от 100 до 1000 с шагом 100. | [optional]
-**name** | **string** | Имя облачного сервера. Максимальная длина — 255 символов, имя должно быть уникальным. |
+**name** | **string** | Имя облачного сервера. Максимальная длина — 255 символов. |
 **avatar_id** | **string** | ID аватара сервера. | [optional]
 **comment** | **string** | Комментарий к облачному серверу. Максимальная длина — 255 символов. | [optional]
 **ssh_keys_ids** | **float[]** | Список SSH-ключей. | [optional]
@@ -19,5 +19,6 @@ Name | Type | Description | Notes
 **network** | [**\OpenAPI\Client\Model\CreateServerNetwork**](CreateServerNetwork.md) |  | [optional]
 **cloud_init** | **string** | Cloud-init скрипт | [optional]
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  | [optional]
+**project_id** | **float** | ID проекта. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

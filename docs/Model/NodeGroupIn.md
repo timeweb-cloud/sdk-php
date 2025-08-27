@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **is_autoscaling** | **bool** | Автомасштабирование. Автоматическое увеличение и уменьшение количества нод в группе в зависимости от текущей нагрузки | [optional]
 **min_size** | **int** | Минимальное количество нод. Передавать в связке с параметрами &#x60;is_autoscaling&#x60; и &#x60;max_size&#x60; | [optional]
 **max_size** | **int** | Максимальное количество нод. Передавать в связке с параметрами &#x60;is_autoscaling&#x60; и &#x60;min_size&#x60;. Максимальное количество нод ограничено тарифом кластера | [optional]
+**is_autohealing** | **bool** | Автоматическое восстановление работоспособности вышедших из строя узлов | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

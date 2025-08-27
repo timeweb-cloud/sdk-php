@@ -64,7 +64,9 @@ class PresetsStorage implements ModelInterface, ArrayAccess, \JsonSerializable
         'description_short' => 'string',
         'disk' => 'float',
         'price' => 'float',
-        'location' => 'string'
+        'location' => 'string',
+        'tags' => 'string[]',
+        'storage_class' => 'string'
     ];
 
     /**
@@ -80,7 +82,9 @@ class PresetsStorage implements ModelInterface, ArrayAccess, \JsonSerializable
         'description_short' => null,
         'disk' => null,
         'price' => null,
-        'location' => null
+        'location' => null,
+        'tags' => null,
+        'storage_class' => null
     ];
 
     /**
@@ -94,7 +98,9 @@ class PresetsStorage implements ModelInterface, ArrayAccess, \JsonSerializable
 		'description_short' => false,
 		'disk' => false,
 		'price' => false,
-		'location' => false
+		'location' => false,
+		'tags' => false,
+		'storage_class' => false
     ];
 
     /**
@@ -188,7 +194,9 @@ class PresetsStorage implements ModelInterface, ArrayAccess, \JsonSerializable
         'description_short' => 'description_short',
         'disk' => 'disk',
         'price' => 'price',
-        'location' => 'location'
+        'location' => 'location',
+        'tags' => 'tags',
+        'storage_class' => 'storage_class'
     ];
 
     /**
@@ -202,7 +210,9 @@ class PresetsStorage implements ModelInterface, ArrayAccess, \JsonSerializable
         'description_short' => 'setDescriptionShort',
         'disk' => 'setDisk',
         'price' => 'setPrice',
-        'location' => 'setLocation'
+        'location' => 'setLocation',
+        'tags' => 'setTags',
+        'storage_class' => 'setStorageClass'
     ];
 
     /**
@@ -216,7 +226,9 @@ class PresetsStorage implements ModelInterface, ArrayAccess, \JsonSerializable
         'description_short' => 'getDescriptionShort',
         'disk' => 'getDisk',
         'price' => 'getPrice',
-        'location' => 'getLocation'
+        'location' => 'getLocation',
+        'tags' => 'getTags',
+        'storage_class' => 'getStorageClass'
     ];
 
     /**
@@ -261,8 +273,8 @@ class PresetsStorage implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const LOCATION_RU_1 = 'ru-1';
-    public const LOCATION_PL_1 = 'pl-1';
-    public const LOCATION_KZ_1 = 'kz-1';
+    public const STORAGE_CLASS_COLD = 'cold';
+    public const STORAGE_CLASS_HOT = 'hot';
 
     /**
      * Gets allowable values of the enum
@@ -273,8 +285,19 @@ class PresetsStorage implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::LOCATION_RU_1,
-            self::LOCATION_PL_1,
-            self::LOCATION_KZ_1,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStorageClassAllowableValues()
+    {
+        return [
+            self::STORAGE_CLASS_COLD,
+            self::STORAGE_CLASS_HOT,
         ];
     }
 
@@ -299,6 +322,8 @@ class PresetsStorage implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('disk', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
+        $this->setIfExists('tags', $data ?? [], null);
+        $this->setIfExists('storage_class', $data ?? [], null);
     }
 
     /**
@@ -351,6 +376,21 @@ class PresetsStorage implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'location', must be one of '%s'",
                 $this->container['location'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['tags'] === null) {
+            $invalidProperties[] = "'tags' can't be null";
+        }
+        if ($this->container['storage_class'] === null) {
+            $invalidProperties[] = "'storage_class' can't be null";
+        }
+        $allowedValues = $this->getStorageClassAllowableValues();
+        if (!is_null($this->container['storage_class']) && !in_array($this->container['storage_class'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'storage_class', must be one of '%s'",
+                $this->container['storage_class'],
                 implode("', '", $allowedValues)
             );
         }
@@ -538,6 +578,70 @@ class PresetsStorage implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['location'] = $location;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return string[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param string[] $tags Теги тарифа.
+     *
+     * @return self
+     */
+    public function setTags($tags)
+    {
+        if (is_null($tags)) {
+            throw new \InvalidArgumentException('non-nullable tags cannot be null');
+        }
+        $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets storage_class
+     *
+     * @return string
+     */
+    public function getStorageClass()
+    {
+        return $this->container['storage_class'];
+    }
+
+    /**
+     * Sets storage_class
+     *
+     * @param string $storage_class Класс хранилища.
+     *
+     * @return self
+     */
+    public function setStorageClass($storage_class)
+    {
+        if (is_null($storage_class)) {
+            throw new \InvalidArgumentException('non-nullable storage_class cannot be null');
+        }
+        $allowedValues = $this->getStorageClassAllowableValues();
+        if (!in_array($storage_class, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'storage_class', must be one of '%s'",
+                    $storage_class,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['storage_class'] = $storage_class;
 
         return $this;
     }

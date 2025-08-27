@@ -115,4 +115,22 @@ class CreateStorageRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "configurator"
+     */
+    public function testPropertyConfigurator()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "project_id"
+     */
+    public function testPropertyProjectId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

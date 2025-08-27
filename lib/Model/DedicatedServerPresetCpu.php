@@ -61,7 +61,8 @@ class DedicatedServerPresetCpu implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPITypes = [
         'description' => 'string',
         'description_short' => 'string',
-        'count' => 'float'
+        'count' => 'float',
+        'vendor' => 'string'
     ];
 
     /**
@@ -74,7 +75,8 @@ class DedicatedServerPresetCpu implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPIFormats = [
         'description' => null,
         'description_short' => null,
-        'count' => null
+        'count' => null,
+        'vendor' => null
     ];
 
     /**
@@ -85,7 +87,8 @@ class DedicatedServerPresetCpu implements ModelInterface, ArrayAccess, \JsonSeri
     protected static array $openAPINullables = [
         'description' => false,
 		'description_short' => false,
-		'count' => false
+		'count' => false,
+		'vendor' => false
     ];
 
     /**
@@ -176,7 +179,8 @@ class DedicatedServerPresetCpu implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $attributeMap = [
         'description' => 'description',
         'description_short' => 'description_short',
-        'count' => 'count'
+        'count' => 'count',
+        'vendor' => 'vendor'
     ];
 
     /**
@@ -187,7 +191,8 @@ class DedicatedServerPresetCpu implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $setters = [
         'description' => 'setDescription',
         'description_short' => 'setDescriptionShort',
-        'count' => 'setCount'
+        'count' => 'setCount',
+        'vendor' => 'setVendor'
     ];
 
     /**
@@ -198,7 +203,8 @@ class DedicatedServerPresetCpu implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $getters = [
         'description' => 'getDescription',
         'description_short' => 'getDescriptionShort',
-        'count' => 'getCount'
+        'count' => 'getCount',
+        'vendor' => 'getVendor'
     ];
 
     /**
@@ -261,6 +267,7 @@ class DedicatedServerPresetCpu implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('description_short', $data ?? [], null);
         $this->setIfExists('count', $data ?? [], null);
+        $this->setIfExists('vendor', $data ?? [], null);
     }
 
     /**
@@ -298,6 +305,9 @@ class DedicatedServerPresetCpu implements ModelInterface, ArrayAccess, \JsonSeri
         }
         if ($this->container['count'] === null) {
             $invalidProperties[] = "'count' can't be null";
+        }
+        if ($this->container['vendor'] === null) {
+            $invalidProperties[] = "'vendor' can't be null";
         }
         return $invalidProperties;
     }
@@ -391,6 +401,33 @@ class DedicatedServerPresetCpu implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable count cannot be null');
         }
         $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets vendor
+     *
+     * @return string
+     */
+    public function getVendor()
+    {
+        return $this->container['vendor'];
+    }
+
+    /**
+     * Sets vendor
+     *
+     * @param string $vendor Производитель процессора выделенного сервера.
+     *
+     * @return self
+     */
+    public function setVendor($vendor)
+    {
+        if (is_null($vendor)) {
+            throw new \InvalidArgumentException('non-nullable vendor cannot be null');
+        }
+        $this->container['vendor'] = $vendor;
 
         return $this;
     }

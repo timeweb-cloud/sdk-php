@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **period** | **string** | Период оплаты. |
 **description** | **string** | Описание дополнительной услуги выделенного сервера. |
 **short_description** | **string** | Краткое описание дополнительной услуги выделенного сервера. |
-**name** | **string** | Уникально имя дополнительной услуги выделенного сервера. |
+**name** | **string** | Уникальное имя дополнительной услуги выделенного сервера. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

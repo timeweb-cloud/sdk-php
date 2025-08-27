@@ -90,9 +90,9 @@ class UpdateStorageRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "configurator_id"
+     * Test attribute "configurator"
      */
-    public function testPropertyConfiguratorId()
+    public function testPropertyConfigurator()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

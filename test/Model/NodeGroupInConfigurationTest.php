@@ -115,4 +115,13 @@ class NodeGroupInConfigurationTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "gpu"
+     */
+    public function testPropertyGpu()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

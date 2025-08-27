@@ -223,4 +223,31 @@ class BucketTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "project_id"
+     */
+    public function testPropertyProjectId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "rate_id"
+     */
+    public function testPropertyRateId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "website_config"
+     */
+    public function testPropertyWebsiteConfig()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

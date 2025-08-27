@@ -20,5 +20,8 @@ Name | Type | Description | Notes
 **secret_key** | **string** | Секретный ключ доступа от хранилища. |
 **moved_in_quarantine_at** | **\DateTime** | Дата перемещения в карантин. |
 **storage_class** | **string** | Класс хранилища. |
+**project_id** | **float** | ID проекта. |
+**rate_id** | **float** | ID тарифа. |
+**website_config** | [**\OpenAPI\Client\Model\BucketWebsiteConfig**](BucketWebsiteConfig.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

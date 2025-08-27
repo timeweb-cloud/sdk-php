@@ -66,9 +66,14 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_ingress' => 'bool',
         'is_k8s_dashboard' => 'bool',
         'preset_id' => 'int',
+        'configuration' => '\OpenAPI\Client\Model\ClusterInConfiguration',
+        'master_nodes_count' => 'int',
         'worker_groups' => '\OpenAPI\Client\Model\NodeGroupIn[]',
         'network_id' => 'string',
-        'project_id' => 'int'
+        'project_id' => 'int',
+        'maintenance_slot' => '\OpenAPI\Client\Model\ClusterInMaintenanceSlot',
+        'oidc_provider' => '\OpenAPI\Client\Model\ClusterInOidcProvider',
+        'cluster_network_cidr' => '\OpenAPI\Client\Model\ClusterInClusterNetworkCidr'
     ];
 
     /**
@@ -87,9 +92,14 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_ingress' => null,
         'is_k8s_dashboard' => null,
         'preset_id' => null,
+        'configuration' => null,
+        'master_nodes_count' => null,
         'worker_groups' => null,
         'network_id' => null,
-        'project_id' => null
+        'project_id' => null,
+        'maintenance_slot' => null,
+        'oidc_provider' => null,
+        'cluster_network_cidr' => null
     ];
 
     /**
@@ -106,9 +116,14 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
 		'is_ingress' => false,
 		'is_k8s_dashboard' => false,
 		'preset_id' => false,
+		'configuration' => false,
+		'master_nodes_count' => false,
 		'worker_groups' => false,
 		'network_id' => false,
-		'project_id' => false
+		'project_id' => false,
+		'maintenance_slot' => false,
+		'oidc_provider' => false,
+		'cluster_network_cidr' => false
     ];
 
     /**
@@ -205,9 +220,14 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_ingress' => 'is_ingress',
         'is_k8s_dashboard' => 'is_k8s_dashboard',
         'preset_id' => 'preset_id',
+        'configuration' => 'configuration',
+        'master_nodes_count' => 'master_nodes_count',
         'worker_groups' => 'worker_groups',
         'network_id' => 'network_id',
-        'project_id' => 'project_id'
+        'project_id' => 'project_id',
+        'maintenance_slot' => 'maintenance_slot',
+        'oidc_provider' => 'oidc_provider',
+        'cluster_network_cidr' => 'cluster_network_cidr'
     ];
 
     /**
@@ -224,9 +244,14 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_ingress' => 'setIsIngress',
         'is_k8s_dashboard' => 'setIsK8sDashboard',
         'preset_id' => 'setPresetId',
+        'configuration' => 'setConfiguration',
+        'master_nodes_count' => 'setMasterNodesCount',
         'worker_groups' => 'setWorkerGroups',
         'network_id' => 'setNetworkId',
-        'project_id' => 'setProjectId'
+        'project_id' => 'setProjectId',
+        'maintenance_slot' => 'setMaintenanceSlot',
+        'oidc_provider' => 'setOidcProvider',
+        'cluster_network_cidr' => 'setClusterNetworkCidr'
     ];
 
     /**
@@ -243,9 +268,14 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_ingress' => 'getIsIngress',
         'is_k8s_dashboard' => 'getIsK8sDashboard',
         'preset_id' => 'getPresetId',
+        'configuration' => 'getConfiguration',
+        'master_nodes_count' => 'getMasterNodesCount',
         'worker_groups' => 'getWorkerGroups',
         'network_id' => 'getNetworkId',
-        'project_id' => 'getProjectId'
+        'project_id' => 'getProjectId',
+        'maintenance_slot' => 'getMaintenanceSlot',
+        'oidc_provider' => 'getOidcProvider',
+        'cluster_network_cidr' => 'getClusterNetworkCidr'
     ];
 
     /**
@@ -292,6 +322,7 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
     public const AVAILABILITY_ZONE_SPB_3 = 'spb-3';
     public const AVAILABILITY_ZONE_MSK_1 = 'msk-1';
     public const AVAILABILITY_ZONE_AMS_1 = 'ams-1';
+    public const AVAILABILITY_ZONE_FRA_1 = 'fra-1';
     public const NETWORK_DRIVER_KUBEROUTER = 'kuberouter';
     public const NETWORK_DRIVER_CALICO = 'calico';
     public const NETWORK_DRIVER_FLANNEL = 'flannel';
@@ -308,6 +339,7 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
             self::AVAILABILITY_ZONE_SPB_3,
             self::AVAILABILITY_ZONE_MSK_1,
             self::AVAILABILITY_ZONE_AMS_1,
+            self::AVAILABILITY_ZONE_FRA_1,
         ];
     }
 
@@ -349,9 +381,14 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('is_ingress', $data ?? [], null);
         $this->setIfExists('is_k8s_dashboard', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
+        $this->setIfExists('configuration', $data ?? [], null);
+        $this->setIfExists('master_nodes_count', $data ?? [], null);
         $this->setIfExists('worker_groups', $data ?? [], null);
         $this->setIfExists('network_id', $data ?? [], null);
         $this->setIfExists('project_id', $data ?? [], null);
+        $this->setIfExists('maintenance_slot', $data ?? [], null);
+        $this->setIfExists('oidc_provider', $data ?? [], null);
+        $this->setIfExists('cluster_network_cidr', $data ?? [], null);
     }
 
     /**
@@ -408,9 +445,6 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['preset_id'] === null) {
-            $invalidProperties[] = "'preset_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -638,7 +672,7 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets preset_id
      *
-     * @return int
+     * @return int|null
      */
     public function getPresetId()
     {
@@ -648,7 +682,7 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preset_id
      *
-     * @param int $preset_id ID тарифа мастер-ноды
+     * @param int|null $preset_id ID тарифа мастер-ноды. Нельзя передавать вместе с `configuration`
      *
      * @return self
      */
@@ -658,6 +692,60 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable preset_id cannot be null');
         }
         $this->container['preset_id'] = $preset_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets configuration
+     *
+     * @return \OpenAPI\Client\Model\ClusterInConfiguration|null
+     */
+    public function getConfiguration()
+    {
+        return $this->container['configuration'];
+    }
+
+    /**
+     * Sets configuration
+     *
+     * @param \OpenAPI\Client\Model\ClusterInConfiguration|null $configuration configuration
+     *
+     * @return self
+     */
+    public function setConfiguration($configuration)
+    {
+        if (is_null($configuration)) {
+            throw new \InvalidArgumentException('non-nullable configuration cannot be null');
+        }
+        $this->container['configuration'] = $configuration;
+
+        return $this;
+    }
+
+    /**
+     * Gets master_nodes_count
+     *
+     * @return int|null
+     */
+    public function getMasterNodesCount()
+    {
+        return $this->container['master_nodes_count'];
+    }
+
+    /**
+     * Sets master_nodes_count
+     *
+     * @param int|null $master_nodes_count Количество мастер нод
+     *
+     * @return self
+     */
+    public function setMasterNodesCount($master_nodes_count)
+    {
+        if (is_null($master_nodes_count)) {
+            throw new \InvalidArgumentException('non-nullable master_nodes_count cannot be null');
+        }
+        $this->container['master_nodes_count'] = $master_nodes_count;
 
         return $this;
     }
@@ -739,6 +827,87 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable project_id cannot be null');
         }
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintenance_slot
+     *
+     * @return \OpenAPI\Client\Model\ClusterInMaintenanceSlot|null
+     */
+    public function getMaintenanceSlot()
+    {
+        return $this->container['maintenance_slot'];
+    }
+
+    /**
+     * Sets maintenance_slot
+     *
+     * @param \OpenAPI\Client\Model\ClusterInMaintenanceSlot|null $maintenance_slot maintenance_slot
+     *
+     * @return self
+     */
+    public function setMaintenanceSlot($maintenance_slot)
+    {
+        if (is_null($maintenance_slot)) {
+            throw new \InvalidArgumentException('non-nullable maintenance_slot cannot be null');
+        }
+        $this->container['maintenance_slot'] = $maintenance_slot;
+
+        return $this;
+    }
+
+    /**
+     * Gets oidc_provider
+     *
+     * @return \OpenAPI\Client\Model\ClusterInOidcProvider|null
+     */
+    public function getOidcProvider()
+    {
+        return $this->container['oidc_provider'];
+    }
+
+    /**
+     * Sets oidc_provider
+     *
+     * @param \OpenAPI\Client\Model\ClusterInOidcProvider|null $oidc_provider oidc_provider
+     *
+     * @return self
+     */
+    public function setOidcProvider($oidc_provider)
+    {
+        if (is_null($oidc_provider)) {
+            throw new \InvalidArgumentException('non-nullable oidc_provider cannot be null');
+        }
+        $this->container['oidc_provider'] = $oidc_provider;
+
+        return $this;
+    }
+
+    /**
+     * Gets cluster_network_cidr
+     *
+     * @return \OpenAPI\Client\Model\ClusterInClusterNetworkCidr|null
+     */
+    public function getClusterNetworkCidr()
+    {
+        return $this->container['cluster_network_cidr'];
+    }
+
+    /**
+     * Sets cluster_network_cidr
+     *
+     * @param \OpenAPI\Client\Model\ClusterInClusterNetworkCidr|null $cluster_network_cidr cluster_network_cidr
+     *
+     * @return self
+     */
+    public function setClusterNetworkCidr($cluster_network_cidr)
+    {
+        if (is_null($cluster_network_cidr)) {
+            throw new \InvalidArgumentException('non-nullable cluster_network_cidr cannot be null');
+        }
+        $this->container['cluster_network_cidr'] = $cluster_network_cidr;
 
         return $this;
     }

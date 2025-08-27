@@ -133,4 +133,22 @@ class PresetsStorageTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "tags"
+     */
+    public function testPropertyTags()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "storage_class"
+     */
+    public function testPropertyStorageClass()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

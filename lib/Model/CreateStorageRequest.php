@@ -61,7 +61,9 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'string',
         'description' => 'string',
         'type' => 'string',
-        'preset_id' => 'float'
+        'preset_id' => 'float',
+        'configurator' => '\OpenAPI\Client\Model\CreateStorageRequestConfigurator',
+        'project_id' => 'float'
     ];
 
     /**
@@ -75,7 +77,9 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => null,
         'description' => null,
         'type' => null,
-        'preset_id' => null
+        'preset_id' => null,
+        'configurator' => null,
+        'project_id' => null
     ];
 
     /**
@@ -87,7 +91,9 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => false,
 		'description' => false,
 		'type' => false,
-		'preset_id' => false
+		'preset_id' => false,
+		'configurator' => false,
+		'project_id' => false
     ];
 
     /**
@@ -179,7 +185,9 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'name',
         'description' => 'description',
         'type' => 'type',
-        'preset_id' => 'preset_id'
+        'preset_id' => 'preset_id',
+        'configurator' => 'configurator',
+        'project_id' => 'project_id'
     ];
 
     /**
@@ -191,7 +199,9 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'setName',
         'description' => 'setDescription',
         'type' => 'setType',
-        'preset_id' => 'setPresetId'
+        'preset_id' => 'setPresetId',
+        'configurator' => 'setConfigurator',
+        'project_id' => 'setProjectId'
     ];
 
     /**
@@ -203,7 +213,9 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'getName',
         'description' => 'getDescription',
         'type' => 'getType',
-        'preset_id' => 'getPresetId'
+        'preset_id' => 'getPresetId',
+        'configurator' => 'getConfigurator',
+        'project_id' => 'getProjectId'
     ];
 
     /**
@@ -282,6 +294,8 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
+        $this->setIfExists('configurator', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
     }
 
     /**
@@ -342,9 +356,6 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             );
         }
 
-        if ($this->container['preset_id'] === null) {
-            $invalidProperties[] = "'preset_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -468,7 +479,7 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets preset_id
      *
-     * @return float
+     * @return float|null
      */
     public function getPresetId()
     {
@@ -478,7 +489,7 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets preset_id
      *
-     * @param float $preset_id ID тарифа.
+     * @param float|null $preset_id ID тарифа. Нельзя передавать вместе с `configurator`.
      *
      * @return self
      */
@@ -488,6 +499,60 @@ class CreateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable preset_id cannot be null');
         }
         $this->container['preset_id'] = $preset_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets configurator
+     *
+     * @return \OpenAPI\Client\Model\CreateStorageRequestConfigurator|null
+     */
+    public function getConfigurator()
+    {
+        return $this->container['configurator'];
+    }
+
+    /**
+     * Sets configurator
+     *
+     * @param \OpenAPI\Client\Model\CreateStorageRequestConfigurator|null $configurator configurator
+     *
+     * @return self
+     */
+    public function setConfigurator($configurator)
+    {
+        if (is_null($configurator)) {
+            throw new \InvalidArgumentException('non-nullable configurator cannot be null');
+        }
+        $this->container['configurator'] = $configurator;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return float|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param float|null $project_id ID проекта.
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
+        }
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }

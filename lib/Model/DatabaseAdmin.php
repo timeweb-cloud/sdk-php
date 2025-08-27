@@ -475,7 +475,7 @@ class DatabaseAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string $description Описанеие пользователя базы данных
+     * @param string $description Описание пользователя базы данных
      *
      * @return self
      */

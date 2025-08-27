@@ -56,29 +56,27 @@ class DbType
 
     public const POSTGRES17 = 'postgres17';
 
-    public const REDIS = 'redis';
-
     public const REDIS7 = 'redis7';
 
-    public const MONGODB4 = 'mongodb4';
-
-    public const MONGODB = 'mongodb';
-
-    public const MONGODB6 = 'mongodb6';
+    public const REDIS8_1 = 'redis8_1';
 
     public const MONGODB7 = 'mongodb7';
 
+    public const MONGODB8_0 = 'mongodb8_0';
+
     public const OPENSEARCH = 'opensearch';
 
-    public const KAFKA = 'kafka';
-
-    public const RABBITMQ = 'rabbitmq';
+    public const OPENSEARCH2_19 = 'opensearch2_19';
 
     public const CLICKHOUSE = 'clickhouse';
 
     public const CLICKHOUSE24 = 'clickhouse24';
 
     public const CLICKHOUSE25 = 'clickhouse25';
+
+    public const KAFKA = 'kafka';
+
+    public const RABBITMQ4_0 = 'rabbitmq4_0';
 
     /**
      * Gets allowable values of the enum
@@ -93,18 +91,17 @@ class DbType
             self::POSTGRES15,
             self::POSTGRES16,
             self::POSTGRES17,
-            self::REDIS,
             self::REDIS7,
-            self::MONGODB4,
-            self::MONGODB,
-            self::MONGODB6,
+            self::REDIS8_1,
             self::MONGODB7,
+            self::MONGODB8_0,
             self::OPENSEARCH,
-            self::KAFKA,
-            self::RABBITMQ,
+            self::OPENSEARCH2_19,
             self::CLICKHOUSE,
             self::CLICKHOUSE24,
-            self::CLICKHOUSE25
+            self::CLICKHOUSE25,
+            self::KAFKA,
+            self::RABBITMQ4_0
         ];
     }
 }

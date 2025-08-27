@@ -59,7 +59,7 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'preset_id' => 'float',
-        'configurator_id' => 'float',
+        'configurator' => '\OpenAPI\Client\Model\UpdateStorageRequestConfigurator',
         'bucket_type' => 'string',
         'description' => 'string'
     ];
@@ -73,7 +73,7 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'preset_id' => null,
-        'configurator_id' => null,
+        'configurator' => null,
         'bucket_type' => null,
         'description' => null
     ];
@@ -85,7 +85,7 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'preset_id' => false,
-		'configurator_id' => false,
+		'configurator' => false,
 		'bucket_type' => false,
 		'description' => false
     ];
@@ -177,7 +177,7 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'preset_id' => 'preset_id',
-        'configurator_id' => 'configurator_id',
+        'configurator' => 'configurator',
         'bucket_type' => 'bucket_type',
         'description' => 'description'
     ];
@@ -189,7 +189,7 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'preset_id' => 'setPresetId',
-        'configurator_id' => 'setConfiguratorId',
+        'configurator' => 'setConfigurator',
         'bucket_type' => 'setBucketType',
         'description' => 'setDescription'
     ];
@@ -201,7 +201,7 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'preset_id' => 'getPresetId',
-        'configurator_id' => 'getConfiguratorId',
+        'configurator' => 'getConfigurator',
         'bucket_type' => 'getBucketType',
         'description' => 'getDescription'
     ];
@@ -279,7 +279,7 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->setIfExists('preset_id', $data ?? [], null);
-        $this->setIfExists('configurator_id', $data ?? [], null);
+        $this->setIfExists('configurator', $data ?? [], null);
         $this->setIfExists('bucket_type', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
     }
@@ -371,28 +371,28 @@ class UpdateStorageRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets configurator_id
+     * Gets configurator
      *
-     * @return float|null
+     * @return \OpenAPI\Client\Model\UpdateStorageRequestConfigurator|null
      */
-    public function getConfiguratorId()
+    public function getConfigurator()
     {
-        return $this->container['configurator_id'];
+        return $this->container['configurator'];
     }
 
     /**
-     * Sets configurator_id
+     * Sets configurator
      *
-     * @param float|null $configurator_id ID конфигуратора хранилища.
+     * @param \OpenAPI\Client\Model\UpdateStorageRequestConfigurator|null $configurator configurator
      *
      * @return self
      */
-    public function setConfiguratorId($configurator_id)
+    public function setConfigurator($configurator)
     {
-        if (is_null($configurator_id)) {
-            throw new \InvalidArgumentException('non-nullable configurator_id cannot be null');
+        if (is_null($configurator)) {
+            throw new \InvalidArgumentException('non-nullable configurator cannot be null');
         }
-        $this->container['configurator_id'] = $configurator_id;
+        $this->container['configurator'] = $configurator;
 
         return $this;
     }

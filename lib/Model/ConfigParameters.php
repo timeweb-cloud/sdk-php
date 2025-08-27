@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ConfigParameters Class Doc Comment
  *
  * @category Class
+ * @description Параметры базы данных
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

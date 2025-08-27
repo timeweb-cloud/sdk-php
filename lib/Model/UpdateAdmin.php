@@ -269,6 +269,9 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     public const PRIVILEGES_ALTER_ROUTINE = 'ALTER_ROUTINE';
     public const PRIVILEGES_CREATE_ROUTINE = 'CREATE_ROUTINE';
     public const PRIVILEGES_TRANSACTION = 'TRANSACTION';
+    public const PRIVILEGES_SLOW_LOG = 'SLOW_LOG';
+    public const PRIVILEGES_TRIGGER = 'TRIGGER';
+    public const PRIVILEGES_CREATE_TEMPORARY_TABLES = 'CREATE_TEMPORARY_TABLES';
 
     /**
      * Gets allowable values of the enum
@@ -300,6 +303,9 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
             self::PRIVILEGES_ALTER_ROUTINE,
             self::PRIVILEGES_CREATE_ROUTINE,
             self::PRIVILEGES_TRANSACTION,
+            self::PRIVILEGES_SLOW_LOG,
+            self::PRIVILEGES_TRIGGER,
+            self::PRIVILEGES_CREATE_TEMPORARY_TABLES,
         ];
     }
 
@@ -469,7 +475,7 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets instance_id
      *
-     * @param float|null $instance_id ID инстанса базы данных для приминения привилегий. В данных момент поле доступно только для кластеров MySQL. Если поле не передано, то привилегии будут применены ко всем инстансам
+     * @param float|null $instance_id ID инстанса базы данных для применения привилегий. В данных момент поле доступно только для кластеров MySQL. Если поле не передано, то привилегии будут применены ко всем инстансам
      *
      * @return self
      */

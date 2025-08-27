@@ -29,5 +29,9 @@ Name | Type | Description | Notes
 **location** | **string** | Локация сервера. |
 **autoinstall_ready** | **float** | Количество готовых к автоматической выдаче серверов. Если значение равно 0, сервер будет установлен через инженеров. |
 **password** | **string** | Пароль root сервера или пароль Администратора для серверов Windows. |
+**avatar_link** | **string** | Ссылка на аватар сервера. |
+**is_pre_installed** | **bool** | Это логическое значение, которое показывает, готов ли выделенный сервер к моментальной выдаче. |
+**preset_id** | **int** | ID тарифа сервера. |
+**project_id** | **int** | ID проекта |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

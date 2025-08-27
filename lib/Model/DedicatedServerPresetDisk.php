@@ -60,7 +60,9 @@ class DedicatedServerPresetDisk implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'description' => 'string',
-        'count' => 'float'
+        'count' => 'float',
+        'total_size' => 'float',
+        'type' => 'string'
     ];
 
     /**
@@ -72,7 +74,9 @@ class DedicatedServerPresetDisk implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPIFormats = [
         'description' => null,
-        'count' => null
+        'count' => null,
+        'total_size' => null,
+        'type' => null
     ];
 
     /**
@@ -82,7 +86,9 @@ class DedicatedServerPresetDisk implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static array $openAPINullables = [
         'description' => false,
-		'count' => false
+		'count' => false,
+		'total_size' => false,
+		'type' => false
     ];
 
     /**
@@ -172,7 +178,9 @@ class DedicatedServerPresetDisk implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'description' => 'description',
-        'count' => 'count'
+        'count' => 'count',
+        'total_size' => 'total_size',
+        'type' => 'type'
     ];
 
     /**
@@ -182,7 +190,9 @@ class DedicatedServerPresetDisk implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $setters = [
         'description' => 'setDescription',
-        'count' => 'setCount'
+        'count' => 'setCount',
+        'total_size' => 'setTotalSize',
+        'type' => 'setType'
     ];
 
     /**
@@ -192,7 +202,9 @@ class DedicatedServerPresetDisk implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $getters = [
         'description' => 'getDescription',
-        'count' => 'getCount'
+        'count' => 'getCount',
+        'total_size' => 'getTotalSize',
+        'type' => 'getType'
     ];
 
     /**
@@ -254,6 +266,8 @@ class DedicatedServerPresetDisk implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('count', $data ?? [], null);
+        $this->setIfExists('total_size', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -288,6 +302,12 @@ class DedicatedServerPresetDisk implements ModelInterface, ArrayAccess, \JsonSer
         }
         if ($this->container['count'] === null) {
             $invalidProperties[] = "'count' can't be null";
+        }
+        if ($this->container['total_size'] === null) {
+            $invalidProperties[] = "'total_size' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -354,6 +374,60 @@ class DedicatedServerPresetDisk implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable count cannot be null');
         }
         $this->container['count'] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_size
+     *
+     * @return float
+     */
+    public function getTotalSize()
+    {
+        return $this->container['total_size'];
+    }
+
+    /**
+     * Sets total_size
+     *
+     * @param float $total_size Общий размер дисков выделенного сервера.
+     *
+     * @return self
+     */
+    public function setTotalSize($total_size)
+    {
+        if (is_null($total_size)) {
+            throw new \InvalidArgumentException('non-nullable total_size cannot be null');
+        }
+        $this->container['total_size'] = $total_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type Тип дисков выделенного сервера.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

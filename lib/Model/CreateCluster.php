@@ -64,7 +64,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => '\OpenAPI\Client\Model\CreateClusterInstance',
         'hash_type' => 'string',
         'preset_id' => 'int',
+        'configurator_id' => 'int',
+        'project_id' => 'int',
         'config_parameters' => '\OpenAPI\Client\Model\ConfigParameters',
+        'replication' => '\OpenAPI\Client\Model\DbReplication',
         'network' => '\OpenAPI\Client\Model\Network',
         'description' => 'string',
         'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone',
@@ -85,7 +88,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => null,
         'hash_type' => null,
         'preset_id' => null,
+        'configurator_id' => null,
+        'project_id' => null,
         'config_parameters' => null,
+        'replication' => null,
         'network' => null,
         'description' => null,
         'availability_zone' => null,
@@ -104,7 +110,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
 		'instance' => false,
 		'hash_type' => false,
 		'preset_id' => false,
+		'configurator_id' => false,
+		'project_id' => false,
 		'config_parameters' => false,
+		'replication' => false,
 		'network' => false,
 		'description' => false,
 		'availability_zone' => false,
@@ -203,7 +212,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => 'instance',
         'hash_type' => 'hash_type',
         'preset_id' => 'preset_id',
+        'configurator_id' => 'configurator_id',
+        'project_id' => 'project_id',
         'config_parameters' => 'config_parameters',
+        'replication' => 'replication',
         'network' => 'network',
         'description' => 'description',
         'availability_zone' => 'availability_zone',
@@ -222,7 +234,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => 'setInstance',
         'hash_type' => 'setHashType',
         'preset_id' => 'setPresetId',
+        'configurator_id' => 'setConfiguratorId',
+        'project_id' => 'setProjectId',
         'config_parameters' => 'setConfigParameters',
+        'replication' => 'setReplication',
         'network' => 'setNetwork',
         'description' => 'setDescription',
         'availability_zone' => 'setAvailabilityZone',
@@ -241,7 +256,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => 'getInstance',
         'hash_type' => 'getHashType',
         'preset_id' => 'getPresetId',
+        'configurator_id' => 'getConfiguratorId',
+        'project_id' => 'getProjectId',
         'config_parameters' => 'getConfigParameters',
+        'replication' => 'getReplication',
         'network' => 'getNetwork',
         'description' => 'getDescription',
         'availability_zone' => 'getAvailabilityZone',
@@ -326,7 +344,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('instance', $data ?? [], null);
         $this->setIfExists('hash_type', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
+        $this->setIfExists('configurator_id', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
         $this->setIfExists('config_parameters', $data ?? [], null);
+        $this->setIfExists('replication', $data ?? [], null);
         $this->setIfExists('network', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('availability_zone', $data ?? [], null);
@@ -375,9 +396,6 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['preset_id'] === null) {
-            $invalidProperties[] = "'preset_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -541,7 +559,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets preset_id
      *
-     * @return int
+     * @return int|null
      */
     public function getPresetId()
     {
@@ -551,7 +569,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preset_id
      *
-     * @param int $preset_id ID тарифа.
+     * @param int|null $preset_id ID тарифа. Нельзя передавать вместе с `configurator_id`
      *
      * @return self
      */
@@ -561,6 +579,60 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable preset_id cannot be null');
         }
         $this->container['preset_id'] = $preset_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets configurator_id
+     *
+     * @return int|null
+     */
+    public function getConfiguratorId()
+    {
+        return $this->container['configurator_id'];
+    }
+
+    /**
+     * Sets configurator_id
+     *
+     * @param int|null $configurator_id ID конфигуратора. Нельзя передавать вместе с `preset_id`
+     *
+     * @return self
+     */
+    public function setConfiguratorId($configurator_id)
+    {
+        if (is_null($configurator_id)) {
+            throw new \InvalidArgumentException('non-nullable configurator_id cannot be null');
+        }
+        $this->container['configurator_id'] = $configurator_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return int|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param int|null $project_id ID проекта.
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
+        }
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
@@ -588,6 +660,33 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable config_parameters cannot be null');
         }
         $this->container['config_parameters'] = $config_parameters;
+
+        return $this;
+    }
+
+    /**
+     * Gets replication
+     *
+     * @return \OpenAPI\Client\Model\DbReplication|null
+     */
+    public function getReplication()
+    {
+        return $this->container['replication'];
+    }
+
+    /**
+     * Sets replication
+     *
+     * @param \OpenAPI\Client\Model\DbReplication|null $replication replication
+     *
+     * @return self
+     */
+    public function setReplication($replication)
+    {
+        if (is_null($replication)) {
+            throw new \InvalidArgumentException('non-nullable replication cannot be null');
+        }
+        $this->container['replication'] = $replication;
 
         return $this;
     }

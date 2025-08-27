@@ -72,7 +72,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_local_network' => 'bool',
         'network' => '\OpenAPI\Client\Model\CreateServerNetwork',
         'cloud_init' => 'string',
-        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone',
+        'project_id' => 'float'
     ];
 
     /**
@@ -97,7 +98,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_local_network' => null,
         'network' => null,
         'cloud_init' => null,
-        'availability_zone' => null
+        'availability_zone' => null,
+        'project_id' => null
     ];
 
     /**
@@ -120,7 +122,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'is_local_network' => false,
 		'network' => false,
 		'cloud_init' => false,
-		'availability_zone' => false
+		'availability_zone' => false,
+		'project_id' => false
     ];
 
     /**
@@ -223,7 +226,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_local_network' => 'is_local_network',
         'network' => 'network',
         'cloud_init' => 'cloud_init',
-        'availability_zone' => 'availability_zone'
+        'availability_zone' => 'availability_zone',
+        'project_id' => 'project_id'
     ];
 
     /**
@@ -246,7 +250,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_local_network' => 'setIsLocalNetwork',
         'network' => 'setNetwork',
         'cloud_init' => 'setCloudInit',
-        'availability_zone' => 'setAvailabilityZone'
+        'availability_zone' => 'setAvailabilityZone',
+        'project_id' => 'setProjectId'
     ];
 
     /**
@@ -269,7 +274,8 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_local_network' => 'getIsLocalNetwork',
         'network' => 'getNetwork',
         'cloud_init' => 'getCloudInit',
-        'availability_zone' => 'getAvailabilityZone'
+        'availability_zone' => 'getAvailabilityZone',
+        'project_id' => 'getProjectId'
     ];
 
     /**
@@ -344,6 +350,7 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('network', $data ?? [], null);
         $this->setIfExists('cloud_init', $data ?? [], null);
         $this->setIfExists('availability_zone', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
     }
 
     /**
@@ -601,7 +608,7 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Имя облачного сервера. Максимальная длина — 255 символов, имя должно быть уникальным.
+     * @param string $name Имя облачного сервера. Максимальная длина — 255 символов.
      *
      * @return self
      */
@@ -812,6 +819,33 @@ class CreateServer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
         }
         $this->container['availability_zone'] = $availability_zone;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return float|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param float|null $project_id ID проекта.
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
+        }
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }

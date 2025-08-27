@@ -135,9 +135,36 @@ class CreateClusterTest extends TestCase
     }
 
     /**
+     * Test attribute "configurator_id"
+     */
+    public function testPropertyConfiguratorId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "project_id"
+     */
+    public function testPropertyProjectId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "config_parameters"
      */
     public function testPropertyConfigParameters()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "replication"
+     */
+    public function testPropertyReplication()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

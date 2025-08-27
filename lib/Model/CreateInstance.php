@@ -340,7 +340,7 @@ class CreateInstance implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string|null $description Описанеие инстанса базы данных
+     * @param string|null $description Описание инстанса базы данных
      *
      * @return self
      */

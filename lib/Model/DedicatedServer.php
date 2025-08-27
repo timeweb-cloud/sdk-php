@@ -83,7 +83,11 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'price' => 'float',
         'location' => 'string',
         'autoinstall_ready' => 'float',
-        'password' => 'string'
+        'password' => 'string',
+        'avatar_link' => 'string',
+        'is_pre_installed' => 'bool',
+        'preset_id' => 'int',
+        'project_id' => 'int'
     ];
 
     /**
@@ -118,7 +122,11 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'price' => null,
         'location' => null,
         'autoinstall_ready' => null,
-        'password' => null
+        'password' => null,
+        'avatar_link' => null,
+        'is_pre_installed' => null,
+        'preset_id' => null,
+        'project_id' => null
     ];
 
     /**
@@ -151,7 +159,11 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'price' => false,
 		'location' => false,
 		'autoinstall_ready' => false,
-		'password' => true
+		'password' => true,
+		'avatar_link' => true,
+		'is_pre_installed' => false,
+		'preset_id' => false,
+		'project_id' => false
     ];
 
     /**
@@ -264,7 +276,11 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'price' => 'price',
         'location' => 'location',
         'autoinstall_ready' => 'autoinstall_ready',
-        'password' => 'password'
+        'password' => 'password',
+        'avatar_link' => 'avatar_link',
+        'is_pre_installed' => 'is_pre_installed',
+        'preset_id' => 'preset_id',
+        'project_id' => 'project_id'
     ];
 
     /**
@@ -297,7 +313,11 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'price' => 'setPrice',
         'location' => 'setLocation',
         'autoinstall_ready' => 'setAutoinstallReady',
-        'password' => 'setPassword'
+        'password' => 'setPassword',
+        'avatar_link' => 'setAvatarLink',
+        'is_pre_installed' => 'setIsPreInstalled',
+        'preset_id' => 'setPresetId',
+        'project_id' => 'setProjectId'
     ];
 
     /**
@@ -330,7 +350,11 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'price' => 'getPrice',
         'location' => 'getLocation',
         'autoinstall_ready' => 'getAutoinstallReady',
-        'password' => 'getPassword'
+        'password' => 'getPassword',
+        'avatar_link' => 'getAvatarLink',
+        'is_pre_installed' => 'getIsPreInstalled',
+        'preset_id' => 'getPresetId',
+        'project_id' => 'getProjectId'
     ];
 
     /**
@@ -461,6 +485,10 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('autoinstall_ready', $data ?? [], null);
         $this->setIfExists('password', $data ?? [], null);
+        $this->setIfExists('avatar_link', $data ?? [], null);
+        $this->setIfExists('is_pre_installed', $data ?? [], null);
+        $this->setIfExists('preset_id', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
     }
 
     /**
@@ -582,6 +610,18 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['password'] === null) {
             $invalidProperties[] = "'password' can't be null";
+        }
+        if ($this->container['avatar_link'] === null) {
+            $invalidProperties[] = "'avatar_link' can't be null";
+        }
+        if ($this->container['is_pre_installed'] === null) {
+            $invalidProperties[] = "'is_pre_installed' can't be null";
+        }
+        if ($this->container['preset_id'] === null) {
+            $invalidProperties[] = "'preset_id' can't be null";
+        }
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -1387,6 +1427,121 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['password'] = $password;
+
+        return $this;
+    }
+
+    /**
+     * Gets avatar_link
+     *
+     * @return string
+     */
+    public function getAvatarLink()
+    {
+        return $this->container['avatar_link'];
+    }
+
+    /**
+     * Sets avatar_link
+     *
+     * @param string $avatar_link Ссылка на аватар сервера.
+     *
+     * @return self
+     */
+    public function setAvatarLink($avatar_link)
+    {
+        if (is_null($avatar_link)) {
+            array_push($this->openAPINullablesSetToNull, 'avatar_link');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avatar_link', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avatar_link'] = $avatar_link;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_pre_installed
+     *
+     * @return bool
+     */
+    public function getIsPreInstalled()
+    {
+        return $this->container['is_pre_installed'];
+    }
+
+    /**
+     * Sets is_pre_installed
+     *
+     * @param bool $is_pre_installed Это логическое значение, которое показывает, готов ли выделенный сервер к моментальной выдаче.
+     *
+     * @return self
+     */
+    public function setIsPreInstalled($is_pre_installed)
+    {
+        if (is_null($is_pre_installed)) {
+            throw new \InvalidArgumentException('non-nullable is_pre_installed cannot be null');
+        }
+        $this->container['is_pre_installed'] = $is_pre_installed;
+
+        return $this;
+    }
+
+    /**
+     * Gets preset_id
+     *
+     * @return int
+     */
+    public function getPresetId()
+    {
+        return $this->container['preset_id'];
+    }
+
+    /**
+     * Sets preset_id
+     *
+     * @param int $preset_id ID тарифа сервера.
+     *
+     * @return self
+     */
+    public function setPresetId($preset_id)
+    {
+        if (is_null($preset_id)) {
+            throw new \InvalidArgumentException('non-nullable preset_id cannot be null');
+        }
+        $this->container['preset_id'] = $preset_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return int
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param int $project_id ID проекта
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
+        }
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }

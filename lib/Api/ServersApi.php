@@ -8424,8 +8424,8 @@ class ServersApi
      * Получение статистики сервера
      *
      * @param  int $server_id ID облачного сервера. (required)
-     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
-     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatistics'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -8445,8 +8445,8 @@ class ServersApi
      * Получение статистики сервера
      *
      * @param  int $server_id ID облачного сервера. (required)
-     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
-     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatistics'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -8709,8 +8709,8 @@ class ServersApi
      * Получение статистики сервера
      *
      * @param  int $server_id ID облачного сервера. (required)
-     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
-     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatistics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8733,8 +8733,8 @@ class ServersApi
      * Получение статистики сервера
      *
      * @param  int $server_id ID облачного сервера. (required)
-     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
-     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatistics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8786,8 +8786,8 @@ class ServersApi
      * Create request for operation 'getServerStatistics'
      *
      * @param  int $server_id ID облачного сервера. (required)
-     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25%202023-05-25T14%3A35%3A38&#x60; (required)
-     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26%202023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_from Дата начала сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-25T14%3A35%3A38&#x60; (required)
+     * @param  string $date_to Дата окончания сбора статистики. Строка в формате ISO 8061, закодированная в ASCII, пример: &#x60;2023-05-26T14%3A35%3A38&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServerStatistics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

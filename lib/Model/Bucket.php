@@ -74,7 +74,10 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'access_key' => 'string',
         'secret_key' => 'string',
         'moved_in_quarantine_at' => '\DateTime',
-        'storage_class' => 'string'
+        'storage_class' => 'string',
+        'project_id' => 'float',
+        'rate_id' => 'float',
+        'website_config' => '\OpenAPI\Client\Model\BucketWebsiteConfig'
     ];
 
     /**
@@ -100,7 +103,10 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'access_key' => null,
         'secret_key' => null,
         'moved_in_quarantine_at' => 'date-time',
-        'storage_class' => null
+        'storage_class' => null,
+        'project_id' => null,
+        'rate_id' => null,
+        'website_config' => null
     ];
 
     /**
@@ -124,7 +130,10 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
 		'access_key' => false,
 		'secret_key' => false,
 		'moved_in_quarantine_at' => true,
-		'storage_class' => false
+		'storage_class' => false,
+		'project_id' => false,
+		'rate_id' => false,
+		'website_config' => false
     ];
 
     /**
@@ -228,7 +237,10 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'access_key' => 'access_key',
         'secret_key' => 'secret_key',
         'moved_in_quarantine_at' => 'moved_in_quarantine_at',
-        'storage_class' => 'storage_class'
+        'storage_class' => 'storage_class',
+        'project_id' => 'project_id',
+        'rate_id' => 'rate_id',
+        'website_config' => 'website_config'
     ];
 
     /**
@@ -252,7 +264,10 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'access_key' => 'setAccessKey',
         'secret_key' => 'setSecretKey',
         'moved_in_quarantine_at' => 'setMovedInQuarantineAt',
-        'storage_class' => 'setStorageClass'
+        'storage_class' => 'setStorageClass',
+        'project_id' => 'setProjectId',
+        'rate_id' => 'setRateId',
+        'website_config' => 'setWebsiteConfig'
     ];
 
     /**
@@ -276,7 +291,10 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'access_key' => 'getAccessKey',
         'secret_key' => 'getSecretKey',
         'moved_in_quarantine_at' => 'getMovedInQuarantineAt',
-        'storage_class' => 'getStorageClass'
+        'storage_class' => 'getStorageClass',
+        'project_id' => 'getProjectId',
+        'rate_id' => 'getRateId',
+        'website_config' => 'getWebsiteConfig'
     ];
 
     /**
@@ -399,6 +417,9 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('secret_key', $data ?? [], null);
         $this->setIfExists('moved_in_quarantine_at', $data ?? [], null);
         $this->setIfExists('storage_class', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
+        $this->setIfExists('rate_id', $data ?? [], null);
+        $this->setIfExists('website_config', $data ?? [], null);
     }
 
     /**
@@ -500,6 +521,15 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
+        if ($this->container['rate_id'] === null) {
+            $invalidProperties[] = "'rate_id' can't be null";
+        }
+        if ($this->container['website_config'] === null) {
+            $invalidProperties[] = "'website_config' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -1001,6 +1031,87 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['storage_class'] = $storage_class;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return float
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param float $project_id ID проекта.
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
+        }
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets rate_id
+     *
+     * @return float
+     */
+    public function getRateId()
+    {
+        return $this->container['rate_id'];
+    }
+
+    /**
+     * Sets rate_id
+     *
+     * @param float $rate_id ID тарифа.
+     *
+     * @return self
+     */
+    public function setRateId($rate_id)
+    {
+        if (is_null($rate_id)) {
+            throw new \InvalidArgumentException('non-nullable rate_id cannot be null');
+        }
+        $this->container['rate_id'] = $rate_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets website_config
+     *
+     * @return \OpenAPI\Client\Model\BucketWebsiteConfig
+     */
+    public function getWebsiteConfig()
+    {
+        return $this->container['website_config'];
+    }
+
+    /**
+     * Sets website_config
+     *
+     * @param \OpenAPI\Client\Model\BucketWebsiteConfig $website_config website_config
+     *
+     * @return self
+     */
+    public function setWebsiteConfig($website_config)
+    {
+        if (is_null($website_config)) {
+            throw new \InvalidArgumentException('non-nullable website_config cannot be null');
+        }
+        $this->container['website_config'] = $website_config;
 
         return $this;
     }

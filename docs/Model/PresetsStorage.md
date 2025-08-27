@@ -10,5 +10,7 @@ Name | Type | Description | Notes
 **disk** | **float** | Описание диска хранилища. |
 **price** | **float** | Стоимость тарифа хранилища. |
 **location** | **string** | Географическое расположение тарифа. |
+**tags** | **string[]** | Теги тарифа. |
+**storage_class** | **string** | Класс хранилища. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

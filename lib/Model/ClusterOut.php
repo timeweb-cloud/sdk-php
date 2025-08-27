@@ -320,6 +320,7 @@ class ClusterOut implements ModelInterface, ArrayAccess, \JsonSerializable
     public const AVAILABILITY_ZONE_SPB_3 = 'spb-3';
     public const AVAILABILITY_ZONE_MSK_1 = 'msk-1';
     public const AVAILABILITY_ZONE_AMS_1 = 'ams-1';
+    public const AVAILABILITY_ZONE_FRA_1 = 'fra-1';
 
     /**
      * Gets allowable values of the enum
@@ -347,6 +348,7 @@ class ClusterOut implements ModelInterface, ArrayAccess, \JsonSerializable
             self::AVAILABILITY_ZONE_SPB_3,
             self::AVAILABILITY_ZONE_MSK_1,
             self::AVAILABILITY_ZONE_AMS_1,
+            self::AVAILABILITY_ZONE_FRA_1,
         ];
     }
 

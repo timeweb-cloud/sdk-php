@@ -432,7 +432,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     $config
 );
 $db_id = 56; // int | ID базы данных
-$backup_id = 56; // int | ID резевной копии
+$backup_id = 56; // int | ID резервной копии
 
 try {
     $apiInstance->deleteDatabaseBackup($db_id, $backup_id);
@@ -446,7 +446,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **db_id** | **int**| ID базы данных | |
-| **backup_id** | **int**| ID резевной копии | |
+| **backup_id** | **int**| ID резервной копии | |
 
 ### Return type
 
@@ -799,7 +799,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     $config
 );
 $db_id = 56; // int | ID базы данных
-$backup_id = 56; // int | ID резевной копии
+$backup_id = 56; // int | ID резервной копии
 
 try {
     $result = $apiInstance->getDatabaseBackup($db_id, $backup_id);
@@ -814,7 +814,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **db_id** | **int**| ID базы данных | |
-| **backup_id** | **int**| ID резевной копии | |
+| **backup_id** | **int**| ID резервной копии | |
 
 ### Return type
 
@@ -1524,7 +1524,7 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     $config
 );
 $db_id = 56; // int | ID базы данных
-$backup_id = 56; // int | ID резевной копии
+$backup_id = 56; // int | ID резервной копии
 
 try {
     $apiInstance->restoreDatabaseFromBackup($db_id, $backup_id);
@@ -1538,7 +1538,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **db_id** | **int**| ID базы данных | |
-| **backup_id** | **int**| ID резевной копии | |
+| **backup_id** | **int**| ID резервной копии | |
 
 ### Return type
 

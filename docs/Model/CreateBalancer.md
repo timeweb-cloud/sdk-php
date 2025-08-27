@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | Удобочитаемое имя, установленное для балансировщика. |
+**name** | **string** | Удобочитаемое имя, установленное для балансировщика. Должно быть уникальным в рамках аккаунта |
 **algo** | **string** | Алгоритм переключений балансировщика. |
 **is_sticky** | **bool** | Это логическое значение, которое показывает, сохраняется ли сессия. |
 **is_use_proxy** | **bool** | Это логическое значение, которое показывает, выступает ли балансировщик в качестве прокси. |
@@ -25,5 +25,6 @@ Name | Type | Description | Notes
 **preset_id** | **float** | ID тарифа. |
 **network** | [**\OpenAPI\Client\Model\Network**](Network.md) |  | [optional]
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  | [optional]
+**project_id** | **int** | ID проекта | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

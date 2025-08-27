@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ConfigParametersTest Class Doc Comment
  *
  * @category    Class
- * @description ConfigParameters
+ * @description Параметры базы данных
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

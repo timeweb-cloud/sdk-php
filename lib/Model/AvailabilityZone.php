@@ -52,13 +52,15 @@ class AvailabilityZone
 
     public const SPB_4 = 'spb-4';
 
+    public const MSK_1 = 'msk-1';
+
     public const NSK_1 = 'nsk-1';
 
     public const AMS_1 = 'ams-1';
 
-    public const GDN_1 = 'gdn-1';
-
     public const ALA_1 = 'ala-1';
+
+    public const FRA_1 = 'fra-1';
 
     /**
      * Gets allowable values of the enum
@@ -71,10 +73,11 @@ class AvailabilityZone
             self::SPB_2,
             self::SPB_3,
             self::SPB_4,
+            self::MSK_1,
             self::NSK_1,
             self::AMS_1,
-            self::GDN_1,
-            self::ALA_1
+            self::ALA_1,
+            self::FRA_1
         ];
     }
 }

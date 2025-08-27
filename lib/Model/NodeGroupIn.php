@@ -65,7 +65,8 @@ class NodeGroupIn implements ModelInterface, ArrayAccess, \JsonSerializable
         'labels' => '\OpenAPI\Client\Model\SetLabels[]',
         'is_autoscaling' => 'bool',
         'min_size' => 'int',
-        'max_size' => 'int'
+        'max_size' => 'int',
+        'is_autohealing' => 'bool'
     ];
 
     /**
@@ -83,7 +84,8 @@ class NodeGroupIn implements ModelInterface, ArrayAccess, \JsonSerializable
         'labels' => null,
         'is_autoscaling' => null,
         'min_size' => null,
-        'max_size' => null
+        'max_size' => null,
+        'is_autohealing' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class NodeGroupIn implements ModelInterface, ArrayAccess, \JsonSerializable
 		'labels' => false,
 		'is_autoscaling' => false,
 		'min_size' => false,
-		'max_size' => false
+		'max_size' => false,
+		'is_autohealing' => false
     ];
 
     /**
@@ -195,7 +198,8 @@ class NodeGroupIn implements ModelInterface, ArrayAccess, \JsonSerializable
         'labels' => 'labels',
         'is_autoscaling' => 'is_autoscaling',
         'min_size' => 'min-size',
-        'max_size' => 'max-size'
+        'max_size' => 'max-size',
+        'is_autohealing' => 'is_autohealing'
     ];
 
     /**
@@ -211,7 +215,8 @@ class NodeGroupIn implements ModelInterface, ArrayAccess, \JsonSerializable
         'labels' => 'setLabels',
         'is_autoscaling' => 'setIsAutoscaling',
         'min_size' => 'setMinSize',
-        'max_size' => 'setMaxSize'
+        'max_size' => 'setMaxSize',
+        'is_autohealing' => 'setIsAutohealing'
     ];
 
     /**
@@ -227,7 +232,8 @@ class NodeGroupIn implements ModelInterface, ArrayAccess, \JsonSerializable
         'labels' => 'getLabels',
         'is_autoscaling' => 'getIsAutoscaling',
         'min_size' => 'getMinSize',
-        'max_size' => 'getMaxSize'
+        'max_size' => 'getMaxSize',
+        'is_autohealing' => 'getIsAutohealing'
     ];
 
     /**
@@ -295,6 +301,7 @@ class NodeGroupIn implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('is_autoscaling', $data ?? [], null);
         $this->setIfExists('min_size', $data ?? [], null);
         $this->setIfExists('max_size', $data ?? [], null);
+        $this->setIfExists('is_autohealing', $data ?? [], null);
     }
 
     /**
@@ -591,6 +598,33 @@ class NodeGroupIn implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['max_size'] = $max_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_autohealing
+     *
+     * @return bool|null
+     */
+    public function getIsAutohealing()
+    {
+        return $this->container['is_autohealing'];
+    }
+
+    /**
+     * Sets is_autohealing
+     *
+     * @param bool|null $is_autohealing Автоматическое восстановление работоспособности вышедших из строя узлов
+     *
+     * @return self
+     */
+    public function setIsAutohealing($is_autohealing)
+    {
+        if (is_null($is_autohealing)) {
+            throw new \InvalidArgumentException('non-nullable is_autohealing cannot be null');
+        }
+        $this->container['is_autohealing'] = $is_autohealing;
 
         return $this;
     }

@@ -70,7 +70,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'port' => 'int',
         'status' => 'string',
         'preset_id' => 'int',
-        'disk_stats' => '\OpenAPI\Client\Model\DatabaseClusterDiskStats',
+        'disk' => '\OpenAPI\Client\Model\DatabaseClusterDisk',
         'config_parameters' => '\OpenAPI\Client\Model\ConfigParameters',
         'is_enabled_public_network' => 'bool'
     ];
@@ -94,7 +94,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'port' => null,
         'status' => null,
         'preset_id' => null,
-        'disk_stats' => null,
+        'disk' => null,
         'config_parameters' => null,
         'is_enabled_public_network' => null
     ];
@@ -116,7 +116,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
 		'port' => true,
 		'status' => false,
 		'preset_id' => false,
-		'disk_stats' => true,
+		'disk' => true,
 		'config_parameters' => false,
 		'is_enabled_public_network' => false
     ];
@@ -218,7 +218,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'port' => 'port',
         'status' => 'status',
         'preset_id' => 'preset_id',
-        'disk_stats' => 'disk_stats',
+        'disk' => 'disk',
         'config_parameters' => 'config_parameters',
         'is_enabled_public_network' => 'is_enabled_public_network'
     ];
@@ -240,7 +240,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'port' => 'setPort',
         'status' => 'setStatus',
         'preset_id' => 'setPresetId',
-        'disk_stats' => 'setDiskStats',
+        'disk' => 'setDisk',
         'config_parameters' => 'setConfigParameters',
         'is_enabled_public_network' => 'setIsEnabledPublicNetwork'
     ];
@@ -262,7 +262,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'port' => 'getPort',
         'status' => 'getStatus',
         'preset_id' => 'getPresetId',
-        'disk_stats' => 'getDiskStats',
+        'disk' => 'getDisk',
         'config_parameters' => 'getConfigParameters',
         'is_enabled_public_network' => 'getIsEnabledPublicNetwork'
     ];
@@ -309,9 +309,9 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const LOCATION_RU_1 = 'ru-1';
-    public const LOCATION_RU_2 = 'ru-2';
-    public const LOCATION_PL_1 = 'pl-1';
-    public const LOCATION_KZ_1 = 'kz-1';
+    public const LOCATION_RU_3 = 'ru-3';
+    public const LOCATION_NL_1 = 'nl-1';
+    public const LOCATION_DE_1 = 'de-1';
     public const HASH_TYPE_CACHING_SHA2 = 'caching_sha2';
     public const HASH_TYPE_MYSQL_NATIVE = 'mysql_native';
     public const HASH_TYPE_NULL = 'null';
@@ -336,9 +336,9 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::LOCATION_RU_1,
-            self::LOCATION_RU_2,
-            self::LOCATION_PL_1,
-            self::LOCATION_KZ_1,
+            self::LOCATION_RU_3,
+            self::LOCATION_NL_1,
+            self::LOCATION_DE_1,
         ];
     }
 
@@ -404,7 +404,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('port', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
-        $this->setIfExists('disk_stats', $data ?? [], null);
+        $this->setIfExists('disk', $data ?? [], null);
         $this->setIfExists('config_parameters', $data ?? [], null);
         $this->setIfExists('is_enabled_public_network', $data ?? [], null);
     }
@@ -495,9 +495,6 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if ($this->container['preset_id'] === null) {
             $invalidProperties[] = "'preset_id' can't be null";
-        }
-        if ($this->container['disk_stats'] === null) {
-            $invalidProperties[] = "'disk_stats' can't be null";
         }
         if ($this->container['config_parameters'] === null) {
             $invalidProperties[] = "'config_parameters' can't be null";
@@ -876,35 +873,35 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets disk_stats
+     * Gets disk
      *
-     * @return \OpenAPI\Client\Model\DatabaseClusterDiskStats
+     * @return \OpenAPI\Client\Model\DatabaseClusterDisk|null
      */
-    public function getDiskStats()
+    public function getDisk()
     {
-        return $this->container['disk_stats'];
+        return $this->container['disk'];
     }
 
     /**
-     * Sets disk_stats
+     * Sets disk
      *
-     * @param \OpenAPI\Client\Model\DatabaseClusterDiskStats $disk_stats disk_stats
+     * @param \OpenAPI\Client\Model\DatabaseClusterDisk|null $disk disk
      *
      * @return self
      */
-    public function setDiskStats($disk_stats)
+    public function setDisk($disk)
     {
-        if (is_null($disk_stats)) {
-            array_push($this->openAPINullablesSetToNull, 'disk_stats');
+        if (is_null($disk)) {
+            array_push($this->openAPINullablesSetToNull, 'disk');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('disk_stats', $nullablesSetToNull);
+            $index = array_search('disk', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['disk_stats'] = $disk_stats;
+        $this->container['disk'] = $disk;
 
         return $this;
     }

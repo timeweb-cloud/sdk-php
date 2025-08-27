@@ -379,6 +379,9 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['disk'] === null) {
             $invalidProperties[] = "'disk' can't be null";
         }
+        if ($this->container['price'] === null) {
+            $invalidProperties[] = "'price' can't be null";
+        }
         if ($this->container['memory'] === null) {
             $invalidProperties[] = "'memory' can't be null";
         }
@@ -574,7 +577,7 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets price
      *
-     * @return float|null
+     * @return float
      */
     public function getPrice()
     {
@@ -584,7 +587,7 @@ class DedicatedServerPreset implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets price
      *
-     * @param float|null $price Стоимость тарифа выделенного сервера
+     * @param float $price Стоимость тарифа выделенного сервера
      *
      * @return self
      */

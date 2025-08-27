@@ -357,9 +357,6 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['plan_id'] === null) {
-            $invalidProperties[] = "'plan_id' can't be null";
-        }
         if ($this->container['preset_id'] === null) {
             $invalidProperties[] = "'preset_id' can't be null";
         }
@@ -404,7 +401,7 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets plan_id
      *
-     * @return float
+     * @return float|null
      */
     public function getPlanId()
     {
@@ -414,7 +411,7 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets plan_id
      *
-     * @param float $plan_id ID списка дополнительных услуг выделенного сервера.
+     * @param float|null $plan_id ID списка дополнительных услуг выделенного сервера.
      *
      * @return self
      */

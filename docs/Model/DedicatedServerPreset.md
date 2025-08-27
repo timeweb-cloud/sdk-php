@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **is_pre_installed** | **bool** | Это логическое значение, которое показывает, готов ли выделенный сервер к моментальной выдаче. |
 **cpu** | [**\OpenAPI\Client\Model\DedicatedServerPresetCpu**](DedicatedServerPresetCpu.md) |  |
 **disk** | [**\OpenAPI\Client\Model\DedicatedServerPresetDisk**](DedicatedServerPresetDisk.md) |  |
-**price** | **float** | Стоимость тарифа выделенного сервера | [optional]
+**price** | **float** | Стоимость тарифа выделенного сервера |
 **memory** | [**\OpenAPI\Client\Model\DedicatedServerPresetMemory**](DedicatedServerPresetMemory.md) |  |
 **location** | **string** | Локация. |
 

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NetworkTest Class Doc Comment
  *
  * @category    Class
- * @description Network
+ * @description Сеть
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

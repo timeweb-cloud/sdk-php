@@ -997,7 +997,7 @@ This endpoint does not need any parameter.
 ## `increaseCountOfNodesInGroup()`
 
 ```php
-increaseCountOfNodesInGroup($cluster_id, $group_id, $node_count): \OpenAPI\Client\Model\NodesResponse
+increaseCountOfNodesInGroup($cluster_id, $group_id, $increase_nodes): \OpenAPI\Client\Model\NodesResponse
 ```
 
 Увеличение количества нод в группе на указанное количество
@@ -1023,10 +1023,10 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
 );
 $cluster_id = 56; // int | ID кластера
 $group_id = 56; // int | ID группы
-$node_count = new \OpenAPI\Client\Model\NodeCount(); // \OpenAPI\Client\Model\NodeCount
+$increase_nodes = new \OpenAPI\Client\Model\IncreaseNodes(); // \OpenAPI\Client\Model\IncreaseNodes
 
 try {
-    $result = $apiInstance->increaseCountOfNodesInGroup($cluster_id, $group_id, $node_count);
+    $result = $apiInstance->increaseCountOfNodesInGroup($cluster_id, $group_id, $increase_nodes);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling KubernetesApi->increaseCountOfNodesInGroup: ', $e->getMessage(), PHP_EOL;
@@ -1039,7 +1039,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **cluster_id** | **int**| ID кластера | |
 | **group_id** | **int**| ID группы | |
-| **node_count** | [**\OpenAPI\Client\Model\NodeCount**](../Model/NodeCount.md)|  | |
+| **increase_nodes** | [**\OpenAPI\Client\Model\IncreaseNodes**](../Model/IncreaseNodes.md)|  | |
 
 ### Return type
 
@@ -1061,7 +1061,7 @@ try {
 ## `reduceCountOfNodesInGroup()`
 
 ```php
-reduceCountOfNodesInGroup($cluster_id, $group_id, $node_count)
+reduceCountOfNodesInGroup($cluster_id, $group_id, $reduce_nodes)
 ```
 
 Уменьшение количества нод в группе на указанное количество
@@ -1087,10 +1087,10 @@ $apiInstance = new OpenAPI\Client\Api\KubernetesApi(
 );
 $cluster_id = 56; // int | ID кластера
 $group_id = 56; // int | ID группы
-$node_count = new \OpenAPI\Client\Model\NodeCount(); // \OpenAPI\Client\Model\NodeCount
+$reduce_nodes = new \OpenAPI\Client\Model\ReduceNodes(); // \OpenAPI\Client\Model\ReduceNodes
 
 try {
-    $apiInstance->reduceCountOfNodesInGroup($cluster_id, $group_id, $node_count);
+    $apiInstance->reduceCountOfNodesInGroup($cluster_id, $group_id, $reduce_nodes);
 } catch (Exception $e) {
     echo 'Exception when calling KubernetesApi->reduceCountOfNodesInGroup: ', $e->getMessage(), PHP_EOL;
 }
@@ -1102,7 +1102,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **cluster_id** | **int**| ID кластера | |
 | **group_id** | **int**| ID группы | |
-| **node_count** | [**\OpenAPI\Client\Model\NodeCount**](../Model/NodeCount.md)|  | |
+| **reduce_nodes** | [**\OpenAPI\Client\Model\ReduceNodes**](../Model/ReduceNodes.md)|  | |
 
 ### Return type
 

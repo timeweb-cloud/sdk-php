@@ -106,4 +106,13 @@ class DedicatedServerPresetCpuTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "vendor"
+     */
+    public function testPropertyVendor()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -474,7 +474,7 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Удобочитаемое имя, установленное для балансировщика.
+     * @param string|null $name Удобочитаемое имя, установленное для балансировщика. Должно быть уникальным в рамках аккаунта
      *
      * @return self
      */

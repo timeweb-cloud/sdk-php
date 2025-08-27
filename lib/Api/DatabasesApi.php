@@ -2865,7 +2865,7 @@ class DatabasesApi
      * Удаление бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2883,7 +2883,7 @@ class DatabasesApi
      * Удаление бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2992,7 +2992,7 @@ class DatabasesApi
      * Удаление бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3014,7 +3014,7 @@ class DatabasesApi
      * Удаление бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3052,7 +3052,7 @@ class DatabasesApi
      * Create request for operation 'deleteDatabaseBackup'
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5078,7 +5078,7 @@ class DatabasesApi
      * Получение бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -5097,7 +5097,7 @@ class DatabasesApi
      * Получение бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -5336,7 +5336,7 @@ class DatabasesApi
      * Получение бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5358,7 +5358,7 @@ class DatabasesApi
      * Получение бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5409,7 +5409,7 @@ class DatabasesApi
      * Create request for operation 'getDatabaseBackup'
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10233,7 +10233,7 @@ class DatabasesApi
      * Восстановление базы данных из бэкапа
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDatabaseFromBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -10251,7 +10251,7 @@ class DatabasesApi
      * Восстановление базы данных из бэкапа
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDatabaseFromBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -10368,7 +10368,7 @@ class DatabasesApi
      * Восстановление базы данных из бэкапа
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDatabaseFromBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10390,7 +10390,7 @@ class DatabasesApi
      * Восстановление базы данных из бэкапа
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDatabaseFromBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10428,7 +10428,7 @@ class DatabasesApi
      * Create request for operation 'restoreDatabaseFromBackup'
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  int $backup_id ID резевной копии (required)
+     * @param  int $backup_id ID резервной копии (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDatabaseFromBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

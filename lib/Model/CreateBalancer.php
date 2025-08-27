@@ -78,7 +78,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'httprequest_timeout' => 'float',
         'preset_id' => 'float',
         'network' => '\OpenAPI\Client\Model\Network',
-        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone',
+        'project_id' => 'int'
     ];
 
     /**
@@ -109,7 +110,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'httprequest_timeout' => null,
         'preset_id' => null,
         'network' => null,
-        'availability_zone' => null
+        'availability_zone' => null,
+        'project_id' => null
     ];
 
     /**
@@ -138,7 +140,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'httprequest_timeout' => false,
 		'preset_id' => false,
 		'network' => false,
-		'availability_zone' => false
+		'availability_zone' => false,
+		'project_id' => false
     ];
 
     /**
@@ -247,7 +250,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'httprequest_timeout' => 'httprequest_timeout',
         'preset_id' => 'preset_id',
         'network' => 'network',
-        'availability_zone' => 'availability_zone'
+        'availability_zone' => 'availability_zone',
+        'project_id' => 'project_id'
     ];
 
     /**
@@ -276,7 +280,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'httprequest_timeout' => 'setHttprequestTimeout',
         'preset_id' => 'setPresetId',
         'network' => 'setNetwork',
-        'availability_zone' => 'setAvailabilityZone'
+        'availability_zone' => 'setAvailabilityZone',
+        'project_id' => 'setProjectId'
     ];
 
     /**
@@ -305,7 +310,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'httprequest_timeout' => 'getHttprequestTimeout',
         'preset_id' => 'getPresetId',
         'network' => 'getNetwork',
-        'availability_zone' => 'getAvailabilityZone'
+        'availability_zone' => 'getAvailabilityZone',
+        'project_id' => 'getProjectId'
     ];
 
     /**
@@ -420,6 +426,7 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('preset_id', $data ?? [], null);
         $this->setIfExists('network', $data ?? [], null);
         $this->setIfExists('availability_zone', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
     }
 
     /**
@@ -537,7 +544,7 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Удобочитаемое имя, установленное для балансировщика.
+     * @param string $name Удобочитаемое имя, установленное для балансировщика. Должно быть уникальным в рамках аккаунта
      *
      * @return self
      */
@@ -1107,6 +1114,33 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
         }
         $this->container['availability_zone'] = $availability_zone;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return int|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param int|null $project_id ID проекта
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
+        }
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }

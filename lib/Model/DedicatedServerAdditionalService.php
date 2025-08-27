@@ -534,7 +534,7 @@ class DedicatedServerAdditionalService implements ModelInterface, ArrayAccess, \
     /**
      * Sets name
      *
-     * @param string $name Уникально имя дополнительной услуги выделенного сервера.
+     * @param string $name Уникальное имя дополнительной услуги выделенного сервера.
      *
      * @return self
      */

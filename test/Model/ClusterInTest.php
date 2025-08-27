@@ -153,6 +153,24 @@ class ClusterInTest extends TestCase
     }
 
     /**
+     * Test attribute "configuration"
+     */
+    public function testPropertyConfiguration()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "master_nodes_count"
+     */
+    public function testPropertyMasterNodesCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "worker_groups"
      */
     public function testPropertyWorkerGroups()
@@ -174,6 +192,33 @@ class ClusterInTest extends TestCase
      * Test attribute "project_id"
      */
     public function testPropertyProjectId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "maintenance_slot"
+     */
+    public function testPropertyMaintenanceSlot()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "oidc_provider"
+     */
+    public function testPropertyOidcProvider()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "cluster_network_cidr"
+     */
+    public function testPropertyClusterNetworkCidr()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -90,6 +90,15 @@ class BalancerTest extends TestCase
     }
 
     /**
+     * Test attribute "account_id"
+     */
+    public function testPropertyAccountId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "algo"
      */
     public function testPropertyAlgo()
@@ -336,6 +345,24 @@ class BalancerTest extends TestCase
      * Test attribute "availability_zone"
      */
     public function testPropertyAvailabilityZone()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "project_id"
+     */
+    public function testPropertyProjectId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "networks"
+     */
+    public function testPropertyNetworks()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

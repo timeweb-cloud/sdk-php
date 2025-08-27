@@ -97,30 +97,6 @@ class S3ApiTest extends TestCase
     }
 
     /**
-     * Test case for copyStorageFile
-     *
-     * Копирование файла/директории в хранилище.
-     *
-     */
-    public function testCopyStorageFile()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for createFolderInStorage
-     *
-     * Создание директории в хранилище.
-     *
-     */
-    public function testCreateFolderInStorage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for createStorage
      *
      * Создание хранилища.
@@ -145,36 +121,12 @@ class S3ApiTest extends TestCase
     }
 
     /**
-     * Test case for deleteStorageFile
-     *
-     * Удаление файла/директории в хранилище.
-     *
-     */
-    public function testDeleteStorageFile()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for deleteStorageSubdomains
      *
      * Удаление поддоменов хранилища.
      *
      */
     public function testDeleteStorageSubdomains()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getStorageFilesList
-     *
-     * Получение списка файлов в хранилище по префиксу.
-     *
-     */
-    public function testGetStorageFilesList()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -241,18 +193,6 @@ class S3ApiTest extends TestCase
     }
 
     /**
-     * Test case for renameStorageFile
-     *
-     * Переименование файла/директории в хранилище.
-     *
-     */
-    public function testRenameStorageFile()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for transferStorage
      *
      * Перенос хранилища от стороннего провайдера S3 в Timeweb Cloud.
@@ -283,18 +223,6 @@ class S3ApiTest extends TestCase
      *
      */
     public function testUpdateStorageUser()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for uploadFileToStorage
-     *
-     * Загрузка файлов в хранилище.
-     *
-     */
-    public function testUploadFileToStorage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

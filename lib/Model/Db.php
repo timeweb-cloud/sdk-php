@@ -347,7 +347,7 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
     public const HASH_TYPE_NULL = 'null';
     public const STATUS_STARTED = 'started';
     public const STATUS_STARTING = 'starting';
-    public const STATUS_STOPED = 'stoped';
+    public const STATUS_STOPPED = 'stopped';
     public const STATUS_NO_PAID = 'no_paid';
 
     /**
@@ -389,7 +389,7 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::STATUS_STARTED,
             self::STATUS_STARTING,
-            self::STATUS_STOPED,
+            self::STATUS_STOPPED,
             self::STATUS_NO_PAID,
         ];
     }

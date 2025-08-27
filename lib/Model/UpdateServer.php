@@ -509,7 +509,7 @@ class UpdateServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Имя облачного сервера. Максимальная длина — 255 символов, имя должно быть уникальным.
+     * @param string|null $name Имя облачного сервера. Максимальная длина — 255 символов.
      *
      * @return self
      */

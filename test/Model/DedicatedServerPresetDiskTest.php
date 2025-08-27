@@ -97,4 +97,22 @@ class DedicatedServerPresetDiskTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "total_size"
+     */
+    public function testPropertyTotalSize()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

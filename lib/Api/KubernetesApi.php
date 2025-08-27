@@ -6579,16 +6579,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id ID кластера (required)
      * @param  int $group_id ID группы (required)
-     * @param  \OpenAPI\Client\Model\NodeCount $node_count node_count (required)
+     * @param  \OpenAPI\Client\Model\IncreaseNodes $increase_nodes increase_nodes (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['increaseCountOfNodesInGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NodesResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function increaseCountOfNodesInGroup($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
+    public function increaseCountOfNodesInGroup($cluster_id, $group_id, $increase_nodes, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
     {
-        list($response) = $this->increaseCountOfNodesInGroupWithHttpInfo($cluster_id, $group_id, $node_count, $contentType);
+        list($response) = $this->increaseCountOfNodesInGroupWithHttpInfo($cluster_id, $group_id, $increase_nodes, $contentType);
         return $response;
     }
 
@@ -6599,16 +6599,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id ID кластера (required)
      * @param  int $group_id ID группы (required)
-     * @param  \OpenAPI\Client\Model\NodeCount $node_count (required)
+     * @param  \OpenAPI\Client\Model\IncreaseNodes $increase_nodes (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['increaseCountOfNodesInGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NodesResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function increaseCountOfNodesInGroupWithHttpInfo($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
+    public function increaseCountOfNodesInGroupWithHttpInfo($cluster_id, $group_id, $increase_nodes, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
     {
-        $request = $this->increaseCountOfNodesInGroupRequest($cluster_id, $group_id, $node_count, $contentType);
+        $request = $this->increaseCountOfNodesInGroupRequest($cluster_id, $group_id, $increase_nodes, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6839,15 +6839,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id ID кластера (required)
      * @param  int $group_id ID группы (required)
-     * @param  \OpenAPI\Client\Model\NodeCount $node_count (required)
+     * @param  \OpenAPI\Client\Model\IncreaseNodes $increase_nodes (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['increaseCountOfNodesInGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function increaseCountOfNodesInGroupAsync($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
+    public function increaseCountOfNodesInGroupAsync($cluster_id, $group_id, $increase_nodes, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
     {
-        return $this->increaseCountOfNodesInGroupAsyncWithHttpInfo($cluster_id, $group_id, $node_count, $contentType)
+        return $this->increaseCountOfNodesInGroupAsyncWithHttpInfo($cluster_id, $group_id, $increase_nodes, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6862,16 +6862,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id ID кластера (required)
      * @param  int $group_id ID группы (required)
-     * @param  \OpenAPI\Client\Model\NodeCount $node_count (required)
+     * @param  \OpenAPI\Client\Model\IncreaseNodes $increase_nodes (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['increaseCountOfNodesInGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function increaseCountOfNodesInGroupAsyncWithHttpInfo($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
+    public function increaseCountOfNodesInGroupAsyncWithHttpInfo($cluster_id, $group_id, $increase_nodes, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NodesResponse';
-        $request = $this->increaseCountOfNodesInGroupRequest($cluster_id, $group_id, $node_count, $contentType);
+        $request = $this->increaseCountOfNodesInGroupRequest($cluster_id, $group_id, $increase_nodes, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6914,13 +6914,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id ID кластера (required)
      * @param  int $group_id ID группы (required)
-     * @param  \OpenAPI\Client\Model\NodeCount $node_count (required)
+     * @param  \OpenAPI\Client\Model\IncreaseNodes $increase_nodes (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['increaseCountOfNodesInGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function increaseCountOfNodesInGroupRequest($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
+    public function increaseCountOfNodesInGroupRequest($cluster_id, $group_id, $increase_nodes, string $contentType = self::contentTypes['increaseCountOfNodesInGroup'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -6937,10 +6937,10 @@ class KubernetesApi
             );
         }
 
-        // verify the required parameter 'node_count' is set
-        if ($node_count === null || (is_array($node_count) && count($node_count) === 0)) {
+        // verify the required parameter 'increase_nodes' is set
+        if ($increase_nodes === null || (is_array($increase_nodes) && count($increase_nodes) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $node_count when calling increaseCountOfNodesInGroup'
+                'Missing the required parameter $increase_nodes when calling increaseCountOfNodesInGroup'
             );
         }
 
@@ -6979,12 +6979,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($node_count)) {
+        if (isset($increase_nodes)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($node_count));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($increase_nodes));
             } else {
-                $httpBody = $node_count;
+                $httpBody = $increase_nodes;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -7043,16 +7043,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id ID кластера (required)
      * @param  int $group_id ID группы (required)
-     * @param  \OpenAPI\Client\Model\NodeCount $node_count node_count (required)
+     * @param  \OpenAPI\Client\Model\ReduceNodes $reduce_nodes reduce_nodes (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reduceCountOfNodesInGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function reduceCountOfNodesInGroup($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['reduceCountOfNodesInGroup'][0])
+    public function reduceCountOfNodesInGroup($cluster_id, $group_id, $reduce_nodes, string $contentType = self::contentTypes['reduceCountOfNodesInGroup'][0])
     {
-        $this->reduceCountOfNodesInGroupWithHttpInfo($cluster_id, $group_id, $node_count, $contentType);
+        $this->reduceCountOfNodesInGroupWithHttpInfo($cluster_id, $group_id, $reduce_nodes, $contentType);
     }
 
     /**
@@ -7062,16 +7062,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id ID кластера (required)
      * @param  int $group_id ID группы (required)
-     * @param  \OpenAPI\Client\Model\NodeCount $node_count (required)
+     * @param  \OpenAPI\Client\Model\ReduceNodes $reduce_nodes (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reduceCountOfNodesInGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reduceCountOfNodesInGroupWithHttpInfo($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['reduceCountOfNodesInGroup'][0])
+    public function reduceCountOfNodesInGroupWithHttpInfo($cluster_id, $group_id, $reduce_nodes, string $contentType = self::contentTypes['reduceCountOfNodesInGroup'][0])
     {
-        $request = $this->reduceCountOfNodesInGroupRequest($cluster_id, $group_id, $node_count, $contentType);
+        $request = $this->reduceCountOfNodesInGroupRequest($cluster_id, $group_id, $reduce_nodes, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7172,15 +7172,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id ID кластера (required)
      * @param  int $group_id ID группы (required)
-     * @param  \OpenAPI\Client\Model\NodeCount $node_count (required)
+     * @param  \OpenAPI\Client\Model\ReduceNodes $reduce_nodes (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reduceCountOfNodesInGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reduceCountOfNodesInGroupAsync($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['reduceCountOfNodesInGroup'][0])
+    public function reduceCountOfNodesInGroupAsync($cluster_id, $group_id, $reduce_nodes, string $contentType = self::contentTypes['reduceCountOfNodesInGroup'][0])
     {
-        return $this->reduceCountOfNodesInGroupAsyncWithHttpInfo($cluster_id, $group_id, $node_count, $contentType)
+        return $this->reduceCountOfNodesInGroupAsyncWithHttpInfo($cluster_id, $group_id, $reduce_nodes, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7195,16 +7195,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id ID кластера (required)
      * @param  int $group_id ID группы (required)
-     * @param  \OpenAPI\Client\Model\NodeCount $node_count (required)
+     * @param  \OpenAPI\Client\Model\ReduceNodes $reduce_nodes (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reduceCountOfNodesInGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reduceCountOfNodesInGroupAsyncWithHttpInfo($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['reduceCountOfNodesInGroup'][0])
+    public function reduceCountOfNodesInGroupAsyncWithHttpInfo($cluster_id, $group_id, $reduce_nodes, string $contentType = self::contentTypes['reduceCountOfNodesInGroup'][0])
     {
         $returnType = '';
-        $request = $this->reduceCountOfNodesInGroupRequest($cluster_id, $group_id, $node_count, $contentType);
+        $request = $this->reduceCountOfNodesInGroupRequest($cluster_id, $group_id, $reduce_nodes, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7234,13 +7234,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id ID кластера (required)
      * @param  int $group_id ID группы (required)
-     * @param  \OpenAPI\Client\Model\NodeCount $node_count (required)
+     * @param  \OpenAPI\Client\Model\ReduceNodes $reduce_nodes (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reduceCountOfNodesInGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reduceCountOfNodesInGroupRequest($cluster_id, $group_id, $node_count, string $contentType = self::contentTypes['reduceCountOfNodesInGroup'][0])
+    public function reduceCountOfNodesInGroupRequest($cluster_id, $group_id, $reduce_nodes, string $contentType = self::contentTypes['reduceCountOfNodesInGroup'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -7257,10 +7257,10 @@ class KubernetesApi
             );
         }
 
-        // verify the required parameter 'node_count' is set
-        if ($node_count === null || (is_array($node_count) && count($node_count) === 0)) {
+        // verify the required parameter 'reduce_nodes' is set
+        if ($reduce_nodes === null || (is_array($reduce_nodes) && count($reduce_nodes) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $node_count when calling reduceCountOfNodesInGroup'
+                'Missing the required parameter $reduce_nodes when calling reduceCountOfNodesInGroup'
             );
         }
 
@@ -7299,12 +7299,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($node_count)) {
+        if (isset($reduce_nodes)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($node_count));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($reduce_nodes));
             } else {
-                $httpBody = $node_count;
+                $httpBody = $reduce_nodes;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

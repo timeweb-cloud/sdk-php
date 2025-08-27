@@ -151,4 +151,13 @@ class NodeGroupInTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "is_autohealing"
+     */
+    public function testPropertyIsAutohealing()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

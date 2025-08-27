@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * Network Class Doc Comment
  *
  * @category Class
+ * @description Сеть
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
