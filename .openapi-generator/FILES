@@ -89,6 +89,7 @@ docs/Model/ClusterInMaintenanceSlot.md
 docs/Model/ClusterInOidcProvider.md
 docs/Model/ClusterOut.md
 docs/Model/ClusterResponse.md
+docs/Model/ClusterVersionEdit.md
 docs/Model/Clusterk8s.md
 docs/Model/ClustersResponse.md
 docs/Model/Commit.md
@@ -558,6 +559,7 @@ lib/Model/ClusterInMaintenanceSlot.php
 lib/Model/ClusterInOidcProvider.php
 lib/Model/ClusterOut.php
 lib/Model/ClusterResponse.php
+lib/Model/ClusterVersionEdit.php
 lib/Model/Clusterk8s.php
 lib/Model/ClustersResponse.php
 lib/Model/Commit.php
@@ -1026,6 +1028,7 @@ test/Model/ClusterInOidcProviderTest.php
 test/Model/ClusterInTest.php
 test/Model/ClusterOutTest.php
 test/Model/ClusterResponseTest.php
+test/Model/ClusterVersionEditTest.php
 test/Model/Clusterk8sTest.php
 test/Model/ClustersResponseTest.php
 test/Model/CommitTest.php

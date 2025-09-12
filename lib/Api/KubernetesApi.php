@@ -129,6 +129,9 @@ class KubernetesApi
         'updateCluster' => [
             'application/json',
         ],
+        'updateClusterVersion' => [
+            'application/json',
+        ],
     ];
 
 /**
@@ -7749,6 +7752,306 @@ class KubernetesApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cluster_edit));
             } else {
                 $httpBody = $cluster_edit;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateClusterVersion
+     *
+     * Обновление версии кластера
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  \OpenAPI\Client\Model\ClusterVersionEdit $cluster_version_edit cluster_version_edit (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateClusterVersion'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateClusterVersion($cluster_id, $cluster_version_edit, string $contentType = self::contentTypes['updateClusterVersion'][0])
+    {
+        $this->updateClusterVersionWithHttpInfo($cluster_id, $cluster_version_edit, $contentType);
+    }
+
+    /**
+     * Operation updateClusterVersionWithHttpInfo
+     *
+     * Обновление версии кластера
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  \OpenAPI\Client\Model\ClusterVersionEdit $cluster_version_edit (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateClusterVersion'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateClusterVersionWithHttpInfo($cluster_id, $cluster_version_edit, string $contentType = self::contentTypes['updateClusterVersion'][0])
+    {
+        $request = $this->updateClusterVersionRequest($cluster_id, $cluster_version_edit, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateClusterVersionAsync
+     *
+     * Обновление версии кластера
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  \OpenAPI\Client\Model\ClusterVersionEdit $cluster_version_edit (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateClusterVersion'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateClusterVersionAsync($cluster_id, $cluster_version_edit, string $contentType = self::contentTypes['updateClusterVersion'][0])
+    {
+        return $this->updateClusterVersionAsyncWithHttpInfo($cluster_id, $cluster_version_edit, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateClusterVersionAsyncWithHttpInfo
+     *
+     * Обновление версии кластера
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  \OpenAPI\Client\Model\ClusterVersionEdit $cluster_version_edit (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateClusterVersion'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateClusterVersionAsyncWithHttpInfo($cluster_id, $cluster_version_edit, string $contentType = self::contentTypes['updateClusterVersion'][0])
+    {
+        $returnType = '';
+        $request = $this->updateClusterVersionRequest($cluster_id, $cluster_version_edit, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateClusterVersion'
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  \OpenAPI\Client\Model\ClusterVersionEdit $cluster_version_edit (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateClusterVersion'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateClusterVersionRequest($cluster_id, $cluster_version_edit, string $contentType = self::contentTypes['updateClusterVersion'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling updateClusterVersion'
+            );
+        }
+
+        // verify the required parameter 'cluster_version_edit' is set
+        if ($cluster_version_edit === null || (is_array($cluster_version_edit) && count($cluster_version_edit) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_version_edit when calling updateClusterVersion'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/k8s/clusters/{cluster_id}/versions/update';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'cluster_id' . '}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($cluster_version_edit)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cluster_version_edit));
+            } else {
+                $httpBody = $cluster_version_edit;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

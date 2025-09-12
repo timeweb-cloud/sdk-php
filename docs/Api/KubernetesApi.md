@@ -23,6 +23,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**increaseCountOfNodesInGroup()**](KubernetesApi.md#increaseCountOfNodesInGroup) | **POST** /api/v1/k8s/clusters/{cluster_id}/groups/{group_id}/nodes | Увеличение количества нод в группе на указанное количество |
 | [**reduceCountOfNodesInGroup()**](KubernetesApi.md#reduceCountOfNodesInGroup) | **DELETE** /api/v1/k8s/clusters/{cluster_id}/groups/{group_id}/nodes | Уменьшение количества нод в группе на указанное количество |
 | [**updateCluster()**](KubernetesApi.md#updateCluster) | **PATCH** /api/v1/k8s/clusters/{cluster_id} | Обновление информации о кластере |
+| [**updateClusterVersion()**](KubernetesApi.md#updateClusterVersion) | **PATCH** /api/v1/k8s/clusters/{cluster_id}/versions/update | Обновление версии кластера |
 
 
 ## `createCluster()`
@@ -1169,6 +1170,67 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\ClusterResponse**](../Model/ClusterResponse.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateClusterVersion()`
+
+```php
+updateClusterVersion($cluster_id, $cluster_version_edit)
+```
+
+Обновление версии кластера
+
+Чтобы обновить версию кластера, отправьте PATCH-запрос в `/api/v1/k8s/clusters/{cluster_id}/versions/update`
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\KubernetesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$cluster_id = 56; // int | ID кластера
+$cluster_version_edit = new \OpenAPI\Client\Model\ClusterVersionEdit(); // \OpenAPI\Client\Model\ClusterVersionEdit
+
+try {
+    $apiInstance->updateClusterVersion($cluster_id, $cluster_version_edit);
+} catch (Exception $e) {
+    echo 'Exception when calling KubernetesApi->updateClusterVersion: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cluster_id** | **int**| ID кластера | |
+| **cluster_version_edit** | [**\OpenAPI\Client\Model\ClusterVersionEdit**](../Model/ClusterVersionEdit.md)|  | |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
