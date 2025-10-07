@@ -562,6 +562,7 @@ Class | Method | HTTP request | Description
 - [BucketWebsiteConfigErrorPagesInner](docs/Model/BucketWebsiteConfigErrorPagesInner.md)
 - [CheckDomain200Response](docs/Model/CheckDomain200Response.md)
 - [ClusterEdit](docs/Model/ClusterEdit.md)
+- [ClusterEditOidcProvider](docs/Model/ClusterEditOidcProvider.md)
 - [ClusterIn](docs/Model/ClusterIn.md)
 - [ClusterInClusterNetworkCidr](docs/Model/ClusterInClusterNetworkCidr.md)
 - [ClusterInConfiguration](docs/Model/ClusterInConfiguration.md)

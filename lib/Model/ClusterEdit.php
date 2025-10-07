@@ -58,7 +58,9 @@ class ClusterEdit implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'description' => 'string'
+        'name' => 'string',
+        'description' => 'string',
+        'oidc_provider' => '\OpenAPI\Client\Model\ClusterEditOidcProvider'
     ];
 
     /**
@@ -69,7 +71,9 @@ class ClusterEdit implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'description' => null
+        'name' => null,
+        'description' => null,
+        'oidc_provider' => null
     ];
 
     /**
@@ -78,7 +82,9 @@ class ClusterEdit implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'description' => false
+        'name' => false,
+		'description' => false,
+		'oidc_provider' => false
     ];
 
     /**
@@ -167,7 +173,9 @@ class ClusterEdit implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'description'
+        'name' => 'name',
+        'description' => 'description',
+        'oidc_provider' => 'oidc_provider'
     ];
 
     /**
@@ -176,7 +184,9 @@ class ClusterEdit implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription'
+        'name' => 'setName',
+        'description' => 'setDescription',
+        'oidc_provider' => 'setOidcProvider'
     ];
 
     /**
@@ -185,7 +195,9 @@ class ClusterEdit implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription'
+        'name' => 'getName',
+        'description' => 'getDescription',
+        'oidc_provider' => 'getOidcProvider'
     ];
 
     /**
@@ -245,7 +257,9 @@ class ClusterEdit implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('oidc_provider', $data ?? [], null);
     }
 
     /**
@@ -291,6 +305,33 @@ class ClusterEdit implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Новое название кластера
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets description
      *
      * @return string|null
@@ -313,6 +354,33 @@ class ClusterEdit implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets oidc_provider
+     *
+     * @return \OpenAPI\Client\Model\ClusterEditOidcProvider|null
+     */
+    public function getOidcProvider()
+    {
+        return $this->container['oidc_provider'];
+    }
+
+    /**
+     * Sets oidc_provider
+     *
+     * @param \OpenAPI\Client\Model\ClusterEditOidcProvider|null $oidc_provider oidc_provider
+     *
+     * @return self
+     */
+    public function setOidcProvider($oidc_provider)
+    {
+        if (is_null($oidc_provider)) {
+            throw new \InvalidArgumentException('non-nullable oidc_provider cannot be null');
+        }
+        $this->container['oidc_provider'] = $oidc_provider;
 
         return $this;
     }

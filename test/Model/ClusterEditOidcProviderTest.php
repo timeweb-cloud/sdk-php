@@ -1,6 +1,6 @@
 <?php
 /**
- * ClusterEditTest
+ * ClusterEditOidcProviderTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ClusterEditTest Class Doc Comment
+ * ClusterEditOidcProviderTest Class Doc Comment
  *
  * @category    Class
- * @description ClusterEdit
+ * @description OIDC-провайдер
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ClusterEditTest extends TestCase
+class ClusterEditOidcProviderTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class ClusterEditTest extends TestCase
     }
 
     /**
-     * Test "ClusterEdit"
+     * Test "ClusterEditOidcProvider"
      */
-    public function testClusterEdit()
+    public function testClusterEditOidcProvider()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -90,18 +90,36 @@ class ClusterEditTest extends TestCase
     }
 
     /**
-     * Test attribute "description"
+     * Test attribute "issuer_url"
      */
-    public function testPropertyDescription()
+    public function testPropertyIssuerUrl()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "oidc_provider"
+     * Test attribute "client_id"
      */
-    public function testPropertyOidcProvider()
+    public function testPropertyClientId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "username_claim"
+     */
+    public function testPropertyUsernameClaim()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "groups_claim"
+     */
+    public function testPropertyGroupsClaim()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
