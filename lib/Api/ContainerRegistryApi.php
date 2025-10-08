@@ -610,7 +610,7 @@ class ContainerRegistryApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1169,7 +1169,7 @@ class ContainerRegistryApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RegistryResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\RegistryResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getRegistry($registry_id, string $contentType = self::contentTypes['getRegistry'][0])
     {
@@ -1187,7 +1187,7 @@ class ContainerRegistryApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RegistryResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RegistryResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRegistryWithHttpInfo($registry_id, string $contentType = self::contentTypes['getRegistry'][0])
     {
@@ -1275,17 +1275,17 @@ class ContainerRegistryApi
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1381,7 +1381,7 @@ class ContainerRegistryApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2333,7 +2333,7 @@ class ContainerRegistryApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RegistryResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\RegistryResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateRegistry($registry_id, $registry_edit, string $contentType = self::contentTypes['updateRegistry'][0])
     {
@@ -2352,7 +2352,7 @@ class ContainerRegistryApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RegistryResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RegistryResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateRegistryWithHttpInfo($registry_id, $registry_edit, string $contentType = self::contentTypes['updateRegistry'][0])
     {
@@ -2440,17 +2440,17 @@ class ContainerRegistryApi
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2546,7 +2546,7 @@ class ContainerRegistryApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

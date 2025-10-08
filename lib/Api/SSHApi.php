@@ -234,7 +234,7 @@ class SSHApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -454,7 +454,7 @@ class SSHApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateKey201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateKey201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createKey($create_key_request, string $contentType = self::contentTypes['createKey'][0])
     {
@@ -472,7 +472,7 @@ class SSHApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateKey201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateKey201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createKeyWithHttpInfo($create_key_request, string $contentType = self::contentTypes['createKey'][0])
     {
@@ -560,17 +560,17 @@ class SSHApi
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -666,7 +666,7 @@ class SSHApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -959,7 +959,7 @@ class SSHApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1245,7 +1245,7 @@ class SSHApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1469,7 +1469,7 @@ class SSHApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetKey200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetKey200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getKey($ssh_key_id, string $contentType = self::contentTypes['getKey'][0])
     {
@@ -1487,7 +1487,7 @@ class SSHApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetKey200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetKey200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getKeyWithHttpInfo($ssh_key_id, string $contentType = self::contentTypes['getKey'][0])
     {
@@ -1575,17 +1575,17 @@ class SSHApi
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1681,7 +1681,7 @@ class SSHApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1896,7 +1896,7 @@ class SSHApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetKeys200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetKeys200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getKeys(string $contentType = self::contentTypes['getKeys'][0])
     {
@@ -1913,7 +1913,7 @@ class SSHApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetKeys200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetKeys200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getKeysWithHttpInfo(string $contentType = self::contentTypes['getKeys'][0])
     {
@@ -2001,17 +2001,17 @@ class SSHApi
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2107,7 +2107,7 @@ class SSHApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2303,7 +2303,7 @@ class SSHApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetKey200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetKey200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateKey($ssh_key_id, $update_key_request, string $contentType = self::contentTypes['updateKey'][0])
     {
@@ -2322,7 +2322,7 @@ class SSHApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetKey200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetKey200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateKeyWithHttpInfo($ssh_key_id, $update_key_request, string $contentType = self::contentTypes['updateKey'][0])
     {
@@ -2410,17 +2410,17 @@ class SSHApi
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2516,7 +2516,7 @@ class SSHApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

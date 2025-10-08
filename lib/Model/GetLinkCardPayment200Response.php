@@ -1,6 +1,6 @@
 <?php
 /**
- * GetFinances403Response
+ * GetLinkCardPayment200Response
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * GetFinances403Response Class Doc Comment
+ * GetLinkCardPayment200Response Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetFinances403Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetLinkCardPayment200Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetFinances403Response implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'getFinances_403_response';
+    protected static $openAPIModelName = 'getLinkCardPayment_200_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class GetFinances403Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status_code' => 'float',
-        'message' => 'string',
-        'error_code' => 'string',
+        'confirmation_url' => 'string',
         'response_id' => 'string'
     ];
 
@@ -72,10 +70,8 @@ class GetFinances403Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'status_code' => null,
-        'message' => null,
-        'error_code' => null,
-        'response_id' => 'uuid'
+        'confirmation_url' => null,
+        'response_id' => null
     ];
 
     /**
@@ -84,9 +80,7 @@ class GetFinances403Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'status_code' => false,
-		'message' => false,
-		'error_code' => false,
+        'confirmation_url' => false,
 		'response_id' => false
     ];
 
@@ -176,9 +170,7 @@ class GetFinances403Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'status_code' => 'status_code',
-        'message' => 'message',
-        'error_code' => 'error_code',
+        'confirmation_url' => 'confirmation_url',
         'response_id' => 'response_id'
     ];
 
@@ -188,9 +180,7 @@ class GetFinances403Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'status_code' => 'setStatusCode',
-        'message' => 'setMessage',
-        'error_code' => 'setErrorCode',
+        'confirmation_url' => 'setConfirmationUrl',
         'response_id' => 'setResponseId'
     ];
 
@@ -200,9 +190,7 @@ class GetFinances403Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'status_code' => 'getStatusCode',
-        'message' => 'getMessage',
-        'error_code' => 'getErrorCode',
+        'confirmation_url' => 'getConfirmationUrl',
         'response_id' => 'getResponseId'
     ];
 
@@ -263,9 +251,7 @@ class GetFinances403Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('status_code', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('error_code', $data ?? [], null);
+        $this->setIfExists('confirmation_url', $data ?? [], null);
         $this->setIfExists('response_id', $data ?? [], null);
     }
 
@@ -296,11 +282,8 @@ class GetFinances403Response implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['status_code'] === null) {
-            $invalidProperties[] = "'status_code' can't be null";
-        }
-        if ($this->container['error_code'] === null) {
-            $invalidProperties[] = "'error_code' can't be null";
+        if ($this->container['confirmation_url'] === null) {
+            $invalidProperties[] = "'confirmation_url' can't be null";
         }
         if ($this->container['response_id'] === null) {
             $invalidProperties[] = "'response_id' can't be null";
@@ -321,82 +304,28 @@ class GetFinances403Response implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets status_code
-     *
-     * @return float
-     */
-    public function getStatusCode()
-    {
-        return $this->container['status_code'];
-    }
-
-    /**
-     * Sets status_code
-     *
-     * @param float $status_code Короткий идентификатор, соответствующий возвращаемому коду состояния HTTP.
-     *
-     * @return self
-     */
-    public function setStatusCode($status_code)
-    {
-        if (is_null($status_code)) {
-            throw new \InvalidArgumentException('non-nullable status_code cannot be null');
-        }
-        $this->container['status_code'] = $status_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string|null
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string|null $message Сообщение, предоставляющее дополнительную информацию об ошибке, в том числе сведения, помогающие устранить ее, когда это возможно.
-     *
-     * @return self
-     */
-    public function setMessage($message)
-    {
-        if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
-        }
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets error_code
+     * Gets confirmation_url
      *
      * @return string
      */
-    public function getErrorCode()
+    public function getConfirmationUrl()
     {
-        return $this->container['error_code'];
+        return $this->container['confirmation_url'];
     }
 
     /**
-     * Sets error_code
+     * Sets confirmation_url
      *
-     * @param string $error_code Краткое описание ошибки HTTP на основе статуса.
+     * @param string $confirmation_url URL для подтверждения оплаты
      *
      * @return self
      */
-    public function setErrorCode($error_code)
+    public function setConfirmationUrl($confirmation_url)
     {
-        if (is_null($error_code)) {
-            throw new \InvalidArgumentException('non-nullable error_code cannot be null');
+        if (is_null($confirmation_url)) {
+            throw new \InvalidArgumentException('non-nullable confirmation_url cannot be null');
         }
-        $this->container['error_code'] = $error_code;
+        $this->container['confirmation_url'] = $confirmation_url;
 
         return $this;
     }

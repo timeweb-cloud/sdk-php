@@ -1,6 +1,6 @@
 <?php
 /**
- * GetFinances403ResponseTest
+ * GetLinkCardPayment200ResponseTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * GetFinances403ResponseTest Class Doc Comment
+ * GetLinkCardPayment200ResponseTest Class Doc Comment
  *
  * @category    Class
- * @description GetFinances403Response
+ * @description GetLinkCardPayment200Response
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetFinances403ResponseTest extends TestCase
+class GetLinkCardPayment200ResponseTest extends TestCase
 {
 
     /**
@@ -72,36 +72,18 @@ class GetFinances403ResponseTest extends TestCase
     }
 
     /**
-     * Test "GetFinances403Response"
+     * Test "GetLinkCardPayment200Response"
      */
-    public function testGetFinances403Response()
+    public function testGetLinkCardPayment200Response()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "status_code"
+     * Test attribute "confirmation_url"
      */
-    public function testPropertyStatusCode()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "message"
-     */
-    public function testPropertyMessage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "error_code"
-     */
-    public function testPropertyErrorCode()
+    public function testPropertyConfirmationUrl()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

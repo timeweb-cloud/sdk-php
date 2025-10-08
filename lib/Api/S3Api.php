@@ -250,7 +250,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -450,7 +450,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AddStorageSubdomains200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\AddStorageSubdomains200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function addStorageSubdomains($bucket_id, $add_storage_subdomains_request, string $contentType = self::contentTypes['addStorageSubdomains'][0])
     {
@@ -469,7 +469,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AddStorageSubdomains200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\AddStorageSubdomains200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function addStorageSubdomainsWithHttpInfo($bucket_id, $add_storage_subdomains_request, string $contentType = self::contentTypes['addStorageSubdomains'][0])
     {
@@ -557,17 +557,17 @@ class S3Api
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -663,7 +663,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -896,7 +896,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateStorage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateStorage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createStorage($create_storage_request, string $contentType = self::contentTypes['createStorage'][0])
     {
@@ -914,7 +914,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateStorage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateStorage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createStorageWithHttpInfo($create_storage_request, string $contentType = self::contentTypes['createStorage'][0])
     {
@@ -1002,17 +1002,17 @@ class S3Api
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1108,7 +1108,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1322,7 +1322,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\DeleteStorage200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\DeleteStorage200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function deleteStorage($bucket_id, $hash = null, $code = null, string $contentType = self::contentTypes['deleteStorage'][0])
     {
@@ -1342,7 +1342,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\DeleteStorage200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\DeleteStorage200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteStorageWithHttpInfo($bucket_id, $hash = null, $code = null, string $contentType = self::contentTypes['deleteStorage'][0])
     {
@@ -1430,17 +1430,17 @@ class S3Api
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1536,7 +1536,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1779,7 +1779,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AddStorageSubdomains200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\AddStorageSubdomains200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function deleteStorageSubdomains($bucket_id, $add_storage_subdomains_request, string $contentType = self::contentTypes['deleteStorageSubdomains'][0])
     {
@@ -1798,7 +1798,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AddStorageSubdomains200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\AddStorageSubdomains200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteStorageSubdomainsWithHttpInfo($bucket_id, $add_storage_subdomains_request, string $contentType = self::contentTypes['deleteStorageSubdomains'][0])
     {
@@ -1886,17 +1886,17 @@ class S3Api
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1992,7 +1992,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2225,7 +2225,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetStorageSubdomains200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetStorageSubdomains200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getStorageSubdomains($bucket_id, string $contentType = self::contentTypes['getStorageSubdomains'][0])
     {
@@ -2243,7 +2243,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetStorageSubdomains200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetStorageSubdomains200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStorageSubdomainsWithHttpInfo($bucket_id, string $contentType = self::contentTypes['getStorageSubdomains'][0])
     {
@@ -2331,17 +2331,17 @@ class S3Api
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2437,7 +2437,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2653,7 +2653,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetStorageTransferStatus200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetStorageTransferStatus200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getStorageTransferStatus($bucket_id, string $contentType = self::contentTypes['getStorageTransferStatus'][0])
     {
@@ -2671,7 +2671,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetStorageTransferStatus200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetStorageTransferStatus200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStorageTransferStatusWithHttpInfo($bucket_id, string $contentType = self::contentTypes['getStorageTransferStatus'][0])
     {
@@ -2759,17 +2759,17 @@ class S3Api
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2865,7 +2865,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3080,7 +3080,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetStorageUsers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetStorageUsers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getStorageUsers(string $contentType = self::contentTypes['getStorageUsers'][0])
     {
@@ -3097,7 +3097,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetStorageUsers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetStorageUsers200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStorageUsersWithHttpInfo(string $contentType = self::contentTypes['getStorageUsers'][0])
     {
@@ -3185,17 +3185,17 @@ class S3Api
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3291,7 +3291,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3485,7 +3485,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetProjectStorages200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetProjectStorages200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getStorages(string $contentType = self::contentTypes['getStorages'][0])
     {
@@ -3502,7 +3502,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetProjectStorages200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetProjectStorages200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStoragesWithHttpInfo(string $contentType = self::contentTypes['getStorages'][0])
     {
@@ -3590,17 +3590,17 @@ class S3Api
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3696,7 +3696,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3890,7 +3890,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetStoragesPresets200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetStoragesPresets200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getStoragesPresets(string $contentType = self::contentTypes['getStoragesPresets'][0])
     {
@@ -3907,7 +3907,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetStoragesPresets200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetStoragesPresets200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStoragesPresetsWithHttpInfo(string $contentType = self::contentTypes['getStoragesPresets'][0])
     {
@@ -3995,17 +3995,17 @@ class S3Api
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4101,7 +4101,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4377,7 +4377,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4577,7 +4577,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateStorage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateStorage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateStorage($bucket_id, $update_storage_request, string $contentType = self::contentTypes['updateStorage'][0])
     {
@@ -4596,7 +4596,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateStorage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateStorage201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateStorageWithHttpInfo($bucket_id, $update_storage_request, string $contentType = self::contentTypes['updateStorage'][0])
     {
@@ -4684,17 +4684,17 @@ class S3Api
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4790,7 +4790,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5024,7 +5024,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\UpdateStorageUser200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\UpdateStorageUser200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateStorageUser($user_id, $update_storage_user_request, string $contentType = self::contentTypes['updateStorageUser'][0])
     {
@@ -5043,7 +5043,7 @@ class S3Api
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\UpdateStorageUser200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\UpdateStorageUser200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateStorageUserWithHttpInfo($user_id, $update_storage_user_request, string $contentType = self::contentTypes['updateStorageUser'][0])
     {
@@ -5131,17 +5131,17 @@ class S3Api
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\GetFinances403Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances403Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances403Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5237,7 +5237,7 @@ class S3Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances403Response',
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

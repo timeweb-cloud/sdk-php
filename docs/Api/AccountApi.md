@@ -11,7 +11,6 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getAccountStatus()**](AccountApi.md#getAccountStatus) | **GET** /api/v1/account/status | Получение статуса аккаунта |
 | [**getAuthAccessSettings()**](AccountApi.md#getAuthAccessSettings) | **GET** /api/v1/auth/access | Получить информацию о ограничениях авторизации пользователя |
 | [**getCountries()**](AccountApi.md#getCountries) | **GET** /api/v1/auth/access/countries | Получение списка стран |
-| [**getFinances()**](AccountApi.md#getFinances) | **GET** /api/v1/account/finances | Получение платежной информации |
 | [**getNotificationSettings()**](AccountApi.md#getNotificationSettings) | **GET** /api/v1/account/notification-settings | Получение настроек уведомлений аккаунта |
 | [**updateAuthRestrictionsByCountries()**](AccountApi.md#updateAuthRestrictionsByCountries) | **POST** /api/v1/auth/access/countries/enabled | Включение/отключение ограничений по стране |
 | [**updateAuthRestrictionsByIP()**](AccountApi.md#updateAuthRestrictionsByIP) | **POST** /api/v1/auth/access/ips/enabled | Включение/отключение ограничений по IP-адресу |
@@ -415,63 +414,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\OpenAPI\Client\Model\GetCountries200Response**](../Model/GetCountries200Response.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getFinances()`
-
-```php
-getFinances(): \OpenAPI\Client\Model\GetFinances200Response
-```
-
-Получение платежной информации
-
-Чтобы получить платежную информацию, отправьте GET-запрос на `/api/v1/account/finances`.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\AccountApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $result = $apiInstance->getFinances();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AccountApi->getFinances: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\OpenAPI\Client\Model\GetFinances200Response**](../Model/GetFinances200Response.md)
 
 ### Authorization
 

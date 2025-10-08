@@ -19,6 +19,7 @@ docs/Api/KubernetesApi.md
 docs/Api/LocationsApi.md
 docs/Api/MailApi.md
 docs/Api/NetworkDrivesApi.md
+docs/Api/PaymentsApi.md
 docs/Api/ProjectsApi.md
 docs/Api/S3Api.md
 docs/Api/SSHApi.md
@@ -135,6 +136,7 @@ docs/Model/CreateMultipleDomainMailboxesRequest.md
 docs/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.md
 docs/Model/CreateNetworkDrive.md
 docs/Model/CreateNetworkDrive201Response.md
+docs/Model/CreatePayment.md
 docs/Model/CreateProject.md
 docs/Model/CreateProject201Response.md
 docs/Model/CreateRule.md
@@ -223,6 +225,7 @@ docs/Model/ForwardingOutgoingIsEnabled.md
 docs/Model/Frameworks.md
 docs/Model/Free.md
 docs/Model/GetAccountStatus200Response.md
+docs/Model/GetAccountStatus403Response.md
 docs/Model/GetAllProjectResources200Response.md
 docs/Model/GetAppDeploys200Response.md
 docs/Model/GetAppLogs200Response.md
@@ -259,13 +262,13 @@ docs/Model/GetDomains200Response.md
 docs/Model/GetFinances200Response.md
 docs/Model/GetFinances400Response.md
 docs/Model/GetFinances401Response.md
-docs/Model/GetFinances403Response.md
 docs/Model/GetFinances429Response.md
 docs/Model/GetFinances500Response.md
 docs/Model/GetFloatingIps200Response.md
 docs/Model/GetImage404Response.md
 docs/Model/GetKey200Response.md
 docs/Model/GetKeys200Response.md
+docs/Model/GetLinkCardPayment200Response.md
 docs/Model/GetLocations200Response.md
 docs/Model/GetMailQuota200Response.md
 docs/Model/GetMailboxes200Response.md
@@ -297,6 +300,8 @@ docs/Model/GetServerStatistics200ResponseRamInner.md
 docs/Model/GetServerStatisticsNew200Response.md
 docs/Model/GetServers200Response.md
 docs/Model/GetServersPresets200Response.md
+docs/Model/GetServicePrices200Response.md
+docs/Model/GetServicePrices200ResponseMeta.md
 docs/Model/GetSoftware200Response.md
 docs/Model/GetStorageSubdomains200Response.md
 docs/Model/GetStorageTransferStatus200Response.md
@@ -320,6 +325,7 @@ docs/Model/ImageUrlAuth.md
 docs/Model/ImageUrlIn.md
 docs/Model/ImagesOutResponse.md
 docs/Model/IncreaseNodes.md
+docs/Model/InfoServicePrice.md
 docs/Model/Invoice.md
 docs/Model/K8SVersionsResponse.md
 docs/Model/Location.md
@@ -354,6 +360,7 @@ docs/Model/NotificationSettingChannel.md
 docs/Model/NotificationSettingChannels.md
 docs/Model/NotificationSettingType.md
 docs/Model/OS.md
+docs/Model/PaymentType.md
 docs/Model/PerformActionOnBackupRequest.md
 docs/Model/PerformActionOnServerRequest.md
 docs/Model/Policy.md
@@ -403,6 +410,12 @@ docs/Model/ServersSoftwareRequirements.md
 docs/Model/ServersStatistics.md
 docs/Model/ServersStatisticsListInner.md
 docs/Model/ServersStatisticsMeta.md
+docs/Model/ServiceCostType.md
+docs/Model/ServicePrice.md
+docs/Model/ServicePriceConfiguration.md
+docs/Model/ServicePriceType.md
+docs/Model/ServiceServicePrice.md
+docs/Model/ServiceServicePriceNodeGroupsInner.md
 docs/Model/SetLabels.md
 docs/Model/SettingCondition.md
 docs/Model/SpamFilterIsDisabled.md
@@ -487,6 +500,7 @@ lib/Api/KubernetesApi.php
 lib/Api/LocationsApi.php
 lib/Api/MailApi.php
 lib/Api/NetworkDrivesApi.php
+lib/Api/PaymentsApi.php
 lib/Api/ProjectsApi.php
 lib/Api/S3Api.php
 lib/Api/SSHApi.php
@@ -606,6 +620,7 @@ lib/Model/CreateMultipleDomainMailboxesRequest.php
 lib/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.php
 lib/Model/CreateNetworkDrive.php
 lib/Model/CreateNetworkDrive201Response.php
+lib/Model/CreatePayment.php
 lib/Model/CreateProject.php
 lib/Model/CreateProject201Response.php
 lib/Model/CreateRule.php
@@ -694,6 +709,7 @@ lib/Model/ForwardingOutgoingIsEnabled.php
 lib/Model/Frameworks.php
 lib/Model/Free.php
 lib/Model/GetAccountStatus200Response.php
+lib/Model/GetAccountStatus403Response.php
 lib/Model/GetAllProjectResources200Response.php
 lib/Model/GetAppDeploys200Response.php
 lib/Model/GetAppLogs200Response.php
@@ -730,13 +746,13 @@ lib/Model/GetDomains200Response.php
 lib/Model/GetFinances200Response.php
 lib/Model/GetFinances400Response.php
 lib/Model/GetFinances401Response.php
-lib/Model/GetFinances403Response.php
 lib/Model/GetFinances429Response.php
 lib/Model/GetFinances500Response.php
 lib/Model/GetFloatingIps200Response.php
 lib/Model/GetImage404Response.php
 lib/Model/GetKey200Response.php
 lib/Model/GetKeys200Response.php
+lib/Model/GetLinkCardPayment200Response.php
 lib/Model/GetLocations200Response.php
 lib/Model/GetMailQuota200Response.php
 lib/Model/GetMailboxes200Response.php
@@ -768,6 +784,8 @@ lib/Model/GetServerStatistics200ResponseRamInner.php
 lib/Model/GetServerStatisticsNew200Response.php
 lib/Model/GetServers200Response.php
 lib/Model/GetServersPresets200Response.php
+lib/Model/GetServicePrices200Response.php
+lib/Model/GetServicePrices200ResponseMeta.php
 lib/Model/GetSoftware200Response.php
 lib/Model/GetStorageSubdomains200Response.php
 lib/Model/GetStorageTransferStatus200Response.php
@@ -791,6 +809,7 @@ lib/Model/ImageUrlAuth.php
 lib/Model/ImageUrlIn.php
 lib/Model/ImagesOutResponse.php
 lib/Model/IncreaseNodes.php
+lib/Model/InfoServicePrice.php
 lib/Model/Invoice.php
 lib/Model/K8SVersionsResponse.php
 lib/Model/Location.php
@@ -826,6 +845,7 @@ lib/Model/NotificationSettingChannel.php
 lib/Model/NotificationSettingChannels.php
 lib/Model/NotificationSettingType.php
 lib/Model/OS.php
+lib/Model/PaymentType.php
 lib/Model/PerformActionOnBackupRequest.php
 lib/Model/PerformActionOnServerRequest.php
 lib/Model/Policy.php
@@ -875,6 +895,12 @@ lib/Model/ServersSoftwareRequirements.php
 lib/Model/ServersStatistics.php
 lib/Model/ServersStatisticsListInner.php
 lib/Model/ServersStatisticsMeta.php
+lib/Model/ServiceCostType.php
+lib/Model/ServicePrice.php
+lib/Model/ServicePriceConfiguration.php
+lib/Model/ServicePriceType.php
+lib/Model/ServiceServicePrice.php
+lib/Model/ServiceServicePriceNodeGroupsInner.php
 lib/Model/SetLabels.php
 lib/Model/SettingCondition.php
 lib/Model/SpamFilterIsDisabled.php
@@ -960,6 +986,7 @@ test/Api/KubernetesApiTest.php
 test/Api/LocationsApiTest.php
 test/Api/MailApiTest.php
 test/Api/NetworkDrivesApiTest.php
+test/Api/PaymentsApiTest.php
 test/Api/ProjectsApiTest.php
 test/Api/S3ApiTest.php
 test/Api/SSHApiTest.php
@@ -1076,6 +1103,7 @@ test/Model/CreateMultipleDomainMailboxesRequestMailboxesInnerTest.php
 test/Model/CreateMultipleDomainMailboxesRequestTest.php
 test/Model/CreateNetworkDrive201ResponseTest.php
 test/Model/CreateNetworkDriveTest.php
+test/Model/CreatePaymentTest.php
 test/Model/CreateProject201ResponseTest.php
 test/Model/CreateProjectTest.php
 test/Model/CreateRuleTest.php
@@ -1164,6 +1192,7 @@ test/Model/ForwardingOutgoingIsEnabledTest.php
 test/Model/FrameworksTest.php
 test/Model/FreeTest.php
 test/Model/GetAccountStatus200ResponseTest.php
+test/Model/GetAccountStatus403ResponseTest.php
 test/Model/GetAllProjectResources200ResponseTest.php
 test/Model/GetAppDeploys200ResponseTest.php
 test/Model/GetAppLogs200ResponseTest.php
@@ -1200,13 +1229,13 @@ test/Model/GetDomains200ResponseTest.php
 test/Model/GetFinances200ResponseTest.php
 test/Model/GetFinances400ResponseTest.php
 test/Model/GetFinances401ResponseTest.php
-test/Model/GetFinances403ResponseTest.php
 test/Model/GetFinances429ResponseTest.php
 test/Model/GetFinances500ResponseTest.php
 test/Model/GetFloatingIps200ResponseTest.php
 test/Model/GetImage404ResponseTest.php
 test/Model/GetKey200ResponseTest.php
 test/Model/GetKeys200ResponseTest.php
+test/Model/GetLinkCardPayment200ResponseTest.php
 test/Model/GetLocations200ResponseTest.php
 test/Model/GetMailQuota200ResponseTest.php
 test/Model/GetMailboxes200ResponseTest.php
@@ -1238,6 +1267,8 @@ test/Model/GetServerStatistics200ResponseTest.php
 test/Model/GetServerStatisticsNew200ResponseTest.php
 test/Model/GetServers200ResponseTest.php
 test/Model/GetServersPresets200ResponseTest.php
+test/Model/GetServicePrices200ResponseMetaTest.php
+test/Model/GetServicePrices200ResponseTest.php
 test/Model/GetSoftware200ResponseTest.php
 test/Model/GetStorageSubdomains200ResponseTest.php
 test/Model/GetStorageTransferStatus200ResponseTest.php
@@ -1261,6 +1292,7 @@ test/Model/ImageUrlAuthTest.php
 test/Model/ImageUrlInTest.php
 test/Model/ImagesOutResponseTest.php
 test/Model/IncreaseNodesTest.php
+test/Model/InfoServicePriceTest.php
 test/Model/InvoiceTest.php
 test/Model/K8SVersionsResponseTest.php
 test/Model/LocationDtoTest.php
@@ -1295,6 +1327,7 @@ test/Model/NotificationSettingChannelsTest.php
 test/Model/NotificationSettingTest.php
 test/Model/NotificationSettingTypeTest.php
 test/Model/OSTest.php
+test/Model/PaymentTypeTest.php
 test/Model/PerformActionOnBackupRequestTest.php
 test/Model/PerformActionOnServerRequestTest.php
 test/Model/PolicyTest.php
@@ -1344,6 +1377,12 @@ test/Model/ServersSoftwareTest.php
 test/Model/ServersStatisticsListInnerTest.php
 test/Model/ServersStatisticsMetaTest.php
 test/Model/ServersStatisticsTest.php
+test/Model/ServiceCostTypeTest.php
+test/Model/ServicePriceConfigurationTest.php
+test/Model/ServicePriceTest.php
+test/Model/ServicePriceTypeTest.php
+test/Model/ServiceServicePriceNodeGroupsInnerTest.php
+test/Model/ServiceServicePriceTest.php
 test/Model/SetLabelsTest.php
 test/Model/SettingConditionTest.php
 test/Model/SpamFilterIsDisabledTest.php

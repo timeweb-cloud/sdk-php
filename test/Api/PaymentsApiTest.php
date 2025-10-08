@@ -1,6 +1,6 @@
 <?php
 /**
- * AccountApiTest
+ * PaymentsApiTest
  * PHP version 7.4
  *
  * @category Class
@@ -34,14 +34,14 @@ use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * AccountApiTest Class Doc Comment
+ * PaymentsApiTest Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class AccountApiTest extends TestCase
+class PaymentsApiTest extends TestCase
 {
 
     /**
@@ -73,132 +73,36 @@ class AccountApiTest extends TestCase
     }
 
     /**
-     * Test case for addCountriesToAllowedList
+     * Test case for getFinances
      *
-     * Добавление стран в список разрешенных.
+     * Получение платежной информации.
      *
      */
-    public function testAddCountriesToAllowedList()
+    public function testGetFinances()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for addIPsToAllowedList
+     * Test case for getLinkCardPayment
      *
-     * Добавление IP-адресов в список разрешенных.
+     * Получение ссылки на оплату.
      *
      */
-    public function testAddIPsToAllowedList()
+    public function testGetLinkCardPayment()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for deleteCountriesFromAllowedList
+     * Test case for getServicePrices
      *
-     * Удаление стран из списка разрешенных.
-     *
-     */
-    public function testDeleteCountriesFromAllowedList()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deleteIPsFromAllowedList
-     *
-     * Удаление IP-адресов из списка разрешенных.
+     * Получение стоимости сервисов.
      *
      */
-    public function testDeleteIPsFromAllowedList()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getAccountStatus
-     *
-     * Получение статуса аккаунта.
-     *
-     */
-    public function testGetAccountStatus()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getAuthAccessSettings
-     *
-     * Получить информацию о ограничениях авторизации пользователя.
-     *
-     */
-    public function testGetAuthAccessSettings()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getCountries
-     *
-     * Получение списка стран.
-     *
-     */
-    public function testGetCountries()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getNotificationSettings
-     *
-     * Получение настроек уведомлений аккаунта.
-     *
-     */
-    public function testGetNotificationSettings()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateAuthRestrictionsByCountries
-     *
-     * Включение/отключение ограничений по стране.
-     *
-     */
-    public function testUpdateAuthRestrictionsByCountries()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateAuthRestrictionsByIP
-     *
-     * Включение/отключение ограничений по IP-адресу.
-     *
-     */
-    public function testUpdateAuthRestrictionsByIP()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateNotificationSettings
-     *
-     * Изменение настроек уведомлений аккаунта.
-     *
-     */
-    public function testUpdateNotificationSettings()
+    public function testGetServicePrices()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

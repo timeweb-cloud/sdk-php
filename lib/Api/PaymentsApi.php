@@ -1,6 +1,6 @@
 <?php
 /**
- * APIKeysApi
+ * PaymentsApi
  * PHP version 7.4
  *
  * @category Class
@@ -41,14 +41,14 @@ use OpenAPI\Client\HeaderSelector;
 use OpenAPI\Client\ObjectSerializer;
 
 /**
- * APIKeysApi Class Doc Comment
+ * PaymentsApi Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class APIKeysApi
+class PaymentsApi
 {
     /**
      * @var ClientInterface
@@ -72,19 +72,13 @@ class APIKeysApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createToken' => [
+        'getFinances' => [
             'application/json',
         ],
-        'deleteToken' => [
+        'getLinkCardPayment' => [
             'application/json',
         ],
-        'getTokens' => [
-            'application/json',
-        ],
-        'reissueToken' => [
-            'application/json',
-        ],
-        'updateToken' => [
+        'getServicePrices' => [
             'application/json',
         ],
     ];
@@ -136,718 +130,36 @@ class APIKeysApi
     }
 
     /**
-     * Operation createToken
+     * Operation getFinances
      *
-     * Создание токена
+     * Получение платежной информации
      *
-     * @param  \OpenAPI\Client\Model\CreateApiKey $create_api_key create_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createToken'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinances'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateToken201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetFinances200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function createToken($create_api_key, string $contentType = self::contentTypes['createToken'][0])
+    public function getFinances(string $contentType = self::contentTypes['getFinances'][0])
     {
-        list($response) = $this->createTokenWithHttpInfo($create_api_key, $contentType);
+        list($response) = $this->getFinancesWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation createTokenWithHttpInfo
+     * Operation getFinancesWithHttpInfo
      *
-     * Создание токена
+     * Получение платежной информации
      *
-     * @param  \OpenAPI\Client\Model\CreateApiKey $create_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createToken'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateToken201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createTokenWithHttpInfo($create_api_key, string $contentType = self::contentTypes['createToken'][0])
-    {
-        $request = $this->createTokenRequest($create_api_key, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 201:
-                    if ('\OpenAPI\Client\Model\CreateToken201Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateToken201Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateToken201Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 429:
-                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\OpenAPI\Client\Model\CreateToken201Response';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateToken201Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances429Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances500Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createTokenAsync
-     *
-     * Создание токена
-     *
-     * @param  \OpenAPI\Client\Model\CreateApiKey $create_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createToken'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createTokenAsync($create_api_key, string $contentType = self::contentTypes['createToken'][0])
-    {
-        return $this->createTokenAsyncWithHttpInfo($create_api_key, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation createTokenAsyncWithHttpInfo
-     *
-     * Создание токена
-     *
-     * @param  \OpenAPI\Client\Model\CreateApiKey $create_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createToken'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createTokenAsyncWithHttpInfo($create_api_key, string $contentType = self::contentTypes['createToken'][0])
-    {
-        $returnType = '\OpenAPI\Client\Model\CreateToken201Response';
-        $request = $this->createTokenRequest($create_api_key, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'createToken'
-     *
-     * @param  \OpenAPI\Client\Model\CreateApiKey $create_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createToken'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function createTokenRequest($create_api_key, string $contentType = self::contentTypes['createToken'][0])
-    {
-
-        // verify the required parameter 'create_api_key' is set
-        if ($create_api_key === null || (is_array($create_api_key) && count($create_api_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $create_api_key when calling createToken'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/auth/api-keys';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($create_api_key)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_api_key));
-            } else {
-                $httpBody = $create_api_key;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation deleteToken
-     *
-     * Удалить токен
-     *
-     * @param  string $token_id ID токена (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteToken'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinances'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return array of \OpenAPI\Client\Model\GetFinances200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteToken($token_id, string $contentType = self::contentTypes['deleteToken'][0])
+    public function getFinancesWithHttpInfo(string $contentType = self::contentTypes['getFinances'][0])
     {
-        $this->deleteTokenWithHttpInfo($token_id, $contentType);
-    }
-
-    /**
-     * Operation deleteTokenWithHttpInfo
-     *
-     * Удалить токен
-     *
-     * @param  string $token_id ID токена (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteToken'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteTokenWithHttpInfo($token_id, string $contentType = self::contentTypes['deleteToken'][0])
-    {
-        $request = $this->deleteTokenRequest($token_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetImage404Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances429Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetFinances500Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteTokenAsync
-     *
-     * Удалить токен
-     *
-     * @param  string $token_id ID токена (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteToken'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteTokenAsync($token_id, string $contentType = self::contentTypes['deleteToken'][0])
-    {
-        return $this->deleteTokenAsyncWithHttpInfo($token_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteTokenAsyncWithHttpInfo
-     *
-     * Удалить токен
-     *
-     * @param  string $token_id ID токена (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteToken'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteTokenAsyncWithHttpInfo($token_id, string $contentType = self::contentTypes['deleteToken'][0])
-    {
-        $returnType = '';
-        $request = $this->deleteTokenRequest($token_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deleteToken'
-     *
-     * @param  string $token_id ID токена (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteToken'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function deleteTokenRequest($token_id, string $contentType = self::contentTypes['deleteToken'][0])
-    {
-
-        // verify the required parameter 'token_id' is set
-        if ($token_id === null || (is_array($token_id) && count($token_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $token_id when calling deleteToken'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/auth/api-keys/{token_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($token_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'token_id' . '}',
-                ObjectSerializer::toPathValue($token_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getTokens
-     *
-     * Получение списка выпущенных токенов
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTokens'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetTokens200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
-     */
-    public function getTokens(string $contentType = self::contentTypes['getTokens'][0])
-    {
-        list($response) = $this->getTokensWithHttpInfo($contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getTokensWithHttpInfo
-     *
-     * Получение списка выпущенных токенов
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTokens'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetTokens200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getTokensWithHttpInfo(string $contentType = self::contentTypes['getTokens'][0])
-    {
-        $request = $this->getTokensRequest($contentType);
+        $request = $this->getFinancesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -886,17 +198,17 @@ class APIKeysApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetTokens200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetFinances200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetTokens200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetFinances200Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetTokens200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -927,21 +239,6 @@ class APIKeysApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -977,7 +274,7 @@ class APIKeysApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetTokens200Response';
+            $returnType = '\OpenAPI\Client\Model\GetFinances200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -998,7 +295,7 @@ class APIKeysApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetTokens200Response',
+                        '\OpenAPI\Client\Model\GetFinances200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1015,14 +312,6 @@ class APIKeysApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\GetFinances401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1049,18 +338,18 @@ class APIKeysApi
     }
 
     /**
-     * Operation getTokensAsync
+     * Operation getFinancesAsync
      *
-     * Получение списка выпущенных токенов
+     * Получение платежной информации
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTokens'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinances'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTokensAsync(string $contentType = self::contentTypes['getTokens'][0])
+    public function getFinancesAsync(string $contentType = self::contentTypes['getFinances'][0])
     {
-        return $this->getTokensAsyncWithHttpInfo($contentType)
+        return $this->getFinancesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1069,19 +358,19 @@ class APIKeysApi
     }
 
     /**
-     * Operation getTokensAsyncWithHttpInfo
+     * Operation getFinancesAsyncWithHttpInfo
      *
-     * Получение списка выпущенных токенов
+     * Получение платежной информации
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTokens'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinances'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTokensAsyncWithHttpInfo(string $contentType = self::contentTypes['getTokens'][0])
+    public function getFinancesAsyncWithHttpInfo(string $contentType = self::contentTypes['getFinances'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetTokens200Response';
-        $request = $this->getTokensRequest($contentType);
+        $returnType = '\OpenAPI\Client\Model\GetFinances200Response';
+        $request = $this->getFinancesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1120,18 +409,18 @@ class APIKeysApi
     }
 
     /**
-     * Create request for operation 'getTokens'
+     * Create request for operation 'getFinances'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTokens'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinances'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTokensRequest(string $contentType = self::contentTypes['getTokens'][0])
+    public function getFinancesRequest(string $contentType = self::contentTypes['getFinances'][0])
     {
 
 
-        $resourcePath = '/api/v1/auth/api-keys';
+        $resourcePath = '/api/v1/account/finances';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1200,40 +489,38 @@ class APIKeysApi
     }
 
     /**
-     * Operation reissueToken
+     * Operation getLinkCardPayment
      *
-     * Перевыпустить токен
+     * Получение ссылки на оплату
      *
-     * @param  string $token_id ID токена (required)
-     * @param  \OpenAPI\Client\Model\RefreshApiKey $refresh_api_key refresh_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reissueToken'] to see the possible values for this operation
+     * @param  \OpenAPI\Client\Model\CreatePayment $create_payment create_payment (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLinkCardPayment'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateToken201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetLinkCardPayment200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function reissueToken($token_id, $refresh_api_key, string $contentType = self::contentTypes['reissueToken'][0])
+    public function getLinkCardPayment($create_payment, string $contentType = self::contentTypes['getLinkCardPayment'][0])
     {
-        list($response) = $this->reissueTokenWithHttpInfo($token_id, $refresh_api_key, $contentType);
+        list($response) = $this->getLinkCardPaymentWithHttpInfo($create_payment, $contentType);
         return $response;
     }
 
     /**
-     * Operation reissueTokenWithHttpInfo
+     * Operation getLinkCardPaymentWithHttpInfo
      *
-     * Перевыпустить токен
+     * Получение ссылки на оплату
      *
-     * @param  string $token_id ID токена (required)
-     * @param  \OpenAPI\Client\Model\RefreshApiKey $refresh_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reissueToken'] to see the possible values for this operation
+     * @param  \OpenAPI\Client\Model\CreatePayment $create_payment (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLinkCardPayment'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateToken201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetLinkCardPayment200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reissueTokenWithHttpInfo($token_id, $refresh_api_key, string $contentType = self::contentTypes['reissueToken'][0])
+    public function getLinkCardPaymentWithHttpInfo($create_payment, string $contentType = self::contentTypes['getLinkCardPayment'][0])
     {
-        $request = $this->reissueTokenRequest($token_id, $refresh_api_key, $contentType);
+        $request = $this->getLinkCardPaymentRequest($create_payment, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1272,17 +559,17 @@ class APIKeysApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreateToken201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetLinkCardPayment200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateToken201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetLinkCardPayment200Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateToken201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetLinkCardPayment200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1313,36 +600,6 @@ class APIKeysApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1378,7 +635,7 @@ class APIKeysApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateToken201Response';
+            $returnType = '\OpenAPI\Client\Model\GetLinkCardPayment200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1399,7 +656,7 @@ class APIKeysApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateToken201Response',
+                        '\OpenAPI\Client\Model\GetLinkCardPayment200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1416,22 +673,6 @@ class APIKeysApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\GetFinances401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetImage404Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1458,20 +699,19 @@ class APIKeysApi
     }
 
     /**
-     * Operation reissueTokenAsync
+     * Operation getLinkCardPaymentAsync
      *
-     * Перевыпустить токен
+     * Получение ссылки на оплату
      *
-     * @param  string $token_id ID токена (required)
-     * @param  \OpenAPI\Client\Model\RefreshApiKey $refresh_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reissueToken'] to see the possible values for this operation
+     * @param  \OpenAPI\Client\Model\CreatePayment $create_payment (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLinkCardPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reissueTokenAsync($token_id, $refresh_api_key, string $contentType = self::contentTypes['reissueToken'][0])
+    public function getLinkCardPaymentAsync($create_payment, string $contentType = self::contentTypes['getLinkCardPayment'][0])
     {
-        return $this->reissueTokenAsyncWithHttpInfo($token_id, $refresh_api_key, $contentType)
+        return $this->getLinkCardPaymentAsyncWithHttpInfo($create_payment, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1480,21 +720,20 @@ class APIKeysApi
     }
 
     /**
-     * Operation reissueTokenAsyncWithHttpInfo
+     * Operation getLinkCardPaymentAsyncWithHttpInfo
      *
-     * Перевыпустить токен
+     * Получение ссылки на оплату
      *
-     * @param  string $token_id ID токена (required)
-     * @param  \OpenAPI\Client\Model\RefreshApiKey $refresh_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reissueToken'] to see the possible values for this operation
+     * @param  \OpenAPI\Client\Model\CreatePayment $create_payment (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLinkCardPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reissueTokenAsyncWithHttpInfo($token_id, $refresh_api_key, string $contentType = self::contentTypes['reissueToken'][0])
+    public function getLinkCardPaymentAsyncWithHttpInfo($create_payment, string $contentType = self::contentTypes['getLinkCardPayment'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateToken201Response';
-        $request = $this->reissueTokenRequest($token_id, $refresh_api_key, $contentType);
+        $returnType = '\OpenAPI\Client\Model\GetLinkCardPayment200Response';
+        $request = $this->getLinkCardPaymentRequest($create_payment, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1533,34 +772,26 @@ class APIKeysApi
     }
 
     /**
-     * Create request for operation 'reissueToken'
+     * Create request for operation 'getLinkCardPayment'
      *
-     * @param  string $token_id ID токена (required)
-     * @param  \OpenAPI\Client\Model\RefreshApiKey $refresh_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reissueToken'] to see the possible values for this operation
+     * @param  \OpenAPI\Client\Model\CreatePayment $create_payment (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLinkCardPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reissueTokenRequest($token_id, $refresh_api_key, string $contentType = self::contentTypes['reissueToken'][0])
+    public function getLinkCardPaymentRequest($create_payment, string $contentType = self::contentTypes['getLinkCardPayment'][0])
     {
 
-        // verify the required parameter 'token_id' is set
-        if ($token_id === null || (is_array($token_id) && count($token_id) === 0)) {
+        // verify the required parameter 'create_payment' is set
+        if ($create_payment === null || (is_array($create_payment) && count($create_payment) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $token_id when calling reissueToken'
-            );
-        }
-
-        // verify the required parameter 'refresh_api_key' is set
-        if ($refresh_api_key === null || (is_array($refresh_api_key) && count($refresh_api_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $refresh_api_key when calling reissueToken'
+                'Missing the required parameter $create_payment when calling getLinkCardPayment'
             );
         }
 
 
-        $resourcePath = '/api/v1/auth/api-keys/{token_id}';
+        $resourcePath = '/api/v1/account/payment-link';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1569,14 +800,6 @@ class APIKeysApi
 
 
 
-        // path params
-        if ($token_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'token_id' . '}',
-                ObjectSerializer::toPathValue($token_id),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1586,12 +809,12 @@ class APIKeysApi
         );
 
         // for model (json/xml)
-        if (isset($refresh_api_key)) {
+        if (isset($create_payment)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refresh_api_key));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_payment));
             } else {
-                $httpBody = $refresh_api_key;
+                $httpBody = $create_payment;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1636,7 +859,7 @@ class APIKeysApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'PUT',
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -1644,40 +867,36 @@ class APIKeysApi
     }
 
     /**
-     * Operation updateToken
+     * Operation getServicePrices
      *
-     * Изменить токен
+     * Получение стоимости сервисов
      *
-     * @param  string $token_id ID токена (required)
-     * @param  \OpenAPI\Client\Model\EditApiKey $edit_api_key edit_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateToken'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServicePrices'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\UpdateToken200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetServicePrices200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function updateToken($token_id, $edit_api_key, string $contentType = self::contentTypes['updateToken'][0])
+    public function getServicePrices(string $contentType = self::contentTypes['getServicePrices'][0])
     {
-        list($response) = $this->updateTokenWithHttpInfo($token_id, $edit_api_key, $contentType);
+        list($response) = $this->getServicePricesWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation updateTokenWithHttpInfo
+     * Operation getServicePricesWithHttpInfo
      *
-     * Изменить токен
+     * Получение стоимости сервисов
      *
-     * @param  string $token_id ID токена (required)
-     * @param  \OpenAPI\Client\Model\EditApiKey $edit_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateToken'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServicePrices'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\UpdateToken200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetServicePrices200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTokenWithHttpInfo($token_id, $edit_api_key, string $contentType = self::contentTypes['updateToken'][0])
+    public function getServicePricesWithHttpInfo(string $contentType = self::contentTypes['getServicePrices'][0])
     {
-        $request = $this->updateTokenRequest($token_id, $edit_api_key, $contentType);
+        $request = $this->getServicePricesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1716,17 +935,17 @@ class APIKeysApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\UpdateToken200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetServicePrices200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\UpdateToken200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetServicePrices200Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateToken200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetServicePrices200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1757,36 +976,6 @@ class APIKeysApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1822,7 +1011,7 @@ class APIKeysApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\UpdateToken200Response';
+            $returnType = '\OpenAPI\Client\Model\GetServicePrices200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1843,7 +1032,7 @@ class APIKeysApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\UpdateToken200Response',
+                        '\OpenAPI\Client\Model\GetServicePrices200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1860,22 +1049,6 @@ class APIKeysApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\GetFinances401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetImage404Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1902,20 +1075,18 @@ class APIKeysApi
     }
 
     /**
-     * Operation updateTokenAsync
+     * Operation getServicePricesAsync
      *
-     * Изменить токен
+     * Получение стоимости сервисов
      *
-     * @param  string $token_id ID токена (required)
-     * @param  \OpenAPI\Client\Model\EditApiKey $edit_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateToken'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServicePrices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTokenAsync($token_id, $edit_api_key, string $contentType = self::contentTypes['updateToken'][0])
+    public function getServicePricesAsync(string $contentType = self::contentTypes['getServicePrices'][0])
     {
-        return $this->updateTokenAsyncWithHttpInfo($token_id, $edit_api_key, $contentType)
+        return $this->getServicePricesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1924,21 +1095,19 @@ class APIKeysApi
     }
 
     /**
-     * Operation updateTokenAsyncWithHttpInfo
+     * Operation getServicePricesAsyncWithHttpInfo
      *
-     * Изменить токен
+     * Получение стоимости сервисов
      *
-     * @param  string $token_id ID токена (required)
-     * @param  \OpenAPI\Client\Model\EditApiKey $edit_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateToken'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServicePrices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTokenAsyncWithHttpInfo($token_id, $edit_api_key, string $contentType = self::contentTypes['updateToken'][0])
+    public function getServicePricesAsyncWithHttpInfo(string $contentType = self::contentTypes['getServicePrices'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\UpdateToken200Response';
-        $request = $this->updateTokenRequest($token_id, $edit_api_key, $contentType);
+        $returnType = '\OpenAPI\Client\Model\GetServicePrices200Response';
+        $request = $this->getServicePricesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1977,34 +1146,18 @@ class APIKeysApi
     }
 
     /**
-     * Create request for operation 'updateToken'
+     * Create request for operation 'getServicePrices'
      *
-     * @param  string $token_id ID токена (required)
-     * @param  \OpenAPI\Client\Model\EditApiKey $edit_api_key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateToken'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServicePrices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateTokenRequest($token_id, $edit_api_key, string $contentType = self::contentTypes['updateToken'][0])
+    public function getServicePricesRequest(string $contentType = self::contentTypes['getServicePrices'][0])
     {
 
-        // verify the required parameter 'token_id' is set
-        if ($token_id === null || (is_array($token_id) && count($token_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $token_id when calling updateToken'
-            );
-        }
 
-        // verify the required parameter 'edit_api_key' is set
-        if ($edit_api_key === null || (is_array($edit_api_key) && count($edit_api_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $edit_api_key when calling updateToken'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/auth/api-keys/{token_id}';
+        $resourcePath = '/api/v1/account/services/cost';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2013,14 +1166,6 @@ class APIKeysApi
 
 
 
-        // path params
-        if ($token_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'token_id' . '}',
-                ObjectSerializer::toPathValue($token_id),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2030,14 +1175,7 @@ class APIKeysApi
         );
 
         // for model (json/xml)
-        if (isset($edit_api_key)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($edit_api_key));
-            } else {
-                $httpBody = $edit_api_key;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2080,7 +1218,7 @@ class APIKeysApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'PATCH',
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
