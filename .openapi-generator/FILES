@@ -136,7 +136,6 @@ docs/Model/CreateMultipleDomainMailboxesRequest.md
 docs/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.md
 docs/Model/CreateNetworkDrive.md
 docs/Model/CreateNetworkDrive201Response.md
-docs/Model/CreatePayment.md
 docs/Model/CreateProject.md
 docs/Model/CreateProject201Response.md
 docs/Model/CreateRule.md
@@ -268,7 +267,6 @@ docs/Model/GetFloatingIps200Response.md
 docs/Model/GetImage404Response.md
 docs/Model/GetKey200Response.md
 docs/Model/GetKeys200Response.md
-docs/Model/GetLinkCardPayment200Response.md
 docs/Model/GetLocations200Response.md
 docs/Model/GetMailQuota200Response.md
 docs/Model/GetMailboxes200Response.md
@@ -360,7 +358,6 @@ docs/Model/NotificationSettingChannel.md
 docs/Model/NotificationSettingChannels.md
 docs/Model/NotificationSettingType.md
 docs/Model/OS.md
-docs/Model/PaymentType.md
 docs/Model/PerformActionOnBackupRequest.md
 docs/Model/PerformActionOnServerRequest.md
 docs/Model/Policy.md
@@ -620,7 +617,6 @@ lib/Model/CreateMultipleDomainMailboxesRequest.php
 lib/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.php
 lib/Model/CreateNetworkDrive.php
 lib/Model/CreateNetworkDrive201Response.php
-lib/Model/CreatePayment.php
 lib/Model/CreateProject.php
 lib/Model/CreateProject201Response.php
 lib/Model/CreateRule.php
@@ -752,7 +748,6 @@ lib/Model/GetFloatingIps200Response.php
 lib/Model/GetImage404Response.php
 lib/Model/GetKey200Response.php
 lib/Model/GetKeys200Response.php
-lib/Model/GetLinkCardPayment200Response.php
 lib/Model/GetLocations200Response.php
 lib/Model/GetMailQuota200Response.php
 lib/Model/GetMailboxes200Response.php
@@ -845,7 +840,6 @@ lib/Model/NotificationSettingChannel.php
 lib/Model/NotificationSettingChannels.php
 lib/Model/NotificationSettingType.php
 lib/Model/OS.php
-lib/Model/PaymentType.php
 lib/Model/PerformActionOnBackupRequest.php
 lib/Model/PerformActionOnServerRequest.php
 lib/Model/Policy.php
@@ -1103,7 +1097,6 @@ test/Model/CreateMultipleDomainMailboxesRequestMailboxesInnerTest.php
 test/Model/CreateMultipleDomainMailboxesRequestTest.php
 test/Model/CreateNetworkDrive201ResponseTest.php
 test/Model/CreateNetworkDriveTest.php
-test/Model/CreatePaymentTest.php
 test/Model/CreateProject201ResponseTest.php
 test/Model/CreateProjectTest.php
 test/Model/CreateRuleTest.php
@@ -1235,7 +1228,6 @@ test/Model/GetFloatingIps200ResponseTest.php
 test/Model/GetImage404ResponseTest.php
 test/Model/GetKey200ResponseTest.php
 test/Model/GetKeys200ResponseTest.php
-test/Model/GetLinkCardPayment200ResponseTest.php
 test/Model/GetLocations200ResponseTest.php
 test/Model/GetMailQuota200ResponseTest.php
 test/Model/GetMailboxes200ResponseTest.php
@@ -1327,7 +1319,6 @@ test/Model/NotificationSettingChannelsTest.php
 test/Model/NotificationSettingTest.php
 test/Model/NotificationSettingTypeTest.php
 test/Model/OSTest.php
-test/Model/PaymentTypeTest.php
 test/Model/PerformActionOnBackupRequestTest.php
 test/Model/PerformActionOnServerRequestTest.php
 test/Model/PolicyTest.php

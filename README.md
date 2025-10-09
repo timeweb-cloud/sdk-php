@@ -410,7 +410,6 @@ Class | Method | HTTP request | Description
 *NetworkDrivesApi* | [**unmountNetworkDrive**](docs/Api/NetworkDrivesApi.md#unmountnetworkdrive) | **POST** /api/v1/network-drives/{network_drive_id}/unmount | Отключить сетевой диск от сервиса
 *NetworkDrivesApi* | [**updateNetworkDrive**](docs/Api/NetworkDrivesApi.md#updatenetworkdrive) | **PATCH** /api/v1/network-drives/{network_drive_id} | Изменение сетевого диска по ID
 *PaymentsApi* | [**getFinances**](docs/Api/PaymentsApi.md#getfinances) | **GET** /api/v1/account/finances | Получение платежной информации
-*PaymentsApi* | [**getLinkCardPayment**](docs/Api/PaymentsApi.md#getlinkcardpayment) | **POST** /api/v1/account/payment-link | Получение ссылки на оплату
 *PaymentsApi* | [**getServicePrices**](docs/Api/PaymentsApi.md#getserviceprices) | **GET** /api/v1/account/services/cost | Получение стоимости сервисов
 *ProjectsApi* | [**addBalancerToProject**](docs/Api/ProjectsApi.md#addbalancertoproject) | **POST** /api/v1/projects/{project_id}/resources/balancers | Добавление балансировщика в проект
 *ProjectsApi* | [**addClusterToProject**](docs/Api/ProjectsApi.md#addclustertoproject) | **POST** /api/v1/projects/{project_id}/resources/clusters | Добавление кластера в проект
@@ -617,7 +616,6 @@ Class | Method | HTTP request | Description
 - [CreateMultipleDomainMailboxesRequestMailboxesInner](docs/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.md)
 - [CreateNetworkDrive](docs/Model/CreateNetworkDrive.md)
 - [CreateNetworkDrive201Response](docs/Model/CreateNetworkDrive201Response.md)
-- [CreatePayment](docs/Model/CreatePayment.md)
 - [CreateProject](docs/Model/CreateProject.md)
 - [CreateProject201Response](docs/Model/CreateProject201Response.md)
 - [CreateRule](docs/Model/CreateRule.md)
@@ -749,7 +747,6 @@ Class | Method | HTTP request | Description
 - [GetImage404Response](docs/Model/GetImage404Response.md)
 - [GetKey200Response](docs/Model/GetKey200Response.md)
 - [GetKeys200Response](docs/Model/GetKeys200Response.md)
-- [GetLinkCardPayment200Response](docs/Model/GetLinkCardPayment200Response.md)
 - [GetLocations200Response](docs/Model/GetLocations200Response.md)
 - [GetMailQuota200Response](docs/Model/GetMailQuota200Response.md)
 - [GetMailboxes200Response](docs/Model/GetMailboxes200Response.md)
@@ -841,7 +838,6 @@ Class | Method | HTTP request | Description
 - [NotificationSettingChannels](docs/Model/NotificationSettingChannels.md)
 - [NotificationSettingType](docs/Model/NotificationSettingType.md)
 - [OS](docs/Model/OS.md)
-- [PaymentType](docs/Model/PaymentType.md)
 - [PerformActionOnBackupRequest](docs/Model/PerformActionOnBackupRequest.md)
 - [PerformActionOnServerRequest](docs/Model/PerformActionOnServerRequest.md)
 - [Policy](docs/Model/Policy.md)

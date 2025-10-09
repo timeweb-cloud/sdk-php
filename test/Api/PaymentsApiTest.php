@@ -85,18 +85,6 @@ class PaymentsApiTest extends TestCase
     }
 
     /**
-     * Test case for getLinkCardPayment
-     *
-     * Получение ссылки на оплату.
-     *
-     */
-    public function testGetLinkCardPayment()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for getServicePrices
      *
      * Получение стоимости сервисов.
