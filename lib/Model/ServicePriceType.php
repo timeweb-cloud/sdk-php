@@ -58,8 +58,6 @@ class ServicePriceType
 
     public const BALANCER = 'balancer';
 
-    public const VPN = 'vpn';
-
     public const MAIL = 'mail';
 
     public const IMAGE = 'image';
@@ -98,7 +96,6 @@ class ServicePriceType
             self::K8S,
             self::DATABASE,
             self::BALANCER,
-            self::VPN,
             self::MAIL,
             self::IMAGE,
             self::FLOATING_IP,
