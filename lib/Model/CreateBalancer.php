@@ -79,7 +79,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'float',
         'network' => '\OpenAPI\Client\Model\Network',
         'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone',
-        'project_id' => 'int'
+        'project_id' => 'int',
+        'certificates' => '\OpenAPI\Client\Model\CreateBalancerCertificates'
     ];
 
     /**
@@ -111,7 +112,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => null,
         'network' => null,
         'availability_zone' => null,
-        'project_id' => null
+        'project_id' => null,
+        'certificates' => null
     ];
 
     /**
@@ -141,7 +143,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'preset_id' => false,
 		'network' => false,
 		'availability_zone' => false,
-		'project_id' => false
+		'project_id' => false,
+		'certificates' => false
     ];
 
     /**
@@ -251,7 +254,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'preset_id',
         'network' => 'network',
         'availability_zone' => 'availability_zone',
-        'project_id' => 'project_id'
+        'project_id' => 'project_id',
+        'certificates' => 'certificates'
     ];
 
     /**
@@ -281,7 +285,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'setPresetId',
         'network' => 'setNetwork',
         'availability_zone' => 'setAvailabilityZone',
-        'project_id' => 'setProjectId'
+        'project_id' => 'setProjectId',
+        'certificates' => 'setCertificates'
     ];
 
     /**
@@ -311,7 +316,8 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'getPresetId',
         'network' => 'getNetwork',
         'availability_zone' => 'getAvailabilityZone',
-        'project_id' => 'getProjectId'
+        'project_id' => 'getProjectId',
+        'certificates' => 'getCertificates'
     ];
 
     /**
@@ -427,6 +433,7 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('network', $data ?? [], null);
         $this->setIfExists('availability_zone', $data ?? [], null);
         $this->setIfExists('project_id', $data ?? [], null);
+        $this->setIfExists('certificates', $data ?? [], null);
     }
 
     /**
@@ -1141,6 +1148,33 @@ class CreateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable project_id cannot be null');
         }
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets certificates
+     *
+     * @return \OpenAPI\Client\Model\CreateBalancerCertificates|null
+     */
+    public function getCertificates()
+    {
+        return $this->container['certificates'];
+    }
+
+    /**
+     * Sets certificates
+     *
+     * @param \OpenAPI\Client\Model\CreateBalancerCertificates|null $certificates certificates
+     *
+     * @return self
+     */
+    public function setCertificates($certificates)
+    {
+        if (is_null($certificates)) {
+            throw new \InvalidArgumentException('non-nullable certificates cannot be null');
+        }
+        $this->container['certificates'] = $certificates;
 
         return $this;
     }

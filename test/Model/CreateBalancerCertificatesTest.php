@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateBalancerTest
+ * CreateBalancerCertificatesTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreateBalancerTest Class Doc Comment
+ * CreateBalancerCertificatesTest Class Doc Comment
  *
  * @category    Class
- * @description CreateBalancer
+ * @description Сертификат SSL.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreateBalancerTest extends TestCase
+class CreateBalancerCertificatesTest extends TestCase
 {
 
     /**
@@ -72,216 +72,45 @@ class CreateBalancerTest extends TestCase
     }
 
     /**
-     * Test "CreateBalancer"
+     * Test "CreateBalancerCertificates"
      */
-    public function testCreateBalancer()
+    public function testCreateBalancerCertificates()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "type"
      */
-    public function testPropertyName()
+    public function testPropertyType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "algo"
+     * Test attribute "fqdn"
      */
-    public function testPropertyAlgo()
+    public function testPropertyFqdn()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "is_sticky"
+     * Test attribute "cert_data"
      */
-    public function testPropertyIsSticky()
+    public function testPropertyCertData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "is_use_proxy"
+     * Test attribute "key_data"
      */
-    public function testPropertyIsUseProxy()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "is_ssl"
-     */
-    public function testPropertyIsSsl()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "is_keepalive"
-     */
-    public function testPropertyIsKeepalive()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "proto"
-     */
-    public function testPropertyProto()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "port"
-     */
-    public function testPropertyPort()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "path"
-     */
-    public function testPropertyPath()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "inter"
-     */
-    public function testPropertyInter()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "timeout"
-     */
-    public function testPropertyTimeout()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "fall"
-     */
-    public function testPropertyFall()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "rise"
-     */
-    public function testPropertyRise()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "maxconn"
-     */
-    public function testPropertyMaxconn()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "connect_timeout"
-     */
-    public function testPropertyConnectTimeout()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "client_timeout"
-     */
-    public function testPropertyClientTimeout()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "server_timeout"
-     */
-    public function testPropertyServerTimeout()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "httprequest_timeout"
-     */
-    public function testPropertyHttprequestTimeout()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "preset_id"
-     */
-    public function testPropertyPresetId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "network"
-     */
-    public function testPropertyNetwork()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "availability_zone"
-     */
-    public function testPropertyAvailabilityZone()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "project_id"
-     */
-    public function testPropertyProjectId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "certificates"
-     */
-    public function testPropertyCertificates()
+    public function testPropertyKeyData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

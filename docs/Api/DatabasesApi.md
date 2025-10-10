@@ -99,7 +99,7 @@ try {
 ## `createDatabaseBackup()`
 
 ```php
-createDatabaseBackup($db_id): \OpenAPI\Client\Model\CreateDatabaseBackup201Response
+createDatabaseBackup($db_id, $comment): \OpenAPI\Client\Model\CreateDatabaseBackup201Response
 ```
 
 Создание бэкапа базы данных
@@ -124,9 +124,10 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     $config
 );
 $db_id = 56; // int | ID базы данных
+$comment = 'comment_example'; // string | Описание бэкапа
 
 try {
-    $result = $apiInstance->createDatabaseBackup($db_id);
+    $result = $apiInstance->createDatabaseBackup($db_id, $comment);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DatabasesApi->createDatabaseBackup: ', $e->getMessage(), PHP_EOL;
@@ -138,6 +139,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **db_id** | **int**| ID базы данных | |
+| **comment** | **string**| Описание бэкапа | [optional] |
 
 ### Return type
 

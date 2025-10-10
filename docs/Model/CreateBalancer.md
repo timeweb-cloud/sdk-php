@@ -26,5 +26,6 @@ Name | Type | Description | Notes
 **network** | [**\OpenAPI\Client\Model\Network**](Network.md) |  | [optional]
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  | [optional]
 **project_id** | **int** | ID проекта | [optional]
+**certificates** | [**\OpenAPI\Client\Model\CreateBalancerCertificates**](CreateBalancerCertificates.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateBalancer
+ * CreateBalancerCertificates
  *
  * PHP version 7.4
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * UpdateBalancer Class Doc Comment
+ * CreateBalancerCertificates Class Doc Comment
  *
  * @category Class
+ * @description Сертификат SSL.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateBalancerCertificates implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'update-balancer';
+    protected static $openAPIModelName = 'create_balancer_certificates';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,26 +59,10 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'algo' => 'string',
-        'is_sticky' => 'bool',
-        'is_use_proxy' => 'bool',
-        'is_ssl' => 'bool',
-        'is_keepalive' => 'bool',
-        'proto' => 'string',
-        'port' => 'float',
-        'path' => 'string',
-        'inter' => 'float',
-        'timeout' => 'float',
-        'fall' => 'float',
-        'rise' => 'float',
-        'maxconn' => 'float',
-        'connect_timeout' => 'float',
-        'client_timeout' => 'float',
-        'server_timeout' => 'float',
-        'httprequest_timeout' => 'float',
-        'comment' => 'string',
-        'certificates' => '\OpenAPI\Client\Model\CreateBalancerCertificates'
+        'type' => 'string',
+        'fqdn' => 'string',
+        'cert_data' => 'string',
+        'key_data' => 'string'
     ];
 
     /**
@@ -88,26 +73,10 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'algo' => null,
-        'is_sticky' => null,
-        'is_use_proxy' => null,
-        'is_ssl' => null,
-        'is_keepalive' => null,
-        'proto' => null,
-        'port' => null,
-        'path' => null,
-        'inter' => null,
-        'timeout' => null,
-        'fall' => null,
-        'rise' => null,
-        'maxconn' => null,
-        'connect_timeout' => null,
-        'client_timeout' => null,
-        'server_timeout' => null,
-        'httprequest_timeout' => null,
-        'comment' => null,
-        'certificates' => null
+        'type' => null,
+        'fqdn' => null,
+        'cert_data' => null,
+        'key_data' => null
     ];
 
     /**
@@ -116,26 +85,10 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'algo' => false,
-		'is_sticky' => false,
-		'is_use_proxy' => false,
-		'is_ssl' => false,
-		'is_keepalive' => false,
-		'proto' => false,
-		'port' => false,
-		'path' => false,
-		'inter' => false,
-		'timeout' => false,
-		'fall' => false,
-		'rise' => false,
-		'maxconn' => false,
-		'connect_timeout' => false,
-		'client_timeout' => false,
-		'server_timeout' => false,
-		'httprequest_timeout' => false,
-		'comment' => false,
-		'certificates' => false
+        'type' => false,
+		'fqdn' => false,
+		'cert_data' => false,
+		'key_data' => false
     ];
 
     /**
@@ -224,26 +177,10 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'algo' => 'algo',
-        'is_sticky' => 'is_sticky',
-        'is_use_proxy' => 'is_use_proxy',
-        'is_ssl' => 'is_ssl',
-        'is_keepalive' => 'is_keepalive',
-        'proto' => 'proto',
-        'port' => 'port',
-        'path' => 'path',
-        'inter' => 'inter',
-        'timeout' => 'timeout',
-        'fall' => 'fall',
-        'rise' => 'rise',
-        'maxconn' => 'maxconn',
-        'connect_timeout' => 'connect_timeout',
-        'client_timeout' => 'client_timeout',
-        'server_timeout' => 'server_timeout',
-        'httprequest_timeout' => 'httprequest_timeout',
-        'comment' => 'comment',
-        'certificates' => 'certificates'
+        'type' => 'type',
+        'fqdn' => 'fqdn',
+        'cert_data' => 'cert_data',
+        'key_data' => 'key_data'
     ];
 
     /**
@@ -252,26 +189,10 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'algo' => 'setAlgo',
-        'is_sticky' => 'setIsSticky',
-        'is_use_proxy' => 'setIsUseProxy',
-        'is_ssl' => 'setIsSsl',
-        'is_keepalive' => 'setIsKeepalive',
-        'proto' => 'setProto',
-        'port' => 'setPort',
-        'path' => 'setPath',
-        'inter' => 'setInter',
-        'timeout' => 'setTimeout',
-        'fall' => 'setFall',
-        'rise' => 'setRise',
-        'maxconn' => 'setMaxconn',
-        'connect_timeout' => 'setConnectTimeout',
-        'client_timeout' => 'setClientTimeout',
-        'server_timeout' => 'setServerTimeout',
-        'httprequest_timeout' => 'setHttprequestTimeout',
-        'comment' => 'setComment',
-        'certificates' => 'setCertificates'
+        'type' => 'setType',
+        'fqdn' => 'setFqdn',
+        'cert_data' => 'setCertData',
+        'key_data' => 'setKeyData'
     ];
 
     /**
@@ -280,26 +201,10 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'algo' => 'getAlgo',
-        'is_sticky' => 'getIsSticky',
-        'is_use_proxy' => 'getIsUseProxy',
-        'is_ssl' => 'getIsSsl',
-        'is_keepalive' => 'getIsKeepalive',
-        'proto' => 'getProto',
-        'port' => 'getPort',
-        'path' => 'getPath',
-        'inter' => 'getInter',
-        'timeout' => 'getTimeout',
-        'fall' => 'getFall',
-        'rise' => 'getRise',
-        'maxconn' => 'getMaxconn',
-        'connect_timeout' => 'getConnectTimeout',
-        'client_timeout' => 'getClientTimeout',
-        'server_timeout' => 'getServerTimeout',
-        'httprequest_timeout' => 'getHttprequestTimeout',
-        'comment' => 'getComment',
-        'certificates' => 'getCertificates'
+        'type' => 'getType',
+        'fqdn' => 'getFqdn',
+        'cert_data' => 'getCertData',
+        'key_data' => 'getKeyData'
     ];
 
     /**
@@ -343,38 +248,19 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const ALGO_ROUNDROBIN = 'roundrobin';
-    public const ALGO_LEASTCONN = 'leastconn';
-    public const PROTO_HTTP = 'http';
-    public const PROTO_HTTP2 = 'http2';
-    public const PROTO_HTTPS = 'https';
-    public const PROTO_TCP = 'tcp';
+    public const TYPE_LETS_ENCRYPT = 'lets_encrypt';
+    public const TYPE_CUSTOM = 'custom';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getAlgoAllowableValues()
+    public function getTypeAllowableValues()
     {
         return [
-            self::ALGO_ROUNDROBIN,
-            self::ALGO_LEASTCONN,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getProtoAllowableValues()
-    {
-        return [
-            self::PROTO_HTTP,
-            self::PROTO_HTTP2,
-            self::PROTO_HTTPS,
-            self::PROTO_TCP,
+            self::TYPE_LETS_ENCRYPT,
+            self::TYPE_CUSTOM,
         ];
     }
 
@@ -393,26 +279,10 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('algo', $data ?? [], null);
-        $this->setIfExists('is_sticky', $data ?? [], null);
-        $this->setIfExists('is_use_proxy', $data ?? [], null);
-        $this->setIfExists('is_ssl', $data ?? [], null);
-        $this->setIfExists('is_keepalive', $data ?? [], null);
-        $this->setIfExists('proto', $data ?? [], null);
-        $this->setIfExists('port', $data ?? [], null);
-        $this->setIfExists('path', $data ?? [], null);
-        $this->setIfExists('inter', $data ?? [], null);
-        $this->setIfExists('timeout', $data ?? [], null);
-        $this->setIfExists('fall', $data ?? [], null);
-        $this->setIfExists('rise', $data ?? [], null);
-        $this->setIfExists('maxconn', $data ?? [], null);
-        $this->setIfExists('connect_timeout', $data ?? [], null);
-        $this->setIfExists('client_timeout', $data ?? [], null);
-        $this->setIfExists('server_timeout', $data ?? [], null);
-        $this->setIfExists('httprequest_timeout', $data ?? [], null);
-        $this->setIfExists('comment', $data ?? [], null);
-        $this->setIfExists('certificates', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('fqdn', $data ?? [], null);
+        $this->setIfExists('cert_data', $data ?? [], null);
+        $this->setIfExists('key_data', $data ?? [], null);
     }
 
     /**
@@ -442,20 +312,11 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getAlgoAllowableValues();
-        if (!is_null($this->container['algo']) && !in_array($this->container['algo'], $allowedValues, true)) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'algo', must be one of '%s'",
-                $this->container['algo'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getProtoAllowableValues();
-        if (!is_null($this->container['proto']) && !in_array($this->container['proto'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'proto', must be one of '%s'",
-                $this->container['proto'],
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
                 implode("', '", $allowedValues)
             );
         }
@@ -476,561 +337,119 @@ class UpdateBalancer implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets type
      *
      * @return string|null
      */
-    public function getName()
+    public function getType()
     {
-        return $this->container['name'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets name
+     * Sets type
      *
-     * @param string|null $name Удобочитаемое имя, установленное для балансировщика. Должно быть уникальным в рамках аккаунта
+     * @param string|null $type Тип сертификата.
      *
      * @return self
      */
-    public function setName($name)
+    public function setType($type)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets algo
-     *
-     * @return string|null
-     */
-    public function getAlgo()
-    {
-        return $this->container['algo'];
-    }
-
-    /**
-     * Sets algo
-     *
-     * @param string|null $algo Алгоритм переключений балансировщика.
-     *
-     * @return self
-     */
-    public function setAlgo($algo)
-    {
-        if (is_null($algo)) {
-            throw new \InvalidArgumentException('non-nullable algo cannot be null');
-        }
-        $allowedValues = $this->getAlgoAllowableValues();
-        if (!in_array($algo, $allowedValues, true)) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'algo', must be one of '%s'",
-                    $algo,
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['algo'] = $algo;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets is_sticky
-     *
-     * @return bool|null
-     */
-    public function getIsSticky()
-    {
-        return $this->container['is_sticky'];
-    }
-
-    /**
-     * Sets is_sticky
-     *
-     * @param bool|null $is_sticky Это логическое значение, которое показывает, сохраняется ли сессия.
-     *
-     * @return self
-     */
-    public function setIsSticky($is_sticky)
-    {
-        if (is_null($is_sticky)) {
-            throw new \InvalidArgumentException('non-nullable is_sticky cannot be null');
-        }
-        $this->container['is_sticky'] = $is_sticky;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_use_proxy
-     *
-     * @return bool|null
-     */
-    public function getIsUseProxy()
-    {
-        return $this->container['is_use_proxy'];
-    }
-
-    /**
-     * Sets is_use_proxy
-     *
-     * @param bool|null $is_use_proxy Это логическое значение, которое показывает, выступает ли балансировщик в качестве прокси.
-     *
-     * @return self
-     */
-    public function setIsUseProxy($is_use_proxy)
-    {
-        if (is_null($is_use_proxy)) {
-            throw new \InvalidArgumentException('non-nullable is_use_proxy cannot be null');
-        }
-        $this->container['is_use_proxy'] = $is_use_proxy;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_ssl
-     *
-     * @return bool|null
-     */
-    public function getIsSsl()
-    {
-        return $this->container['is_ssl'];
-    }
-
-    /**
-     * Sets is_ssl
-     *
-     * @param bool|null $is_ssl Это логическое значение, которое показывает, требуется ли перенаправление на SSL.
-     *
-     * @return self
-     */
-    public function setIsSsl($is_ssl)
-    {
-        if (is_null($is_ssl)) {
-            throw new \InvalidArgumentException('non-nullable is_ssl cannot be null');
-        }
-        $this->container['is_ssl'] = $is_ssl;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_keepalive
-     *
-     * @return bool|null
-     */
-    public function getIsKeepalive()
-    {
-        return $this->container['is_keepalive'];
-    }
-
-    /**
-     * Sets is_keepalive
-     *
-     * @param bool|null $is_keepalive Это логическое значение, которое показывает, выдает ли балансировщик сигнал о проверке жизнеспособности.
-     *
-     * @return self
-     */
-    public function setIsKeepalive($is_keepalive)
-    {
-        if (is_null($is_keepalive)) {
-            throw new \InvalidArgumentException('non-nullable is_keepalive cannot be null');
-        }
-        $this->container['is_keepalive'] = $is_keepalive;
-
-        return $this;
-    }
-
-    /**
-     * Gets proto
+     * Gets fqdn
      *
      * @return string|null
      */
-    public function getProto()
+    public function getFqdn()
     {
-        return $this->container['proto'];
+        return $this->container['fqdn'];
     }
 
     /**
-     * Sets proto
+     * Sets fqdn
      *
-     * @param string|null $proto Протокол.
+     * @param string|null $fqdn Полное имя домена.
      *
      * @return self
      */
-    public function setProto($proto)
+    public function setFqdn($fqdn)
     {
-        if (is_null($proto)) {
-            throw new \InvalidArgumentException('non-nullable proto cannot be null');
+        if (is_null($fqdn)) {
+            throw new \InvalidArgumentException('non-nullable fqdn cannot be null');
         }
-        $allowedValues = $this->getProtoAllowableValues();
-        if (!in_array($proto, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'proto', must be one of '%s'",
-                    $proto,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['proto'] = $proto;
+        $this->container['fqdn'] = $fqdn;
 
         return $this;
     }
 
     /**
-     * Gets port
-     *
-     * @return float|null
-     */
-    public function getPort()
-    {
-        return $this->container['port'];
-    }
-
-    /**
-     * Sets port
-     *
-     * @param float|null $port Порт балансировщика.
-     *
-     * @return self
-     */
-    public function setPort($port)
-    {
-        if (is_null($port)) {
-            throw new \InvalidArgumentException('non-nullable port cannot be null');
-        }
-        $this->container['port'] = $port;
-
-        return $this;
-    }
-
-    /**
-     * Gets path
+     * Gets cert_data
      *
      * @return string|null
      */
-    public function getPath()
+    public function getCertData()
     {
-        return $this->container['path'];
+        return $this->container['cert_data'];
     }
 
     /**
-     * Sets path
+     * Sets cert_data
      *
-     * @param string|null $path Адрес балансировщика.
+     * @param string|null $cert_data Данные сертификата. Нужны только для типа custom.
      *
      * @return self
      */
-    public function setPath($path)
+    public function setCertData($cert_data)
     {
-        if (is_null($path)) {
-            throw new \InvalidArgumentException('non-nullable path cannot be null');
+        if (is_null($cert_data)) {
+            throw new \InvalidArgumentException('non-nullable cert_data cannot be null');
         }
-        $this->container['path'] = $path;
+        $this->container['cert_data'] = $cert_data;
 
         return $this;
     }
 
     /**
-     * Gets inter
-     *
-     * @return float|null
-     */
-    public function getInter()
-    {
-        return $this->container['inter'];
-    }
-
-    /**
-     * Sets inter
-     *
-     * @param float|null $inter Интервал проверки.
-     *
-     * @return self
-     */
-    public function setInter($inter)
-    {
-        if (is_null($inter)) {
-            throw new \InvalidArgumentException('non-nullable inter cannot be null');
-        }
-        $this->container['inter'] = $inter;
-
-        return $this;
-    }
-
-    /**
-     * Gets timeout
-     *
-     * @return float|null
-     */
-    public function getTimeout()
-    {
-        return $this->container['timeout'];
-    }
-
-    /**
-     * Sets timeout
-     *
-     * @param float|null $timeout Таймаут ответа балансировщика.
-     *
-     * @return self
-     */
-    public function setTimeout($timeout)
-    {
-        if (is_null($timeout)) {
-            throw new \InvalidArgumentException('non-nullable timeout cannot be null');
-        }
-        $this->container['timeout'] = $timeout;
-
-        return $this;
-    }
-
-    /**
-     * Gets fall
-     *
-     * @return float|null
-     */
-    public function getFall()
-    {
-        return $this->container['fall'];
-    }
-
-    /**
-     * Sets fall
-     *
-     * @param float|null $fall Порог количества ошибок.
-     *
-     * @return self
-     */
-    public function setFall($fall)
-    {
-        if (is_null($fall)) {
-            throw new \InvalidArgumentException('non-nullable fall cannot be null');
-        }
-        $this->container['fall'] = $fall;
-
-        return $this;
-    }
-
-    /**
-     * Gets rise
-     *
-     * @return float|null
-     */
-    public function getRise()
-    {
-        return $this->container['rise'];
-    }
-
-    /**
-     * Sets rise
-     *
-     * @param float|null $rise Порог количества успешных ответов.
-     *
-     * @return self
-     */
-    public function setRise($rise)
-    {
-        if (is_null($rise)) {
-            throw new \InvalidArgumentException('non-nullable rise cannot be null');
-        }
-        $this->container['rise'] = $rise;
-
-        return $this;
-    }
-
-    /**
-     * Gets maxconn
-     *
-     * @return float|null
-     */
-    public function getMaxconn()
-    {
-        return $this->container['maxconn'];
-    }
-
-    /**
-     * Sets maxconn
-     *
-     * @param float|null $maxconn Максимальное количество соединений.
-     *
-     * @return self
-     */
-    public function setMaxconn($maxconn)
-    {
-        if (is_null($maxconn)) {
-            throw new \InvalidArgumentException('non-nullable maxconn cannot be null');
-        }
-        $this->container['maxconn'] = $maxconn;
-
-        return $this;
-    }
-
-    /**
-     * Gets connect_timeout
-     *
-     * @return float|null
-     */
-    public function getConnectTimeout()
-    {
-        return $this->container['connect_timeout'];
-    }
-
-    /**
-     * Sets connect_timeout
-     *
-     * @param float|null $connect_timeout Таймаут подключения.
-     *
-     * @return self
-     */
-    public function setConnectTimeout($connect_timeout)
-    {
-        if (is_null($connect_timeout)) {
-            throw new \InvalidArgumentException('non-nullable connect_timeout cannot be null');
-        }
-        $this->container['connect_timeout'] = $connect_timeout;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_timeout
-     *
-     * @return float|null
-     */
-    public function getClientTimeout()
-    {
-        return $this->container['client_timeout'];
-    }
-
-    /**
-     * Sets client_timeout
-     *
-     * @param float|null $client_timeout Таймаут клиента.
-     *
-     * @return self
-     */
-    public function setClientTimeout($client_timeout)
-    {
-        if (is_null($client_timeout)) {
-            throw new \InvalidArgumentException('non-nullable client_timeout cannot be null');
-        }
-        $this->container['client_timeout'] = $client_timeout;
-
-        return $this;
-    }
-
-    /**
-     * Gets server_timeout
-     *
-     * @return float|null
-     */
-    public function getServerTimeout()
-    {
-        return $this->container['server_timeout'];
-    }
-
-    /**
-     * Sets server_timeout
-     *
-     * @param float|null $server_timeout Таймаут сервера.
-     *
-     * @return self
-     */
-    public function setServerTimeout($server_timeout)
-    {
-        if (is_null($server_timeout)) {
-            throw new \InvalidArgumentException('non-nullable server_timeout cannot be null');
-        }
-        $this->container['server_timeout'] = $server_timeout;
-
-        return $this;
-    }
-
-    /**
-     * Gets httprequest_timeout
-     *
-     * @return float|null
-     */
-    public function getHttprequestTimeout()
-    {
-        return $this->container['httprequest_timeout'];
-    }
-
-    /**
-     * Sets httprequest_timeout
-     *
-     * @param float|null $httprequest_timeout Таймаут HTTP запроса.
-     *
-     * @return self
-     */
-    public function setHttprequestTimeout($httprequest_timeout)
-    {
-        if (is_null($httprequest_timeout)) {
-            throw new \InvalidArgumentException('non-nullable httprequest_timeout cannot be null');
-        }
-        $this->container['httprequest_timeout'] = $httprequest_timeout;
-
-        return $this;
-    }
-
-    /**
-     * Gets comment
+     * Gets key_data
      *
      * @return string|null
      */
-    public function getComment()
+    public function getKeyData()
     {
-        return $this->container['comment'];
+        return $this->container['key_data'];
     }
 
     /**
-     * Sets comment
+     * Sets key_data
      *
-     * @param string|null $comment Комментарий к балансировщику.
+     * @param string|null $key_data Данные ключа. Нужны только для типа custom.
      *
      * @return self
      */
-    public function setComment($comment)
+    public function setKeyData($key_data)
     {
-        if (is_null($comment)) {
-            throw new \InvalidArgumentException('non-nullable comment cannot be null');
+        if (is_null($key_data)) {
+            throw new \InvalidArgumentException('non-nullable key_data cannot be null');
         }
-        $this->container['comment'] = $comment;
-
-        return $this;
-    }
-
-    /**
-     * Gets certificates
-     *
-     * @return \OpenAPI\Client\Model\CreateBalancerCertificates|null
-     */
-    public function getCertificates()
-    {
-        return $this->container['certificates'];
-    }
-
-    /**
-     * Sets certificates
-     *
-     * @param \OpenAPI\Client\Model\CreateBalancerCertificates|null $certificates certificates
-     *
-     * @return self
-     */
-    public function setCertificates($certificates)
-    {
-        if (is_null($certificates)) {
-            throw new \InvalidArgumentException('non-nullable certificates cannot be null');
-        }
-        $this->container['certificates'] = $certificates;
+        $this->container['key_data'] = $key_data;
 
         return $this;
     }

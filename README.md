@@ -585,6 +585,7 @@ Class | Method | HTTP request | Description
 - [CreateApp201Response](docs/Model/CreateApp201Response.md)
 - [CreateBalancer](docs/Model/CreateBalancer.md)
 - [CreateBalancer200Response](docs/Model/CreateBalancer200Response.md)
+- [CreateBalancerCertificates](docs/Model/CreateBalancerCertificates.md)
 - [CreateBalancerRule200Response](docs/Model/CreateBalancerRule200Response.md)
 - [CreateCluster](docs/Model/CreateCluster.md)
 - [CreateClusterAdmin](docs/Model/CreateClusterAdmin.md)

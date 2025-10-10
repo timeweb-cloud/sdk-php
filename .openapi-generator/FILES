@@ -105,6 +105,7 @@ docs/Model/CreateApp.md
 docs/Model/CreateApp201Response.md
 docs/Model/CreateBalancer.md
 docs/Model/CreateBalancer200Response.md
+docs/Model/CreateBalancerCertificates.md
 docs/Model/CreateBalancerRule200Response.md
 docs/Model/CreateCluster.md
 docs/Model/CreateClusterAdmin.md
@@ -586,6 +587,7 @@ lib/Model/CreateApp.php
 lib/Model/CreateApp201Response.php
 lib/Model/CreateBalancer.php
 lib/Model/CreateBalancer200Response.php
+lib/Model/CreateBalancerCertificates.php
 lib/Model/CreateBalancerRule200Response.php
 lib/Model/CreateCluster.php
 lib/Model/CreateClusterAdmin.php
@@ -1065,6 +1067,7 @@ test/Model/CreateApiKeyTest.php
 test/Model/CreateApp201ResponseTest.php
 test/Model/CreateAppTest.php
 test/Model/CreateBalancer200ResponseTest.php
+test/Model/CreateBalancerCertificatesTest.php
 test/Model/CreateBalancerRule200ResponseTest.php
 test/Model/CreateBalancerTest.php
 test/Model/CreateClusterAdminTest.php

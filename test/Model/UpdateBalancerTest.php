@@ -241,4 +241,22 @@ class UpdateBalancerTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "comment"
+     */
+    public function testPropertyComment()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "certificates"
+     */
+    public function testPropertyCertificates()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -22,5 +22,7 @@ Name | Type | Description | Notes
 **client_timeout** | **float** | Таймаут клиента. | [optional]
 **server_timeout** | **float** | Таймаут сервера. | [optional]
 **httprequest_timeout** | **float** | Таймаут HTTP запроса. | [optional]
+**comment** | **string** | Комментарий к балансировщику. | [optional]
+**certificates** | [**\OpenAPI\Client\Model\CreateBalancerCertificates**](CreateBalancerCertificates.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

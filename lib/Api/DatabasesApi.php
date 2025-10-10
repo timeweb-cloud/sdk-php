@@ -645,15 +645,16 @@ class DatabasesApi
      * Создание бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
+     * @param  string $comment Описание бэкапа (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CreateDatabaseBackup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function createDatabaseBackup($db_id, string $contentType = self::contentTypes['createDatabaseBackup'][0])
+    public function createDatabaseBackup($db_id, $comment = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
     {
-        list($response) = $this->createDatabaseBackupWithHttpInfo($db_id, $contentType);
+        list($response) = $this->createDatabaseBackupWithHttpInfo($db_id, $comment, $contentType);
         return $response;
     }
 
@@ -663,15 +664,16 @@ class DatabasesApi
      * Создание бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
+     * @param  string $comment Описание бэкапа (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CreateDatabaseBackup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDatabaseBackupWithHttpInfo($db_id, string $contentType = self::contentTypes['createDatabaseBackup'][0])
+    public function createDatabaseBackupWithHttpInfo($db_id, $comment = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
     {
-        $request = $this->createDatabaseBackupRequest($db_id, $contentType);
+        $request = $this->createDatabaseBackupRequest($db_id, $comment, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -924,14 +926,15 @@ class DatabasesApi
      * Создание бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
+     * @param  string $comment Описание бэкапа (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDatabaseBackupAsync($db_id, string $contentType = self::contentTypes['createDatabaseBackup'][0])
+    public function createDatabaseBackupAsync($db_id, $comment = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
     {
-        return $this->createDatabaseBackupAsyncWithHttpInfo($db_id, $contentType)
+        return $this->createDatabaseBackupAsyncWithHttpInfo($db_id, $comment, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -945,15 +948,16 @@ class DatabasesApi
      * Создание бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
+     * @param  string $comment Описание бэкапа (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDatabaseBackupAsyncWithHttpInfo($db_id, string $contentType = self::contentTypes['createDatabaseBackup'][0])
+    public function createDatabaseBackupAsyncWithHttpInfo($db_id, $comment = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CreateDatabaseBackup201Response';
-        $request = $this->createDatabaseBackupRequest($db_id, $contentType);
+        $request = $this->createDatabaseBackupRequest($db_id, $comment, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -995,12 +999,13 @@ class DatabasesApi
      * Create request for operation 'createDatabaseBackup'
      *
      * @param  int $db_id ID базы данных (required)
+     * @param  string $comment Описание бэкапа (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createDatabaseBackupRequest($db_id, string $contentType = self::contentTypes['createDatabaseBackup'][0])
+    public function createDatabaseBackupRequest($db_id, $comment = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
     {
 
         // verify the required parameter 'db_id' is set
@@ -1011,6 +1016,7 @@ class DatabasesApi
         }
 
 
+
         $resourcePath = '/api/v1/dbs/{db_id}/backups';
         $formParams = [];
         $queryParams = [];
@@ -1018,6 +1024,15 @@ class DatabasesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $comment,
+            'comment', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
