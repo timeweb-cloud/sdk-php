@@ -547,7 +547,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dbaas_id
      *
-     * @param float $dbaas_id ID базы данных (opensearch или qdrant)
+     * @param float $dbaas_id ID базы данных opensearch
      *
      * @return self
      */

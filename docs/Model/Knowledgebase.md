@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **float** | Уникальный идентификатор базы знаний |
 **name** | **string** | Название базы знаний |
 **description** | **string** | Описание базы знаний | [optional]
-**dbaas_id** | **float** | ID базы данных (opensearch или qdrant) |
+**dbaas_id** | **float** | ID базы данных opensearch |
 **status** | **string** | Статус базы знаний |
 **last_sync** | **\DateTime** | Дата последней синхронизации | [optional]
 **total_tokens** | **float** | Всего токенов выделено |
