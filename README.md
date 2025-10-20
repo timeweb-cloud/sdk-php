@@ -199,19 +199,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\APIKeysApi(
+$apiInstance = new OpenAPI\Client\Api\AIAgentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_api_key = new \OpenAPI\Client\Model\CreateApiKey(); // \OpenAPI\Client\Model\CreateApiKey
+$id = 1; // int | ID агента
+$add_token_package = new \OpenAPI\Client\Model\AddTokenPackage(); // \OpenAPI\Client\Model\AddTokenPackage
 
 try {
-    $result = $apiInstance->createToken($create_api_key);
-    print_r($result);
+    $apiInstance->addAdditionalTokenPackage($id, $add_token_package);
 } catch (Exception $e) {
-    echo 'Exception when calling APIKeysApi->createToken: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AIAgentsApi->addAdditionalTokenPackage: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -222,6 +222,13 @@ All URIs are relative to *https://api.timeweb.cloud*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AIAgentsApi* | [**addAdditionalTokenPackage**](docs/Api/AIAgentsApi.md#addadditionaltokenpackage) | **POST** /api/v1/cloud-ai/agents/{id}/add-additional-token-package | Добавление дополнительного пакета токенов
+*AIAgentsApi* | [**createAgent**](docs/Api/AIAgentsApi.md#createagent) | **POST** /api/v1/cloud-ai/agents | Создание AI агента
+*AIAgentsApi* | [**deleteAgent**](docs/Api/AIAgentsApi.md#deleteagent) | **DELETE** /api/v1/cloud-ai/agents/{id} | Удаление AI агента
+*AIAgentsApi* | [**getAgent**](docs/Api/AIAgentsApi.md#getagent) | **GET** /api/v1/cloud-ai/agents/{id} | Получение AI агента
+*AIAgentsApi* | [**getAgentStatistics**](docs/Api/AIAgentsApi.md#getagentstatistics) | **GET** /api/v1/cloud-ai/agents/{id}/statistic | Получение статистики использования токенов агента
+*AIAgentsApi* | [**getAgents**](docs/Api/AIAgentsApi.md#getagents) | **GET** /api/v1/cloud-ai/agents | Получение списка AI агентов
+*AIAgentsApi* | [**updateAgent**](docs/Api/AIAgentsApi.md#updateagent) | **PATCH** /api/v1/cloud-ai/agents/{id} | Обновление AI агента
 *APIKeysApi* | [**createToken**](docs/Api/APIKeysApi.md#createtoken) | **POST** /api/v1/auth/api-keys | Создание токена
 *APIKeysApi* | [**deleteToken**](docs/Api/APIKeysApi.md#deletetoken) | **DELETE** /api/v1/auth/api-keys/{token_id} | Удалить токен
 *APIKeysApi* | [**getTokens**](docs/Api/APIKeysApi.md#gettokens) | **GET** /api/v1/auth/api-keys | Получение списка выпущенных токенов
@@ -368,6 +375,19 @@ Class | Method | HTTP request | Description
 *ImagesApi* | [**getImages**](docs/Api/ImagesApi.md#getimages) | **GET** /api/v1/images | Получение списка образов
 *ImagesApi* | [**updateImage**](docs/Api/ImagesApi.md#updateimage) | **PATCH** /api/v1/images/{image_id} | Обновление информации о образе
 *ImagesApi* | [**uploadImage**](docs/Api/ImagesApi.md#uploadimage) | **POST** /api/v1/images/{image_id} | Загрузка образа
+*KnowledgeBasesApi* | [**addAdditionalTokenPackageToKnowledgebase**](docs/Api/KnowledgeBasesApi.md#addadditionaltokenpackagetoknowledgebase) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/add-additional-token-package | Добавление дополнительного пакета токенов
+*KnowledgeBasesApi* | [**createKnowledgebase**](docs/Api/KnowledgeBasesApi.md#createknowledgebase) | **POST** /api/v1/cloud-ai/knowledge-bases | Создание базы знаний
+*KnowledgeBasesApi* | [**deleteDocument**](docs/Api/KnowledgeBasesApi.md#deletedocument) | **DELETE** /api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id} | Удаление документа из базы знаний
+*KnowledgeBasesApi* | [**deleteKnowledgebase**](docs/Api/KnowledgeBasesApi.md#deleteknowledgebase) | **DELETE** /api/v1/cloud-ai/knowledge-bases/{id} | Удаление базы знаний
+*KnowledgeBasesApi* | [**downloadDocument**](docs/Api/KnowledgeBasesApi.md#downloaddocument) | **GET** /api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/download | Скачивание документа из базы знаний
+*KnowledgeBasesApi* | [**getKnowledgebase**](docs/Api/KnowledgeBasesApi.md#getknowledgebase) | **GET** /api/v1/cloud-ai/knowledge-bases/{id} | Получение базы знаний
+*KnowledgeBasesApi* | [**getKnowledgebaseStatistics**](docs/Api/KnowledgeBasesApi.md#getknowledgebasestatistics) | **GET** /api/v1/cloud-ai/knowledge-bases/{id}/statistic | Получение статистики использования токенов базы знаний
+*KnowledgeBasesApi* | [**getKnowledgebases**](docs/Api/KnowledgeBasesApi.md#getknowledgebases) | **GET** /api/v1/cloud-ai/knowledge-bases | Получение списка баз знаний
+*KnowledgeBasesApi* | [**linkKnowledgebaseToAgent**](docs/Api/KnowledgeBasesApi.md#linkknowledgebasetoagent) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id} | Привязка базы знаний к агенту
+*KnowledgeBasesApi* | [**reindexDocument**](docs/Api/KnowledgeBasesApi.md#reindexdocument) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/reindex | Переиндексация документа
+*KnowledgeBasesApi* | [**unlinkKnowledgebaseFromAgent**](docs/Api/KnowledgeBasesApi.md#unlinkknowledgebasefromagent) | **DELETE** /api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id} | Отвязка базы знаний от агента
+*KnowledgeBasesApi* | [**updateKnowledgebase**](docs/Api/KnowledgeBasesApi.md#updateknowledgebase) | **PATCH** /api/v1/cloud-ai/knowledge-bases/{id} | Обновление базы знаний
+*KnowledgeBasesApi* | [**uploadFilesToKnowledgebase**](docs/Api/KnowledgeBasesApi.md#uploadfilestoknowledgebase) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/upload | Загрузка файлов в базу знаний
 *KubernetesApi* | [**createCluster**](docs/Api/KubernetesApi.md#createcluster) | **POST** /api/v1/k8s/clusters | Создание кластера
 *KubernetesApi* | [**createClusterNodeGroup**](docs/Api/KubernetesApi.md#createclusternodegroup) | **POST** /api/v1/k8s/clusters/{cluster_id}/groups | Создание группы нод
 *KubernetesApi* | [**deleteCluster**](docs/Api/KubernetesApi.md#deletecluster) | **DELETE** /api/v1/k8s/clusters/{cluster_id} | Удаление кластера
@@ -531,7 +551,12 @@ Class | Method | HTTP request | Description
 - [AddStorageSubdomainsRequest](docs/Model/AddStorageSubdomainsRequest.md)
 - [AddStorageToProjectRequest](docs/Model/AddStorageToProjectRequest.md)
 - [AddSubdomain201Response](docs/Model/AddSubdomain201Response.md)
+- [AddTokenPackage](docs/Model/AddTokenPackage.md)
 - [AddedSubdomain](docs/Model/AddedSubdomain.md)
+- [Agent](docs/Model/Agent.md)
+- [AgentModelSettings](docs/Model/AgentModelSettings.md)
+- [AgentSettings](docs/Model/AgentSettings.md)
+- [AgentSettingsWidget](docs/Model/AgentSettingsWidget.md)
 - [ApiKey](docs/Model/ApiKey.md)
 - [App](docs/Model/App.md)
 - [AppConfiguration](docs/Model/AppConfiguration.md)
@@ -580,6 +605,8 @@ Class | Method | HTTP request | Description
 - [ContainerRegistryPresetsInner](docs/Model/ContainerRegistryPresetsInner.md)
 - [ContainerRegistryRepositoriesInner](docs/Model/ContainerRegistryRepositoriesInner.md)
 - [CreateAdmin](docs/Model/CreateAdmin.md)
+- [CreateAgent](docs/Model/CreateAgent.md)
+- [CreateAgent201Response](docs/Model/CreateAgent201Response.md)
 - [CreateApiKey](docs/Model/CreateApiKey.md)
 - [CreateApp](docs/Model/CreateApp.md)
 - [CreateApp201Response](docs/Model/CreateApp201Response.md)
@@ -612,6 +639,8 @@ Class | Method | HTTP request | Description
 - [CreateInstance](docs/Model/CreateInstance.md)
 - [CreateKey201Response](docs/Model/CreateKey201Response.md)
 - [CreateKeyRequest](docs/Model/CreateKeyRequest.md)
+- [CreateKnowledgebase](docs/Model/CreateKnowledgebase.md)
+- [CreateKnowledgebase201Response](docs/Model/CreateKnowledgebase201Response.md)
 - [CreateMultipleDomainMailboxes201Response](docs/Model/CreateMultipleDomainMailboxes201Response.md)
 - [CreateMultipleDomainMailboxesRequest](docs/Model/CreateMultipleDomainMailboxesRequest.md)
 - [CreateMultipleDomainMailboxesRequestMailboxesInner](docs/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.md)
@@ -671,6 +700,9 @@ Class | Method | HTTP request | Description
 - [DeployStatus](docs/Model/DeployStatus.md)
 - [DnsRecord](docs/Model/DnsRecord.md)
 - [DnsRecordData](docs/Model/DnsRecordData.md)
+- [Document](docs/Model/Document.md)
+- [DocumentStatusInfo](docs/Model/DocumentStatusInfo.md)
+- [DocumentStatusInfoDetails](docs/Model/DocumentStatusInfoDetails.md)
 - [Domain](docs/Model/Domain.md)
 - [DomainAllowedBuyPeriodsInner](docs/Model/DomainAllowedBuyPeriodsInner.md)
 - [DomainInfo](docs/Model/DomainInfo.md)
@@ -706,6 +738,10 @@ Class | Method | HTTP request | Description
 - [Free](docs/Model/Free.md)
 - [GetAccountStatus200Response](docs/Model/GetAccountStatus200Response.md)
 - [GetAccountStatus403Response](docs/Model/GetAccountStatus403Response.md)
+- [GetAgentStatistics200Response](docs/Model/GetAgentStatistics200Response.md)
+- [GetAgentStatistics200ResponseMeta](docs/Model/GetAgentStatistics200ResponseMeta.md)
+- [GetAgents200Response](docs/Model/GetAgents200Response.md)
+- [GetAgents200ResponseMeta](docs/Model/GetAgents200ResponseMeta.md)
 - [GetAllProjectResources200Response](docs/Model/GetAllProjectResources200Response.md)
 - [GetAppDeploys200Response](docs/Model/GetAppDeploys200Response.md)
 - [GetAppLogs200Response](docs/Model/GetAppLogs200Response.md)
@@ -748,6 +784,9 @@ Class | Method | HTTP request | Description
 - [GetImage404Response](docs/Model/GetImage404Response.md)
 - [GetKey200Response](docs/Model/GetKey200Response.md)
 - [GetKeys200Response](docs/Model/GetKeys200Response.md)
+- [GetKnowledgebaseStatistics200Response](docs/Model/GetKnowledgebaseStatistics200Response.md)
+- [GetKnowledgebases200Response](docs/Model/GetKnowledgebases200Response.md)
+- [GetKnowledgebases200ResponseMeta](docs/Model/GetKnowledgebases200ResponseMeta.md)
 - [GetLocations200Response](docs/Model/GetLocations200Response.md)
 - [GetMailQuota200Response](docs/Model/GetMailQuota200Response.md)
 - [GetMailboxes200Response](docs/Model/GetMailboxes200Response.md)
@@ -807,6 +846,7 @@ Class | Method | HTTP request | Description
 - [InfoServicePrice](docs/Model/InfoServicePrice.md)
 - [Invoice](docs/Model/Invoice.md)
 - [K8SVersionsResponse](docs/Model/K8SVersionsResponse.md)
+- [Knowledgebase](docs/Model/Knowledgebase.md)
 - [Location](docs/Model/Location.md)
 - [LocationDto](docs/Model/LocationDto.md)
 - [Mailbox](docs/Model/Mailbox.md)
@@ -904,6 +944,7 @@ Class | Method | HTTP request | Description
 - [StatusCompanyInfo](docs/Model/StatusCompanyInfo.md)
 - [Subdomain](docs/Model/Subdomain.md)
 - [Tags](docs/Model/Tags.md)
+- [TokenStatistic](docs/Model/TokenStatistic.md)
 - [TopLevelDomain](docs/Model/TopLevelDomain.md)
 - [TopLevelDomainAllowedBuyPeriodsInner](docs/Model/TopLevelDomainAllowedBuyPeriodsInner.md)
 - [TransferStatus](docs/Model/TransferStatus.md)
@@ -911,6 +952,8 @@ Class | Method | HTTP request | Description
 - [TransferStorageRequest](docs/Model/TransferStorageRequest.md)
 - [URLType](docs/Model/URLType.md)
 - [UpdateAdmin](docs/Model/UpdateAdmin.md)
+- [UpdateAgent](docs/Model/UpdateAgent.md)
+- [UpdateAgentSettings](docs/Model/UpdateAgentSettings.md)
 - [UpdateAppSettings200Response](docs/Model/UpdateAppSettings200Response.md)
 - [UpdateAuthRestrictionsByCountriesRequest](docs/Model/UpdateAuthRestrictionsByCountriesRequest.md)
 - [UpdateBalancer](docs/Model/UpdateBalancer.md)
@@ -925,6 +968,7 @@ Class | Method | HTTP request | Description
 - [UpdateFloatingIp](docs/Model/UpdateFloatingIp.md)
 - [UpdateInstance](docs/Model/UpdateInstance.md)
 - [UpdateKeyRequest](docs/Model/UpdateKeyRequest.md)
+- [UpdateKnowledgebase](docs/Model/UpdateKnowledgebase.md)
 - [UpdateMailQuotaRequest](docs/Model/UpdateMailQuotaRequest.md)
 - [UpdateMailbox](docs/Model/UpdateMailbox.md)
 - [UpdateNetworkDrive](docs/Model/UpdateNetworkDrive.md)
@@ -947,6 +991,7 @@ Class | Method | HTTP request | Description
 - [UpdateStorageUserRequest](docs/Model/UpdateStorageUserRequest.md)
 - [UpdateToken200Response](docs/Model/UpdateToken200Response.md)
 - [UpdateVpc](docs/Model/UpdateVpc.md)
+- [UploadFilesToKnowledgebase200Response](docs/Model/UploadFilesToKnowledgebase200Response.md)
 - [UploadSuccessful](docs/Model/UploadSuccessful.md)
 - [UploadSuccessfulResponse](docs/Model/UploadSuccessfulResponse.md)
 - [UrlStatus](docs/Model/UrlStatus.md)

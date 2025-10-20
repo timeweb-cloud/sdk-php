@@ -4,6 +4,7 @@
 .travis.yml
 README.md
 composer.json
+docs/Api/AIAgentsApi.md
 docs/Api/APIKeysApi.md
 docs/Api/AccountApi.md
 docs/Api/AppsApi.md
@@ -15,6 +16,7 @@ docs/Api/DomainsApi.md
 docs/Api/FirewallApi.md
 docs/Api/FloatingIPApi.md
 docs/Api/ImagesApi.md
+docs/Api/KnowledgeBasesApi.md
 docs/Api/KubernetesApi.md
 docs/Api/LocationsApi.md
 docs/Api/MailApi.md
@@ -51,7 +53,12 @@ docs/Model/AddStorageSubdomains200Response.md
 docs/Model/AddStorageSubdomainsRequest.md
 docs/Model/AddStorageToProjectRequest.md
 docs/Model/AddSubdomain201Response.md
+docs/Model/AddTokenPackage.md
 docs/Model/AddedSubdomain.md
+docs/Model/Agent.md
+docs/Model/AgentModelSettings.md
+docs/Model/AgentSettings.md
+docs/Model/AgentSettingsWidget.md
 docs/Model/ApiKey.md
 docs/Model/App.md
 docs/Model/AppConfiguration.md
@@ -100,6 +107,8 @@ docs/Model/ConfigParameters.md
 docs/Model/ContainerRegistryPresetsInner.md
 docs/Model/ContainerRegistryRepositoriesInner.md
 docs/Model/CreateAdmin.md
+docs/Model/CreateAgent.md
+docs/Model/CreateAgent201Response.md
 docs/Model/CreateApiKey.md
 docs/Model/CreateApp.md
 docs/Model/CreateApp201Response.md
@@ -132,6 +141,8 @@ docs/Model/CreateFloatingIp201Response.md
 docs/Model/CreateInstance.md
 docs/Model/CreateKey201Response.md
 docs/Model/CreateKeyRequest.md
+docs/Model/CreateKnowledgebase.md
+docs/Model/CreateKnowledgebase201Response.md
 docs/Model/CreateMultipleDomainMailboxes201Response.md
 docs/Model/CreateMultipleDomainMailboxesRequest.md
 docs/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.md
@@ -191,6 +202,9 @@ docs/Model/DeploySettingsInner.md
 docs/Model/DeployStatus.md
 docs/Model/DnsRecord.md
 docs/Model/DnsRecordData.md
+docs/Model/Document.md
+docs/Model/DocumentStatusInfo.md
+docs/Model/DocumentStatusInfoDetails.md
 docs/Model/Domain.md
 docs/Model/DomainAllowedBuyPeriodsInner.md
 docs/Model/DomainInfo.md
@@ -226,6 +240,10 @@ docs/Model/Frameworks.md
 docs/Model/Free.md
 docs/Model/GetAccountStatus200Response.md
 docs/Model/GetAccountStatus403Response.md
+docs/Model/GetAgentStatistics200Response.md
+docs/Model/GetAgentStatistics200ResponseMeta.md
+docs/Model/GetAgents200Response.md
+docs/Model/GetAgents200ResponseMeta.md
 docs/Model/GetAllProjectResources200Response.md
 docs/Model/GetAppDeploys200Response.md
 docs/Model/GetAppLogs200Response.md
@@ -268,6 +286,9 @@ docs/Model/GetFloatingIps200Response.md
 docs/Model/GetImage404Response.md
 docs/Model/GetKey200Response.md
 docs/Model/GetKeys200Response.md
+docs/Model/GetKnowledgebaseStatistics200Response.md
+docs/Model/GetKnowledgebases200Response.md
+docs/Model/GetKnowledgebases200ResponseMeta.md
 docs/Model/GetLocations200Response.md
 docs/Model/GetMailQuota200Response.md
 docs/Model/GetMailboxes200Response.md
@@ -327,6 +348,7 @@ docs/Model/IncreaseNodes.md
 docs/Model/InfoServicePrice.md
 docs/Model/Invoice.md
 docs/Model/K8SVersionsResponse.md
+docs/Model/Knowledgebase.md
 docs/Model/Location.md
 docs/Model/LocationDto.md
 docs/Model/Mailbox.md
@@ -424,6 +446,7 @@ docs/Model/Status.md
 docs/Model/StatusCompanyInfo.md
 docs/Model/Subdomain.md
 docs/Model/Tags.md
+docs/Model/TokenStatistic.md
 docs/Model/TopLevelDomain.md
 docs/Model/TopLevelDomainAllowedBuyPeriodsInner.md
 docs/Model/TransferStatus.md
@@ -431,6 +454,8 @@ docs/Model/TransferStatusErrorsInner.md
 docs/Model/TransferStorageRequest.md
 docs/Model/URLType.md
 docs/Model/UpdateAdmin.md
+docs/Model/UpdateAgent.md
+docs/Model/UpdateAgentSettings.md
 docs/Model/UpdateAppSettings200Response.md
 docs/Model/UpdateAuthRestrictionsByCountriesRequest.md
 docs/Model/UpdateBalancer.md
@@ -445,6 +470,7 @@ docs/Model/UpdateDomainNameServersNameServersInner.md
 docs/Model/UpdateFloatingIp.md
 docs/Model/UpdateInstance.md
 docs/Model/UpdateKeyRequest.md
+docs/Model/UpdateKnowledgebase.md
 docs/Model/UpdateMailQuotaRequest.md
 docs/Model/UpdateMailbox.md
 docs/Model/UpdateNetworkDrive.md
@@ -467,6 +493,7 @@ docs/Model/UpdateStorageUser200Response.md
 docs/Model/UpdateStorageUserRequest.md
 docs/Model/UpdateToken200Response.md
 docs/Model/UpdateVpc.md
+docs/Model/UploadFilesToKnowledgebase200Response.md
 docs/Model/UploadSuccessful.md
 docs/Model/UploadSuccessfulResponse.md
 docs/Model/UrlStatus.md
@@ -483,6 +510,7 @@ docs/Model/VpcPortService.md
 docs/Model/VpcService.md
 docs/Model/WorkerPresetOutApi.md
 git_push.sh
+lib/Api/AIAgentsApi.php
 lib/Api/APIKeysApi.php
 lib/Api/AccountApi.php
 lib/Api/AppsApi.php
@@ -494,6 +522,7 @@ lib/Api/DomainsApi.php
 lib/Api/FirewallApi.php
 lib/Api/FloatingIPApi.php
 lib/Api/ImagesApi.php
+lib/Api/KnowledgeBasesApi.php
 lib/Api/KubernetesApi.php
 lib/Api/LocationsApi.php
 lib/Api/MailApi.php
@@ -533,7 +562,12 @@ lib/Model/AddStorageSubdomains200Response.php
 lib/Model/AddStorageSubdomainsRequest.php
 lib/Model/AddStorageToProjectRequest.php
 lib/Model/AddSubdomain201Response.php
+lib/Model/AddTokenPackage.php
 lib/Model/AddedSubdomain.php
+lib/Model/Agent.php
+lib/Model/AgentModelSettings.php
+lib/Model/AgentSettings.php
+lib/Model/AgentSettingsWidget.php
 lib/Model/ApiKey.php
 lib/Model/App.php
 lib/Model/AppConfiguration.php
@@ -582,6 +616,8 @@ lib/Model/ConfigParameters.php
 lib/Model/ContainerRegistryPresetsInner.php
 lib/Model/ContainerRegistryRepositoriesInner.php
 lib/Model/CreateAdmin.php
+lib/Model/CreateAgent.php
+lib/Model/CreateAgent201Response.php
 lib/Model/CreateApiKey.php
 lib/Model/CreateApp.php
 lib/Model/CreateApp201Response.php
@@ -614,6 +650,8 @@ lib/Model/CreateFloatingIp201Response.php
 lib/Model/CreateInstance.php
 lib/Model/CreateKey201Response.php
 lib/Model/CreateKeyRequest.php
+lib/Model/CreateKnowledgebase.php
+lib/Model/CreateKnowledgebase201Response.php
 lib/Model/CreateMultipleDomainMailboxes201Response.php
 lib/Model/CreateMultipleDomainMailboxesRequest.php
 lib/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.php
@@ -673,6 +711,9 @@ lib/Model/DeploySettingsInner.php
 lib/Model/DeployStatus.php
 lib/Model/DnsRecord.php
 lib/Model/DnsRecordData.php
+lib/Model/Document.php
+lib/Model/DocumentStatusInfo.php
+lib/Model/DocumentStatusInfoDetails.php
 lib/Model/Domain.php
 lib/Model/DomainAllowedBuyPeriodsInner.php
 lib/Model/DomainInfo.php
@@ -708,6 +749,10 @@ lib/Model/Frameworks.php
 lib/Model/Free.php
 lib/Model/GetAccountStatus200Response.php
 lib/Model/GetAccountStatus403Response.php
+lib/Model/GetAgentStatistics200Response.php
+lib/Model/GetAgentStatistics200ResponseMeta.php
+lib/Model/GetAgents200Response.php
+lib/Model/GetAgents200ResponseMeta.php
 lib/Model/GetAllProjectResources200Response.php
 lib/Model/GetAppDeploys200Response.php
 lib/Model/GetAppLogs200Response.php
@@ -750,6 +795,9 @@ lib/Model/GetFloatingIps200Response.php
 lib/Model/GetImage404Response.php
 lib/Model/GetKey200Response.php
 lib/Model/GetKeys200Response.php
+lib/Model/GetKnowledgebaseStatistics200Response.php
+lib/Model/GetKnowledgebases200Response.php
+lib/Model/GetKnowledgebases200ResponseMeta.php
 lib/Model/GetLocations200Response.php
 lib/Model/GetMailQuota200Response.php
 lib/Model/GetMailboxes200Response.php
@@ -809,6 +857,7 @@ lib/Model/IncreaseNodes.php
 lib/Model/InfoServicePrice.php
 lib/Model/Invoice.php
 lib/Model/K8SVersionsResponse.php
+lib/Model/Knowledgebase.php
 lib/Model/Location.php
 lib/Model/LocationDto.php
 lib/Model/Mailbox.php
@@ -907,6 +956,7 @@ lib/Model/Status.php
 lib/Model/StatusCompanyInfo.php
 lib/Model/Subdomain.php
 lib/Model/Tags.php
+lib/Model/TokenStatistic.php
 lib/Model/TopLevelDomain.php
 lib/Model/TopLevelDomainAllowedBuyPeriodsInner.php
 lib/Model/TransferStatus.php
@@ -914,6 +964,8 @@ lib/Model/TransferStatusErrorsInner.php
 lib/Model/TransferStorageRequest.php
 lib/Model/URLType.php
 lib/Model/UpdateAdmin.php
+lib/Model/UpdateAgent.php
+lib/Model/UpdateAgentSettings.php
 lib/Model/UpdateAppSettings200Response.php
 lib/Model/UpdateAuthRestrictionsByCountriesRequest.php
 lib/Model/UpdateBalancer.php
@@ -928,6 +980,7 @@ lib/Model/UpdateDomainNameServersNameServersInner.php
 lib/Model/UpdateFloatingIp.php
 lib/Model/UpdateInstance.php
 lib/Model/UpdateKeyRequest.php
+lib/Model/UpdateKnowledgebase.php
 lib/Model/UpdateMailQuotaRequest.php
 lib/Model/UpdateMailbox.php
 lib/Model/UpdateNetworkDrive.php
@@ -950,6 +1003,7 @@ lib/Model/UpdateStorageUser200Response.php
 lib/Model/UpdateStorageUserRequest.php
 lib/Model/UpdateToken200Response.php
 lib/Model/UpdateVpc.php
+lib/Model/UploadFilesToKnowledgebase200Response.php
 lib/Model/UploadSuccessful.php
 lib/Model/UploadSuccessfulResponse.php
 lib/Model/UrlStatus.php
@@ -967,6 +1021,7 @@ lib/Model/VpcService.php
 lib/Model/WorkerPresetOutApi.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/AIAgentsApiTest.php
 test/Api/APIKeysApiTest.php
 test/Api/AccountApiTest.php
 test/Api/AppsApiTest.php
@@ -978,6 +1033,7 @@ test/Api/DomainsApiTest.php
 test/Api/FirewallApiTest.php
 test/Api/FloatingIPApiTest.php
 test/Api/ImagesApiTest.php
+test/Api/KnowledgeBasesApiTest.php
 test/Api/KubernetesApiTest.php
 test/Api/LocationsApiTest.php
 test/Api/MailApiTest.php
@@ -1014,7 +1070,12 @@ test/Model/AddStorageSubdomains200ResponseTest.php
 test/Model/AddStorageSubdomainsRequestTest.php
 test/Model/AddStorageToProjectRequestTest.php
 test/Model/AddSubdomain201ResponseTest.php
+test/Model/AddTokenPackageTest.php
 test/Model/AddedSubdomainTest.php
+test/Model/AgentModelSettingsTest.php
+test/Model/AgentSettingsTest.php
+test/Model/AgentSettingsWidgetTest.php
+test/Model/AgentTest.php
 test/Model/ApiKeyTest.php
 test/Model/AppConfigurationTest.php
 test/Model/AppDiskStatusTest.php
@@ -1063,6 +1124,8 @@ test/Model/ConfigParametersTest.php
 test/Model/ContainerRegistryPresetsInnerTest.php
 test/Model/ContainerRegistryRepositoriesInnerTest.php
 test/Model/CreateAdminTest.php
+test/Model/CreateAgent201ResponseTest.php
+test/Model/CreateAgentTest.php
 test/Model/CreateApiKeyTest.php
 test/Model/CreateApp201ResponseTest.php
 test/Model/CreateAppTest.php
@@ -1095,6 +1158,8 @@ test/Model/CreateFloatingIpTest.php
 test/Model/CreateInstanceTest.php
 test/Model/CreateKey201ResponseTest.php
 test/Model/CreateKeyRequestTest.php
+test/Model/CreateKnowledgebase201ResponseTest.php
+test/Model/CreateKnowledgebaseTest.php
 test/Model/CreateMultipleDomainMailboxes201ResponseTest.php
 test/Model/CreateMultipleDomainMailboxesRequestMailboxesInnerTest.php
 test/Model/CreateMultipleDomainMailboxesRequestTest.php
@@ -1154,6 +1219,9 @@ test/Model/DeployStatusTest.php
 test/Model/DeployTest.php
 test/Model/DnsRecordDataTest.php
 test/Model/DnsRecordTest.php
+test/Model/DocumentStatusInfoDetailsTest.php
+test/Model/DocumentStatusInfoTest.php
+test/Model/DocumentTest.php
 test/Model/DomainAllowedBuyPeriodsInnerTest.php
 test/Model/DomainInfoTest.php
 test/Model/DomainNameServerItemsInnerTest.php
@@ -1189,6 +1257,10 @@ test/Model/FrameworksTest.php
 test/Model/FreeTest.php
 test/Model/GetAccountStatus200ResponseTest.php
 test/Model/GetAccountStatus403ResponseTest.php
+test/Model/GetAgentStatistics200ResponseMetaTest.php
+test/Model/GetAgentStatistics200ResponseTest.php
+test/Model/GetAgents200ResponseMetaTest.php
+test/Model/GetAgents200ResponseTest.php
 test/Model/GetAllProjectResources200ResponseTest.php
 test/Model/GetAppDeploys200ResponseTest.php
 test/Model/GetAppLogs200ResponseTest.php
@@ -1231,6 +1303,9 @@ test/Model/GetFloatingIps200ResponseTest.php
 test/Model/GetImage404ResponseTest.php
 test/Model/GetKey200ResponseTest.php
 test/Model/GetKeys200ResponseTest.php
+test/Model/GetKnowledgebaseStatistics200ResponseTest.php
+test/Model/GetKnowledgebases200ResponseMetaTest.php
+test/Model/GetKnowledgebases200ResponseTest.php
 test/Model/GetLocations200ResponseTest.php
 test/Model/GetMailQuota200ResponseTest.php
 test/Model/GetMailboxes200ResponseTest.php
@@ -1290,6 +1365,7 @@ test/Model/IncreaseNodesTest.php
 test/Model/InfoServicePriceTest.php
 test/Model/InvoiceTest.php
 test/Model/K8SVersionsResponseTest.php
+test/Model/KnowledgebaseTest.php
 test/Model/LocationDtoTest.php
 test/Model/LocationTest.php
 test/Model/MailboxAutoReplyTest.php
@@ -1387,6 +1463,7 @@ test/Model/StatusCompanyInfoTest.php
 test/Model/StatusTest.php
 test/Model/SubdomainTest.php
 test/Model/TagsTest.php
+test/Model/TokenStatisticTest.php
 test/Model/TopLevelDomainAllowedBuyPeriodsInnerTest.php
 test/Model/TopLevelDomainTest.php
 test/Model/TransferStatusErrorsInnerTest.php
@@ -1394,6 +1471,8 @@ test/Model/TransferStatusTest.php
 test/Model/TransferStorageRequestTest.php
 test/Model/URLTypeTest.php
 test/Model/UpdateAdminTest.php
+test/Model/UpdateAgentSettingsTest.php
+test/Model/UpdateAgentTest.php
 test/Model/UpdateAppSettings200ResponseTest.php
 test/Model/UpdateAuthRestrictionsByCountriesRequestTest.php
 test/Model/UpdateBalancerTest.php
@@ -1408,6 +1487,7 @@ test/Model/UpdateDomainTest.php
 test/Model/UpdateFloatingIpTest.php
 test/Model/UpdateInstanceTest.php
 test/Model/UpdateKeyRequestTest.php
+test/Model/UpdateKnowledgebaseTest.php
 test/Model/UpdateMailQuotaRequestTest.php
 test/Model/UpdateMailboxTest.php
 test/Model/UpdateNetworkDriveTest.php
@@ -1430,6 +1510,7 @@ test/Model/UpdateStorageUser200ResponseTest.php
 test/Model/UpdateStorageUserRequestTest.php
 test/Model/UpdateToken200ResponseTest.php
 test/Model/UpdateVpcTest.php
+test/Model/UploadFilesToKnowledgebase200ResponseTest.php
 test/Model/UploadSuccessfulResponseTest.php
 test/Model/UploadSuccessfulTest.php
 test/Model/UrlStatusTest.php
