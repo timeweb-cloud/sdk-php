@@ -1,6 +1,6 @@
 <?php
 /**
- * GetKnowledgebases200ResponseMeta
+ * GetKnowledgebasesV2200ResponseMeta
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * GetKnowledgebases200ResponseMeta Class Doc Comment
+ * GetKnowledgebasesV2200ResponseMeta Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetKnowledgebases200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetKnowledgebasesV2200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetKnowledgebases200ResponseMeta implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'getKnowledgebases_200_response_meta';
+    protected static $openAPIModelName = 'getKnowledgebasesV2_200_response_meta';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

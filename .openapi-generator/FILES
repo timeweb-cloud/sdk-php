@@ -286,9 +286,12 @@ docs/Model/GetFloatingIps200Response.md
 docs/Model/GetImage404Response.md
 docs/Model/GetKey200Response.md
 docs/Model/GetKeys200Response.md
+docs/Model/GetKnowledgebaseDocumentsV2200Response.md
+docs/Model/GetKnowledgebaseDocumentsV2200ResponseMeta.md
 docs/Model/GetKnowledgebaseStatistics200Response.md
 docs/Model/GetKnowledgebases200Response.md
-docs/Model/GetKnowledgebases200ResponseMeta.md
+docs/Model/GetKnowledgebasesV2200Response.md
+docs/Model/GetKnowledgebasesV2200ResponseMeta.md
 docs/Model/GetLocations200Response.md
 docs/Model/GetMailQuota200Response.md
 docs/Model/GetMailboxes200Response.md
@@ -349,6 +352,7 @@ docs/Model/InfoServicePrice.md
 docs/Model/Invoice.md
 docs/Model/K8SVersionsResponse.md
 docs/Model/Knowledgebase.md
+docs/Model/KnowledgebaseV2.md
 docs/Model/Location.md
 docs/Model/LocationDto.md
 docs/Model/Mailbox.md
@@ -795,9 +799,12 @@ lib/Model/GetFloatingIps200Response.php
 lib/Model/GetImage404Response.php
 lib/Model/GetKey200Response.php
 lib/Model/GetKeys200Response.php
+lib/Model/GetKnowledgebaseDocumentsV2200Response.php
+lib/Model/GetKnowledgebaseDocumentsV2200ResponseMeta.php
 lib/Model/GetKnowledgebaseStatistics200Response.php
 lib/Model/GetKnowledgebases200Response.php
-lib/Model/GetKnowledgebases200ResponseMeta.php
+lib/Model/GetKnowledgebasesV2200Response.php
+lib/Model/GetKnowledgebasesV2200ResponseMeta.php
 lib/Model/GetLocations200Response.php
 lib/Model/GetMailQuota200Response.php
 lib/Model/GetMailboxes200Response.php
@@ -858,6 +865,7 @@ lib/Model/InfoServicePrice.php
 lib/Model/Invoice.php
 lib/Model/K8SVersionsResponse.php
 lib/Model/Knowledgebase.php
+lib/Model/KnowledgebaseV2.php
 lib/Model/Location.php
 lib/Model/LocationDto.php
 lib/Model/Mailbox.php
@@ -1303,9 +1311,12 @@ test/Model/GetFloatingIps200ResponseTest.php
 test/Model/GetImage404ResponseTest.php
 test/Model/GetKey200ResponseTest.php
 test/Model/GetKeys200ResponseTest.php
+test/Model/GetKnowledgebaseDocumentsV2200ResponseMetaTest.php
+test/Model/GetKnowledgebaseDocumentsV2200ResponseTest.php
 test/Model/GetKnowledgebaseStatistics200ResponseTest.php
-test/Model/GetKnowledgebases200ResponseMetaTest.php
 test/Model/GetKnowledgebases200ResponseTest.php
+test/Model/GetKnowledgebasesV2200ResponseMetaTest.php
+test/Model/GetKnowledgebasesV2200ResponseTest.php
 test/Model/GetLocations200ResponseTest.php
 test/Model/GetMailQuota200ResponseTest.php
 test/Model/GetMailboxes200ResponseTest.php
@@ -1366,6 +1377,7 @@ test/Model/InfoServicePriceTest.php
 test/Model/InvoiceTest.php
 test/Model/K8SVersionsResponseTest.php
 test/Model/KnowledgebaseTest.php
+test/Model/KnowledgebaseV2Test.php
 test/Model/LocationDtoTest.php
 test/Model/LocationTest.php
 test/Model/MailboxAutoReplyTest.php

@@ -1,6 +1,6 @@
 <?php
 /**
- * GetKnowledgebases200Response
+ * GetKnowledgebaseDocumentsV2200ResponseMeta
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * GetKnowledgebases200Response Class Doc Comment
+ * GetKnowledgebaseDocumentsV2200ResponseMeta Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetKnowledgebaseDocumentsV2200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'getKnowledgebases_200_response';
+    protected static $openAPIModelName = 'getKnowledgebaseDocumentsV2_200_response_meta';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,9 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'knowledgebases' => '\OpenAPI\Client\Model\Knowledgebase[]',
-        'meta' => '\OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta'
+        'total' => 'float',
+        'limit' => 'float',
+        'offset' => 'float'
     ];
 
     /**
@@ -70,8 +71,9 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'knowledgebases' => null,
-        'meta' => null
+        'total' => null,
+        'limit' => null,
+        'offset' => null
     ];
 
     /**
@@ -80,8 +82,9 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'knowledgebases' => false,
-		'meta' => false
+        'total' => false,
+		'limit' => false,
+		'offset' => false
     ];
 
     /**
@@ -170,8 +173,9 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'knowledgebases' => 'knowledgebases',
-        'meta' => 'meta'
+        'total' => 'total',
+        'limit' => 'limit',
+        'offset' => 'offset'
     ];
 
     /**
@@ -180,8 +184,9 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'knowledgebases' => 'setKnowledgebases',
-        'meta' => 'setMeta'
+        'total' => 'setTotal',
+        'limit' => 'setLimit',
+        'offset' => 'setOffset'
     ];
 
     /**
@@ -190,8 +195,9 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'knowledgebases' => 'getKnowledgebases',
-        'meta' => 'getMeta'
+        'total' => 'getTotal',
+        'limit' => 'getLimit',
+        'offset' => 'getOffset'
     ];
 
     /**
@@ -251,8 +257,9 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('knowledgebases', $data ?? [], null);
-        $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('limit', $data ?? [], null);
+        $this->setIfExists('offset', $data ?? [], null);
     }
 
     /**
@@ -282,11 +289,14 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['knowledgebases'] === null) {
-            $invalidProperties[] = "'knowledgebases' can't be null";
+        if ($this->container['total'] === null) {
+            $invalidProperties[] = "'total' can't be null";
         }
-        if ($this->container['meta'] === null) {
-            $invalidProperties[] = "'meta' can't be null";
+        if ($this->container['limit'] === null) {
+            $invalidProperties[] = "'limit' can't be null";
+        }
+        if ($this->container['offset'] === null) {
+            $invalidProperties[] = "'offset' can't be null";
         }
         return $invalidProperties;
     }
@@ -304,55 +314,82 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets knowledgebases
+     * Gets total
      *
-     * @return \OpenAPI\Client\Model\Knowledgebase[]
+     * @return float
      */
-    public function getKnowledgebases()
+    public function getTotal()
     {
-        return $this->container['knowledgebases'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets knowledgebases
+     * Sets total
      *
-     * @param \OpenAPI\Client\Model\Knowledgebase[] $knowledgebases knowledgebases
+     * @param float $total Общее количество документов
      *
      * @return self
      */
-    public function setKnowledgebases($knowledgebases)
+    public function setTotal($total)
     {
-        if (is_null($knowledgebases)) {
-            throw new \InvalidArgumentException('non-nullable knowledgebases cannot be null');
+        if (is_null($total)) {
+            throw new \InvalidArgumentException('non-nullable total cannot be null');
         }
-        $this->container['knowledgebases'] = $knowledgebases;
+        $this->container['total'] = $total;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets limit
      *
-     * @return \OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta
+     * @return float
      */
-    public function getMeta()
+    public function getLimit()
     {
-        return $this->container['meta'];
+        return $this->container['limit'];
     }
 
     /**
-     * Sets meta
+     * Sets limit
      *
-     * @param \OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta $meta meta
+     * @param float $limit Количество документов на странице
      *
      * @return self
      */
-    public function setMeta($meta)
+    public function setLimit($limit)
     {
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        if (is_null($limit)) {
+            throw new \InvalidArgumentException('non-nullable limit cannot be null');
         }
-        $this->container['meta'] = $meta;
+        $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets offset
+     *
+     * @return float
+     */
+    public function getOffset()
+    {
+        return $this->container['offset'];
+    }
+
+    /**
+     * Sets offset
+     *
+     * @param float $offset Количество пропущенных документов
+     *
+     * @return self
+     */
+    public function setOffset($offset)
+    {
+        if (is_null($offset)) {
+            throw new \InvalidArgumentException('non-nullable offset cannot be null');
+        }
+        $this->container['offset'] = $offset;
 
         return $this;
     }

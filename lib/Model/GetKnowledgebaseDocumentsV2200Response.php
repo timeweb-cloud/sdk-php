@@ -1,6 +1,6 @@
 <?php
 /**
- * GetKnowledgebases200Response
+ * GetKnowledgebaseDocumentsV2200Response
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * GetKnowledgebases200Response Class Doc Comment
+ * GetKnowledgebaseDocumentsV2200Response Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetKnowledgebaseDocumentsV2200Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'getKnowledgebases_200_response';
+    protected static $openAPIModelName = 'getKnowledgebaseDocumentsV2_200_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'knowledgebases' => '\OpenAPI\Client\Model\Knowledgebase[]',
-        'meta' => '\OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta'
+        'knowledgebase_documents' => '\OpenAPI\Client\Model\Document[]',
+        'meta' => '\OpenAPI\Client\Model\GetKnowledgebaseDocumentsV2200ResponseMeta'
     ];
 
     /**
@@ -70,7 +70,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'knowledgebases' => null,
+        'knowledgebase_documents' => null,
         'meta' => null
     ];
 
@@ -80,7 +80,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'knowledgebases' => false,
+        'knowledgebase_documents' => false,
 		'meta' => false
     ];
 
@@ -170,7 +170,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'knowledgebases' => 'knowledgebases',
+        'knowledgebase_documents' => 'knowledgebase_documents',
         'meta' => 'meta'
     ];
 
@@ -180,7 +180,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'knowledgebases' => 'setKnowledgebases',
+        'knowledgebase_documents' => 'setKnowledgebaseDocuments',
         'meta' => 'setMeta'
     ];
 
@@ -190,7 +190,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'knowledgebases' => 'getKnowledgebases',
+        'knowledgebase_documents' => 'getKnowledgebaseDocuments',
         'meta' => 'getMeta'
     ];
 
@@ -251,7 +251,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('knowledgebases', $data ?? [], null);
+        $this->setIfExists('knowledgebase_documents', $data ?? [], null);
         $this->setIfExists('meta', $data ?? [], null);
     }
 
@@ -282,8 +282,8 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['knowledgebases'] === null) {
-            $invalidProperties[] = "'knowledgebases' can't be null";
+        if ($this->container['knowledgebase_documents'] === null) {
+            $invalidProperties[] = "'knowledgebase_documents' can't be null";
         }
         if ($this->container['meta'] === null) {
             $invalidProperties[] = "'meta' can't be null";
@@ -304,28 +304,28 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets knowledgebases
+     * Gets knowledgebase_documents
      *
-     * @return \OpenAPI\Client\Model\Knowledgebase[]
+     * @return \OpenAPI\Client\Model\Document[]
      */
-    public function getKnowledgebases()
+    public function getKnowledgebaseDocuments()
     {
-        return $this->container['knowledgebases'];
+        return $this->container['knowledgebase_documents'];
     }
 
     /**
-     * Sets knowledgebases
+     * Sets knowledgebase_documents
      *
-     * @param \OpenAPI\Client\Model\Knowledgebase[] $knowledgebases knowledgebases
+     * @param \OpenAPI\Client\Model\Document[] $knowledgebase_documents Список документов
      *
      * @return self
      */
-    public function setKnowledgebases($knowledgebases)
+    public function setKnowledgebaseDocuments($knowledgebase_documents)
     {
-        if (is_null($knowledgebases)) {
-            throw new \InvalidArgumentException('non-nullable knowledgebases cannot be null');
+        if (is_null($knowledgebase_documents)) {
+            throw new \InvalidArgumentException('non-nullable knowledgebase_documents cannot be null');
         }
-        $this->container['knowledgebases'] = $knowledgebases;
+        $this->container['knowledgebase_documents'] = $knowledgebase_documents;
 
         return $this;
     }
@@ -333,7 +333,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta
+     * @return \OpenAPI\Client\Model\GetKnowledgebaseDocumentsV2200ResponseMeta
      */
     public function getMeta()
     {
@@ -343,7 +343,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta $meta meta
+     * @param \OpenAPI\Client\Model\GetKnowledgebaseDocumentsV2200ResponseMeta $meta meta
      *
      * @return self
      */

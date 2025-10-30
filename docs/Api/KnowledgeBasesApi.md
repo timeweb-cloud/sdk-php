@@ -10,8 +10,10 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**deleteKnowledgebase()**](KnowledgeBasesApi.md#deleteKnowledgebase) | **DELETE** /api/v1/cloud-ai/knowledge-bases/{id} | Удаление базы знаний |
 | [**downloadDocument()**](KnowledgeBasesApi.md#downloadDocument) | **GET** /api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/download | Скачивание документа из базы знаний |
 | [**getKnowledgebase()**](KnowledgeBasesApi.md#getKnowledgebase) | **GET** /api/v1/cloud-ai/knowledge-bases/{id} | Получение базы знаний |
+| [**getKnowledgebaseDocumentsV2()**](KnowledgeBasesApi.md#getKnowledgebaseDocumentsV2) | **GET** /api/v2/cloud-ai/knowledge-bases/{id}/documents | Получение списка документов базы знаний |
 | [**getKnowledgebaseStatistics()**](KnowledgeBasesApi.md#getKnowledgebaseStatistics) | **GET** /api/v1/cloud-ai/knowledge-bases/{id}/statistic | Получение статистики использования токенов базы знаний |
 | [**getKnowledgebases()**](KnowledgeBasesApi.md#getKnowledgebases) | **GET** /api/v1/cloud-ai/knowledge-bases | Получение списка баз знаний |
+| [**getKnowledgebasesV2()**](KnowledgeBasesApi.md#getKnowledgebasesV2) | **GET** /api/v2/cloud-ai/knowledge-bases | Получение списка баз знаний (v2) |
 | [**linkKnowledgebaseToAgent()**](KnowledgeBasesApi.md#linkKnowledgebaseToAgent) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id} | Привязка базы знаний к агенту |
 | [**reindexDocument()**](KnowledgeBasesApi.md#reindexDocument) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/reindex | Переиндексация документа |
 | [**unlinkKnowledgebaseFromAgent()**](KnowledgeBasesApi.md#unlinkKnowledgebaseFromAgent) | **DELETE** /api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id} | Отвязка базы знаний от агента |
@@ -382,6 +384,74 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getKnowledgebaseDocumentsV2()`
+
+```php
+getKnowledgebaseDocumentsV2($id, $limit, $offset, $sort_by, $sort_order): \OpenAPI\Client\Model\GetKnowledgebaseDocumentsV2200Response
+```
+
+Получение списка документов базы знаний
+
+Чтобы получить список документов базы знаний, отправьте GET-запрос на `/api/v2/cloud-ai/knowledge-bases/{id}/documents`.  Тело ответа будет представлять собой объект JSON с ключами `knowledgebase_documents` и `meta`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 1; // int | ID базы знаний
+$limit = 20; // int | Количество документов на странице (по умолчанию: 10, максимум: 100)
+$offset = 0; // int | Количество документов для пропуска (по умолчанию: 0)
+$sort_by = indexing_timestamp; // string | Поле для сортировки (по умолчанию: indexing_timestamp - время последней индексации документа)
+$sort_order = DESC; // string | Порядок сортировки (по умолчанию: DESC)
+
+try {
+    $result = $apiInstance->getKnowledgebaseDocumentsV2($id, $limit, $offset, $sort_by, $sort_order);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KnowledgeBasesApi->getKnowledgebaseDocumentsV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| ID базы знаний | |
+| **limit** | **int**| Количество документов на странице (по умолчанию: 10, максимум: 100) | [optional] [default to 10] |
+| **offset** | **int**| Количество документов для пропуска (по умолчанию: 0) | [optional] [default to 0] |
+| **sort_by** | **string**| Поле для сортировки (по умолчанию: indexing_timestamp - время последней индексации документа) | [optional] [default to &#39;indexing_timestamp&#39;] |
+| **sort_order** | **string**| Порядок сортировки (по умолчанию: DESC) | [optional] [default to &#39;DESC&#39;] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\GetKnowledgebaseDocumentsV2200Response**](../Model/GetKnowledgebaseDocumentsV2200Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getKnowledgebaseStatistics()`
 
 ```php
@@ -491,6 +561,63 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\OpenAPI\Client\Model\GetKnowledgebases200Response**](../Model/GetKnowledgebases200Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getKnowledgebasesV2()`
+
+```php
+getKnowledgebasesV2(): \OpenAPI\Client\Model\GetKnowledgebasesV2200Response
+```
+
+Получение списка баз знаний (v2)
+
+Чтобы получить список баз знаний, отправьте GET-запрос на `/api/v2/cloud-ai/knowledge-bases`.  Версия API v2 возвращает оптимизированный ответ с количеством документов вместо полного списка документов.  Тело ответа будет представлять собой объект JSON с ключом `knowledgebases`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getKnowledgebasesV2();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KnowledgeBasesApi->getKnowledgebasesV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\OpenAPI\Client\Model\GetKnowledgebasesV2200Response**](../Model/GetKnowledgebasesV2200Response.md)
 
 ### Authorization
 

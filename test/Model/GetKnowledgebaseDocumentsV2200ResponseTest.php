@@ -1,6 +1,6 @@
 <?php
 /**
- * GetKnowledgebases200ResponseMetaTest
+ * GetKnowledgebaseDocumentsV2200ResponseTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * GetKnowledgebases200ResponseMetaTest Class Doc Comment
+ * GetKnowledgebaseDocumentsV2200ResponseTest Class Doc Comment
  *
  * @category    Class
- * @description GetKnowledgebases200ResponseMeta
+ * @description GetKnowledgebaseDocumentsV2200Response
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetKnowledgebases200ResponseMetaTest extends TestCase
+class GetKnowledgebaseDocumentsV2200ResponseTest extends TestCase
 {
 
     /**
@@ -72,18 +72,27 @@ class GetKnowledgebases200ResponseMetaTest extends TestCase
     }
 
     /**
-     * Test "GetKnowledgebases200ResponseMeta"
+     * Test "GetKnowledgebaseDocumentsV2200Response"
      */
-    public function testGetKnowledgebases200ResponseMeta()
+    public function testGetKnowledgebaseDocumentsV2200Response()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "total"
+     * Test attribute "knowledgebase_documents"
      */
-    public function testPropertyTotal()
+    public function testPropertyKnowledgebaseDocuments()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "meta"
+     */
+    public function testPropertyMeta()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

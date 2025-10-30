@@ -381,8 +381,10 @@ Class | Method | HTTP request | Description
 *KnowledgeBasesApi* | [**deleteKnowledgebase**](docs/Api/KnowledgeBasesApi.md#deleteknowledgebase) | **DELETE** /api/v1/cloud-ai/knowledge-bases/{id} | Удаление базы знаний
 *KnowledgeBasesApi* | [**downloadDocument**](docs/Api/KnowledgeBasesApi.md#downloaddocument) | **GET** /api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/download | Скачивание документа из базы знаний
 *KnowledgeBasesApi* | [**getKnowledgebase**](docs/Api/KnowledgeBasesApi.md#getknowledgebase) | **GET** /api/v1/cloud-ai/knowledge-bases/{id} | Получение базы знаний
+*KnowledgeBasesApi* | [**getKnowledgebaseDocumentsV2**](docs/Api/KnowledgeBasesApi.md#getknowledgebasedocumentsv2) | **GET** /api/v2/cloud-ai/knowledge-bases/{id}/documents | Получение списка документов базы знаний
 *KnowledgeBasesApi* | [**getKnowledgebaseStatistics**](docs/Api/KnowledgeBasesApi.md#getknowledgebasestatistics) | **GET** /api/v1/cloud-ai/knowledge-bases/{id}/statistic | Получение статистики использования токенов базы знаний
 *KnowledgeBasesApi* | [**getKnowledgebases**](docs/Api/KnowledgeBasesApi.md#getknowledgebases) | **GET** /api/v1/cloud-ai/knowledge-bases | Получение списка баз знаний
+*KnowledgeBasesApi* | [**getKnowledgebasesV2**](docs/Api/KnowledgeBasesApi.md#getknowledgebasesv2) | **GET** /api/v2/cloud-ai/knowledge-bases | Получение списка баз знаний (v2)
 *KnowledgeBasesApi* | [**linkKnowledgebaseToAgent**](docs/Api/KnowledgeBasesApi.md#linkknowledgebasetoagent) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id} | Привязка базы знаний к агенту
 *KnowledgeBasesApi* | [**reindexDocument**](docs/Api/KnowledgeBasesApi.md#reindexdocument) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/reindex | Переиндексация документа
 *KnowledgeBasesApi* | [**unlinkKnowledgebaseFromAgent**](docs/Api/KnowledgeBasesApi.md#unlinkknowledgebasefromagent) | **DELETE** /api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id} | Отвязка базы знаний от агента
@@ -784,9 +786,12 @@ Class | Method | HTTP request | Description
 - [GetImage404Response](docs/Model/GetImage404Response.md)
 - [GetKey200Response](docs/Model/GetKey200Response.md)
 - [GetKeys200Response](docs/Model/GetKeys200Response.md)
+- [GetKnowledgebaseDocumentsV2200Response](docs/Model/GetKnowledgebaseDocumentsV2200Response.md)
+- [GetKnowledgebaseDocumentsV2200ResponseMeta](docs/Model/GetKnowledgebaseDocumentsV2200ResponseMeta.md)
 - [GetKnowledgebaseStatistics200Response](docs/Model/GetKnowledgebaseStatistics200Response.md)
 - [GetKnowledgebases200Response](docs/Model/GetKnowledgebases200Response.md)
-- [GetKnowledgebases200ResponseMeta](docs/Model/GetKnowledgebases200ResponseMeta.md)
+- [GetKnowledgebasesV2200Response](docs/Model/GetKnowledgebasesV2200Response.md)
+- [GetKnowledgebasesV2200ResponseMeta](docs/Model/GetKnowledgebasesV2200ResponseMeta.md)
 - [GetLocations200Response](docs/Model/GetLocations200Response.md)
 - [GetMailQuota200Response](docs/Model/GetMailQuota200Response.md)
 - [GetMailboxes200Response](docs/Model/GetMailboxes200Response.md)
@@ -847,6 +852,7 @@ Class | Method | HTTP request | Description
 - [Invoice](docs/Model/Invoice.md)
 - [K8SVersionsResponse](docs/Model/K8SVersionsResponse.md)
 - [Knowledgebase](docs/Model/Knowledgebase.md)
+- [KnowledgebaseV2](docs/Model/KnowledgebaseV2.md)
 - [Location](docs/Model/Location.md)
 - [LocationDto](docs/Model/LocationDto.md)
 - [Mailbox](docs/Model/Mailbox.md)

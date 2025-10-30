@@ -1,6 +1,6 @@
 <?php
 /**
- * GetKnowledgebases200Response
+ * KnowledgebaseV2
  *
  * PHP version 7.4
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * GetKnowledgebases200Response Class Doc Comment
+ * KnowledgebaseV2 Class Doc Comment
  *
  * @category Class
+ * @description База знаний (версия API v2)
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class KnowledgebaseV2 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'getKnowledgebases_200_response';
+    protected static $openAPIModelName = 'knowledgebase-v2';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +59,20 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'knowledgebases' => '\OpenAPI\Client\Model\Knowledgebase[]',
-        'meta' => '\OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta'
+        'id' => 'float',
+        'name' => 'string',
+        'description' => 'string',
+        'dbaas_id' => 'float',
+        'status' => 'string',
+        'last_sync' => '\DateTime',
+        'total_tokens' => 'float',
+        'used_tokens' => 'float',
+        'remaining_tokens' => 'float',
+        'token_package_id' => 'float',
+        'subscription_renewal_date' => '\DateTime',
+        'documents_count' => 'float',
+        'agents_ids' => 'float[]',
+        'created_at' => '\DateTime'
     ];
 
     /**
@@ -70,8 +83,20 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'knowledgebases' => null,
-        'meta' => null
+        'id' => null,
+        'name' => null,
+        'description' => null,
+        'dbaas_id' => null,
+        'status' => null,
+        'last_sync' => 'date-time',
+        'total_tokens' => null,
+        'used_tokens' => null,
+        'remaining_tokens' => null,
+        'token_package_id' => null,
+        'subscription_renewal_date' => 'date-time',
+        'documents_count' => null,
+        'agents_ids' => null,
+        'created_at' => 'date-time'
     ];
 
     /**
@@ -80,8 +105,20 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'knowledgebases' => false,
-		'meta' => false
+        'id' => false,
+		'name' => false,
+		'description' => true,
+		'dbaas_id' => false,
+		'status' => false,
+		'last_sync' => true,
+		'total_tokens' => false,
+		'used_tokens' => false,
+		'remaining_tokens' => false,
+		'token_package_id' => false,
+		'subscription_renewal_date' => false,
+		'documents_count' => false,
+		'agents_ids' => false,
+		'created_at' => false
     ];
 
     /**
@@ -170,8 +207,20 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'knowledgebases' => 'knowledgebases',
-        'meta' => 'meta'
+        'id' => 'id',
+        'name' => 'name',
+        'description' => 'description',
+        'dbaas_id' => 'dbaas_id',
+        'status' => 'status',
+        'last_sync' => 'last_sync',
+        'total_tokens' => 'total_tokens',
+        'used_tokens' => 'used_tokens',
+        'remaining_tokens' => 'remaining_tokens',
+        'token_package_id' => 'token_package_id',
+        'subscription_renewal_date' => 'subscription_renewal_date',
+        'documents_count' => 'documents_count',
+        'agents_ids' => 'agents_ids',
+        'created_at' => 'created_at'
     ];
 
     /**
@@ -180,8 +229,20 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'knowledgebases' => 'setKnowledgebases',
-        'meta' => 'setMeta'
+        'id' => 'setId',
+        'name' => 'setName',
+        'description' => 'setDescription',
+        'dbaas_id' => 'setDbaasId',
+        'status' => 'setStatus',
+        'last_sync' => 'setLastSync',
+        'total_tokens' => 'setTotalTokens',
+        'used_tokens' => 'setUsedTokens',
+        'remaining_tokens' => 'setRemainingTokens',
+        'token_package_id' => 'setTokenPackageId',
+        'subscription_renewal_date' => 'setSubscriptionRenewalDate',
+        'documents_count' => 'setDocumentsCount',
+        'agents_ids' => 'setAgentsIds',
+        'created_at' => 'setCreatedAt'
     ];
 
     /**
@@ -190,8 +251,20 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'knowledgebases' => 'getKnowledgebases',
-        'meta' => 'getMeta'
+        'id' => 'getId',
+        'name' => 'getName',
+        'description' => 'getDescription',
+        'dbaas_id' => 'getDbaasId',
+        'status' => 'getStatus',
+        'last_sync' => 'getLastSync',
+        'total_tokens' => 'getTotalTokens',
+        'used_tokens' => 'getUsedTokens',
+        'remaining_tokens' => 'getRemainingTokens',
+        'token_package_id' => 'getTokenPackageId',
+        'subscription_renewal_date' => 'getSubscriptionRenewalDate',
+        'documents_count' => 'getDocumentsCount',
+        'agents_ids' => 'getAgentsIds',
+        'created_at' => 'getCreatedAt'
     ];
 
     /**
@@ -235,6 +308,25 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
         return self::$openAPIModelName;
     }
 
+    public const STATUS_ACTIVE = 'active';
+    public const STATUS_BLOCKED = 'blocked';
+    public const STATUS_CREATING = 'creating';
+    public const STATUS_DELETED = 'deleted';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_ACTIVE,
+            self::STATUS_BLOCKED,
+            self::STATUS_CREATING,
+            self::STATUS_DELETED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,8 +343,20 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('knowledgebases', $data ?? [], null);
-        $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('dbaas_id', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('last_sync', $data ?? [], null);
+        $this->setIfExists('total_tokens', $data ?? [], null);
+        $this->setIfExists('used_tokens', $data ?? [], null);
+        $this->setIfExists('remaining_tokens', $data ?? [], null);
+        $this->setIfExists('token_package_id', $data ?? [], null);
+        $this->setIfExists('subscription_renewal_date', $data ?? [], null);
+        $this->setIfExists('documents_count', $data ?? [], null);
+        $this->setIfExists('agents_ids', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
     }
 
     /**
@@ -282,11 +386,50 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['knowledgebases'] === null) {
-            $invalidProperties[] = "'knowledgebases' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['meta'] === null) {
-            $invalidProperties[] = "'meta' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['dbaas_id'] === null) {
+            $invalidProperties[] = "'dbaas_id' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['total_tokens'] === null) {
+            $invalidProperties[] = "'total_tokens' can't be null";
+        }
+        if ($this->container['used_tokens'] === null) {
+            $invalidProperties[] = "'used_tokens' can't be null";
+        }
+        if ($this->container['remaining_tokens'] === null) {
+            $invalidProperties[] = "'remaining_tokens' can't be null";
+        }
+        if ($this->container['token_package_id'] === null) {
+            $invalidProperties[] = "'token_package_id' can't be null";
+        }
+        if ($this->container['subscription_renewal_date'] === null) {
+            $invalidProperties[] = "'subscription_renewal_date' can't be null";
+        }
+        if ($this->container['documents_count'] === null) {
+            $invalidProperties[] = "'documents_count' can't be null";
+        }
+        if ($this->container['agents_ids'] === null) {
+            $invalidProperties[] = "'agents_ids' can't be null";
+        }
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
         }
         return $invalidProperties;
     }
@@ -304,55 +447,403 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets knowledgebases
+     * Gets id
      *
-     * @return \OpenAPI\Client\Model\Knowledgebase[]
+     * @return float
      */
-    public function getKnowledgebases()
+    public function getId()
     {
-        return $this->container['knowledgebases'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets knowledgebases
+     * Sets id
      *
-     * @param \OpenAPI\Client\Model\Knowledgebase[] $knowledgebases knowledgebases
+     * @param float $id Уникальный идентификатор базы знаний
      *
      * @return self
      */
-    public function setKnowledgebases($knowledgebases)
+    public function setId($id)
     {
-        if (is_null($knowledgebases)) {
-            throw new \InvalidArgumentException('non-nullable knowledgebases cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['knowledgebases'] = $knowledgebases;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets name
      *
-     * @return \OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta
+     * @return string
      */
-    public function getMeta()
+    public function getName()
     {
-        return $this->container['meta'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets meta
+     * Sets name
      *
-     * @param \OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta $meta meta
+     * @param string $name Название базы знаний
      *
      * @return self
      */
-    public function setMeta($meta)
+    public function setName($name)
     {
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['meta'] = $meta;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Описание базы знаний
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets dbaas_id
+     *
+     * @return float
+     */
+    public function getDbaasId()
+    {
+        return $this->container['dbaas_id'];
+    }
+
+    /**
+     * Sets dbaas_id
+     *
+     * @param float $dbaas_id ID базы данных opensearch
+     *
+     * @return self
+     */
+    public function setDbaasId($dbaas_id)
+    {
+        if (is_null($dbaas_id)) {
+            throw new \InvalidArgumentException('non-nullable dbaas_id cannot be null');
+        }
+        $this->container['dbaas_id'] = $dbaas_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status Статус базы знаний
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_sync
+     *
+     * @return \DateTime|null
+     */
+    public function getLastSync()
+    {
+        return $this->container['last_sync'];
+    }
+
+    /**
+     * Sets last_sync
+     *
+     * @param \DateTime|null $last_sync Дата последней синхронизации
+     *
+     * @return self
+     */
+    public function setLastSync($last_sync)
+    {
+        if (is_null($last_sync)) {
+            array_push($this->openAPINullablesSetToNull, 'last_sync');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_sync', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['last_sync'] = $last_sync;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_tokens
+     *
+     * @return float
+     */
+    public function getTotalTokens()
+    {
+        return $this->container['total_tokens'];
+    }
+
+    /**
+     * Sets total_tokens
+     *
+     * @param float $total_tokens Всего токенов выделено
+     *
+     * @return self
+     */
+    public function setTotalTokens($total_tokens)
+    {
+        if (is_null($total_tokens)) {
+            throw new \InvalidArgumentException('non-nullable total_tokens cannot be null');
+        }
+        $this->container['total_tokens'] = $total_tokens;
+
+        return $this;
+    }
+
+    /**
+     * Gets used_tokens
+     *
+     * @return float
+     */
+    public function getUsedTokens()
+    {
+        return $this->container['used_tokens'];
+    }
+
+    /**
+     * Sets used_tokens
+     *
+     * @param float $used_tokens Использовано токенов
+     *
+     * @return self
+     */
+    public function setUsedTokens($used_tokens)
+    {
+        if (is_null($used_tokens)) {
+            throw new \InvalidArgumentException('non-nullable used_tokens cannot be null');
+        }
+        $this->container['used_tokens'] = $used_tokens;
+
+        return $this;
+    }
+
+    /**
+     * Gets remaining_tokens
+     *
+     * @return float
+     */
+    public function getRemainingTokens()
+    {
+        return $this->container['remaining_tokens'];
+    }
+
+    /**
+     * Sets remaining_tokens
+     *
+     * @param float $remaining_tokens Осталось токенов
+     *
+     * @return self
+     */
+    public function setRemainingTokens($remaining_tokens)
+    {
+        if (is_null($remaining_tokens)) {
+            throw new \InvalidArgumentException('non-nullable remaining_tokens cannot be null');
+        }
+        $this->container['remaining_tokens'] = $remaining_tokens;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_package_id
+     *
+     * @return float
+     */
+    public function getTokenPackageId()
+    {
+        return $this->container['token_package_id'];
+    }
+
+    /**
+     * Sets token_package_id
+     *
+     * @param float $token_package_id ID пакета токенов
+     *
+     * @return self
+     */
+    public function setTokenPackageId($token_package_id)
+    {
+        if (is_null($token_package_id)) {
+            throw new \InvalidArgumentException('non-nullable token_package_id cannot be null');
+        }
+        $this->container['token_package_id'] = $token_package_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscription_renewal_date
+     *
+     * @return \DateTime
+     */
+    public function getSubscriptionRenewalDate()
+    {
+        return $this->container['subscription_renewal_date'];
+    }
+
+    /**
+     * Sets subscription_renewal_date
+     *
+     * @param \DateTime $subscription_renewal_date Дата обновления подписки
+     *
+     * @return self
+     */
+    public function setSubscriptionRenewalDate($subscription_renewal_date)
+    {
+        if (is_null($subscription_renewal_date)) {
+            throw new \InvalidArgumentException('non-nullable subscription_renewal_date cannot be null');
+        }
+        $this->container['subscription_renewal_date'] = $subscription_renewal_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets documents_count
+     *
+     * @return float
+     */
+    public function getDocumentsCount()
+    {
+        return $this->container['documents_count'];
+    }
+
+    /**
+     * Sets documents_count
+     *
+     * @param float $documents_count Общее количество документов в базе знаний
+     *
+     * @return self
+     */
+    public function setDocumentsCount($documents_count)
+    {
+        if (is_null($documents_count)) {
+            throw new \InvalidArgumentException('non-nullable documents_count cannot be null');
+        }
+        $this->container['documents_count'] = $documents_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets agents_ids
+     *
+     * @return float[]
+     */
+    public function getAgentsIds()
+    {
+        return $this->container['agents_ids'];
+    }
+
+    /**
+     * Sets agents_ids
+     *
+     * @param float[] $agents_ids ID агентов, связанных с базой знаний
+     *
+     * @return self
+     */
+    public function setAgentsIds($agents_ids)
+    {
+        if (is_null($agents_ids)) {
+            throw new \InvalidArgumentException('non-nullable agents_ids cannot be null');
+        }
+        $this->container['agents_ids'] = $agents_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime $created_at Дата создания базы знаний
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }

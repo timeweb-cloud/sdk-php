@@ -1,6 +1,6 @@
 <?php
 /**
- * GetKnowledgebases200Response
+ * GetKnowledgebasesV2200Response
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * GetKnowledgebases200Response Class Doc Comment
+ * GetKnowledgebasesV2200Response Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetKnowledgebasesV2200Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'getKnowledgebases_200_response';
+    protected static $openAPIModelName = 'getKnowledgebasesV2_200_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'knowledgebases' => '\OpenAPI\Client\Model\Knowledgebase[]',
+        'knowledgebases' => '\OpenAPI\Client\Model\KnowledgebaseV2[]',
         'meta' => '\OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta'
     ];
 
@@ -306,7 +306,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets knowledgebases
      *
-     * @return \OpenAPI\Client\Model\Knowledgebase[]
+     * @return \OpenAPI\Client\Model\KnowledgebaseV2[]
      */
     public function getKnowledgebases()
     {
@@ -316,7 +316,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets knowledgebases
      *
-     * @param \OpenAPI\Client\Model\Knowledgebase[] $knowledgebases knowledgebases
+     * @param \OpenAPI\Client\Model\KnowledgebaseV2[] $knowledgebases knowledgebases
      *
      * @return self
      */
