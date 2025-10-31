@@ -1,9 +1,9 @@
-# # GetMailQuota200Response
+# # AutoreplyIsDisabled
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**quota** | [**\OpenAPI\Client\Model\Quota**](Quota.md) |  |
+**is_enabled** | **bool** | Включен ли автоответчик на входящие письма |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

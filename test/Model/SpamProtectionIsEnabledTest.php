@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateMailQuotaRequestTest
+ * SpamProtectionIsEnabledTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * UpdateMailQuotaRequestTest Class Doc Comment
+ * SpamProtectionIsEnabledTest Class Doc Comment
  *
  * @category    Class
- * @description UpdateMailQuotaRequest
+ * @description SpamProtectionIsEnabled
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class UpdateMailQuotaRequestTest extends TestCase
+class SpamProtectionIsEnabledTest extends TestCase
 {
 
     /**
@@ -72,18 +72,36 @@ class UpdateMailQuotaRequestTest extends TestCase
     }
 
     /**
-     * Test "UpdateMailQuotaRequest"
+     * Test "SpamProtectionIsEnabled"
      */
-    public function testUpdateMailQuotaRequest()
+    public function testSpamProtectionIsEnabled()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "total"
+     * Test attribute "is_enabled"
      */
-    public function testPropertyTotal()
+    public function testPropertyIsEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "filter_action"
+     */
+    public function testPropertyFilterAction()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "white_list"
+     */
+    public function testPropertyWhiteList()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateMailQuotaRequest
+ * UpdateMailboxV2
  *
  * PHP version 7.4
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * UpdateMailQuotaRequest Class Doc Comment
+ * UpdateMailboxV2 Class Doc Comment
  *
  * @category Class
+ * @description Обновление почтового ящика
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class UpdateMailboxV2 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'updateMailQuota_request';
+    protected static $openAPIModelName = 'update-mailbox-v2';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +59,13 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'float'
+        'password' => 'string',
+        'comment' => 'string',
+        'owner_full_name' => 'string',
+        'spam_protection_settings' => '\OpenAPI\Client\Model\SpamProtectionIsEnabled',
+        'forward_settings' => '\OpenAPI\Client\Model\ForwardIsEnabled',
+        'autoreply_settings' => '\OpenAPI\Client\Model\AutoreplyIsEnabled',
+        'outgoing_settings' => '\OpenAPI\Client\Model\OutgoingIsEnabled'
     ];
 
     /**
@@ -69,7 +76,13 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total' => null
+        'password' => null,
+        'comment' => null,
+        'owner_full_name' => null,
+        'spam_protection_settings' => null,
+        'forward_settings' => null,
+        'autoreply_settings' => null,
+        'outgoing_settings' => null
     ];
 
     /**
@@ -78,7 +91,13 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total' => false
+        'password' => false,
+		'comment' => false,
+		'owner_full_name' => false,
+		'spam_protection_settings' => false,
+		'forward_settings' => false,
+		'autoreply_settings' => false,
+		'outgoing_settings' => false
     ];
 
     /**
@@ -167,7 +186,13 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total'
+        'password' => 'password',
+        'comment' => 'comment',
+        'owner_full_name' => 'owner_full_name',
+        'spam_protection_settings' => 'spam_protection_settings',
+        'forward_settings' => 'forward_settings',
+        'autoreply_settings' => 'autoreply_settings',
+        'outgoing_settings' => 'outgoing_settings'
     ];
 
     /**
@@ -176,7 +201,13 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal'
+        'password' => 'setPassword',
+        'comment' => 'setComment',
+        'owner_full_name' => 'setOwnerFullName',
+        'spam_protection_settings' => 'setSpamProtectionSettings',
+        'forward_settings' => 'setForwardSettings',
+        'autoreply_settings' => 'setAutoreplySettings',
+        'outgoing_settings' => 'setOutgoingSettings'
     ];
 
     /**
@@ -185,7 +216,13 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal'
+        'password' => 'getPassword',
+        'comment' => 'getComment',
+        'owner_full_name' => 'getOwnerFullName',
+        'spam_protection_settings' => 'getSpamProtectionSettings',
+        'forward_settings' => 'getForwardSettings',
+        'autoreply_settings' => 'getAutoreplySettings',
+        'outgoing_settings' => 'getOutgoingSettings'
     ];
 
     /**
@@ -245,7 +282,13 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('password', $data ?? [], null);
+        $this->setIfExists('comment', $data ?? [], null);
+        $this->setIfExists('owner_full_name', $data ?? [], null);
+        $this->setIfExists('spam_protection_settings', $data ?? [], null);
+        $this->setIfExists('forward_settings', $data ?? [], null);
+        $this->setIfExists('autoreply_settings', $data ?? [], null);
+        $this->setIfExists('outgoing_settings', $data ?? [], null);
     }
 
     /**
@@ -275,9 +318,14 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
+        if (!is_null($this->container['password']) && (mb_strlen($this->container['password']) > 30)) {
+            $invalidProperties[] = "invalid value for 'password', the character length must be smaller than or equal to 30.";
         }
+
+        if (!is_null($this->container['password']) && (mb_strlen($this->container['password']) < 8)) {
+            $invalidProperties[] = "invalid value for 'password', the character length must be bigger than or equal to 8.";
+        }
+
         return $invalidProperties;
     }
 
@@ -294,28 +342,197 @@ class UpdateMailQuotaRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets total
+     * Gets password
      *
-     * @return float
+     * @return string|null
      */
-    public function getTotal()
+    public function getPassword()
     {
-        return $this->container['total'];
+        return $this->container['password'];
     }
 
     /**
-     * Sets total
+     * Sets password
      *
-     * @param float $total Общее количество места на почте (в Мб).
+     * @param string|null $password Пароль почтового ящика
      *
      * @return self
      */
-    public function setTotal($total)
+    public function setPassword($password)
     {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        if (is_null($password)) {
+            throw new \InvalidArgumentException('non-nullable password cannot be null');
         }
-        $this->container['total'] = $total;
+        if ((mb_strlen($password) > 30)) {
+            throw new \InvalidArgumentException('invalid length for $password when calling UpdateMailboxV2., must be smaller than or equal to 30.');
+        }
+        if ((mb_strlen($password) < 8)) {
+            throw new \InvalidArgumentException('invalid length for $password when calling UpdateMailboxV2., must be bigger than or equal to 8.');
+        }
+
+        $this->container['password'] = $password;
+
+        return $this;
+    }
+
+    /**
+     * Gets comment
+     *
+     * @return string|null
+     */
+    public function getComment()
+    {
+        return $this->container['comment'];
+    }
+
+    /**
+     * Sets comment
+     *
+     * @param string|null $comment Комментарий к почтовому ящику
+     *
+     * @return self
+     */
+    public function setComment($comment)
+    {
+        if (is_null($comment)) {
+            throw new \InvalidArgumentException('non-nullable comment cannot be null');
+        }
+        $this->container['comment'] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_full_name
+     *
+     * @return string|null
+     */
+    public function getOwnerFullName()
+    {
+        return $this->container['owner_full_name'];
+    }
+
+    /**
+     * Sets owner_full_name
+     *
+     * @param string|null $owner_full_name ФИО владельца почтового ящика
+     *
+     * @return self
+     */
+    public function setOwnerFullName($owner_full_name)
+    {
+        if (is_null($owner_full_name)) {
+            throw new \InvalidArgumentException('non-nullable owner_full_name cannot be null');
+        }
+        $this->container['owner_full_name'] = $owner_full_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets spam_protection_settings
+     *
+     * @return \OpenAPI\Client\Model\SpamProtectionIsEnabled|null
+     */
+    public function getSpamProtectionSettings()
+    {
+        return $this->container['spam_protection_settings'];
+    }
+
+    /**
+     * Sets spam_protection_settings
+     *
+     * @param \OpenAPI\Client\Model\SpamProtectionIsEnabled|null $spam_protection_settings spam_protection_settings
+     *
+     * @return self
+     */
+    public function setSpamProtectionSettings($spam_protection_settings)
+    {
+        if (is_null($spam_protection_settings)) {
+            throw new \InvalidArgumentException('non-nullable spam_protection_settings cannot be null');
+        }
+        $this->container['spam_protection_settings'] = $spam_protection_settings;
+
+        return $this;
+    }
+
+    /**
+     * Gets forward_settings
+     *
+     * @return \OpenAPI\Client\Model\ForwardIsEnabled|null
+     */
+    public function getForwardSettings()
+    {
+        return $this->container['forward_settings'];
+    }
+
+    /**
+     * Sets forward_settings
+     *
+     * @param \OpenAPI\Client\Model\ForwardIsEnabled|null $forward_settings forward_settings
+     *
+     * @return self
+     */
+    public function setForwardSettings($forward_settings)
+    {
+        if (is_null($forward_settings)) {
+            throw new \InvalidArgumentException('non-nullable forward_settings cannot be null');
+        }
+        $this->container['forward_settings'] = $forward_settings;
+
+        return $this;
+    }
+
+    /**
+     * Gets autoreply_settings
+     *
+     * @return \OpenAPI\Client\Model\AutoreplyIsEnabled|null
+     */
+    public function getAutoreplySettings()
+    {
+        return $this->container['autoreply_settings'];
+    }
+
+    /**
+     * Sets autoreply_settings
+     *
+     * @param \OpenAPI\Client\Model\AutoreplyIsEnabled|null $autoreply_settings autoreply_settings
+     *
+     * @return self
+     */
+    public function setAutoreplySettings($autoreply_settings)
+    {
+        if (is_null($autoreply_settings)) {
+            throw new \InvalidArgumentException('non-nullable autoreply_settings cannot be null');
+        }
+        $this->container['autoreply_settings'] = $autoreply_settings;
+
+        return $this;
+    }
+
+    /**
+     * Gets outgoing_settings
+     *
+     * @return \OpenAPI\Client\Model\OutgoingIsEnabled|null
+     */
+    public function getOutgoingSettings()
+    {
+        return $this->container['outgoing_settings'];
+    }
+
+    /**
+     * Sets outgoing_settings
+     *
+     * @param \OpenAPI\Client\Model\OutgoingIsEnabled|null $outgoing_settings outgoing_settings
+     *
+     * @return self
+     */
+    public function setOutgoingSettings($outgoing_settings)
+    {
+        if (is_null($outgoing_settings)) {
+            throw new \InvalidArgumentException('non-nullable outgoing_settings cannot be null');
+        }
+        $this->container['outgoing_settings'] = $outgoing_settings;
 
         return $this;
     }

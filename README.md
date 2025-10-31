@@ -416,12 +416,11 @@ Class | Method | HTTP request | Description
 *MailApi* | [**deleteMailbox**](docs/Api/MailApi.md#deletemailbox) | **DELETE** /api/v1/mail/domains/{domain}/mailboxes/{mailbox} | Удаление почтового ящика
 *MailApi* | [**getDomainMailInfo**](docs/Api/MailApi.md#getdomainmailinfo) | **GET** /api/v1/mail/domains/{domain}/info | Получение почтовой информации о домене
 *MailApi* | [**getDomainMailboxes**](docs/Api/MailApi.md#getdomainmailboxes) | **GET** /api/v1/mail/domains/{domain} | Получение списка почтовых ящиков домена
-*MailApi* | [**getMailQuota**](docs/Api/MailApi.md#getmailquota) | **GET** /api/v1/mail/quota | Получение квоты почты аккаунта
 *MailApi* | [**getMailbox**](docs/Api/MailApi.md#getmailbox) | **GET** /api/v1/mail/domains/{domain}/mailboxes/{mailbox} | Получение почтового ящика
 *MailApi* | [**getMailboxes**](docs/Api/MailApi.md#getmailboxes) | **GET** /api/v1/mail | Получение списка почтовых ящиков аккаунта
 *MailApi* | [**updateDomainMailInfo**](docs/Api/MailApi.md#updatedomainmailinfo) | **PATCH** /api/v1/mail/domains/{domain}/info | Изменение почтовой информации о домене
-*MailApi* | [**updateMailQuota**](docs/Api/MailApi.md#updatemailquota) | **PATCH** /api/v1/mail/quota | Изменение квоты почты аккаунта
 *MailApi* | [**updateMailbox**](docs/Api/MailApi.md#updatemailbox) | **PATCH** /api/v1/mail/domains/{domain}/mailboxes/{mailbox} | Изменение почтового ящика
+*MailApi* | [**updateMailboxV2**](docs/Api/MailApi.md#updatemailboxv2) | **PATCH** /api/v2/mail/domains/{domain}/mailboxes/{mailbox} | Изменение почтового ящика
 *NetworkDrivesApi* | [**createNetworkDrive**](docs/Api/NetworkDrivesApi.md#createnetworkdrive) | **POST** /api/v1/network-drives | Создание сетевого диска
 *NetworkDrivesApi* | [**deleteNetworkDrive**](docs/Api/NetworkDrivesApi.md#deletenetworkdrive) | **DELETE** /api/v1/network-drives/{network_drive_id} | Удаление сетевого диска по идентификатору
 *NetworkDrivesApi* | [**getNetworkDrive**](docs/Api/NetworkDrivesApi.md#getnetworkdrive) | **GET** /api/v1/network-drives/{network_drive_id} | Получение сетевого диска
@@ -571,6 +570,8 @@ Class | Method | HTTP request | Description
 - [AutoBackup](docs/Model/AutoBackup.md)
 - [AutoReplyIsDisabled](docs/Model/AutoReplyIsDisabled.md)
 - [AutoReplyIsEnabled](docs/Model/AutoReplyIsEnabled.md)
+- [AutoreplyIsDisabled](docs/Model/AutoreplyIsDisabled.md)
+- [AutoreplyIsEnabled](docs/Model/AutoreplyIsEnabled.md)
 - [AvailabilityZone](docs/Model/AvailabilityZone.md)
 - [AvailableFrameworks](docs/Model/AvailableFrameworks.md)
 - [AvailableFrameworksBackendFrameworksInner](docs/Model/AvailableFrameworksBackendFrameworksInner.md)
@@ -732,6 +733,8 @@ Class | Method | HTTP request | Description
 - [FirewallRuleProtocol](docs/Model/FirewallRuleProtocol.md)
 - [FirewallRulesOutResponse](docs/Model/FirewallRulesOutResponse.md)
 - [FloatingIp](docs/Model/FloatingIp.md)
+- [ForwardIsDisabled](docs/Model/ForwardIsDisabled.md)
+- [ForwardIsEnabled](docs/Model/ForwardIsEnabled.md)
 - [ForwardingIncomingIsDisabled](docs/Model/ForwardingIncomingIsDisabled.md)
 - [ForwardingIncomingIsEnabled](docs/Model/ForwardingIncomingIsEnabled.md)
 - [ForwardingOutgoingIsDisabled](docs/Model/ForwardingOutgoingIsDisabled.md)
@@ -793,7 +796,6 @@ Class | Method | HTTP request | Description
 - [GetKnowledgebasesV2200Response](docs/Model/GetKnowledgebasesV2200Response.md)
 - [GetKnowledgebasesV2200ResponseMeta](docs/Model/GetKnowledgebasesV2200ResponseMeta.md)
 - [GetLocations200Response](docs/Model/GetLocations200Response.md)
-- [GetMailQuota200Response](docs/Model/GetMailQuota200Response.md)
 - [GetMailboxes200Response](docs/Model/GetMailboxes200Response.md)
 - [GetNetworkDrives200Response](docs/Model/GetNetworkDrives200Response.md)
 - [GetNetworkDrivesAvailableResources200Response](docs/Model/GetNetworkDrivesAvailableResources200Response.md)
@@ -859,6 +861,7 @@ Class | Method | HTTP request | Description
 - [MailboxAutoReply](docs/Model/MailboxAutoReply.md)
 - [MailboxForwardingIncoming](docs/Model/MailboxForwardingIncoming.md)
 - [MailboxForwardingOutgoing](docs/Model/MailboxForwardingOutgoing.md)
+- [MailboxResponse](docs/Model/MailboxResponse.md)
 - [MailboxSpamFilter](docs/Model/MailboxSpamFilter.md)
 - [MasterPresetOutApi](docs/Model/MasterPresetOutApi.md)
 - [Meta](docs/Model/Meta.md)
@@ -885,6 +888,8 @@ Class | Method | HTTP request | Description
 - [NotificationSettingChannels](docs/Model/NotificationSettingChannels.md)
 - [NotificationSettingType](docs/Model/NotificationSettingType.md)
 - [OS](docs/Model/OS.md)
+- [OutgoingIsDisabled](docs/Model/OutgoingIsDisabled.md)
+- [OutgoingIsEnabled](docs/Model/OutgoingIsEnabled.md)
 - [PerformActionOnBackupRequest](docs/Model/PerformActionOnBackupRequest.md)
 - [PerformActionOnServerRequest](docs/Model/PerformActionOnServerRequest.md)
 - [Policy](docs/Model/Policy.md)
@@ -896,7 +901,6 @@ Class | Method | HTTP request | Description
 - [ProjectResource](docs/Model/ProjectResource.md)
 - [Provider](docs/Model/Provider.md)
 - [Providers](docs/Model/Providers.md)
-- [Quota](docs/Model/Quota.md)
 - [ReduceNodes](docs/Model/ReduceNodes.md)
 - [RefreshApiKey](docs/Model/RefreshApiKey.md)
 - [RegistriesResponse](docs/Model/RegistriesResponse.md)
@@ -944,6 +948,8 @@ Class | Method | HTTP request | Description
 - [SettingCondition](docs/Model/SettingCondition.md)
 - [SpamFilterIsDisabled](docs/Model/SpamFilterIsDisabled.md)
 - [SpamFilterIsEnabled](docs/Model/SpamFilterIsEnabled.md)
+- [SpamProtectionIsDisabled](docs/Model/SpamProtectionIsDisabled.md)
+- [SpamProtectionIsEnabled](docs/Model/SpamProtectionIsEnabled.md)
 - [SshKey](docs/Model/SshKey.md)
 - [SshKeyUsedByInner](docs/Model/SshKeyUsedByInner.md)
 - [Status](docs/Model/Status.md)
@@ -975,8 +981,9 @@ Class | Method | HTTP request | Description
 - [UpdateInstance](docs/Model/UpdateInstance.md)
 - [UpdateKeyRequest](docs/Model/UpdateKeyRequest.md)
 - [UpdateKnowledgebase](docs/Model/UpdateKnowledgebase.md)
-- [UpdateMailQuotaRequest](docs/Model/UpdateMailQuotaRequest.md)
 - [UpdateMailbox](docs/Model/UpdateMailbox.md)
+- [UpdateMailboxV2](docs/Model/UpdateMailboxV2.md)
+- [UpdateMailboxV2200Response](docs/Model/UpdateMailboxV2200Response.md)
 - [UpdateNetworkDrive](docs/Model/UpdateNetworkDrive.md)
 - [UpdateNotificationSettingsRequest](docs/Model/UpdateNotificationSettingsRequest.md)
 - [UpdateNotificationSettingsRequestSettingsInner](docs/Model/UpdateNotificationSettingsRequestSettingsInner.md)

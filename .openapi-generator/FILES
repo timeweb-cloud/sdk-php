@@ -71,6 +71,8 @@ docs/Model/AppsPresetsFrontendPresetsInner.md
 docs/Model/AutoBackup.md
 docs/Model/AutoReplyIsDisabled.md
 docs/Model/AutoReplyIsEnabled.md
+docs/Model/AutoreplyIsDisabled.md
+docs/Model/AutoreplyIsEnabled.md
 docs/Model/AvailabilityZone.md
 docs/Model/AvailableFrameworks.md
 docs/Model/AvailableFrameworksBackendFrameworksInner.md
@@ -232,6 +234,8 @@ docs/Model/FirewallRuleOutResponse.md
 docs/Model/FirewallRuleProtocol.md
 docs/Model/FirewallRulesOutResponse.md
 docs/Model/FloatingIp.md
+docs/Model/ForwardIsDisabled.md
+docs/Model/ForwardIsEnabled.md
 docs/Model/ForwardingIncomingIsDisabled.md
 docs/Model/ForwardingIncomingIsEnabled.md
 docs/Model/ForwardingOutgoingIsDisabled.md
@@ -293,7 +297,6 @@ docs/Model/GetKnowledgebases200Response.md
 docs/Model/GetKnowledgebasesV2200Response.md
 docs/Model/GetKnowledgebasesV2200ResponseMeta.md
 docs/Model/GetLocations200Response.md
-docs/Model/GetMailQuota200Response.md
 docs/Model/GetMailboxes200Response.md
 docs/Model/GetNetworkDrives200Response.md
 docs/Model/GetNetworkDrivesAvailableResources200Response.md
@@ -359,6 +362,7 @@ docs/Model/Mailbox.md
 docs/Model/MailboxAutoReply.md
 docs/Model/MailboxForwardingIncoming.md
 docs/Model/MailboxForwardingOutgoing.md
+docs/Model/MailboxResponse.md
 docs/Model/MailboxSpamFilter.md
 docs/Model/MasterPresetOutApi.md
 docs/Model/Meta.md
@@ -385,6 +389,8 @@ docs/Model/NotificationSettingChannel.md
 docs/Model/NotificationSettingChannels.md
 docs/Model/NotificationSettingType.md
 docs/Model/OS.md
+docs/Model/OutgoingIsDisabled.md
+docs/Model/OutgoingIsEnabled.md
 docs/Model/PerformActionOnBackupRequest.md
 docs/Model/PerformActionOnServerRequest.md
 docs/Model/Policy.md
@@ -396,7 +402,6 @@ docs/Model/Project.md
 docs/Model/ProjectResource.md
 docs/Model/Provider.md
 docs/Model/Providers.md
-docs/Model/Quota.md
 docs/Model/ReduceNodes.md
 docs/Model/RefreshApiKey.md
 docs/Model/RegistriesResponse.md
@@ -444,6 +449,8 @@ docs/Model/SetLabels.md
 docs/Model/SettingCondition.md
 docs/Model/SpamFilterIsDisabled.md
 docs/Model/SpamFilterIsEnabled.md
+docs/Model/SpamProtectionIsDisabled.md
+docs/Model/SpamProtectionIsEnabled.md
 docs/Model/SshKey.md
 docs/Model/SshKeyUsedByInner.md
 docs/Model/Status.md
@@ -475,8 +482,9 @@ docs/Model/UpdateFloatingIp.md
 docs/Model/UpdateInstance.md
 docs/Model/UpdateKeyRequest.md
 docs/Model/UpdateKnowledgebase.md
-docs/Model/UpdateMailQuotaRequest.md
 docs/Model/UpdateMailbox.md
+docs/Model/UpdateMailboxV2.md
+docs/Model/UpdateMailboxV2200Response.md
 docs/Model/UpdateNetworkDrive.md
 docs/Model/UpdateNotificationSettingsRequest.md
 docs/Model/UpdateNotificationSettingsRequestSettingsInner.md
@@ -584,6 +592,8 @@ lib/Model/AppsPresetsFrontendPresetsInner.php
 lib/Model/AutoBackup.php
 lib/Model/AutoReplyIsDisabled.php
 lib/Model/AutoReplyIsEnabled.php
+lib/Model/AutoreplyIsDisabled.php
+lib/Model/AutoreplyIsEnabled.php
 lib/Model/AvailabilityZone.php
 lib/Model/AvailableFrameworks.php
 lib/Model/AvailableFrameworksBackendFrameworksInner.php
@@ -745,6 +755,8 @@ lib/Model/FirewallRuleOutResponse.php
 lib/Model/FirewallRuleProtocol.php
 lib/Model/FirewallRulesOutResponse.php
 lib/Model/FloatingIp.php
+lib/Model/ForwardIsDisabled.php
+lib/Model/ForwardIsEnabled.php
 lib/Model/ForwardingIncomingIsDisabled.php
 lib/Model/ForwardingIncomingIsEnabled.php
 lib/Model/ForwardingOutgoingIsDisabled.php
@@ -806,7 +818,6 @@ lib/Model/GetKnowledgebases200Response.php
 lib/Model/GetKnowledgebasesV2200Response.php
 lib/Model/GetKnowledgebasesV2200ResponseMeta.php
 lib/Model/GetLocations200Response.php
-lib/Model/GetMailQuota200Response.php
 lib/Model/GetMailboxes200Response.php
 lib/Model/GetNetworkDrives200Response.php
 lib/Model/GetNetworkDrivesAvailableResources200Response.php
@@ -872,6 +883,7 @@ lib/Model/Mailbox.php
 lib/Model/MailboxAutoReply.php
 lib/Model/MailboxForwardingIncoming.php
 lib/Model/MailboxForwardingOutgoing.php
+lib/Model/MailboxResponse.php
 lib/Model/MailboxSpamFilter.php
 lib/Model/MasterPresetOutApi.php
 lib/Model/Meta.php
@@ -899,6 +911,8 @@ lib/Model/NotificationSettingChannel.php
 lib/Model/NotificationSettingChannels.php
 lib/Model/NotificationSettingType.php
 lib/Model/OS.php
+lib/Model/OutgoingIsDisabled.php
+lib/Model/OutgoingIsEnabled.php
 lib/Model/PerformActionOnBackupRequest.php
 lib/Model/PerformActionOnServerRequest.php
 lib/Model/Policy.php
@@ -910,7 +924,6 @@ lib/Model/Project.php
 lib/Model/ProjectResource.php
 lib/Model/Provider.php
 lib/Model/Providers.php
-lib/Model/Quota.php
 lib/Model/ReduceNodes.php
 lib/Model/RefreshApiKey.php
 lib/Model/RegistriesResponse.php
@@ -958,6 +971,8 @@ lib/Model/SetLabels.php
 lib/Model/SettingCondition.php
 lib/Model/SpamFilterIsDisabled.php
 lib/Model/SpamFilterIsEnabled.php
+lib/Model/SpamProtectionIsDisabled.php
+lib/Model/SpamProtectionIsEnabled.php
 lib/Model/SshKey.php
 lib/Model/SshKeyUsedByInner.php
 lib/Model/Status.php
@@ -989,8 +1004,9 @@ lib/Model/UpdateFloatingIp.php
 lib/Model/UpdateInstance.php
 lib/Model/UpdateKeyRequest.php
 lib/Model/UpdateKnowledgebase.php
-lib/Model/UpdateMailQuotaRequest.php
 lib/Model/UpdateMailbox.php
+lib/Model/UpdateMailboxV2.php
+lib/Model/UpdateMailboxV2200Response.php
 lib/Model/UpdateNetworkDrive.php
 lib/Model/UpdateNotificationSettingsRequest.php
 lib/Model/UpdateNotificationSettingsRequestSettingsInner.php
@@ -1096,6 +1112,8 @@ test/Model/AppsPresetsTest.php
 test/Model/AutoBackupTest.php
 test/Model/AutoReplyIsDisabledTest.php
 test/Model/AutoReplyIsEnabledTest.php
+test/Model/AutoreplyIsDisabledTest.php
+test/Model/AutoreplyIsEnabledTest.php
 test/Model/AvailabilityZoneTest.php
 test/Model/AvailableFrameworksBackendFrameworksInnerTest.php
 test/Model/AvailableFrameworksFrontendFrameworksInnerTest.php
@@ -1257,6 +1275,8 @@ test/Model/FirewallRuleProtocolTest.php
 test/Model/FirewallRuleTest.php
 test/Model/FirewallRulesOutResponseTest.php
 test/Model/FloatingIpTest.php
+test/Model/ForwardIsDisabledTest.php
+test/Model/ForwardIsEnabledTest.php
 test/Model/ForwardingIncomingIsDisabledTest.php
 test/Model/ForwardingIncomingIsEnabledTest.php
 test/Model/ForwardingOutgoingIsDisabledTest.php
@@ -1318,7 +1338,6 @@ test/Model/GetKnowledgebases200ResponseTest.php
 test/Model/GetKnowledgebasesV2200ResponseMetaTest.php
 test/Model/GetKnowledgebasesV2200ResponseTest.php
 test/Model/GetLocations200ResponseTest.php
-test/Model/GetMailQuota200ResponseTest.php
 test/Model/GetMailboxes200ResponseTest.php
 test/Model/GetNetworkDrives200ResponseTest.php
 test/Model/GetNetworkDrivesAvailableResources200ResponseTest.php
@@ -1383,6 +1402,7 @@ test/Model/LocationTest.php
 test/Model/MailboxAutoReplyTest.php
 test/Model/MailboxForwardingIncomingTest.php
 test/Model/MailboxForwardingOutgoingTest.php
+test/Model/MailboxResponseTest.php
 test/Model/MailboxSpamFilterTest.php
 test/Model/MailboxTest.php
 test/Model/MasterPresetOutApiTest.php
@@ -1410,6 +1430,8 @@ test/Model/NotificationSettingChannelsTest.php
 test/Model/NotificationSettingTest.php
 test/Model/NotificationSettingTypeTest.php
 test/Model/OSTest.php
+test/Model/OutgoingIsDisabledTest.php
+test/Model/OutgoingIsEnabledTest.php
 test/Model/PerformActionOnBackupRequestTest.php
 test/Model/PerformActionOnServerRequestTest.php
 test/Model/PolicyTest.php
@@ -1421,7 +1443,6 @@ test/Model/ProjectResourceTest.php
 test/Model/ProjectTest.php
 test/Model/ProviderTest.php
 test/Model/ProvidersTest.php
-test/Model/QuotaTest.php
 test/Model/ReduceNodesTest.php
 test/Model/RefreshApiKeyTest.php
 test/Model/RegistriesResponseTest.php
@@ -1469,6 +1490,8 @@ test/Model/SetLabelsTest.php
 test/Model/SettingConditionTest.php
 test/Model/SpamFilterIsDisabledTest.php
 test/Model/SpamFilterIsEnabledTest.php
+test/Model/SpamProtectionIsDisabledTest.php
+test/Model/SpamProtectionIsEnabledTest.php
 test/Model/SshKeyTest.php
 test/Model/SshKeyUsedByInnerTest.php
 test/Model/StatusCompanyInfoTest.php
@@ -1500,8 +1523,9 @@ test/Model/UpdateFloatingIpTest.php
 test/Model/UpdateInstanceTest.php
 test/Model/UpdateKeyRequestTest.php
 test/Model/UpdateKnowledgebaseTest.php
-test/Model/UpdateMailQuotaRequestTest.php
 test/Model/UpdateMailboxTest.php
+test/Model/UpdateMailboxV2200ResponseTest.php
+test/Model/UpdateMailboxV2Test.php
 test/Model/UpdateNetworkDriveTest.php
 test/Model/UpdateNotificationSettingsRequestSettingsInnerChannelsTest.php
 test/Model/UpdateNotificationSettingsRequestSettingsInnerTest.php

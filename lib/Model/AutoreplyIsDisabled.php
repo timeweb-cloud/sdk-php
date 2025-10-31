@@ -1,6 +1,6 @@
 <?php
 /**
- * Quota
+ * AutoreplyIsDisabled
  *
  * PHP version 7.4
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * Quota Class Doc Comment
+ * AutoreplyIsDisabled Class Doc Comment
  *
  * @category Class
- * @description Почтовая квота
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Quota implements ModelInterface, ArrayAccess, \JsonSerializable
+class AutoreplyIsDisabled implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class Quota implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'quota';
+    protected static $openAPIModelName = 'autoreply-is-disabled';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +58,7 @@ class Quota implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'float',
-        'used' => 'float'
+        'is_enabled' => 'bool'
     ];
 
     /**
@@ -71,8 +69,7 @@ class Quota implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total' => null,
-        'used' => null
+        'is_enabled' => null
     ];
 
     /**
@@ -81,8 +78,7 @@ class Quota implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total' => false,
-		'used' => false
+        'is_enabled' => false
     ];
 
     /**
@@ -171,8 +167,7 @@ class Quota implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total',
-        'used' => 'used'
+        'is_enabled' => 'is_enabled'
     ];
 
     /**
@@ -181,8 +176,7 @@ class Quota implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal',
-        'used' => 'setUsed'
+        'is_enabled' => 'setIsEnabled'
     ];
 
     /**
@@ -191,8 +185,7 @@ class Quota implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal',
-        'used' => 'getUsed'
+        'is_enabled' => 'getIsEnabled'
     ];
 
     /**
@@ -252,8 +245,7 @@ class Quota implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('total', $data ?? [], null);
-        $this->setIfExists('used', $data ?? [], null);
+        $this->setIfExists('is_enabled', $data ?? [], null);
     }
 
     /**
@@ -283,11 +275,8 @@ class Quota implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
-        if ($this->container['used'] === null) {
-            $invalidProperties[] = "'used' can't be null";
+        if ($this->container['is_enabled'] === null) {
+            $invalidProperties[] = "'is_enabled' can't be null";
         }
         return $invalidProperties;
     }
@@ -305,55 +294,28 @@ class Quota implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets total
+     * Gets is_enabled
      *
-     * @return float
+     * @return bool
      */
-    public function getTotal()
+    public function getIsEnabled()
     {
-        return $this->container['total'];
+        return $this->container['is_enabled'];
     }
 
     /**
-     * Sets total
+     * Sets is_enabled
      *
-     * @param float $total Общее количество места на почте (в Мб).
+     * @param bool $is_enabled Включен ли автоответчик на входящие письма
      *
      * @return self
      */
-    public function setTotal($total)
+    public function setIsEnabled($is_enabled)
     {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        if (is_null($is_enabled)) {
+            throw new \InvalidArgumentException('non-nullable is_enabled cannot be null');
         }
-        $this->container['total'] = $total;
-
-        return $this;
-    }
-
-    /**
-     * Gets used
-     *
-     * @return float
-     */
-    public function getUsed()
-    {
-        return $this->container['used'];
-    }
-
-    /**
-     * Sets used
-     *
-     * @param float $used Занятое место на почте (в Мб).
-     *
-     * @return self
-     */
-    public function setUsed($used)
-    {
-        if (is_null($used)) {
-            throw new \InvalidArgumentException('non-nullable used cannot be null');
-        }
-        $this->container['used'] = $used;
+        $this->container['is_enabled'] = $is_enabled;
 
         return $this;
     }

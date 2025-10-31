@@ -1,10 +1,9 @@
-# # Quota
+# # ForwardIsDisabled
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **float** | Общее количество места на почте (в Мб). |
-**used** | **float** | Занятое место на почте (в Мб). |
+**is_enabled** | **bool** | Включена ли пересылка входящих писем |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

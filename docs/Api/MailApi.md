@@ -9,12 +9,11 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**deleteMailbox()**](MailApi.md#deleteMailbox) | **DELETE** /api/v1/mail/domains/{domain}/mailboxes/{mailbox} | Удаление почтового ящика |
 | [**getDomainMailInfo()**](MailApi.md#getDomainMailInfo) | **GET** /api/v1/mail/domains/{domain}/info | Получение почтовой информации о домене |
 | [**getDomainMailboxes()**](MailApi.md#getDomainMailboxes) | **GET** /api/v1/mail/domains/{domain} | Получение списка почтовых ящиков домена |
-| [**getMailQuota()**](MailApi.md#getMailQuota) | **GET** /api/v1/mail/quota | Получение квоты почты аккаунта |
 | [**getMailbox()**](MailApi.md#getMailbox) | **GET** /api/v1/mail/domains/{domain}/mailboxes/{mailbox} | Получение почтового ящика |
 | [**getMailboxes()**](MailApi.md#getMailboxes) | **GET** /api/v1/mail | Получение списка почтовых ящиков аккаунта |
 | [**updateDomainMailInfo()**](MailApi.md#updateDomainMailInfo) | **PATCH** /api/v1/mail/domains/{domain}/info | Изменение почтовой информации о домене |
-| [**updateMailQuota()**](MailApi.md#updateMailQuota) | **PATCH** /api/v1/mail/quota | Изменение квоты почты аккаунта |
 | [**updateMailbox()**](MailApi.md#updateMailbox) | **PATCH** /api/v1/mail/domains/{domain}/mailboxes/{mailbox} | Изменение почтового ящика |
+| [**updateMailboxV2()**](MailApi.md#updateMailboxV2) | **PATCH** /api/v2/mail/domains/{domain}/mailboxes/{mailbox} | Изменение почтового ящика |
 
 
 ## `createDomainMailbox()`
@@ -328,63 +327,6 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getMailQuota()`
-
-```php
-getMailQuota(): \OpenAPI\Client\Model\GetMailQuota200Response
-```
-
-Получение квоты почты аккаунта
-
-Чтобы получить квоту почты аккаунта, отправьте GET-запрос на `/api/v1/mail/quota`.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\MailApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $result = $apiInstance->getMailQuota();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling MailApi->getMailQuota: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\OpenAPI\Client\Model\GetMailQuota200Response**](../Model/GetMailQuota200Response.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `getMailbox()`
 
 ```php
@@ -573,66 +515,6 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateMailQuota()`
-
-```php
-updateMailQuota($update_mail_quota_request): \OpenAPI\Client\Model\GetMailQuota200Response
-```
-
-Изменение квоты почты аккаунта
-
-Чтобы получить инфомацию по квоте почты аккаунта, отправьте GET-запрос на `/api/v1/mail/quota`.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\MailApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$update_mail_quota_request = new \OpenAPI\Client\Model\UpdateMailQuotaRequest(); // \OpenAPI\Client\Model\UpdateMailQuotaRequest
-
-try {
-    $result = $apiInstance->updateMailQuota($update_mail_quota_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling MailApi->updateMailQuota: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **update_mail_quota_request** | [**\OpenAPI\Client\Model\UpdateMailQuotaRequest**](../Model/UpdateMailQuotaRequest.md)|  | |
-
-### Return type
-
-[**\OpenAPI\Client\Model\GetMailQuota200Response**](../Model/GetMailQuota200Response.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `updateMailbox()`
 
 ```php
@@ -683,6 +565,70 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\CreateDomainMailbox201Response**](../Model/CreateDomainMailbox201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateMailboxV2()`
+
+```php
+updateMailboxV2($domain, $mailbox, $update_mailbox_v2): \OpenAPI\Client\Model\UpdateMailboxV2200Response
+```
+
+Изменение почтового ящика
+
+Чтобы изменить почтовый ящик, отправьте PATCH-запрос на `/api/v2/mail/domains/{domain}/mailboxes/{mailbox}`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\MailApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$domain = somedomain.ru; // string | Полное имя домена
+$mailbox = mailbox; // string | Название почтового ящика
+$update_mailbox_v2 = new \OpenAPI\Client\Model\UpdateMailboxV2(); // \OpenAPI\Client\Model\UpdateMailboxV2
+
+try {
+    $result = $apiInstance->updateMailboxV2($domain, $mailbox, $update_mailbox_v2);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MailApi->updateMailboxV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **domain** | **string**| Полное имя домена | |
+| **mailbox** | **string**| Название почтового ящика | |
+| **update_mailbox_v2** | [**\OpenAPI\Client\Model\UpdateMailboxV2**](../Model/UpdateMailboxV2.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\UpdateMailboxV2200Response**](../Model/UpdateMailboxV2200Response.md)
 
 ### Authorization
 
