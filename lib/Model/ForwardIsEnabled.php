@@ -377,7 +377,7 @@ class ForwardIsEnabled implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_leave_messages
      *
-     * @param bool|null $is_leave_messages Оставлять ли копии входящих писем в почтовом ящике (не удалять). \\  Если передан параметр `is_enabled`: `false`, то значение передавать нельзя
+     * @param bool|null $is_leave_messages Оставлять ли копии входящих писем в почтовом ящике (не удалять). \\  При `is_leave_messages`: `true`— копии входящих писем не сохраняются и будут удаляться. \\  При `is_leave_messages`: `false` — копии входящих писем сохраняются. \\ \\  Если передан параметр `is_enabled`: `false`, то значение передавать нельзя
      *
      * @return self
      */
