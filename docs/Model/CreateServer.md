@@ -20,5 +20,6 @@ Name | Type | Description | Notes
 **cloud_init** | **string** | Cloud-init скрипт | [optional]
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  | [optional]
 **project_id** | **float** | ID проекта. | [optional]
+**hostname** | **string** | Сетевое имя сервера | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

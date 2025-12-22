@@ -63,8 +63,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
         'disk_id' => 'int',
         'upload_url' => 'string',
         'location' => '\OpenAPI\Client\Model\Location',
-        'os' => '\OpenAPI\Client\Model\OS',
-        'hostname' => 'string'
+        'os' => '\OpenAPI\Client\Model\OS'
     ];
 
     /**
@@ -80,8 +79,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
         'disk_id' => null,
         'upload_url' => 'uri',
         'location' => null,
-        'os' => null,
-        'hostname' => null
+        'os' => null
     ];
 
     /**
@@ -95,8 +93,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
 		'disk_id' => false,
 		'upload_url' => false,
 		'location' => false,
-		'os' => false,
-		'hostname' => false
+		'os' => false
     ];
 
     /**
@@ -190,8 +187,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
         'disk_id' => 'disk_id',
         'upload_url' => 'upload_url',
         'location' => 'location',
-        'os' => 'os',
-        'hostname' => 'hostname'
+        'os' => 'os'
     ];
 
     /**
@@ -205,8 +201,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
         'disk_id' => 'setDiskId',
         'upload_url' => 'setUploadUrl',
         'location' => 'setLocation',
-        'os' => 'setOs',
-        'hostname' => 'setHostname'
+        'os' => 'setOs'
     ];
 
     /**
@@ -220,8 +215,7 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
         'disk_id' => 'getDiskId',
         'upload_url' => 'getUploadUrl',
         'location' => 'getLocation',
-        'os' => 'getOs',
-        'hostname' => 'getHostname'
+        'os' => 'getOs'
     ];
 
     /**
@@ -287,7 +281,6 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('upload_url', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('os', $data ?? [], null);
-        $this->setIfExists('hostname', $data ?? [], null);
     }
 
     /**
@@ -511,33 +504,6 @@ class ImageInAPI implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable os cannot be null');
         }
         $this->container['os'] = $os;
-
-        return $this;
-    }
-
-    /**
-     * Gets hostname
-     *
-     * @return string|null
-     */
-    public function getHostname()
-    {
-        return $this->container['hostname'];
-    }
-
-    /**
-     * Sets hostname
-     *
-     * @param string|null $hostname Сетевое имя сервера
-     *
-     * @return self
-     */
-    public function setHostname($hostname)
-    {
-        if (is_null($hostname)) {
-            throw new \InvalidArgumentException('non-nullable hostname cannot be null');
-        }
-        $this->container['hostname'] = $hostname;
 
         return $this;
     }
