@@ -133,4 +133,13 @@ class ImageInAPITest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "hostname"
+     */
+    public function testPropertyHostname()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }
