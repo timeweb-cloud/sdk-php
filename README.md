@@ -229,6 +229,9 @@ Class | Method | HTTP request | Description
 *AIAgentsApi* | [**getAgentStatistics**](docs/Api/AIAgentsApi.md#getagentstatistics) | **GET** /api/v1/cloud-ai/agents/{id}/statistic | Получение статистики использования токенов агента
 *AIAgentsApi* | [**getAgents**](docs/Api/AIAgentsApi.md#getagents) | **GET** /api/v1/cloud-ai/agents | Получение списка AI агентов
 *AIAgentsApi* | [**updateAgent**](docs/Api/AIAgentsApi.md#updateagent) | **PATCH** /api/v1/cloud-ai/agents/{id} | Обновление AI агента
+*AIModelsApi* | [**getAgentsTokenPackages**](docs/Api/AIModelsApi.md#getagentstokenpackages) | **GET** /api/v1/cloud-ai/token-packages/agents | Получение списка пакетов токенов для агентов
+*AIModelsApi* | [**getKnowledgebasesTokenPackages**](docs/Api/AIModelsApi.md#getknowledgebasestokenpackages) | **GET** /api/v1/cloud-ai/token-packages/knowledge-bases | Получение списка пакетов токенов для баз знаний
+*AIModelsApi* | [**getModels**](docs/Api/AIModelsApi.md#getmodels) | **GET** /api/v1/cloud-ai/models | Получение списка моделей
 *APIKeysApi* | [**createToken**](docs/Api/APIKeysApi.md#createtoken) | **POST** /api/v1/auth/api-keys | Создание токена
 *APIKeysApi* | [**deleteToken**](docs/Api/APIKeysApi.md#deletetoken) | **DELETE** /api/v1/auth/api-keys/{token_id} | Удалить токен
 *APIKeysApi* | [**getTokens**](docs/Api/APIKeysApi.md#gettokens) | **GET** /api/v1/auth/api-keys | Получение списка выпущенных токенов
@@ -747,6 +750,8 @@ Class | Method | HTTP request | Description
 - [GetAgentStatistics200ResponseMeta](docs/Model/GetAgentStatistics200ResponseMeta.md)
 - [GetAgents200Response](docs/Model/GetAgents200Response.md)
 - [GetAgents200ResponseMeta](docs/Model/GetAgents200ResponseMeta.md)
+- [GetAgentsTokenPackages200Response](docs/Model/GetAgentsTokenPackages200Response.md)
+- [GetAgentsTokenPackages200ResponseMeta](docs/Model/GetAgentsTokenPackages200ResponseMeta.md)
 - [GetAllProjectResources200Response](docs/Model/GetAllProjectResources200Response.md)
 - [GetAppDeploys200Response](docs/Model/GetAppDeploys200Response.md)
 - [GetAppLogs200Response](docs/Model/GetAppLogs200Response.md)
@@ -797,6 +802,8 @@ Class | Method | HTTP request | Description
 - [GetKnowledgebasesV2200ResponseMeta](docs/Model/GetKnowledgebasesV2200ResponseMeta.md)
 - [GetLocations200Response](docs/Model/GetLocations200Response.md)
 - [GetMailboxes200Response](docs/Model/GetMailboxes200Response.md)
+- [GetModels200Response](docs/Model/GetModels200Response.md)
+- [GetModels200ResponseMeta](docs/Model/GetModels200ResponseMeta.md)
 - [GetNetworkDrives200Response](docs/Model/GetNetworkDrives200Response.md)
 - [GetNetworkDrivesAvailableResources200Response](docs/Model/GetNetworkDrivesAvailableResources200Response.md)
 - [GetNetworkDrivesPresets200Response](docs/Model/GetNetworkDrivesPresets200Response.md)
@@ -866,6 +873,11 @@ Class | Method | HTTP request | Description
 - [MasterPresetOutApi](docs/Model/MasterPresetOutApi.md)
 - [Meta](docs/Model/Meta.md)
 - [Meta1](docs/Model/Meta1.md)
+- [Model](docs/Model/Model.md)
+- [ModelParamsInfo](docs/Model/ModelParamsInfo.md)
+- [ModelParamsInfoMaxTokens](docs/Model/ModelParamsInfoMaxTokens.md)
+- [ModelParamsInfoReasoningEffort](docs/Model/ModelParamsInfoReasoningEffort.md)
+- [ModelParamsInfoTemperature](docs/Model/ModelParamsInfoTemperature.md)
 - [ModelUse](docs/Model/ModelUse.md)
 - [MountNetworkDrive](docs/Model/MountNetworkDrive.md)
 - [Network](docs/Model/Network.md)
@@ -956,6 +968,7 @@ Class | Method | HTTP request | Description
 - [StatusCompanyInfo](docs/Model/StatusCompanyInfo.md)
 - [Subdomain](docs/Model/Subdomain.md)
 - [Tags](docs/Model/Tags.md)
+- [TokenPackage](docs/Model/TokenPackage.md)
 - [TokenStatistic](docs/Model/TokenStatistic.md)
 - [TopLevelDomain](docs/Model/TopLevelDomain.md)
 - [TopLevelDomainAllowedBuyPeriodsInner](docs/Model/TopLevelDomainAllowedBuyPeriodsInner.md)

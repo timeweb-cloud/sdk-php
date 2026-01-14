@@ -5,6 +5,7 @@
 README.md
 composer.json
 docs/Api/AIAgentsApi.md
+docs/Api/AIModelsApi.md
 docs/Api/APIKeysApi.md
 docs/Api/AccountApi.md
 docs/Api/AppsApi.md
@@ -248,6 +249,8 @@ docs/Model/GetAgentStatistics200Response.md
 docs/Model/GetAgentStatistics200ResponseMeta.md
 docs/Model/GetAgents200Response.md
 docs/Model/GetAgents200ResponseMeta.md
+docs/Model/GetAgentsTokenPackages200Response.md
+docs/Model/GetAgentsTokenPackages200ResponseMeta.md
 docs/Model/GetAllProjectResources200Response.md
 docs/Model/GetAppDeploys200Response.md
 docs/Model/GetAppLogs200Response.md
@@ -298,6 +301,8 @@ docs/Model/GetKnowledgebasesV2200Response.md
 docs/Model/GetKnowledgebasesV2200ResponseMeta.md
 docs/Model/GetLocations200Response.md
 docs/Model/GetMailboxes200Response.md
+docs/Model/GetModels200Response.md
+docs/Model/GetModels200ResponseMeta.md
 docs/Model/GetNetworkDrives200Response.md
 docs/Model/GetNetworkDrivesAvailableResources200Response.md
 docs/Model/GetNetworkDrivesPresets200Response.md
@@ -367,6 +372,11 @@ docs/Model/MailboxSpamFilter.md
 docs/Model/MasterPresetOutApi.md
 docs/Model/Meta.md
 docs/Model/Meta1.md
+docs/Model/Model.md
+docs/Model/ModelParamsInfo.md
+docs/Model/ModelParamsInfoMaxTokens.md
+docs/Model/ModelParamsInfoReasoningEffort.md
+docs/Model/ModelParamsInfoTemperature.md
 docs/Model/ModelUse.md
 docs/Model/MountNetworkDrive.md
 docs/Model/Network.md
@@ -457,6 +467,7 @@ docs/Model/Status.md
 docs/Model/StatusCompanyInfo.md
 docs/Model/Subdomain.md
 docs/Model/Tags.md
+docs/Model/TokenPackage.md
 docs/Model/TokenStatistic.md
 docs/Model/TopLevelDomain.md
 docs/Model/TopLevelDomainAllowedBuyPeriodsInner.md
@@ -523,6 +534,7 @@ docs/Model/VpcService.md
 docs/Model/WorkerPresetOutApi.md
 git_push.sh
 lib/Api/AIAgentsApi.php
+lib/Api/AIModelsApi.php
 lib/Api/APIKeysApi.php
 lib/Api/AccountApi.php
 lib/Api/AppsApi.php
@@ -769,6 +781,8 @@ lib/Model/GetAgentStatistics200Response.php
 lib/Model/GetAgentStatistics200ResponseMeta.php
 lib/Model/GetAgents200Response.php
 lib/Model/GetAgents200ResponseMeta.php
+lib/Model/GetAgentsTokenPackages200Response.php
+lib/Model/GetAgentsTokenPackages200ResponseMeta.php
 lib/Model/GetAllProjectResources200Response.php
 lib/Model/GetAppDeploys200Response.php
 lib/Model/GetAppLogs200Response.php
@@ -819,6 +833,8 @@ lib/Model/GetKnowledgebasesV2200Response.php
 lib/Model/GetKnowledgebasesV2200ResponseMeta.php
 lib/Model/GetLocations200Response.php
 lib/Model/GetMailboxes200Response.php
+lib/Model/GetModels200Response.php
+lib/Model/GetModels200ResponseMeta.php
 lib/Model/GetNetworkDrives200Response.php
 lib/Model/GetNetworkDrivesAvailableResources200Response.php
 lib/Model/GetNetworkDrivesPresets200Response.php
@@ -888,7 +904,12 @@ lib/Model/MailboxSpamFilter.php
 lib/Model/MasterPresetOutApi.php
 lib/Model/Meta.php
 lib/Model/Meta1.php
+lib/Model/Model.php
 lib/Model/ModelInterface.php
+lib/Model/ModelParamsInfo.php
+lib/Model/ModelParamsInfoMaxTokens.php
+lib/Model/ModelParamsInfoReasoningEffort.php
+lib/Model/ModelParamsInfoTemperature.php
 lib/Model/ModelUse.php
 lib/Model/MountNetworkDrive.php
 lib/Model/Network.php
@@ -979,6 +1000,7 @@ lib/Model/Status.php
 lib/Model/StatusCompanyInfo.php
 lib/Model/Subdomain.php
 lib/Model/Tags.php
+lib/Model/TokenPackage.php
 lib/Model/TokenStatistic.php
 lib/Model/TopLevelDomain.php
 lib/Model/TopLevelDomainAllowedBuyPeriodsInner.php
@@ -1046,6 +1068,7 @@ lib/Model/WorkerPresetOutApi.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/AIAgentsApiTest.php
+test/Api/AIModelsApiTest.php
 test/Api/APIKeysApiTest.php
 test/Api/AccountApiTest.php
 test/Api/AppsApiTest.php
@@ -1289,6 +1312,8 @@ test/Model/GetAgentStatistics200ResponseMetaTest.php
 test/Model/GetAgentStatistics200ResponseTest.php
 test/Model/GetAgents200ResponseMetaTest.php
 test/Model/GetAgents200ResponseTest.php
+test/Model/GetAgentsTokenPackages200ResponseMetaTest.php
+test/Model/GetAgentsTokenPackages200ResponseTest.php
 test/Model/GetAllProjectResources200ResponseTest.php
 test/Model/GetAppDeploys200ResponseTest.php
 test/Model/GetAppLogs200ResponseTest.php
@@ -1339,6 +1364,8 @@ test/Model/GetKnowledgebasesV2200ResponseMetaTest.php
 test/Model/GetKnowledgebasesV2200ResponseTest.php
 test/Model/GetLocations200ResponseTest.php
 test/Model/GetMailboxes200ResponseTest.php
+test/Model/GetModels200ResponseMetaTest.php
+test/Model/GetModels200ResponseTest.php
 test/Model/GetNetworkDrives200ResponseTest.php
 test/Model/GetNetworkDrivesAvailableResources200ResponseTest.php
 test/Model/GetNetworkDrivesPresets200ResponseTest.php
@@ -1408,6 +1435,11 @@ test/Model/MailboxTest.php
 test/Model/MasterPresetOutApiTest.php
 test/Model/Meta1Test.php
 test/Model/MetaTest.php
+test/Model/ModelParamsInfoMaxTokensTest.php
+test/Model/ModelParamsInfoReasoningEffortTest.php
+test/Model/ModelParamsInfoTemperatureTest.php
+test/Model/ModelParamsInfoTest.php
+test/Model/ModelTest.php
 test/Model/ModelUseTest.php
 test/Model/MountNetworkDriveTest.php
 test/Model/NetworkDriveAvailableResourceTest.php
@@ -1498,6 +1530,7 @@ test/Model/StatusCompanyInfoTest.php
 test/Model/StatusTest.php
 test/Model/SubdomainTest.php
 test/Model/TagsTest.php
+test/Model/TokenPackageTest.php
 test/Model/TokenStatisticTest.php
 test/Model/TopLevelDomainAllowedBuyPeriodsInnerTest.php
 test/Model/TopLevelDomainTest.php
