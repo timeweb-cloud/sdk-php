@@ -1,6 +1,6 @@
 <?php
 /**
- * MailboxResponse
+ * MailboxV2
  *
  * PHP version 7.4
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * MailboxResponse Class Doc Comment
+ * MailboxV2 Class Doc Comment
  *
  * @category Class
+ * @description Почтовый ящик (API v2)
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class MailboxV2 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'mailbox-response';
+    protected static $openAPIModelName = 'mailbox-v2';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -70,6 +71,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'outgoing_control' => 'bool',
         'outgoing_email' => 'string',
         'password' => 'string',
+        'spambox' => 'string',
         'white_list' => 'string[]',
         'webmail' => 'bool',
         'dovecot' => 'bool',
@@ -99,6 +101,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'outgoing_control' => null,
         'outgoing_email' => null,
         'password' => null,
+        'spambox' => null,
         'white_list' => null,
         'webmail' => null,
         'dovecot' => null,
@@ -126,6 +129,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 		'outgoing_control' => false,
 		'outgoing_email' => false,
 		'password' => false,
+		'spambox' => false,
 		'white_list' => false,
 		'webmail' => false,
 		'dovecot' => false,
@@ -233,6 +237,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'outgoing_control' => 'outgoing_control',
         'outgoing_email' => 'outgoing_email',
         'password' => 'password',
+        'spambox' => 'spambox',
         'white_list' => 'white_list',
         'webmail' => 'webmail',
         'dovecot' => 'dovecot',
@@ -260,6 +265,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'outgoing_control' => 'setOutgoingControl',
         'outgoing_email' => 'setOutgoingEmail',
         'password' => 'setPassword',
+        'spambox' => 'setSpambox',
         'white_list' => 'setWhiteList',
         'webmail' => 'setWebmail',
         'dovecot' => 'setDovecot',
@@ -287,6 +293,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'outgoing_control' => 'getOutgoingControl',
         'outgoing_email' => 'getOutgoingEmail',
         'password' => 'getPassword',
+        'spambox' => 'getSpambox',
         'white_list' => 'getWhiteList',
         'webmail' => 'getWebmail',
         'dovecot' => 'getDovecot',
@@ -338,7 +345,9 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const FILTER_ACTION_DIRECTORY = 'directory';
-    public const FILTER_ACTION_LABEL = 'label';
+    public const FILTER_ACTION_FORWARD = 'forward';
+    public const FILTER_ACTION_DELETE = 'delete';
+    public const FILTER_ACTION_TAG = 'tag';
 
     /**
      * Gets allowable values of the enum
@@ -349,7 +358,9 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::FILTER_ACTION_DIRECTORY,
-            self::FILTER_ACTION_LABEL,
+            self::FILTER_ACTION_FORWARD,
+            self::FILTER_ACTION_DELETE,
+            self::FILTER_ACTION_TAG,
         ];
     }
 
@@ -380,6 +391,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('outgoing_control', $data ?? [], null);
         $this->setIfExists('outgoing_email', $data ?? [], null);
         $this->setIfExists('password', $data ?? [], null);
+        $this->setIfExists('spambox', $data ?? [], null);
         $this->setIfExists('white_list', $data ?? [], null);
         $this->setIfExists('webmail', $data ?? [], null);
         $this->setIfExists('dovecot', $data ?? [], null);
@@ -416,6 +428,24 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['idn_name'] === null) {
+            $invalidProperties[] = "'idn_name' can't be null";
+        }
+        if ($this->container['autoreply_message'] === null) {
+            $invalidProperties[] = "'autoreply_message' can't be null";
+        }
+        if ($this->container['autoreply_status'] === null) {
+            $invalidProperties[] = "'autoreply_status' can't be null";
+        }
+        if ($this->container['autoreply_subject'] === null) {
+            $invalidProperties[] = "'autoreply_subject' can't be null";
+        }
+        if ($this->container['comment'] === null) {
+            $invalidProperties[] = "'comment' can't be null";
+        }
+        if ($this->container['filter_action'] === null) {
+            $invalidProperties[] = "'filter_action' can't be null";
+        }
         $allowedValues = $this->getFilterActionAllowableValues();
         if (!is_null($this->container['filter_action']) && !in_array($this->container['filter_action'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -425,6 +455,48 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['filter_status'] === null) {
+            $invalidProperties[] = "'filter_status' can't be null";
+        }
+        if ($this->container['forward_list'] === null) {
+            $invalidProperties[] = "'forward_list' can't be null";
+        }
+        if ($this->container['forward_status'] === null) {
+            $invalidProperties[] = "'forward_status' can't be null";
+        }
+        if ($this->container['outgoing_control'] === null) {
+            $invalidProperties[] = "'outgoing_control' can't be null";
+        }
+        if ($this->container['outgoing_email'] === null) {
+            $invalidProperties[] = "'outgoing_email' can't be null";
+        }
+        if ($this->container['password'] === null) {
+            $invalidProperties[] = "'password' can't be null";
+        }
+        if ($this->container['spambox'] === null) {
+            $invalidProperties[] = "'spambox' can't be null";
+        }
+        if ($this->container['white_list'] === null) {
+            $invalidProperties[] = "'white_list' can't be null";
+        }
+        if ($this->container['webmail'] === null) {
+            $invalidProperties[] = "'webmail' can't be null";
+        }
+        if ($this->container['dovecot'] === null) {
+            $invalidProperties[] = "'dovecot' can't be null";
+        }
+        if ($this->container['fqdn'] === null) {
+            $invalidProperties[] = "'fqdn' can't be null";
+        }
+        if ($this->container['leave_messages'] === null) {
+            $invalidProperties[] = "'leave_messages' can't be null";
+        }
+        if ($this->container['mailbox'] === null) {
+            $invalidProperties[] = "'mailbox' can't be null";
+        }
+        if ($this->container['owner_full_name'] === null) {
+            $invalidProperties[] = "'owner_full_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -443,7 +515,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets idn_name
      *
-     * @return string|null
+     * @return string
      */
     public function getIdnName()
     {
@@ -453,7 +525,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets idn_name
      *
-     * @param string|null $idn_name IDN имя домена
+     * @param string $idn_name IDN домен почтового ящика
      *
      * @return self
      */
@@ -470,7 +542,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets autoreply_message
      *
-     * @return string|null
+     * @return string
      */
     public function getAutoreplyMessage()
     {
@@ -480,7 +552,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets autoreply_message
      *
-     * @param string|null $autoreply_message Сообщение автоответчика
+     * @param string $autoreply_message Сообщение автоответчика на входящие письма
      *
      * @return self
      */
@@ -497,7 +569,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets autoreply_status
      *
-     * @return bool|null
+     * @return bool
      */
     public function getAutoreplyStatus()
     {
@@ -507,7 +579,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets autoreply_status
      *
-     * @param bool|null $autoreply_status Статус автоответчика
+     * @param bool $autoreply_status Включен ли автоответчик на входящие письма
      *
      * @return self
      */
@@ -524,7 +596,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets autoreply_subject
      *
-     * @return string|null
+     * @return string
      */
     public function getAutoreplySubject()
     {
@@ -534,7 +606,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets autoreply_subject
      *
-     * @param string|null $autoreply_subject Тема автоответчика
+     * @param string $autoreply_subject Тема сообщения автоответчика на входящие письма
      *
      * @return self
      */
@@ -551,7 +623,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets comment
      *
-     * @return string|null
+     * @return string
      */
     public function getComment()
     {
@@ -561,7 +633,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets comment
      *
-     * @param string|null $comment Комментарий
+     * @param string $comment Комментарий к почтовому ящику
      *
      * @return self
      */
@@ -578,7 +650,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets filter_action
      *
-     * @return string|null
+     * @return string
      */
     public function getFilterAction()
     {
@@ -588,7 +660,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets filter_action
      *
-     * @param string|null $filter_action Действие фильтра спама
+     * @param string $filter_action Что делать с письмами, которые попадают в спам
      *
      * @return self
      */
@@ -615,7 +687,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets filter_status
      *
-     * @return bool|null
+     * @return bool
      */
     public function getFilterStatus()
     {
@@ -625,7 +697,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets filter_status
      *
-     * @param bool|null $filter_status Статус фильтра спама
+     * @param bool $filter_status Включен ли спам-фильтр
      *
      * @return self
      */
@@ -642,7 +714,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets forward_list
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getForwardList()
     {
@@ -652,7 +724,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets forward_list
      *
-     * @param string[]|null $forward_list Список адресов для пересылки
+     * @param string[] $forward_list Список адресов для пересылки входящих писем
      *
      * @return self
      */
@@ -669,7 +741,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets forward_status
      *
-     * @return bool|null
+     * @return bool
      */
     public function getForwardStatus()
     {
@@ -679,7 +751,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets forward_status
      *
-     * @param bool|null $forward_status Статус пересылки
+     * @param bool $forward_status Включена ли пересылка входящих писем
      *
      * @return self
      */
@@ -696,7 +768,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets outgoing_control
      *
-     * @return bool|null
+     * @return bool
      */
     public function getOutgoingControl()
     {
@@ -706,7 +778,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets outgoing_control
      *
-     * @param bool|null $outgoing_control Контроль исходящей почты
+     * @param bool $outgoing_control Включена ли пересылка исходящих писем
      *
      * @return self
      */
@@ -723,7 +795,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets outgoing_email
      *
-     * @return string|null
+     * @return string
      */
     public function getOutgoingEmail()
     {
@@ -733,7 +805,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets outgoing_email
      *
-     * @param string|null $outgoing_email Email для исходящих писем
+     * @param string $outgoing_email Адрес для пересылки исходящих писем
      *
      * @return self
      */
@@ -750,7 +822,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets password
      *
-     * @return string|null
+     * @return string
      */
     public function getPassword()
     {
@@ -760,7 +832,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets password
      *
-     * @param string|null $password Пароль (пустая строка в ответе)
+     * @param string $password Пароль почтового ящика (всегда возвращается пустой строкой)
      *
      * @return self
      */
@@ -775,9 +847,36 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets spambox
+     *
+     * @return string
+     */
+    public function getSpambox()
+    {
+        return $this->container['spambox'];
+    }
+
+    /**
+     * Sets spambox
+     *
+     * @param string $spambox Адрес для пересылки спама при выбранном действии forward
+     *
+     * @return self
+     */
+    public function setSpambox($spambox)
+    {
+        if (is_null($spambox)) {
+            throw new \InvalidArgumentException('non-nullable spambox cannot be null');
+        }
+        $this->container['spambox'] = $spambox;
+
+        return $this;
+    }
+
+    /**
      * Gets white_list
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getWhiteList()
     {
@@ -787,7 +886,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets white_list
      *
-     * @param string[]|null $white_list Белый список адресов
+     * @param string[] $white_list Белый список адресов от которых письма не будут попадать в спам
      *
      * @return self
      */
@@ -804,7 +903,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets webmail
      *
-     * @return bool|null
+     * @return bool
      */
     public function getWebmail()
     {
@@ -814,7 +913,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets webmail
      *
-     * @param bool|null $webmail Доступ к веб-почте
+     * @param bool $webmail Доступен ли Webmail
      *
      * @return self
      */
@@ -831,7 +930,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets dovecot
      *
-     * @return bool|null
+     * @return bool
      */
     public function getDovecot()
     {
@@ -841,7 +940,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dovecot
      *
-     * @param bool|null $dovecot Использование Dovecot
+     * @param bool $dovecot Есть ли доступ через dovecot
      *
      * @return self
      */
@@ -858,7 +957,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets fqdn
      *
-     * @return string|null
+     * @return string
      */
     public function getFqdn()
     {
@@ -868,7 +967,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fqdn
      *
-     * @param string|null $fqdn Полное доменное имя
+     * @param string $fqdn Домен почты
      *
      * @return self
      */
@@ -885,7 +984,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets leave_messages
      *
-     * @return bool|null
+     * @return bool
      */
     public function getLeaveMessages()
     {
@@ -895,7 +994,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets leave_messages
      *
-     * @param bool|null $leave_messages Оставлять копии писем при пересылке
+     * @param bool $leave_messages Оставлять ли сообщения на сервере при пересылке
      *
      * @return self
      */
@@ -912,7 +1011,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets mailbox
      *
-     * @return string|null
+     * @return string
      */
     public function getMailbox()
     {
@@ -922,7 +1021,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mailbox
      *
-     * @param string|null $mailbox Имя почтового ящика
+     * @param string $mailbox Название почтового ящика
      *
      * @return self
      */
@@ -939,7 +1038,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets owner_full_name
      *
-     * @return string|null
+     * @return string
      */
     public function getOwnerFullName()
     {
@@ -949,7 +1048,7 @@ class MailboxResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets owner_full_name
      *
-     * @param string|null $owner_full_name ФИО владельца
+     * @param string $owner_full_name ФИО владельца почтового ящика
      *
      * @return self
      */

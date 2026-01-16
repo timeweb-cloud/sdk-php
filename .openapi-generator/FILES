@@ -139,6 +139,8 @@ docs/Model/CreateDomainDNSRecord201Response.md
 docs/Model/CreateDomainDNSRecordV2201Response.md
 docs/Model/CreateDomainMailbox201Response.md
 docs/Model/CreateDomainMailboxRequest.md
+docs/Model/CreateDomainMailboxV2201Response.md
+docs/Model/CreateDomainMailboxV2Request.md
 docs/Model/CreateDomainRequest201Response.md
 docs/Model/CreateFloatingIp.md
 docs/Model/CreateFloatingIp201Response.md
@@ -150,6 +152,8 @@ docs/Model/CreateKnowledgebase201Response.md
 docs/Model/CreateMultipleDomainMailboxes201Response.md
 docs/Model/CreateMultipleDomainMailboxesRequest.md
 docs/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.md
+docs/Model/CreateMultipleDomainMailboxesV2201Response.md
+docs/Model/CreateMultipleDomainMailboxesV2RequestInner.md
 docs/Model/CreateNetworkDrive.md
 docs/Model/CreateNetworkDrive201Response.md
 docs/Model/CreateProject.md
@@ -254,6 +258,7 @@ docs/Model/GetAgents200Response.md
 docs/Model/GetAgents200ResponseMeta.md
 docs/Model/GetAgentsTokenPackages200Response.md
 docs/Model/GetAgentsTokenPackages200ResponseMeta.md
+docs/Model/GetAllMailboxesV2200Response.md
 docs/Model/GetAllProjectResources200Response.md
 docs/Model/GetAppDeploys200Response.md
 docs/Model/GetAppLogs200Response.md
@@ -372,6 +377,8 @@ docs/Model/MailboxForwardingIncoming.md
 docs/Model/MailboxForwardingOutgoing.md
 docs/Model/MailboxResponse.md
 docs/Model/MailboxSpamFilter.md
+docs/Model/MailboxV2.md
+docs/Model/MailboxesBatchV2.md
 docs/Model/MasterPresetOutApi.md
 docs/Model/Meta.md
 docs/Model/Meta1.md
@@ -674,6 +681,8 @@ lib/Model/CreateDomainDNSRecord201Response.php
 lib/Model/CreateDomainDNSRecordV2201Response.php
 lib/Model/CreateDomainMailbox201Response.php
 lib/Model/CreateDomainMailboxRequest.php
+lib/Model/CreateDomainMailboxV2201Response.php
+lib/Model/CreateDomainMailboxV2Request.php
 lib/Model/CreateDomainRequest201Response.php
 lib/Model/CreateFloatingIp.php
 lib/Model/CreateFloatingIp201Response.php
@@ -685,6 +694,8 @@ lib/Model/CreateKnowledgebase201Response.php
 lib/Model/CreateMultipleDomainMailboxes201Response.php
 lib/Model/CreateMultipleDomainMailboxesRequest.php
 lib/Model/CreateMultipleDomainMailboxesRequestMailboxesInner.php
+lib/Model/CreateMultipleDomainMailboxesV2201Response.php
+lib/Model/CreateMultipleDomainMailboxesV2RequestInner.php
 lib/Model/CreateNetworkDrive.php
 lib/Model/CreateNetworkDrive201Response.php
 lib/Model/CreateProject.php
@@ -789,6 +800,7 @@ lib/Model/GetAgents200Response.php
 lib/Model/GetAgents200ResponseMeta.php
 lib/Model/GetAgentsTokenPackages200Response.php
 lib/Model/GetAgentsTokenPackages200ResponseMeta.php
+lib/Model/GetAllMailboxesV2200Response.php
 lib/Model/GetAllProjectResources200Response.php
 lib/Model/GetAppDeploys200Response.php
 lib/Model/GetAppLogs200Response.php
@@ -907,6 +919,8 @@ lib/Model/MailboxForwardingIncoming.php
 lib/Model/MailboxForwardingOutgoing.php
 lib/Model/MailboxResponse.php
 lib/Model/MailboxSpamFilter.php
+lib/Model/MailboxV2.php
+lib/Model/MailboxesBatchV2.php
 lib/Model/MasterPresetOutApi.php
 lib/Model/Meta.php
 lib/Model/Meta1.php
@@ -1208,6 +1222,8 @@ test/Model/CreateDomainDNSRecord201ResponseTest.php
 test/Model/CreateDomainDNSRecordV2201ResponseTest.php
 test/Model/CreateDomainMailbox201ResponseTest.php
 test/Model/CreateDomainMailboxRequestTest.php
+test/Model/CreateDomainMailboxV2201ResponseTest.php
+test/Model/CreateDomainMailboxV2RequestTest.php
 test/Model/CreateDomainRequest201ResponseTest.php
 test/Model/CreateFloatingIp201ResponseTest.php
 test/Model/CreateFloatingIpTest.php
@@ -1219,6 +1235,8 @@ test/Model/CreateKnowledgebaseTest.php
 test/Model/CreateMultipleDomainMailboxes201ResponseTest.php
 test/Model/CreateMultipleDomainMailboxesRequestMailboxesInnerTest.php
 test/Model/CreateMultipleDomainMailboxesRequestTest.php
+test/Model/CreateMultipleDomainMailboxesV2201ResponseTest.php
+test/Model/CreateMultipleDomainMailboxesV2RequestInnerTest.php
 test/Model/CreateNetworkDrive201ResponseTest.php
 test/Model/CreateNetworkDriveTest.php
 test/Model/CreateProject201ResponseTest.php
@@ -1323,6 +1341,7 @@ test/Model/GetAgents200ResponseMetaTest.php
 test/Model/GetAgents200ResponseTest.php
 test/Model/GetAgentsTokenPackages200ResponseMetaTest.php
 test/Model/GetAgentsTokenPackages200ResponseTest.php
+test/Model/GetAllMailboxesV2200ResponseTest.php
 test/Model/GetAllProjectResources200ResponseTest.php
 test/Model/GetAppDeploys200ResponseTest.php
 test/Model/GetAppLogs200ResponseTest.php
@@ -1441,6 +1460,8 @@ test/Model/MailboxForwardingOutgoingTest.php
 test/Model/MailboxResponseTest.php
 test/Model/MailboxSpamFilterTest.php
 test/Model/MailboxTest.php
+test/Model/MailboxV2Test.php
+test/Model/MailboxesBatchV2Test.php
 test/Model/MasterPresetOutApiTest.php
 test/Model/Meta1Test.php
 test/Model/MetaTest.php

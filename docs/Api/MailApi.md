@@ -5,11 +5,15 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createDomainMailbox()**](MailApi.md#createDomainMailbox) | **POST** /api/v1/mail/domains/{domain} | Создание почтового ящика |
+| [**createDomainMailboxV2()**](MailApi.md#createDomainMailboxV2) | **POST** /api/v2/mail/domains/{domain} | Создание почтового ящика |
 | [**createMultipleDomainMailboxes()**](MailApi.md#createMultipleDomainMailboxes) | **POST** /api/v1/mail/domains/{domain}/batch | Множественное создание почтовых ящиков |
+| [**createMultipleDomainMailboxesV2()**](MailApi.md#createMultipleDomainMailboxesV2) | **POST** /api/v2/mail/domains/{domain}/batch | Множественное создание почтовых ящиков |
 | [**deleteMailbox()**](MailApi.md#deleteMailbox) | **DELETE** /api/v1/mail/domains/{domain}/mailboxes/{mailbox} | Удаление почтового ящика |
+| [**getAllMailboxesV2()**](MailApi.md#getAllMailboxesV2) | **GET** /api/v2/mail | Получение списка всех почтовых ящиков аккаунта |
 | [**getDomainMailInfo()**](MailApi.md#getDomainMailInfo) | **GET** /api/v1/mail/domains/{domain}/info | Получение почтовой информации о домене |
 | [**getDomainMailboxes()**](MailApi.md#getDomainMailboxes) | **GET** /api/v1/mail/domains/{domain} | Получение списка почтовых ящиков домена |
 | [**getMailbox()**](MailApi.md#getMailbox) | **GET** /api/v1/mail/domains/{domain}/mailboxes/{mailbox} | Получение почтового ящика |
+| [**getMailboxV2()**](MailApi.md#getMailboxV2) | **GET** /api/v2/mail/domains/{domain}/mailboxes/{mailbox} | Получение почтового ящика |
 | [**getMailboxes()**](MailApi.md#getMailboxes) | **GET** /api/v1/mail | Получение списка почтовых ящиков аккаунта |
 | [**updateDomainMailInfo()**](MailApi.md#updateDomainMailInfo) | **PATCH** /api/v1/mail/domains/{domain}/info | Изменение почтовой информации о домене |
 | [**updateMailbox()**](MailApi.md#updateMailbox) | **PATCH** /api/v1/mail/domains/{domain}/mailboxes/{mailbox} | Изменение почтового ящика |
@@ -64,6 +68,68 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\CreateDomainMailbox201Response**](../Model/CreateDomainMailbox201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createDomainMailboxV2()`
+
+```php
+createDomainMailboxV2($domain, $create_domain_mailbox_v2_request): \OpenAPI\Client\Model\CreateDomainMailboxV2201Response
+```
+
+Создание почтового ящика
+
+Чтобы создать почтовый ящик, отправьте POST-запрос на `/api/v2/mail/domains/{domain}`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\MailApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$domain = somedomain.ru; // string | Полное имя домена
+$create_domain_mailbox_v2_request = new \OpenAPI\Client\Model\CreateDomainMailboxV2Request(); // \OpenAPI\Client\Model\CreateDomainMailboxV2Request
+
+try {
+    $result = $apiInstance->createDomainMailboxV2($domain, $create_domain_mailbox_v2_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MailApi->createDomainMailboxV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **domain** | **string**| Полное имя домена | |
+| **create_domain_mailbox_v2_request** | [**\OpenAPI\Client\Model\CreateDomainMailboxV2Request**](../Model/CreateDomainMailboxV2Request.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreateDomainMailboxV2201Response**](../Model/CreateDomainMailboxV2201Response.md)
 
 ### Authorization
 
@@ -140,6 +206,68 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createMultipleDomainMailboxesV2()`
+
+```php
+createMultipleDomainMailboxesV2($domain, $create_multiple_domain_mailboxes_v2_request_inner): \OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2201Response
+```
+
+Множественное создание почтовых ящиков
+
+Чтобы создать несколько почтовых ящиков одновременно, отправьте POST-запрос на `/api/v2/mail/domains/{domain}/batch`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\MailApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$domain = somedomain.ru; // string | Полное имя домена
+$create_multiple_domain_mailboxes_v2_request_inner = array(new \OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2RequestInner()); // \OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2RequestInner[]
+
+try {
+    $result = $apiInstance->createMultipleDomainMailboxesV2($domain, $create_multiple_domain_mailboxes_v2_request_inner);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MailApi->createMultipleDomainMailboxesV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **domain** | **string**| Полное имя домена | |
+| **create_multiple_domain_mailboxes_v2_request_inner** | [**\OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2RequestInner[]**](../Model/CreateMultipleDomainMailboxesV2RequestInner.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2201Response**](../Model/CreateMultipleDomainMailboxesV2201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `deleteMailbox()`
 
 ```php
@@ -187,6 +315,70 @@ try {
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAllMailboxesV2()`
+
+```php
+getAllMailboxesV2($limit, $offset, $search): \OpenAPI\Client\Model\GetAllMailboxesV2200Response
+```
+
+Получение списка всех почтовых ящиков аккаунта
+
+Чтобы получить список всех почтовых ящиков, отправьте GET-запрос на `/api/v2/mail`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\MailApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$limit = 100; // int | Обозначает количество записей, которое необходимо вернуть.
+$offset = 0; // int | Указывает на смещение относительно начала списка.
+$search = 'search_example'; // string | Поиск почтового ящика по названию
+
+try {
+    $result = $apiInstance->getAllMailboxesV2($limit, $offset, $search);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MailApi->getAllMailboxesV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**| Обозначает количество записей, которое необходимо вернуть. | [optional] [default to 100] |
+| **offset** | **int**| Указывает на смещение относительно начала списка. | [optional] [default to 0] |
+| **search** | **string**| Поиск почтового ящика по названию | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\GetAllMailboxesV2200Response**](../Model/GetAllMailboxesV2200Response.md)
 
 ### Authorization
 
@@ -375,6 +567,68 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\CreateDomainMailbox201Response**](../Model/CreateDomainMailbox201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMailboxV2()`
+
+```php
+getMailboxV2($domain, $mailbox): \OpenAPI\Client\Model\CreateDomainMailboxV2201Response
+```
+
+Получение почтового ящика
+
+Чтобы получить почтовый ящик, отправьте GET-запрос на `/api/v2/mail/domains/{domain}/mailboxes/{mailbox}`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\MailApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$domain = somedomain.ru; // string | Полное имя домена
+$mailbox = mailbox; // string | Название почтового ящика
+
+try {
+    $result = $apiInstance->getMailboxV2($domain, $mailbox);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MailApi->getMailboxV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **domain** | **string**| Полное имя домена | |
+| **mailbox** | **string**| Название почтового ящика | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreateDomainMailboxV2201Response**](../Model/CreateDomainMailboxV2201Response.md)
 
 ### Authorization
 

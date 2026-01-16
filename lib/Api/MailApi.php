@@ -75,10 +75,19 @@ class MailApi
         'createDomainMailbox' => [
             'application/json',
         ],
+        'createDomainMailboxV2' => [
+            'application/json',
+        ],
         'createMultipleDomainMailboxes' => [
             'application/json',
         ],
+        'createMultipleDomainMailboxesV2' => [
+            'application/json',
+        ],
         'deleteMailbox' => [
+            'application/json',
+        ],
+        'getAllMailboxesV2' => [
             'application/json',
         ],
         'getDomainMailInfo' => [
@@ -88,6 +97,9 @@ class MailApi
             'application/json',
         ],
         'getMailbox' => [
+            'application/json',
+        ],
+        'getMailboxV2' => [
             'application/json',
         ],
         'getMailboxes' => [
@@ -162,6 +174,7 @@ class MailApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CreateDomainMailbox201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @deprecated
      */
     public function createDomainMailbox($domain, $create_domain_mailbox_request, string $contentType = self::contentTypes['createDomainMailbox'][0])
     {
@@ -181,6 +194,7 @@ class MailApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CreateDomainMailbox201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function createDomainMailboxWithHttpInfo($domain, $create_domain_mailbox_request, string $contentType = self::contentTypes['createDomainMailbox'][0])
     {
@@ -419,6 +433,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function createDomainMailboxAsync($domain, $create_domain_mailbox_request, string $contentType = self::contentTypes['createDomainMailbox'][0])
     {
@@ -441,6 +456,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function createDomainMailboxAsyncWithHttpInfo($domain, $create_domain_mailbox_request, string $contentType = self::contentTypes['createDomainMailbox'][0])
     {
@@ -492,6 +508,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function createDomainMailboxRequest($domain, $create_domain_mailbox_request, string $contentType = self::contentTypes['createDomainMailbox'][0])
     {
@@ -595,6 +612,473 @@ class MailApi
     }
 
     /**
+     * Operation createDomainMailboxV2
+     *
+     * Создание почтового ящика
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  \OpenAPI\Client\Model\CreateDomainMailboxV2Request $create_domain_mailbox_v2_request create_domain_mailbox_v2_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainMailboxV2'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CreateDomainMailboxV2201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function createDomainMailboxV2($domain, $create_domain_mailbox_v2_request, string $contentType = self::contentTypes['createDomainMailboxV2'][0])
+    {
+        list($response) = $this->createDomainMailboxV2WithHttpInfo($domain, $create_domain_mailbox_v2_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createDomainMailboxV2WithHttpInfo
+     *
+     * Создание почтового ящика
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  \OpenAPI\Client\Model\CreateDomainMailboxV2Request $create_domain_mailbox_v2_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainMailboxV2'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\CreateDomainMailboxV2201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createDomainMailboxV2WithHttpInfo($domain, $create_domain_mailbox_v2_request, string $contentType = self::contentTypes['createDomainMailboxV2'][0])
+    {
+        $request = $this->createDomainMailboxV2Request($domain, $create_domain_mailbox_v2_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\OpenAPI\Client\Model\CreateDomainMailboxV2201Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\CreateDomainMailboxV2201Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDomainMailboxV2201Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CreateDomainMailboxV2201Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDomainMailboxV2201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createDomainMailboxV2Async
+     *
+     * Создание почтового ящика
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  \OpenAPI\Client\Model\CreateDomainMailboxV2Request $create_domain_mailbox_v2_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainMailboxV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createDomainMailboxV2Async($domain, $create_domain_mailbox_v2_request, string $contentType = self::contentTypes['createDomainMailboxV2'][0])
+    {
+        return $this->createDomainMailboxV2AsyncWithHttpInfo($domain, $create_domain_mailbox_v2_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createDomainMailboxV2AsyncWithHttpInfo
+     *
+     * Создание почтового ящика
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  \OpenAPI\Client\Model\CreateDomainMailboxV2Request $create_domain_mailbox_v2_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainMailboxV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createDomainMailboxV2AsyncWithHttpInfo($domain, $create_domain_mailbox_v2_request, string $contentType = self::contentTypes['createDomainMailboxV2'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\CreateDomainMailboxV2201Response';
+        $request = $this->createDomainMailboxV2Request($domain, $create_domain_mailbox_v2_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createDomainMailboxV2'
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  \OpenAPI\Client\Model\CreateDomainMailboxV2Request $create_domain_mailbox_v2_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainMailboxV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createDomainMailboxV2Request($domain, $create_domain_mailbox_v2_request, string $contentType = self::contentTypes['createDomainMailboxV2'][0])
+    {
+
+        // verify the required parameter 'domain' is set
+        if ($domain === null || (is_array($domain) && count($domain) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $domain when calling createDomainMailboxV2'
+            );
+        }
+
+        // verify the required parameter 'create_domain_mailbox_v2_request' is set
+        if ($create_domain_mailbox_v2_request === null || (is_array($create_domain_mailbox_v2_request) && count($create_domain_mailbox_v2_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $create_domain_mailbox_v2_request when calling createDomainMailboxV2'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/mail/domains/{domain}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($domain !== null) {
+            $resourcePath = str_replace(
+                '{' . 'domain' . '}',
+                ObjectSerializer::toPathValue($domain),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($create_domain_mailbox_v2_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_domain_mailbox_v2_request));
+            } else {
+                $httpBody = $create_domain_mailbox_v2_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation createMultipleDomainMailboxes
      *
      * Множественное создание почтовых ящиков
@@ -606,6 +1090,7 @@ class MailApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CreateMultipleDomainMailboxes201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @deprecated
      */
     public function createMultipleDomainMailboxes($domain, $create_multiple_domain_mailboxes_request, string $contentType = self::contentTypes['createMultipleDomainMailboxes'][0])
     {
@@ -625,6 +1110,7 @@ class MailApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CreateMultipleDomainMailboxes201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function createMultipleDomainMailboxesWithHttpInfo($domain, $create_multiple_domain_mailboxes_request, string $contentType = self::contentTypes['createMultipleDomainMailboxes'][0])
     {
@@ -863,6 +1349,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function createMultipleDomainMailboxesAsync($domain, $create_multiple_domain_mailboxes_request, string $contentType = self::contentTypes['createMultipleDomainMailboxes'][0])
     {
@@ -885,6 +1372,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function createMultipleDomainMailboxesAsyncWithHttpInfo($domain, $create_multiple_domain_mailboxes_request, string $contentType = self::contentTypes['createMultipleDomainMailboxes'][0])
     {
@@ -936,6 +1424,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function createMultipleDomainMailboxesRequest($domain, $create_multiple_domain_mailboxes_request, string $contentType = self::contentTypes['createMultipleDomainMailboxes'][0])
     {
@@ -987,6 +1476,450 @@ class MailApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_multiple_domain_mailboxes_request));
             } else {
                 $httpBody = $create_multiple_domain_mailboxes_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createMultipleDomainMailboxesV2
+     *
+     * Множественное создание почтовых ящиков
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  \OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2RequestInner[] $create_multiple_domain_mailboxes_v2_request_inner create_multiple_domain_mailboxes_v2_request_inner (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMultipleDomainMailboxesV2'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function createMultipleDomainMailboxesV2($domain, $create_multiple_domain_mailboxes_v2_request_inner, string $contentType = self::contentTypes['createMultipleDomainMailboxesV2'][0])
+    {
+        list($response) = $this->createMultipleDomainMailboxesV2WithHttpInfo($domain, $create_multiple_domain_mailboxes_v2_request_inner, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createMultipleDomainMailboxesV2WithHttpInfo
+     *
+     * Множественное создание почтовых ящиков
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  \OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2RequestInner[] $create_multiple_domain_mailboxes_v2_request_inner (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMultipleDomainMailboxesV2'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createMultipleDomainMailboxesV2WithHttpInfo($domain, $create_multiple_domain_mailboxes_v2_request_inner, string $contentType = self::contentTypes['createMultipleDomainMailboxesV2'][0])
+    {
+        $request = $this->createMultipleDomainMailboxesV2Request($domain, $create_multiple_domain_mailboxes_v2_request_inner, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2201Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2201Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2201Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2201Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createMultipleDomainMailboxesV2Async
+     *
+     * Множественное создание почтовых ящиков
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  \OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2RequestInner[] $create_multiple_domain_mailboxes_v2_request_inner (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMultipleDomainMailboxesV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createMultipleDomainMailboxesV2Async($domain, $create_multiple_domain_mailboxes_v2_request_inner, string $contentType = self::contentTypes['createMultipleDomainMailboxesV2'][0])
+    {
+        return $this->createMultipleDomainMailboxesV2AsyncWithHttpInfo($domain, $create_multiple_domain_mailboxes_v2_request_inner, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createMultipleDomainMailboxesV2AsyncWithHttpInfo
+     *
+     * Множественное создание почтовых ящиков
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  \OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2RequestInner[] $create_multiple_domain_mailboxes_v2_request_inner (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMultipleDomainMailboxesV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createMultipleDomainMailboxesV2AsyncWithHttpInfo($domain, $create_multiple_domain_mailboxes_v2_request_inner, string $contentType = self::contentTypes['createMultipleDomainMailboxesV2'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2201Response';
+        $request = $this->createMultipleDomainMailboxesV2Request($domain, $create_multiple_domain_mailboxes_v2_request_inner, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createMultipleDomainMailboxesV2'
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  \OpenAPI\Client\Model\CreateMultipleDomainMailboxesV2RequestInner[] $create_multiple_domain_mailboxes_v2_request_inner (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMultipleDomainMailboxesV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createMultipleDomainMailboxesV2Request($domain, $create_multiple_domain_mailboxes_v2_request_inner, string $contentType = self::contentTypes['createMultipleDomainMailboxesV2'][0])
+    {
+
+        // verify the required parameter 'domain' is set
+        if ($domain === null || (is_array($domain) && count($domain) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $domain when calling createMultipleDomainMailboxesV2'
+            );
+        }
+
+        // verify the required parameter 'create_multiple_domain_mailboxes_v2_request_inner' is set
+        if ($create_multiple_domain_mailboxes_v2_request_inner === null || (is_array($create_multiple_domain_mailboxes_v2_request_inner) && count($create_multiple_domain_mailboxes_v2_request_inner) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $create_multiple_domain_mailboxes_v2_request_inner when calling createMultipleDomainMailboxesV2'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/mail/domains/{domain}/batch';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($domain !== null) {
+            $resourcePath = str_replace(
+                '{' . 'domain' . '}',
+                ObjectSerializer::toPathValue($domain),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($create_multiple_domain_mailboxes_v2_request_inner)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_multiple_domain_mailboxes_v2_request_inner));
+            } else {
+                $httpBody = $create_multiple_domain_mailboxes_v2_request_inner;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1340,6 +2273,433 @@ class MailApi
     }
 
     /**
+     * Operation getAllMailboxesV2
+     *
+     * Получение списка всех почтовых ящиков аккаунта
+     *
+     * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
+     * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
+     * @param  string $search Поиск почтового ящика по названию (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllMailboxesV2'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\GetAllMailboxesV2200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function getAllMailboxesV2($limit = 100, $offset = 0, $search = null, string $contentType = self::contentTypes['getAllMailboxesV2'][0])
+    {
+        list($response) = $this->getAllMailboxesV2WithHttpInfo($limit, $offset, $search, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getAllMailboxesV2WithHttpInfo
+     *
+     * Получение списка всех почтовых ящиков аккаунта
+     *
+     * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
+     * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
+     * @param  string $search Поиск почтового ящика по названию (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllMailboxesV2'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\GetAllMailboxesV2200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAllMailboxesV2WithHttpInfo($limit = 100, $offset = 0, $search = null, string $contentType = self::contentTypes['getAllMailboxesV2'][0])
+    {
+        $request = $this->getAllMailboxesV2Request($limit, $offset, $search, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\GetAllMailboxesV2200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAllMailboxesV2200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAllMailboxesV2200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\GetAllMailboxesV2200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAllMailboxesV2200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAllMailboxesV2Async
+     *
+     * Получение списка всех почтовых ящиков аккаунта
+     *
+     * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
+     * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
+     * @param  string $search Поиск почтового ящика по названию (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllMailboxesV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAllMailboxesV2Async($limit = 100, $offset = 0, $search = null, string $contentType = self::contentTypes['getAllMailboxesV2'][0])
+    {
+        return $this->getAllMailboxesV2AsyncWithHttpInfo($limit, $offset, $search, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAllMailboxesV2AsyncWithHttpInfo
+     *
+     * Получение списка всех почтовых ящиков аккаунта
+     *
+     * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
+     * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
+     * @param  string $search Поиск почтового ящика по названию (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllMailboxesV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAllMailboxesV2AsyncWithHttpInfo($limit = 100, $offset = 0, $search = null, string $contentType = self::contentTypes['getAllMailboxesV2'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\GetAllMailboxesV2200Response';
+        $request = $this->getAllMailboxesV2Request($limit, $offset, $search, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAllMailboxesV2'
+     *
+     * @param  int $limit Обозначает количество записей, которое необходимо вернуть. (optional, default to 100)
+     * @param  int $offset Указывает на смещение относительно начала списка. (optional, default to 0)
+     * @param  string $search Поиск почтового ящика по названию (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllMailboxesV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAllMailboxesV2Request($limit = 100, $offset = 0, $search = null, string $contentType = self::contentTypes['getAllMailboxesV2'][0])
+    {
+
+
+
+
+
+        $resourcePath = '/api/v2/mail';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $search,
+            'search', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getDomainMailInfo
      *
      * Получение почтовой информации о домене
@@ -1350,6 +2710,7 @@ class MailApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetDomainMailInfo200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @deprecated
      */
     public function getDomainMailInfo($domain, string $contentType = self::contentTypes['getDomainMailInfo'][0])
     {
@@ -1368,6 +2729,7 @@ class MailApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetDomainMailInfo200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getDomainMailInfoWithHttpInfo($domain, string $contentType = self::contentTypes['getDomainMailInfo'][0])
     {
@@ -1605,6 +2967,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getDomainMailInfoAsync($domain, string $contentType = self::contentTypes['getDomainMailInfo'][0])
     {
@@ -1626,6 +2989,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getDomainMailInfoAsyncWithHttpInfo($domain, string $contentType = self::contentTypes['getDomainMailInfo'][0])
     {
@@ -1676,6 +3040,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getDomainMailInfoRequest($domain, string $contentType = self::contentTypes['getDomainMailInfo'][0])
     {
@@ -2246,6 +3611,7 @@ class MailApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CreateDomainMailbox201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @deprecated
      */
     public function getMailbox($domain, $mailbox, string $contentType = self::contentTypes['getMailbox'][0])
     {
@@ -2265,6 +3631,7 @@ class MailApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CreateDomainMailbox201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getMailboxWithHttpInfo($domain, $mailbox, string $contentType = self::contentTypes['getMailbox'][0])
     {
@@ -2503,6 +3870,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getMailboxAsync($domain, $mailbox, string $contentType = self::contentTypes['getMailbox'][0])
     {
@@ -2525,6 +3893,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getMailboxAsyncWithHttpInfo($domain, $mailbox, string $contentType = self::contentTypes['getMailbox'][0])
     {
@@ -2576,6 +3945,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getMailboxRequest($domain, $mailbox, string $contentType = self::contentTypes['getMailbox'][0])
     {
@@ -2680,6 +4050,451 @@ class MailApi
     }
 
     /**
+     * Operation getMailboxV2
+     *
+     * Получение почтового ящика
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  string $mailbox Название почтового ящика (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMailboxV2'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CreateDomainMailboxV2201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function getMailboxV2($domain, $mailbox, string $contentType = self::contentTypes['getMailboxV2'][0])
+    {
+        list($response) = $this->getMailboxV2WithHttpInfo($domain, $mailbox, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getMailboxV2WithHttpInfo
+     *
+     * Получение почтового ящика
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  string $mailbox Название почтового ящика (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMailboxV2'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\CreateDomainMailboxV2201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMailboxV2WithHttpInfo($domain, $mailbox, string $contentType = self::contentTypes['getMailboxV2'][0])
+    {
+        $request = $this->getMailboxV2Request($domain, $mailbox, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\CreateDomainMailboxV2201Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\CreateDomainMailboxV2201Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDomainMailboxV2201Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CreateDomainMailboxV2201Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDomainMailboxV2201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMailboxV2Async
+     *
+     * Получение почтового ящика
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  string $mailbox Название почтового ящика (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMailboxV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMailboxV2Async($domain, $mailbox, string $contentType = self::contentTypes['getMailboxV2'][0])
+    {
+        return $this->getMailboxV2AsyncWithHttpInfo($domain, $mailbox, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMailboxV2AsyncWithHttpInfo
+     *
+     * Получение почтового ящика
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  string $mailbox Название почтового ящика (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMailboxV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMailboxV2AsyncWithHttpInfo($domain, $mailbox, string $contentType = self::contentTypes['getMailboxV2'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\CreateDomainMailboxV2201Response';
+        $request = $this->getMailboxV2Request($domain, $mailbox, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMailboxV2'
+     *
+     * @param  string $domain Полное имя домена (required)
+     * @param  string $mailbox Название почтового ящика (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMailboxV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMailboxV2Request($domain, $mailbox, string $contentType = self::contentTypes['getMailboxV2'][0])
+    {
+
+        // verify the required parameter 'domain' is set
+        if ($domain === null || (is_array($domain) && count($domain) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $domain when calling getMailboxV2'
+            );
+        }
+
+        // verify the required parameter 'mailbox' is set
+        if ($mailbox === null || (is_array($mailbox) && count($mailbox) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $mailbox when calling getMailboxV2'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/mail/domains/{domain}/mailboxes/{mailbox}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($domain !== null) {
+            $resourcePath = str_replace(
+                '{' . 'domain' . '}',
+                ObjectSerializer::toPathValue($domain),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($mailbox !== null) {
+            $resourcePath = str_replace(
+                '{' . 'mailbox' . '}',
+                ObjectSerializer::toPathValue($mailbox),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getMailboxes
      *
      * Получение списка почтовых ящиков аккаунта
@@ -2692,6 +4507,7 @@ class MailApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetMailboxes200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @deprecated
      */
     public function getMailboxes($limit = 100, $offset = 0, $search = null, string $contentType = self::contentTypes['getMailboxes'][0])
     {
@@ -2712,6 +4528,7 @@ class MailApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetMailboxes200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getMailboxesWithHttpInfo($limit = 100, $offset = 0, $search = null, string $contentType = self::contentTypes['getMailboxes'][0])
     {
@@ -2928,6 +4745,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getMailboxesAsync($limit = 100, $offset = 0, $search = null, string $contentType = self::contentTypes['getMailboxes'][0])
     {
@@ -2951,6 +4769,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getMailboxesAsyncWithHttpInfo($limit = 100, $offset = 0, $search = null, string $contentType = self::contentTypes['getMailboxes'][0])
     {
@@ -3003,6 +4822,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getMailboxesRequest($limit = 100, $offset = 0, $search = null, string $contentType = self::contentTypes['getMailboxes'][0])
     {
@@ -3118,6 +4938,7 @@ class MailApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetDomainMailInfo200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @deprecated
      */
     public function updateDomainMailInfo($domain, $update_domain_mail_info_request, string $contentType = self::contentTypes['updateDomainMailInfo'][0])
     {
@@ -3137,6 +4958,7 @@ class MailApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetDomainMailInfo200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateDomainMailInfoWithHttpInfo($domain, $update_domain_mail_info_request, string $contentType = self::contentTypes['updateDomainMailInfo'][0])
     {
@@ -3375,6 +5197,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function updateDomainMailInfoAsync($domain, $update_domain_mail_info_request, string $contentType = self::contentTypes['updateDomainMailInfo'][0])
     {
@@ -3397,6 +5220,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function updateDomainMailInfoAsyncWithHttpInfo($domain, $update_domain_mail_info_request, string $contentType = self::contentTypes['updateDomainMailInfo'][0])
     {
@@ -3448,6 +5272,7 @@ class MailApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function updateDomainMailInfoRequest($domain, $update_domain_mail_info_request, string $contentType = self::contentTypes['updateDomainMailInfo'][0])
     {
