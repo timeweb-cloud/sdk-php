@@ -5,7 +5,6 @@
 README.md
 composer.json
 docs/Api/AIAgentsApi.md
-docs/Api/AIModelsApi.md
 docs/Api/APIKeysApi.md
 docs/Api/AccountApi.md
 docs/Api/AppsApi.md
@@ -538,7 +537,6 @@ docs/Model/VpcService.md
 docs/Model/WorkerPresetOutApi.md
 git_push.sh
 lib/Api/AIAgentsApi.php
-lib/Api/AIModelsApi.php
 lib/Api/APIKeysApi.php
 lib/Api/AccountApi.php
 lib/Api/AppsApi.php
@@ -1076,7 +1074,6 @@ lib/Model/WorkerPresetOutApi.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/AIAgentsApiTest.php
-test/Api/AIModelsApiTest.php
 test/Api/APIKeysApiTest.php
 test/Api/AccountApiTest.php
 test/Api/AppsApiTest.php

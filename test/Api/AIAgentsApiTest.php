@@ -145,6 +145,42 @@ class AIAgentsApiTest extends TestCase
     }
 
     /**
+     * Test case for getAgentsTokenPackages
+     *
+     * Получение списка пакетов токенов для агентов.
+     *
+     */
+    public function testGetAgentsTokenPackages()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getKnowledgebasesTokenPackages
+     *
+     * Получение списка пакетов токенов для баз знаний.
+     *
+     */
+    public function testGetKnowledgebasesTokenPackages()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getModels
+     *
+     * Получение списка моделей.
+     *
+     */
+    public function testGetModels()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for updateAgent
      *
      * Обновление AI агента.

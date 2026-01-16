@@ -228,10 +228,10 @@ Class | Method | HTTP request | Description
 *AIAgentsApi* | [**getAgent**](docs/Api/AIAgentsApi.md#getagent) | **GET** /api/v1/cloud-ai/agents/{id} | Получение AI агента
 *AIAgentsApi* | [**getAgentStatistics**](docs/Api/AIAgentsApi.md#getagentstatistics) | **GET** /api/v1/cloud-ai/agents/{id}/statistic | Получение статистики использования токенов агента
 *AIAgentsApi* | [**getAgents**](docs/Api/AIAgentsApi.md#getagents) | **GET** /api/v1/cloud-ai/agents | Получение списка AI агентов
+*AIAgentsApi* | [**getAgentsTokenPackages**](docs/Api/AIAgentsApi.md#getagentstokenpackages) | **GET** /api/v1/cloud-ai/token-packages/agents | Получение списка пакетов токенов для агентов
+*AIAgentsApi* | [**getKnowledgebasesTokenPackages**](docs/Api/AIAgentsApi.md#getknowledgebasestokenpackages) | **GET** /api/v1/cloud-ai/token-packages/knowledge-bases | Получение списка пакетов токенов для баз знаний
+*AIAgentsApi* | [**getModels**](docs/Api/AIAgentsApi.md#getmodels) | **GET** /api/v1/cloud-ai/models | Получение списка моделей
 *AIAgentsApi* | [**updateAgent**](docs/Api/AIAgentsApi.md#updateagent) | **PATCH** /api/v1/cloud-ai/agents/{id} | Обновление AI агента
-*AIModelsApi* | [**getAgentsTokenPackages**](docs/Api/AIModelsApi.md#getagentstokenpackages) | **GET** /api/v1/cloud-ai/token-packages/agents | Получение списка пакетов токенов для агентов
-*AIModelsApi* | [**getKnowledgebasesTokenPackages**](docs/Api/AIModelsApi.md#getknowledgebasestokenpackages) | **GET** /api/v1/cloud-ai/token-packages/knowledge-bases | Получение списка пакетов токенов для баз знаний
-*AIModelsApi* | [**getModels**](docs/Api/AIModelsApi.md#getmodels) | **GET** /api/v1/cloud-ai/models | Получение списка моделей
 *APIKeysApi* | [**createToken**](docs/Api/APIKeysApi.md#createtoken) | **POST** /api/v1/auth/api-keys | Создание токена
 *APIKeysApi* | [**deleteToken**](docs/Api/APIKeysApi.md#deletetoken) | **DELETE** /api/v1/auth/api-keys/{token_id} | Удалить токен
 *APIKeysApi* | [**getTokens**](docs/Api/APIKeysApi.md#gettokens) | **GET** /api/v1/auth/api-keys | Получение списка выпущенных токенов
