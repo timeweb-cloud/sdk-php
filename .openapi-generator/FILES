@@ -135,7 +135,9 @@ docs/Model/CreateDedicatedServer201Response.md
 docs/Model/CreateDeploy201Response.md
 docs/Model/CreateDeployRequest.md
 docs/Model/CreateDns.md
+docs/Model/CreateDnsV2.md
 docs/Model/CreateDomainDNSRecord201Response.md
+docs/Model/CreateDomainDNSRecordV2201Response.md
 docs/Model/CreateDomainMailbox201Response.md
 docs/Model/CreateDomainMailboxRequest.md
 docs/Model/CreateDomainRequest201Response.md
@@ -205,6 +207,8 @@ docs/Model/DeploySettingsInner.md
 docs/Model/DeployStatus.md
 docs/Model/DnsRecord.md
 docs/Model/DnsRecordData.md
+docs/Model/DnsRecordV2.md
+docs/Model/DnsRecordV2Data.md
 docs/Model/Document.md
 docs/Model/DocumentStatusInfo.md
 docs/Model/DocumentStatusInfoDetails.md
@@ -667,7 +671,9 @@ lib/Model/CreateDedicatedServer201Response.php
 lib/Model/CreateDeploy201Response.php
 lib/Model/CreateDeployRequest.php
 lib/Model/CreateDns.php
+lib/Model/CreateDnsV2.php
 lib/Model/CreateDomainDNSRecord201Response.php
+lib/Model/CreateDomainDNSRecordV2201Response.php
 lib/Model/CreateDomainMailbox201Response.php
 lib/Model/CreateDomainMailboxRequest.php
 lib/Model/CreateDomainRequest201Response.php
@@ -737,6 +743,8 @@ lib/Model/DeploySettingsInner.php
 lib/Model/DeployStatus.php
 lib/Model/DnsRecord.php
 lib/Model/DnsRecordData.php
+lib/Model/DnsRecordV2.php
+lib/Model/DnsRecordV2Data.php
 lib/Model/Document.php
 lib/Model/DocumentStatusInfo.php
 lib/Model/DocumentStatusInfoDetails.php
@@ -1198,7 +1206,9 @@ test/Model/CreateDedicatedServerTest.php
 test/Model/CreateDeploy201ResponseTest.php
 test/Model/CreateDeployRequestTest.php
 test/Model/CreateDnsTest.php
+test/Model/CreateDnsV2Test.php
 test/Model/CreateDomainDNSRecord201ResponseTest.php
+test/Model/CreateDomainDNSRecordV2201ResponseTest.php
 test/Model/CreateDomainMailbox201ResponseTest.php
 test/Model/CreateDomainMailboxRequestTest.php
 test/Model/CreateDomainRequest201ResponseTest.php
@@ -1268,6 +1278,8 @@ test/Model/DeployStatusTest.php
 test/Model/DeployTest.php
 test/Model/DnsRecordDataTest.php
 test/Model/DnsRecordTest.php
+test/Model/DnsRecordV2DataTest.php
+test/Model/DnsRecordV2Test.php
 test/Model/DocumentStatusInfoDetailsTest.php
 test/Model/DocumentStatusInfoTest.php
 test/Model/DocumentTest.php

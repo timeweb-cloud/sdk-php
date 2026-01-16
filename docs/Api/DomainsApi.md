@@ -8,9 +8,11 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**addSubdomain()**](DomainsApi.md#addSubdomain) | **POST** /api/v1/domains/{fqdn}/subdomains/{subdomain_fqdn} | Добавление поддомена |
 | [**checkDomain()**](DomainsApi.md#checkDomain) | **GET** /api/v1/check-domain/{fqdn} | Проверить, доступен ли домен для регистрации |
 | [**createDomainDNSRecord()**](DomainsApi.md#createDomainDNSRecord) | **POST** /api/v1/domains/{fqdn}/dns-records | Добавить информацию о DNS-записи для домена или поддомена |
+| [**createDomainDNSRecordV2()**](DomainsApi.md#createDomainDNSRecordV2) | **POST** /api/v2/domains/{fqdn}/dns-records | Добавить информацию о DNS-записи для домена или поддомена |
 | [**createDomainRequest()**](DomainsApi.md#createDomainRequest) | **POST** /api/v1/domains-requests | Создание заявки на регистрацию/продление/трансфер домена |
 | [**deleteDomain()**](DomainsApi.md#deleteDomain) | **DELETE** /api/v1/domains/{fqdn} | Удаление домена |
 | [**deleteDomainDNSRecord()**](DomainsApi.md#deleteDomainDNSRecord) | **DELETE** /api/v1/domains/{fqdn}/dns-records/{record_id} | Удалить информацию о DNS-записи для домена или поддомена |
+| [**deleteDomainDNSRecordV2()**](DomainsApi.md#deleteDomainDNSRecordV2) | **DELETE** /api/v2/domains/{fqdn}/dns-records/{record_id} | Удалить информацию о DNS-записи для домена или поддомена |
 | [**deleteSubdomain()**](DomainsApi.md#deleteSubdomain) | **DELETE** /api/v1/domains/{fqdn}/subdomains/{subdomain_fqdn} | Удаление поддомена |
 | [**getDomain()**](DomainsApi.md#getDomain) | **GET** /api/v1/domains/{fqdn} | Получение информации о домене |
 | [**getDomainDNSRecords()**](DomainsApi.md#getDomainDNSRecords) | **GET** /api/v1/domains/{fqdn}/dns-records | Получить информацию обо всех пользовательских DNS-записях домена или поддомена |
@@ -23,6 +25,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getTLDs()**](DomainsApi.md#getTLDs) | **GET** /api/v1/tlds | Получить информацию о доменных зонах |
 | [**updateDomainAutoProlongation()**](DomainsApi.md#updateDomainAutoProlongation) | **PATCH** /api/v1/domains/{fqdn} | Включение/выключение автопродления домена |
 | [**updateDomainDNSRecord()**](DomainsApi.md#updateDomainDNSRecord) | **PATCH** /api/v1/domains/{fqdn}/dns-records/{record_id} | Обновить информацию о DNS-записи домена или поддомена |
+| [**updateDomainDNSRecordV2()**](DomainsApi.md#updateDomainDNSRecordV2) | **PATCH** /api/v2/domains/{fqdn}/dns-records/{record_id} | Обновить информацию о DNS-записи домена или поддомена |
 | [**updateDomainNameServers()**](DomainsApi.md#updateDomainNameServers) | **PUT** /api/v1/domains/{fqdn}/name-servers | Изменение name-серверов домена |
 | [**updateDomainRequest()**](DomainsApi.md#updateDomainRequest) | **PATCH** /api/v1/domains-requests/{request_id} | Оплата/обновление заявки на регистрацию/продление/трансфер домена |
 
@@ -270,6 +273,68 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createDomainDNSRecordV2()`
+
+```php
+createDomainDNSRecordV2($fqdn, $create_dns_v2): \OpenAPI\Client\Model\CreateDomainDNSRecordV2201Response
+```
+
+Добавить информацию о DNS-записи для домена или поддомена
+
+Чтобы добавить информацию о DNS-записи для домена или поддомена, отправьте запрос POST на `/api/v2/domains/{fqdn}/dns-records`, задав необходимые атрибуты.  DNS-запись будет добавлена с использованием предоставленной информации. Тело ответа будет содержать объект JSON с информацией о добавленной DNS-записи.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DomainsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$fqdn = somedomain.ru; // string | Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, `somedomain.ru`). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, `sub.somedomain.ru`).
+$create_dns_v2 = new \OpenAPI\Client\Model\CreateDnsV2(); // \OpenAPI\Client\Model\CreateDnsV2
+
+try {
+    $result = $apiInstance->createDomainDNSRecordV2($fqdn, $create_dns_v2);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DomainsApi->createDomainDNSRecordV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fqdn** | **string**| Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). | |
+| **create_dns_v2** | [**\OpenAPI\Client\Model\CreateDnsV2**](../Model/CreateDnsV2.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreateDomainDNSRecordV2201Response**](../Model/CreateDomainDNSRecordV2201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `createDomainRequest()`
 
 ```php
@@ -431,6 +496,67 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **fqdn** | **string**| Полное имя домена или поддомена. | |
+| **record_id** | **int**| ID DNS-записи домена или поддомена. | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteDomainDNSRecordV2()`
+
+```php
+deleteDomainDNSRecordV2($fqdn, $record_id)
+```
+
+Удалить информацию о DNS-записи для домена или поддомена
+
+Чтобы удалить информацию о DNS-записи для домена или поддомена, отправьте запрос DELETE на `/api/v2/domains/{fqdn}/dns-records/{record_id}`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DomainsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$fqdn = somedomain.ru; // string | Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, `somedomain.ru`). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, `sub.somedomain.ru`).
+$record_id = 123; // int | ID DNS-записи домена или поддомена.
+
+try {
+    $apiInstance->deleteDomainDNSRecordV2($fqdn, $record_id);
+} catch (Exception $e) {
+    echo 'Exception when calling DomainsApi->deleteDomainDNSRecordV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fqdn** | **string**| Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). | |
 | **record_id** | **int**| ID DNS-записи домена или поддомена. | |
 
 ### Return type
@@ -1183,6 +1309,70 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\CreateDomainDNSRecord201Response**](../Model/CreateDomainDNSRecord201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateDomainDNSRecordV2()`
+
+```php
+updateDomainDNSRecordV2($fqdn, $record_id, $create_dns_v2): \OpenAPI\Client\Model\CreateDomainDNSRecordV2201Response
+```
+
+Обновить информацию о DNS-записи домена или поддомена
+
+Чтобы обновить информацию о DNS-записи для домена или поддомена, отправьте запрос PATCH на `/api/v2/domains/{fqdn}/dns-records/{record_id}`, задав необходимые атрибуты.  DNS-запись будет обновлена с использованием предоставленной информации. Тело ответа будет содержать объект JSON с информацией об обновленной DNS-записи.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DomainsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$fqdn = somedomain.ru; // string | Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, `somedomain.ru`). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, `sub.somedomain.ru`).
+$record_id = 123; // int | ID DNS-записи домена или поддомена.
+$create_dns_v2 = new \OpenAPI\Client\Model\CreateDnsV2(); // \OpenAPI\Client\Model\CreateDnsV2
+
+try {
+    $result = $apiInstance->updateDomainDNSRecordV2($fqdn, $record_id, $create_dns_v2);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DomainsApi->updateDomainDNSRecordV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fqdn** | **string**| Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). | |
+| **record_id** | **int**| ID DNS-записи домена или поддомена. | |
+| **create_dns_v2** | [**\OpenAPI\Client\Model\CreateDnsV2**](../Model/CreateDnsV2.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreateDomainDNSRecordV2201Response**](../Model/CreateDomainDNSRecordV2201Response.md)
 
 ### Authorization
 
