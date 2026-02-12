@@ -60,7 +60,8 @@ class CreateDnsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'type' => 'string',
         'value' => 'string',
-        'ttl' => 'float'
+        'ttl' => 'float',
+        'app_id' => 'float'
     ];
 
     /**
@@ -73,7 +74,8 @@ class CreateDnsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'type' => null,
         'value' => null,
-        'ttl' => null
+        'ttl' => null,
+        'app_id' => null
     ];
 
     /**
@@ -84,7 +86,8 @@ class CreateDnsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'type' => false,
 		'value' => false,
-		'ttl' => false
+		'ttl' => false,
+		'app_id' => false
     ];
 
     /**
@@ -175,7 +178,8 @@ class CreateDnsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'type' => 'type',
         'value' => 'value',
-        'ttl' => 'ttl'
+        'ttl' => 'ttl',
+        'app_id' => 'app_id'
     ];
 
     /**
@@ -186,7 +190,8 @@ class CreateDnsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'type' => 'setType',
         'value' => 'setValue',
-        'ttl' => 'setTtl'
+        'ttl' => 'setTtl',
+        'app_id' => 'setAppId'
     ];
 
     /**
@@ -197,7 +202,8 @@ class CreateDnsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'type' => 'getType',
         'value' => 'getValue',
-        'ttl' => 'getTtl'
+        'ttl' => 'getTtl',
+        'app_id' => 'getAppId'
     ];
 
     /**
@@ -273,6 +279,7 @@ class CreateDnsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
         $this->setIfExists('ttl', $data ?? [], null);
+        $this->setIfExists('app_id', $data ?? [], null);
     }
 
     /**
@@ -419,6 +426,33 @@ class CreateDnsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable ttl cannot be null');
         }
         $this->container['ttl'] = $ttl;
+
+        return $this;
+    }
+
+    /**
+     * Gets app_id
+     *
+     * @return float|null
+     */
+    public function getAppId()
+    {
+        return $this->container['app_id'];
+    }
+
+    /**
+     * Sets app_id
+     *
+     * @param float|null $app_id Идентификатор приложения в App Platform, к которому будет привязан домен или поддомен.
+     *
+     * @return self
+     */
+    public function setAppId($app_id)
+    {
+        if (is_null($app_id)) {
+            throw new \InvalidArgumentException('non-nullable app_id cannot be null');
+        }
+        $this->container['app_id'] = $app_id;
 
         return $this;
     }

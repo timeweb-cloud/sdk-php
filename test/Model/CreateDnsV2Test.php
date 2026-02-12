@@ -106,4 +106,13 @@ class CreateDnsV2Test extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "app_id"
+     */
+    public function testPropertyAppId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }
