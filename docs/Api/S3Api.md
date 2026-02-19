@@ -9,6 +9,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**createStorage()**](S3Api.md#createStorage) | **POST** /api/v1/storages/buckets | Создание хранилища |
 | [**deleteStorage()**](S3Api.md#deleteStorage) | **DELETE** /api/v1/storages/buckets/{bucket_id} | Удаление хранилища на аккаунте |
 | [**deleteStorageSubdomains()**](S3Api.md#deleteStorageSubdomains) | **DELETE** /api/v1/storages/buckets/{bucket_id}/subdomains | Удаление поддоменов хранилища |
+| [**getStorage()**](S3Api.md#getStorage) | **GET** /api/v1/storages/buckets/{bucket_id} | Получение хранилища по ID |
 | [**getStorageSubdomains()**](S3Api.md#getStorageSubdomains) | **GET** /api/v1/storages/buckets/{bucket_id}/subdomains | Получение списка поддоменов хранилища |
 | [**getStorageTransferStatus()**](S3Api.md#getStorageTransferStatus) | **GET** /api/v1/storages/buckets/{bucket_id}/transfer-status | Получение статуса переноса хранилища от стороннего S3 в Timeweb Cloud |
 | [**getStorageUsers()**](S3Api.md#getStorageUsers) | **GET** /api/v1/storages/users | Получение списка пользователей хранилищ аккаунта |
@@ -320,6 +321,66 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getStorage()`
+
+```php
+getStorage($bucket_id): \OpenAPI\Client\Model\CreateStorage201Response
+```
+
+Получение хранилища по ID
+
+Чтобы получить хранилище по ID, отправьте GET-запрос на `/api/v1/storages/buckets/{bucket_id}`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\S3Api(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$bucket_id = 1051; // int | ID хранилища.
+
+try {
+    $result = $apiInstance->getStorage($bucket_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling S3Api->getStorage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **bucket_id** | **int**| ID хранилища. | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreateStorage201Response**](../Model/CreateStorage201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

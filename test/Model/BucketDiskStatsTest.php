@@ -97,4 +97,13 @@ class BucketDiskStatsTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "is_unlimited"
+     */
+    public function testPropertyIsUnlimited()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

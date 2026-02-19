@@ -77,7 +77,8 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'storage_class' => 'string',
         'project_id' => 'float',
         'rate_id' => 'float',
-        'website_config' => '\OpenAPI\Client\Model\BucketWebsiteConfig'
+        'website_config' => '\OpenAPI\Client\Model\BucketWebsiteConfig',
+        'is_allow_auto_upgrade' => 'bool'
     ];
 
     /**
@@ -106,7 +107,8 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'storage_class' => null,
         'project_id' => null,
         'rate_id' => null,
-        'website_config' => null
+        'website_config' => null,
+        'is_allow_auto_upgrade' => null
     ];
 
     /**
@@ -133,7 +135,8 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
 		'storage_class' => false,
 		'project_id' => false,
 		'rate_id' => false,
-		'website_config' => false
+		'website_config' => true,
+		'is_allow_auto_upgrade' => false
     ];
 
     /**
@@ -240,7 +243,8 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'storage_class' => 'storage_class',
         'project_id' => 'project_id',
         'rate_id' => 'rate_id',
-        'website_config' => 'website_config'
+        'website_config' => 'website_config',
+        'is_allow_auto_upgrade' => 'is_allow_auto_upgrade'
     ];
 
     /**
@@ -267,7 +271,8 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'storage_class' => 'setStorageClass',
         'project_id' => 'setProjectId',
         'rate_id' => 'setRateId',
-        'website_config' => 'setWebsiteConfig'
+        'website_config' => 'setWebsiteConfig',
+        'is_allow_auto_upgrade' => 'setIsAllowAutoUpgrade'
     ];
 
     /**
@@ -294,7 +299,8 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'storage_class' => 'getStorageClass',
         'project_id' => 'getProjectId',
         'rate_id' => 'getRateId',
-        'website_config' => 'getWebsiteConfig'
+        'website_config' => 'getWebsiteConfig',
+        'is_allow_auto_upgrade' => 'getIsAllowAutoUpgrade'
     ];
 
     /**
@@ -420,6 +426,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('project_id', $data ?? [], null);
         $this->setIfExists('rate_id', $data ?? [], null);
         $this->setIfExists('website_config', $data ?? [], null);
+        $this->setIfExists('is_allow_auto_upgrade', $data ?? [], null);
     }
 
     /**
@@ -454,6 +461,9 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
         }
         if ($this->container['disk_stats'] === null) {
             $invalidProperties[] = "'disk_stats' can't be null";
@@ -530,6 +540,9 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['website_config'] === null) {
             $invalidProperties[] = "'website_config' can't be null";
         }
+        if ($this->container['is_allow_auto_upgrade'] === null) {
+            $invalidProperties[] = "'is_allow_auto_upgrade' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -602,7 +615,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets description
      *
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -612,7 +625,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string|null $description Комментарий к хранилищу.
+     * @param string $description Комментарий к хранилищу.
      *
      * @return self
      */
@@ -1109,9 +1122,43 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setWebsiteConfig($website_config)
     {
         if (is_null($website_config)) {
-            throw new \InvalidArgumentException('non-nullable website_config cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'website_config');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('website_config', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['website_config'] = $website_config;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_allow_auto_upgrade
+     *
+     * @return bool
+     */
+    public function getIsAllowAutoUpgrade()
+    {
+        return $this->container['is_allow_auto_upgrade'];
+    }
+
+    /**
+     * Sets is_allow_auto_upgrade
+     *
+     * @param bool $is_allow_auto_upgrade Разрешено ли автоматическое повышение тарифа.
+     *
+     * @return self
+     */
+    public function setIsAllowAutoUpgrade($is_allow_auto_upgrade)
+    {
+        if (is_null($is_allow_auto_upgrade)) {
+            throw new \InvalidArgumentException('non-nullable is_allow_auto_upgrade cannot be null');
+        }
+        $this->container['is_allow_auto_upgrade'] = $is_allow_auto_upgrade;
 
         return $this;
     }

@@ -133,6 +133,18 @@ class S3ApiTest extends TestCase
     }
 
     /**
+     * Test case for getStorage
+     *
+     * Получение хранилища по ID.
+     *
+     */
+    public function testGetStorage()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getStorageSubdomains
      *
      * Получение списка поддоменов хранилища.

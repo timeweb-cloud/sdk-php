@@ -250,4 +250,13 @@ class BucketTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "is_allow_auto_upgrade"
+     */
+    public function testPropertyIsAllowAutoUpgrade()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

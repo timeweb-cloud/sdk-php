@@ -60,7 +60,8 @@ class BucketDiskStats implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'size' => 'float',
-        'used' => 'float'
+        'used' => 'float',
+        'is_unlimited' => 'bool'
     ];
 
     /**
@@ -72,7 +73,8 @@ class BucketDiskStats implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'size' => null,
-        'used' => null
+        'used' => null,
+        'is_unlimited' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class BucketDiskStats implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'size' => false,
-		'used' => false
+		'used' => false,
+		'is_unlimited' => false
     ];
 
     /**
@@ -172,7 +175,8 @@ class BucketDiskStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'size' => 'size',
-        'used' => 'used'
+        'used' => 'used',
+        'is_unlimited' => 'is_unlimited'
     ];
 
     /**
@@ -182,7 +186,8 @@ class BucketDiskStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'size' => 'setSize',
-        'used' => 'setUsed'
+        'used' => 'setUsed',
+        'is_unlimited' => 'setIsUnlimited'
     ];
 
     /**
@@ -192,7 +197,8 @@ class BucketDiskStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'size' => 'getSize',
-        'used' => 'getUsed'
+        'used' => 'getUsed',
+        'is_unlimited' => 'getIsUnlimited'
     ];
 
     /**
@@ -254,6 +260,7 @@ class BucketDiskStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('size', $data ?? [], null);
         $this->setIfExists('used', $data ?? [], null);
+        $this->setIfExists('is_unlimited', $data ?? [], null);
     }
 
     /**
@@ -289,6 +296,9 @@ class BucketDiskStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['used'] === null) {
             $invalidProperties[] = "'used' can't be null";
         }
+        if ($this->container['is_unlimited'] === null) {
+            $invalidProperties[] = "'is_unlimited' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -317,7 +327,7 @@ class BucketDiskStats implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets size
      *
-     * @param float $size Размер (в Кб) диска хранилища.
+     * @param float $size Размер (в Кб) диска хранилища включенного в тариф.
      *
      * @return self
      */
@@ -354,6 +364,33 @@ class BucketDiskStats implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable used cannot be null');
         }
         $this->container['used'] = $used;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_unlimited
+     *
+     * @return bool
+     */
+    public function getIsUnlimited()
+    {
+        return $this->container['is_unlimited'];
+    }
+
+    /**
+     * Sets is_unlimited
+     *
+     * @param bool $is_unlimited Признак безлимитного размера хранилища.
+     *
+     * @return self
+     */
+    public function setIsUnlimited($is_unlimited)
+    {
+        if (is_null($is_unlimited)) {
+            throw new \InvalidArgumentException('non-nullable is_unlimited cannot be null');
+        }
+        $this->container['is_unlimited'] = $is_unlimited;
 
         return $this;
     }

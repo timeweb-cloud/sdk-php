@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **float** | ID для каждого экземпляра хранилища. Автоматически генерируется при создании. |
 **name** | **string** | Удобочитаемое имя, установленное для хранилища. |
-**description** | **string** | Комментарий к хранилищу. | [optional]
+**description** | **string** | Комментарий к хранилищу. |
 **disk_stats** | [**\OpenAPI\Client\Model\BucketDiskStats**](BucketDiskStats.md) |  |
 **type** | **string** | Тип хранилища. |
 **preset_id** | **float** | ID тарифа хранилища. |
@@ -23,5 +23,6 @@ Name | Type | Description | Notes
 **project_id** | **float** | ID проекта. |
 **rate_id** | **float** | ID тарифа. |
 **website_config** | [**\OpenAPI\Client\Model\BucketWebsiteConfig**](BucketWebsiteConfig.md) |  |
+**is_allow_auto_upgrade** | **bool** | Разрешено ли автоматическое повышение тарифа. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

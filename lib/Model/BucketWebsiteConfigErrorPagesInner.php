@@ -337,7 +337,7 @@ class BucketWebsiteConfigErrorPagesInner implements ModelInterface, ArrayAccess,
     /**
      * Sets document
      *
-     * @param string|null $document Страница сайта.
+     * @param string|null $document Страница сайта.
      *
      * @return self
      */
