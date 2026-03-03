@@ -9842,15 +9842,16 @@ class DatabasesApi
      *
      * Получение списка тарифов для баз данных
      *
+     * @param  int $db_id ID базы данных (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasesPresets'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetDatabasesPresets200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function getDatabasesPresets(string $contentType = self::contentTypes['getDatabasesPresets'][0])
+    public function getDatabasesPresets($db_id = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
     {
-        list($response) = $this->getDatabasesPresetsWithHttpInfo($contentType);
+        list($response) = $this->getDatabasesPresetsWithHttpInfo($db_id, $contentType);
         return $response;
     }
 
@@ -9859,15 +9860,16 @@ class DatabasesApi
      *
      * Получение списка тарифов для баз данных
      *
+     * @param  int $db_id ID базы данных (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasesPresets'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetDatabasesPresets200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDatabasesPresetsWithHttpInfo(string $contentType = self::contentTypes['getDatabasesPresets'][0])
+    public function getDatabasesPresetsWithHttpInfo($db_id = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
     {
-        $request = $this->getDatabasesPresetsRequest($contentType);
+        $request = $this->getDatabasesPresetsRequest($db_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10096,14 +10098,15 @@ class DatabasesApi
      *
      * Получение списка тарифов для баз данных
      *
+     * @param  int $db_id ID базы данных (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasesPresets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDatabasesPresetsAsync(string $contentType = self::contentTypes['getDatabasesPresets'][0])
+    public function getDatabasesPresetsAsync($db_id = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
     {
-        return $this->getDatabasesPresetsAsyncWithHttpInfo($contentType)
+        return $this->getDatabasesPresetsAsyncWithHttpInfo($db_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10116,15 +10119,16 @@ class DatabasesApi
      *
      * Получение списка тарифов для баз данных
      *
+     * @param  int $db_id ID базы данных (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasesPresets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDatabasesPresetsAsyncWithHttpInfo(string $contentType = self::contentTypes['getDatabasesPresets'][0])
+    public function getDatabasesPresetsAsyncWithHttpInfo($db_id = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GetDatabasesPresets200Response';
-        $request = $this->getDatabasesPresetsRequest($contentType);
+        $request = $this->getDatabasesPresetsRequest($db_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10165,13 +10169,15 @@ class DatabasesApi
     /**
      * Create request for operation 'getDatabasesPresets'
      *
+     * @param  int $db_id ID базы данных (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasesPresets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDatabasesPresetsRequest(string $contentType = self::contentTypes['getDatabasesPresets'][0])
+    public function getDatabasesPresetsRequest($db_id = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
     {
+
 
 
         $resourcePath = '/api/v2/presets/dbs';
@@ -10181,6 +10187,15 @@ class DatabasesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $db_id,
+            'db_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
 

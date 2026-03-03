@@ -1444,7 +1444,7 @@ try {
 ## `getDatabasesPresets()`
 
 ```php
-getDatabasesPresets(): \OpenAPI\Client\Model\GetDatabasesPresets200Response
+getDatabasesPresets($db_id): \OpenAPI\Client\Model\GetDatabasesPresets200Response
 ```
 
 Получение списка тарифов для баз данных
@@ -1468,9 +1468,10 @@ $apiInstance = new OpenAPI\Client\Api\DatabasesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$db_id = 56; // int | ID базы данных
 
 try {
-    $result = $apiInstance->getDatabasesPresets();
+    $result = $apiInstance->getDatabasesPresets($db_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DatabasesApi->getDatabasesPresets: ', $e->getMessage(), PHP_EOL;
@@ -1479,7 +1480,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **db_id** | **int**| ID базы данных | [optional] |
 
 ### Return type
 
