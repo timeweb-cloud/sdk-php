@@ -10174,7 +10174,7 @@ class DatabasesApi
     {
 
 
-        $resourcePath = '/api/v1/presets/dbs';
+        $resourcePath = '/api/v2/presets/dbs';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
