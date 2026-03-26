@@ -62,7 +62,10 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'float',
         'provider_id' => 'float',
         'name' => 'string',
+        'public_name' => 'string',
         'type' => 'string',
+        'is_deprecated' => 'bool',
+        'is_reasoning' => 'bool',
         'version' => 'string',
         'params_info' => '\OpenAPI\Client\Model\ModelParamsInfo'
     ];
@@ -78,7 +81,10 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => null,
         'provider_id' => null,
         'name' => null,
+        'public_name' => null,
         'type' => null,
+        'is_deprecated' => null,
+        'is_reasoning' => null,
         'version' => null,
         'params_info' => null
     ];
@@ -92,7 +98,10 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => false,
 		'provider_id' => false,
 		'name' => false,
+		'public_name' => false,
 		'type' => false,
+		'is_deprecated' => false,
+		'is_reasoning' => false,
 		'version' => false,
 		'params_info' => true
     ];
@@ -186,7 +195,10 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'provider_id' => 'provider_id',
         'name' => 'name',
+        'public_name' => 'public_name',
         'type' => 'type',
+        'is_deprecated' => 'is_deprecated',
+        'is_reasoning' => 'is_reasoning',
         'version' => 'version',
         'params_info' => 'params_info'
     ];
@@ -200,7 +212,10 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'provider_id' => 'setProviderId',
         'name' => 'setName',
+        'public_name' => 'setPublicName',
         'type' => 'setType',
+        'is_deprecated' => 'setIsDeprecated',
+        'is_reasoning' => 'setIsReasoning',
         'version' => 'setVersion',
         'params_info' => 'setParamsInfo'
     ];
@@ -214,7 +229,10 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'provider_id' => 'getProviderId',
         'name' => 'getName',
+        'public_name' => 'getPublicName',
         'type' => 'getType',
+        'is_deprecated' => 'getIsDeprecated',
+        'is_reasoning' => 'getIsReasoning',
         'version' => 'getVersion',
         'params_info' => 'getParamsInfo'
     ];
@@ -294,7 +312,10 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('provider_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('public_name', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('is_deprecated', $data ?? [], null);
+        $this->setIfExists('is_reasoning', $data ?? [], null);
         $this->setIfExists('version', $data ?? [], null);
         $this->setIfExists('params_info', $data ?? [], null);
     }
@@ -335,6 +356,9 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if ($this->container['public_name'] === null) {
+            $invalidProperties[] = "'public_name' can't be null";
+        }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -347,6 +371,12 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['is_deprecated'] === null) {
+            $invalidProperties[] = "'is_deprecated' can't be null";
+        }
+        if ($this->container['is_reasoning'] === null) {
+            $invalidProperties[] = "'is_reasoning' can't be null";
+        }
         if ($this->container['version'] === null) {
             $invalidProperties[] = "'version' can't be null";
         }
@@ -447,6 +477,33 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets public_name
+     *
+     * @return string
+     */
+    public function getPublicName()
+    {
+        return $this->container['public_name'];
+    }
+
+    /**
+     * Sets public_name
+     *
+     * @param string $public_name Публичное имя модели
+     *
+     * @return self
+     */
+    public function setPublicName($public_name)
+    {
+        if (is_null($public_name)) {
+            throw new \InvalidArgumentException('non-nullable public_name cannot be null');
+        }
+        $this->container['public_name'] = $public_name;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string
@@ -479,6 +536,60 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_deprecated
+     *
+     * @return bool
+     */
+    public function getIsDeprecated()
+    {
+        return $this->container['is_deprecated'];
+    }
+
+    /**
+     * Sets is_deprecated
+     *
+     * @param bool $is_deprecated Признак, что модель устарела
+     *
+     * @return self
+     */
+    public function setIsDeprecated($is_deprecated)
+    {
+        if (is_null($is_deprecated)) {
+            throw new \InvalidArgumentException('non-nullable is_deprecated cannot be null');
+        }
+        $this->container['is_deprecated'] = $is_deprecated;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_reasoning
+     *
+     * @return bool
+     */
+    public function getIsReasoning()
+    {
+        return $this->container['is_reasoning'];
+    }
+
+    /**
+     * Sets is_reasoning
+     *
+     * @param bool $is_reasoning Признак поддержки режима рассуждения
+     *
+     * @return self
+     */
+    public function setIsReasoning($is_reasoning)
+    {
+        if (is_null($is_reasoning)) {
+            throw new \InvalidArgumentException('non-nullable is_reasoning cannot be null');
+        }
+        $this->container['is_reasoning'] = $is_reasoning;
 
         return $this;
     }

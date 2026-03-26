@@ -108,9 +108,36 @@ class ModelTest extends TestCase
     }
 
     /**
+     * Test attribute "public_name"
+     */
+    public function testPropertyPublicName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "type"
      */
     public function testPropertyType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_deprecated"
+     */
+    public function testPropertyIsDeprecated()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_reasoning"
+     */
+    public function testPropertyIsReasoning()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
