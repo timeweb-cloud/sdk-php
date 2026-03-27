@@ -421,6 +421,18 @@ class ServersApiTest extends TestCase
     }
 
     /**
+     * Test case for rebootServerHard
+     *
+     * Принудительная перезагрузка сервера.
+     *
+     */
+    public function testRebootServerHard()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for resetServerPassword
      *
      * Сброс пароля сервера.
