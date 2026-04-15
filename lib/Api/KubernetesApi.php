@@ -87,6 +87,9 @@ class KubernetesApi
         'deleteClusterNodeGroup' => [
             'application/json',
         ],
+        'deleteKubernetesAddons' => [
+            'application/json',
+        ],
         'getCluster' => [
             'application/json',
         ],
@@ -117,10 +120,22 @@ class KubernetesApi
         'getK8SVersions' => [
             'application/json',
         ],
+        'getKubernetesAddons' => [
+            'application/json',
+        ],
+        'getKubernetesAddonsConfig' => [
+            'application/json',
+        ],
         'getKubernetesPresets' => [
             'application/json',
         ],
         'increaseCountOfNodesInGroup' => [
+            'application/json',
+        ],
+        'postKubernetesAddons' => [
+            'application/json',
+        ],
+        'postKubernetesAddonsUpdate' => [
             'application/json',
         ],
         'reduceCountOfNodesInGroup' => [
@@ -1997,6 +2012,291 @@ class KubernetesApi
             $resourcePath = str_replace(
                 '{' . 'group_id' . '}',
                 ObjectSerializer::toPathValue($group_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteKubernetesAddons
+     *
+     * Удаление дополнения
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  int $addon_id ID аддона (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteKubernetesAddons($cluster_id, $addon_id, string $contentType = self::contentTypes['deleteKubernetesAddons'][0])
+    {
+        $this->deleteKubernetesAddonsWithHttpInfo($cluster_id, $addon_id, $contentType);
+    }
+
+    /**
+     * Operation deleteKubernetesAddonsWithHttpInfo
+     *
+     * Удаление дополнения
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  int $addon_id ID аддона (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteKubernetesAddonsWithHttpInfo($cluster_id, $addon_id, string $contentType = self::contentTypes['deleteKubernetesAddons'][0])
+    {
+        $request = $this->deleteKubernetesAddonsRequest($cluster_id, $addon_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteKubernetesAddonsAsync
+     *
+     * Удаление дополнения
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  int $addon_id ID аддона (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteKubernetesAddonsAsync($cluster_id, $addon_id, string $contentType = self::contentTypes['deleteKubernetesAddons'][0])
+    {
+        return $this->deleteKubernetesAddonsAsyncWithHttpInfo($cluster_id, $addon_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteKubernetesAddonsAsyncWithHttpInfo
+     *
+     * Удаление дополнения
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  int $addon_id ID аддона (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteKubernetesAddonsAsyncWithHttpInfo($cluster_id, $addon_id, string $contentType = self::contentTypes['deleteKubernetesAddons'][0])
+    {
+        $returnType = '';
+        $request = $this->deleteKubernetesAddonsRequest($cluster_id, $addon_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteKubernetesAddons'
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  int $addon_id ID аддона (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteKubernetesAddonsRequest($cluster_id, $addon_id, string $contentType = self::contentTypes['deleteKubernetesAddons'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling deleteKubernetesAddons'
+            );
+        }
+
+        // verify the required parameter 'addon_id' is set
+        if ($addon_id === null || (is_array($addon_id) && count($addon_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $addon_id when calling deleteKubernetesAddons'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/k8s/clusters/{cluster_id}/addons/{addon_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'cluster_id' . '}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($addon_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'addon_id' . '}',
+                ObjectSerializer::toPathValue($addon_id),
                 $resourcePath
             );
         }
@@ -6217,6 +6517,764 @@ class KubernetesApi
     }
 
     /**
+     * Operation getKubernetesAddons
+     *
+     * Получение списка установленных дополнений
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\AddonsResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function getKubernetesAddons($cluster_id, string $contentType = self::contentTypes['getKubernetesAddons'][0])
+    {
+        list($response) = $this->getKubernetesAddonsWithHttpInfo($cluster_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getKubernetesAddonsWithHttpInfo
+     *
+     * Получение списка установленных дополнений
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\AddonsResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getKubernetesAddonsWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getKubernetesAddons'][0])
+    {
+        $request = $this->getKubernetesAddonsRequest($cluster_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\AddonsResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\AddonsResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AddonsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\AddonsResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\AddonsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getKubernetesAddonsAsync
+     *
+     * Получение списка установленных дополнений
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getKubernetesAddonsAsync($cluster_id, string $contentType = self::contentTypes['getKubernetesAddons'][0])
+    {
+        return $this->getKubernetesAddonsAsyncWithHttpInfo($cluster_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getKubernetesAddonsAsyncWithHttpInfo
+     *
+     * Получение списка установленных дополнений
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getKubernetesAddonsAsyncWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getKubernetesAddons'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\AddonsResponse';
+        $request = $this->getKubernetesAddonsRequest($cluster_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getKubernetesAddons'
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getKubernetesAddonsRequest($cluster_id, string $contentType = self::contentTypes['getKubernetesAddons'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling getKubernetesAddons'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/k8s/clusters/{cluster_id}/addons';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'cluster_id' . '}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getKubernetesAddonsConfig
+     *
+     * Получение списка конфигураций дополнений
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKubernetesAddonsConfig'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\AddonsConfigResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function getKubernetesAddonsConfig($cluster_id, string $contentType = self::contentTypes['getKubernetesAddonsConfig'][0])
+    {
+        list($response) = $this->getKubernetesAddonsConfigWithHttpInfo($cluster_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getKubernetesAddonsConfigWithHttpInfo
+     *
+     * Получение списка конфигураций дополнений
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKubernetesAddonsConfig'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\AddonsConfigResponse|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getKubernetesAddonsConfigWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getKubernetesAddonsConfig'][0])
+    {
+        $request = $this->getKubernetesAddonsConfigRequest($cluster_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\AddonsConfigResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\AddonsConfigResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AddonsConfigResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\AddonsConfigResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\AddonsConfigResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getKubernetesAddonsConfigAsync
+     *
+     * Получение списка конфигураций дополнений
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKubernetesAddonsConfig'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getKubernetesAddonsConfigAsync($cluster_id, string $contentType = self::contentTypes['getKubernetesAddonsConfig'][0])
+    {
+        return $this->getKubernetesAddonsConfigAsyncWithHttpInfo($cluster_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getKubernetesAddonsConfigAsyncWithHttpInfo
+     *
+     * Получение списка конфигураций дополнений
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKubernetesAddonsConfig'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getKubernetesAddonsConfigAsyncWithHttpInfo($cluster_id, string $contentType = self::contentTypes['getKubernetesAddonsConfig'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\AddonsConfigResponse';
+        $request = $this->getKubernetesAddonsConfigRequest($cluster_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getKubernetesAddonsConfig'
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKubernetesAddonsConfig'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getKubernetesAddonsConfigRequest($cluster_id, string $contentType = self::contentTypes['getKubernetesAddonsConfig'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling getKubernetesAddonsConfig'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/k8s/clusters/{cluster_id}/addons-configs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'cluster_id' . '}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getKubernetesPresets
      *
      * Получение списка тарифов
@@ -6988,6 +8046,594 @@ class KubernetesApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($increase_nodes));
             } else {
                 $httpBody = $increase_nodes;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation postKubernetesAddons
+     *
+     * Установка дополнения
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  \OpenAPI\Client\Model\ClusterIn1 $cluster_in1 cluster_in1 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function postKubernetesAddons($cluster_id, $cluster_in1, string $contentType = self::contentTypes['postKubernetesAddons'][0])
+    {
+        $this->postKubernetesAddonsWithHttpInfo($cluster_id, $cluster_in1, $contentType);
+    }
+
+    /**
+     * Operation postKubernetesAddonsWithHttpInfo
+     *
+     * Установка дополнения
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  \OpenAPI\Client\Model\ClusterIn1 $cluster_in1 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postKubernetesAddonsWithHttpInfo($cluster_id, $cluster_in1, string $contentType = self::contentTypes['postKubernetesAddons'][0])
+    {
+        $request = $this->postKubernetesAddonsRequest($cluster_id, $cluster_in1, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation postKubernetesAddonsAsync
+     *
+     * Установка дополнения
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  \OpenAPI\Client\Model\ClusterIn1 $cluster_in1 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postKubernetesAddonsAsync($cluster_id, $cluster_in1, string $contentType = self::contentTypes['postKubernetesAddons'][0])
+    {
+        return $this->postKubernetesAddonsAsyncWithHttpInfo($cluster_id, $cluster_in1, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation postKubernetesAddonsAsyncWithHttpInfo
+     *
+     * Установка дополнения
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  \OpenAPI\Client\Model\ClusterIn1 $cluster_in1 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postKubernetesAddonsAsyncWithHttpInfo($cluster_id, $cluster_in1, string $contentType = self::contentTypes['postKubernetesAddons'][0])
+    {
+        $returnType = '';
+        $request = $this->postKubernetesAddonsRequest($cluster_id, $cluster_in1, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'postKubernetesAddons'
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  \OpenAPI\Client\Model\ClusterIn1 $cluster_in1 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postKubernetesAddons'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function postKubernetesAddonsRequest($cluster_id, $cluster_in1, string $contentType = self::contentTypes['postKubernetesAddons'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling postKubernetesAddons'
+            );
+        }
+
+        // verify the required parameter 'cluster_in1' is set
+        if ($cluster_in1 === null || (is_array($cluster_in1) && count($cluster_in1) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_in1 when calling postKubernetesAddons'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/k8s/clusters/{cluster_id}/addons';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'cluster_id' . '}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($cluster_in1)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cluster_in1));
+            } else {
+                $httpBody = $cluster_in1;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation postKubernetesAddonsUpdate
+     *
+     * Изменение конфигурации дополнения
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  int $addon_id ID аддона (required)
+     * @param  \OpenAPI\Client\Model\ClusterIn1 $cluster_in1 cluster_in1 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postKubernetesAddonsUpdate'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function postKubernetesAddonsUpdate($cluster_id, $addon_id, $cluster_in1, string $contentType = self::contentTypes['postKubernetesAddonsUpdate'][0])
+    {
+        $this->postKubernetesAddonsUpdateWithHttpInfo($cluster_id, $addon_id, $cluster_in1, $contentType);
+    }
+
+    /**
+     * Operation postKubernetesAddonsUpdateWithHttpInfo
+     *
+     * Изменение конфигурации дополнения
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  int $addon_id ID аддона (required)
+     * @param  \OpenAPI\Client\Model\ClusterIn1 $cluster_in1 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postKubernetesAddonsUpdate'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postKubernetesAddonsUpdateWithHttpInfo($cluster_id, $addon_id, $cluster_in1, string $contentType = self::contentTypes['postKubernetesAddonsUpdate'][0])
+    {
+        $request = $this->postKubernetesAddonsUpdateRequest($cluster_id, $addon_id, $cluster_in1, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation postKubernetesAddonsUpdateAsync
+     *
+     * Изменение конфигурации дополнения
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  int $addon_id ID аддона (required)
+     * @param  \OpenAPI\Client\Model\ClusterIn1 $cluster_in1 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postKubernetesAddonsUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postKubernetesAddonsUpdateAsync($cluster_id, $addon_id, $cluster_in1, string $contentType = self::contentTypes['postKubernetesAddonsUpdate'][0])
+    {
+        return $this->postKubernetesAddonsUpdateAsyncWithHttpInfo($cluster_id, $addon_id, $cluster_in1, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation postKubernetesAddonsUpdateAsyncWithHttpInfo
+     *
+     * Изменение конфигурации дополнения
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  int $addon_id ID аддона (required)
+     * @param  \OpenAPI\Client\Model\ClusterIn1 $cluster_in1 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postKubernetesAddonsUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postKubernetesAddonsUpdateAsyncWithHttpInfo($cluster_id, $addon_id, $cluster_in1, string $contentType = self::contentTypes['postKubernetesAddonsUpdate'][0])
+    {
+        $returnType = '';
+        $request = $this->postKubernetesAddonsUpdateRequest($cluster_id, $addon_id, $cluster_in1, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'postKubernetesAddonsUpdate'
+     *
+     * @param  int $cluster_id ID кластера (required)
+     * @param  int $addon_id ID аддона (required)
+     * @param  \OpenAPI\Client\Model\ClusterIn1 $cluster_in1 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postKubernetesAddonsUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function postKubernetesAddonsUpdateRequest($cluster_id, $addon_id, $cluster_in1, string $contentType = self::contentTypes['postKubernetesAddonsUpdate'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling postKubernetesAddonsUpdate'
+            );
+        }
+
+        // verify the required parameter 'addon_id' is set
+        if ($addon_id === null || (is_array($addon_id) && count($addon_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $addon_id when calling postKubernetesAddonsUpdate'
+            );
+        }
+
+        // verify the required parameter 'cluster_in1' is set
+        if ($cluster_in1 === null || (is_array($cluster_in1) && count($cluster_in1) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_in1 when calling postKubernetesAddonsUpdate'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/k8s/clusters/{cluster_id}/addons/{addon_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'cluster_id' . '}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($addon_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'addon_id' . '}',
+                ObjectSerializer::toPathValue($addon_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($cluster_in1)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cluster_in1));
+            } else {
+                $httpBody = $cluster_in1;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

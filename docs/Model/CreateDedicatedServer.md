@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **payment_period** | **string** | Период оплаты. |
 **name** | **string** | Удобочитаемое имя выделенного сервера. Максимальная длина — 255 символов, имя должно быть уникальным. |
 **comment** | **string** | Комментарий к выделенному серверу. Максимальная длина — 255 символов. | [optional]
+**project_id** | **float** | ID проекта, в который будет добавлен выделенный сервер. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

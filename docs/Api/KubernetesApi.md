@@ -9,6 +9,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**deleteCluster()**](KubernetesApi.md#deleteCluster) | **DELETE** /api/v1/k8s/clusters/{cluster_id} | Удаление кластера |
 | [**deleteClusterNode()**](KubernetesApi.md#deleteClusterNode) | **DELETE** /api/v1/k8s/clusters/{cluster_id}/nodes/{node_id} | Удаление ноды |
 | [**deleteClusterNodeGroup()**](KubernetesApi.md#deleteClusterNodeGroup) | **DELETE** /api/v1/k8s/clusters/{cluster_id}/groups/{group_id} | Удаление группы нод |
+| [**deleteKubernetesAddons()**](KubernetesApi.md#deleteKubernetesAddons) | **DELETE** /api/v1/k8s/clusters/{cluster_id}/addons/{addon_id} | Удаление дополнения |
 | [**getCluster()**](KubernetesApi.md#getCluster) | **GET** /api/v1/k8s/clusters/{cluster_id} | Получение информации о кластере |
 | [**getClusterKubeconfig()**](KubernetesApi.md#getClusterKubeconfig) | **GET** /api/v1/k8s/clusters/{cluster_id}/kubeconfig | Получение файла kubeconfig |
 | [**getClusterNodeGroup()**](KubernetesApi.md#getClusterNodeGroup) | **GET** /api/v1/k8s/clusters/{cluster_id}/groups/{group_id} | Получение информации о группе нод |
@@ -19,8 +20,12 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getClusters()**](KubernetesApi.md#getClusters) | **GET** /api/v1/k8s/clusters | Получение списка кластеров |
 | [**getK8SNetworkDrivers()**](KubernetesApi.md#getK8SNetworkDrivers) | **GET** /api/v1/k8s/network-drivers | Получение списка сетевых драйверов k8s |
 | [**getK8SVersions()**](KubernetesApi.md#getK8SVersions) | **GET** /api/v1/k8s/k8s-versions | Получение списка версий k8s |
+| [**getKubernetesAddons()**](KubernetesApi.md#getKubernetesAddons) | **GET** /api/v1/k8s/clusters/{cluster_id}/addons | Получение списка установленных дополнений |
+| [**getKubernetesAddonsConfig()**](KubernetesApi.md#getKubernetesAddonsConfig) | **GET** /api/v1/k8s/clusters/{cluster_id}/addons-configs | Получение списка конфигураций дополнений |
 | [**getKubernetesPresets()**](KubernetesApi.md#getKubernetesPresets) | **GET** /api/v1/presets/k8s | Получение списка тарифов |
 | [**increaseCountOfNodesInGroup()**](KubernetesApi.md#increaseCountOfNodesInGroup) | **POST** /api/v1/k8s/clusters/{cluster_id}/groups/{group_id}/nodes | Увеличение количества нод в группе на указанное количество |
+| [**postKubernetesAddons()**](KubernetesApi.md#postKubernetesAddons) | **POST** /api/v1/k8s/clusters/{cluster_id}/addons | Установка дополнения |
+| [**postKubernetesAddonsUpdate()**](KubernetesApi.md#postKubernetesAddonsUpdate) | **POST** /api/v1/k8s/clusters/{cluster_id}/addons/{addon_id} | Изменение конфигурации дополнения |
 | [**reduceCountOfNodesInGroup()**](KubernetesApi.md#reduceCountOfNodesInGroup) | **DELETE** /api/v1/k8s/clusters/{cluster_id}/groups/{group_id}/nodes | Уменьшение количества нод в группе на указанное количество |
 | [**updateCluster()**](KubernetesApi.md#updateCluster) | **PATCH** /api/v1/k8s/clusters/{cluster_id} | Обновление информации о кластере |
 | [**updateClusterVersion()**](KubernetesApi.md#updateClusterVersion) | **PATCH** /api/v1/k8s/clusters/{cluster_id}/versions/update | Обновление версии кластера |
@@ -316,6 +321,67 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **cluster_id** | **int**| ID кластера | |
 | **group_id** | **int**| ID группы | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteKubernetesAddons()`
+
+```php
+deleteKubernetesAddons($cluster_id, $addon_id)
+```
+
+Удаление дополнения
+
+Чтобы удалить дополнение, отправьте DELETE-запрос в `/api/v1/k8s/clusters/{cluster_id}/addons/{addon_id}`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\KubernetesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$cluster_id = 56; // int | ID кластера
+$addon_id = 56; // int | ID аддона
+
+try {
+    $apiInstance->deleteKubernetesAddons($cluster_id, $addon_id);
+} catch (Exception $e) {
+    echo 'Exception when calling KubernetesApi->deleteKubernetesAddons: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cluster_id** | **int**| ID кластера | |
+| **addon_id** | **int**| ID аддона | |
 
 ### Return type
 
@@ -938,6 +1004,126 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getKubernetesAddons()`
+
+```php
+getKubernetesAddons($cluster_id): \OpenAPI\Client\Model\AddonsResponse
+```
+
+Получение списка установленных дополнений
+
+Чтобы получить список установленных дополнений, отправьте GET-запрос в `/api/v1/k8s/clusters/{cluster_id}/addons`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\KubernetesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$cluster_id = 56; // int | ID кластера
+
+try {
+    $result = $apiInstance->getKubernetesAddons($cluster_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KubernetesApi->getKubernetesAddons: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cluster_id** | **int**| ID кластера | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\AddonsResponse**](../Model/AddonsResponse.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getKubernetesAddonsConfig()`
+
+```php
+getKubernetesAddonsConfig($cluster_id): \OpenAPI\Client\Model\AddonsConfigResponse
+```
+
+Получение списка конфигураций дополнений
+
+Чтобы получить список конфигураций дополнений, отправьте GET-запрос в `/api/v1/k8s/clusters/{cluster_id}/addons-configs`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\KubernetesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$cluster_id = 56; // int | ID кластера
+
+try {
+    $result = $apiInstance->getKubernetesAddonsConfig($cluster_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KubernetesApi->getKubernetesAddonsConfig: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cluster_id** | **int**| ID кластера | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\AddonsConfigResponse**](../Model/AddonsConfigResponse.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getKubernetesPresets()`
 
 ```php
@@ -1045,6 +1231,130 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\NodesResponse**](../Model/NodesResponse.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `postKubernetesAddons()`
+
+```php
+postKubernetesAddons($cluster_id, $cluster_in1)
+```
+
+Установка дополнения
+
+Чтобы установить дополнение, отправьте POST-запрос в `/api/v1/k8s/clusters/{cluster_id}/addons`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\KubernetesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$cluster_id = 56; // int | ID кластера
+$cluster_in1 = new \OpenAPI\Client\Model\ClusterIn1(); // \OpenAPI\Client\Model\ClusterIn1
+
+try {
+    $apiInstance->postKubernetesAddons($cluster_id, $cluster_in1);
+} catch (Exception $e) {
+    echo 'Exception when calling KubernetesApi->postKubernetesAddons: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cluster_id** | **int**| ID кластера | |
+| **cluster_in1** | [**\OpenAPI\Client\Model\ClusterIn1**](../Model/ClusterIn1.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `postKubernetesAddonsUpdate()`
+
+```php
+postKubernetesAddonsUpdate($cluster_id, $addon_id, $cluster_in1)
+```
+
+Изменение конфигурации дополнения
+
+Чтобы обновить конфигурацию дополнения, отправьте POST-запрос в `/api/v1/k8s/clusters/{cluster_id}/addons/{addon_id}`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\KubernetesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$cluster_id = 56; // int | ID кластера
+$addon_id = 56; // int | ID аддона
+$cluster_in1 = new \OpenAPI\Client\Model\ClusterIn1(); // \OpenAPI\Client\Model\ClusterIn1
+
+try {
+    $apiInstance->postKubernetesAddonsUpdate($cluster_id, $addon_id, $cluster_in1);
+} catch (Exception $e) {
+    echo 'Exception when calling KubernetesApi->postKubernetesAddonsUpdate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cluster_id** | **int**| ID кластера | |
+| **addon_id** | **int**| ID аддона | |
+| **cluster_in1** | [**\OpenAPI\Client\Model\ClusterIn1**](../Model/ClusterIn1.md)|  | |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

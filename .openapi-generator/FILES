@@ -55,6 +55,10 @@ docs/Model/AddStorageToProjectRequest.md
 docs/Model/AddSubdomain201Response.md
 docs/Model/AddTokenPackage.md
 docs/Model/AddedSubdomain.md
+docs/Model/AddonConfigOut.md
+docs/Model/AddonOut.md
+docs/Model/AddonsConfigResponse.md
+docs/Model/AddonsResponse.md
 docs/Model/Agent.md
 docs/Model/AgentModelSettings.md
 docs/Model/AgentSettings.md
@@ -94,6 +98,7 @@ docs/Model/CheckDomain200Response.md
 docs/Model/ClusterEdit.md
 docs/Model/ClusterEditOidcProvider.md
 docs/Model/ClusterIn.md
+docs/Model/ClusterIn1.md
 docs/Model/ClusterInClusterNetworkCidr.md
 docs/Model/ClusterInConfiguration.md
 docs/Model/ClusterInMaintenanceSlot.md
@@ -597,6 +602,10 @@ lib/Model/AddStorageToProjectRequest.php
 lib/Model/AddSubdomain201Response.php
 lib/Model/AddTokenPackage.php
 lib/Model/AddedSubdomain.php
+lib/Model/AddonConfigOut.php
+lib/Model/AddonOut.php
+lib/Model/AddonsConfigResponse.php
+lib/Model/AddonsResponse.php
 lib/Model/Agent.php
 lib/Model/AgentModelSettings.php
 lib/Model/AgentSettings.php
@@ -636,6 +645,7 @@ lib/Model/CheckDomain200Response.php
 lib/Model/ClusterEdit.php
 lib/Model/ClusterEditOidcProvider.php
 lib/Model/ClusterIn.php
+lib/Model/ClusterIn1.php
 lib/Model/ClusterInClusterNetworkCidr.php
 lib/Model/ClusterInConfiguration.php
 lib/Model/ClusterInMaintenanceSlot.php
@@ -1138,6 +1148,10 @@ test/Model/AddStorageToProjectRequestTest.php
 test/Model/AddSubdomain201ResponseTest.php
 test/Model/AddTokenPackageTest.php
 test/Model/AddedSubdomainTest.php
+test/Model/AddonConfigOutTest.php
+test/Model/AddonOutTest.php
+test/Model/AddonsConfigResponseTest.php
+test/Model/AddonsResponseTest.php
 test/Model/AgentModelSettingsTest.php
 test/Model/AgentSettingsTest.php
 test/Model/AgentSettingsWidgetTest.php
@@ -1176,6 +1190,7 @@ test/Model/BucketWebsiteConfigTest.php
 test/Model/CheckDomain200ResponseTest.php
 test/Model/ClusterEditOidcProviderTest.php
 test/Model/ClusterEditTest.php
+test/Model/ClusterIn1Test.php
 test/Model/ClusterInClusterNetworkCidrTest.php
 test/Model/ClusterInConfigurationTest.php
 test/Model/ClusterInMaintenanceSlotTest.php

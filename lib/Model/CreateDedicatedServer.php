@@ -67,7 +67,8 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
         'additional_ip_addr_id' => 'float',
         'payment_period' => 'string',
         'name' => 'string',
-        'comment' => 'string'
+        'comment' => 'string',
+        'project_id' => 'float'
     ];
 
     /**
@@ -87,7 +88,8 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
         'additional_ip_addr_id' => null,
         'payment_period' => null,
         'name' => null,
-        'comment' => null
+        'comment' => null,
+        'project_id' => null
     ];
 
     /**
@@ -96,16 +98,17 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'plan_id' => false,
+        'plan_id' => true,
 		'preset_id' => false,
 		'os_id' => true,
 		'cp_id' => true,
-		'bandwidth_id' => false,
+		'bandwidth_id' => true,
 		'network_drive_id' => false,
 		'additional_ip_addr_id' => true,
 		'payment_period' => false,
 		'name' => false,
-		'comment' => false
+		'comment' => true,
+		'project_id' => true
     ];
 
     /**
@@ -203,7 +206,8 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
         'additional_ip_addr_id' => 'additional_ip_addr_id',
         'payment_period' => 'payment_period',
         'name' => 'name',
-        'comment' => 'comment'
+        'comment' => 'comment',
+        'project_id' => 'project_id'
     ];
 
     /**
@@ -221,7 +225,8 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
         'additional_ip_addr_id' => 'setAdditionalIpAddrId',
         'payment_period' => 'setPaymentPeriod',
         'name' => 'setName',
-        'comment' => 'setComment'
+        'comment' => 'setComment',
+        'project_id' => 'setProjectId'
     ];
 
     /**
@@ -239,7 +244,8 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
         'additional_ip_addr_id' => 'getAdditionalIpAddrId',
         'payment_period' => 'getPaymentPeriod',
         'name' => 'getName',
-        'comment' => 'getComment'
+        'comment' => 'getComment',
+        'project_id' => 'getProjectId'
     ];
 
     /**
@@ -328,6 +334,7 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('payment_period', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('comment', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
     }
 
     /**
@@ -418,7 +425,14 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setPlanId($plan_id)
     {
         if (is_null($plan_id)) {
-            throw new \InvalidArgumentException('non-nullable plan_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'plan_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('plan_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['plan_id'] = $plan_id;
 
@@ -540,7 +554,14 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setBandwidthId($bandwidth_id)
     {
         if (is_null($bandwidth_id)) {
-            throw new \InvalidArgumentException('non-nullable bandwidth_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'bandwidth_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bandwidth_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['bandwidth_id'] = $bandwidth_id;
 
@@ -696,13 +717,54 @@ class CreateDedicatedServer implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setComment($comment)
     {
         if (is_null($comment)) {
-            throw new \InvalidArgumentException('non-nullable comment cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'comment');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('comment', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        if ((mb_strlen($comment) > 255)) {
+        if (!is_null($comment) && (mb_strlen($comment) > 255)) {
             throw new \InvalidArgumentException('invalid length for $comment when calling CreateDedicatedServer., must be smaller than or equal to 255.');
         }
 
         $this->container['comment'] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return float|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param float|null $project_id ID проекта, в который будет добавлен выделенный сервер.
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            array_push($this->openAPINullablesSetToNull, 'project_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('project_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
