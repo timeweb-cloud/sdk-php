@@ -5,7 +5,6 @@
 README.md
 composer.json
 docs/Api/AIAgentsApi.md
-docs/Api/APIKeysApi.md
 docs/Api/AccountApi.md
 docs/Api/AppsApi.md
 docs/Api/BalancersApi.md
@@ -63,7 +62,6 @@ docs/Model/Agent.md
 docs/Model/AgentModelSettings.md
 docs/Model/AgentSettings.md
 docs/Model/AgentSettingsWidget.md
-docs/Model/ApiKey.md
 docs/Model/App.md
 docs/Model/AppConfiguration.md
 docs/Model/AppDiskStatus.md
@@ -116,7 +114,6 @@ docs/Model/ContainerRegistryRepositoriesInner.md
 docs/Model/CreateAdmin.md
 docs/Model/CreateAgent.md
 docs/Model/CreateAgent201Response.md
-docs/Model/CreateApiKey.md
 docs/Model/CreateApp.md
 docs/Model/CreateApp201Response.md
 docs/Model/CreateBalancer.md
@@ -175,10 +172,8 @@ docs/Model/CreateServerNetwork.md
 docs/Model/CreateStorage201Response.md
 docs/Model/CreateStorageRequest.md
 docs/Model/CreateStorageRequestConfigurator.md
-docs/Model/CreateToken201Response.md
 docs/Model/CreateVPC201Response.md
 docs/Model/CreateVpc.md
-docs/Model/CreatedApiKey.md
 docs/Model/DatabaseAdmin.md
 docs/Model/DatabaseAdminInstancesInner.md
 docs/Model/DatabaseCluster.md
@@ -231,7 +226,6 @@ docs/Model/DomainProlong.md
 docs/Model/DomainRegister.md
 docs/Model/DomainRequest.md
 docs/Model/DomainTransfer.md
-docs/Model/EditApiKey.md
 docs/Model/Finances.md
 docs/Model/FirewallGroup.md
 docs/Model/FirewallGroupInAPI.md
@@ -353,7 +347,6 @@ docs/Model/GetStorageUsers200Response.md
 docs/Model/GetStoragesPresets200Response.md
 docs/Model/GetTLD200Response.md
 docs/Model/GetTLDs200Response.md
-docs/Model/GetTokens200Response.md
 docs/Model/GetVPCPorts200Response.md
 docs/Model/GetVPCServices200Response.md
 docs/Model/GetVPCs200Response.md
@@ -428,7 +421,6 @@ docs/Model/ProjectResource.md
 docs/Model/Provider.md
 docs/Model/Providers.md
 docs/Model/ReduceNodes.md
-docs/Model/RefreshApiKey.md
 docs/Model/RegistriesResponse.md
 docs/Model/RegistryEdit.md
 docs/Model/RegistryIn.md
@@ -529,7 +521,6 @@ docs/Model/UpdateStorageRequest.md
 docs/Model/UpdateStorageRequestConfigurator.md
 docs/Model/UpdateStorageUser200Response.md
 docs/Model/UpdateStorageUserRequest.md
-docs/Model/UpdateToken200Response.md
 docs/Model/UpdateVpc.md
 docs/Model/UploadFilesToKnowledgebase200Response.md
 docs/Model/UploadSuccessful.md
@@ -549,7 +540,6 @@ docs/Model/VpcService.md
 docs/Model/WorkerPresetOutApi.md
 git_push.sh
 lib/Api/AIAgentsApi.php
-lib/Api/APIKeysApi.php
 lib/Api/AccountApi.php
 lib/Api/AppsApi.php
 lib/Api/BalancersApi.php
@@ -610,7 +600,6 @@ lib/Model/Agent.php
 lib/Model/AgentModelSettings.php
 lib/Model/AgentSettings.php
 lib/Model/AgentSettingsWidget.php
-lib/Model/ApiKey.php
 lib/Model/App.php
 lib/Model/AppConfiguration.php
 lib/Model/AppDiskStatus.php
@@ -663,7 +652,6 @@ lib/Model/ContainerRegistryRepositoriesInner.php
 lib/Model/CreateAdmin.php
 lib/Model/CreateAgent.php
 lib/Model/CreateAgent201Response.php
-lib/Model/CreateApiKey.php
 lib/Model/CreateApp.php
 lib/Model/CreateApp201Response.php
 lib/Model/CreateBalancer.php
@@ -722,10 +710,8 @@ lib/Model/CreateServerNetwork.php
 lib/Model/CreateStorage201Response.php
 lib/Model/CreateStorageRequest.php
 lib/Model/CreateStorageRequestConfigurator.php
-lib/Model/CreateToken201Response.php
 lib/Model/CreateVPC201Response.php
 lib/Model/CreateVpc.php
-lib/Model/CreatedApiKey.php
 lib/Model/DatabaseAdmin.php
 lib/Model/DatabaseAdminInstancesInner.php
 lib/Model/DatabaseCluster.php
@@ -778,7 +764,6 @@ lib/Model/DomainProlong.php
 lib/Model/DomainRegister.php
 lib/Model/DomainRequest.php
 lib/Model/DomainTransfer.php
-lib/Model/EditApiKey.php
 lib/Model/Finances.php
 lib/Model/FirewallGroup.php
 lib/Model/FirewallGroupInAPI.php
@@ -900,7 +885,6 @@ lib/Model/GetStorageUsers200Response.php
 lib/Model/GetStoragesPresets200Response.php
 lib/Model/GetTLD200Response.php
 lib/Model/GetTLDs200Response.php
-lib/Model/GetTokens200Response.php
 lib/Model/GetVPCPorts200Response.php
 lib/Model/GetVPCServices200Response.php
 lib/Model/GetVPCs200Response.php
@@ -976,7 +960,6 @@ lib/Model/ProjectResource.php
 lib/Model/Provider.php
 lib/Model/Providers.php
 lib/Model/ReduceNodes.php
-lib/Model/RefreshApiKey.php
 lib/Model/RegistriesResponse.php
 lib/Model/RegistryEdit.php
 lib/Model/RegistryIn.php
@@ -1077,7 +1060,6 @@ lib/Model/UpdateStorageRequest.php
 lib/Model/UpdateStorageRequestConfigurator.php
 lib/Model/UpdateStorageUser200Response.php
 lib/Model/UpdateStorageUserRequest.php
-lib/Model/UpdateToken200Response.php
 lib/Model/UpdateVpc.php
 lib/Model/UploadFilesToKnowledgebase200Response.php
 lib/Model/UploadSuccessful.php
@@ -1098,7 +1080,6 @@ lib/Model/WorkerPresetOutApi.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/AIAgentsApiTest.php
-test/Api/APIKeysApiTest.php
 test/Api/AccountApiTest.php
 test/Api/AppsApiTest.php
 test/Api/BalancersApiTest.php
@@ -1156,7 +1137,6 @@ test/Model/AgentModelSettingsTest.php
 test/Model/AgentSettingsTest.php
 test/Model/AgentSettingsWidgetTest.php
 test/Model/AgentTest.php
-test/Model/ApiKeyTest.php
 test/Model/AppConfigurationTest.php
 test/Model/AppDiskStatusTest.php
 test/Model/AppDomainsInnerTest.php
@@ -1209,7 +1189,6 @@ test/Model/ContainerRegistryRepositoriesInnerTest.php
 test/Model/CreateAdminTest.php
 test/Model/CreateAgent201ResponseTest.php
 test/Model/CreateAgentTest.php
-test/Model/CreateApiKeyTest.php
 test/Model/CreateApp201ResponseTest.php
 test/Model/CreateAppTest.php
 test/Model/CreateBalancer200ResponseTest.php
@@ -1268,10 +1247,8 @@ test/Model/CreateServerTest.php
 test/Model/CreateStorage201ResponseTest.php
 test/Model/CreateStorageRequestConfiguratorTest.php
 test/Model/CreateStorageRequestTest.php
-test/Model/CreateToken201ResponseTest.php
 test/Model/CreateVPC201ResponseTest.php
 test/Model/CreateVpcTest.php
-test/Model/CreatedApiKeyTest.php
 test/Model/DatabaseAdminInstancesInnerTest.php
 test/Model/DatabaseAdminTest.php
 test/Model/DatabaseClusterDiskTest.php
@@ -1324,7 +1301,6 @@ test/Model/DomainRegisterTest.php
 test/Model/DomainRequestTest.php
 test/Model/DomainTest.php
 test/Model/DomainTransferTest.php
-test/Model/EditApiKeyTest.php
 test/Model/FinancesTest.php
 test/Model/FirewallGroupInAPITest.php
 test/Model/FirewallGroupOutResponseTest.php
@@ -1446,7 +1422,6 @@ test/Model/GetStorageUsers200ResponseTest.php
 test/Model/GetStoragesPresets200ResponseTest.php
 test/Model/GetTLD200ResponseTest.php
 test/Model/GetTLDs200ResponseTest.php
-test/Model/GetTokens200ResponseTest.php
 test/Model/GetVPCPorts200ResponseTest.php
 test/Model/GetVPCServices200ResponseTest.php
 test/Model/GetVPCs200ResponseTest.php
@@ -1521,7 +1496,6 @@ test/Model/ProjectTest.php
 test/Model/ProviderTest.php
 test/Model/ProvidersTest.php
 test/Model/ReduceNodesTest.php
-test/Model/RefreshApiKeyTest.php
 test/Model/RegistriesResponseTest.php
 test/Model/RegistryEditTest.php
 test/Model/RegistryInConfigurationTest.php
@@ -1622,7 +1596,6 @@ test/Model/UpdateStorageRequestConfiguratorTest.php
 test/Model/UpdateStorageRequestTest.php
 test/Model/UpdateStorageUser200ResponseTest.php
 test/Model/UpdateStorageUserRequestTest.php
-test/Model/UpdateToken200ResponseTest.php
 test/Model/UpdateVpcTest.php
 test/Model/UploadFilesToKnowledgebase200ResponseTest.php
 test/Model/UploadSuccessfulResponseTest.php

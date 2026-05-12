@@ -232,11 +232,6 @@ Class | Method | HTTP request | Description
 *AIAgentsApi* | [**getKnowledgebasesTokenPackages**](docs/Api/AIAgentsApi.md#getknowledgebasestokenpackages) | **GET** /api/v1/cloud-ai/token-packages/knowledge-bases | Получение списка пакетов токенов для баз знаний
 *AIAgentsApi* | [**getModels**](docs/Api/AIAgentsApi.md#getmodels) | **GET** /api/v1/cloud-ai/models | Получение списка моделей
 *AIAgentsApi* | [**updateAgent**](docs/Api/AIAgentsApi.md#updateagent) | **PATCH** /api/v1/cloud-ai/agents/{id} | Обновление AI агента
-*APIKeysApi* | [**createToken**](docs/Api/APIKeysApi.md#createtoken) | **POST** /api/v1/auth/api-keys | Создание токена
-*APIKeysApi* | [**deleteToken**](docs/Api/APIKeysApi.md#deletetoken) | **DELETE** /api/v1/auth/api-keys/{token_id} | Удалить токен
-*APIKeysApi* | [**getTokens**](docs/Api/APIKeysApi.md#gettokens) | **GET** /api/v1/auth/api-keys | Получение списка выпущенных токенов
-*APIKeysApi* | [**reissueToken**](docs/Api/APIKeysApi.md#reissuetoken) | **PUT** /api/v1/auth/api-keys/{token_id} | Перевыпустить токен
-*APIKeysApi* | [**updateToken**](docs/Api/APIKeysApi.md#updatetoken) | **PATCH** /api/v1/auth/api-keys/{token_id} | Изменить токен
 *AccountApi* | [**addCountriesToAllowedList**](docs/Api/AccountApi.md#addcountriestoallowedlist) | **POST** /api/v1/auth/access/countries | Добавление стран в список разрешенных
 *AccountApi* | [**addIPsToAllowedList**](docs/Api/AccountApi.md#addipstoallowedlist) | **POST** /api/v1/auth/access/ips | Добавление IP-адресов в список разрешенных
 *AccountApi* | [**deleteCountriesFromAllowedList**](docs/Api/AccountApi.md#deletecountriesfromallowedlist) | **DELETE** /api/v1/auth/access/countries | Удаление стран из списка разрешенных
@@ -579,7 +574,6 @@ Class | Method | HTTP request | Description
 - [AgentModelSettings](docs/Model/AgentModelSettings.md)
 - [AgentSettings](docs/Model/AgentSettings.md)
 - [AgentSettingsWidget](docs/Model/AgentSettingsWidget.md)
-- [ApiKey](docs/Model/ApiKey.md)
 - [App](docs/Model/App.md)
 - [AppConfiguration](docs/Model/AppConfiguration.md)
 - [AppDiskStatus](docs/Model/AppDiskStatus.md)
@@ -632,7 +626,6 @@ Class | Method | HTTP request | Description
 - [CreateAdmin](docs/Model/CreateAdmin.md)
 - [CreateAgent](docs/Model/CreateAgent.md)
 - [CreateAgent201Response](docs/Model/CreateAgent201Response.md)
-- [CreateApiKey](docs/Model/CreateApiKey.md)
 - [CreateApp](docs/Model/CreateApp.md)
 - [CreateApp201Response](docs/Model/CreateApp201Response.md)
 - [CreateBalancer](docs/Model/CreateBalancer.md)
@@ -691,10 +684,8 @@ Class | Method | HTTP request | Description
 - [CreateStorage201Response](docs/Model/CreateStorage201Response.md)
 - [CreateStorageRequest](docs/Model/CreateStorageRequest.md)
 - [CreateStorageRequestConfigurator](docs/Model/CreateStorageRequestConfigurator.md)
-- [CreateToken201Response](docs/Model/CreateToken201Response.md)
 - [CreateVPC201Response](docs/Model/CreateVPC201Response.md)
 - [CreateVpc](docs/Model/CreateVpc.md)
-- [CreatedApiKey](docs/Model/CreatedApiKey.md)
 - [DatabaseAdmin](docs/Model/DatabaseAdmin.md)
 - [DatabaseAdminInstancesInner](docs/Model/DatabaseAdminInstancesInner.md)
 - [DatabaseCluster](docs/Model/DatabaseCluster.md)
@@ -747,7 +738,6 @@ Class | Method | HTTP request | Description
 - [DomainRegister](docs/Model/DomainRegister.md)
 - [DomainRequest](docs/Model/DomainRequest.md)
 - [DomainTransfer](docs/Model/DomainTransfer.md)
-- [EditApiKey](docs/Model/EditApiKey.md)
 - [Finances](docs/Model/Finances.md)
 - [FirewallGroup](docs/Model/FirewallGroup.md)
 - [FirewallGroupInAPI](docs/Model/FirewallGroupInAPI.md)
@@ -869,7 +859,6 @@ Class | Method | HTTP request | Description
 - [GetStoragesPresets200Response](docs/Model/GetStoragesPresets200Response.md)
 - [GetTLD200Response](docs/Model/GetTLD200Response.md)
 - [GetTLDs200Response](docs/Model/GetTLDs200Response.md)
-- [GetTokens200Response](docs/Model/GetTokens200Response.md)
 - [GetVPCPorts200Response](docs/Model/GetVPCPorts200Response.md)
 - [GetVPCServices200Response](docs/Model/GetVPCServices200Response.md)
 - [GetVPCs200Response](docs/Model/GetVPCs200Response.md)
@@ -944,7 +933,6 @@ Class | Method | HTTP request | Description
 - [Provider](docs/Model/Provider.md)
 - [Providers](docs/Model/Providers.md)
 - [ReduceNodes](docs/Model/ReduceNodes.md)
-- [RefreshApiKey](docs/Model/RefreshApiKey.md)
 - [RegistriesResponse](docs/Model/RegistriesResponse.md)
 - [RegistryEdit](docs/Model/RegistryEdit.md)
 - [RegistryIn](docs/Model/RegistryIn.md)
@@ -1045,7 +1033,6 @@ Class | Method | HTTP request | Description
 - [UpdateStorageRequestConfigurator](docs/Model/UpdateStorageRequestConfigurator.md)
 - [UpdateStorageUser200Response](docs/Model/UpdateStorageUser200Response.md)
 - [UpdateStorageUserRequest](docs/Model/UpdateStorageUserRequest.md)
-- [UpdateToken200Response](docs/Model/UpdateToken200Response.md)
 - [UpdateVpc](docs/Model/UpdateVpc.md)
 - [UploadFilesToKnowledgebase200Response](docs/Model/UploadFilesToKnowledgebase200Response.md)
 - [UploadSuccessful](docs/Model/UploadSuccessful.md)
