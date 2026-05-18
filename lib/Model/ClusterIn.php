@@ -619,6 +619,7 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets is_ingress
      *
      * @return bool|null
+     * @deprecated
      */
     public function getIsIngress()
     {
@@ -631,6 +632,7 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param bool|null $is_ingress Логическое значение, которое показывает, использовать ли Ingress в кластере
      *
      * @return self
+     * @deprecated
      */
     public function setIsIngress($is_ingress)
     {
@@ -646,6 +648,7 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets is_k8s_dashboard
      *
      * @return bool|null
+     * @deprecated
      */
     public function getIsK8sDashboard()
     {
@@ -658,6 +661,7 @@ class ClusterIn implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param bool|null $is_k8s_dashboard Логическое значение, которое показывает, использовать ли Kubernetes Dashboard в кластере
      *
      * @return self
+     * @deprecated
      */
     public function setIsK8sDashboard($is_k8s_dashboard)
     {
