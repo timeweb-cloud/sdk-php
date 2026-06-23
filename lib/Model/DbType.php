@@ -56,9 +56,11 @@ class DbType
 
     public const POSTGRES17 = 'postgres17';
 
-    public const REDIS7 = 'redis7';
+    public const VALKEY7 = 'valkey7';
 
-    public const REDIS8_1 = 'redis8_1';
+    public const VALKEY8_1 = 'valkey8_1';
+
+    public const VALKEY9_1 = 'valkey9_1';
 
     public const MONGODB7 = 'mongodb7';
 
@@ -91,8 +93,9 @@ class DbType
             self::POSTGRES15,
             self::POSTGRES16,
             self::POSTGRES17,
-            self::REDIS7,
-            self::REDIS8_1,
+            self::VALKEY7,
+            self::VALKEY8_1,
+            self::VALKEY9_1,
             self::MONGODB7,
             self::MONGODB8_0,
             self::OPENSEARCH,
