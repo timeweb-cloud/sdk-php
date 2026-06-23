@@ -69,6 +69,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'config_parameters' => '\OpenAPI\Client\Model\ConfigParameters',
         'replication' => '\OpenAPI\Client\Model\DbReplication',
         'network' => '\OpenAPI\Client\Model\Network',
+        'is_public_ipv6' => 'bool',
         'description' => 'string',
         'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone',
         'auto_backups' => '\OpenAPI\Client\Model\CreateDbAutoBackups'
@@ -93,6 +94,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'config_parameters' => null,
         'replication' => null,
         'network' => null,
+        'is_public_ipv6' => null,
         'description' => null,
         'availability_zone' => null,
         'auto_backups' => null
@@ -115,6 +117,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
 		'config_parameters' => false,
 		'replication' => false,
 		'network' => false,
+		'is_public_ipv6' => false,
 		'description' => false,
 		'availability_zone' => false,
 		'auto_backups' => false
@@ -217,6 +220,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'config_parameters' => 'config_parameters',
         'replication' => 'replication',
         'network' => 'network',
+        'is_public_ipv6' => 'is_public_ipv6',
         'description' => 'description',
         'availability_zone' => 'availability_zone',
         'auto_backups' => 'auto_backups'
@@ -239,6 +243,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'config_parameters' => 'setConfigParameters',
         'replication' => 'setReplication',
         'network' => 'setNetwork',
+        'is_public_ipv6' => 'setIsPublicIpv6',
         'description' => 'setDescription',
         'availability_zone' => 'setAvailabilityZone',
         'auto_backups' => 'setAutoBackups'
@@ -261,6 +266,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'config_parameters' => 'getConfigParameters',
         'replication' => 'getReplication',
         'network' => 'getNetwork',
+        'is_public_ipv6' => 'getIsPublicIpv6',
         'description' => 'getDescription',
         'availability_zone' => 'getAvailabilityZone',
         'auto_backups' => 'getAutoBackups'
@@ -349,6 +355,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('config_parameters', $data ?? [], null);
         $this->setIfExists('replication', $data ?? [], null);
         $this->setIfExists('network', $data ?? [], null);
+        $this->setIfExists('is_public_ipv6', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('availability_zone', $data ?? [], null);
         $this->setIfExists('auto_backups', $data ?? [], null);
@@ -714,6 +721,33 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable network cannot be null');
         }
         $this->container['network'] = $network;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_public_ipv6
+     *
+     * @return bool|null
+     */
+    public function getIsPublicIpv6()
+    {
+        return $this->container['is_public_ipv6'];
+    }
+
+    /**
+     * Sets is_public_ipv6
+     *
+     * @param bool|null $is_public_ipv6 Использование IPv6 адреса.
+     *
+     * @return self
+     */
+    public function setIsPublicIpv6($is_public_ipv6)
+    {
+        if (is_null($is_public_ipv6)) {
+            throw new \InvalidArgumentException('non-nullable is_public_ipv6 cannot be null');
+        }
+        $this->container['is_public_ipv6'] = $is_public_ipv6;
 
         return $this;
     }

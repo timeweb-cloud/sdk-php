@@ -115,4 +115,13 @@ class UpdateClusterTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "is_public_ipv6"
+     */
+    public function testPropertyIsPublicIpv6()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

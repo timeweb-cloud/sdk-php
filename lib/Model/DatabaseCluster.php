@@ -64,6 +64,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'string',
         'name' => 'string',
         'networks' => '\OpenAPI\Client\Model\DatabaseClusterNetworksInner[]',
+        'is_public_ipv6' => 'bool',
         'type' => '\OpenAPI\Client\Model\DbType',
         'hash_type' => 'string',
         'avatar_link' => 'string',
@@ -88,6 +89,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => null,
         'name' => null,
         'networks' => null,
+        'is_public_ipv6' => null,
         'type' => null,
         'hash_type' => null,
         'avatar_link' => null,
@@ -110,6 +112,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
 		'location' => true,
 		'name' => false,
 		'networks' => false,
+		'is_public_ipv6' => false,
 		'type' => false,
 		'hash_type' => true,
 		'avatar_link' => true,
@@ -212,6 +215,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'location',
         'name' => 'name',
         'networks' => 'networks',
+        'is_public_ipv6' => 'is_public_ipv6',
         'type' => 'type',
         'hash_type' => 'hash_type',
         'avatar_link' => 'avatar_link',
@@ -234,6 +238,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'setLocation',
         'name' => 'setName',
         'networks' => 'setNetworks',
+        'is_public_ipv6' => 'setIsPublicIpv6',
         'type' => 'setType',
         'hash_type' => 'setHashType',
         'avatar_link' => 'setAvatarLink',
@@ -256,6 +261,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'getLocation',
         'name' => 'getName',
         'networks' => 'getNetworks',
+        'is_public_ipv6' => 'getIsPublicIpv6',
         'type' => 'getType',
         'hash_type' => 'getHashType',
         'avatar_link' => 'getAvatarLink',
@@ -398,6 +404,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('networks', $data ?? [], null);
+        $this->setIfExists('is_public_ipv6', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('hash_type', $data ?? [], null);
         $this->setIfExists('avatar_link', $data ?? [], null);
@@ -665,6 +672,33 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable networks cannot be null');
         }
         $this->container['networks'] = $networks;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_public_ipv6
+     *
+     * @return bool|null
+     */
+    public function getIsPublicIpv6()
+    {
+        return $this->container['is_public_ipv6'];
+    }
+
+    /**
+     * Sets is_public_ipv6
+     *
+     * @param bool|null $is_public_ipv6 Использование IPv6 адреса.
+     *
+     * @return self
+     */
+    public function setIsPublicIpv6($is_public_ipv6)
+    {
+        if (is_null($is_public_ipv6)) {
+            throw new \InvalidArgumentException('non-nullable is_public_ipv6 cannot be null');
+        }
+        $this->container['is_public_ipv6'] = $is_public_ipv6;
 
         return $this;
     }

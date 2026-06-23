@@ -61,7 +61,8 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'preset_id' => 'int',
         'description' => 'string',
-        'is_enabled_public_network' => 'bool'
+        'is_enabled_public_network' => 'bool',
+        'is_public_ipv6' => 'bool'
     ];
 
     /**
@@ -75,7 +76,8 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'preset_id' => null,
         'description' => null,
-        'is_enabled_public_network' => null
+        'is_enabled_public_network' => null,
+        'is_public_ipv6' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
 		'preset_id' => false,
 		'description' => false,
-		'is_enabled_public_network' => false
+		'is_enabled_public_network' => false,
+		'is_public_ipv6' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'preset_id' => 'preset_id',
         'description' => 'description',
-        'is_enabled_public_network' => 'is_enabled_public_network'
+        'is_enabled_public_network' => 'is_enabled_public_network',
+        'is_public_ipv6' => 'is_public_ipv6'
     ];
 
     /**
@@ -191,7 +195,8 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'preset_id' => 'setPresetId',
         'description' => 'setDescription',
-        'is_enabled_public_network' => 'setIsEnabledPublicNetwork'
+        'is_enabled_public_network' => 'setIsEnabledPublicNetwork',
+        'is_public_ipv6' => 'setIsPublicIpv6'
     ];
 
     /**
@@ -203,7 +208,8 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'preset_id' => 'getPresetId',
         'description' => 'getDescription',
-        'is_enabled_public_network' => 'getIsEnabledPublicNetwork'
+        'is_enabled_public_network' => 'getIsEnabledPublicNetwork',
+        'is_public_ipv6' => 'getIsPublicIpv6'
     ];
 
     /**
@@ -267,6 +273,7 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('preset_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('is_enabled_public_network', $data ?? [], null);
+        $this->setIfExists('is_public_ipv6', $data ?? [], null);
     }
 
     /**
@@ -415,6 +422,33 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_enabled_public_network cannot be null');
         }
         $this->container['is_enabled_public_network'] = $is_enabled_public_network;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_public_ipv6
+     *
+     * @return bool|null
+     */
+    public function getIsPublicIpv6()
+    {
+        return $this->container['is_public_ipv6'];
+    }
+
+    /**
+     * Sets is_public_ipv6
+     *
+     * @param bool|null $is_public_ipv6 Использование IPv6 адреса.
+     *
+     * @return self
+     */
+    public function setIsPublicIpv6($is_public_ipv6)
+    {
+        if (is_null($is_public_ipv6)) {
+            throw new \InvalidArgumentException('non-nullable is_public_ipv6 cannot be null');
+        }
+        $this->container['is_public_ipv6'] = $is_public_ipv6;
 
         return $this;
     }

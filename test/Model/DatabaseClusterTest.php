@@ -126,6 +126,15 @@ class DatabaseClusterTest extends TestCase
     }
 
     /**
+     * Test attribute "is_public_ipv6"
+     */
+    public function testPropertyIsPublicIpv6()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "type"
      */
     public function testPropertyType()

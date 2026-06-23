@@ -56,6 +56,8 @@ class DbType
 
     public const POSTGRES17 = 'postgres17';
 
+    public const POSTGRES18 = 'postgres18';
+
     public const VALKEY7 = 'valkey7';
 
     public const VALKEY8_1 = 'valkey8_1';
@@ -65,8 +67,6 @@ class DbType
     public const MONGODB7 = 'mongodb7';
 
     public const MONGODB8_0 = 'mongodb8_0';
-
-    public const OPENSEARCH = 'opensearch';
 
     public const OPENSEARCH2_19 = 'opensearch2_19';
 
@@ -93,12 +93,12 @@ class DbType
             self::POSTGRES15,
             self::POSTGRES16,
             self::POSTGRES17,
+            self::POSTGRES18,
             self::VALKEY7,
             self::VALKEY8_1,
             self::VALKEY9_1,
             self::MONGODB7,
             self::MONGODB8_0,
-            self::OPENSEARCH,
             self::OPENSEARCH2_19,
             self::CLICKHOUSE,
             self::CLICKHOUSE24,

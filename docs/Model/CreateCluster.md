@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **config_parameters** | [**\OpenAPI\Client\Model\ConfigParameters**](ConfigParameters.md) |  | [optional]
 **replication** | [**\OpenAPI\Client\Model\DbReplication**](DbReplication.md) |  | [optional]
 **network** | [**\OpenAPI\Client\Model\Network**](Network.md) |  | [optional]
+**is_public_ipv6** | **bool** | Использование IPv6 адреса. | [optional]
 **description** | **string** | Описание кластера базы данных | [optional]
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  | [optional]
 **auto_backups** | [**\OpenAPI\Client\Model\CreateDbAutoBackups**](CreateDbAutoBackups.md) |  | [optional]
