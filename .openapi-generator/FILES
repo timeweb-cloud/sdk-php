@@ -130,13 +130,11 @@ docs/Model/CreateBalancerRule200Response.md
 docs/Model/CreateCluster.md
 docs/Model/CreateClusterAdmin.md
 docs/Model/CreateClusterInstance.md
-docs/Model/CreateDatabase201Response.md
 docs/Model/CreateDatabaseBackup201Response.md
 docs/Model/CreateDatabaseBackup409Response.md
 docs/Model/CreateDatabaseCluster201Response.md
 docs/Model/CreateDatabaseInstance201Response.md
 docs/Model/CreateDatabaseUser201Response.md
-docs/Model/CreateDb.md
 docs/Model/CreateDbAutoBackups.md
 docs/Model/CreateDedicatedServer.md
 docs/Model/CreateDedicatedServer201Response.md
@@ -204,7 +202,6 @@ docs/Model/DeleteBalancer200Response.md
 docs/Model/DeleteCluster200Response.md
 docs/Model/DeleteCountriesFromAllowedList200Response.md
 docs/Model/DeleteCountriesFromAllowedListRequest.md
-docs/Model/DeleteDatabase200Response.md
 docs/Model/DeleteDatabaseCluster200Response.md
 docs/Model/DeleteIPsFromAllowedList200Response.md
 docs/Model/DeleteIPsFromAllowedListRequest.md
@@ -291,7 +288,6 @@ docs/Model/GetDatabaseClusterTypes200Response.md
 docs/Model/GetDatabaseClusters200Response.md
 docs/Model/GetDatabaseInstances200Response.md
 docs/Model/GetDatabaseUsers200Response.md
-docs/Model/GetDatabases200Response.md
 docs/Model/GetDatabasesPresets200Response.md
 docs/Model/GetDedicatedServerPresetAdditionalServices200Response.md
 docs/Model/GetDedicatedServers200Response.md
@@ -533,7 +529,6 @@ docs/Model/UpdateAppSettings200Response.md
 docs/Model/UpdateAuthRestrictionsByCountriesRequest.md
 docs/Model/UpdateBalancer.md
 docs/Model/UpdateCluster.md
-docs/Model/UpdateDb.md
 docs/Model/UpdateDedicatedServerRequest.md
 docs/Model/UpdateDomain.md
 docs/Model/UpdateDomainAutoProlongation200Response.md
@@ -712,13 +707,11 @@ lib/Model/CreateBalancerRule200Response.php
 lib/Model/CreateCluster.php
 lib/Model/CreateClusterAdmin.php
 lib/Model/CreateClusterInstance.php
-lib/Model/CreateDatabase201Response.php
 lib/Model/CreateDatabaseBackup201Response.php
 lib/Model/CreateDatabaseBackup409Response.php
 lib/Model/CreateDatabaseCluster201Response.php
 lib/Model/CreateDatabaseInstance201Response.php
 lib/Model/CreateDatabaseUser201Response.php
-lib/Model/CreateDb.php
 lib/Model/CreateDbAutoBackups.php
 lib/Model/CreateDedicatedServer.php
 lib/Model/CreateDedicatedServer201Response.php
@@ -786,7 +779,6 @@ lib/Model/DeleteBalancer200Response.php
 lib/Model/DeleteCluster200Response.php
 lib/Model/DeleteCountriesFromAllowedList200Response.php
 lib/Model/DeleteCountriesFromAllowedListRequest.php
-lib/Model/DeleteDatabase200Response.php
 lib/Model/DeleteDatabaseCluster200Response.php
 lib/Model/DeleteIPsFromAllowedList200Response.php
 lib/Model/DeleteIPsFromAllowedListRequest.php
@@ -873,7 +865,6 @@ lib/Model/GetDatabaseClusterTypes200Response.php
 lib/Model/GetDatabaseClusters200Response.php
 lib/Model/GetDatabaseInstances200Response.php
 lib/Model/GetDatabaseUsers200Response.php
-lib/Model/GetDatabases200Response.php
 lib/Model/GetDatabasesPresets200Response.php
 lib/Model/GetDedicatedServerPresetAdditionalServices200Response.php
 lib/Model/GetDedicatedServers200Response.php
@@ -1116,7 +1107,6 @@ lib/Model/UpdateAppSettings200Response.php
 lib/Model/UpdateAuthRestrictionsByCountriesRequest.php
 lib/Model/UpdateBalancer.php
 lib/Model/UpdateCluster.php
-lib/Model/UpdateDb.php
 lib/Model/UpdateDedicatedServerRequest.php
 lib/Model/UpdateDomain.php
 lib/Model/UpdateDomainAutoProlongation200Response.php
@@ -1293,14 +1283,12 @@ test/Model/CreateBalancerTest.php
 test/Model/CreateClusterAdminTest.php
 test/Model/CreateClusterInstanceTest.php
 test/Model/CreateClusterTest.php
-test/Model/CreateDatabase201ResponseTest.php
 test/Model/CreateDatabaseBackup201ResponseTest.php
 test/Model/CreateDatabaseBackup409ResponseTest.php
 test/Model/CreateDatabaseCluster201ResponseTest.php
 test/Model/CreateDatabaseInstance201ResponseTest.php
 test/Model/CreateDatabaseUser201ResponseTest.php
 test/Model/CreateDbAutoBackupsTest.php
-test/Model/CreateDbTest.php
 test/Model/CreateDedicatedServer201ResponseTest.php
 test/Model/CreateDedicatedServerTest.php
 test/Model/CreateDeploy201ResponseTest.php
@@ -1367,7 +1355,6 @@ test/Model/DeleteBalancer200ResponseTest.php
 test/Model/DeleteCluster200ResponseTest.php
 test/Model/DeleteCountriesFromAllowedList200ResponseTest.php
 test/Model/DeleteCountriesFromAllowedListRequestTest.php
-test/Model/DeleteDatabase200ResponseTest.php
 test/Model/DeleteDatabaseCluster200ResponseTest.php
 test/Model/DeleteIPsFromAllowedList200ResponseTest.php
 test/Model/DeleteIPsFromAllowedListRequestTest.php
@@ -1454,7 +1441,6 @@ test/Model/GetDatabaseClusterTypes200ResponseTest.php
 test/Model/GetDatabaseClusters200ResponseTest.php
 test/Model/GetDatabaseInstances200ResponseTest.php
 test/Model/GetDatabaseUsers200ResponseTest.php
-test/Model/GetDatabases200ResponseTest.php
 test/Model/GetDatabasesPresets200ResponseTest.php
 test/Model/GetDedicatedServerPresetAdditionalServices200ResponseTest.php
 test/Model/GetDedicatedServers200ResponseTest.php
@@ -1696,7 +1682,6 @@ test/Model/UpdateAppSettings200ResponseTest.php
 test/Model/UpdateAuthRestrictionsByCountriesRequestTest.php
 test/Model/UpdateBalancerTest.php
 test/Model/UpdateClusterTest.php
-test/Model/UpdateDbTest.php
 test/Model/UpdateDedicatedServerRequestTest.php
 test/Model/UpdateDomainAutoProlongation200ResponseTest.php
 test/Model/UpdateDomainMailInfoRequestTest.php

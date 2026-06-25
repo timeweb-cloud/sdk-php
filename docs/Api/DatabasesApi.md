@@ -4,17 +4,14 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createDatabase()**](DatabasesApi.md#createDatabase) | **POST** /api/v1/dbs | Создание базы данных |
 | [**createDatabaseBackup()**](DatabasesApi.md#createDatabaseBackup) | **POST** /api/v1/dbs/{db_id}/backups | Создание бэкапа базы данных |
 | [**createDatabaseCluster()**](DatabasesApi.md#createDatabaseCluster) | **POST** /api/v1/databases | Создание кластера базы данных |
 | [**createDatabaseInstance()**](DatabasesApi.md#createDatabaseInstance) | **POST** /api/v1/databases/{db_cluster_id}/instances | Создание инстанса базы данных |
 | [**createDatabaseUser()**](DatabasesApi.md#createDatabaseUser) | **POST** /api/v1/databases/{db_cluster_id}/admins | Создание пользователя базы данных |
-| [**deleteDatabase()**](DatabasesApi.md#deleteDatabase) | **DELETE** /api/v1/dbs/{db_id} | Удаление базы данных |
 | [**deleteDatabaseBackup()**](DatabasesApi.md#deleteDatabaseBackup) | **DELETE** /api/v1/dbs/{db_id}/backups/{backup_id} | Удаление бэкапа базы данных |
 | [**deleteDatabaseCluster()**](DatabasesApi.md#deleteDatabaseCluster) | **DELETE** /api/v1/databases/{db_cluster_id} | Удаление кластера базы данных |
 | [**deleteDatabaseInstance()**](DatabasesApi.md#deleteDatabaseInstance) | **DELETE** /api/v1/databases/{db_cluster_id}/instances/{instance_id} | Удаление инстанса базы данных |
 | [**deleteDatabaseUser()**](DatabasesApi.md#deleteDatabaseUser) | **DELETE** /api/v1/databases/{db_cluster_id}/admins/{admin_id} | Удаление пользователя базы данных |
-| [**getDatabase()**](DatabasesApi.md#getDatabase) | **GET** /api/v1/dbs/{db_id} | Получение базы данных |
 | [**getDatabaseAutoBackupsSettings()**](DatabasesApi.md#getDatabaseAutoBackupsSettings) | **GET** /api/v1/dbs/{db_id}/auto-backups | Получение настроек автобэкапов базы данных |
 | [**getDatabaseBackup()**](DatabasesApi.md#getDatabaseBackup) | **GET** /api/v1/dbs/{db_id}/backups/{backup_id} | Получение бэкапа базы данных |
 | [**getDatabaseBackups()**](DatabasesApi.md#getDatabaseBackups) | **GET** /api/v1/dbs/{db_id}/backups | Список бэкапов базы данных |
@@ -26,75 +23,13 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getDatabaseParameters()**](DatabasesApi.md#getDatabaseParameters) | **GET** /api/v1/dbs/parameters | Получение списка параметров баз данных |
 | [**getDatabaseUser()**](DatabasesApi.md#getDatabaseUser) | **GET** /api/v1/databases/{db_cluster_id}/admins/{admin_id} | Получение пользователя базы данных |
 | [**getDatabaseUsers()**](DatabasesApi.md#getDatabaseUsers) | **GET** /api/v1/databases/{db_cluster_id}/admins | Получение списка пользователей базы данных |
-| [**getDatabases()**](DatabasesApi.md#getDatabases) | **GET** /api/v1/dbs | Получение списка всех баз данных |
 | [**getDatabasesPresets()**](DatabasesApi.md#getDatabasesPresets) | **GET** /api/v2/presets/dbs | Получение списка тарифов для баз данных |
 | [**restoreDatabaseFromBackup()**](DatabasesApi.md#restoreDatabaseFromBackup) | **PUT** /api/v1/dbs/{db_id}/backups/{backup_id} | Восстановление базы данных из бэкапа |
-| [**updateDatabase()**](DatabasesApi.md#updateDatabase) | **PATCH** /api/v1/dbs/{db_id} | Обновление базы данных |
 | [**updateDatabaseAutoBackupsSettings()**](DatabasesApi.md#updateDatabaseAutoBackupsSettings) | **PATCH** /api/v1/dbs/{db_id}/auto-backups | Изменение настроек автобэкапов базы данных |
 | [**updateDatabaseCluster()**](DatabasesApi.md#updateDatabaseCluster) | **PATCH** /api/v1/databases/{db_cluster_id} | Изменение кластера базы данных |
 | [**updateDatabaseInstance()**](DatabasesApi.md#updateDatabaseInstance) | **PATCH** /api/v1/databases/{db_cluster_id}/instances/{instance_id} | Изменение инстанса базы данных |
 | [**updateDatabaseUser()**](DatabasesApi.md#updateDatabaseUser) | **PATCH** /api/v1/databases/{db_cluster_id}/admins/{admin_id} | Изменение пользователя базы данных |
 
-
-## `createDatabase()`
-
-```php
-createDatabase($create_db): \OpenAPI\Client\Model\CreateDatabase201Response
-```
-
-Создание базы данных
-
-Чтобы создать базу данных на вашем аккаунте, отправьте POST-запрос на `/api/v1/dbs`, задав необходимые атрибуты.  База данных будет создана с использованием предоставленной информации. Тело ответа будет содержать объект JSON с информацией о созданной базе данных.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$create_db = new \OpenAPI\Client\Model\CreateDb(); // \OpenAPI\Client\Model\CreateDb
-
-try {
-    $result = $apiInstance->createDatabase($create_db);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->createDatabase: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **create_db** | [**\OpenAPI\Client\Model\CreateDb**](../Model/CreateDb.md)|  | |
-
-### Return type
-
-[**\OpenAPI\Client\Model\CreateDatabase201Response**](../Model/CreateDatabase201Response.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `createDatabaseBackup()`
 
@@ -342,70 +277,6 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteDatabase()`
-
-```php
-deleteDatabase($db_id, $hash, $code): \OpenAPI\Client\Model\DeleteDatabase200Response
-```
-
-Удаление базы данных
-
-Чтобы удалить базу данных, отправьте запрос DELETE в `api/v1/dbs/{db_id}`.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$db_id = 56; // int | ID базы данных
-$hash = 15095f25-aac3-4d60-a788-96cb5136f186; // string | Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм.
-$code = 0000; // string | Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена `is_able_to_delete` установлен в значение `true`
-
-try {
-    $result = $apiInstance->deleteDatabase($db_id, $hash, $code);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->deleteDatabase: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| ID базы данных | |
-| **hash** | **string**| Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. | [optional] |
-| **code** | **string**| Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\DeleteDatabase200Response**](../Model/DeleteDatabase200Response.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `deleteDatabaseBackup()`
 
 ```php
@@ -639,66 +510,6 @@ try {
 ### Return type
 
 void (empty response body)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getDatabase()`
-
-```php
-getDatabase($db_id): \OpenAPI\Client\Model\CreateDatabase201Response
-```
-
-Получение базы данных
-
-Чтобы отобразить информацию об отдельной базе данных, отправьте запрос GET на `api/v1/dbs/{db_id}`.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$db_id = 56; // int | ID базы данных
-
-try {
-    $result = $apiInstance->getDatabase($db_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->getDatabase: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| ID базы данных | |
-
-### Return type
-
-[**\OpenAPI\Client\Model\CreateDatabase201Response**](../Model/CreateDatabase201Response.md)
 
 ### Authorization
 
@@ -1379,68 +1190,6 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getDatabases()`
-
-```php
-getDatabases($limit, $offset): \OpenAPI\Client\Model\GetDatabases200Response
-```
-
-Получение списка всех баз данных
-
-Чтобы получить список всех баз данных на вашем аккаунте, отправьте GET-запрос на `/api/v1/dbs`.   Тело ответа будет представлять собой объект JSON с ключом `dbs`.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$limit = 100; // int | Обозначает количество записей, которое необходимо вернуть.
-$offset = 0; // int | Указывает на смещение относительно начала списка.
-
-try {
-    $result = $apiInstance->getDatabases($limit, $offset);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->getDatabases: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **limit** | **int**| Обозначает количество записей, которое необходимо вернуть. | [optional] [default to 100] |
-| **offset** | **int**| Указывает на смещение относительно начала списка. | [optional] [default to 0] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\GetDatabases200Response**](../Model/GetDatabases200Response.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `getDatabasesPresets()`
 
 ```php
@@ -1556,68 +1305,6 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `updateDatabase()`
-
-```php
-updateDatabase($db_id, $update_db): \OpenAPI\Client\Model\CreateDatabase201Response
-```
-
-Обновление базы данных
-
-Чтобы обновить только определенные атрибуты базы данных, отправьте запрос PATCH в `api/v1/dbs/{db_id}`.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\DatabasesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$db_id = 56; // int | ID базы данных
-$update_db = new \OpenAPI\Client\Model\UpdateDb(); // \OpenAPI\Client\Model\UpdateDb
-
-try {
-    $result = $apiInstance->updateDatabase($db_id, $update_db);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DatabasesApi->updateDatabase: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **db_id** | **int**| ID базы данных | |
-| **update_db** | [**\OpenAPI\Client\Model\UpdateDb**](../Model/UpdateDb.md)|  | |
-
-### Return type
-
-[**\OpenAPI\Client\Model\CreateDatabase201Response**](../Model/CreateDatabase201Response.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

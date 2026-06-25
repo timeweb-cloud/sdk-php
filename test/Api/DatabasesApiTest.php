@@ -73,18 +73,6 @@ class DatabasesApiTest extends TestCase
     }
 
     /**
-     * Test case for createDatabase
-     *
-     * Создание базы данных.
-     *
-     */
-    public function testCreateDatabase()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for createDatabaseBackup
      *
      * Создание бэкапа базы данных.
@@ -133,18 +121,6 @@ class DatabasesApiTest extends TestCase
     }
 
     /**
-     * Test case for deleteDatabase
-     *
-     * Удаление базы данных.
-     *
-     */
-    public function testDeleteDatabase()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for deleteDatabaseBackup
      *
      * Удаление бэкапа базы данных.
@@ -187,18 +163,6 @@ class DatabasesApiTest extends TestCase
      *
      */
     public function testDeleteDatabaseUser()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getDatabase
-     *
-     * Получение базы данных.
-     *
-     */
-    public function testGetDatabase()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -337,18 +301,6 @@ class DatabasesApiTest extends TestCase
     }
 
     /**
-     * Test case for getDatabases
-     *
-     * Получение списка всех баз данных.
-     *
-     */
-    public function testGetDatabases()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for getDatabasesPresets
      *
      * Получение списка тарифов для баз данных.
@@ -367,18 +319,6 @@ class DatabasesApiTest extends TestCase
      *
      */
     public function testRestoreDatabaseFromBackup()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateDatabase
-     *
-     * Обновление базы данных.
-     *
-     */
-    public function testUpdateDatabase()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
