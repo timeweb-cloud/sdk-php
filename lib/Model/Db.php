@@ -75,7 +75,7 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'string',
         'preset_id' => 'int',
         'disk_stats' => '\OpenAPI\Client\Model\DbDiskStats',
-        'config_parameters' => '\OpenAPI\Client\Model\ConfigParameters',
+        'config_parameters' => '\OpenAPI\Client\Model\Mysql',
         'is_only_local_ip_access' => 'bool',
         'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone'
     ];
@@ -1053,7 +1053,7 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets config_parameters
      *
-     * @return \OpenAPI\Client\Model\ConfigParameters
+     * @return \OpenAPI\Client\Model\Mysql
      */
     public function getConfigParameters()
     {
@@ -1063,7 +1063,7 @@ class Db implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets config_parameters
      *
-     * @param \OpenAPI\Client\Model\ConfigParameters $config_parameters config_parameters
+     * @param \OpenAPI\Client\Model\Mysql $config_parameters config_parameters
      *
      * @return self
      */

@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **status** | **string** | Текущий статус базы данных. |
 **preset_id** | **int** | ID тарифа. |
 **disk_stats** | [**\OpenAPI\Client\Model\DbDiskStats**](DbDiskStats.md) |  |
-**config_parameters** | [**\OpenAPI\Client\Model\ConfigParameters**](ConfigParameters.md) |  |
+**config_parameters** | [**\OpenAPI\Client\Model\Mysql**](Mysql.md) |  |
 **is_only_local_ip_access** | **bool** | Это логическое значение, которое показывает, доступна ли база данных только по локальному IP адресу. |
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  |
 

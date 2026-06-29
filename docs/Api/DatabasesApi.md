@@ -1014,7 +1014,7 @@ try {
 ## `getDatabaseParameters()`
 
 ```php
-getDatabaseParameters(): array<string,string[]>
+getDatabaseParameters(): \OpenAPI\Client\Model\ConfigParameters
 ```
 
 Получение списка параметров баз данных
@@ -1053,7 +1053,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**array<string,string[]>**
+[**\OpenAPI\Client\Model\ConfigParameters**](../Model/ConfigParameters.md)
 
 ### Authorization
 

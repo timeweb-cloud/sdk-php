@@ -59,34 +59,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'auto_increment_increment' => 'string',
-        'auto_increment_offset' => 'string',
-        'innodb_io_capacity' => 'string',
-        'innodb_purge_threads' => 'string',
-        'innodb_read_io_threads' => 'string',
-        'innodb_thread_concurrency' => 'string',
-        'innodb_write_io_threads' => 'string',
-        'join_buffer_size' => 'string',
-        'max_allowed_packet' => 'string',
-        'max_heap_table_size' => 'string',
-        'autovacuum_analyze_scale_factor' => 'string',
-        'bgwriter_delay' => 'string',
-        'bgwriter_lru_maxpages' => 'string',
-        'deadlock_timeout' => 'string',
-        'gin_pending_list_limit' => 'string',
-        'idle_in_transaction_session_timeout' => 'string',
-        'idle_session_timeout' => 'string',
-        'join_collapse_limit' => 'string',
-        'lock_timeout' => 'string',
-        'max_prepared_transactions' => 'string',
-        'max_connections' => 'string',
-        'shared_buffers' => 'string',
-        'wal_buffers' => 'string',
-        'temp_buffers' => 'string',
-        'work_mem' => 'string',
-        'sql_mode' => 'string',
-        'query_cache_type' => 'string',
-        'query_cache_size' => 'string'
+        'mysql' => '\OpenAPI\Client\Model\ConfigParametersMysql',
+        'postgres' => '\OpenAPI\Client\Model\ConfigParametersPostgres'
     ];
 
     /**
@@ -97,34 +71,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'auto_increment_increment' => null,
-        'auto_increment_offset' => null,
-        'innodb_io_capacity' => null,
-        'innodb_purge_threads' => null,
-        'innodb_read_io_threads' => null,
-        'innodb_thread_concurrency' => null,
-        'innodb_write_io_threads' => null,
-        'join_buffer_size' => null,
-        'max_allowed_packet' => null,
-        'max_heap_table_size' => null,
-        'autovacuum_analyze_scale_factor' => null,
-        'bgwriter_delay' => null,
-        'bgwriter_lru_maxpages' => null,
-        'deadlock_timeout' => null,
-        'gin_pending_list_limit' => null,
-        'idle_in_transaction_session_timeout' => null,
-        'idle_session_timeout' => null,
-        'join_collapse_limit' => null,
-        'lock_timeout' => null,
-        'max_prepared_transactions' => null,
-        'max_connections' => null,
-        'shared_buffers' => null,
-        'wal_buffers' => null,
-        'temp_buffers' => null,
-        'work_mem' => null,
-        'sql_mode' => null,
-        'query_cache_type' => null,
-        'query_cache_size' => null
+        'mysql' => null,
+        'postgres' => null
     ];
 
     /**
@@ -133,34 +81,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'auto_increment_increment' => false,
-		'auto_increment_offset' => false,
-		'innodb_io_capacity' => false,
-		'innodb_purge_threads' => false,
-		'innodb_read_io_threads' => false,
-		'innodb_thread_concurrency' => false,
-		'innodb_write_io_threads' => false,
-		'join_buffer_size' => false,
-		'max_allowed_packet' => false,
-		'max_heap_table_size' => false,
-		'autovacuum_analyze_scale_factor' => false,
-		'bgwriter_delay' => false,
-		'bgwriter_lru_maxpages' => false,
-		'deadlock_timeout' => false,
-		'gin_pending_list_limit' => false,
-		'idle_in_transaction_session_timeout' => false,
-		'idle_session_timeout' => false,
-		'join_collapse_limit' => false,
-		'lock_timeout' => false,
-		'max_prepared_transactions' => false,
-		'max_connections' => false,
-		'shared_buffers' => false,
-		'wal_buffers' => false,
-		'temp_buffers' => false,
-		'work_mem' => false,
-		'sql_mode' => false,
-		'query_cache_type' => false,
-		'query_cache_size' => false
+        'mysql' => false,
+		'postgres' => false
     ];
 
     /**
@@ -249,34 +171,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_increment_increment' => 'auto_increment_increment',
-        'auto_increment_offset' => 'auto_increment_offset',
-        'innodb_io_capacity' => 'innodb_io_capacity',
-        'innodb_purge_threads' => 'innodb_purge_threads',
-        'innodb_read_io_threads' => 'innodb_read_io_threads',
-        'innodb_thread_concurrency' => 'innodb_thread_concurrency',
-        'innodb_write_io_threads' => 'innodb_write_io_threads',
-        'join_buffer_size' => 'join_buffer_size',
-        'max_allowed_packet' => 'max_allowed_packet',
-        'max_heap_table_size' => 'max_heap_table_size',
-        'autovacuum_analyze_scale_factor' => 'autovacuum_analyze_scale_factor',
-        'bgwriter_delay' => 'bgwriter_delay',
-        'bgwriter_lru_maxpages' => 'bgwriter_lru_maxpages',
-        'deadlock_timeout' => 'deadlock_timeout',
-        'gin_pending_list_limit' => 'gin_pending_list_limit',
-        'idle_in_transaction_session_timeout' => 'idle_in_transaction_session_timeout',
-        'idle_session_timeout' => 'idle_session_timeout',
-        'join_collapse_limit' => 'join_collapse_limit',
-        'lock_timeout' => 'lock_timeout',
-        'max_prepared_transactions' => 'max_prepared_transactions',
-        'max_connections' => 'max_connections',
-        'shared_buffers' => 'shared_buffers',
-        'wal_buffers' => 'wal_buffers',
-        'temp_buffers' => 'temp_buffers',
-        'work_mem' => 'work_mem',
-        'sql_mode' => 'sql_mode',
-        'query_cache_type' => 'query_cache_type',
-        'query_cache_size' => 'query_cache_size'
+        'mysql' => 'mysql',
+        'postgres' => 'postgres'
     ];
 
     /**
@@ -285,34 +181,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'auto_increment_increment' => 'setAutoIncrementIncrement',
-        'auto_increment_offset' => 'setAutoIncrementOffset',
-        'innodb_io_capacity' => 'setInnodbIoCapacity',
-        'innodb_purge_threads' => 'setInnodbPurgeThreads',
-        'innodb_read_io_threads' => 'setInnodbReadIoThreads',
-        'innodb_thread_concurrency' => 'setInnodbThreadConcurrency',
-        'innodb_write_io_threads' => 'setInnodbWriteIoThreads',
-        'join_buffer_size' => 'setJoinBufferSize',
-        'max_allowed_packet' => 'setMaxAllowedPacket',
-        'max_heap_table_size' => 'setMaxHeapTableSize',
-        'autovacuum_analyze_scale_factor' => 'setAutovacuumAnalyzeScaleFactor',
-        'bgwriter_delay' => 'setBgwriterDelay',
-        'bgwriter_lru_maxpages' => 'setBgwriterLruMaxpages',
-        'deadlock_timeout' => 'setDeadlockTimeout',
-        'gin_pending_list_limit' => 'setGinPendingListLimit',
-        'idle_in_transaction_session_timeout' => 'setIdleInTransactionSessionTimeout',
-        'idle_session_timeout' => 'setIdleSessionTimeout',
-        'join_collapse_limit' => 'setJoinCollapseLimit',
-        'lock_timeout' => 'setLockTimeout',
-        'max_prepared_transactions' => 'setMaxPreparedTransactions',
-        'max_connections' => 'setMaxConnections',
-        'shared_buffers' => 'setSharedBuffers',
-        'wal_buffers' => 'setWalBuffers',
-        'temp_buffers' => 'setTempBuffers',
-        'work_mem' => 'setWorkMem',
-        'sql_mode' => 'setSqlMode',
-        'query_cache_type' => 'setQueryCacheType',
-        'query_cache_size' => 'setQueryCacheSize'
+        'mysql' => 'setMysql',
+        'postgres' => 'setPostgres'
     ];
 
     /**
@@ -321,34 +191,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'auto_increment_increment' => 'getAutoIncrementIncrement',
-        'auto_increment_offset' => 'getAutoIncrementOffset',
-        'innodb_io_capacity' => 'getInnodbIoCapacity',
-        'innodb_purge_threads' => 'getInnodbPurgeThreads',
-        'innodb_read_io_threads' => 'getInnodbReadIoThreads',
-        'innodb_thread_concurrency' => 'getInnodbThreadConcurrency',
-        'innodb_write_io_threads' => 'getInnodbWriteIoThreads',
-        'join_buffer_size' => 'getJoinBufferSize',
-        'max_allowed_packet' => 'getMaxAllowedPacket',
-        'max_heap_table_size' => 'getMaxHeapTableSize',
-        'autovacuum_analyze_scale_factor' => 'getAutovacuumAnalyzeScaleFactor',
-        'bgwriter_delay' => 'getBgwriterDelay',
-        'bgwriter_lru_maxpages' => 'getBgwriterLruMaxpages',
-        'deadlock_timeout' => 'getDeadlockTimeout',
-        'gin_pending_list_limit' => 'getGinPendingListLimit',
-        'idle_in_transaction_session_timeout' => 'getIdleInTransactionSessionTimeout',
-        'idle_session_timeout' => 'getIdleSessionTimeout',
-        'join_collapse_limit' => 'getJoinCollapseLimit',
-        'lock_timeout' => 'getLockTimeout',
-        'max_prepared_transactions' => 'getMaxPreparedTransactions',
-        'max_connections' => 'getMaxConnections',
-        'shared_buffers' => 'getSharedBuffers',
-        'wal_buffers' => 'getWalBuffers',
-        'temp_buffers' => 'getTempBuffers',
-        'work_mem' => 'getWorkMem',
-        'sql_mode' => 'getSqlMode',
-        'query_cache_type' => 'getQueryCacheType',
-        'query_cache_size' => 'getQueryCacheSize'
+        'mysql' => 'getMysql',
+        'postgres' => 'getPostgres'
     ];
 
     /**
@@ -408,34 +252,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('auto_increment_increment', $data ?? [], null);
-        $this->setIfExists('auto_increment_offset', $data ?? [], null);
-        $this->setIfExists('innodb_io_capacity', $data ?? [], null);
-        $this->setIfExists('innodb_purge_threads', $data ?? [], null);
-        $this->setIfExists('innodb_read_io_threads', $data ?? [], null);
-        $this->setIfExists('innodb_thread_concurrency', $data ?? [], null);
-        $this->setIfExists('innodb_write_io_threads', $data ?? [], null);
-        $this->setIfExists('join_buffer_size', $data ?? [], null);
-        $this->setIfExists('max_allowed_packet', $data ?? [], null);
-        $this->setIfExists('max_heap_table_size', $data ?? [], null);
-        $this->setIfExists('autovacuum_analyze_scale_factor', $data ?? [], null);
-        $this->setIfExists('bgwriter_delay', $data ?? [], null);
-        $this->setIfExists('bgwriter_lru_maxpages', $data ?? [], null);
-        $this->setIfExists('deadlock_timeout', $data ?? [], null);
-        $this->setIfExists('gin_pending_list_limit', $data ?? [], null);
-        $this->setIfExists('idle_in_transaction_session_timeout', $data ?? [], null);
-        $this->setIfExists('idle_session_timeout', $data ?? [], null);
-        $this->setIfExists('join_collapse_limit', $data ?? [], null);
-        $this->setIfExists('lock_timeout', $data ?? [], null);
-        $this->setIfExists('max_prepared_transactions', $data ?? [], null);
-        $this->setIfExists('max_connections', $data ?? [], null);
-        $this->setIfExists('shared_buffers', $data ?? [], null);
-        $this->setIfExists('wal_buffers', $data ?? [], null);
-        $this->setIfExists('temp_buffers', $data ?? [], null);
-        $this->setIfExists('work_mem', $data ?? [], null);
-        $this->setIfExists('sql_mode', $data ?? [], null);
-        $this->setIfExists('query_cache_type', $data ?? [], null);
-        $this->setIfExists('query_cache_size', $data ?? [], null);
+        $this->setIfExists('mysql', $data ?? [], null);
+        $this->setIfExists('postgres', $data ?? [], null);
     }
 
     /**
@@ -481,757 +299,55 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets auto_increment_increment
+     * Gets mysql
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\ConfigParametersMysql|null
      */
-    public function getAutoIncrementIncrement()
+    public function getMysql()
     {
-        return $this->container['auto_increment_increment'];
+        return $this->container['mysql'];
     }
 
     /**
-     * Sets auto_increment_increment
+     * Sets mysql
      *
-     * @param string|null $auto_increment_increment Интервал между значениями столбцов с атрибутом `AUTO_INCREMENT` (`mysql5` | `mysql`).
+     * @param \OpenAPI\Client\Model\ConfigParametersMysql|null $mysql mysql
      *
      * @return self
      */
-    public function setAutoIncrementIncrement($auto_increment_increment)
+    public function setMysql($mysql)
     {
-        if (is_null($auto_increment_increment)) {
-            throw new \InvalidArgumentException('non-nullable auto_increment_increment cannot be null');
+        if (is_null($mysql)) {
+            throw new \InvalidArgumentException('non-nullable mysql cannot be null');
         }
-        $this->container['auto_increment_increment'] = $auto_increment_increment;
+        $this->container['mysql'] = $mysql;
 
         return $this;
     }
 
     /**
-     * Gets auto_increment_offset
+     * Gets postgres
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\ConfigParametersPostgres|null
      */
-    public function getAutoIncrementOffset()
+    public function getPostgres()
     {
-        return $this->container['auto_increment_offset'];
+        return $this->container['postgres'];
     }
 
     /**
-     * Sets auto_increment_offset
+     * Sets postgres
      *
-     * @param string|null $auto_increment_offset Начальное значение для столбцов с атрибутом `AUTO_INCREMENT` (`mysql5` | `mysql`).
+     * @param \OpenAPI\Client\Model\ConfigParametersPostgres|null $postgres postgres
      *
      * @return self
      */
-    public function setAutoIncrementOffset($auto_increment_offset)
+    public function setPostgres($postgres)
     {
-        if (is_null($auto_increment_offset)) {
-            throw new \InvalidArgumentException('non-nullable auto_increment_offset cannot be null');
+        if (is_null($postgres)) {
+            throw new \InvalidArgumentException('non-nullable postgres cannot be null');
         }
-        $this->container['auto_increment_offset'] = $auto_increment_offset;
-
-        return $this;
-    }
-
-    /**
-     * Gets innodb_io_capacity
-     *
-     * @return string|null
-     */
-    public function getInnodbIoCapacity()
-    {
-        return $this->container['innodb_io_capacity'];
-    }
-
-    /**
-     * Sets innodb_io_capacity
-     *
-     * @param string|null $innodb_io_capacity Количество операций ввода-вывода в секунду `IOPS` (`mysql5` | `mysql`).
-     *
-     * @return self
-     */
-    public function setInnodbIoCapacity($innodb_io_capacity)
-    {
-        if (is_null($innodb_io_capacity)) {
-            throw new \InvalidArgumentException('non-nullable innodb_io_capacity cannot be null');
-        }
-        $this->container['innodb_io_capacity'] = $innodb_io_capacity;
-
-        return $this;
-    }
-
-    /**
-     * Gets innodb_purge_threads
-     *
-     * @return string|null
-     */
-    public function getInnodbPurgeThreads()
-    {
-        return $this->container['innodb_purge_threads'];
-    }
-
-    /**
-     * Sets innodb_purge_threads
-     *
-     * @param string|null $innodb_purge_threads Количество потоков ввода-вывода, используемых для операций очистки (`mysql5` | `mysql`).
-     *
-     * @return self
-     */
-    public function setInnodbPurgeThreads($innodb_purge_threads)
-    {
-        if (is_null($innodb_purge_threads)) {
-            throw new \InvalidArgumentException('non-nullable innodb_purge_threads cannot be null');
-        }
-        $this->container['innodb_purge_threads'] = $innodb_purge_threads;
-
-        return $this;
-    }
-
-    /**
-     * Gets innodb_read_io_threads
-     *
-     * @return string|null
-     */
-    public function getInnodbReadIoThreads()
-    {
-        return $this->container['innodb_read_io_threads'];
-    }
-
-    /**
-     * Sets innodb_read_io_threads
-     *
-     * @param string|null $innodb_read_io_threads Количество потоков ввода-вывода, используемых для операций чтения (`mysql5` | `mysql`).
-     *
-     * @return self
-     */
-    public function setInnodbReadIoThreads($innodb_read_io_threads)
-    {
-        if (is_null($innodb_read_io_threads)) {
-            throw new \InvalidArgumentException('non-nullable innodb_read_io_threads cannot be null');
-        }
-        $this->container['innodb_read_io_threads'] = $innodb_read_io_threads;
-
-        return $this;
-    }
-
-    /**
-     * Gets innodb_thread_concurrency
-     *
-     * @return string|null
-     */
-    public function getInnodbThreadConcurrency()
-    {
-        return $this->container['innodb_thread_concurrency'];
-    }
-
-    /**
-     * Sets innodb_thread_concurrency
-     *
-     * @param string|null $innodb_thread_concurrency Максимальное число потоков, которые могут исполняться (`mysql5` | `mysql`).
-     *
-     * @return self
-     */
-    public function setInnodbThreadConcurrency($innodb_thread_concurrency)
-    {
-        if (is_null($innodb_thread_concurrency)) {
-            throw new \InvalidArgumentException('non-nullable innodb_thread_concurrency cannot be null');
-        }
-        $this->container['innodb_thread_concurrency'] = $innodb_thread_concurrency;
-
-        return $this;
-    }
-
-    /**
-     * Gets innodb_write_io_threads
-     *
-     * @return string|null
-     */
-    public function getInnodbWriteIoThreads()
-    {
-        return $this->container['innodb_write_io_threads'];
-    }
-
-    /**
-     * Sets innodb_write_io_threads
-     *
-     * @param string|null $innodb_write_io_threads Количество потоков ввода-вывода, используемых для операций записи (`mysql5` | `mysql`).
-     *
-     * @return self
-     */
-    public function setInnodbWriteIoThreads($innodb_write_io_threads)
-    {
-        if (is_null($innodb_write_io_threads)) {
-            throw new \InvalidArgumentException('non-nullable innodb_write_io_threads cannot be null');
-        }
-        $this->container['innodb_write_io_threads'] = $innodb_write_io_threads;
-
-        return $this;
-    }
-
-    /**
-     * Gets join_buffer_size
-     *
-     * @return string|null
-     */
-    public function getJoinBufferSize()
-    {
-        return $this->container['join_buffer_size'];
-    }
-
-    /**
-     * Sets join_buffer_size
-     *
-     * @param string|null $join_buffer_size Минимальный размер буфера (`mysql5` | `mysql`).
-     *
-     * @return self
-     */
-    public function setJoinBufferSize($join_buffer_size)
-    {
-        if (is_null($join_buffer_size)) {
-            throw new \InvalidArgumentException('non-nullable join_buffer_size cannot be null');
-        }
-        $this->container['join_buffer_size'] = $join_buffer_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_allowed_packet
-     *
-     * @return string|null
-     */
-    public function getMaxAllowedPacket()
-    {
-        return $this->container['max_allowed_packet'];
-    }
-
-    /**
-     * Sets max_allowed_packet
-     *
-     * @param string|null $max_allowed_packet Максимальный размер одного пакета, строки или параметра, отправляемого функцией `mysql_stmt_send_long_data()` (`mysql5` | `mysql`).
-     *
-     * @return self
-     */
-    public function setMaxAllowedPacket($max_allowed_packet)
-    {
-        if (is_null($max_allowed_packet)) {
-            throw new \InvalidArgumentException('non-nullable max_allowed_packet cannot be null');
-        }
-        $this->container['max_allowed_packet'] = $max_allowed_packet;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_heap_table_size
-     *
-     * @return string|null
-     */
-    public function getMaxHeapTableSize()
-    {
-        return $this->container['max_heap_table_size'];
-    }
-
-    /**
-     * Sets max_heap_table_size
-     *
-     * @param string|null $max_heap_table_size Максимальный размер пользовательских MEMORY-таблиц (`mysql5` | `mysql`).
-     *
-     * @return self
-     */
-    public function setMaxHeapTableSize($max_heap_table_size)
-    {
-        if (is_null($max_heap_table_size)) {
-            throw new \InvalidArgumentException('non-nullable max_heap_table_size cannot be null');
-        }
-        $this->container['max_heap_table_size'] = $max_heap_table_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets autovacuum_analyze_scale_factor
-     *
-     * @return string|null
-     */
-    public function getAutovacuumAnalyzeScaleFactor()
-    {
-        return $this->container['autovacuum_analyze_scale_factor'];
-    }
-
-    /**
-     * Sets autovacuum_analyze_scale_factor
-     *
-     * @param string|null $autovacuum_analyze_scale_factor Доля измененных или удаленных записей в таблице, при которой процесс автоочистки выполнит команду `ANALYZE` (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setAutovacuumAnalyzeScaleFactor($autovacuum_analyze_scale_factor)
-    {
-        if (is_null($autovacuum_analyze_scale_factor)) {
-            throw new \InvalidArgumentException('non-nullable autovacuum_analyze_scale_factor cannot be null');
-        }
-        $this->container['autovacuum_analyze_scale_factor'] = $autovacuum_analyze_scale_factor;
-
-        return $this;
-    }
-
-    /**
-     * Gets bgwriter_delay
-     *
-     * @return string|null
-     */
-    public function getBgwriterDelay()
-    {
-        return $this->container['bgwriter_delay'];
-    }
-
-    /**
-     * Sets bgwriter_delay
-     *
-     * @param string|null $bgwriter_delay Задержка между запусками процесса фоновой записи (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setBgwriterDelay($bgwriter_delay)
-    {
-        if (is_null($bgwriter_delay)) {
-            throw new \InvalidArgumentException('non-nullable bgwriter_delay cannot be null');
-        }
-        $this->container['bgwriter_delay'] = $bgwriter_delay;
-
-        return $this;
-    }
-
-    /**
-     * Gets bgwriter_lru_maxpages
-     *
-     * @return string|null
-     */
-    public function getBgwriterLruMaxpages()
-    {
-        return $this->container['bgwriter_lru_maxpages'];
-    }
-
-    /**
-     * Sets bgwriter_lru_maxpages
-     *
-     * @param string|null $bgwriter_lru_maxpages Максимальное число элементов буферного кеша (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setBgwriterLruMaxpages($bgwriter_lru_maxpages)
-    {
-        if (is_null($bgwriter_lru_maxpages)) {
-            throw new \InvalidArgumentException('non-nullable bgwriter_lru_maxpages cannot be null');
-        }
-        $this->container['bgwriter_lru_maxpages'] = $bgwriter_lru_maxpages;
-
-        return $this;
-    }
-
-    /**
-     * Gets deadlock_timeout
-     *
-     * @return string|null
-     */
-    public function getDeadlockTimeout()
-    {
-        return $this->container['deadlock_timeout'];
-    }
-
-    /**
-     * Sets deadlock_timeout
-     *
-     * @param string|null $deadlock_timeout Время ожидания, по истечении которого будет выполняться проверка состояния перекрестной блокировки (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setDeadlockTimeout($deadlock_timeout)
-    {
-        if (is_null($deadlock_timeout)) {
-            throw new \InvalidArgumentException('non-nullable deadlock_timeout cannot be null');
-        }
-        $this->container['deadlock_timeout'] = $deadlock_timeout;
-
-        return $this;
-    }
-
-    /**
-     * Gets gin_pending_list_limit
-     *
-     * @return string|null
-     */
-    public function getGinPendingListLimit()
-    {
-        return $this->container['gin_pending_list_limit'];
-    }
-
-    /**
-     * Sets gin_pending_list_limit
-     *
-     * @param string|null $gin_pending_list_limit Максимальный размер очереди записей индекса `GIN` (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setGinPendingListLimit($gin_pending_list_limit)
-    {
-        if (is_null($gin_pending_list_limit)) {
-            throw new \InvalidArgumentException('non-nullable gin_pending_list_limit cannot be null');
-        }
-        $this->container['gin_pending_list_limit'] = $gin_pending_list_limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets idle_in_transaction_session_timeout
-     *
-     * @return string|null
-     */
-    public function getIdleInTransactionSessionTimeout()
-    {
-        return $this->container['idle_in_transaction_session_timeout'];
-    }
-
-    /**
-     * Sets idle_in_transaction_session_timeout
-     *
-     * @param string|null $idle_in_transaction_session_timeout Время простоя открытой транзакции, при превышении которого будет завершена сессия с этой транзакцией (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setIdleInTransactionSessionTimeout($idle_in_transaction_session_timeout)
-    {
-        if (is_null($idle_in_transaction_session_timeout)) {
-            throw new \InvalidArgumentException('non-nullable idle_in_transaction_session_timeout cannot be null');
-        }
-        $this->container['idle_in_transaction_session_timeout'] = $idle_in_transaction_session_timeout;
-
-        return $this;
-    }
-
-    /**
-     * Gets idle_session_timeout
-     *
-     * @return string|null
-     */
-    public function getIdleSessionTimeout()
-    {
-        return $this->container['idle_session_timeout'];
-    }
-
-    /**
-     * Sets idle_session_timeout
-     *
-     * @param string|null $idle_session_timeout Время простоя не открытой транзакции, при превышении которого будет завершена сессия с этой транзакцией (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setIdleSessionTimeout($idle_session_timeout)
-    {
-        if (is_null($idle_session_timeout)) {
-            throw new \InvalidArgumentException('non-nullable idle_session_timeout cannot be null');
-        }
-        $this->container['idle_session_timeout'] = $idle_session_timeout;
-
-        return $this;
-    }
-
-    /**
-     * Gets join_collapse_limit
-     *
-     * @return string|null
-     */
-    public function getJoinCollapseLimit()
-    {
-        return $this->container['join_collapse_limit'];
-    }
-
-    /**
-     * Sets join_collapse_limit
-     *
-     * @param string|null $join_collapse_limit Значение количества элементов в списке `FROM` при превышении которого, планировщик будет переносить в список явные инструкции `JOIN` (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setJoinCollapseLimit($join_collapse_limit)
-    {
-        if (is_null($join_collapse_limit)) {
-            throw new \InvalidArgumentException('non-nullable join_collapse_limit cannot be null');
-        }
-        $this->container['join_collapse_limit'] = $join_collapse_limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets lock_timeout
-     *
-     * @return string|null
-     */
-    public function getLockTimeout()
-    {
-        return $this->container['lock_timeout'];
-    }
-
-    /**
-     * Sets lock_timeout
-     *
-     * @param string|null $lock_timeout Время ожидания освобождения блокировки (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setLockTimeout($lock_timeout)
-    {
-        if (is_null($lock_timeout)) {
-            throw new \InvalidArgumentException('non-nullable lock_timeout cannot be null');
-        }
-        $this->container['lock_timeout'] = $lock_timeout;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_prepared_transactions
-     *
-     * @return string|null
-     */
-    public function getMaxPreparedTransactions()
-    {
-        return $this->container['max_prepared_transactions'];
-    }
-
-    /**
-     * Sets max_prepared_transactions
-     *
-     * @param string|null $max_prepared_transactions Максимальное число транзакций, которые могут одновременно находиться в подготовленном состоянии (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setMaxPreparedTransactions($max_prepared_transactions)
-    {
-        if (is_null($max_prepared_transactions)) {
-            throw new \InvalidArgumentException('non-nullable max_prepared_transactions cannot be null');
-        }
-        $this->container['max_prepared_transactions'] = $max_prepared_transactions;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_connections
-     *
-     * @return string|null
-     */
-    public function getMaxConnections()
-    {
-        return $this->container['max_connections'];
-    }
-
-    /**
-     * Sets max_connections
-     *
-     * @param string|null $max_connections Допустимое количество соединений (`postgres` | `postgres14`| `postgres15` | `mysql`).
-     *
-     * @return self
-     */
-    public function setMaxConnections($max_connections)
-    {
-        if (is_null($max_connections)) {
-            throw new \InvalidArgumentException('non-nullable max_connections cannot be null');
-        }
-        $this->container['max_connections'] = $max_connections;
-
-        return $this;
-    }
-
-    /**
-     * Gets shared_buffers
-     *
-     * @return string|null
-     */
-    public function getSharedBuffers()
-    {
-        return $this->container['shared_buffers'];
-    }
-
-    /**
-     * Sets shared_buffers
-     *
-     * @param string|null $shared_buffers Устанавливает количество буферов общей памяти, используемых сервером (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setSharedBuffers($shared_buffers)
-    {
-        if (is_null($shared_buffers)) {
-            throw new \InvalidArgumentException('non-nullable shared_buffers cannot be null');
-        }
-        $this->container['shared_buffers'] = $shared_buffers;
-
-        return $this;
-    }
-
-    /**
-     * Gets wal_buffers
-     *
-     * @return string|null
-     */
-    public function getWalBuffers()
-    {
-        return $this->container['wal_buffers'];
-    }
-
-    /**
-     * Sets wal_buffers
-     *
-     * @param string|null $wal_buffers Устанавливает количество буферов дисковых страниц в общей памяти для WAL (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setWalBuffers($wal_buffers)
-    {
-        if (is_null($wal_buffers)) {
-            throw new \InvalidArgumentException('non-nullable wal_buffers cannot be null');
-        }
-        $this->container['wal_buffers'] = $wal_buffers;
-
-        return $this;
-    }
-
-    /**
-     * Gets temp_buffers
-     *
-     * @return string|null
-     */
-    public function getTempBuffers()
-    {
-        return $this->container['temp_buffers'];
-    }
-
-    /**
-     * Sets temp_buffers
-     *
-     * @param string|null $temp_buffers Устанавливает максимальное количество временных буферов, используемых каждой сессией (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setTempBuffers($temp_buffers)
-    {
-        if (is_null($temp_buffers)) {
-            throw new \InvalidArgumentException('non-nullable temp_buffers cannot be null');
-        }
-        $this->container['temp_buffers'] = $temp_buffers;
-
-        return $this;
-    }
-
-    /**
-     * Gets work_mem
-     *
-     * @return string|null
-     */
-    public function getWorkMem()
-    {
-        return $this->container['work_mem'];
-    }
-
-    /**
-     * Sets work_mem
-     *
-     * @param string|null $work_mem Устанавливает максимальное количество памяти, используемое для рабочих пространств запросов (`postgres` | `postgres14`| `postgres15`).
-     *
-     * @return self
-     */
-    public function setWorkMem($work_mem)
-    {
-        if (is_null($work_mem)) {
-            throw new \InvalidArgumentException('non-nullable work_mem cannot be null');
-        }
-        $this->container['work_mem'] = $work_mem;
-
-        return $this;
-    }
-
-    /**
-     * Gets sql_mode
-     *
-     * @return string|null
-     */
-    public function getSqlMode()
-    {
-        return $this->container['sql_mode'];
-    }
-
-    /**
-     * Sets sql_mode
-     *
-     * @param string|null $sql_mode Устанавливает режим SQL. Можно задать несколько режимов, разделяя их запятой. (`mysql`).
-     *
-     * @return self
-     */
-    public function setSqlMode($sql_mode)
-    {
-        if (is_null($sql_mode)) {
-            throw new \InvalidArgumentException('non-nullable sql_mode cannot be null');
-        }
-        $this->container['sql_mode'] = $sql_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets query_cache_type
-     *
-     * @return string|null
-     */
-    public function getQueryCacheType()
-    {
-        return $this->container['query_cache_type'];
-    }
-
-    /**
-     * Sets query_cache_type
-     *
-     * @param string|null $query_cache_type Параметр включает или отключает работу MySQL Query Cache (`mysql`).
-     *
-     * @return self
-     */
-    public function setQueryCacheType($query_cache_type)
-    {
-        if (is_null($query_cache_type)) {
-            throw new \InvalidArgumentException('non-nullable query_cache_type cannot be null');
-        }
-        $this->container['query_cache_type'] = $query_cache_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets query_cache_size
-     *
-     * @return string|null
-     */
-    public function getQueryCacheSize()
-    {
-        return $this->container['query_cache_size'];
-    }
-
-    /**
-     * Sets query_cache_size
-     *
-     * @param string|null $query_cache_size Размер в байтах, доступный для кэша запросов (`mysql`).
-     *
-     * @return self
-     */
-    public function setQueryCacheSize($query_cache_size)
-    {
-        if (is_null($query_cache_size)) {
-            throw new \InvalidArgumentException('non-nullable query_cache_size cannot be null');
-        }
-        $this->container['query_cache_size'] = $query_cache_size;
+        $this->container['postgres'] = $postgres;
 
         return $this;
     }

@@ -6797,7 +6797,7 @@ class DatabasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array<string,string[]>|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\ConfigParameters|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getDatabaseParameters(string $contentType = self::contentTypes['getDatabaseParameters'][0])
     {
@@ -6814,7 +6814,7 @@ class DatabasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of array<string,string[]>|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ConfigParameters|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDatabaseParametersWithHttpInfo(string $contentType = self::contentTypes['getDatabaseParameters'][0])
     {
@@ -6857,17 +6857,17 @@ class DatabasesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,string[]>' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ConfigParameters' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('array<string,string[]>' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ConfigParameters' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,string[]>', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConfigParameters', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6963,7 +6963,7 @@ class DatabasesApi
                     ];
             }
 
-            $returnType = 'array<string,string[]>';
+            $returnType = '\OpenAPI\Client\Model\ConfigParameters';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6984,7 +6984,7 @@ class DatabasesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,string[]>',
+                        '\OpenAPI\Client\Model\ConfigParameters',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7074,7 +7074,7 @@ class DatabasesApi
      */
     public function getDatabaseParametersAsyncWithHttpInfo(string $contentType = self::contentTypes['getDatabaseParameters'][0])
     {
-        $returnType = 'array<string,string[]>';
+        $returnType = '\OpenAPI\Client\Model\ConfigParameters';
         $request = $this->getDatabaseParametersRequest($contentType);
 
         return $this->client

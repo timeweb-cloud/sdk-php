@@ -116,6 +116,8 @@ docs/Model/Commit.md
 docs/Model/ComponentsSchemasBaseError.md
 docs/Model/ComponentsSchemasMeta.md
 docs/Model/ConfigParameters.md
+docs/Model/ConfigParametersMysql.md
+docs/Model/ConfigParametersPostgres.md
 docs/Model/ContainerRegistryPresetsInner.md
 docs/Model/ContainerRegistryRepositoriesInner.md
 docs/Model/CreateAdmin.md
@@ -396,6 +398,7 @@ docs/Model/ModelParamsInfoReasoningEffort.md
 docs/Model/ModelParamsInfoTemperature.md
 docs/Model/ModelUse.md
 docs/Model/MountNetworkDrive.md
+docs/Model/Mysql.md
 docs/Model/NatIn.md
 docs/Model/Network.md
 docs/Model/NetworkDrive.md
@@ -427,6 +430,7 @@ docs/Model/OutgoingIsEnabled.md
 docs/Model/PerformActionOnBackupRequest.md
 docs/Model/PerformActionOnServerRequest.md
 docs/Model/Policy.md
+docs/Model/Postgres.md
 docs/Model/PresetsBalancer.md
 docs/Model/PresetsDbs.md
 docs/Model/PresetsResponse.md
@@ -693,6 +697,8 @@ lib/Model/Commit.php
 lib/Model/ComponentsSchemasBaseError.php
 lib/Model/ComponentsSchemasMeta.php
 lib/Model/ConfigParameters.php
+lib/Model/ConfigParametersMysql.php
+lib/Model/ConfigParametersPostgres.php
 lib/Model/ContainerRegistryPresetsInner.php
 lib/Model/ContainerRegistryRepositoriesInner.php
 lib/Model/CreateAdmin.php
@@ -974,6 +980,7 @@ lib/Model/ModelParamsInfoReasoningEffort.php
 lib/Model/ModelParamsInfoTemperature.php
 lib/Model/ModelUse.php
 lib/Model/MountNetworkDrive.php
+lib/Model/Mysql.php
 lib/Model/NatIn.php
 lib/Model/Network.php
 lib/Model/NetworkDrive.php
@@ -1005,6 +1012,7 @@ lib/Model/OutgoingIsEnabled.php
 lib/Model/PerformActionOnBackupRequest.php
 lib/Model/PerformActionOnServerRequest.php
 lib/Model/Policy.php
+lib/Model/Postgres.php
 lib/Model/PresetsBalancer.php
 lib/Model/PresetsDbs.php
 lib/Model/PresetsResponse.php
@@ -1268,6 +1276,8 @@ test/Model/ClustersResponseTest.php
 test/Model/CommitTest.php
 test/Model/ComponentsSchemasBaseErrorTest.php
 test/Model/ComponentsSchemasMetaTest.php
+test/Model/ConfigParametersMysqlTest.php
+test/Model/ConfigParametersPostgresTest.php
 test/Model/ConfigParametersTest.php
 test/Model/ContainerRegistryPresetsInnerTest.php
 test/Model/ContainerRegistryRepositoriesInnerTest.php
@@ -1549,6 +1559,7 @@ test/Model/ModelParamsInfoTest.php
 test/Model/ModelTest.php
 test/Model/ModelUseTest.php
 test/Model/MountNetworkDriveTest.php
+test/Model/MysqlTest.php
 test/Model/NatInTest.php
 test/Model/NetworkDriveAvailableResourceTest.php
 test/Model/NetworkDrivePresetReadTest.php
@@ -1580,6 +1591,7 @@ test/Model/OutgoingIsEnabledTest.php
 test/Model/PerformActionOnBackupRequestTest.php
 test/Model/PerformActionOnServerRequestTest.php
 test/Model/PolicyTest.php
+test/Model/PostgresTest.php
 test/Model/PresetsBalancerTest.php
 test/Model/PresetsDbsTest.php
 test/Model/PresetsResponseTest.php

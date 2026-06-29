@@ -66,7 +66,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'preset_id' => 'int',
         'configurator_id' => 'int',
         'project_id' => 'int',
-        'config_parameters' => '\OpenAPI\Client\Model\ConfigParameters',
+        'config_parameters' => '\OpenAPI\Client\Model\Mysql',
         'replication' => '\OpenAPI\Client\Model\DbReplication',
         'network' => '\OpenAPI\Client\Model\Network',
         'is_public_ipv6' => 'bool',
@@ -647,7 +647,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets config_parameters
      *
-     * @return \OpenAPI\Client\Model\ConfigParameters|null
+     * @return \OpenAPI\Client\Model\Mysql|null
      */
     public function getConfigParameters()
     {
@@ -657,7 +657,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets config_parameters
      *
-     * @param \OpenAPI\Client\Model\ConfigParameters|null $config_parameters config_parameters
+     * @param \OpenAPI\Client\Model\Mysql|null $config_parameters config_parameters
      *
      * @return self
      */

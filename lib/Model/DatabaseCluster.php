@@ -72,7 +72,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'string',
         'preset_id' => 'int',
         'disk' => '\OpenAPI\Client\Model\DatabaseClusterDisk',
-        'config_parameters' => '\OpenAPI\Client\Model\ConfigParameters',
+        'config_parameters' => '\OpenAPI\Client\Model\Mysql',
         'is_enabled_public_network' => 'bool'
     ];
 
@@ -943,7 +943,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets config_parameters
      *
-     * @return \OpenAPI\Client\Model\ConfigParameters
+     * @return \OpenAPI\Client\Model\Mysql
      */
     public function getConfigParameters()
     {
@@ -953,7 +953,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets config_parameters
      *
-     * @param \OpenAPI\Client\Model\ConfigParameters $config_parameters config_parameters
+     * @param \OpenAPI\Client\Model\Mysql $config_parameters config_parameters
      *
      * @return self
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateClusterTest
+ * ConfigParametersPostgresTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * UpdateClusterTest Class Doc Comment
+ * ConfigParametersPostgresTest Class Doc Comment
  *
  * @category    Class
- * @description UpdateCluster
+ * @description Параметры PostgreSQL (&#x60;postgres&#x60; | &#x60;postgres14&#x60; | &#x60;postgres15&#x60; | &#x60;postgres16&#x60; | &#x60;postgres17&#x60; | &#x60;postgres18&#x60;)
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class UpdateClusterTest extends TestCase
+class ConfigParametersPostgresTest extends TestCase
 {
 
     /**
@@ -72,63 +72,702 @@ class UpdateClusterTest extends TestCase
     }
 
     /**
-     * Test "UpdateCluster"
+     * Test "ConfigParametersPostgres"
      */
-    public function testUpdateCluster()
+    public function testConfigParametersPostgres()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "max_connections"
      */
-    public function testPropertyName()
+    public function testPropertyMaxConnections()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "preset_id"
+     * Test attribute "autovacuum_analyze_scale_factor"
      */
-    public function testPropertyPresetId()
+    public function testPropertyAutovacuumAnalyzeScaleFactor()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "config_parameters"
+     * Test attribute "autovacuum_max_workers"
      */
-    public function testPropertyConfigParameters()
+    public function testPropertyAutovacuumMaxWorkers()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "description"
+     * Test attribute "autovacuum_naptime"
      */
-    public function testPropertyDescription()
+    public function testPropertyAutovacuumNaptime()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "is_enabled_public_network"
+     * Test attribute "autovacuum_vacuum_insert_scale_factor"
      */
-    public function testPropertyIsEnabledPublicNetwork()
+    public function testPropertyAutovacuumVacuumInsertScaleFactor()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "is_public_ipv6"
+     * Test attribute "autovacuum_vacuum_scale_factor"
      */
-    public function testPropertyIsPublicIpv6()
+    public function testPropertyAutovacuumVacuumScaleFactor()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "autovacuum_work_mem"
+     */
+    public function testPropertyAutovacuumWorkMem()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "bgwriter_delay"
+     */
+    public function testPropertyBgwriterDelay()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "bgwriter_lru_maxpages"
+     */
+    public function testPropertyBgwriterLruMaxpages()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "deadlock_timeout"
+     */
+    public function testPropertyDeadlockTimeout()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gin_pending_list_limit"
+     */
+    public function testPropertyGinPendingListLimit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "idle_in_transaction_session_timeout"
+     */
+    public function testPropertyIdleInTransactionSessionTimeout()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "join_collapse_limit"
+     */
+    public function testPropertyJoinCollapseLimit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "lock_timeout"
+     */
+    public function testPropertyLockTimeout()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "max_prepared_transactions"
+     */
+    public function testPropertyMaxPreparedTransactions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "shared_buffers"
+     */
+    public function testPropertySharedBuffers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "log_min_duration_statement"
+     */
+    public function testPropertyLogMinDurationStatement()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "wal_buffers"
+     */
+    public function testPropertyWalBuffers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "temp_buffers"
+     */
+    public function testPropertyTempBuffers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "work_mem"
+     */
+    public function testPropertyWorkMem()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "default_transaction_isolation"
+     */
+    public function testPropertyDefaultTransactionIsolation()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "effective_cache_size"
+     */
+    public function testPropertyEffectiveCacheSize()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "max_wal_size"
+     */
+    public function testPropertyMaxWalSize()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "min_wal_size"
+     */
+    public function testPropertyMinWalSize()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "wal_level"
+     */
+    public function testPropertyWalLevel()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "max_replication_slots"
+     */
+    public function testPropertyMaxReplicationSlots()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "max_wal_senders"
+     */
+    public function testPropertyMaxWalSenders()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "max_worker_processes"
+     */
+    public function testPropertyMaxWorkerProcesses()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "max_logical_replication_workers"
+     */
+    public function testPropertyMaxLogicalReplicationWorkers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "max_parallel_maintenance_workers"
+     */
+    public function testPropertyMaxParallelMaintenanceWorkers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "max_parallel_workers"
+     */
+    public function testPropertyMaxParallelWorkers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "max_parallel_workers_per_gather"
+     */
+    public function testPropertyMaxParallelWorkersPerGather()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "array_nulls"
+     */
+    public function testPropertyArrayNulls()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "backend_flush_after"
+     */
+    public function testPropertyBackendFlushAfter()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "backslash_quote"
+     */
+    public function testPropertyBackslashQuote()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "bgwriter_flush_after"
+     */
+    public function testPropertyBgwriterFlushAfter()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "bgwriter_lru_multiplier"
+     */
+    public function testPropertyBgwriterLruMultiplier()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "default_transaction_read_only"
+     */
+    public function testPropertyDefaultTransactionReadOnly()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_hashagg"
+     */
+    public function testPropertyEnableHashagg()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_hashjoin"
+     */
+    public function testPropertyEnableHashjoin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_incremental_sort"
+     */
+    public function testPropertyEnableIncrementalSort()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_indexscan"
+     */
+    public function testPropertyEnableIndexscan()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_indexonlyscan"
+     */
+    public function testPropertyEnableIndexonlyscan()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_material"
+     */
+    public function testPropertyEnableMaterial()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_memoize"
+     */
+    public function testPropertyEnableMemoize()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_mergejoin"
+     */
+    public function testPropertyEnableMergejoin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_parallel_append"
+     */
+    public function testPropertyEnableParallelAppend()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_parallel_hash"
+     */
+    public function testPropertyEnableParallelHash()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_partition_pruning"
+     */
+    public function testPropertyEnablePartitionPruning()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_partitionwise_join"
+     */
+    public function testPropertyEnablePartitionwiseJoin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_partitionwise_aggregate"
+     */
+    public function testPropertyEnablePartitionwiseAggregate()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_seqscan"
+     */
+    public function testPropertyEnableSeqscan()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_sort"
+     */
+    public function testPropertyEnableSort()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_tidscan"
+     */
+    public function testPropertyEnableTidscan()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "exit_on_error"
+     */
+    public function testPropertyExitOnError()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "from_collapse_limit"
+     */
+    public function testPropertyFromCollapseLimit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "jit"
+     */
+    public function testPropertyJit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "plan_cache_mode"
+     */
+    public function testPropertyPlanCacheMode()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "quote_all_identifiers"
+     */
+    public function testPropertyQuoteAllIdentifiers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "standard_conforming_strings"
+     */
+    public function testPropertyStandardConformingStrings()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "statement_timeout"
+     */
+    public function testPropertyStatementTimeout()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "timezone"
+     */
+    public function testPropertyTimezone()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "transform_null_equals"
+     */
+    public function testPropertyTransformNullEquals()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "max_locks_per_transaction"
+     */
+    public function testPropertyMaxLocksPerTransaction()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "autovacuum_vacuum_cost_limit"
+     */
+    public function testPropertyAutovacuumVacuumCostLimit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "checkpoint_timeout"
+     */
+    public function testPropertyCheckpointTimeout()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "checkpoint_completion_target"
+     */
+    public function testPropertyCheckpointCompletionTarget()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "wal_compression"
+     */
+    public function testPropertyWalCompression()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "random_page_cost"
+     */
+    public function testPropertyRandomPageCost()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "effective_io_concurrency"
+     */
+    public function testPropertyEffectiveIoConcurrency()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "log_lock_waits"
+     */
+    public function testPropertyLogLockWaits()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "log_temp_files"
+     */
+    public function testPropertyLogTempFiles()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "track_io_timing"
+     */
+    public function testPropertyTrackIoTiming()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "maintenance_work_mem"
+     */
+    public function testPropertyMaintenanceWorkMem()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "idle_session_timeout"
+     */
+    public function testPropertyIdleSessionTimeout()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "io_method"
+     */
+    public function testPropertyIoMethod()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "io_workers"
+     */
+    public function testPropertyIoWorkers()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

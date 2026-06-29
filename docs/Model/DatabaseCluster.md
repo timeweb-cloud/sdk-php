@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **status** | **string** | Текущий статус кластера базы данных. |
 **preset_id** | **int** | ID тарифа. |
 **disk** | [**\OpenAPI\Client\Model\DatabaseClusterDisk**](DatabaseClusterDisk.md) |  | [optional]
-**config_parameters** | [**\OpenAPI\Client\Model\ConfigParameters**](ConfigParameters.md) |  |
+**config_parameters** | [**\OpenAPI\Client\Model\Mysql**](Mysql.md) |  |
 **is_enabled_public_network** | **bool** | Доступность публичного IP-адреса |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
