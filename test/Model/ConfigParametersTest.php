@@ -97,4 +97,13 @@ class ConfigParametersTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "valkey"
+     */
+    public function testPropertyValkey()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

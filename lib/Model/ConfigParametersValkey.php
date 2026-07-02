@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateClusterAdmin
+ * ConfigParametersValkey
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * CreateClusterAdmin Class Doc Comment
+ * ConfigParametersValkey Class Doc Comment
  *
  * @category Class
- * @description Пользователь базы данных.
+ * @description Параметры Valkey (&#x60;valkey&#x60; | &#x60;valkey7&#x60; | &#x60;valkey8_1&#x60; | &#x60;valkey9_1&#x60;)
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateClusterAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConfigParametersValkey implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class CreateClusterAdmin implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'create_cluster_admin';
+    protected static $openAPIModelName = 'config_parameters_valkey';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,11 +59,17 @@ class CreateClusterAdmin implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'login' => 'string',
-        'password' => 'string',
-        'host' => 'string',
-        'privileges' => '\OpenAPI\Client\Model\PropertiesMysql[]',
-        'description' => 'string'
+        'client_output_buffer_limit_normal' => 'string',
+        'client_output_buffer_limit_pubsub' => 'string',
+        'databases' => 'string',
+        'timeout' => 'string',
+        'maxmemory_policy' => 'string',
+        'slowlog_log_slower_than' => 'string',
+        'slowlog_max_len' => 'string',
+        'save' => 'string',
+        'appendonly' => 'string',
+        'appendfsync' => 'string',
+        'tcp_keepalive' => 'string'
     ];
 
     /**
@@ -74,11 +80,17 @@ class CreateClusterAdmin implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'login' => null,
-        'password' => null,
-        'host' => null,
-        'privileges' => null,
-        'description' => null
+        'client_output_buffer_limit_normal' => null,
+        'client_output_buffer_limit_pubsub' => null,
+        'databases' => null,
+        'timeout' => null,
+        'maxmemory_policy' => null,
+        'slowlog_log_slower_than' => null,
+        'slowlog_max_len' => null,
+        'save' => null,
+        'appendonly' => null,
+        'appendfsync' => null,
+        'tcp_keepalive' => null
     ];
 
     /**
@@ -87,11 +99,17 @@ class CreateClusterAdmin implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'login' => false,
-		'password' => false,
-		'host' => false,
-		'privileges' => false,
-		'description' => false
+        'client_output_buffer_limit_normal' => false,
+		'client_output_buffer_limit_pubsub' => false,
+		'databases' => false,
+		'timeout' => false,
+		'maxmemory_policy' => false,
+		'slowlog_log_slower_than' => false,
+		'slowlog_max_len' => false,
+		'save' => false,
+		'appendonly' => false,
+		'appendfsync' => false,
+		'tcp_keepalive' => false
     ];
 
     /**
@@ -180,11 +198,17 @@ class CreateClusterAdmin implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'login' => 'login',
-        'password' => 'password',
-        'host' => 'host',
-        'privileges' => 'privileges',
-        'description' => 'description'
+        'client_output_buffer_limit_normal' => 'client-output-buffer-limit normal',
+        'client_output_buffer_limit_pubsub' => 'client-output-buffer-limit pubsub',
+        'databases' => 'databases',
+        'timeout' => 'timeout',
+        'maxmemory_policy' => 'maxmemory-policy',
+        'slowlog_log_slower_than' => 'slowlog-log-slower-than',
+        'slowlog_max_len' => 'slowlog-max-len',
+        'save' => 'save',
+        'appendonly' => 'appendonly',
+        'appendfsync' => 'appendfsync',
+        'tcp_keepalive' => 'tcp-keepalive'
     ];
 
     /**
@@ -193,11 +217,17 @@ class CreateClusterAdmin implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'login' => 'setLogin',
-        'password' => 'setPassword',
-        'host' => 'setHost',
-        'privileges' => 'setPrivileges',
-        'description' => 'setDescription'
+        'client_output_buffer_limit_normal' => 'setClientOutputBufferLimitNormal',
+        'client_output_buffer_limit_pubsub' => 'setClientOutputBufferLimitPubsub',
+        'databases' => 'setDatabases',
+        'timeout' => 'setTimeout',
+        'maxmemory_policy' => 'setMaxmemoryPolicy',
+        'slowlog_log_slower_than' => 'setSlowlogLogSlowerThan',
+        'slowlog_max_len' => 'setSlowlogMaxLen',
+        'save' => 'setSave',
+        'appendonly' => 'setAppendonly',
+        'appendfsync' => 'setAppendfsync',
+        'tcp_keepalive' => 'setTcpKeepalive'
     ];
 
     /**
@@ -206,11 +236,17 @@ class CreateClusterAdmin implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'login' => 'getLogin',
-        'password' => 'getPassword',
-        'host' => 'getHost',
-        'privileges' => 'getPrivileges',
-        'description' => 'getDescription'
+        'client_output_buffer_limit_normal' => 'getClientOutputBufferLimitNormal',
+        'client_output_buffer_limit_pubsub' => 'getClientOutputBufferLimitPubsub',
+        'databases' => 'getDatabases',
+        'timeout' => 'getTimeout',
+        'maxmemory_policy' => 'getMaxmemoryPolicy',
+        'slowlog_log_slower_than' => 'getSlowlogLogSlowerThan',
+        'slowlog_max_len' => 'getSlowlogMaxLen',
+        'save' => 'getSave',
+        'appendonly' => 'getAppendonly',
+        'appendfsync' => 'getAppendfsync',
+        'tcp_keepalive' => 'getTcpKeepalive'
     ];
 
     /**
@@ -270,11 +306,17 @@ class CreateClusterAdmin implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('login', $data ?? [], null);
-        $this->setIfExists('password', $data ?? [], null);
-        $this->setIfExists('host', $data ?? [], null);
-        $this->setIfExists('privileges', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('client_output_buffer_limit_normal', $data ?? [], null);
+        $this->setIfExists('client_output_buffer_limit_pubsub', $data ?? [], null);
+        $this->setIfExists('databases', $data ?? [], null);
+        $this->setIfExists('timeout', $data ?? [], null);
+        $this->setIfExists('maxmemory_policy', $data ?? [], null);
+        $this->setIfExists('slowlog_log_slower_than', $data ?? [], null);
+        $this->setIfExists('slowlog_max_len', $data ?? [], null);
+        $this->setIfExists('save', $data ?? [], null);
+        $this->setIfExists('appendonly', $data ?? [], null);
+        $this->setIfExists('appendfsync', $data ?? [], null);
+        $this->setIfExists('tcp_keepalive', $data ?? [], null);
     }
 
     /**
@@ -320,136 +362,298 @@ class CreateClusterAdmin implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets login
+     * Gets client_output_buffer_limit_normal
      *
      * @return string|null
      */
-    public function getLogin()
+    public function getClientOutputBufferLimitNormal()
     {
-        return $this->container['login'];
+        return $this->container['client_output_buffer_limit_normal'];
     }
 
     /**
-     * Sets login
+     * Sets client_output_buffer_limit_normal
      *
-     * @param string|null $login Имя пользователя базы данных
+     * @param string|null $client_output_buffer_limit_normal Ограничение буфера вывода для обычных клиентских подключений. Формат: `hard-limit soft-limit soft-seconds` (`valkey` | `valkey7` | `valkey8_1` | `valkey9_1`).
      *
      * @return self
      */
-    public function setLogin($login)
+    public function setClientOutputBufferLimitNormal($client_output_buffer_limit_normal)
     {
-        if (is_null($login)) {
-            throw new \InvalidArgumentException('non-nullable login cannot be null');
+        if (is_null($client_output_buffer_limit_normal)) {
+            throw new \InvalidArgumentException('non-nullable client_output_buffer_limit_normal cannot be null');
         }
-        $this->container['login'] = $login;
+        $this->container['client_output_buffer_limit_normal'] = $client_output_buffer_limit_normal;
 
         return $this;
     }
 
     /**
-     * Gets password
+     * Gets client_output_buffer_limit_pubsub
      *
      * @return string|null
      */
-    public function getPassword()
+    public function getClientOutputBufferLimitPubsub()
     {
-        return $this->container['password'];
+        return $this->container['client_output_buffer_limit_pubsub'];
     }
 
     /**
-     * Sets password
+     * Sets client_output_buffer_limit_pubsub
      *
-     * @param string|null $password Пароль пользователя базы данных
+     * @param string|null $client_output_buffer_limit_pubsub Ограничение буфера вывода для клиентов pub/sub. Формат: `hard-limit soft-limit soft-seconds` (`valkey` | `valkey7` | `valkey8_1` | `valkey9_1`).
      *
      * @return self
      */
-    public function setPassword($password)
+    public function setClientOutputBufferLimitPubsub($client_output_buffer_limit_pubsub)
     {
-        if (is_null($password)) {
-            throw new \InvalidArgumentException('non-nullable password cannot be null');
+        if (is_null($client_output_buffer_limit_pubsub)) {
+            throw new \InvalidArgumentException('non-nullable client_output_buffer_limit_pubsub cannot be null');
         }
-        $this->container['password'] = $password;
+        $this->container['client_output_buffer_limit_pubsub'] = $client_output_buffer_limit_pubsub;
 
         return $this;
     }
 
     /**
-     * Gets host
+     * Gets databases
      *
      * @return string|null
      */
-    public function getHost()
+    public function getDatabases()
     {
-        return $this->container['host'];
+        return $this->container['databases'];
     }
 
     /**
-     * Sets host
+     * Sets databases
      *
-     * @param string|null $host Хост пользователя
+     * @param string|null $databases Количество логических баз данных на сервере (`valkey` | `valkey7` | `valkey8_1` | `valkey9_1`).
      *
      * @return self
      */
-    public function setHost($host)
+    public function setDatabases($databases)
     {
-        if (is_null($host)) {
-            throw new \InvalidArgumentException('non-nullable host cannot be null');
+        if (is_null($databases)) {
+            throw new \InvalidArgumentException('non-nullable databases cannot be null');
         }
-        $this->container['host'] = $host;
+        $this->container['databases'] = $databases;
 
         return $this;
     }
 
     /**
-     * Gets privileges
+     * Gets timeout
      *
-     * @return \OpenAPI\Client\Model\PropertiesMysql[]|null
+     * @return string|null
      */
-    public function getPrivileges()
+    public function getTimeout()
     {
-        return $this->container['privileges'];
+        return $this->container['timeout'];
     }
 
     /**
-     * Sets privileges
+     * Sets timeout
      *
-     * @param \OpenAPI\Client\Model\PropertiesMysql[]|null $privileges Список привилегий пользователя базы данных
+     * @param string|null $timeout Время ожидания в секундах перед закрытием неактивного клиентского соединения. `0` — отключено (`valkey` | `valkey7` | `valkey8_1` | `valkey9_1`).
      *
      * @return self
      */
-    public function setPrivileges($privileges)
+    public function setTimeout($timeout)
     {
-        if (is_null($privileges)) {
-            throw new \InvalidArgumentException('non-nullable privileges cannot be null');
+        if (is_null($timeout)) {
+            throw new \InvalidArgumentException('non-nullable timeout cannot be null');
         }
-        $this->container['privileges'] = $privileges;
+        $this->container['timeout'] = $timeout;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets maxmemory_policy
      *
      * @return string|null
      */
-    public function getDescription()
+    public function getMaxmemoryPolicy()
     {
-        return $this->container['description'];
+        return $this->container['maxmemory_policy'];
     }
 
     /**
-     * Sets description
+     * Sets maxmemory_policy
      *
-     * @param string|null $description Описание пользователя базы данных
+     * @param string|null $maxmemory_policy Политика вытеснения ключей при достижении лимита памяти (`valkey` | `valkey7` | `valkey8_1` | `valkey9_1`).
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setMaxmemoryPolicy($maxmemory_policy)
     {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        if (is_null($maxmemory_policy)) {
+            throw new \InvalidArgumentException('non-nullable maxmemory_policy cannot be null');
         }
-        $this->container['description'] = $description;
+        $this->container['maxmemory_policy'] = $maxmemory_policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets slowlog_log_slower_than
+     *
+     * @return string|null
+     */
+    public function getSlowlogLogSlowerThan()
+    {
+        return $this->container['slowlog_log_slower_than'];
+    }
+
+    /**
+     * Sets slowlog_log_slower_than
+     *
+     * @param string|null $slowlog_log_slower_than Минимальное время выполнения команды в микросекундах для записи в журнал медленных команд (`valkey` | `valkey7` | `valkey8_1` | `valkey9_1`).
+     *
+     * @return self
+     */
+    public function setSlowlogLogSlowerThan($slowlog_log_slower_than)
+    {
+        if (is_null($slowlog_log_slower_than)) {
+            throw new \InvalidArgumentException('non-nullable slowlog_log_slower_than cannot be null');
+        }
+        $this->container['slowlog_log_slower_than'] = $slowlog_log_slower_than;
+
+        return $this;
+    }
+
+    /**
+     * Gets slowlog_max_len
+     *
+     * @return string|null
+     */
+    public function getSlowlogMaxLen()
+    {
+        return $this->container['slowlog_max_len'];
+    }
+
+    /**
+     * Sets slowlog_max_len
+     *
+     * @param string|null $slowlog_max_len Максимальное количество записей, хранящихся в журнале медленных команд (`valkey` | `valkey7` | `valkey8_1` | `valkey9_1`).
+     *
+     * @return self
+     */
+    public function setSlowlogMaxLen($slowlog_max_len)
+    {
+        if (is_null($slowlog_max_len)) {
+            throw new \InvalidArgumentException('non-nullable slowlog_max_len cannot be null');
+        }
+        $this->container['slowlog_max_len'] = $slowlog_max_len;
+
+        return $this;
+    }
+
+    /**
+     * Gets save
+     *
+     * @return string|null
+     */
+    public function getSave()
+    {
+        return $this->container['save'];
+    }
+
+    /**
+     * Sets save
+     *
+     * @param string|null $save Условие создания снимка RDB на диск. Формат: `seconds changes` — сохранение выполняется, если за указанное время было сделано не менее указанного количества изменений (`valkey` | `valkey7` | `valkey8_1` | `valkey9_1`).
+     *
+     * @return self
+     */
+    public function setSave($save)
+    {
+        if (is_null($save)) {
+            throw new \InvalidArgumentException('non-nullable save cannot be null');
+        }
+        $this->container['save'] = $save;
+
+        return $this;
+    }
+
+    /**
+     * Gets appendonly
+     *
+     * @return string|null
+     */
+    public function getAppendonly()
+    {
+        return $this->container['appendonly'];
+    }
+
+    /**
+     * Sets appendonly
+     *
+     * @param string|null $appendonly Включение режима AOF (Append Only File) для персистентного хранения данных (`valkey` | `valkey7` | `valkey8_1` | `valkey9_1`).
+     *
+     * @return self
+     */
+    public function setAppendonly($appendonly)
+    {
+        if (is_null($appendonly)) {
+            throw new \InvalidArgumentException('non-nullable appendonly cannot be null');
+        }
+        $this->container['appendonly'] = $appendonly;
+
+        return $this;
+    }
+
+    /**
+     * Gets appendfsync
+     *
+     * @return string|null
+     */
+    public function getAppendfsync()
+    {
+        return $this->container['appendfsync'];
+    }
+
+    /**
+     * Sets appendfsync
+     *
+     * @param string|null $appendfsync Режим синхронизации AOF-файла с диском: `always` — при каждой записи, `everysec` — раз в секунду, `no` — управление передаётся ОС (`valkey` | `valkey7` | `valkey8_1` | `valkey9_1`).
+     *
+     * @return self
+     */
+    public function setAppendfsync($appendfsync)
+    {
+        if (is_null($appendfsync)) {
+            throw new \InvalidArgumentException('non-nullable appendfsync cannot be null');
+        }
+        $this->container['appendfsync'] = $appendfsync;
+
+        return $this;
+    }
+
+    /**
+     * Gets tcp_keepalive
+     *
+     * @return string|null
+     */
+    public function getTcpKeepalive()
+    {
+        return $this->container['tcp_keepalive'];
+    }
+
+    /**
+     * Sets tcp_keepalive
+     *
+     * @param string|null $tcp_keepalive Интервал проверки активности TCP-соединения в секундах. `0` — отключено (`valkey` | `valkey7` | `valkey8_1` | `valkey9_1`).
+     *
+     * @return self
+     */
+    public function setTcpKeepalive($tcp_keepalive)
+    {
+        if (is_null($tcp_keepalive)) {
+            throw new \InvalidArgumentException('non-nullable tcp_keepalive cannot be null');
+        }
+        $this->container['tcp_keepalive'] = $tcp_keepalive;
 
         return $this;
     }

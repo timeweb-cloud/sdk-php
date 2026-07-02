@@ -60,7 +60,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'mysql' => '\OpenAPI\Client\Model\ConfigParametersMysql',
-        'postgres' => '\OpenAPI\Client\Model\ConfigParametersPostgres'
+        'postgres' => '\OpenAPI\Client\Model\ConfigParametersPostgres',
+        'valkey' => '\OpenAPI\Client\Model\ConfigParametersValkey'
     ];
 
     /**
@@ -72,7 +73,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'mysql' => null,
-        'postgres' => null
+        'postgres' => null,
+        'valkey' => null
     ];
 
     /**
@@ -82,7 +84,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'mysql' => false,
-		'postgres' => false
+		'postgres' => false,
+		'valkey' => false
     ];
 
     /**
@@ -172,7 +175,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'mysql' => 'mysql',
-        'postgres' => 'postgres'
+        'postgres' => 'postgres',
+        'valkey' => 'valkey'
     ];
 
     /**
@@ -182,7 +186,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'mysql' => 'setMysql',
-        'postgres' => 'setPostgres'
+        'postgres' => 'setPostgres',
+        'valkey' => 'setValkey'
     ];
 
     /**
@@ -192,7 +197,8 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'mysql' => 'getMysql',
-        'postgres' => 'getPostgres'
+        'postgres' => 'getPostgres',
+        'valkey' => 'getValkey'
     ];
 
     /**
@@ -254,6 +260,7 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('mysql', $data ?? [], null);
         $this->setIfExists('postgres', $data ?? [], null);
+        $this->setIfExists('valkey', $data ?? [], null);
     }
 
     /**
@@ -348,6 +355,33 @@ class ConfigParameters implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable postgres cannot be null');
         }
         $this->container['postgres'] = $postgres;
+
+        return $this;
+    }
+
+    /**
+     * Gets valkey
+     *
+     * @return \OpenAPI\Client\Model\ConfigParametersValkey|null
+     */
+    public function getValkey()
+    {
+        return $this->container['valkey'];
+    }
+
+    /**
+     * Sets valkey
+     *
+     * @param \OpenAPI\Client\Model\ConfigParametersValkey|null $valkey valkey
+     *
+     * @return self
+     */
+    public function setValkey($valkey)
+    {
+        if (is_null($valkey)) {
+            throw new \InvalidArgumentException('non-nullable valkey cannot be null');
+        }
+        $this->container['valkey'] = $valkey;
 
         return $this;
     }

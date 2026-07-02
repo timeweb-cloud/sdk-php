@@ -62,7 +62,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'password' => 'string',
         'host' => 'string',
         'instance_id' => 'float',
-        'privileges' => 'string[]',
+        'privileges' => '\OpenAPI\Client\Model\PropertiesMysql[]',
         'description' => 'string'
     ];
 
@@ -259,151 +259,6 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const PRIVILEGES_ALTER = 'ALTER';
-    public const PRIVILEGES_ALTER_TABLE = 'ALTER_TABLE';
-    public const PRIVILEGES_ALTER_VIEW = 'ALTER_VIEW';
-    public const PRIVILEGES_CREATE_VIEW = 'CREATE_VIEW';
-    public const PRIVILEGES_CREATE_DICTIONARY = 'CREATE_DICTIONARY';
-    public const PRIVILEGES_CREATE_FUNCTION = 'CREATE_FUNCTION';
-    public const PRIVILEGES_CREATE_TABLE = 'CREATE_TABLE';
-    public const PRIVILEGES_CREATE = 'CREATE';
-    public const PRIVILEGES_DELETE = 'DELETE';
-    public const PRIVILEGES_DROP = 'DROP';
-    public const PRIVILEGES_DROP_TABLE = 'DROP_TABLE';
-    public const PRIVILEGES_DROP_VIEW = 'DROP_VIEW';
-    public const PRIVILEGES_DROP_DICTIONARY = 'DROP_DICTIONARY';
-    public const PRIVILEGES_EVENT = 'EVENT';
-    public const PRIVILEGES_INDEX = 'INDEX';
-    public const PRIVILEGES_INSERT = 'INSERT';
-    public const PRIVILEGES_LOCK_TABLES = 'LOCK_TABLES';
-    public const PRIVILEGES_REFERENCES = 'REFERENCES';
-    public const PRIVILEGES_SELECT = 'SELECT';
-    public const PRIVILEGES_SHOW = 'SHOW';
-    public const PRIVILEGES_SHOW_VIEW = 'SHOW_VIEW';
-    public const PRIVILEGES_TRUNCATE = 'TRUNCATE';
-    public const PRIVILEGES_TRIGGER = 'TRIGGER';
-    public const PRIVILEGES_UPDATE = 'UPDATE';
-    public const PRIVILEGES_READ = 'READ';
-    public const PRIVILEGES_WRITE = 'WRITE';
-    public const PRIVILEGES_READ_WRITE = 'READ_WRITE';
-    public const PRIVILEGES_DB_ADMIN = 'DB_ADMIN';
-    public const PRIVILEGES_ALTER_ROUTINE = 'ALTER_ROUTINE';
-    public const PRIVILEGES_CREATE_ROUTINE = 'CREATE_ROUTINE';
-    public const PRIVILEGES_CREATE_TEMPORARY_TABLES = 'CREATE_TEMPORARY_TABLES';
-    public const PRIVILEGES_TEMPORARY = 'TEMPORARY';
-    public const PRIVILEGES_CONFIGURE = 'CONFIGURE';
-    public const PRIVILEGES_READ_DASHBOARD = 'READ_DASHBOARD';
-    public const PRIVILEGES_WRITE_DASHBOARD = 'WRITE_DASHBOARD';
-    public const PRIVILEGES_DESCRIBE = 'DESCRIBE';
-    public const PRIVILEGES_OPTIMIZE = 'OPTIMIZE';
-    public const PRIVILEGES_EXECUTE = 'EXECUTE';
-    public const PRIVILEGES_CREATEDB = 'CREATEDB';
-    public const PRIVILEGES_CREATEROLE = 'CREATEROLE';
-    public const PRIVILEGES_CREATE_DB = 'CREATE_DB';
-    public const PRIVILEGES_CREATE_USER = 'CREATE_USER';
-    public const PRIVILEGES_PROCESS = 'PROCESS';
-    public const PRIVILEGES_SLOW_LOG = 'SLOW_LOG';
-    public const PRIVILEGES_CREATE_TEMPORARY_TABLE = 'CREATE_TEMPORARY_TABLE';
-    public const PRIVILEGES_ADMIN = 'ADMIN';
-    public const PRIVILEGES_BITMAP = 'BITMAP';
-    public const PRIVILEGES_BLOCKING = 'BLOCKING';
-    public const PRIVILEGES_CONNECTION = 'CONNECTION';
-    public const PRIVILEGES_DANGEROUS = 'DANGEROUS';
-    public const PRIVILEGES_GEO = 'GEO';
-    public const PRIVILEGES_HASH = 'HASH';
-    public const PRIVILEGES_HYPERLOGLOG = 'HYPERLOGLOG';
-    public const PRIVILEGES_FAST = 'FAST';
-    public const PRIVILEGES_KEYSPACE = 'KEYSPACE';
-    public const PRIVILEGES__LIST = 'LIST';
-    public const PRIVILEGES_PUBSUB = 'PUBSUB';
-    public const PRIVILEGES_SCRIPTING = 'SCRIPTING';
-    public const PRIVILEGES_SET = 'SET';
-    public const PRIVILEGES_SORTEDSET = 'SORTEDSET';
-    public const PRIVILEGES_SLOW = 'SLOW';
-    public const PRIVILEGES_STREAM = 'STREAM';
-    public const PRIVILEGES_STRING = 'STRING';
-    public const PRIVILEGES_TRANSACTION = 'TRANSACTION';
-    public const PRIVILEGES_DICT_GET = 'dictGet';
-    public const PRIVILEGES_DB_ADMIN = 'dbAdmin';
-    public const PRIVILEGES_READ_WRITE = 'readWrite';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPrivilegesAllowableValues()
-    {
-        return [
-            self::PRIVILEGES_ALTER,
-            self::PRIVILEGES_ALTER_TABLE,
-            self::PRIVILEGES_ALTER_VIEW,
-            self::PRIVILEGES_CREATE_VIEW,
-            self::PRIVILEGES_CREATE_DICTIONARY,
-            self::PRIVILEGES_CREATE_FUNCTION,
-            self::PRIVILEGES_CREATE_TABLE,
-            self::PRIVILEGES_CREATE,
-            self::PRIVILEGES_DELETE,
-            self::PRIVILEGES_DROP,
-            self::PRIVILEGES_DROP_TABLE,
-            self::PRIVILEGES_DROP_VIEW,
-            self::PRIVILEGES_DROP_DICTIONARY,
-            self::PRIVILEGES_EVENT,
-            self::PRIVILEGES_INDEX,
-            self::PRIVILEGES_INSERT,
-            self::PRIVILEGES_LOCK_TABLES,
-            self::PRIVILEGES_REFERENCES,
-            self::PRIVILEGES_SELECT,
-            self::PRIVILEGES_SHOW,
-            self::PRIVILEGES_SHOW_VIEW,
-            self::PRIVILEGES_TRUNCATE,
-            self::PRIVILEGES_TRIGGER,
-            self::PRIVILEGES_UPDATE,
-            self::PRIVILEGES_READ,
-            self::PRIVILEGES_WRITE,
-            self::PRIVILEGES_READ_WRITE,
-            self::PRIVILEGES_DB_ADMIN,
-            self::PRIVILEGES_ALTER_ROUTINE,
-            self::PRIVILEGES_CREATE_ROUTINE,
-            self::PRIVILEGES_CREATE_TEMPORARY_TABLES,
-            self::PRIVILEGES_TEMPORARY,
-            self::PRIVILEGES_CONFIGURE,
-            self::PRIVILEGES_READ_DASHBOARD,
-            self::PRIVILEGES_WRITE_DASHBOARD,
-            self::PRIVILEGES_DESCRIBE,
-            self::PRIVILEGES_OPTIMIZE,
-            self::PRIVILEGES_EXECUTE,
-            self::PRIVILEGES_CREATEDB,
-            self::PRIVILEGES_CREATEROLE,
-            self::PRIVILEGES_CREATE_DB,
-            self::PRIVILEGES_CREATE_USER,
-            self::PRIVILEGES_PROCESS,
-            self::PRIVILEGES_SLOW_LOG,
-            self::PRIVILEGES_CREATE_TEMPORARY_TABLE,
-            self::PRIVILEGES_ADMIN,
-            self::PRIVILEGES_BITMAP,
-            self::PRIVILEGES_BLOCKING,
-            self::PRIVILEGES_CONNECTION,
-            self::PRIVILEGES_DANGEROUS,
-            self::PRIVILEGES_GEO,
-            self::PRIVILEGES_HASH,
-            self::PRIVILEGES_HYPERLOGLOG,
-            self::PRIVILEGES_FAST,
-            self::PRIVILEGES_KEYSPACE,
-            self::PRIVILEGES__LIST,
-            self::PRIVILEGES_PUBSUB,
-            self::PRIVILEGES_SCRIPTING,
-            self::PRIVILEGES_SET,
-            self::PRIVILEGES_SORTEDSET,
-            self::PRIVILEGES_SLOW,
-            self::PRIVILEGES_STREAM,
-            self::PRIVILEGES_STRING,
-            self::PRIVILEGES_TRANSACTION,
-            self::PRIVILEGES_DICT_GET,
-            self::PRIVILEGES_DB_ADMIN,
-            self::PRIVILEGES_READ_WRITE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -590,7 +445,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets privileges
      *
-     * @return string[]
+     * @return \OpenAPI\Client\Model\PropertiesMysql[]
      */
     public function getPrivileges()
     {
@@ -600,7 +455,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets privileges
      *
-     * @param string[] $privileges Список привилегий пользователя базы данных
+     * @param \OpenAPI\Client\Model\PropertiesMysql[] $privileges Список привилегий пользователя базы данных
      *
      * @return self
      */
@@ -608,15 +463,6 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($privileges)) {
             throw new \InvalidArgumentException('non-nullable privileges cannot be null');
-        }
-        $allowedValues = $this->getPrivilegesAllowableValues();
-        if (array_diff($privileges, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'privileges', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['privileges'] = $privileges;
 
