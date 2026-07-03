@@ -34,7 +34,6 @@ use \OpenAPI\Client\ObjectSerializer;
  * Kafka Class Doc Comment
  *
  * @category Class
- * @description Привилегии Kafka (&#x60;kafka&#x60;)
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
