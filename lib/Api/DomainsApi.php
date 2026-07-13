@@ -471,16 +471,16 @@ class DomainsApi
      * Добавление поддомена
      *
      * @param  string $fqdn Полное имя домена. (required)
-     * @param  string $subdomain_fqdn Полное имя поддомена. (required)
+     * @param  string $subdomain Имя поддомена без имени домена. Например, для поддомена &#x60;sub.somedomain.ru&#x60; нужно передать &#x60;sub&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addSubdomain'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AddSubdomain201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function addSubdomain($fqdn, $subdomain_fqdn, string $contentType = self::contentTypes['addSubdomain'][0])
+    public function addSubdomain($fqdn, $subdomain, string $contentType = self::contentTypes['addSubdomain'][0])
     {
-        list($response) = $this->addSubdomainWithHttpInfo($fqdn, $subdomain_fqdn, $contentType);
+        list($response) = $this->addSubdomainWithHttpInfo($fqdn, $subdomain, $contentType);
         return $response;
     }
 
@@ -490,16 +490,16 @@ class DomainsApi
      * Добавление поддомена
      *
      * @param  string $fqdn Полное имя домена. (required)
-     * @param  string $subdomain_fqdn Полное имя поддомена. (required)
+     * @param  string $subdomain Имя поддомена без имени домена. Например, для поддомена &#x60;sub.somedomain.ru&#x60; нужно передать &#x60;sub&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addSubdomain'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AddSubdomain201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addSubdomainWithHttpInfo($fqdn, $subdomain_fqdn, string $contentType = self::contentTypes['addSubdomain'][0])
+    public function addSubdomainWithHttpInfo($fqdn, $subdomain, string $contentType = self::contentTypes['addSubdomain'][0])
     {
-        $request = $this->addSubdomainRequest($fqdn, $subdomain_fqdn, $contentType);
+        $request = $this->addSubdomainRequest($fqdn, $subdomain, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -706,15 +706,15 @@ class DomainsApi
      * Добавление поддомена
      *
      * @param  string $fqdn Полное имя домена. (required)
-     * @param  string $subdomain_fqdn Полное имя поддомена. (required)
+     * @param  string $subdomain Имя поддомена без имени домена. Например, для поддомена &#x60;sub.somedomain.ru&#x60; нужно передать &#x60;sub&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addSubdomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addSubdomainAsync($fqdn, $subdomain_fqdn, string $contentType = self::contentTypes['addSubdomain'][0])
+    public function addSubdomainAsync($fqdn, $subdomain, string $contentType = self::contentTypes['addSubdomain'][0])
     {
-        return $this->addSubdomainAsyncWithHttpInfo($fqdn, $subdomain_fqdn, $contentType)
+        return $this->addSubdomainAsyncWithHttpInfo($fqdn, $subdomain, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -728,16 +728,16 @@ class DomainsApi
      * Добавление поддомена
      *
      * @param  string $fqdn Полное имя домена. (required)
-     * @param  string $subdomain_fqdn Полное имя поддомена. (required)
+     * @param  string $subdomain Имя поддомена без имени домена. Например, для поддомена &#x60;sub.somedomain.ru&#x60; нужно передать &#x60;sub&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addSubdomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addSubdomainAsyncWithHttpInfo($fqdn, $subdomain_fqdn, string $contentType = self::contentTypes['addSubdomain'][0])
+    public function addSubdomainAsyncWithHttpInfo($fqdn, $subdomain, string $contentType = self::contentTypes['addSubdomain'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AddSubdomain201Response';
-        $request = $this->addSubdomainRequest($fqdn, $subdomain_fqdn, $contentType);
+        $request = $this->addSubdomainRequest($fqdn, $subdomain, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -779,13 +779,13 @@ class DomainsApi
      * Create request for operation 'addSubdomain'
      *
      * @param  string $fqdn Полное имя домена. (required)
-     * @param  string $subdomain_fqdn Полное имя поддомена. (required)
+     * @param  string $subdomain Имя поддомена без имени домена. Например, для поддомена &#x60;sub.somedomain.ru&#x60; нужно передать &#x60;sub&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addSubdomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addSubdomainRequest($fqdn, $subdomain_fqdn, string $contentType = self::contentTypes['addSubdomain'][0])
+    public function addSubdomainRequest($fqdn, $subdomain, string $contentType = self::contentTypes['addSubdomain'][0])
     {
 
         // verify the required parameter 'fqdn' is set
@@ -795,15 +795,15 @@ class DomainsApi
             );
         }
 
-        // verify the required parameter 'subdomain_fqdn' is set
-        if ($subdomain_fqdn === null || (is_array($subdomain_fqdn) && count($subdomain_fqdn) === 0)) {
+        // verify the required parameter 'subdomain' is set
+        if ($subdomain === null || (is_array($subdomain) && count($subdomain) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $subdomain_fqdn when calling addSubdomain'
+                'Missing the required parameter $subdomain when calling addSubdomain'
             );
         }
 
 
-        $resourcePath = '/api/v1/domains/{fqdn}/subdomains/{subdomain_fqdn}';
+        $resourcePath = '/api/v1/domains/{fqdn}/subdomains/{subdomain}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -821,10 +821,10 @@ class DomainsApi
             );
         }
         // path params
-        if ($subdomain_fqdn !== null) {
+        if ($subdomain !== null) {
             $resourcePath = str_replace(
-                '{' . 'subdomain_fqdn' . '}',
-                ObjectSerializer::toPathValue($subdomain_fqdn),
+                '{' . 'subdomain' . '}',
+                ObjectSerializer::toPathValue($subdomain),
                 $resourcePath
             );
         }
@@ -1697,7 +1697,7 @@ class DomainsApi
      *
      * Добавить информацию о DNS-записи для домена или поддомена
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  \OpenAPI\Client\Model\CreateDnsV2 $create_dns_v2 create_dns_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainDNSRecordV2'] to see the possible values for this operation
      *
@@ -1716,7 +1716,7 @@ class DomainsApi
      *
      * Добавить информацию о DNS-записи для домена или поддомена
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  \OpenAPI\Client\Model\CreateDnsV2 $create_dns_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainDNSRecordV2'] to see the possible values for this operation
      *
@@ -1955,7 +1955,7 @@ class DomainsApi
      *
      * Добавить информацию о DNS-записи для домена или поддомена
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  \OpenAPI\Client\Model\CreateDnsV2 $create_dns_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainDNSRecordV2'] to see the possible values for this operation
      *
@@ -1977,7 +1977,7 @@ class DomainsApi
      *
      * Добавить информацию о DNS-записи для домена или поддомена
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  \OpenAPI\Client\Model\CreateDnsV2 $create_dns_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainDNSRecordV2'] to see the possible values for this operation
      *
@@ -2028,7 +2028,7 @@ class DomainsApi
     /**
      * Create request for operation 'createDomainDNSRecordV2'
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  \OpenAPI\Client\Model\CreateDnsV2 $create_dns_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDomainDNSRecordV2'] to see the possible values for this operation
      *
@@ -3121,7 +3121,7 @@ class DomainsApi
      *
      * Удалить информацию о DNS-записи для домена или поддомена
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  int $record_id ID DNS-записи домена или поддомена. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDomainDNSRecordV2'] to see the possible values for this operation
      *
@@ -3139,7 +3139,7 @@ class DomainsApi
      *
      * Удалить информацию о DNS-записи для домена или поддомена
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  int $record_id ID DNS-записи домена или поддомена. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDomainDNSRecordV2'] to see the possible values for this operation
      *
@@ -3240,7 +3240,7 @@ class DomainsApi
      *
      * Удалить информацию о DNS-записи для домена или поддомена
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  int $record_id ID DNS-записи домена или поддомена. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDomainDNSRecordV2'] to see the possible values for this operation
      *
@@ -3262,7 +3262,7 @@ class DomainsApi
      *
      * Удалить информацию о DNS-записи для домена или поддомена
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  int $record_id ID DNS-записи домена или поддомена. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDomainDNSRecordV2'] to see the possible values for this operation
      *
@@ -3300,7 +3300,7 @@ class DomainsApi
     /**
      * Create request for operation 'deleteDomainDNSRecordV2'
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  int $record_id ID DNS-записи домена или поддомена. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDomainDNSRecordV2'] to see the possible values for this operation
      *
@@ -3415,16 +3415,16 @@ class DomainsApi
      * Удаление поддомена
      *
      * @param  string $fqdn Полное имя домена. (required)
-     * @param  string $subdomain_fqdn Полное имя поддомена. (required)
+     * @param  string $subdomain Имя поддомена без имени домена. Например, для поддомена &#x60;sub.somedomain.ru&#x60; нужно передать &#x60;sub&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSubdomain'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteSubdomain($fqdn, $subdomain_fqdn, string $contentType = self::contentTypes['deleteSubdomain'][0])
+    public function deleteSubdomain($fqdn, $subdomain, string $contentType = self::contentTypes['deleteSubdomain'][0])
     {
-        $this->deleteSubdomainWithHttpInfo($fqdn, $subdomain_fqdn, $contentType);
+        $this->deleteSubdomainWithHttpInfo($fqdn, $subdomain, $contentType);
     }
 
     /**
@@ -3433,16 +3433,16 @@ class DomainsApi
      * Удаление поддомена
      *
      * @param  string $fqdn Полное имя домена. (required)
-     * @param  string $subdomain_fqdn Полное имя поддомена. (required)
+     * @param  string $subdomain Имя поддомена без имени домена. Например, для поддомена &#x60;sub.somedomain.ru&#x60; нужно передать &#x60;sub&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSubdomain'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteSubdomainWithHttpInfo($fqdn, $subdomain_fqdn, string $contentType = self::contentTypes['deleteSubdomain'][0])
+    public function deleteSubdomainWithHttpInfo($fqdn, $subdomain, string $contentType = self::contentTypes['deleteSubdomain'][0])
     {
-        $request = $this->deleteSubdomainRequest($fqdn, $subdomain_fqdn, $contentType);
+        $request = $this->deleteSubdomainRequest($fqdn, $subdomain, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3542,15 +3542,15 @@ class DomainsApi
      * Удаление поддомена
      *
      * @param  string $fqdn Полное имя домена. (required)
-     * @param  string $subdomain_fqdn Полное имя поддомена. (required)
+     * @param  string $subdomain Имя поддомена без имени домена. Например, для поддомена &#x60;sub.somedomain.ru&#x60; нужно передать &#x60;sub&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSubdomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSubdomainAsync($fqdn, $subdomain_fqdn, string $contentType = self::contentTypes['deleteSubdomain'][0])
+    public function deleteSubdomainAsync($fqdn, $subdomain, string $contentType = self::contentTypes['deleteSubdomain'][0])
     {
-        return $this->deleteSubdomainAsyncWithHttpInfo($fqdn, $subdomain_fqdn, $contentType)
+        return $this->deleteSubdomainAsyncWithHttpInfo($fqdn, $subdomain, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3564,16 +3564,16 @@ class DomainsApi
      * Удаление поддомена
      *
      * @param  string $fqdn Полное имя домена. (required)
-     * @param  string $subdomain_fqdn Полное имя поддомена. (required)
+     * @param  string $subdomain Имя поддомена без имени домена. Например, для поддомена &#x60;sub.somedomain.ru&#x60; нужно передать &#x60;sub&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSubdomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSubdomainAsyncWithHttpInfo($fqdn, $subdomain_fqdn, string $contentType = self::contentTypes['deleteSubdomain'][0])
+    public function deleteSubdomainAsyncWithHttpInfo($fqdn, $subdomain, string $contentType = self::contentTypes['deleteSubdomain'][0])
     {
         $returnType = '';
-        $request = $this->deleteSubdomainRequest($fqdn, $subdomain_fqdn, $contentType);
+        $request = $this->deleteSubdomainRequest($fqdn, $subdomain, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3602,13 +3602,13 @@ class DomainsApi
      * Create request for operation 'deleteSubdomain'
      *
      * @param  string $fqdn Полное имя домена. (required)
-     * @param  string $subdomain_fqdn Полное имя поддомена. (required)
+     * @param  string $subdomain Имя поддомена без имени домена. Например, для поддомена &#x60;sub.somedomain.ru&#x60; нужно передать &#x60;sub&#x60;. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSubdomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteSubdomainRequest($fqdn, $subdomain_fqdn, string $contentType = self::contentTypes['deleteSubdomain'][0])
+    public function deleteSubdomainRequest($fqdn, $subdomain, string $contentType = self::contentTypes['deleteSubdomain'][0])
     {
 
         // verify the required parameter 'fqdn' is set
@@ -3618,15 +3618,15 @@ class DomainsApi
             );
         }
 
-        // verify the required parameter 'subdomain_fqdn' is set
-        if ($subdomain_fqdn === null || (is_array($subdomain_fqdn) && count($subdomain_fqdn) === 0)) {
+        // verify the required parameter 'subdomain' is set
+        if ($subdomain === null || (is_array($subdomain) && count($subdomain) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $subdomain_fqdn when calling deleteSubdomain'
+                'Missing the required parameter $subdomain when calling deleteSubdomain'
             );
         }
 
 
-        $resourcePath = '/api/v1/domains/{fqdn}/subdomains/{subdomain_fqdn}';
+        $resourcePath = '/api/v1/domains/{fqdn}/subdomains/{subdomain}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3644,10 +3644,10 @@ class DomainsApi
             );
         }
         // path params
-        if ($subdomain_fqdn !== null) {
+        if ($subdomain !== null) {
             $resourcePath = str_replace(
-                '{' . 'subdomain_fqdn' . '}',
-                ObjectSerializer::toPathValue($subdomain_fqdn),
+                '{' . 'subdomain' . '}',
+                ObjectSerializer::toPathValue($subdomain),
                 $resourcePath
             );
         }
@@ -8289,7 +8289,7 @@ class DomainsApi
      *
      * Обновить информацию о DNS-записи домена или поддомена
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  int $record_id ID DNS-записи домена или поддомена. (required)
      * @param  \OpenAPI\Client\Model\CreateDnsV2 $create_dns_v2 create_dns_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDomainDNSRecordV2'] to see the possible values for this operation
@@ -8309,7 +8309,7 @@ class DomainsApi
      *
      * Обновить информацию о DNS-записи домена или поддомена
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  int $record_id ID DNS-записи домена или поддомена. (required)
      * @param  \OpenAPI\Client\Model\CreateDnsV2 $create_dns_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDomainDNSRecordV2'] to see the possible values for this operation
@@ -8549,7 +8549,7 @@ class DomainsApi
      *
      * Обновить информацию о DNS-записи домена или поддомена
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  int $record_id ID DNS-записи домена или поддомена. (required)
      * @param  \OpenAPI\Client\Model\CreateDnsV2 $create_dns_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDomainDNSRecordV2'] to see the possible values for this operation
@@ -8572,7 +8572,7 @@ class DomainsApi
      *
      * Обновить информацию о DNS-записи домена или поддомена
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  int $record_id ID DNS-записи домена или поддомена. (required)
      * @param  \OpenAPI\Client\Model\CreateDnsV2 $create_dns_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDomainDNSRecordV2'] to see the possible values for this operation
@@ -8624,7 +8624,7 @@ class DomainsApi
     /**
      * Create request for operation 'updateDomainDNSRecordV2'
      *
-     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). (required)
+     * @param  string $fqdn Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). (required)
      * @param  int $record_id ID DNS-записи домена или поддомена. (required)
      * @param  \OpenAPI\Client\Model\CreateDnsV2 $create_dns_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDomainDNSRecordV2'] to see the possible values for this operation

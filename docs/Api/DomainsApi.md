@@ -5,7 +5,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addDomain()**](DomainsApi.md#addDomain) | **POST** /api/v1/add-domain/{fqdn} | Добавление домена на аккаунт |
-| [**addSubdomain()**](DomainsApi.md#addSubdomain) | **POST** /api/v1/domains/{fqdn}/subdomains/{subdomain_fqdn} | Добавление поддомена |
+| [**addSubdomain()**](DomainsApi.md#addSubdomain) | **POST** /api/v1/domains/{fqdn}/subdomains/{subdomain} | Добавление поддомена |
 | [**checkDomain()**](DomainsApi.md#checkDomain) | **GET** /api/v1/check-domain/{fqdn} | Проверить, доступен ли домен для регистрации |
 | [**createDomainDNSRecord()**](DomainsApi.md#createDomainDNSRecord) | **POST** /api/v1/domains/{fqdn}/dns-records | Добавить информацию о DNS-записи для домена или поддомена |
 | [**createDomainDNSRecordV2()**](DomainsApi.md#createDomainDNSRecordV2) | **POST** /api/v2/domains/{fqdn}/dns-records | Добавить информацию о DNS-записи для домена или поддомена |
@@ -13,7 +13,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**deleteDomain()**](DomainsApi.md#deleteDomain) | **DELETE** /api/v1/domains/{fqdn} | Удаление домена |
 | [**deleteDomainDNSRecord()**](DomainsApi.md#deleteDomainDNSRecord) | **DELETE** /api/v1/domains/{fqdn}/dns-records/{record_id} | Удалить информацию о DNS-записи для домена или поддомена |
 | [**deleteDomainDNSRecordV2()**](DomainsApi.md#deleteDomainDNSRecordV2) | **DELETE** /api/v2/domains/{fqdn}/dns-records/{record_id} | Удалить информацию о DNS-записи для домена или поддомена |
-| [**deleteSubdomain()**](DomainsApi.md#deleteSubdomain) | **DELETE** /api/v1/domains/{fqdn}/subdomains/{subdomain_fqdn} | Удаление поддомена |
+| [**deleteSubdomain()**](DomainsApi.md#deleteSubdomain) | **DELETE** /api/v1/domains/{fqdn}/subdomains/{subdomain} | Удаление поддомена |
 | [**getDomain()**](DomainsApi.md#getDomain) | **GET** /api/v1/domains/{fqdn} | Получение информации о домене |
 | [**getDomainDNSRecords()**](DomainsApi.md#getDomainDNSRecords) | **GET** /api/v1/domains/{fqdn}/dns-records | Получить информацию обо всех пользовательских DNS-записях домена или поддомена |
 | [**getDomainDefaultDNSRecords()**](DomainsApi.md#getDomainDefaultDNSRecords) | **GET** /api/v1/domains/{fqdn}/default-dns-records | Получить информацию обо всех DNS-записях по умолчанию домена или поддомена |
@@ -92,12 +92,12 @@ void (empty response body)
 ## `addSubdomain()`
 
 ```php
-addSubdomain($fqdn, $subdomain_fqdn): \OpenAPI\Client\Model\AddSubdomain201Response
+addSubdomain($fqdn, $subdomain): \OpenAPI\Client\Model\AddSubdomain201Response
 ```
 
 Добавление поддомена
 
-Чтобы добавить поддомен, отправьте запрос POST на `/api/v1/domains/{fqdn}/subdomains/{subdomain_fqdn}`, задав необходимые атрибуты.  Поддомен будет добавлен с использованием предоставленной информации. Тело ответа будет содержать объект JSON с информацией о добавленном поддомене.
+Чтобы добавить поддомен, отправьте запрос POST на `/api/v1/domains/{fqdn}/subdomains/{subdomain}`, задав необходимые атрибуты.  Поддомен будет добавлен с использованием предоставленной информации. Тело ответа будет содержать объект JSON с информацией о добавленном поддомене.
 
 ### Example
 
@@ -117,10 +117,10 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     $config
 );
 $fqdn = somedomain.ru; // string | Полное имя домена.
-$subdomain_fqdn = sub.somedomain.ru; // string | Полное имя поддомена.
+$subdomain = sub; // string | Имя поддомена без имени домена. Например, для поддомена `sub.somedomain.ru` нужно передать `sub`.
 
 try {
-    $result = $apiInstance->addSubdomain($fqdn, $subdomain_fqdn);
+    $result = $apiInstance->addSubdomain($fqdn, $subdomain);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainsApi->addSubdomain: ', $e->getMessage(), PHP_EOL;
@@ -132,7 +132,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **fqdn** | **string**| Полное имя домена. | |
-| **subdomain_fqdn** | **string**| Полное имя поддомена. | |
+| **subdomain** | **string**| Имя поддомена без имени домена. Например, для поддомена &#x60;sub.somedomain.ru&#x60; нужно передать &#x60;sub&#x60;. | |
 
 ### Return type
 
@@ -300,7 +300,7 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fqdn = somedomain.ru; // string | Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, `somedomain.ru`). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, `sub.somedomain.ru`).
+$fqdn = somedomain.ru; // string | Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, `somedomain.ru`). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, `sub.somedomain.ru`).  Поддомен должен быть создан заранее методом добавления поддомена (`POST /api/v1/domains/{fqdn}/subdomains/{subdomain}`).
 $create_dns_v2 = new \OpenAPI\Client\Model\CreateDnsV2(); // \OpenAPI\Client\Model\CreateDnsV2
 
 try {
@@ -315,7 +315,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fqdn** | **string**| Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). | |
+| **fqdn** | **string**| Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). | |
 | **create_dns_v2** | [**\OpenAPI\Client\Model\CreateDnsV2**](../Model/CreateDnsV2.md)|  | |
 
 ### Return type
@@ -542,7 +542,7 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fqdn = somedomain.ru; // string | Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, `somedomain.ru`). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, `sub.somedomain.ru`).
+$fqdn = somedomain.ru; // string | Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, `somedomain.ru`). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, `sub.somedomain.ru`).  Поддомен должен быть создан заранее методом добавления поддомена (`POST /api/v1/domains/{fqdn}/subdomains/{subdomain}`).
 $record_id = 123; // int | ID DNS-записи домена или поддомена.
 
 try {
@@ -556,7 +556,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fqdn** | **string**| Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). | |
+| **fqdn** | **string**| Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). | |
 | **record_id** | **int**| ID DNS-записи домена или поддомена. | |
 
 ### Return type
@@ -579,12 +579,12 @@ void (empty response body)
 ## `deleteSubdomain()`
 
 ```php
-deleteSubdomain($fqdn, $subdomain_fqdn)
+deleteSubdomain($fqdn, $subdomain)
 ```
 
 Удаление поддомена
 
-Чтобы удалить поддомен, отправьте запрос DELETE на `/api/v1/domains/{fqdn}/subdomains/{subdomain_fqdn}`.
+Чтобы удалить поддомен, отправьте запрос DELETE на `/api/v1/domains/{fqdn}/subdomains/{subdomain}`.
 
 ### Example
 
@@ -604,10 +604,10 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     $config
 );
 $fqdn = somedomain.ru; // string | Полное имя домена.
-$subdomain_fqdn = sub.somedomain.ru; // string | Полное имя поддомена.
+$subdomain = sub; // string | Имя поддомена без имени домена. Например, для поддомена `sub.somedomain.ru` нужно передать `sub`.
 
 try {
-    $apiInstance->deleteSubdomain($fqdn, $subdomain_fqdn);
+    $apiInstance->deleteSubdomain($fqdn, $subdomain);
 } catch (Exception $e) {
     echo 'Exception when calling DomainsApi->deleteSubdomain: ', $e->getMessage(), PHP_EOL;
 }
@@ -618,7 +618,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **fqdn** | **string**| Полное имя домена. | |
-| **subdomain_fqdn** | **string**| Полное имя поддомена. | |
+| **subdomain** | **string**| Имя поддомена без имени домена. Например, для поддомена &#x60;sub.somedomain.ru&#x60; нужно передать &#x60;sub&#x60;. | |
 
 ### Return type
 
@@ -1350,7 +1350,7 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fqdn = somedomain.ru; // string | Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, `somedomain.ru`). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, `sub.somedomain.ru`).
+$fqdn = somedomain.ru; // string | Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, `somedomain.ru`). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, `sub.somedomain.ru`).  Поддомен должен быть создан заранее методом добавления поддомена (`POST /api/v1/domains/{fqdn}/subdomains/{subdomain}`).
 $record_id = 123; // int | ID DNS-записи домена или поддомена.
 $create_dns_v2 = new \OpenAPI\Client\Model\CreateDnsV2(); // \OpenAPI\Client\Model\CreateDnsV2
 
@@ -1366,7 +1366,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fqdn** | **string**| Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;). | |
+| **fqdn** | **string**| Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). | |
 | **record_id** | **int**| ID DNS-записи домена или поддомена. | |
 | **create_dns_v2** | [**\OpenAPI\Client\Model\CreateDnsV2**](../Model/CreateDnsV2.md)|  | |
 
