@@ -26,6 +26,7 @@ docs/Api/RoutersApi.md
 docs/Api/S3Api.md
 docs/Api/SSHApi.md
 docs/Api/ServersApi.md
+docs/Api/SnapshotsApi.md
 docs/Api/VPCApi.md
 docs/Model/AddBalancerToProject200Response.md
 docs/Model/AddBalancerToProjectRequest.md
@@ -337,6 +338,8 @@ docs/Model/GetProjectStorages200Response.md
 docs/Model/GetProjects200Response.md
 docs/Model/GetProviders200Response.md
 docs/Model/GetRepositories200Response.md
+docs/Model/GetRestorePoint200Response.md
+docs/Model/GetRestorePoints200Response.md
 docs/Model/GetServerDiskAutoBackupSettings200Response.md
 docs/Model/GetServerDiskBackup200Response.md
 docs/Model/GetServerDiskBackups200Response.md
@@ -465,6 +468,7 @@ docs/Model/ResourceTransfer.md
 docs/Model/ResourceType.md
 docs/Model/Resources.md
 docs/Model/ResourcesResponse.md
+docs/Model/RestorePoint.md
 docs/Model/RouterEdit.md
 docs/Model/RouterIn.md
 docs/Model/RouterInIpsInner.md
@@ -614,6 +618,7 @@ lib/Api/RoutersApi.php
 lib/Api/S3Api.php
 lib/Api/SSHApi.php
 lib/Api/ServersApi.php
+lib/Api/SnapshotsApi.php
 lib/Api/VPCApi.php
 lib/ApiException.php
 lib/Configuration.php
@@ -928,6 +933,8 @@ lib/Model/GetProjectStorages200Response.php
 lib/Model/GetProjects200Response.php
 lib/Model/GetProviders200Response.php
 lib/Model/GetRepositories200Response.php
+lib/Model/GetRestorePoint200Response.php
+lib/Model/GetRestorePoints200Response.php
 lib/Model/GetServerDiskAutoBackupSettings200Response.php
 lib/Model/GetServerDiskBackup200Response.php
 lib/Model/GetServerDiskBackups200Response.php
@@ -1057,6 +1064,7 @@ lib/Model/ResourceTransfer.php
 lib/Model/ResourceType.php
 lib/Model/Resources.php
 lib/Model/ResourcesResponse.php
+lib/Model/RestorePoint.php
 lib/Model/RouterEdit.php
 lib/Model/RouterIn.php
 lib/Model/RouterInIpsInner.php
@@ -1207,6 +1215,7 @@ test/Api/RoutersApiTest.php
 test/Api/S3ApiTest.php
 test/Api/SSHApiTest.php
 test/Api/ServersApiTest.php
+test/Api/SnapshotsApiTest.php
 test/Api/VPCApiTest.php
 test/Model/AddBalancerToProject200ResponseTest.php
 test/Model/AddBalancerToProjectRequestTest.php
@@ -1518,6 +1527,8 @@ test/Model/GetProjectStorages200ResponseTest.php
 test/Model/GetProjects200ResponseTest.php
 test/Model/GetProviders200ResponseTest.php
 test/Model/GetRepositories200ResponseTest.php
+test/Model/GetRestorePoint200ResponseTest.php
+test/Model/GetRestorePoints200ResponseTest.php
 test/Model/GetServerDiskAutoBackupSettings200ResponseTest.php
 test/Model/GetServerDiskBackup200ResponseTest.php
 test/Model/GetServerDiskBackups200ResponseTest.php
@@ -1646,6 +1657,7 @@ test/Model/ResourceTransferTest.php
 test/Model/ResourceTypeTest.php
 test/Model/ResourcesResponseTest.php
 test/Model/ResourcesTest.php
+test/Model/RestorePointTest.php
 test/Model/RouterEditTest.php
 test/Model/RouterInIpsInnerNatTest.php
 test/Model/RouterInIpsInnerTest.php

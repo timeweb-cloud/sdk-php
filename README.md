@@ -546,6 +546,11 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**updateServerIP**](docs/Api/ServersApi.md#updateserverip) | **PATCH** /api/v1/servers/{server_id}/ips | Изменение IP-адреса сервера
 *ServersApi* | [**updateServerNAT**](docs/Api/ServersApi.md#updateservernat) | **PATCH** /api/v1/servers/{server_id}/local-networks/nat-mode | Изменение правил маршрутизации трафика сервера (NAT)
 *ServersApi* | [**updateServerOSBootMode**](docs/Api/ServersApi.md#updateserverosbootmode) | **POST** /api/v1/servers/{server_id}/boot-mode | Выбор типа загрузки операционной системы сервера
+*SnapshotsApi* | [**commitRestorePoint**](docs/Api/SnapshotsApi.md#commitrestorepoint) | **POST** /api/v1/restore-points/{vds_id}/commit | Фиксация снапшота
+*SnapshotsApi* | [**createRestorePoint**](docs/Api/SnapshotsApi.md#createrestorepoint) | **POST** /api/v1/restore-points/{vds_id}/create | Создание снапшота
+*SnapshotsApi* | [**getRestorePoint**](docs/Api/SnapshotsApi.md#getrestorepoint) | **GET** /api/v1/restore-points/{vds_id} | Получение снапшота сервера
+*SnapshotsApi* | [**getRestorePoints**](docs/Api/SnapshotsApi.md#getrestorepoints) | **GET** /api/v1/restore-points | Получение списка снапшотов
+*SnapshotsApi* | [**rollbackRestorePoint**](docs/Api/SnapshotsApi.md#rollbackrestorepoint) | **POST** /api/v1/restore-points/{vds_id}/rollback | Откат к снапшоту
 *VPCApi* | [**createVPC**](docs/Api/VPCApi.md#createvpc) | **POST** /api/v2/vpcs | Создание VPC
 *VPCApi* | [**deleteVPC**](docs/Api/VPCApi.md#deletevpc) | **DELETE** /api/v1/vpcs/{vpc_id} | Удаление VPC по ID сети
 *VPCApi* | [**getVPC**](docs/Api/VPCApi.md#getvpc) | **GET** /api/v2/vpcs/{vpc_id} | Получение VPC
@@ -866,6 +871,8 @@ Class | Method | HTTP request | Description
 - [GetProjects200Response](docs/Model/GetProjects200Response.md)
 - [GetProviders200Response](docs/Model/GetProviders200Response.md)
 - [GetRepositories200Response](docs/Model/GetRepositories200Response.md)
+- [GetRestorePoint200Response](docs/Model/GetRestorePoint200Response.md)
+- [GetRestorePoints200Response](docs/Model/GetRestorePoints200Response.md)
 - [GetServerDiskAutoBackupSettings200Response](docs/Model/GetServerDiskAutoBackupSettings200Response.md)
 - [GetServerDiskBackup200Response](docs/Model/GetServerDiskBackup200Response.md)
 - [GetServerDiskBackups200Response](docs/Model/GetServerDiskBackups200Response.md)
@@ -994,6 +1001,7 @@ Class | Method | HTTP request | Description
 - [ResourceType](docs/Model/ResourceType.md)
 - [Resources](docs/Model/Resources.md)
 - [ResourcesResponse](docs/Model/ResourcesResponse.md)
+- [RestorePoint](docs/Model/RestorePoint.md)
 - [RouterEdit](docs/Model/RouterEdit.md)
 - [RouterIn](docs/Model/RouterIn.md)
 - [RouterInIpsInner](docs/Model/RouterInIpsInner.md)
