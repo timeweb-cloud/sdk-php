@@ -97,6 +97,30 @@ class ServersApiTest extends TestCase
     }
 
     /**
+     * Test case for commitRestorePoint
+     *
+     * Фиксация снапшота.
+     *
+     */
+    public function testCommitRestorePoint()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for createRestorePoint
+     *
+     * Создание снапшота.
+     *
+     */
+    public function testCreateRestorePoint()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createServer
      *
      * Создание сервера.
@@ -199,6 +223,30 @@ class ServersApiTest extends TestCase
      *
      */
     public function testGetOsList()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getRestorePoint
+     *
+     * Получение снапшота сервера.
+     *
+     */
+    public function testGetRestorePoint()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getRestorePoints
+     *
+     * Получение списка снапшотов.
+     *
+     */
+    public function testGetRestorePoints()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -439,6 +487,18 @@ class ServersApiTest extends TestCase
      *
      */
     public function testResetServerPassword()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for rollbackRestorePoint
+     *
+     * Откат к снапшоту.
+     *
+     */
+    public function testRollbackRestorePoint()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

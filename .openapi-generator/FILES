@@ -26,7 +26,6 @@ docs/Api/RoutersApi.md
 docs/Api/S3Api.md
 docs/Api/SSHApi.md
 docs/Api/ServersApi.md
-docs/Api/SnapshotsApi.md
 docs/Api/VPCApi.md
 docs/Model/AddBalancerToProject200Response.md
 docs/Model/AddBalancerToProjectRequest.md
@@ -618,7 +617,6 @@ lib/Api/RoutersApi.php
 lib/Api/S3Api.php
 lib/Api/SSHApi.php
 lib/Api/ServersApi.php
-lib/Api/SnapshotsApi.php
 lib/Api/VPCApi.php
 lib/ApiException.php
 lib/Configuration.php
@@ -1215,7 +1213,6 @@ test/Api/RoutersApiTest.php
 test/Api/S3ApiTest.php
 test/Api/SSHApiTest.php
 test/Api/ServersApiTest.php
-test/Api/SnapshotsApiTest.php
 test/Api/VPCApiTest.php
 test/Model/AddBalancerToProject200ResponseTest.php
 test/Model/AddBalancerToProjectRequestTest.php
