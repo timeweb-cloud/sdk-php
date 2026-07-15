@@ -322,9 +322,11 @@ Class | Method | HTTP request | Description
 *DomainsApi* | [**createDomainDNSRecord**](docs/Api/DomainsApi.md#createdomaindnsrecord) | **POST** /api/v1/domains/{fqdn}/dns-records | Добавить информацию о DNS-записи для домена или поддомена
 *DomainsApi* | [**createDomainDNSRecordV2**](docs/Api/DomainsApi.md#createdomaindnsrecordv2) | **POST** /api/v2/domains/{fqdn}/dns-records | Добавить информацию о DNS-записи для домена или поддомена
 *DomainsApi* | [**createDomainRequest**](docs/Api/DomainsApi.md#createdomainrequest) | **POST** /api/v1/domains-requests | Создание заявки на регистрацию/продление/трансфер домена
+*DomainsApi* | [**createPerson**](docs/Api/DomainsApi.md#createperson) | **POST** /api/v1/persons | Создание администратора доменов
 *DomainsApi* | [**deleteDomain**](docs/Api/DomainsApi.md#deletedomain) | **DELETE** /api/v1/domains/{fqdn} | Удаление домена
 *DomainsApi* | [**deleteDomainDNSRecord**](docs/Api/DomainsApi.md#deletedomaindnsrecord) | **DELETE** /api/v1/domains/{fqdn}/dns-records/{record_id} | Удалить информацию о DNS-записи для домена или поддомена
 *DomainsApi* | [**deleteDomainDNSRecordV2**](docs/Api/DomainsApi.md#deletedomaindnsrecordv2) | **DELETE** /api/v2/domains/{fqdn}/dns-records/{record_id} | Удалить информацию о DNS-записи для домена или поддомена
+*DomainsApi* | [**deletePerson**](docs/Api/DomainsApi.md#deleteperson) | **DELETE** /api/v1/persons/{person_id} | Удаление администратора доменов
 *DomainsApi* | [**deleteSubdomain**](docs/Api/DomainsApi.md#deletesubdomain) | **DELETE** /api/v1/domains/{fqdn}/subdomains/{subdomain} | Удаление поддомена
 *DomainsApi* | [**getDomain**](docs/Api/DomainsApi.md#getdomain) | **GET** /api/v1/domains/{fqdn} | Получение информации о домене
 *DomainsApi* | [**getDomainDNSRecords**](docs/Api/DomainsApi.md#getdomaindnsrecords) | **GET** /api/v1/domains/{fqdn}/dns-records | Получить информацию обо всех пользовательских DNS-записях домена или поддомена
@@ -333,6 +335,8 @@ Class | Method | HTTP request | Description
 *DomainsApi* | [**getDomainRequest**](docs/Api/DomainsApi.md#getdomainrequest) | **GET** /api/v1/domains-requests/{request_id} | Получение заявки на регистрацию/продление/трансфер домена
 *DomainsApi* | [**getDomainRequests**](docs/Api/DomainsApi.md#getdomainrequests) | **GET** /api/v1/domains-requests | Получение списка заявок на регистрацию/продление/трансфер домена
 *DomainsApi* | [**getDomains**](docs/Api/DomainsApi.md#getdomains) | **GET** /api/v1/domains | Получение списка всех доменов
+*DomainsApi* | [**getPerson**](docs/Api/DomainsApi.md#getperson) | **GET** /api/v1/persons/{person_id} | Получение администратора доменов
+*DomainsApi* | [**getPersons**](docs/Api/DomainsApi.md#getpersons) | **GET** /api/v1/persons | Получение списка администраторов доменов
 *DomainsApi* | [**getTLD**](docs/Api/DomainsApi.md#gettld) | **GET** /api/v1/tlds/{tld_id} | Получить информацию о доменной зоне по ID
 *DomainsApi* | [**getTLDs**](docs/Api/DomainsApi.md#gettlds) | **GET** /api/v1/tlds | Получить информацию о доменных зонах
 *DomainsApi* | [**updateDomainAutoProlongation**](docs/Api/DomainsApi.md#updatedomainautoprolongation) | **PATCH** /api/v1/domains/{fqdn} | Включение/выключение автопродления домена
@@ -340,6 +344,7 @@ Class | Method | HTTP request | Description
 *DomainsApi* | [**updateDomainDNSRecordV2**](docs/Api/DomainsApi.md#updatedomaindnsrecordv2) | **PATCH** /api/v2/domains/{fqdn}/dns-records/{record_id} | Обновить информацию о DNS-записи домена или поддомена
 *DomainsApi* | [**updateDomainNameServers**](docs/Api/DomainsApi.md#updatedomainnameservers) | **PUT** /api/v1/domains/{fqdn}/name-servers | Изменение name-серверов домена
 *DomainsApi* | [**updateDomainRequest**](docs/Api/DomainsApi.md#updatedomainrequest) | **PATCH** /api/v1/domains-requests/{request_id} | Оплата/обновление заявки на регистрацию/продление/трансфер домена
+*DomainsApi* | [**updatePerson**](docs/Api/DomainsApi.md#updateperson) | **PUT** /api/v1/persons/{person_id} | Обновление контактных данных администратора доменов
 *FirewallApi* | [**addResourceToGroup**](docs/Api/FirewallApi.md#addresourcetogroup) | **POST** /api/v1/firewall/groups/{group_id}/resources/{resource_id} | Линковка ресурса в firewall group
 *FirewallApi* | [**createGroup**](docs/Api/FirewallApi.md#creategroup) | **POST** /api/v1/firewall/groups | Создание группы правил
 *FirewallApi* | [**createGroupRule**](docs/Api/FirewallApi.md#creategrouprule) | **POST** /api/v1/firewall/groups/{group_id}/rules | Создание firewall правила
@@ -701,6 +706,7 @@ Class | Method | HTTP request | Description
 - [CreateMultipleDomainMailboxesV2RequestInner](docs/Model/CreateMultipleDomainMailboxesV2RequestInner.md)
 - [CreateNetworkDrive](docs/Model/CreateNetworkDrive.md)
 - [CreateNetworkDrive201Response](docs/Model/CreateNetworkDrive201Response.md)
+- [CreatePerson201Response](docs/Model/CreatePerson201Response.md)
 - [CreateProject](docs/Model/CreateProject.md)
 - [CreateProject201Response](docs/Model/CreateProject201Response.md)
 - [CreateRule](docs/Model/CreateRule.md)
@@ -862,6 +868,7 @@ Class | Method | HTTP request | Description
 - [GetNetworkDrivesPresets200Response](docs/Model/GetNetworkDrivesPresets200Response.md)
 - [GetNotificationSettings200Response](docs/Model/GetNotificationSettings200Response.md)
 - [GetOsList200Response](docs/Model/GetOsList200Response.md)
+- [GetPersons200Response](docs/Model/GetPersons200Response.md)
 - [GetProjectBalancers200Response](docs/Model/GetProjectBalancers200Response.md)
 - [GetProjectClusters200Response](docs/Model/GetProjectClusters200Response.md)
 - [GetProjectDatabases200Response](docs/Model/GetProjectDatabases200Response.md)
@@ -913,6 +920,7 @@ Class | Method | HTTP request | Description
 - [IncreaseNodes](docs/Model/IncreaseNodes.md)
 - [InfoServicePrice](docs/Model/InfoServicePrice.md)
 - [Invoice](docs/Model/Invoice.md)
+- [Ip](docs/Model/Ip.md)
 - [K8SVersionsResponse](docs/Model/K8SVersionsResponse.md)
 - [Kafka](docs/Model/Kafka.md)
 - [Knowledgebase](docs/Model/Knowledgebase.md)
@@ -966,10 +974,13 @@ Class | Method | HTTP request | Description
 - [NotificationSettingType](docs/Model/NotificationSettingType.md)
 - [OS](docs/Model/OS.md)
 - [Opensearch](docs/Model/Opensearch.md)
+- [Org](docs/Model/Org.md)
 - [OutgoingIsDisabled](docs/Model/OutgoingIsDisabled.md)
 - [OutgoingIsEnabled](docs/Model/OutgoingIsEnabled.md)
 - [PerformActionOnBackupRequest](docs/Model/PerformActionOnBackupRequest.md)
 - [PerformActionOnServerRequest](docs/Model/PerformActionOnServerRequest.md)
+- [Person](docs/Model/Person.md)
+- [Person2](docs/Model/Person2.md)
 - [Policy](docs/Model/Policy.md)
 - [Postgres](docs/Model/Postgres.md)
 - [Postgresql](docs/Model/Postgresql.md)
@@ -1096,6 +1107,7 @@ Class | Method | HTTP request | Description
 - [UpdateNotificationSettingsRequest](docs/Model/UpdateNotificationSettingsRequest.md)
 - [UpdateNotificationSettingsRequestSettingsInner](docs/Model/UpdateNotificationSettingsRequestSettingsInner.md)
 - [UpdateNotificationSettingsRequestSettingsInnerChannels](docs/Model/UpdateNotificationSettingsRequestSettingsInnerChannels.md)
+- [UpdatePerson](docs/Model/UpdatePerson.md)
 - [UpdateProject](docs/Model/UpdateProject.md)
 - [UpdateRule](docs/Model/UpdateRule.md)
 - [UpdateServer](docs/Model/UpdateServer.md)

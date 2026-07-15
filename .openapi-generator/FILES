@@ -167,6 +167,7 @@ docs/Model/CreateMultipleDomainMailboxesV2201Response.md
 docs/Model/CreateMultipleDomainMailboxesV2RequestInner.md
 docs/Model/CreateNetworkDrive.md
 docs/Model/CreateNetworkDrive201Response.md
+docs/Model/CreatePerson201Response.md
 docs/Model/CreateProject.md
 docs/Model/CreateProject201Response.md
 docs/Model/CreateRule.md
@@ -328,6 +329,7 @@ docs/Model/GetNetworkDrivesAvailableResources200Response.md
 docs/Model/GetNetworkDrivesPresets200Response.md
 docs/Model/GetNotificationSettings200Response.md
 docs/Model/GetOsList200Response.md
+docs/Model/GetPersons200Response.md
 docs/Model/GetProjectBalancers200Response.md
 docs/Model/GetProjectClusters200Response.md
 docs/Model/GetProjectDatabases200Response.md
@@ -379,6 +381,7 @@ docs/Model/ImagesOutResponse.md
 docs/Model/IncreaseNodes.md
 docs/Model/InfoServicePrice.md
 docs/Model/Invoice.md
+docs/Model/Ip.md
 docs/Model/K8SVersionsResponse.md
 docs/Model/Kafka.md
 docs/Model/Knowledgebase.md
@@ -432,10 +435,13 @@ docs/Model/NotificationSettingChannels.md
 docs/Model/NotificationSettingType.md
 docs/Model/OS.md
 docs/Model/Opensearch.md
+docs/Model/Org.md
 docs/Model/OutgoingIsDisabled.md
 docs/Model/OutgoingIsEnabled.md
 docs/Model/PerformActionOnBackupRequest.md
 docs/Model/PerformActionOnServerRequest.md
+docs/Model/Person.md
+docs/Model/Person2.md
 docs/Model/Policy.md
 docs/Model/Postgres.md
 docs/Model/Postgresql.md
@@ -562,6 +568,7 @@ docs/Model/UpdateNetworkDrive.md
 docs/Model/UpdateNotificationSettingsRequest.md
 docs/Model/UpdateNotificationSettingsRequestSettingsInner.md
 docs/Model/UpdateNotificationSettingsRequestSettingsInnerChannels.md
+docs/Model/UpdatePerson.md
 docs/Model/UpdateProject.md
 docs/Model/UpdateRule.md
 docs/Model/UpdateServer.md
@@ -761,6 +768,7 @@ lib/Model/CreateMultipleDomainMailboxesV2201Response.php
 lib/Model/CreateMultipleDomainMailboxesV2RequestInner.php
 lib/Model/CreateNetworkDrive.php
 lib/Model/CreateNetworkDrive201Response.php
+lib/Model/CreatePerson201Response.php
 lib/Model/CreateProject.php
 lib/Model/CreateProject201Response.php
 lib/Model/CreateRule.php
@@ -922,6 +930,7 @@ lib/Model/GetNetworkDrivesAvailableResources200Response.php
 lib/Model/GetNetworkDrivesPresets200Response.php
 lib/Model/GetNotificationSettings200Response.php
 lib/Model/GetOsList200Response.php
+lib/Model/GetPersons200Response.php
 lib/Model/GetProjectBalancers200Response.php
 lib/Model/GetProjectClusters200Response.php
 lib/Model/GetProjectDatabases200Response.php
@@ -973,6 +982,7 @@ lib/Model/ImagesOutResponse.php
 lib/Model/IncreaseNodes.php
 lib/Model/InfoServicePrice.php
 lib/Model/Invoice.php
+lib/Model/Ip.php
 lib/Model/K8SVersionsResponse.php
 lib/Model/Kafka.php
 lib/Model/Knowledgebase.php
@@ -1027,10 +1037,13 @@ lib/Model/NotificationSettingChannels.php
 lib/Model/NotificationSettingType.php
 lib/Model/OS.php
 lib/Model/Opensearch.php
+lib/Model/Org.php
 lib/Model/OutgoingIsDisabled.php
 lib/Model/OutgoingIsEnabled.php
 lib/Model/PerformActionOnBackupRequest.php
 lib/Model/PerformActionOnServerRequest.php
+lib/Model/Person.php
+lib/Model/Person2.php
 lib/Model/Policy.php
 lib/Model/Postgres.php
 lib/Model/Postgresql.php
@@ -1157,6 +1170,7 @@ lib/Model/UpdateNetworkDrive.php
 lib/Model/UpdateNotificationSettingsRequest.php
 lib/Model/UpdateNotificationSettingsRequestSettingsInner.php
 lib/Model/UpdateNotificationSettingsRequestSettingsInnerChannels.php
+lib/Model/UpdatePerson.php
 lib/Model/UpdateProject.php
 lib/Model/UpdateRule.php
 lib/Model/UpdateServer.php
@@ -1354,6 +1368,7 @@ test/Model/CreateMultipleDomainMailboxesV2201ResponseTest.php
 test/Model/CreateMultipleDomainMailboxesV2RequestInnerTest.php
 test/Model/CreateNetworkDrive201ResponseTest.php
 test/Model/CreateNetworkDriveTest.php
+test/Model/CreatePerson201ResponseTest.php
 test/Model/CreateProject201ResponseTest.php
 test/Model/CreateProjectTest.php
 test/Model/CreateRuleTest.php
@@ -1515,6 +1530,7 @@ test/Model/GetNetworkDrivesAvailableResources200ResponseTest.php
 test/Model/GetNetworkDrivesPresets200ResponseTest.php
 test/Model/GetNotificationSettings200ResponseTest.php
 test/Model/GetOsList200ResponseTest.php
+test/Model/GetPersons200ResponseTest.php
 test/Model/GetProjectBalancers200ResponseTest.php
 test/Model/GetProjectClusters200ResponseTest.php
 test/Model/GetProjectDatabases200ResponseTest.php
@@ -1566,6 +1582,7 @@ test/Model/ImagesOutResponseTest.php
 test/Model/IncreaseNodesTest.php
 test/Model/InfoServicePriceTest.php
 test/Model/InvoiceTest.php
+test/Model/IpTest.php
 test/Model/K8SVersionsResponseTest.php
 test/Model/KafkaTest.php
 test/Model/KnowledgebaseTest.php
@@ -1619,10 +1636,13 @@ test/Model/NotificationSettingTest.php
 test/Model/NotificationSettingTypeTest.php
 test/Model/OSTest.php
 test/Model/OpensearchTest.php
+test/Model/OrgTest.php
 test/Model/OutgoingIsDisabledTest.php
 test/Model/OutgoingIsEnabledTest.php
 test/Model/PerformActionOnBackupRequestTest.php
 test/Model/PerformActionOnServerRequestTest.php
+test/Model/Person2Test.php
+test/Model/PersonTest.php
 test/Model/PolicyTest.php
 test/Model/PostgresTest.php
 test/Model/PostgresqlTest.php
@@ -1749,6 +1769,7 @@ test/Model/UpdateNetworkDriveTest.php
 test/Model/UpdateNotificationSettingsRequestSettingsInnerChannelsTest.php
 test/Model/UpdateNotificationSettingsRequestSettingsInnerTest.php
 test/Model/UpdateNotificationSettingsRequestTest.php
+test/Model/UpdatePersonTest.php
 test/Model/UpdateProjectTest.php
 test/Model/UpdateRuleTest.php
 test/Model/UpdateServerConfiguratorTest.php

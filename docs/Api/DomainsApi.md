@@ -10,9 +10,11 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**createDomainDNSRecord()**](DomainsApi.md#createDomainDNSRecord) | **POST** /api/v1/domains/{fqdn}/dns-records | Добавить информацию о DNS-записи для домена или поддомена |
 | [**createDomainDNSRecordV2()**](DomainsApi.md#createDomainDNSRecordV2) | **POST** /api/v2/domains/{fqdn}/dns-records | Добавить информацию о DNS-записи для домена или поддомена |
 | [**createDomainRequest()**](DomainsApi.md#createDomainRequest) | **POST** /api/v1/domains-requests | Создание заявки на регистрацию/продление/трансфер домена |
+| [**createPerson()**](DomainsApi.md#createPerson) | **POST** /api/v1/persons | Создание администратора доменов |
 | [**deleteDomain()**](DomainsApi.md#deleteDomain) | **DELETE** /api/v1/domains/{fqdn} | Удаление домена |
 | [**deleteDomainDNSRecord()**](DomainsApi.md#deleteDomainDNSRecord) | **DELETE** /api/v1/domains/{fqdn}/dns-records/{record_id} | Удалить информацию о DNS-записи для домена или поддомена |
 | [**deleteDomainDNSRecordV2()**](DomainsApi.md#deleteDomainDNSRecordV2) | **DELETE** /api/v2/domains/{fqdn}/dns-records/{record_id} | Удалить информацию о DNS-записи для домена или поддомена |
+| [**deletePerson()**](DomainsApi.md#deletePerson) | **DELETE** /api/v1/persons/{person_id} | Удаление администратора доменов |
 | [**deleteSubdomain()**](DomainsApi.md#deleteSubdomain) | **DELETE** /api/v1/domains/{fqdn}/subdomains/{subdomain} | Удаление поддомена |
 | [**getDomain()**](DomainsApi.md#getDomain) | **GET** /api/v1/domains/{fqdn} | Получение информации о домене |
 | [**getDomainDNSRecords()**](DomainsApi.md#getDomainDNSRecords) | **GET** /api/v1/domains/{fqdn}/dns-records | Получить информацию обо всех пользовательских DNS-записях домена или поддомена |
@@ -21,6 +23,8 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**getDomainRequest()**](DomainsApi.md#getDomainRequest) | **GET** /api/v1/domains-requests/{request_id} | Получение заявки на регистрацию/продление/трансфер домена |
 | [**getDomainRequests()**](DomainsApi.md#getDomainRequests) | **GET** /api/v1/domains-requests | Получение списка заявок на регистрацию/продление/трансфер домена |
 | [**getDomains()**](DomainsApi.md#getDomains) | **GET** /api/v1/domains | Получение списка всех доменов |
+| [**getPerson()**](DomainsApi.md#getPerson) | **GET** /api/v1/persons/{person_id} | Получение администратора доменов |
+| [**getPersons()**](DomainsApi.md#getPersons) | **GET** /api/v1/persons | Получение списка администраторов доменов |
 | [**getTLD()**](DomainsApi.md#getTLD) | **GET** /api/v1/tlds/{tld_id} | Получить информацию о доменной зоне по ID |
 | [**getTLDs()**](DomainsApi.md#getTLDs) | **GET** /api/v1/tlds | Получить информацию о доменных зонах |
 | [**updateDomainAutoProlongation()**](DomainsApi.md#updateDomainAutoProlongation) | **PATCH** /api/v1/domains/{fqdn} | Включение/выключение автопродления домена |
@@ -28,6 +32,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**updateDomainDNSRecordV2()**](DomainsApi.md#updateDomainDNSRecordV2) | **PATCH** /api/v2/domains/{fqdn}/dns-records/{record_id} | Обновить информацию о DNS-записи домена или поддомена |
 | [**updateDomainNameServers()**](DomainsApi.md#updateDomainNameServers) | **PUT** /api/v1/domains/{fqdn}/name-servers | Изменение name-серверов домена |
 | [**updateDomainRequest()**](DomainsApi.md#updateDomainRequest) | **PATCH** /api/v1/domains-requests/{request_id} | Оплата/обновление заявки на регистрацию/продление/трансфер домена |
+| [**updatePerson()**](DomainsApi.md#updatePerson) | **PUT** /api/v1/persons/{person_id} | Обновление контактных данных администратора доменов |
 
 
 ## `addDomain()`
@@ -395,6 +400,66 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createPerson()`
+
+```php
+createPerson($person2): \OpenAPI\Client\Model\CreatePerson201Response
+```
+
+Создание администратора доменов
+
+Чтобы создать администратора доменов, отправьте POST-запрос на `/api/v1/persons`, задав необходимые атрибуты. Набор полей зависит от типа администратора: физическое лицо (`person`), организация (`org`) или индивидуальный предприниматель (`ip`).   Тело ответа будет представлять собой объект JSON с ключом `person`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DomainsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$person2 = new \OpenAPI\Client\Model\Person2(); // \OpenAPI\Client\Model\Person2
+
+try {
+    $result = $apiInstance->createPerson($person2);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DomainsApi->createPerson: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **person2** | [**\OpenAPI\Client\Model\Person2**](../Model/Person2.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreatePerson201Response**](../Model/CreatePerson201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `deleteDomain()`
 
 ```php
@@ -558,6 +623,65 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **fqdn** | **string**| Полное имя домена или поддомена. Для создания записи на основном домене передайте имя домена (например, &#x60;somedomain.ru&#x60;). Для создания записи на поддомене передайте полное доменное имя включая поддомен (например, &#x60;sub.somedomain.ru&#x60;).  Поддомен должен быть создан заранее методом добавления поддомена (&#x60;POST /api/v1/domains/{fqdn}/subdomains/{subdomain}&#x60;). | |
 | **record_id** | **int**| ID DNS-записи домена или поддомена. | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deletePerson()`
+
+```php
+deletePerson($person_id)
+```
+
+Удаление администратора доменов
+
+Чтобы удалить администратора доменов, отправьте DELETE-запрос на `/api/v1/persons/{person_id}`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DomainsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$person_id = 123; // int | ID администратора домена.
+
+try {
+    $apiInstance->deletePerson($person_id);
+} catch (Exception $e) {
+    echo 'Exception when calling DomainsApi->deletePerson: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **person_id** | **int**| ID администратора домена. | |
 
 ### Return type
 
@@ -1075,6 +1199,130 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPerson()`
+
+```php
+getPerson($person_id): \OpenAPI\Client\Model\CreatePerson201Response
+```
+
+Получение администратора доменов
+
+Чтобы получить администратора доменов, отправьте GET-запрос на `/api/v1/persons/{person_id}`.   Тело ответа будет представлять собой объект JSON с ключом `person`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DomainsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$person_id = 123; // int | ID администратора домена.
+
+try {
+    $result = $apiInstance->getPerson($person_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DomainsApi->getPerson: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **person_id** | **int**| ID администратора домена. | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreatePerson201Response**](../Model/CreatePerson201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPersons()`
+
+```php
+getPersons($limit, $offset, $is_closed): \OpenAPI\Client\Model\GetPersons200Response
+```
+
+Получение списка администраторов доменов
+
+Чтобы получить список администраторов доменов на вашем аккаунте, отправьте GET-запрос на `/api/v1/persons`.   Тело ответа будет представлять собой объект JSON с ключом `persons`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DomainsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$limit = 100; // int | Обозначает количество записей, которое необходимо вернуть.
+$offset = 0; // int | Указывает на смещение относительно начала списка.
+$is_closed = false; // bool | Фильтр по закрытым администраторам: `true` — вернуть только закрытых, `false` — только активных.
+
+try {
+    $result = $apiInstance->getPersons($limit, $offset, $is_closed);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DomainsApi->getPersons: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**| Обозначает количество записей, которое необходимо вернуть. | [optional] [default to 100] |
+| **offset** | **int**| Указывает на смещение относительно начала списка. | [optional] [default to 0] |
+| **is_closed** | **bool**| Фильтр по закрытым администраторам: &#x60;true&#x60; — вернуть только закрытых, &#x60;false&#x60; — только активных. | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\GetPersons200Response**](../Model/GetPersons200Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getTLD()`
 
 ```php
@@ -1497,6 +1745,68 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\CreateDomainRequest201Response**](../Model/CreateDomainRequest201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updatePerson()`
+
+```php
+updatePerson($person_id, $update_person): \OpenAPI\Client\Model\CreatePerson201Response
+```
+
+Обновление контактных данных администратора доменов
+
+Чтобы обновить контактные данные администратора доменов, отправьте PUT-запрос на `/api/v1/persons/{person_id}`.   Тело ответа будет представлять собой объект JSON с ключом `person`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DomainsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$person_id = 123; // int | ID администратора домена.
+$update_person = new \OpenAPI\Client\Model\UpdatePerson(); // \OpenAPI\Client\Model\UpdatePerson
+
+try {
+    $result = $apiInstance->updatePerson($person_id, $update_person);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DomainsApi->updatePerson: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **person_id** | **int**| ID администратора домена. | |
+| **update_person** | [**\OpenAPI\Client\Model\UpdatePerson**](../Model/UpdatePerson.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreatePerson201Response**](../Model/CreatePerson201Response.md)
 
 ### Authorization
 
