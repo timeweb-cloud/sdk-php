@@ -332,7 +332,7 @@ class UpdateServerOSBootModeRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets boot_mode
      *
-     * @param string $boot_mode Тип загрузки операционной системы. \\  Параметры: `default` – стандартный режим, `single` – однопользовательский режим, `recovery_disk` – загрузка с диска восстановления.
+     * @param string $boot_mode Тип загрузки операционной системы. \\  Параметры: `default` – стандартный режим, `single` – однопользовательский режим (**deprecated**, оставлен для обратной совместимости, выбор недоступен), `recovery_disk` – загрузка с диска восстановления.
      *
      * @return self
      */
