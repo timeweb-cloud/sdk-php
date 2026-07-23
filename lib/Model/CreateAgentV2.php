@@ -1,6 +1,6 @@
 <?php
 /**
- * Model
+ * CreateAgentV2
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * Model Class Doc Comment
+ * CreateAgentV2 Class Doc Comment
  *
  * @category Class
- * @description Модель AI
+ * @description Данные для создания AI агента через API v2
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Model implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'model';
+    protected static $openAPIModelName = 'create-agent-v2';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,17 +59,15 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
-        'provider_id' => 'float',
         'name' => 'string',
-        'public_name' => 'string',
-        'type' => 'string',
-        'is_deprecated' => 'bool',
-        'is_stopped' => 'bool',
-        'deprecation_date' => '\DateTime',
-        'is_reasoning' => 'bool',
-        'version' => 'string',
-        'params_info' => '\OpenAPI\Client\Model\ModelParamsInfo'
+        'description' => 'string',
+        'access_type' => 'string',
+        'model_id' => 'float',
+        'token_limit' => 'float',
+        'settings' => '\OpenAPI\Client\Model\AgentSettings',
+        'project_id' => 'float',
+        'additional_model_ids' => 'float[]',
+        'is_web_search_enabled' => 'bool'
     ];
 
     /**
@@ -80,17 +78,15 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'provider_id' => null,
         'name' => null,
-        'public_name' => null,
-        'type' => null,
-        'is_deprecated' => null,
-        'is_stopped' => null,
-        'deprecation_date' => 'date-time',
-        'is_reasoning' => null,
-        'version' => null,
-        'params_info' => null
+        'description' => null,
+        'access_type' => null,
+        'model_id' => null,
+        'token_limit' => null,
+        'settings' => null,
+        'project_id' => null,
+        'additional_model_ids' => null,
+        'is_web_search_enabled' => null
     ];
 
     /**
@@ -99,17 +95,15 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'provider_id' => false,
-		'name' => false,
-		'public_name' => false,
-		'type' => false,
-		'is_deprecated' => false,
-		'is_stopped' => false,
-		'deprecation_date' => true,
-		'is_reasoning' => false,
-		'version' => false,
-		'params_info' => true
+        'name' => false,
+		'description' => false,
+		'access_type' => false,
+		'model_id' => false,
+		'token_limit' => false,
+		'settings' => false,
+		'project_id' => false,
+		'additional_model_ids' => false,
+		'is_web_search_enabled' => false
     ];
 
     /**
@@ -198,17 +192,15 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'provider_id' => 'provider_id',
         'name' => 'name',
-        'public_name' => 'public_name',
-        'type' => 'type',
-        'is_deprecated' => 'is_deprecated',
-        'is_stopped' => 'is_stopped',
-        'deprecation_date' => 'deprecation_date',
-        'is_reasoning' => 'is_reasoning',
-        'version' => 'version',
-        'params_info' => 'params_info'
+        'description' => 'description',
+        'access_type' => 'access_type',
+        'model_id' => 'model_id',
+        'token_limit' => 'token_limit',
+        'settings' => 'settings',
+        'project_id' => 'project_id',
+        'additional_model_ids' => 'additional_model_ids',
+        'is_web_search_enabled' => 'is_web_search_enabled'
     ];
 
     /**
@@ -217,17 +209,15 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'provider_id' => 'setProviderId',
         'name' => 'setName',
-        'public_name' => 'setPublicName',
-        'type' => 'setType',
-        'is_deprecated' => 'setIsDeprecated',
-        'is_stopped' => 'setIsStopped',
-        'deprecation_date' => 'setDeprecationDate',
-        'is_reasoning' => 'setIsReasoning',
-        'version' => 'setVersion',
-        'params_info' => 'setParamsInfo'
+        'description' => 'setDescription',
+        'access_type' => 'setAccessType',
+        'model_id' => 'setModelId',
+        'token_limit' => 'setTokenLimit',
+        'settings' => 'setSettings',
+        'project_id' => 'setProjectId',
+        'additional_model_ids' => 'setAdditionalModelIds',
+        'is_web_search_enabled' => 'setIsWebSearchEnabled'
     ];
 
     /**
@@ -236,17 +226,15 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'provider_id' => 'getProviderId',
         'name' => 'getName',
-        'public_name' => 'getPublicName',
-        'type' => 'getType',
-        'is_deprecated' => 'getIsDeprecated',
-        'is_stopped' => 'getIsStopped',
-        'deprecation_date' => 'getDeprecationDate',
-        'is_reasoning' => 'getIsReasoning',
-        'version' => 'getVersion',
-        'params_info' => 'getParamsInfo'
+        'description' => 'getDescription',
+        'access_type' => 'getAccessType',
+        'model_id' => 'getModelId',
+        'token_limit' => 'getTokenLimit',
+        'settings' => 'getSettings',
+        'project_id' => 'getProjectId',
+        'additional_model_ids' => 'getAdditionalModelIds',
+        'is_web_search_enabled' => 'getIsWebSearchEnabled'
     ];
 
     /**
@@ -290,19 +278,19 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_LLM = 'llm';
-    public const TYPE_EMBEDDING = 'embedding';
+    public const ACCESS_TYPE__PUBLIC = 'public';
+    public const ACCESS_TYPE__PRIVATE = 'private';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getTypeAllowableValues()
+    public function getAccessTypeAllowableValues()
     {
         return [
-            self::TYPE_LLM,
-            self::TYPE_EMBEDDING,
+            self::ACCESS_TYPE__PUBLIC,
+            self::ACCESS_TYPE__PRIVATE,
         ];
     }
 
@@ -321,17 +309,15 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('provider_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('public_name', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('is_deprecated', $data ?? [], null);
-        $this->setIfExists('is_stopped', $data ?? [], null);
-        $this->setIfExists('deprecation_date', $data ?? [], null);
-        $this->setIfExists('is_reasoning', $data ?? [], null);
-        $this->setIfExists('version', $data ?? [], null);
-        $this->setIfExists('params_info', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('access_type', $data ?? [], null);
+        $this->setIfExists('model_id', $data ?? [], null);
+        $this->setIfExists('token_limit', $data ?? [], null);
+        $this->setIfExists('settings', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
+        $this->setIfExists('additional_model_ids', $data ?? [], null);
+        $this->setIfExists('is_web_search_enabled', $data ?? [], null);
     }
 
     /**
@@ -361,41 +347,30 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['provider_id'] === null) {
-            $invalidProperties[] = "'provider_id' can't be null";
-        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['public_name'] === null) {
-            $invalidProperties[] = "'public_name' can't be null";
+        if ($this->container['access_type'] === null) {
+            $invalidProperties[] = "'access_type' can't be null";
         }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+        $allowedValues = $this->getAccessTypeAllowableValues();
+        if (!is_null($this->container['access_type']) && !in_array($this->container['access_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
+                "invalid value '%s' for 'access_type', must be one of '%s'",
+                $this->container['access_type'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['is_deprecated'] === null) {
-            $invalidProperties[] = "'is_deprecated' can't be null";
+        if ($this->container['model_id'] === null) {
+            $invalidProperties[] = "'model_id' can't be null";
         }
-        if ($this->container['is_stopped'] === null) {
-            $invalidProperties[] = "'is_stopped' can't be null";
+        if (!is_null($this->container['token_limit']) && ($this->container['token_limit'] < 0)) {
+            $invalidProperties[] = "invalid value for 'token_limit', must be bigger than or equal to 0.";
         }
-        if ($this->container['is_reasoning'] === null) {
-            $invalidProperties[] = "'is_reasoning' can't be null";
-        }
-        if ($this->container['version'] === null) {
-            $invalidProperties[] = "'version' can't be null";
+
+        if ($this->container['settings'] === null) {
+            $invalidProperties[] = "'settings' can't be null";
         }
         return $invalidProperties;
     }
@@ -413,60 +388,6 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return float
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param float $id Уникальный идентификатор модели
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets provider_id
-     *
-     * @return float
-     */
-    public function getProviderId()
-    {
-        return $this->container['provider_id'];
-    }
-
-    /**
-     * Sets provider_id
-     *
-     * @param float $provider_id ID провайдера, который предоставляет модель
-     *
-     * @return self
-     */
-    public function setProviderId($provider_id)
-    {
-        if (is_null($provider_id)) {
-            throw new \InvalidArgumentException('non-nullable provider_id cannot be null');
-        }
-        $this->container['provider_id'] = $provider_id;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string
@@ -479,7 +400,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Название модели
+     * @param string $name Название агента
      *
      * @return self
      */
@@ -494,241 +415,232 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets public_name
+     * Gets description
      *
-     * @return string
+     * @return string|null
      */
-    public function getPublicName()
+    public function getDescription()
     {
-        return $this->container['public_name'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets public_name
+     * Sets description
      *
-     * @param string $public_name Публичное имя модели
+     * @param string|null $description Описание агента
      *
      * @return self
      */
-    public function setPublicName($public_name)
+    public function setDescription($description)
     {
-        if (is_null($public_name)) {
-            throw new \InvalidArgumentException('non-nullable public_name cannot be null');
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-        $this->container['public_name'] = $public_name;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets access_type
      *
      * @return string
      */
-    public function getType()
+    public function getAccessType()
     {
-        return $this->container['type'];
+        return $this->container['access_type'];
     }
 
     /**
-     * Sets type
+     * Sets access_type
      *
-     * @param string $type Тип модели (llm - языковая модель, embedding - модель для эмбеддингов)
+     * @param string $access_type Тип доступа к агенту
      *
      * @return self
      */
-    public function setType($type)
+    public function setAccessType($access_type)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($access_type)) {
+            throw new \InvalidArgumentException('non-nullable access_type cannot be null');
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        $allowedValues = $this->getAccessTypeAllowableValues();
+        if (!in_array($access_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
+                    "Invalid value '%s' for 'access_type', must be one of '%s'",
+                    $access_type,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['type'] = $type;
+        $this->container['access_type'] = $access_type;
 
         return $this;
     }
 
     /**
-     * Gets is_deprecated
+     * Gets model_id
      *
-     * @return bool
+     * @return float
      */
-    public function getIsDeprecated()
+    public function getModelId()
     {
-        return $this->container['is_deprecated'];
+        return $this->container['model_id'];
     }
 
     /**
-     * Sets is_deprecated
+     * Sets model_id
      *
-     * @param bool $is_deprecated Признак, что модель устарела
+     * @param float $model_id ID основной модели
      *
      * @return self
      */
-    public function setIsDeprecated($is_deprecated)
+    public function setModelId($model_id)
     {
-        if (is_null($is_deprecated)) {
-            throw new \InvalidArgumentException('non-nullable is_deprecated cannot be null');
+        if (is_null($model_id)) {
+            throw new \InvalidArgumentException('non-nullable model_id cannot be null');
         }
-        $this->container['is_deprecated'] = $is_deprecated;
+        $this->container['model_id'] = $model_id;
 
         return $this;
     }
 
     /**
-     * Gets is_stopped
+     * Gets token_limit
      *
-     * @return bool
+     * @return float|null
      */
-    public function getIsStopped()
+    public function getTokenLimit()
     {
-        return $this->container['is_stopped'];
+        return $this->container['token_limit'];
     }
 
     /**
-     * Sets is_stopped
+     * Sets token_limit
      *
-     * @param bool $is_stopped Признак, что поддержка модели остановлена в системе
+     * @param float|null $token_limit Дневной лимит токенов для агента (0 — без лимита)
      *
      * @return self
      */
-    public function setIsStopped($is_stopped)
+    public function setTokenLimit($token_limit)
     {
-        if (is_null($is_stopped)) {
-            throw new \InvalidArgumentException('non-nullable is_stopped cannot be null');
+        if (is_null($token_limit)) {
+            throw new \InvalidArgumentException('non-nullable token_limit cannot be null');
         }
-        $this->container['is_stopped'] = $is_stopped;
+
+        if (($token_limit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $token_limit when calling CreateAgentV2., must be bigger than or equal to 0.');
+        }
+
+        $this->container['token_limit'] = $token_limit;
 
         return $this;
     }
 
     /**
-     * Gets deprecation_date
+     * Gets settings
      *
-     * @return \DateTime|null
+     * @return \OpenAPI\Client\Model\AgentSettings
      */
-    public function getDeprecationDate()
+    public function getSettings()
     {
-        return $this->container['deprecation_date'];
+        return $this->container['settings'];
     }
 
     /**
-     * Sets deprecation_date
+     * Sets settings
      *
-     * @param \DateTime|null $deprecation_date Дата депрекейта модели у провайдера
+     * @param \OpenAPI\Client\Model\AgentSettings $settings settings
      *
      * @return self
      */
-    public function setDeprecationDate($deprecation_date)
+    public function setSettings($settings)
     {
-        if (is_null($deprecation_date)) {
-            array_push($this->openAPINullablesSetToNull, 'deprecation_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deprecation_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($settings)) {
+            throw new \InvalidArgumentException('non-nullable settings cannot be null');
         }
-        $this->container['deprecation_date'] = $deprecation_date;
+        $this->container['settings'] = $settings;
 
         return $this;
     }
 
     /**
-     * Gets is_reasoning
+     * Gets project_id
      *
-     * @return bool
+     * @return float|null
      */
-    public function getIsReasoning()
+    public function getProjectId()
     {
-        return $this->container['is_reasoning'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets is_reasoning
+     * Sets project_id
      *
-     * @param bool $is_reasoning Признак поддержки режима рассуждения
+     * @param float|null $project_id ID проекта
      *
      * @return self
      */
-    public function setIsReasoning($is_reasoning)
+    public function setProjectId($project_id)
     {
-        if (is_null($is_reasoning)) {
-            throw new \InvalidArgumentException('non-nullable is_reasoning cannot be null');
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
         }
-        $this->container['is_reasoning'] = $is_reasoning;
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }
 
     /**
-     * Gets version
+     * Gets additional_model_ids
      *
-     * @return string
+     * @return float[]|null
      */
-    public function getVersion()
+    public function getAdditionalModelIds()
     {
-        return $this->container['version'];
+        return $this->container['additional_model_ids'];
     }
 
     /**
-     * Sets version
+     * Sets additional_model_ids
      *
-     * @param string $version Версия модели
+     * @param float[]|null $additional_model_ids Список ID дополнительных моделей агента
      *
      * @return self
      */
-    public function setVersion($version)
+    public function setAdditionalModelIds($additional_model_ids)
     {
-        if (is_null($version)) {
-            throw new \InvalidArgumentException('non-nullable version cannot be null');
+        if (is_null($additional_model_ids)) {
+            throw new \InvalidArgumentException('non-nullable additional_model_ids cannot be null');
         }
-        $this->container['version'] = $version;
+        $this->container['additional_model_ids'] = $additional_model_ids;
 
         return $this;
     }
 
     /**
-     * Gets params_info
+     * Gets is_web_search_enabled
      *
-     * @return \OpenAPI\Client\Model\ModelParamsInfo|null
+     * @return bool|null
      */
-    public function getParamsInfo()
+    public function getIsWebSearchEnabled()
     {
-        return $this->container['params_info'];
+        return $this->container['is_web_search_enabled'];
     }
 
     /**
-     * Sets params_info
+     * Sets is_web_search_enabled
      *
-     * @param \OpenAPI\Client\Model\ModelParamsInfo|null $params_info params_info
+     * @param bool|null $is_web_search_enabled Признак использования веб-поиска агентом
      *
      * @return self
      */
-    public function setParamsInfo($params_info)
+    public function setIsWebSearchEnabled($is_web_search_enabled)
     {
-        if (is_null($params_info)) {
-            array_push($this->openAPINullablesSetToNull, 'params_info');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('params_info', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($is_web_search_enabled)) {
+            throw new \InvalidArgumentException('non-nullable is_web_search_enabled cannot be null');
         }
-        $this->container['params_info'] = $params_info;
+        $this->container['is_web_search_enabled'] = $is_web_search_enabled;
 
         return $this;
     }

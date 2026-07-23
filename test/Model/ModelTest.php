@@ -135,6 +135,24 @@ class ModelTest extends TestCase
     }
 
     /**
+     * Test attribute "is_stopped"
+     */
+    public function testPropertyIsStopped()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "deprecation_date"
+     */
+    public function testPropertyDeprecationDate()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "is_reasoning"
      */
     public function testPropertyIsReasoning()

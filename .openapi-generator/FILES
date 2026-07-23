@@ -125,6 +125,7 @@ docs/Model/ContainerRegistryRepositoriesInner.md
 docs/Model/CreateAdmin.md
 docs/Model/CreateAgent.md
 docs/Model/CreateAgent201Response.md
+docs/Model/CreateAgentV2.md
 docs/Model/CreateApp.md
 docs/Model/CreateApp201Response.md
 docs/Model/CreateBalancer.md
@@ -726,6 +727,7 @@ lib/Model/ContainerRegistryRepositoriesInner.php
 lib/Model/CreateAdmin.php
 lib/Model/CreateAgent.php
 lib/Model/CreateAgent201Response.php
+lib/Model/CreateAgentV2.php
 lib/Model/CreateApp.php
 lib/Model/CreateApp201Response.php
 lib/Model/CreateBalancer.php
@@ -1326,6 +1328,7 @@ test/Model/ContainerRegistryRepositoriesInnerTest.php
 test/Model/CreateAdminTest.php
 test/Model/CreateAgent201ResponseTest.php
 test/Model/CreateAgentTest.php
+test/Model/CreateAgentV2Test.php
 test/Model/CreateApp201ResponseTest.php
 test/Model/CreateAppTest.php
 test/Model/CreateBalancer200ResponseTest.php

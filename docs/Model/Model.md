@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **public_name** | **string** | Публичное имя модели |
 **type** | **string** | Тип модели (llm - языковая модель, embedding - модель для эмбеддингов) |
 **is_deprecated** | **bool** | Признак, что модель устарела |
+**is_stopped** | **bool** | Признак, что поддержка модели остановлена в системе |
+**deprecation_date** | **\DateTime** | Дата депрекейта модели у провайдера | [optional]
 **is_reasoning** | **bool** | Признак поддержки режима рассуждения |
 **version** | **string** | Версия модели |
 **params_info** | [**\OpenAPI\Client\Model\ModelParamsInfo**](ModelParamsInfo.md) |  | [optional]

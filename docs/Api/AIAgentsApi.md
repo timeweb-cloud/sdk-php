@@ -6,6 +6,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | ------------- | ------------- | ------------- |
 | [**addAdditionalTokenPackage()**](AIAgentsApi.md#addAdditionalTokenPackage) | **POST** /api/v1/cloud-ai/agents/{id}/add-additional-token-package | Добавление дополнительного пакета токенов |
 | [**createAgent()**](AIAgentsApi.md#createAgent) | **POST** /api/v1/cloud-ai/agents | Создание AI агента |
+| [**createAgentV2()**](AIAgentsApi.md#createAgentV2) | **POST** /api/v2/cloud-ai/agents | Создание AI агента |
 | [**deleteAgent()**](AIAgentsApi.md#deleteAgent) | **DELETE** /api/v1/cloud-ai/agents/{id} | Удаление AI агента |
 | [**getAgent()**](AIAgentsApi.md#getAgent) | **GET** /api/v1/cloud-ai/agents/{id} | Получение AI агента |
 | [**getAgentStatistics()**](AIAgentsApi.md#getAgentStatistics) | **GET** /api/v1/cloud-ai/agents/{id}/statistic | Получение статистики использования токенов агента |
@@ -119,6 +120,66 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **create_agent** | [**\OpenAPI\Client\Model\CreateAgent**](../Model/CreateAgent.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreateAgent201Response**](../Model/CreateAgent201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createAgentV2()`
+
+```php
+createAgentV2($create_agent_v2): \OpenAPI\Client\Model\CreateAgent201Response
+```
+
+Создание AI агента
+
+Чтобы создать AI агента, отправьте POST-запрос на `/api/v2/cloud-ai/agents`, задав необходимые атрибуты.  Агент будет создан с использованием предоставленной информации. Тело ответа будет содержать объект JSON с информацией о созданном агенте.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\AIAgentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$create_agent_v2 = new \OpenAPI\Client\Model\CreateAgentV2(); // \OpenAPI\Client\Model\CreateAgentV2
+
+try {
+    $result = $apiInstance->createAgentV2($create_agent_v2);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AIAgentsApi->createAgentV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_agent_v2** | [**\OpenAPI\Client\Model\CreateAgentV2**](../Model/CreateAgentV2.md)|  | |
 
 ### Return type
 
