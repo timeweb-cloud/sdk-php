@@ -1,6 +1,6 @@
 <?php
 /**
- * GetModels200ResponseMetaTest
+ * GetModelsV3200ResponseMetaTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * GetModels200ResponseMetaTest Class Doc Comment
+ * GetModelsV3200ResponseMetaTest Class Doc Comment
  *
  * @category    Class
- * @description GetModels200ResponseMeta
+ * @description GetModelsV3200ResponseMeta
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetModels200ResponseMetaTest extends TestCase
+class GetModelsV3200ResponseMetaTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class GetModels200ResponseMetaTest extends TestCase
     }
 
     /**
-     * Test "GetModels200ResponseMeta"
+     * Test "GetModelsV3200ResponseMeta"
      */
-    public function testGetModels200ResponseMeta()
+    public function testGetModelsV3200ResponseMeta()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

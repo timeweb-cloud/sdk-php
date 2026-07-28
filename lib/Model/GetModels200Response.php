@@ -59,7 +59,7 @@ class GetModels200Response implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'models' => '\OpenAPI\Client\Model\Model[]',
-        'meta' => '\OpenAPI\Client\Model\GetModels200ResponseMeta'
+        'meta' => '\OpenAPI\Client\Model\GetModelsV3200ResponseMeta'
     ];
 
     /**
@@ -333,7 +333,7 @@ class GetModels200Response implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\GetModels200ResponseMeta
+     * @return \OpenAPI\Client\Model\GetModelsV3200ResponseMeta
      */
     public function getMeta()
     {
@@ -343,7 +343,7 @@ class GetModels200Response implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\GetModels200ResponseMeta $meta meta
+     * @param \OpenAPI\Client\Model\GetModelsV3200ResponseMeta $meta meta
      *
      * @return self
      */

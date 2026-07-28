@@ -1,10 +1,9 @@
-# # GetModels200Response
+# # GetModelsV3200ResponseMeta
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**models** | [**\OpenAPI\Client\Model\Model[]**](Model.md) |  |
-**meta** | [**\OpenAPI\Client\Model\GetModelsV3200ResponseMeta**](GetModelsV3200ResponseMeta.md) |  |
+**total** | **float** | Общее количество моделей |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,6 +1,6 @@
 <?php
 /**
- * GetModels200ResponseMeta
+ * ModelV3
  *
  * PHP version 7.4
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * GetModels200ResponseMeta Class Doc Comment
+ * ModelV3 Class Doc Comment
  *
  * @category Class
+ * @description Модель AI (v3). Идентификация и управляющие поля находятся на верхнем уровне, все сравнимые характеристики (цены, лимиты, возможности) — в словаре &#x60;parameter_values&#x60;
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetModels200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSerializable
+class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class GetModels200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'getModels_200_response_meta';
+    protected static $openAPIModelName = 'model-v3';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +59,20 @@ class GetModels200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'float'
+        'id' => 'float',
+        'provider_id' => 'float',
+        'name' => 'string',
+        'public_name' => 'string',
+        'model_name' => 'string',
+        'type' => 'string',
+        'version' => 'string',
+        'is_deprecated' => 'bool',
+        'is_stopped' => 'bool',
+        'deprecation_date' => '\DateTime',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
+        'params_info' => 'object',
+        'parameter_values' => 'array<string,mixed>'
     ];
 
     /**
@@ -69,7 +83,20 @@ class GetModels200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total' => null
+        'id' => null,
+        'provider_id' => null,
+        'name' => null,
+        'public_name' => null,
+        'model_name' => null,
+        'type' => null,
+        'version' => null,
+        'is_deprecated' => null,
+        'is_stopped' => null,
+        'deprecation_date' => 'date-time',
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time',
+        'params_info' => null,
+        'parameter_values' => null
     ];
 
     /**
@@ -78,7 +105,20 @@ class GetModels200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total' => false
+        'id' => false,
+		'provider_id' => false,
+		'name' => false,
+		'public_name' => false,
+		'model_name' => false,
+		'type' => false,
+		'version' => false,
+		'is_deprecated' => false,
+		'is_stopped' => false,
+		'deprecation_date' => true,
+		'created_at' => false,
+		'updated_at' => false,
+		'params_info' => true,
+		'parameter_values' => false
     ];
 
     /**
@@ -167,7 +207,20 @@ class GetModels200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total'
+        'id' => 'id',
+        'provider_id' => 'provider_id',
+        'name' => 'name',
+        'public_name' => 'public_name',
+        'model_name' => 'model_name',
+        'type' => 'type',
+        'version' => 'version',
+        'is_deprecated' => 'is_deprecated',
+        'is_stopped' => 'is_stopped',
+        'deprecation_date' => 'deprecation_date',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at',
+        'params_info' => 'params_info',
+        'parameter_values' => 'parameter_values'
     ];
 
     /**
@@ -176,7 +229,20 @@ class GetModels200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal'
+        'id' => 'setId',
+        'provider_id' => 'setProviderId',
+        'name' => 'setName',
+        'public_name' => 'setPublicName',
+        'model_name' => 'setModelName',
+        'type' => 'setType',
+        'version' => 'setVersion',
+        'is_deprecated' => 'setIsDeprecated',
+        'is_stopped' => 'setIsStopped',
+        'deprecation_date' => 'setDeprecationDate',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
+        'params_info' => 'setParamsInfo',
+        'parameter_values' => 'setParameterValues'
     ];
 
     /**
@@ -185,7 +251,20 @@ class GetModels200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal'
+        'id' => 'getId',
+        'provider_id' => 'getProviderId',
+        'name' => 'getName',
+        'public_name' => 'getPublicName',
+        'model_name' => 'getModelName',
+        'type' => 'getType',
+        'version' => 'getVersion',
+        'is_deprecated' => 'getIsDeprecated',
+        'is_stopped' => 'getIsStopped',
+        'deprecation_date' => 'getDeprecationDate',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
+        'params_info' => 'getParamsInfo',
+        'parameter_values' => 'getParameterValues'
     ];
 
     /**
@@ -229,6 +308,29 @@ class GetModels200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
+    public const TYPE_LLM = 'llm';
+    public const TYPE_HOSTED_LLM = 'hosted-llm';
+    public const TYPE_EMBEDDING = 'embedding';
+    public const TYPE_IMAGE = 'image';
+    public const TYPE_AUDIO = 'audio';
+    public const TYPE_MODERATION = 'moderation';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_LLM,
+            self::TYPE_HOSTED_LLM,
+            self::TYPE_EMBEDDING,
+            self::TYPE_IMAGE,
+            self::TYPE_AUDIO,
+            self::TYPE_MODERATION,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -245,7 +347,20 @@ class GetModels200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('provider_id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('public_name', $data ?? [], null);
+        $this->setIfExists('model_name', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('version', $data ?? [], null);
+        $this->setIfExists('is_deprecated', $data ?? [], null);
+        $this->setIfExists('is_stopped', $data ?? [], null);
+        $this->setIfExists('deprecation_date', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('params_info', $data ?? [], null);
+        $this->setIfExists('parameter_values', $data ?? [], null);
     }
 
     /**
@@ -275,8 +390,50 @@ class GetModels200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['provider_id'] === null) {
+            $invalidProperties[] = "'provider_id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['public_name'] === null) {
+            $invalidProperties[] = "'public_name' can't be null";
+        }
+        if ($this->container['model_name'] === null) {
+            $invalidProperties[] = "'model_name' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['version'] === null) {
+            $invalidProperties[] = "'version' can't be null";
+        }
+        if ($this->container['is_deprecated'] === null) {
+            $invalidProperties[] = "'is_deprecated' can't be null";
+        }
+        if ($this->container['is_stopped'] === null) {
+            $invalidProperties[] = "'is_stopped' can't be null";
+        }
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
+        }
+        if ($this->container['parameter_values'] === null) {
+            $invalidProperties[] = "'parameter_values' can't be null";
         }
         return $invalidProperties;
     }
@@ -294,28 +451,403 @@ class GetModels200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets total
+     * Gets id
      *
      * @return float
      */
-    public function getTotal()
+    public function getId()
     {
-        return $this->container['total'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets total
+     * Sets id
      *
-     * @param float $total Общее количество моделей
+     * @param float $id Уникальный идентификатор модели
      *
      * @return self
      */
-    public function setTotal($total)
+    public function setId($id)
     {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['total'] = $total;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets provider_id
+     *
+     * @return float
+     */
+    public function getProviderId()
+    {
+        return $this->container['provider_id'];
+    }
+
+    /**
+     * Sets provider_id
+     *
+     * @param float $provider_id ID провайдера, который предоставляет модель
+     *
+     * @return self
+     */
+    public function setProviderId($provider_id)
+    {
+        if (is_null($provider_id)) {
+            throw new \InvalidArgumentException('non-nullable provider_id cannot be null');
+        }
+        $this->container['provider_id'] = $provider_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Название модели
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_name
+     *
+     * @return string
+     */
+    public function getPublicName()
+    {
+        return $this->container['public_name'];
+    }
+
+    /**
+     * Sets public_name
+     *
+     * @param string $public_name Публичное имя модели
+     *
+     * @return self
+     */
+    public function setPublicName($public_name)
+    {
+        if (is_null($public_name)) {
+            throw new \InvalidArgumentException('non-nullable public_name cannot be null');
+        }
+        $this->container['public_name'] = $public_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets model_name
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return $this->container['model_name'];
+    }
+
+    /**
+     * Sets model_name
+     *
+     * @param string $model_name Идентификатор модели, который передаётся в поле `model` тела запроса
+     *
+     * @return self
+     */
+    public function setModelName($model_name)
+    {
+        if (is_null($model_name)) {
+            throw new \InvalidArgumentException('non-nullable model_name cannot be null');
+        }
+        $this->container['model_name'] = $model_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type Тип модели (llm — языковая модель, hosted-llm — self-hosted языковая модель, embedding — модель для эмбеддингов, image — генерация изображений, audio — работа с аудио, moderation — модерация контента)
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param string $version Версия модели
+     *
+     * @return self
+     */
+    public function setVersion($version)
+    {
+        if (is_null($version)) {
+            throw new \InvalidArgumentException('non-nullable version cannot be null');
+        }
+        $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_deprecated
+     *
+     * @return bool
+     */
+    public function getIsDeprecated()
+    {
+        return $this->container['is_deprecated'];
+    }
+
+    /**
+     * Sets is_deprecated
+     *
+     * @param bool $is_deprecated Признак, что модель устарела
+     *
+     * @return self
+     */
+    public function setIsDeprecated($is_deprecated)
+    {
+        if (is_null($is_deprecated)) {
+            throw new \InvalidArgumentException('non-nullable is_deprecated cannot be null');
+        }
+        $this->container['is_deprecated'] = $is_deprecated;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_stopped
+     *
+     * @return bool
+     */
+    public function getIsStopped()
+    {
+        return $this->container['is_stopped'];
+    }
+
+    /**
+     * Sets is_stopped
+     *
+     * @param bool $is_stopped Признак, что поддержка модели остановлена
+     *
+     * @return self
+     */
+    public function setIsStopped($is_stopped)
+    {
+        if (is_null($is_stopped)) {
+            throw new \InvalidArgumentException('non-nullable is_stopped cannot be null');
+        }
+        $this->container['is_stopped'] = $is_stopped;
+
+        return $this;
+    }
+
+    /**
+     * Gets deprecation_date
+     *
+     * @return \DateTime|null
+     */
+    public function getDeprecationDate()
+    {
+        return $this->container['deprecation_date'];
+    }
+
+    /**
+     * Sets deprecation_date
+     *
+     * @param \DateTime|null $deprecation_date Дата отключения модели у провайдера. `null`, если отключение не запланировано
+     *
+     * @return self
+     */
+    public function setDeprecationDate($deprecation_date)
+    {
+        if (is_null($deprecation_date)) {
+            array_push($this->openAPINullablesSetToNull, 'deprecation_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('deprecation_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['deprecation_date'] = $deprecation_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime $created_at Дата и время добавления модели
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime $updated_at Дата и время последнего обновления модели
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets params_info
+     *
+     * @return object|null
+     */
+    public function getParamsInfo()
+    {
+        return $this->container['params_info'];
+    }
+
+    /**
+     * Sets params_info
+     *
+     * @param object|null $params_info Информация о доступных параметрах модели с их ограничениями. Ключ — название параметра, значение — его тип, ограничения и значение по умолчанию
+     *
+     * @return self
+     */
+    public function setParamsInfo($params_info)
+    {
+        if (is_null($params_info)) {
+            array_push($this->openAPINullablesSetToNull, 'params_info');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('params_info', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['params_info'] = $params_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets parameter_values
+     *
+     * @return array<string,mixed>
+     */
+    public function getParameterValues()
+    {
+        return $this->container['parameter_values'];
+    }
+
+    /**
+     * Sets parameter_values
+     *
+     * @param array<string,mixed> $parameter_values Характеристики модели. Ключ — код характеристики, значение — число, строка, булево значение или массив строк.  Основные коды: - `cost_in` — цена за 1 входной токен в рублях - `cost_out` — цена за 1 выходной токен в рублях - `context_window` — размер контекстного окна в токенах - `max_output_tokens` — максимальное количество токенов в ответе - `is_reasoning` — поддержка режима рассуждений - `supports_function_calling` — поддержка function calling - `supported_input_modalities` — поддерживаемые входные модальности (например, `text`, `image`) - `supported_output_modalities` — поддерживаемые выходные модальности - `avg_speed` — средняя скорость генерации в токенах в секунду - `aa_intelligence_index`, `aa_coding_index`, `aa_agentic_index` — индексы качества Artificial Analysis - `release_date` — дата релиза модели
+     *
+     * @return self
+     */
+    public function setParameterValues($parameter_values)
+    {
+        if (is_null($parameter_values)) {
+            throw new \InvalidArgumentException('non-nullable parameter_values cannot be null');
+        }
+        $this->container['parameter_values'] = $parameter_values;
 
         return $this;
     }

@@ -232,6 +232,7 @@ Class | Method | HTTP request | Description
 *AIAgentsApi* | [**getAgentsTokenPackages**](docs/Api/AIAgentsApi.md#getagentstokenpackages) | **GET** /api/v1/cloud-ai/token-packages/agents | Получение списка пакетов токенов для агентов
 *AIAgentsApi* | [**getKnowledgebasesTokenPackages**](docs/Api/AIAgentsApi.md#getknowledgebasestokenpackages) | **GET** /api/v1/cloud-ai/token-packages/knowledge-bases | Получение списка пакетов токенов для баз знаний
 *AIAgentsApi* | [**getModels**](docs/Api/AIAgentsApi.md#getmodels) | **GET** /api/v1/cloud-ai/models | Получение списка моделей
+*AIAgentsApi* | [**getModelsV3**](docs/Api/AIAgentsApi.md#getmodelsv3) | **GET** /api/v3/cloud-ai/models | Получение списка моделей
 *AIAgentsApi* | [**updateAgent**](docs/Api/AIAgentsApi.md#updateagent) | **PATCH** /api/v1/cloud-ai/agents/{id} | Обновление AI агента
 *AccountApi* | [**addCountriesToAllowedList**](docs/Api/AccountApi.md#addcountriestoallowedlist) | **POST** /api/v1/auth/access/countries | Добавление стран в список разрешенных
 *AccountApi* | [**addIPsToAllowedList**](docs/Api/AccountApi.md#addipstoallowedlist) | **POST** /api/v1/auth/access/ips | Добавление IP-адресов в список разрешенных
@@ -864,7 +865,8 @@ Class | Method | HTTP request | Description
 - [GetLocations200Response](docs/Model/GetLocations200Response.md)
 - [GetMailboxes200Response](docs/Model/GetMailboxes200Response.md)
 - [GetModels200Response](docs/Model/GetModels200Response.md)
-- [GetModels200ResponseMeta](docs/Model/GetModels200ResponseMeta.md)
+- [GetModelsV3200Response](docs/Model/GetModelsV3200Response.md)
+- [GetModelsV3200ResponseMeta](docs/Model/GetModelsV3200ResponseMeta.md)
 - [GetNetworkDrives200Response](docs/Model/GetNetworkDrives200Response.md)
 - [GetNetworkDrivesAvailableResources200Response](docs/Model/GetNetworkDrivesAvailableResources200Response.md)
 - [GetNetworkDrivesPresets200Response](docs/Model/GetNetworkDrivesPresets200Response.md)
@@ -946,6 +948,7 @@ Class | Method | HTTP request | Description
 - [ModelParamsInfoReasoningEffort](docs/Model/ModelParamsInfoReasoningEffort.md)
 - [ModelParamsInfoTemperature](docs/Model/ModelParamsInfoTemperature.md)
 - [ModelUse](docs/Model/ModelUse.md)
+- [ModelV3](docs/Model/ModelV3.md)
 - [Mongodb](docs/Model/Mongodb.md)
 - [MountNetworkDrive](docs/Model/MountNetworkDrive.md)
 - [Mysql](docs/Model/Mysql.md)
