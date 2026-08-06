@@ -99,9 +99,27 @@ class UpdateClusterTest extends TestCase
     }
 
     /**
+     * Test attribute "configuration"
+     */
+    public function testPropertyConfiguration()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "config_parameters"
      */
     public function testPropertyConfigParameters()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "hash_type"
+     */
+    public function testPropertyHashType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -126,9 +144,36 @@ class UpdateClusterTest extends TestCase
     }
 
     /**
-     * Test attribute "is_public_ipv6"
+     * Test attribute "is_enabled_public_ipv6"
      */
-    public function testPropertyIsPublicIpv6()
+    public function testPropertyIsEnabledPublicIpv6()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_secure_connection_enable"
+     */
+    public function testPropertyIsSecureConnectionEnable()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "maintenance_slot"
+     */
+    public function testPropertyMaintenanceSlot()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "disk_autoscaling"
+     */
+    public function testPropertyDiskAutoscaling()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

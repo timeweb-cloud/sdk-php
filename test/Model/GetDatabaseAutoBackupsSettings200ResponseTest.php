@@ -81,15 +81,6 @@ class GetDatabaseAutoBackupsSettings200ResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "meta"
-     */
-    public function testPropertyMeta()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "auto_backups_settings"
      */
     public function testPropertyAutoBackupsSettings()

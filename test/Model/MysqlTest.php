@@ -243,6 +243,15 @@ class MysqlTest extends TestCase
     }
 
     /**
+     * Test attribute "query_cache_limit"
+     */
+    public function testPropertyQueryCacheLimit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "innodb_flush_log_at_trx_commit"
      */
     public function testPropertyInnodbFlushLogAtTrxCommit()

@@ -151,7 +151,7 @@ class VPCApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateVPC201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateVPC201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createVPC($create_vpc, string $contentType = self::contentTypes['createVPC'][0])
     {
@@ -169,7 +169,7 @@ class VPCApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateVPC201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateVPC201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createVPCWithHttpInfo($create_vpc, string $contentType = self::contentTypes['createVPC'][0])
     {
@@ -272,17 +272,17 @@ class VPCApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -371,7 +371,7 @@ class VPCApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

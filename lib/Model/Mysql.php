@@ -77,6 +77,7 @@ class Mysql implements ModelInterface, ArrayAccess, \JsonSerializable
         'sql_mode' => 'string',
         'query_cache_type' => 'string',
         'query_cache_size' => 'string',
+        'query_cache_limit' => 'string',
         'innodb_flush_log_at_trx_commit' => 'string',
         'transaction_isolation' => 'string',
         'long_query_time' => 'string',
@@ -136,6 +137,7 @@ class Mysql implements ModelInterface, ArrayAccess, \JsonSerializable
         'sql_mode' => null,
         'query_cache_type' => null,
         'query_cache_size' => null,
+        'query_cache_limit' => null,
         'innodb_flush_log_at_trx_commit' => null,
         'transaction_isolation' => null,
         'long_query_time' => null,
@@ -193,6 +195,7 @@ class Mysql implements ModelInterface, ArrayAccess, \JsonSerializable
 		'sql_mode' => false,
 		'query_cache_type' => false,
 		'query_cache_size' => false,
+		'query_cache_limit' => false,
 		'innodb_flush_log_at_trx_commit' => false,
 		'transaction_isolation' => false,
 		'long_query_time' => false,
@@ -330,6 +333,7 @@ class Mysql implements ModelInterface, ArrayAccess, \JsonSerializable
         'sql_mode' => 'sql_mode',
         'query_cache_type' => 'query_cache_type',
         'query_cache_size' => 'query_cache_size',
+        'query_cache_limit' => 'query_cache_limit',
         'innodb_flush_log_at_trx_commit' => 'innodb_flush_log_at_trx_commit',
         'transaction_isolation' => 'transaction_isolation',
         'long_query_time' => 'long_query_time',
@@ -387,6 +391,7 @@ class Mysql implements ModelInterface, ArrayAccess, \JsonSerializable
         'sql_mode' => 'setSqlMode',
         'query_cache_type' => 'setQueryCacheType',
         'query_cache_size' => 'setQueryCacheSize',
+        'query_cache_limit' => 'setQueryCacheLimit',
         'innodb_flush_log_at_trx_commit' => 'setInnodbFlushLogAtTrxCommit',
         'transaction_isolation' => 'setTransactionIsolation',
         'long_query_time' => 'setLongQueryTime',
@@ -444,6 +449,7 @@ class Mysql implements ModelInterface, ArrayAccess, \JsonSerializable
         'sql_mode' => 'getSqlMode',
         'query_cache_type' => 'getQueryCacheType',
         'query_cache_size' => 'getQueryCacheSize',
+        'query_cache_limit' => 'getQueryCacheLimit',
         'innodb_flush_log_at_trx_commit' => 'getInnodbFlushLogAtTrxCommit',
         'transaction_isolation' => 'getTransactionIsolation',
         'long_query_time' => 'getLongQueryTime',
@@ -552,6 +558,7 @@ class Mysql implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('sql_mode', $data ?? [], null);
         $this->setIfExists('query_cache_type', $data ?? [], null);
         $this->setIfExists('query_cache_size', $data ?? [], null);
+        $this->setIfExists('query_cache_limit', $data ?? [], null);
         $this->setIfExists('innodb_flush_log_at_trx_commit', $data ?? [], null);
         $this->setIfExists('transaction_isolation', $data ?? [], null);
         $this->setIfExists('long_query_time', $data ?? [], null);
@@ -1072,7 +1079,7 @@ class Mysql implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets query_cache_type
      *
-     * @param string|null $query_cache_type Тип кэша запросов (`mysql5` | `mysql` | `mysql8_4`).
+     * @param string|null $query_cache_type Тип кэша запросов (`mysql5`).
      *
      * @return self
      */
@@ -1099,7 +1106,7 @@ class Mysql implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets query_cache_size
      *
-     * @param string|null $query_cache_size Объем памяти, выделяемый для кэширования результатов запросов (`mysql5` | `mysql` | `mysql8_4`).
+     * @param string|null $query_cache_size Объем памяти, выделяемый для кэширования результатов запросов (`mysql5`).
      *
      * @return self
      */
@@ -1109,6 +1116,33 @@ class Mysql implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable query_cache_size cannot be null');
         }
         $this->container['query_cache_size'] = $query_cache_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets query_cache_limit
+     *
+     * @return string|null
+     */
+    public function getQueryCacheLimit()
+    {
+        return $this->container['query_cache_limit'];
+    }
+
+    /**
+     * Sets query_cache_limit
+     *
+     * @param string|null $query_cache_limit Максимальный размер результата запроса, который может быть закэширован (`mysql5`).
+     *
+     * @return self
+     */
+    public function setQueryCacheLimit($query_cache_limit)
+    {
+        if (is_null($query_cache_limit)) {
+            throw new \InvalidArgumentException('non-nullable query_cache_limit cannot be null');
+        }
+        $this->container['query_cache_limit'] = $query_cache_limit;
 
         return $this;
     }

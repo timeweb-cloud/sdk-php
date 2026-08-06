@@ -81,6 +81,15 @@ class UpdateAdminTest extends TestCase
     }
 
     /**
+     * Test attribute "login"
+     */
+    public function testPropertyLogin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "password"
      */
     public function testPropertyPassword()
@@ -111,6 +120,15 @@ class UpdateAdminTest extends TestCase
      * Test attribute "instance_id"
      */
     public function testPropertyInstanceId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "for_all"
+     */
+    public function testPropertyForAll()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

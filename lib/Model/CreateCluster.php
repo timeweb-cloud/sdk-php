@@ -64,7 +64,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => '\OpenAPI\Client\Model\CreateClusterInstance',
         'hash_type' => 'string',
         'preset_id' => 'int',
-        'configurator_id' => 'int',
+        'configuration' => '\OpenAPI\Client\Model\CreateClusterConfiguration',
         'project_id' => 'int',
         'config_parameters' => '\OpenAPI\Client\Model\Mysql',
         'replication' => '\OpenAPI\Client\Model\DbReplication',
@@ -72,7 +72,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_public_ipv6' => 'bool',
         'description' => 'string',
         'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone',
-        'auto_backups' => '\OpenAPI\Client\Model\CreateDbAutoBackups'
+        'auto_backups' => '\OpenAPI\Client\Model\CreateDbAutoBackups',
+        'backup_schedule' => '\OpenAPI\Client\Model\CreateClusterBackupSchedule',
+        'maintenance_slot' => '\OpenAPI\Client\Model\CreateClusterMaintenanceSlot',
+        'disk_autoscaling' => '\OpenAPI\Client\Model\CreateClusterDiskAutoscaling'
     ];
 
     /**
@@ -89,7 +92,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => null,
         'hash_type' => null,
         'preset_id' => null,
-        'configurator_id' => null,
+        'configuration' => null,
         'project_id' => null,
         'config_parameters' => null,
         'replication' => null,
@@ -97,7 +100,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_public_ipv6' => null,
         'description' => null,
         'availability_zone' => null,
-        'auto_backups' => null
+        'auto_backups' => null,
+        'backup_schedule' => null,
+        'maintenance_slot' => null,
+        'disk_autoscaling' => null
     ];
 
     /**
@@ -112,7 +118,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
 		'instance' => false,
 		'hash_type' => false,
 		'preset_id' => false,
-		'configurator_id' => false,
+		'configuration' => false,
 		'project_id' => false,
 		'config_parameters' => false,
 		'replication' => false,
@@ -120,7 +126,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
 		'is_public_ipv6' => false,
 		'description' => false,
 		'availability_zone' => false,
-		'auto_backups' => false
+		'auto_backups' => false,
+		'backup_schedule' => false,
+		'maintenance_slot' => false,
+		'disk_autoscaling' => false
     ];
 
     /**
@@ -215,7 +224,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => 'instance',
         'hash_type' => 'hash_type',
         'preset_id' => 'preset_id',
-        'configurator_id' => 'configurator_id',
+        'configuration' => 'configuration',
         'project_id' => 'project_id',
         'config_parameters' => 'config_parameters',
         'replication' => 'replication',
@@ -223,7 +232,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_public_ipv6' => 'is_public_ipv6',
         'description' => 'description',
         'availability_zone' => 'availability_zone',
-        'auto_backups' => 'auto_backups'
+        'auto_backups' => 'auto_backups',
+        'backup_schedule' => 'backup_schedule',
+        'maintenance_slot' => 'maintenance_slot',
+        'disk_autoscaling' => 'disk_autoscaling'
     ];
 
     /**
@@ -238,7 +250,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => 'setInstance',
         'hash_type' => 'setHashType',
         'preset_id' => 'setPresetId',
-        'configurator_id' => 'setConfiguratorId',
+        'configuration' => 'setConfiguration',
         'project_id' => 'setProjectId',
         'config_parameters' => 'setConfigParameters',
         'replication' => 'setReplication',
@@ -246,7 +258,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_public_ipv6' => 'setIsPublicIpv6',
         'description' => 'setDescription',
         'availability_zone' => 'setAvailabilityZone',
-        'auto_backups' => 'setAutoBackups'
+        'auto_backups' => 'setAutoBackups',
+        'backup_schedule' => 'setBackupSchedule',
+        'maintenance_slot' => 'setMaintenanceSlot',
+        'disk_autoscaling' => 'setDiskAutoscaling'
     ];
 
     /**
@@ -261,7 +276,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'instance' => 'getInstance',
         'hash_type' => 'getHashType',
         'preset_id' => 'getPresetId',
-        'configurator_id' => 'getConfiguratorId',
+        'configuration' => 'getConfiguration',
         'project_id' => 'getProjectId',
         'config_parameters' => 'getConfigParameters',
         'replication' => 'getReplication',
@@ -269,7 +284,10 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_public_ipv6' => 'getIsPublicIpv6',
         'description' => 'getDescription',
         'availability_zone' => 'getAvailabilityZone',
-        'auto_backups' => 'getAutoBackups'
+        'auto_backups' => 'getAutoBackups',
+        'backup_schedule' => 'getBackupSchedule',
+        'maintenance_slot' => 'getMaintenanceSlot',
+        'disk_autoscaling' => 'getDiskAutoscaling'
     ];
 
     /**
@@ -350,7 +368,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('instance', $data ?? [], null);
         $this->setIfExists('hash_type', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
-        $this->setIfExists('configurator_id', $data ?? [], null);
+        $this->setIfExists('configuration', $data ?? [], null);
         $this->setIfExists('project_id', $data ?? [], null);
         $this->setIfExists('config_parameters', $data ?? [], null);
         $this->setIfExists('replication', $data ?? [], null);
@@ -359,6 +377,9 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('availability_zone', $data ?? [], null);
         $this->setIfExists('auto_backups', $data ?? [], null);
+        $this->setIfExists('backup_schedule', $data ?? [], null);
+        $this->setIfExists('maintenance_slot', $data ?? [], null);
+        $this->setIfExists('disk_autoscaling', $data ?? [], null);
     }
 
     /**
@@ -576,7 +597,7 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preset_id
      *
-     * @param int|null $preset_id ID тарифа. Нельзя передавать вместе с `configurator_id`
+     * @param int|null $preset_id ID тарифа. Нельзя передавать вместе с `configuration`
      *
      * @return self
      */
@@ -591,28 +612,28 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets configurator_id
+     * Gets configuration
      *
-     * @return int|null
+     * @return \OpenAPI\Client\Model\CreateClusterConfiguration|null
      */
-    public function getConfiguratorId()
+    public function getConfiguration()
     {
-        return $this->container['configurator_id'];
+        return $this->container['configuration'];
     }
 
     /**
-     * Sets configurator_id
+     * Sets configuration
      *
-     * @param int|null $configurator_id ID конфигуратора. Нельзя передавать вместе с `preset_id`
+     * @param \OpenAPI\Client\Model\CreateClusterConfiguration|null $configuration configuration
      *
      * @return self
      */
-    public function setConfiguratorId($configurator_id)
+    public function setConfiguration($configuration)
     {
-        if (is_null($configurator_id)) {
-            throw new \InvalidArgumentException('non-nullable configurator_id cannot be null');
+        if (is_null($configuration)) {
+            throw new \InvalidArgumentException('non-nullable configuration cannot be null');
         }
-        $this->container['configurator_id'] = $configurator_id;
+        $this->container['configuration'] = $configuration;
 
         return $this;
     }
@@ -829,6 +850,87 @@ class CreateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable auto_backups cannot be null');
         }
         $this->container['auto_backups'] = $auto_backups;
+
+        return $this;
+    }
+
+    /**
+     * Gets backup_schedule
+     *
+     * @return \OpenAPI\Client\Model\CreateClusterBackupSchedule|null
+     */
+    public function getBackupSchedule()
+    {
+        return $this->container['backup_schedule'];
+    }
+
+    /**
+     * Sets backup_schedule
+     *
+     * @param \OpenAPI\Client\Model\CreateClusterBackupSchedule|null $backup_schedule backup_schedule
+     *
+     * @return self
+     */
+    public function setBackupSchedule($backup_schedule)
+    {
+        if (is_null($backup_schedule)) {
+            throw new \InvalidArgumentException('non-nullable backup_schedule cannot be null');
+        }
+        $this->container['backup_schedule'] = $backup_schedule;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintenance_slot
+     *
+     * @return \OpenAPI\Client\Model\CreateClusterMaintenanceSlot|null
+     */
+    public function getMaintenanceSlot()
+    {
+        return $this->container['maintenance_slot'];
+    }
+
+    /**
+     * Sets maintenance_slot
+     *
+     * @param \OpenAPI\Client\Model\CreateClusterMaintenanceSlot|null $maintenance_slot maintenance_slot
+     *
+     * @return self
+     */
+    public function setMaintenanceSlot($maintenance_slot)
+    {
+        if (is_null($maintenance_slot)) {
+            throw new \InvalidArgumentException('non-nullable maintenance_slot cannot be null');
+        }
+        $this->container['maintenance_slot'] = $maintenance_slot;
+
+        return $this;
+    }
+
+    /**
+     * Gets disk_autoscaling
+     *
+     * @return \OpenAPI\Client\Model\CreateClusterDiskAutoscaling|null
+     */
+    public function getDiskAutoscaling()
+    {
+        return $this->container['disk_autoscaling'];
+    }
+
+    /**
+     * Sets disk_autoscaling
+     *
+     * @param \OpenAPI\Client\Model\CreateClusterDiskAutoscaling|null $disk_autoscaling disk_autoscaling
+     *
+     * @return self
+     */
+    public function setDiskAutoscaling($disk_autoscaling)
+    {
+        if (is_null($disk_autoscaling)) {
+            throw new \InvalidArgumentException('non-nullable disk_autoscaling cannot be null');
+        }
+        $this->container['disk_autoscaling'] = $disk_autoscaling;
 
         return $this;
     }

@@ -63,17 +63,35 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_at' => 'string',
         'location' => 'string',
         'name' => 'string',
+        'description' => 'string',
         'networks' => '\OpenAPI\Client\Model\DatabaseClusterNetworksInner[]',
-        'is_public_ipv6' => 'bool',
-        'type' => '\OpenAPI\Client\Model\DbType',
+        'is_enabled_public_ipv6' => 'bool',
+        'type' => 'string',
         'hash_type' => 'string',
         'avatar_link' => 'string',
         'port' => 'int',
         'status' => 'string',
         'preset_id' => 'int',
+        'configurator_id' => 'int',
+        'cpu' => 'int',
+        'cpu_frequency' => 'string',
+        'is_dedicated_cpu' => 'bool',
+        'ram' => 'int',
         'disk' => '\OpenAPI\Client\Model\DatabaseClusterDisk',
+        'has_additional_disk' => 'bool',
+        'disk_autoscaling' => '\OpenAPI\Client\Model\DatabaseClusterDiskAutoscaling',
         'config_parameters' => '\OpenAPI\Client\Model\Mysql',
-        'is_enabled_public_network' => 'bool'
+        'is_enabled_public_network' => 'bool',
+        'is_secure_connection_enabled' => 'bool',
+        'is_autobackups_enabled' => 'bool',
+        'is_backup_schedule_enabled' => 'bool',
+        'availability_zone' => '\OpenAPI\Client\Model\AvailabilityZone',
+        'project_id' => 'int',
+        'replica_list' => '\OpenAPI\Client\Model\DatabaseClusterReplicaListInner[]',
+        'domains' => '\OpenAPI\Client\Model\DatabaseClusterDomainsInner[]',
+        'child_services' => '\OpenAPI\Client\Model\DatabaseClusterChildServicesInner[]',
+        'parent_services' => '\OpenAPI\Client\Model\DatabaseClusterParentServicesInner[]',
+        'maintenance_slot' => '\OpenAPI\Client\Model\DatabaseClusterMaintenanceSlot'
     ];
 
     /**
@@ -88,17 +106,35 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_at' => null,
         'location' => null,
         'name' => null,
+        'description' => null,
         'networks' => null,
-        'is_public_ipv6' => null,
+        'is_enabled_public_ipv6' => null,
         'type' => null,
         'hash_type' => null,
         'avatar_link' => null,
         'port' => null,
         'status' => null,
         'preset_id' => null,
+        'configurator_id' => null,
+        'cpu' => null,
+        'cpu_frequency' => null,
+        'is_dedicated_cpu' => null,
+        'ram' => null,
         'disk' => null,
+        'has_additional_disk' => null,
+        'disk_autoscaling' => null,
         'config_parameters' => null,
-        'is_enabled_public_network' => null
+        'is_enabled_public_network' => null,
+        'is_secure_connection_enabled' => null,
+        'is_autobackups_enabled' => null,
+        'is_backup_schedule_enabled' => null,
+        'availability_zone' => null,
+        'project_id' => null,
+        'replica_list' => null,
+        'domains' => null,
+        'child_services' => null,
+        'parent_services' => null,
+        'maintenance_slot' => null
     ];
 
     /**
@@ -111,17 +147,35 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
 		'created_at' => false,
 		'location' => true,
 		'name' => false,
+		'description' => false,
 		'networks' => false,
-		'is_public_ipv6' => false,
-		'type' => false,
+		'is_enabled_public_ipv6' => false,
+		'type' => true,
 		'hash_type' => true,
 		'avatar_link' => true,
 		'port' => true,
 		'status' => false,
-		'preset_id' => false,
+		'preset_id' => true,
+		'configurator_id' => true,
+		'cpu' => true,
+		'cpu_frequency' => true,
+		'is_dedicated_cpu' => false,
+		'ram' => true,
 		'disk' => true,
+		'has_additional_disk' => false,
+		'disk_autoscaling' => true,
 		'config_parameters' => false,
-		'is_enabled_public_network' => false
+		'is_enabled_public_network' => false,
+		'is_secure_connection_enabled' => false,
+		'is_autobackups_enabled' => false,
+		'is_backup_schedule_enabled' => false,
+		'availability_zone' => false,
+		'project_id' => false,
+		'replica_list' => false,
+		'domains' => false,
+		'child_services' => false,
+		'parent_services' => false,
+		'maintenance_slot' => false
     ];
 
     /**
@@ -214,17 +268,35 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_at' => 'created_at',
         'location' => 'location',
         'name' => 'name',
+        'description' => 'description',
         'networks' => 'networks',
-        'is_public_ipv6' => 'is_public_ipv6',
+        'is_enabled_public_ipv6' => 'is_enabled_public_ipv6',
         'type' => 'type',
         'hash_type' => 'hash_type',
         'avatar_link' => 'avatar_link',
         'port' => 'port',
         'status' => 'status',
         'preset_id' => 'preset_id',
+        'configurator_id' => 'configurator_id',
+        'cpu' => 'cpu',
+        'cpu_frequency' => 'cpu_frequency',
+        'is_dedicated_cpu' => 'is_dedicated_cpu',
+        'ram' => 'ram',
         'disk' => 'disk',
+        'has_additional_disk' => 'has_additional_disk',
+        'disk_autoscaling' => 'disk_autoscaling',
         'config_parameters' => 'config_parameters',
-        'is_enabled_public_network' => 'is_enabled_public_network'
+        'is_enabled_public_network' => 'is_enabled_public_network',
+        'is_secure_connection_enabled' => 'is_secure_connection_enabled',
+        'is_autobackups_enabled' => 'is_autobackups_enabled',
+        'is_backup_schedule_enabled' => 'is_backup_schedule_enabled',
+        'availability_zone' => 'availability_zone',
+        'project_id' => 'project_id',
+        'replica_list' => 'replica_list',
+        'domains' => 'domains',
+        'child_services' => 'child_services',
+        'parent_services' => 'parent_services',
+        'maintenance_slot' => 'maintenance_slot'
     ];
 
     /**
@@ -237,17 +309,35 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_at' => 'setCreatedAt',
         'location' => 'setLocation',
         'name' => 'setName',
+        'description' => 'setDescription',
         'networks' => 'setNetworks',
-        'is_public_ipv6' => 'setIsPublicIpv6',
+        'is_enabled_public_ipv6' => 'setIsEnabledPublicIpv6',
         'type' => 'setType',
         'hash_type' => 'setHashType',
         'avatar_link' => 'setAvatarLink',
         'port' => 'setPort',
         'status' => 'setStatus',
         'preset_id' => 'setPresetId',
+        'configurator_id' => 'setConfiguratorId',
+        'cpu' => 'setCpu',
+        'cpu_frequency' => 'setCpuFrequency',
+        'is_dedicated_cpu' => 'setIsDedicatedCpu',
+        'ram' => 'setRam',
         'disk' => 'setDisk',
+        'has_additional_disk' => 'setHasAdditionalDisk',
+        'disk_autoscaling' => 'setDiskAutoscaling',
         'config_parameters' => 'setConfigParameters',
-        'is_enabled_public_network' => 'setIsEnabledPublicNetwork'
+        'is_enabled_public_network' => 'setIsEnabledPublicNetwork',
+        'is_secure_connection_enabled' => 'setIsSecureConnectionEnabled',
+        'is_autobackups_enabled' => 'setIsAutobackupsEnabled',
+        'is_backup_schedule_enabled' => 'setIsBackupScheduleEnabled',
+        'availability_zone' => 'setAvailabilityZone',
+        'project_id' => 'setProjectId',
+        'replica_list' => 'setReplicaList',
+        'domains' => 'setDomains',
+        'child_services' => 'setChildServices',
+        'parent_services' => 'setParentServices',
+        'maintenance_slot' => 'setMaintenanceSlot'
     ];
 
     /**
@@ -260,17 +350,35 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_at' => 'getCreatedAt',
         'location' => 'getLocation',
         'name' => 'getName',
+        'description' => 'getDescription',
         'networks' => 'getNetworks',
-        'is_public_ipv6' => 'getIsPublicIpv6',
+        'is_enabled_public_ipv6' => 'getIsEnabledPublicIpv6',
         'type' => 'getType',
         'hash_type' => 'getHashType',
         'avatar_link' => 'getAvatarLink',
         'port' => 'getPort',
         'status' => 'getStatus',
         'preset_id' => 'getPresetId',
+        'configurator_id' => 'getConfiguratorId',
+        'cpu' => 'getCpu',
+        'cpu_frequency' => 'getCpuFrequency',
+        'is_dedicated_cpu' => 'getIsDedicatedCpu',
+        'ram' => 'getRam',
         'disk' => 'getDisk',
+        'has_additional_disk' => 'getHasAdditionalDisk',
+        'disk_autoscaling' => 'getDiskAutoscaling',
         'config_parameters' => 'getConfigParameters',
-        'is_enabled_public_network' => 'getIsEnabledPublicNetwork'
+        'is_enabled_public_network' => 'getIsEnabledPublicNetwork',
+        'is_secure_connection_enabled' => 'getIsSecureConnectionEnabled',
+        'is_autobackups_enabled' => 'getIsAutobackupsEnabled',
+        'is_backup_schedule_enabled' => 'getIsBackupScheduleEnabled',
+        'availability_zone' => 'getAvailabilityZone',
+        'project_id' => 'getProjectId',
+        'replica_list' => 'getReplicaList',
+        'domains' => 'getDomains',
+        'child_services' => 'getChildServices',
+        'parent_services' => 'getParentServices',
+        'maintenance_slot' => 'getMaintenanceSlot'
     ];
 
     /**
@@ -316,8 +424,40 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
 
     public const LOCATION_RU_1 = 'ru-1';
     public const LOCATION_RU_3 = 'ru-3';
+    public const LOCATION_PL_1 = 'pl-1';
     public const LOCATION_NL_1 = 'nl-1';
     public const LOCATION_DE_1 = 'de-1';
+    public const LOCATION_US_2 = 'us-2';
+    public const LOCATION_US_3 = 'us-3';
+    public const TYPE_MYSQL = 'mysql';
+    public const TYPE_MYSQL5 = 'mysql5';
+    public const TYPE_MYSQL8_4 = 'mysql8_4';
+    public const TYPE_POSTGRES = 'postgres';
+    public const TYPE_POSTGRES14 = 'postgres14';
+    public const TYPE_POSTGRES15 = 'postgres15';
+    public const TYPE_POSTGRES16 = 'postgres16';
+    public const TYPE_POSTGRES17 = 'postgres17';
+    public const TYPE_POSTGRES18 = 'postgres18';
+    public const TYPE_REDIS = 'redis';
+    public const TYPE_REDIS7 = 'redis7';
+    public const TYPE_REDIS8_1 = 'redis8_1';
+    public const TYPE_VALKEY = 'valkey';
+    public const TYPE_VALKEY7 = 'valkey7';
+    public const TYPE_VALKEY8_1 = 'valkey8_1';
+    public const TYPE_VALKEY9_1 = 'valkey9_1';
+    public const TYPE_MONGODB = 'mongodb';
+    public const TYPE_MONGODB4 = 'mongodb4';
+    public const TYPE_MONGODB6 = 'mongodb6';
+    public const TYPE_MONGODB7 = 'mongodb7';
+    public const TYPE_MONGODB8_0 = 'mongodb8_0';
+    public const TYPE_OPENSEARCH = 'opensearch';
+    public const TYPE_OPENSEARCH2_19 = 'opensearch2_19';
+    public const TYPE_CLICKHOUSE = 'clickhouse';
+    public const TYPE_CLICKHOUSE24 = 'clickhouse24';
+    public const TYPE_CLICKHOUSE25 = 'clickhouse25';
+    public const TYPE_KAFKA = 'kafka';
+    public const TYPE_RABBITMQ = 'rabbitmq';
+    public const TYPE_RABBITMQ4_0 = 'rabbitmq4_0';
     public const HASH_TYPE_CACHING_SHA2 = 'caching_sha2';
     public const HASH_TYPE_MYSQL_NATIVE = 'mysql_native';
     public const HASH_TYPE_NULL = 'null';
@@ -329,9 +469,12 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     public const STATUS_ERROR = 'error';
     public const STATUS_BLOCKED = 'blocked';
     public const STATUS_BACKUP_RECOVERY = 'backup_recovery';
+    public const STATUS_TRANSFER = 'transfer';
     public const STATUS_REBOOTING = 'rebooting';
     public const STATUS_TURNING_OFF = 'turning_off';
     public const STATUS_TURNING_ON = 'turning_on';
+    public const STATUS_READ_ONLY = 'read_only';
+    public const STATUS_USER_TRANSFER = 'user_transfer';
 
     /**
      * Gets allowable values of the enum
@@ -343,8 +486,51 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::LOCATION_RU_1,
             self::LOCATION_RU_3,
+            self::LOCATION_PL_1,
             self::LOCATION_NL_1,
             self::LOCATION_DE_1,
+            self::LOCATION_US_2,
+            self::LOCATION_US_3,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_MYSQL,
+            self::TYPE_MYSQL5,
+            self::TYPE_MYSQL8_4,
+            self::TYPE_POSTGRES,
+            self::TYPE_POSTGRES14,
+            self::TYPE_POSTGRES15,
+            self::TYPE_POSTGRES16,
+            self::TYPE_POSTGRES17,
+            self::TYPE_POSTGRES18,
+            self::TYPE_REDIS,
+            self::TYPE_REDIS7,
+            self::TYPE_REDIS8_1,
+            self::TYPE_VALKEY,
+            self::TYPE_VALKEY7,
+            self::TYPE_VALKEY8_1,
+            self::TYPE_VALKEY9_1,
+            self::TYPE_MONGODB,
+            self::TYPE_MONGODB4,
+            self::TYPE_MONGODB6,
+            self::TYPE_MONGODB7,
+            self::TYPE_MONGODB8_0,
+            self::TYPE_OPENSEARCH,
+            self::TYPE_OPENSEARCH2_19,
+            self::TYPE_CLICKHOUSE,
+            self::TYPE_CLICKHOUSE24,
+            self::TYPE_CLICKHOUSE25,
+            self::TYPE_KAFKA,
+            self::TYPE_RABBITMQ,
+            self::TYPE_RABBITMQ4_0,
         ];
     }
 
@@ -378,9 +564,12 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             self::STATUS_ERROR,
             self::STATUS_BLOCKED,
             self::STATUS_BACKUP_RECOVERY,
+            self::STATUS_TRANSFER,
             self::STATUS_REBOOTING,
             self::STATUS_TURNING_OFF,
             self::STATUS_TURNING_ON,
+            self::STATUS_READ_ONLY,
+            self::STATUS_USER_TRANSFER,
         ];
     }
 
@@ -403,17 +592,35 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('networks', $data ?? [], null);
-        $this->setIfExists('is_public_ipv6', $data ?? [], null);
+        $this->setIfExists('is_enabled_public_ipv6', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('hash_type', $data ?? [], null);
         $this->setIfExists('avatar_link', $data ?? [], null);
         $this->setIfExists('port', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
+        $this->setIfExists('configurator_id', $data ?? [], null);
+        $this->setIfExists('cpu', $data ?? [], null);
+        $this->setIfExists('cpu_frequency', $data ?? [], null);
+        $this->setIfExists('is_dedicated_cpu', $data ?? [], null);
+        $this->setIfExists('ram', $data ?? [], null);
         $this->setIfExists('disk', $data ?? [], null);
+        $this->setIfExists('has_additional_disk', $data ?? [], null);
+        $this->setIfExists('disk_autoscaling', $data ?? [], null);
         $this->setIfExists('config_parameters', $data ?? [], null);
         $this->setIfExists('is_enabled_public_network', $data ?? [], null);
+        $this->setIfExists('is_secure_connection_enabled', $data ?? [], null);
+        $this->setIfExists('is_autobackups_enabled', $data ?? [], null);
+        $this->setIfExists('is_backup_schedule_enabled', $data ?? [], null);
+        $this->setIfExists('availability_zone', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
+        $this->setIfExists('replica_list', $data ?? [], null);
+        $this->setIfExists('domains', $data ?? [], null);
+        $this->setIfExists('child_services', $data ?? [], null);
+        $this->setIfExists('parent_services', $data ?? [], null);
+        $this->setIfExists('maintenance_slot', $data ?? [], null);
     }
 
     /**
@@ -464,12 +671,27 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
         if ($this->container['networks'] === null) {
             $invalidProperties[] = "'networks' can't be null";
+        }
+        if ($this->container['is_enabled_public_ipv6'] === null) {
+            $invalidProperties[] = "'is_enabled_public_ipv6' can't be null";
         }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['hash_type'] === null) {
             $invalidProperties[] = "'hash_type' can't be null";
         }
@@ -503,11 +725,62 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['preset_id'] === null) {
             $invalidProperties[] = "'preset_id' can't be null";
         }
+        if ($this->container['configurator_id'] === null) {
+            $invalidProperties[] = "'configurator_id' can't be null";
+        }
+        if ($this->container['cpu'] === null) {
+            $invalidProperties[] = "'cpu' can't be null";
+        }
+        if ($this->container['cpu_frequency'] === null) {
+            $invalidProperties[] = "'cpu_frequency' can't be null";
+        }
+        if ($this->container['is_dedicated_cpu'] === null) {
+            $invalidProperties[] = "'is_dedicated_cpu' can't be null";
+        }
+        if ($this->container['ram'] === null) {
+            $invalidProperties[] = "'ram' can't be null";
+        }
+        if ($this->container['disk'] === null) {
+            $invalidProperties[] = "'disk' can't be null";
+        }
+        if ($this->container['has_additional_disk'] === null) {
+            $invalidProperties[] = "'has_additional_disk' can't be null";
+        }
+        if ($this->container['disk_autoscaling'] === null) {
+            $invalidProperties[] = "'disk_autoscaling' can't be null";
+        }
         if ($this->container['config_parameters'] === null) {
             $invalidProperties[] = "'config_parameters' can't be null";
         }
         if ($this->container['is_enabled_public_network'] === null) {
             $invalidProperties[] = "'is_enabled_public_network' can't be null";
+        }
+        if ($this->container['is_secure_connection_enabled'] === null) {
+            $invalidProperties[] = "'is_secure_connection_enabled' can't be null";
+        }
+        if ($this->container['is_autobackups_enabled'] === null) {
+            $invalidProperties[] = "'is_autobackups_enabled' can't be null";
+        }
+        if ($this->container['is_backup_schedule_enabled'] === null) {
+            $invalidProperties[] = "'is_backup_schedule_enabled' can't be null";
+        }
+        if ($this->container['availability_zone'] === null) {
+            $invalidProperties[] = "'availability_zone' can't be null";
+        }
+        if ($this->container['replica_list'] === null) {
+            $invalidProperties[] = "'replica_list' can't be null";
+        }
+        if ($this->container['domains'] === null) {
+            $invalidProperties[] = "'domains' can't be null";
+        }
+        if ($this->container['child_services'] === null) {
+            $invalidProperties[] = "'child_services' can't be null";
+        }
+        if ($this->container['parent_services'] === null) {
+            $invalidProperties[] = "'parent_services' can't be null";
+        }
+        if ($this->container['maintenance_slot'] === null) {
+            $invalidProperties[] = "'maintenance_slot' can't be null";
         }
         return $invalidProperties;
     }
@@ -650,6 +923,33 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description Описание кластера базы данных.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
      * Gets networks
      *
      * @return \OpenAPI\Client\Model\DatabaseClusterNetworksInner[]
@@ -677,28 +977,28 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets is_public_ipv6
+     * Gets is_enabled_public_ipv6
      *
-     * @return bool|null
+     * @return bool
      */
-    public function getIsPublicIpv6()
+    public function getIsEnabledPublicIpv6()
     {
-        return $this->container['is_public_ipv6'];
+        return $this->container['is_enabled_public_ipv6'];
     }
 
     /**
-     * Sets is_public_ipv6
+     * Sets is_enabled_public_ipv6
      *
-     * @param bool|null $is_public_ipv6 Использование IPv6 адреса.
+     * @param bool $is_enabled_public_ipv6 Использование публичного IPv6-адреса.
      *
      * @return self
      */
-    public function setIsPublicIpv6($is_public_ipv6)
+    public function setIsEnabledPublicIpv6($is_enabled_public_ipv6)
     {
-        if (is_null($is_public_ipv6)) {
-            throw new \InvalidArgumentException('non-nullable is_public_ipv6 cannot be null');
+        if (is_null($is_enabled_public_ipv6)) {
+            throw new \InvalidArgumentException('non-nullable is_enabled_public_ipv6 cannot be null');
         }
-        $this->container['is_public_ipv6'] = $is_public_ipv6;
+        $this->container['is_enabled_public_ipv6'] = $is_enabled_public_ipv6;
 
         return $this;
     }
@@ -706,7 +1006,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \OpenAPI\Client\Model\DbType
+     * @return string
      */
     public function getType()
     {
@@ -716,14 +1016,31 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \OpenAPI\Client\Model\DbType $type type
+     * @param string $type Тип базы данных. Список возможных значений шире, чем список типов, доступных при создании нового кластера.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -855,7 +1172,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string $status Текущий статус кластера базы данных.
+     * @param string $status Текущий статус кластера базы данных. Значение `read_only` означает, что запись в кластер заблокирована из-за переполнения диска — чтобы снять блокировку, освободите место или увеличьте размер диска.
      *
      * @return self
      */
@@ -892,14 +1209,21 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preset_id
      *
-     * @param int $preset_id ID тарифа.
+     * @param int $preset_id ID тарифа. Равен `null` у кластеров, созданных через конфигуратор — в этом случае заполнен `configurator_id`.
      *
      * @return self
      */
     public function setPresetId($preset_id)
     {
         if (is_null($preset_id)) {
-            throw new \InvalidArgumentException('non-nullable preset_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'preset_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('preset_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['preset_id'] = $preset_id;
 
@@ -907,9 +1231,172 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets configurator_id
+     *
+     * @return int
+     */
+    public function getConfiguratorId()
+    {
+        return $this->container['configurator_id'];
+    }
+
+    /**
+     * Sets configurator_id
+     *
+     * @param int $configurator_id ID конфигуратора. Равен `null` у кластеров, созданных по тарифу.
+     *
+     * @return self
+     */
+    public function setConfiguratorId($configurator_id)
+    {
+        if (is_null($configurator_id)) {
+            array_push($this->openAPINullablesSetToNull, 'configurator_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('configurator_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['configurator_id'] = $configurator_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu
+     *
+     * @return int
+     */
+    public function getCpu()
+    {
+        return $this->container['cpu'];
+    }
+
+    /**
+     * Sets cpu
+     *
+     * @param int $cpu Количество ядер процессора.
+     *
+     * @return self
+     */
+    public function setCpu($cpu)
+    {
+        if (is_null($cpu)) {
+            array_push($this->openAPINullablesSetToNull, 'cpu');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cpu', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['cpu'] = $cpu;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu_frequency
+     *
+     * @return string
+     */
+    public function getCpuFrequency()
+    {
+        return $this->container['cpu_frequency'];
+    }
+
+    /**
+     * Sets cpu_frequency
+     *
+     * @param string $cpu_frequency Частота процессора.
+     *
+     * @return self
+     */
+    public function setCpuFrequency($cpu_frequency)
+    {
+        if (is_null($cpu_frequency)) {
+            array_push($this->openAPINullablesSetToNull, 'cpu_frequency');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cpu_frequency', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['cpu_frequency'] = $cpu_frequency;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_dedicated_cpu
+     *
+     * @return bool
+     */
+    public function getIsDedicatedCpu()
+    {
+        return $this->container['is_dedicated_cpu'];
+    }
+
+    /**
+     * Sets is_dedicated_cpu
+     *
+     * @param bool $is_dedicated_cpu Используются ли выделенные ядра процессора.
+     *
+     * @return self
+     */
+    public function setIsDedicatedCpu($is_dedicated_cpu)
+    {
+        if (is_null($is_dedicated_cpu)) {
+            throw new \InvalidArgumentException('non-nullable is_dedicated_cpu cannot be null');
+        }
+        $this->container['is_dedicated_cpu'] = $is_dedicated_cpu;
+
+        return $this;
+    }
+
+    /**
+     * Gets ram
+     *
+     * @return int
+     */
+    public function getRam()
+    {
+        return $this->container['ram'];
+    }
+
+    /**
+     * Sets ram
+     *
+     * @param int $ram Объем оперативной памяти (в Мб).
+     *
+     * @return self
+     */
+    public function setRam($ram)
+    {
+        if (is_null($ram)) {
+            array_push($this->openAPINullablesSetToNull, 'ram');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ram', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ram'] = $ram;
+
+        return $this;
+    }
+
+    /**
      * Gets disk
      *
-     * @return \OpenAPI\Client\Model\DatabaseClusterDisk|null
+     * @return \OpenAPI\Client\Model\DatabaseClusterDisk
      */
     public function getDisk()
     {
@@ -919,7 +1406,7 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets disk
      *
-     * @param \OpenAPI\Client\Model\DatabaseClusterDisk|null $disk disk
+     * @param \OpenAPI\Client\Model\DatabaseClusterDisk $disk disk
      *
      * @return self
      */
@@ -936,6 +1423,67 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['disk'] = $disk;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_additional_disk
+     *
+     * @return bool
+     */
+    public function getHasAdditionalDisk()
+    {
+        return $this->container['has_additional_disk'];
+    }
+
+    /**
+     * Sets has_additional_disk
+     *
+     * @param bool $has_additional_disk Подключен ли к кластеру дополнительный диск.
+     *
+     * @return self
+     */
+    public function setHasAdditionalDisk($has_additional_disk)
+    {
+        if (is_null($has_additional_disk)) {
+            throw new \InvalidArgumentException('non-nullable has_additional_disk cannot be null');
+        }
+        $this->container['has_additional_disk'] = $has_additional_disk;
+
+        return $this;
+    }
+
+    /**
+     * Gets disk_autoscaling
+     *
+     * @return \OpenAPI\Client\Model\DatabaseClusterDiskAutoscaling
+     */
+    public function getDiskAutoscaling()
+    {
+        return $this->container['disk_autoscaling'];
+    }
+
+    /**
+     * Sets disk_autoscaling
+     *
+     * @param \OpenAPI\Client\Model\DatabaseClusterDiskAutoscaling $disk_autoscaling disk_autoscaling
+     *
+     * @return self
+     */
+    public function setDiskAutoscaling($disk_autoscaling)
+    {
+        if (is_null($disk_autoscaling)) {
+            array_push($this->openAPINullablesSetToNull, 'disk_autoscaling');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('disk_autoscaling', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['disk_autoscaling'] = $disk_autoscaling;
 
         return $this;
     }
@@ -990,6 +1538,276 @@ class DatabaseCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_enabled_public_network cannot be null');
         }
         $this->container['is_enabled_public_network'] = $is_enabled_public_network;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_secure_connection_enabled
+     *
+     * @return bool
+     */
+    public function getIsSecureConnectionEnabled()
+    {
+        return $this->container['is_secure_connection_enabled'];
+    }
+
+    /**
+     * Sets is_secure_connection_enabled
+     *
+     * @param bool $is_secure_connection_enabled Включено ли защищенное подключение к кластеру базы данных.
+     *
+     * @return self
+     */
+    public function setIsSecureConnectionEnabled($is_secure_connection_enabled)
+    {
+        if (is_null($is_secure_connection_enabled)) {
+            throw new \InvalidArgumentException('non-nullable is_secure_connection_enabled cannot be null');
+        }
+        $this->container['is_secure_connection_enabled'] = $is_secure_connection_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_autobackups_enabled
+     *
+     * @return bool
+     */
+    public function getIsAutobackupsEnabled()
+    {
+        return $this->container['is_autobackups_enabled'];
+    }
+
+    /**
+     * Sets is_autobackups_enabled
+     *
+     * @param bool $is_autobackups_enabled Включены ли автоматические резервные копии кластера базы данных.
+     *
+     * @return self
+     */
+    public function setIsAutobackupsEnabled($is_autobackups_enabled)
+    {
+        if (is_null($is_autobackups_enabled)) {
+            throw new \InvalidArgumentException('non-nullable is_autobackups_enabled cannot be null');
+        }
+        $this->container['is_autobackups_enabled'] = $is_autobackups_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_backup_schedule_enabled
+     *
+     * @return bool
+     */
+    public function getIsBackupScheduleEnabled()
+    {
+        return $this->container['is_backup_schedule_enabled'];
+    }
+
+    /**
+     * Sets is_backup_schedule_enabled
+     *
+     * @param bool $is_backup_schedule_enabled Включено ли расписание резервного копирования кластера базы данных.
+     *
+     * @return self
+     */
+    public function setIsBackupScheduleEnabled($is_backup_schedule_enabled)
+    {
+        if (is_null($is_backup_schedule_enabled)) {
+            throw new \InvalidArgumentException('non-nullable is_backup_schedule_enabled cannot be null');
+        }
+        $this->container['is_backup_schedule_enabled'] = $is_backup_schedule_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets availability_zone
+     *
+     * @return \OpenAPI\Client\Model\AvailabilityZone
+     */
+    public function getAvailabilityZone()
+    {
+        return $this->container['availability_zone'];
+    }
+
+    /**
+     * Sets availability_zone
+     *
+     * @param \OpenAPI\Client\Model\AvailabilityZone $availability_zone availability_zone
+     *
+     * @return self
+     */
+    public function setAvailabilityZone($availability_zone)
+    {
+        if (is_null($availability_zone)) {
+            throw new \InvalidArgumentException('non-nullable availability_zone cannot be null');
+        }
+        $this->container['availability_zone'] = $availability_zone;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return int|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param int|null $project_id ID проекта, в котором находится кластер базы данных.
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
+        }
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets replica_list
+     *
+     * @return \OpenAPI\Client\Model\DatabaseClusterReplicaListInner[]
+     */
+    public function getReplicaList()
+    {
+        return $this->container['replica_list'];
+    }
+
+    /**
+     * Sets replica_list
+     *
+     * @param \OpenAPI\Client\Model\DatabaseClusterReplicaListInner[] $replica_list Список реплик кластера базы данных.
+     *
+     * @return self
+     */
+    public function setReplicaList($replica_list)
+    {
+        if (is_null($replica_list)) {
+            throw new \InvalidArgumentException('non-nullable replica_list cannot be null');
+        }
+        $this->container['replica_list'] = $replica_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets domains
+     *
+     * @return \OpenAPI\Client\Model\DatabaseClusterDomainsInner[]
+     */
+    public function getDomains()
+    {
+        return $this->container['domains'];
+    }
+
+    /**
+     * Sets domains
+     *
+     * @param \OpenAPI\Client\Model\DatabaseClusterDomainsInner[] $domains Список доменов кластера базы данных. Если публичная сеть отключена (`is_enabled_public_network: false`), список всегда пустой.
+     *
+     * @return self
+     */
+    public function setDomains($domains)
+    {
+        if (is_null($domains)) {
+            throw new \InvalidArgumentException('non-nullable domains cannot be null');
+        }
+        $this->container['domains'] = $domains;
+
+        return $this;
+    }
+
+    /**
+     * Gets child_services
+     *
+     * @return \OpenAPI\Client\Model\DatabaseClusterChildServicesInner[]
+     */
+    public function getChildServices()
+    {
+        return $this->container['child_services'];
+    }
+
+    /**
+     * Sets child_services
+     *
+     * @param \OpenAPI\Client\Model\DatabaseClusterChildServicesInner[] $child_services Список дочерних сервисов кластера базы данных.
+     *
+     * @return self
+     */
+    public function setChildServices($child_services)
+    {
+        if (is_null($child_services)) {
+            throw new \InvalidArgumentException('non-nullable child_services cannot be null');
+        }
+        $this->container['child_services'] = $child_services;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_services
+     *
+     * @return \OpenAPI\Client\Model\DatabaseClusterParentServicesInner[]
+     */
+    public function getParentServices()
+    {
+        return $this->container['parent_services'];
+    }
+
+    /**
+     * Sets parent_services
+     *
+     * @param \OpenAPI\Client\Model\DatabaseClusterParentServicesInner[] $parent_services Список родительских сервисов кластера базы данных.
+     *
+     * @return self
+     */
+    public function setParentServices($parent_services)
+    {
+        if (is_null($parent_services)) {
+            throw new \InvalidArgumentException('non-nullable parent_services cannot be null');
+        }
+        $this->container['parent_services'] = $parent_services;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintenance_slot
+     *
+     * @return \OpenAPI\Client\Model\DatabaseClusterMaintenanceSlot
+     */
+    public function getMaintenanceSlot()
+    {
+        return $this->container['maintenance_slot'];
+    }
+
+    /**
+     * Sets maintenance_slot
+     *
+     * @param \OpenAPI\Client\Model\DatabaseClusterMaintenanceSlot $maintenance_slot maintenance_slot
+     *
+     * @return self
+     */
+    public function setMaintenanceSlot($maintenance_slot)
+    {
+        if (is_null($maintenance_slot)) {
+            throw new \InvalidArgumentException('non-nullable maintenance_slot cannot be null');
+        }
+        $this->container['maintenance_slot'] = $maintenance_slot;
 
         return $this;
     }

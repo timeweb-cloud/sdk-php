@@ -58,8 +58,7 @@ class GetDatabaseAutoBackupsSettings200Response implements ModelInterface, Array
       * @var string[]
       */
     protected static $openAPITypes = [
-        'meta' => '\OpenAPI\Client\Model\Meta',
-        'auto_backups_settings' => '\OpenAPI\Client\Model\AutoBackup[]'
+        'auto_backups_settings' => '\OpenAPI\Client\Model\AutoBackup'
     ];
 
     /**
@@ -70,7 +69,6 @@ class GetDatabaseAutoBackupsSettings200Response implements ModelInterface, Array
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'meta' => null,
         'auto_backups_settings' => null
     ];
 
@@ -80,8 +78,7 @@ class GetDatabaseAutoBackupsSettings200Response implements ModelInterface, Array
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'meta' => false,
-		'auto_backups_settings' => false
+        'auto_backups_settings' => false
     ];
 
     /**
@@ -170,7 +167,6 @@ class GetDatabaseAutoBackupsSettings200Response implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'meta' => 'meta',
         'auto_backups_settings' => 'auto_backups_settings'
     ];
 
@@ -180,7 +176,6 @@ class GetDatabaseAutoBackupsSettings200Response implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'meta' => 'setMeta',
         'auto_backups_settings' => 'setAutoBackupsSettings'
     ];
 
@@ -190,7 +185,6 @@ class GetDatabaseAutoBackupsSettings200Response implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'meta' => 'getMeta',
         'auto_backups_settings' => 'getAutoBackupsSettings'
     ];
 
@@ -251,7 +245,6 @@ class GetDatabaseAutoBackupsSettings200Response implements ModelInterface, Array
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('auto_backups_settings', $data ?? [], null);
     }
 
@@ -282,9 +275,6 @@ class GetDatabaseAutoBackupsSettings200Response implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['meta'] === null) {
-            $invalidProperties[] = "'meta' can't be null";
-        }
         if ($this->container['auto_backups_settings'] === null) {
             $invalidProperties[] = "'auto_backups_settings' can't be null";
         }
@@ -304,36 +294,9 @@ class GetDatabaseAutoBackupsSettings200Response implements ModelInterface, Array
 
 
     /**
-     * Gets meta
-     *
-     * @return \OpenAPI\Client\Model\Meta
-     */
-    public function getMeta()
-    {
-        return $this->container['meta'];
-    }
-
-    /**
-     * Sets meta
-     *
-     * @param \OpenAPI\Client\Model\Meta $meta meta
-     *
-     * @return self
-     */
-    public function setMeta($meta)
-    {
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
-        }
-        $this->container['meta'] = $meta;
-
-        return $this;
-    }
-
-    /**
      * Gets auto_backups_settings
      *
-     * @return \OpenAPI\Client\Model\AutoBackup[]
+     * @return \OpenAPI\Client\Model\AutoBackup
      */
     public function getAutoBackupsSettings()
     {
@@ -343,7 +306,7 @@ class GetDatabaseAutoBackupsSettings200Response implements ModelInterface, Array
     /**
      * Sets auto_backups_settings
      *
-     * @param \OpenAPI\Client\Model\AutoBackup[] $auto_backups_settings auto_backups_settings
+     * @param \OpenAPI\Client\Model\AutoBackup $auto_backups_settings auto_backups_settings
      *
      * @return self
      */

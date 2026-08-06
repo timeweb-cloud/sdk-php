@@ -117,6 +117,15 @@ class DatabaseClusterTest extends TestCase
     }
 
     /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "networks"
      */
     public function testPropertyNetworks()
@@ -126,9 +135,9 @@ class DatabaseClusterTest extends TestCase
     }
 
     /**
-     * Test attribute "is_public_ipv6"
+     * Test attribute "is_enabled_public_ipv6"
      */
-    public function testPropertyIsPublicIpv6()
+    public function testPropertyIsEnabledPublicIpv6()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -189,9 +198,72 @@ class DatabaseClusterTest extends TestCase
     }
 
     /**
+     * Test attribute "configurator_id"
+     */
+    public function testPropertyConfiguratorId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "cpu"
+     */
+    public function testPropertyCpu()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "cpu_frequency"
+     */
+    public function testPropertyCpuFrequency()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_dedicated_cpu"
+     */
+    public function testPropertyIsDedicatedCpu()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ram"
+     */
+    public function testPropertyRam()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "disk"
      */
     public function testPropertyDisk()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "has_additional_disk"
+     */
+    public function testPropertyHasAdditionalDisk()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "disk_autoscaling"
+     */
+    public function testPropertyDiskAutoscaling()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -210,6 +282,96 @@ class DatabaseClusterTest extends TestCase
      * Test attribute "is_enabled_public_network"
      */
     public function testPropertyIsEnabledPublicNetwork()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_secure_connection_enabled"
+     */
+    public function testPropertyIsSecureConnectionEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_autobackups_enabled"
+     */
+    public function testPropertyIsAutobackupsEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_backup_schedule_enabled"
+     */
+    public function testPropertyIsBackupScheduleEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "availability_zone"
+     */
+    public function testPropertyAvailabilityZone()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "project_id"
+     */
+    public function testPropertyProjectId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "replica_list"
+     */
+    public function testPropertyReplicaList()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "domains"
+     */
+    public function testPropertyDomains()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "child_services"
+     */
+    public function testPropertyChildServices()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "parent_services"
+     */
+    public function testPropertyParentServices()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "maintenance_slot"
+     */
+    public function testPropertyMaintenanceSlot()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

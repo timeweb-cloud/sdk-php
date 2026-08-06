@@ -1083,7 +1083,7 @@ try {
 ## `getServerDiskAutoBackupSettings()`
 
 ```php
-getServerDiskAutoBackupSettings($server_id, $disk_id): \OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response
+getServerDiskAutoBackupSettings($server_id, $disk_id): \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response
 ```
 
 Получить настройки автобэкапов диска сервера
@@ -1127,7 +1127,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response**](../Model/GetServerDiskAutoBackupSettings200Response.md)
+[**\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response**](../Model/GetDatabaseAutoBackupsSettings200Response.md)
 
 ### Authorization
 
@@ -2487,7 +2487,7 @@ try {
 ## `updateServerDiskAutoBackupSettings()`
 
 ```php
-updateServerDiskAutoBackupSettings($server_id, $disk_id, $auto_backup): \OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response
+updateServerDiskAutoBackupSettings($server_id, $disk_id, $auto_backup): \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response
 ```
 
 Изменение настроек автобэкапов диска сервера
@@ -2533,7 +2533,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response**](../Model/GetServerDiskAutoBackupSettings200Response.md)
+[**\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response**](../Model/GetDatabaseAutoBackupsSettings200Response.md)
 
 ### Authorization
 

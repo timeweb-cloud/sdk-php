@@ -135,9 +135,9 @@ class CreateClusterTest extends TestCase
     }
 
     /**
-     * Test attribute "configurator_id"
+     * Test attribute "configuration"
      */
-    public function testPropertyConfiguratorId()
+    public function testPropertyConfiguration()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -210,6 +210,33 @@ class CreateClusterTest extends TestCase
      * Test attribute "auto_backups"
      */
     public function testPropertyAutoBackups()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "backup_schedule"
+     */
+    public function testPropertyBackupSchedule()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "maintenance_slot"
+     */
+    public function testPropertyMaintenanceSlot()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "disk_autoscaling"
+     */
+    public function testPropertyDiskAutoscaling()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

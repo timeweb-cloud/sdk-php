@@ -58,10 +58,12 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'login' => 'string',
         'password' => 'string',
         'privileges' => '\OpenAPI\Client\Model\PropertiesMysql[]',
         'description' => 'string',
-        'instance_id' => 'float'
+        'instance_id' => 'float',
+        'for_all' => 'bool'
     ];
 
     /**
@@ -72,10 +74,12 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'login' => null,
         'password' => null,
         'privileges' => null,
         'description' => null,
-        'instance_id' => null
+        'instance_id' => null,
+        'for_all' => null
     ];
 
     /**
@@ -84,10 +88,12 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'password' => false,
+        'login' => false,
+		'password' => false,
 		'privileges' => false,
 		'description' => false,
-		'instance_id' => false
+		'instance_id' => false,
+		'for_all' => false
     ];
 
     /**
@@ -176,10 +182,12 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'login' => 'login',
         'password' => 'password',
         'privileges' => 'privileges',
         'description' => 'description',
-        'instance_id' => 'instance_id'
+        'instance_id' => 'instance_id',
+        'for_all' => 'for_all'
     ];
 
     /**
@@ -188,10 +196,12 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'login' => 'setLogin',
         'password' => 'setPassword',
         'privileges' => 'setPrivileges',
         'description' => 'setDescription',
-        'instance_id' => 'setInstanceId'
+        'instance_id' => 'setInstanceId',
+        'for_all' => 'setForAll'
     ];
 
     /**
@@ -200,10 +210,12 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'login' => 'getLogin',
         'password' => 'getPassword',
         'privileges' => 'getPrivileges',
         'description' => 'getDescription',
-        'instance_id' => 'getInstanceId'
+        'instance_id' => 'getInstanceId',
+        'for_all' => 'getForAll'
     ];
 
     /**
@@ -263,10 +275,12 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('login', $data ?? [], null);
         $this->setIfExists('password', $data ?? [], null);
         $this->setIfExists('privileges', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('instance_id', $data ?? [], null);
+        $this->setIfExists('for_all', $data ?? [], null);
     }
 
     /**
@@ -310,6 +324,33 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets login
+     *
+     * @return string|null
+     */
+    public function getLogin()
+    {
+        return $this->container['login'];
+    }
+
+    /**
+     * Sets login
+     *
+     * @param string|null $login Новое имя пользователя базы данных. Переименование доступно только в кластерах PostgreSQL
+     *
+     * @return self
+     */
+    public function setLogin($login)
+    {
+        if (is_null($login)) {
+            throw new \InvalidArgumentException('non-nullable login cannot be null');
+        }
+        $this->container['login'] = $login;
+
+        return $this;
+    }
 
     /**
      * Gets password
@@ -415,6 +456,33 @@ class UpdateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable instance_id cannot be null');
         }
         $this->container['instance_id'] = $instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets for_all
+     *
+     * @return bool|null
+     */
+    public function getForAll()
+    {
+        return $this->container['for_all'];
+    }
+
+    /**
+     * Sets for_all
+     *
+     * @param bool|null $for_all Выдать привилегии на все инстансы базы данных
+     *
+     * @return self
+     */
+    public function setForAll($for_all)
+    {
+        if (is_null($for_all)) {
+            throw new \InvalidArgumentException('non-nullable for_all cannot be null');
+        }
+        $this->container['for_all'] = $for_all;
 
         return $this;
     }

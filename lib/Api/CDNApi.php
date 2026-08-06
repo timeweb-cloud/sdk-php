@@ -287,7 +287,7 @@ class CDNApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1067,7 +1067,7 @@ class CDNApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createCdnResource($create_http_resource, string $contentType = self::contentTypes['createCdnResource'][0])
     {
@@ -1085,7 +1085,7 @@ class CDNApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCdnResourceWithHttpInfo($create_http_resource, string $contentType = self::contentTypes['createCdnResource'][0])
     {
@@ -1203,17 +1203,17 @@ class CDNApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1310,7 +1310,7 @@ class CDNApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1611,7 +1611,7 @@ class CDNApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6026,7 +6026,7 @@ class CDNApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6525,7 +6525,7 @@ class CDNApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function resumeCdnResource($resource_id, string $contentType = self::contentTypes['resumeCdnResource'][0])
     {
@@ -6543,7 +6543,7 @@ class CDNApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function resumeCdnResourceWithHttpInfo($resource_id, string $contentType = self::contentTypes['resumeCdnResource'][0])
     {
@@ -6661,17 +6661,17 @@ class CDNApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6768,7 +6768,7 @@ class CDNApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6973,7 +6973,7 @@ class CDNApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function suspendCdnResource($resource_id, string $contentType = self::contentTypes['suspendCdnResource'][0])
     {
@@ -6991,7 +6991,7 @@ class CDNApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function suspendCdnResourceWithHttpInfo($resource_id, string $contentType = self::contentTypes['suspendCdnResource'][0])
     {
@@ -7109,17 +7109,17 @@ class CDNApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7216,7 +7216,7 @@ class CDNApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7422,7 +7422,7 @@ class CDNApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateCdnResource($resource_id, $update_http_resource, string $contentType = self::contentTypes['updateCdnResource'][0])
     {
@@ -7441,7 +7441,7 @@ class CDNApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateCdnResource201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCdnResourceWithHttpInfo($resource_id, $update_http_resource, string $contentType = self::contentTypes['updateCdnResource'][0])
     {
@@ -7559,17 +7559,17 @@ class CDNApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7666,7 +7666,7 @@ class CDNApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

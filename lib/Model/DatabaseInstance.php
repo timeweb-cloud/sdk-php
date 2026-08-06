@@ -62,7 +62,10 @@ class DatabaseInstance implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'float',
         'created_at' => 'string',
         'name' => 'string',
-        'description' => 'string'
+        'description' => 'string',
+        'extensions' => '\OpenAPI\Client\Model\DatabaseExtensions',
+        'owner_id' => 'float',
+        'config_parameters' => '\OpenAPI\Client\Model\KafkaConfigParameters'
     ];
 
     /**
@@ -76,7 +79,10 @@ class DatabaseInstance implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => null,
         'created_at' => null,
         'name' => null,
-        'description' => null
+        'description' => null,
+        'extensions' => null,
+        'owner_id' => null,
+        'config_parameters' => null
     ];
 
     /**
@@ -88,7 +94,10 @@ class DatabaseInstance implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => false,
 		'created_at' => false,
 		'name' => false,
-		'description' => false
+		'description' => false,
+		'extensions' => false,
+		'owner_id' => true,
+		'config_parameters' => false
     ];
 
     /**
@@ -180,7 +189,10 @@ class DatabaseInstance implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'created_at' => 'created_at',
         'name' => 'name',
-        'description' => 'description'
+        'description' => 'description',
+        'extensions' => 'extensions',
+        'owner_id' => 'owner_id',
+        'config_parameters' => 'config_parameters'
     ];
 
     /**
@@ -192,7 +204,10 @@ class DatabaseInstance implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'created_at' => 'setCreatedAt',
         'name' => 'setName',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'extensions' => 'setExtensions',
+        'owner_id' => 'setOwnerId',
+        'config_parameters' => 'setConfigParameters'
     ];
 
     /**
@@ -204,7 +219,10 @@ class DatabaseInstance implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'created_at' => 'getCreatedAt',
         'name' => 'getName',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'extensions' => 'getExtensions',
+        'owner_id' => 'getOwnerId',
+        'config_parameters' => 'getConfigParameters'
     ];
 
     /**
@@ -268,6 +286,9 @@ class DatabaseInstance implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('extensions', $data ?? [], null);
+        $this->setIfExists('owner_id', $data ?? [], null);
+        $this->setIfExists('config_parameters', $data ?? [], null);
     }
 
     /**
@@ -308,6 +329,15 @@ class DatabaseInstance implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['description'] === null) {
             $invalidProperties[] = "'description' can't be null";
+        }
+        if ($this->container['extensions'] === null) {
+            $invalidProperties[] = "'extensions' can't be null";
+        }
+        if ($this->container['owner_id'] === null) {
+            $invalidProperties[] = "'owner_id' can't be null";
+        }
+        if ($this->container['config_parameters'] === null) {
+            $invalidProperties[] = "'config_parameters' can't be null";
         }
         return $invalidProperties;
     }
@@ -428,6 +458,94 @@ class DatabaseInstance implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets extensions
+     *
+     * @return \OpenAPI\Client\Model\DatabaseExtensions
+     */
+    public function getExtensions()
+    {
+        return $this->container['extensions'];
+    }
+
+    /**
+     * Sets extensions
+     *
+     * @param \OpenAPI\Client\Model\DatabaseExtensions $extensions extensions
+     *
+     * @return self
+     */
+    public function setExtensions($extensions)
+    {
+        if (is_null($extensions)) {
+            throw new \InvalidArgumentException('non-nullable extensions cannot be null');
+        }
+        $this->container['extensions'] = $extensions;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_id
+     *
+     * @return float
+     */
+    public function getOwnerId()
+    {
+        return $this->container['owner_id'];
+    }
+
+    /**
+     * Sets owner_id
+     *
+     * @param float $owner_id ID администратора базы данных, который является владельцем этой базы данных. `null`, если владелец не задан.
+     *
+     * @return self
+     */
+    public function setOwnerId($owner_id)
+    {
+        if (is_null($owner_id)) {
+            array_push($this->openAPINullablesSetToNull, 'owner_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('owner_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['owner_id'] = $owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets config_parameters
+     *
+     * @return \OpenAPI\Client\Model\KafkaConfigParameters
+     */
+    public function getConfigParameters()
+    {
+        return $this->container['config_parameters'];
+    }
+
+    /**
+     * Sets config_parameters
+     *
+     * @param \OpenAPI\Client\Model\KafkaConfigParameters $config_parameters config_parameters
+     *
+     * @return self
+     */
+    public function setConfigParameters($config_parameters)
+    {
+        if (is_null($config_parameters)) {
+            throw new \InvalidArgumentException('non-nullable config_parameters cannot be null');
+        }
+        $this->container['config_parameters'] = $config_parameters;
 
         return $this;
     }

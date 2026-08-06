@@ -81,7 +81,7 @@ class DatabaseClusterNetworksInnerIpsInner implements ModelInterface, ArrayAcces
       */
     protected static array $openAPINullables = [
         'type' => false,
-		'ip' => false
+		'ip' => true
     ];
 
     /**
@@ -235,8 +235,8 @@ class DatabaseClusterNetworksInnerIpsInner implements ModelInterface, ArrayAcces
         return self::$openAPIModelName;
     }
 
-    public const TYPE_IPV4 = 'ipv4';
-    public const TYPE_IPV6 = 'ipv6';
+    public const TYPE__4 = 'ipv_4';
+    public const TYPE__6 = 'ipv_6';
 
     /**
      * Gets allowable values of the enum
@@ -246,8 +246,8 @@ class DatabaseClusterNetworksInnerIpsInner implements ModelInterface, ArrayAcces
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_IPV4,
-            self::TYPE_IPV6,
+            self::TYPE__4,
+            self::TYPE__6,
         ];
     }
 
@@ -340,7 +340,7 @@ class DatabaseClusterNetworksInnerIpsInner implements ModelInterface, ArrayAcces
     /**
      * Sets type
      *
-     * @param string $type Тип IP-адреса сети
+     * @param string $type Тип IP-адреса сети.
      *
      * @return self
      */
@@ -377,14 +377,21 @@ class DatabaseClusterNetworksInnerIpsInner implements ModelInterface, ArrayAcces
     /**
      * Sets ip
      *
-     * @param string $ip IP-адрес сети
+     * @param string $ip IP-адрес сети.
      *
      * @return self
      */
     public function setIp($ip)
     {
         if (is_null($ip)) {
-            throw new \InvalidArgumentException('non-nullable ip cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ip');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ip', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['ip'] = $ip;
 

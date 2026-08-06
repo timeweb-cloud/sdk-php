@@ -85,6 +85,18 @@ class DatabasesApiTest extends TestCase
     }
 
     /**
+     * Test case for createDatabaseBackupDownloadUrl
+     *
+     * Получение ссылки для скачивания бэкапа базы данных.
+     *
+     */
+    public function testCreateDatabaseBackupDownloadUrl()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createDatabaseCluster
      *
      * Создание кластера базы данных.
@@ -103,6 +115,18 @@ class DatabasesApiTest extends TestCase
      *
      */
     public function testCreateDatabaseInstance()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for createDatabaseS3Backup
+     *
+     * Создание S3-бэкапа базы данных.
+     *
+     */
+    public function testCreateDatabaseS3Backup()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -151,6 +175,18 @@ class DatabasesApiTest extends TestCase
      *
      */
     public function testDeleteDatabaseInstance()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for deleteDatabaseS3Backup
+     *
+     * Удаление S3-бэкапа базы данных.
+     *
+     */
+    public function testDeleteDatabaseS3Backup()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -217,6 +253,18 @@ class DatabasesApiTest extends TestCase
     }
 
     /**
+     * Test case for getDatabaseClusterReplicas
+     *
+     * Получение списка реплик кластера базы данных.
+     *
+     */
+    public function testGetDatabaseClusterReplicas()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getDatabaseClusterTypes
      *
      * Получение списка типов кластеров баз данных.
@@ -235,6 +283,30 @@ class DatabasesApiTest extends TestCase
      *
      */
     public function testGetDatabaseClusters()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getDatabaseConfigurators
+     *
+     * Получение списка конфигураторов баз данных.
+     *
+     */
+    public function testGetDatabaseConfigurators()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getDatabaseDefaultParameters
+     *
+     * Получение рекомендуемых значений параметров баз данных.
+     *
+     */
+    public function testGetDatabaseDefaultParameters()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -277,6 +349,54 @@ class DatabasesApiTest extends TestCase
     }
 
     /**
+     * Test case for getDatabasePreset
+     *
+     * Получение тарифа для базы данных.
+     *
+     */
+    public function testGetDatabasePreset()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getDatabasePrivileges
+     *
+     * Получение привилегий кластера базы данных.
+     *
+     */
+    public function testGetDatabasePrivileges()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getDatabaseS3Backup
+     *
+     * Получение S3-бэкапа базы данных.
+     *
+     */
+    public function testGetDatabaseS3Backup()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getDatabaseS3Backups
+     *
+     * Список S3-бэкапов базы данных.
+     *
+     */
+    public function testGetDatabaseS3Backups()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getDatabaseUser
      *
      * Получение пользователя базы данных.
@@ -313,12 +433,36 @@ class DatabasesApiTest extends TestCase
     }
 
     /**
+     * Test case for performDatabaseClusterAction
+     *
+     * Выполнение действия над кластером базы данных.
+     *
+     */
+    public function testPerformDatabaseClusterAction()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for restoreDatabaseFromBackup
      *
      * Восстановление базы данных из бэкапа.
      *
      */
     public function testRestoreDatabaseFromBackup()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for restoreDatabaseFromS3Backup
+     *
+     * Восстановление базы данных из S3-бэкапа.
+     *
+     */
+    public function testRestoreDatabaseFromS3Backup()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -337,6 +481,18 @@ class DatabasesApiTest extends TestCase
     }
 
     /**
+     * Test case for updateDatabaseBackup
+     *
+     * Изменение комментария к бэкапу базы данных.
+     *
+     */
+    public function testUpdateDatabaseBackup()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for updateDatabaseCluster
      *
      * Изменение кластера базы данных.
@@ -349,12 +505,36 @@ class DatabasesApiTest extends TestCase
     }
 
     /**
+     * Test case for updateDatabaseClusterV2
+     *
+     * Изменение кластера базы данных (v2).
+     *
+     */
+    public function testUpdateDatabaseClusterV2()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for updateDatabaseInstance
      *
      * Изменение инстанса базы данных.
      *
      */
     public function testUpdateDatabaseInstance()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateDatabaseS3Backup
+     *
+     * Изменение комментария S3-бэкапа базы данных.
+     *
+     */
+    public function testUpdateDatabaseS3Backup()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

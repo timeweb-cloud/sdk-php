@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hash** | **string** | Хеш, который совместно с кодом авторизации надо будет отправить для удаления |
+**database_delete** | [**\OpenAPI\Client\Model\DeleteDatabaseCluster200ResponseDatabaseDelete**](DeleteDatabaseCluster200ResponseDatabaseDelete.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

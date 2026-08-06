@@ -115,4 +115,31 @@ class DatabaseInstanceTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "extensions"
+     */
+    public function testPropertyExtensions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "owner_id"
+     */
+    public function testPropertyOwnerId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "config_parameters"
+     */
+    public function testPropertyConfigParameters()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

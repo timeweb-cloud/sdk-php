@@ -59,7 +59,10 @@ class UpdateInstance implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'description' => 'string'
+        'description' => 'string',
+        'owner_id' => 'float',
+        'extensions' => '\OpenAPI\Client\Model\DatabaseExtensions',
+        'config_parameters' => '\OpenAPI\Client\Model\UpdateKafkaConfigParameters'
     ];
 
     /**
@@ -71,7 +74,10 @@ class UpdateInstance implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'description' => null
+        'description' => null,
+        'owner_id' => null,
+        'extensions' => null,
+        'config_parameters' => null
     ];
 
     /**
@@ -81,7 +87,10 @@ class UpdateInstance implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'name' => false,
-		'description' => false
+		'description' => false,
+		'owner_id' => false,
+		'extensions' => false,
+		'config_parameters' => false
     ];
 
     /**
@@ -171,7 +180,10 @@ class UpdateInstance implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'description' => 'description'
+        'description' => 'description',
+        'owner_id' => 'owner_id',
+        'extensions' => 'extensions',
+        'config_parameters' => 'config_parameters'
     ];
 
     /**
@@ -181,7 +193,10 @@ class UpdateInstance implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'name' => 'setName',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'owner_id' => 'setOwnerId',
+        'extensions' => 'setExtensions',
+        'config_parameters' => 'setConfigParameters'
     ];
 
     /**
@@ -191,7 +206,10 @@ class UpdateInstance implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'name' => 'getName',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'owner_id' => 'getOwnerId',
+        'extensions' => 'getExtensions',
+        'config_parameters' => 'getConfigParameters'
     ];
 
     /**
@@ -253,6 +271,9 @@ class UpdateInstance implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('owner_id', $data ?? [], null);
+        $this->setIfExists('extensions', $data ?? [], null);
+        $this->setIfExists('config_parameters', $data ?? [], null);
     }
 
     /**
@@ -347,6 +368,87 @@ class UpdateInstance implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_id
+     *
+     * @return float|null
+     */
+    public function getOwnerId()
+    {
+        return $this->container['owner_id'];
+    }
+
+    /**
+     * Sets owner_id
+     *
+     * @param float|null $owner_id ID пользователя базы данных, который станет владельцем инстанса. Доступно только в кластерах PostgreSQL
+     *
+     * @return self
+     */
+    public function setOwnerId($owner_id)
+    {
+        if (is_null($owner_id)) {
+            throw new \InvalidArgumentException('non-nullable owner_id cannot be null');
+        }
+        $this->container['owner_id'] = $owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets extensions
+     *
+     * @return \OpenAPI\Client\Model\DatabaseExtensions|null
+     */
+    public function getExtensions()
+    {
+        return $this->container['extensions'];
+    }
+
+    /**
+     * Sets extensions
+     *
+     * @param \OpenAPI\Client\Model\DatabaseExtensions|null $extensions extensions
+     *
+     * @return self
+     */
+    public function setExtensions($extensions)
+    {
+        if (is_null($extensions)) {
+            throw new \InvalidArgumentException('non-nullable extensions cannot be null');
+        }
+        $this->container['extensions'] = $extensions;
+
+        return $this;
+    }
+
+    /**
+     * Gets config_parameters
+     *
+     * @return \OpenAPI\Client\Model\UpdateKafkaConfigParameters|null
+     */
+    public function getConfigParameters()
+    {
+        return $this->container['config_parameters'];
+    }
+
+    /**
+     * Sets config_parameters
+     *
+     * @param \OpenAPI\Client\Model\UpdateKafkaConfigParameters|null $config_parameters config_parameters
+     *
+     * @return self
+     */
+    public function setConfigParameters($config_parameters)
+    {
+        if (is_null($config_parameters)) {
+            throw new \InvalidArgumentException('non-nullable config_parameters cannot be null');
+        }
+        $this->container['config_parameters'] = $config_parameters;
 
         return $this;
     }

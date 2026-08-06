@@ -58,7 +58,7 @@ class DeleteDatabaseCluster200Response implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'hash' => 'string'
+        'database_delete' => '\OpenAPI\Client\Model\DeleteDatabaseCluster200ResponseDatabaseDelete'
     ];
 
     /**
@@ -69,7 +69,7 @@ class DeleteDatabaseCluster200Response implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'hash' => null
+        'database_delete' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class DeleteDatabaseCluster200Response implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'hash' => false
+        'database_delete' => false
     ];
 
     /**
@@ -167,7 +167,7 @@ class DeleteDatabaseCluster200Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'hash' => 'hash'
+        'database_delete' => 'database_delete'
     ];
 
     /**
@@ -176,7 +176,7 @@ class DeleteDatabaseCluster200Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'hash' => 'setHash'
+        'database_delete' => 'setDatabaseDelete'
     ];
 
     /**
@@ -185,7 +185,7 @@ class DeleteDatabaseCluster200Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'hash' => 'getHash'
+        'database_delete' => 'getDatabaseDelete'
     ];
 
     /**
@@ -245,7 +245,7 @@ class DeleteDatabaseCluster200Response implements ModelInterface, ArrayAccess, \
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('hash', $data ?? [], null);
+        $this->setIfExists('database_delete', $data ?? [], null);
     }
 
     /**
@@ -275,8 +275,8 @@ class DeleteDatabaseCluster200Response implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        if ($this->container['hash'] === null) {
-            $invalidProperties[] = "'hash' can't be null";
+        if ($this->container['database_delete'] === null) {
+            $invalidProperties[] = "'database_delete' can't be null";
         }
         return $invalidProperties;
     }
@@ -294,28 +294,28 @@ class DeleteDatabaseCluster200Response implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets hash
+     * Gets database_delete
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\DeleteDatabaseCluster200ResponseDatabaseDelete
      */
-    public function getHash()
+    public function getDatabaseDelete()
     {
-        return $this->container['hash'];
+        return $this->container['database_delete'];
     }
 
     /**
-     * Sets hash
+     * Sets database_delete
      *
-     * @param string $hash Хеш, который совместно с кодом авторизации надо будет отправить для удаления
+     * @param \OpenAPI\Client\Model\DeleteDatabaseCluster200ResponseDatabaseDelete $database_delete database_delete
      *
      * @return self
      */
-    public function setHash($hash)
+    public function setDatabaseDelete($database_delete)
     {
-        if (is_null($hash)) {
-            throw new \InvalidArgumentException('non-nullable hash cannot be null');
+        if (is_null($database_delete)) {
+            throw new \InvalidArgumentException('non-nullable database_delete cannot be null');
         }
-        $this->container['hash'] = $hash;
+        $this->container['database_delete'] = $database_delete;
 
         return $this;
     }

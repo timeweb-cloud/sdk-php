@@ -60,6 +60,7 @@ class Valkey implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'client_output_buffer_limit_normal' => 'string',
+        'notify_keyspace_events' => 'string',
         'client_output_buffer_limit_pubsub' => 'string',
         'databases' => 'string',
         'timeout' => 'string',
@@ -81,6 +82,7 @@ class Valkey implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'client_output_buffer_limit_normal' => null,
+        'notify_keyspace_events' => null,
         'client_output_buffer_limit_pubsub' => null,
         'databases' => null,
         'timeout' => null,
@@ -100,6 +102,7 @@ class Valkey implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'client_output_buffer_limit_normal' => false,
+		'notify_keyspace_events' => false,
 		'client_output_buffer_limit_pubsub' => false,
 		'databases' => false,
 		'timeout' => false,
@@ -199,6 +202,7 @@ class Valkey implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'client_output_buffer_limit_normal' => 'client-output-buffer-limit normal',
+        'notify_keyspace_events' => 'notify-keyspace-events',
         'client_output_buffer_limit_pubsub' => 'client-output-buffer-limit pubsub',
         'databases' => 'databases',
         'timeout' => 'timeout',
@@ -218,6 +222,7 @@ class Valkey implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'client_output_buffer_limit_normal' => 'setClientOutputBufferLimitNormal',
+        'notify_keyspace_events' => 'setNotifyKeyspaceEvents',
         'client_output_buffer_limit_pubsub' => 'setClientOutputBufferLimitPubsub',
         'databases' => 'setDatabases',
         'timeout' => 'setTimeout',
@@ -237,6 +242,7 @@ class Valkey implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'client_output_buffer_limit_normal' => 'getClientOutputBufferLimitNormal',
+        'notify_keyspace_events' => 'getNotifyKeyspaceEvents',
         'client_output_buffer_limit_pubsub' => 'getClientOutputBufferLimitPubsub',
         'databases' => 'getDatabases',
         'timeout' => 'getTimeout',
@@ -307,6 +313,7 @@ class Valkey implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('client_output_buffer_limit_normal', $data ?? [], null);
+        $this->setIfExists('notify_keyspace_events', $data ?? [], null);
         $this->setIfExists('client_output_buffer_limit_pubsub', $data ?? [], null);
         $this->setIfExists('databases', $data ?? [], null);
         $this->setIfExists('timeout', $data ?? [], null);
@@ -384,6 +391,33 @@ class Valkey implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable client_output_buffer_limit_normal cannot be null');
         }
         $this->container['client_output_buffer_limit_normal'] = $client_output_buffer_limit_normal;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify_keyspace_events
+     *
+     * @return string|null
+     */
+    public function getNotifyKeyspaceEvents()
+    {
+        return $this->container['notify_keyspace_events'];
+    }
+
+    /**
+     * Sets notify_keyspace_events
+     *
+     * @param string|null $notify_keyspace_events Настройка уведомлений о событиях пространства ключей (`valkey` | `valkey7` | `valkey8_1` | `valkey9_1`).
+     *
+     * @return self
+     */
+    public function setNotifyKeyspaceEvents($notify_keyspace_events)
+    {
+        if (is_null($notify_keyspace_events)) {
+            throw new \InvalidArgumentException('non-nullable notify_keyspace_events cannot be null');
+        }
+        $this->container['notify_keyspace_events'] = $notify_keyspace_events;
 
         return $this;
     }

@@ -62,6 +62,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'password' => 'string',
         'host' => 'string',
         'instance_id' => 'float',
+        'for_all' => 'bool',
         'privileges' => '\OpenAPI\Client\Model\PropertiesMysql[]',
         'description' => 'string'
     ];
@@ -78,6 +79,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'password' => null,
         'host' => null,
         'instance_id' => null,
+        'for_all' => null,
         'privileges' => null,
         'description' => null
     ];
@@ -92,6 +94,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
 		'password' => false,
 		'host' => false,
 		'instance_id' => false,
+		'for_all' => false,
 		'privileges' => false,
 		'description' => false
     ];
@@ -186,6 +189,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'password' => 'password',
         'host' => 'host',
         'instance_id' => 'instance_id',
+        'for_all' => 'for_all',
         'privileges' => 'privileges',
         'description' => 'description'
     ];
@@ -200,6 +204,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'password' => 'setPassword',
         'host' => 'setHost',
         'instance_id' => 'setInstanceId',
+        'for_all' => 'setForAll',
         'privileges' => 'setPrivileges',
         'description' => 'setDescription'
     ];
@@ -214,6 +219,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'password' => 'getPassword',
         'host' => 'getHost',
         'instance_id' => 'getInstanceId',
+        'for_all' => 'getForAll',
         'privileges' => 'getPrivileges',
         'description' => 'getDescription'
     ];
@@ -279,6 +285,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('password', $data ?? [], null);
         $this->setIfExists('host', $data ?? [], null);
         $this->setIfExists('instance_id', $data ?? [], null);
+        $this->setIfExists('for_all', $data ?? [], null);
         $this->setIfExists('privileges', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
     }
@@ -315,9 +322,6 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['password'] === null) {
             $invalidProperties[] = "'password' can't be null";
-        }
-        if ($this->container['privileges'] === null) {
-            $invalidProperties[] = "'privileges' can't be null";
         }
         return $invalidProperties;
     }
@@ -443,9 +447,36 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets for_all
+     *
+     * @return bool|null
+     */
+    public function getForAll()
+    {
+        return $this->container['for_all'];
+    }
+
+    /**
+     * Sets for_all
+     *
+     * @param bool|null $for_all Выдать привилегии на все инстансы базы данных
+     *
+     * @return self
+     */
+    public function setForAll($for_all)
+    {
+        if (is_null($for_all)) {
+            throw new \InvalidArgumentException('non-nullable for_all cannot be null');
+        }
+        $this->container['for_all'] = $for_all;
+
+        return $this;
+    }
+
+    /**
      * Gets privileges
      *
-     * @return \OpenAPI\Client\Model\PropertiesMysql[]
+     * @return \OpenAPI\Client\Model\PropertiesMysql[]|null
      */
     public function getPrivileges()
     {
@@ -455,7 +486,7 @@ class CreateAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets privileges
      *
-     * @param \OpenAPI\Client\Model\PropertiesMysql[] $privileges Список привилегий пользователя базы данных
+     * @param \OpenAPI\Client\Model\PropertiesMysql[]|null $privileges Список привилегий пользователя базы данных
      *
      * @return self
      */

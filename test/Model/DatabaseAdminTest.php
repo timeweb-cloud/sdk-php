@@ -135,6 +135,24 @@ class DatabaseAdminTest extends TestCase
     }
 
     /**
+     * Test attribute "for_all"
+     */
+    public function testPropertyForAll()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_reset_password"
+     */
+    public function testPropertyIsResetPassword()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "instances"
      */
     public function testPropertyInstances()

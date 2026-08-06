@@ -78,7 +78,7 @@ class CreateDatabaseBackup201Response implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'backup' => false
+        'backup' => true
     ];
 
     /**
@@ -313,7 +313,14 @@ class CreateDatabaseBackup201Response implements ModelInterface, ArrayAccess, \J
     public function setBackup($backup)
     {
         if (is_null($backup)) {
-            throw new \InvalidArgumentException('non-nullable backup cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'backup');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('backup', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['backup'] = $backup;
 

@@ -90,6 +90,15 @@ class ValkeyTest extends TestCase
     }
 
     /**
+     * Test attribute "notify_keyspace_events"
+     */
+    public function testPropertyNotifyKeyspaceEvents()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "client_output_buffer_limit_pubsub"
      */
     public function testPropertyClientOutputBufferLimitPubsub()

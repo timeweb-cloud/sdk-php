@@ -62,11 +62,13 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'string',
         'description_short' => 'string',
         'cpu' => 'float',
+        'cpu_frequency' => 'string',
         'ram' => 'float',
         'disk' => 'float',
-        'type' => '\OpenAPI\Client\Model\DbType',
+        'type' => 'string',
         'price' => 'float',
-        'location' => 'string'
+        'location' => 'string',
+        'tags' => 'string[]'
     ];
 
     /**
@@ -81,11 +83,13 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => null,
         'description_short' => null,
         'cpu' => null,
+        'cpu_frequency' => null,
         'ram' => null,
         'disk' => null,
         'type' => null,
         'price' => null,
-        'location' => null
+        'location' => null,
+        'tags' => null
     ];
 
     /**
@@ -98,11 +102,13 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
 		'description' => false,
 		'description_short' => false,
 		'cpu' => false,
+		'cpu_frequency' => false,
 		'ram' => false,
 		'disk' => false,
 		'type' => false,
 		'price' => false,
-		'location' => false
+		'location' => false,
+		'tags' => false
     ];
 
     /**
@@ -195,11 +201,13 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'description',
         'description_short' => 'description_short',
         'cpu' => 'cpu',
+        'cpu_frequency' => 'cpu_frequency',
         'ram' => 'ram',
         'disk' => 'disk',
         'type' => 'type',
         'price' => 'price',
-        'location' => 'location'
+        'location' => 'location',
+        'tags' => 'tags'
     ];
 
     /**
@@ -212,11 +220,13 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'setDescription',
         'description_short' => 'setDescriptionShort',
         'cpu' => 'setCpu',
+        'cpu_frequency' => 'setCpuFrequency',
         'ram' => 'setRam',
         'disk' => 'setDisk',
         'type' => 'setType',
         'price' => 'setPrice',
-        'location' => 'setLocation'
+        'location' => 'setLocation',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -229,11 +239,13 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'getDescription',
         'description_short' => 'getDescriptionShort',
         'cpu' => 'getCpu',
+        'cpu_frequency' => 'getCpuFrequency',
         'ram' => 'getRam',
         'disk' => 'getDisk',
         'type' => 'getType',
         'price' => 'getPrice',
-        'location' => 'getLocation'
+        'location' => 'getLocation',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -277,9 +289,42 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TYPE_MYSQL = 'mysql';
+    public const TYPE_MYSQL5 = 'mysql5';
+    public const TYPE_POSTGRES = 'postgres';
+    public const TYPE_REDIS = 'redis';
+    public const TYPE_MONGODB = 'mongodb';
+    public const TYPE_OPENSEARCH = 'opensearch';
+    public const TYPE_CLICKHOUSE = 'clickhouse';
+    public const TYPE_KAFKA = 'kafka';
+    public const TYPE_RABBITMQ = 'rabbitmq';
     public const LOCATION_RU_1 = 'ru-1';
+    public const LOCATION_RU_3 = 'ru-3';
     public const LOCATION_PL_1 = 'pl-1';
-    public const LOCATION_KZ_1 = 'kz-1';
+    public const LOCATION_NL_1 = 'nl-1';
+    public const LOCATION_DE_1 = 'de-1';
+    public const LOCATION_US_2 = 'us-2';
+    public const LOCATION_US_3 = 'us-3';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_MYSQL,
+            self::TYPE_MYSQL5,
+            self::TYPE_POSTGRES,
+            self::TYPE_REDIS,
+            self::TYPE_MONGODB,
+            self::TYPE_OPENSEARCH,
+            self::TYPE_CLICKHOUSE,
+            self::TYPE_KAFKA,
+            self::TYPE_RABBITMQ,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -290,8 +335,12 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::LOCATION_RU_1,
+            self::LOCATION_RU_3,
             self::LOCATION_PL_1,
-            self::LOCATION_KZ_1,
+            self::LOCATION_NL_1,
+            self::LOCATION_DE_1,
+            self::LOCATION_US_2,
+            self::LOCATION_US_3,
         ];
     }
 
@@ -314,11 +363,13 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('description_short', $data ?? [], null);
         $this->setIfExists('cpu', $data ?? [], null);
+        $this->setIfExists('cpu_frequency', $data ?? [], null);
         $this->setIfExists('ram', $data ?? [], null);
         $this->setIfExists('disk', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
+        $this->setIfExists('tags', $data ?? [], null);
     }
 
     /**
@@ -347,6 +398,15 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getLocationAllowableValues();
         if (!is_null($this->container['location']) && !in_array($this->container['location'], $allowedValues, true)) {
@@ -466,7 +526,7 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cpu
      *
-     * @param float|null $cpu Описание процессора тарифа.
+     * @param float|null $cpu Количество ядер процессора тарифа.
      *
      * @return self
      */
@@ -476,6 +536,33 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable cpu cannot be null');
         }
         $this->container['cpu'] = $cpu;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu_frequency
+     *
+     * @return string|null
+     */
+    public function getCpuFrequency()
+    {
+        return $this->container['cpu_frequency'];
+    }
+
+    /**
+     * Sets cpu_frequency
+     *
+     * @param string|null $cpu_frequency Частота процессора (в ГГц).
+     *
+     * @return self
+     */
+    public function setCpuFrequency($cpu_frequency)
+    {
+        if (is_null($cpu_frequency)) {
+            throw new \InvalidArgumentException('non-nullable cpu_frequency cannot be null');
+        }
+        $this->container['cpu_frequency'] = $cpu_frequency;
 
         return $this;
     }
@@ -493,7 +580,7 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ram
      *
-     * @param float|null $ram Описание ОЗУ тарифа.
+     * @param float|null $ram Объём оперативной памяти тарифа (в Мб).
      *
      * @return self
      */
@@ -520,7 +607,7 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets disk
      *
-     * @param float|null $disk Описание диска тарифа.
+     * @param float|null $disk Размер диска тарифа (в Мб).
      *
      * @return self
      */
@@ -537,7 +624,7 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \OpenAPI\Client\Model\DbType|null
+     * @return string|null
      */
     public function getType()
     {
@@ -547,7 +634,7 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \OpenAPI\Client\Model\DbType|null $type type
+     * @param string|null $type Семейство СУБД тарифа. Значение не совпадает с типом кластера, который передаётся в поле `type` при создании кластера (`POST /api/v1/databases`): там используется версионированный тип, например `postgres17`. Тарифы для Valkey возвращаются со значением `redis` — отдельного значения `valkey` в этом поле не бывает.
      *
      * @return self
      */
@@ -555,6 +642,16 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -621,6 +718,33 @@ class PresetsDbs implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['location'] = $location;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return string[]|null
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param string[]|null $tags Теги тарифа, в том числе тег группы тарифов, в пределах которой доступна смена тарифа.
+     *
+     * @return self
+     */
+    public function setTags($tags)
+    {
+        if (is_null($tags)) {
+            throw new \InvalidArgumentException('non-nullable tags cannot be null');
+        }
+        $this->container['tags'] = $tags;
 
         return $this;
     }

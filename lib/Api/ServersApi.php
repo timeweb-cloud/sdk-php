@@ -266,7 +266,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AddServerIP201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\AddServerIP201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function addServerIP($server_id, $add_server_ip_request, string $contentType = self::contentTypes['addServerIP'][0])
     {
@@ -285,7 +285,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AddServerIP201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\AddServerIP201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function addServerIPWithHttpInfo($server_id, $add_server_ip_request, string $contentType = self::contentTypes['addServerIP'][0])
     {
@@ -403,17 +403,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -510,7 +510,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -735,7 +735,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function cloneServer($server_id, string $contentType = self::contentTypes['cloneServer'][0])
     {
@@ -753,7 +753,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function cloneServerWithHttpInfo($server_id, string $contentType = self::contentTypes['cloneServer'][0])
     {
@@ -856,17 +856,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -955,7 +955,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1875,7 +1875,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createServer($create_server, string $contentType = self::contentTypes['createServer'][0])
     {
@@ -1893,7 +1893,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createServerWithHttpInfo($create_server, string $contentType = self::contentTypes['createServer'][0])
     {
@@ -1996,17 +1996,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2095,7 +2095,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2300,7 +2300,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateServerDisk201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateServerDisk201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createServerDisk($server_id, $create_server_disk_request = null, string $contentType = self::contentTypes['createServerDisk'][0])
     {
@@ -2319,7 +2319,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateServerDisk201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateServerDisk201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createServerDiskWithHttpInfo($server_id, $create_server_disk_request = null, string $contentType = self::contentTypes['createServerDisk'][0])
     {
@@ -2437,17 +2437,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2544,7 +2544,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3229,7 +3229,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\DeleteServer200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\DeleteServer200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function deleteServer($server_id, $hash = null, $code = null, string $contentType = self::contentTypes['deleteServer'][0])
     {
@@ -3249,7 +3249,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\DeleteServer200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\DeleteServer200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteServerWithHttpInfo($server_id, $hash = null, $code = null, string $contentType = self::contentTypes['deleteServer'][0])
     {
@@ -3367,17 +3367,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3474,7 +3474,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3807,7 +3807,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4124,7 +4124,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4460,7 +4460,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6223,7 +6223,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getServer($server_id, string $contentType = self::contentTypes['getServer'][0])
     {
@@ -6241,7 +6241,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getServerWithHttpInfo($server_id, string $contentType = self::contentTypes['getServer'][0])
     {
@@ -6359,17 +6359,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6466,7 +6466,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6675,7 +6675,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateServerDisk201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateServerDisk201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getServerDisk($server_id, $disk_id, string $contentType = self::contentTypes['getServerDisk'][0])
     {
@@ -6694,7 +6694,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateServerDisk201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateServerDisk201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getServerDiskWithHttpInfo($server_id, $disk_id, string $contentType = self::contentTypes['getServerDisk'][0])
     {
@@ -6812,17 +6812,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6919,7 +6919,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7149,7 +7149,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getServerDiskAutoBackupSettings($server_id, $disk_id, string $contentType = self::contentTypes['getServerDiskAutoBackupSettings'][0])
     {
@@ -7168,7 +7168,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getServerDiskAutoBackupSettingsWithHttpInfo($server_id, $disk_id, string $contentType = self::contentTypes['getServerDiskAutoBackupSettings'][0])
     {
@@ -7211,17 +7211,17 @@ class ServersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7317,7 +7317,7 @@ class ServersApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response';
+            $returnType = '\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7338,7 +7338,7 @@ class ServersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response',
+                        '\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7432,7 +7432,7 @@ class ServersApi
      */
     public function getServerDiskAutoBackupSettingsAsyncWithHttpInfo($server_id, $disk_id, string $contentType = self::contentTypes['getServerDiskAutoBackupSettings'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response';
+        $returnType = '\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response';
         $request = $this->getServerDiskAutoBackupSettingsRequest($server_id, $disk_id, $contentType);
 
         return $this->client
@@ -8524,7 +8524,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetServerDisks200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetServerDisks200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getServerDisks($server_id, string $contentType = self::contentTypes['getServerDisks'][0])
     {
@@ -8542,7 +8542,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetServerDisks200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetServerDisks200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getServerDisksWithHttpInfo($server_id, string $contentType = self::contentTypes['getServerDisks'][0])
     {
@@ -8660,17 +8660,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -8767,7 +8767,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8975,7 +8975,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetServerIPs200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetServerIPs200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getServerIPs($server_id, string $contentType = self::contentTypes['getServerIPs'][0])
     {
@@ -8993,7 +8993,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetServerIPs200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetServerIPs200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getServerIPsWithHttpInfo($server_id, string $contentType = self::contentTypes['getServerIPs'][0])
     {
@@ -9111,17 +9111,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9218,7 +9218,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9429,7 +9429,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetServerLogs200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetServerLogs200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getServerLogs($server_id, $limit = 100, $offset = 0, $order = 'asc', string $contentType = self::contentTypes['getServerLogs'][0])
     {
@@ -9450,7 +9450,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetServerLogs200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetServerLogs200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getServerLogsWithHttpInfo($server_id, $limit = 100, $offset = 0, $order = 'asc', string $contentType = self::contentTypes['getServerLogs'][0])
     {
@@ -9568,17 +9568,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9675,7 +9675,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9924,7 +9924,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetServerStatistics200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetServerStatistics200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      * @deprecated
      */
     public function getServerStatistics($server_id, $date_from, $date_to, string $contentType = self::contentTypes['getServerStatistics'][0])
@@ -9945,7 +9945,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetServerStatistics200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetServerStatistics200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      * @deprecated
      */
     public function getServerStatisticsWithHttpInfo($server_id, $date_from, $date_to, string $contentType = self::contentTypes['getServerStatistics'][0])
@@ -10064,17 +10064,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10171,7 +10171,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10423,7 +10423,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetServerStatisticsNew200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetServerStatisticsNew200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getServerStatisticsNew($server_id, $time_from, $period, $keys, string $contentType = self::contentTypes['getServerStatisticsNew'][0])
     {
@@ -10444,7 +10444,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetServerStatisticsNew200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetServerStatisticsNew200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getServerStatisticsNewWithHttpInfo($server_id, $time_from, $period, $keys, string $contentType = self::contentTypes['getServerStatisticsNew'][0])
     {
@@ -10562,17 +10562,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10669,7 +10669,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12242,7 +12242,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12816,7 +12816,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13165,7 +13165,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13463,7 +13463,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13747,7 +13747,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14023,7 +14023,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14591,7 +14591,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14867,7 +14867,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15063,7 +15063,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateServer($server_id, $update_server, string $contentType = self::contentTypes['updateServer'][0])
     {
@@ -15082,7 +15082,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateServer201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateServerWithHttpInfo($server_id, $update_server, string $contentType = self::contentTypes['updateServer'][0])
     {
@@ -15200,17 +15200,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -15307,7 +15307,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15534,7 +15534,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateServerDisk201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateServerDisk201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateServerDisk($server_id, $disk_id, $update_server_disk_request = null, string $contentType = self::contentTypes['updateServerDisk'][0])
     {
@@ -15554,7 +15554,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateServerDisk201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateServerDisk201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateServerDiskWithHttpInfo($server_id, $disk_id, $update_server_disk_request = null, string $contentType = self::contentTypes['updateServerDisk'][0])
     {
@@ -15672,17 +15672,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -15779,7 +15779,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16021,7 +16021,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateServerDiskAutoBackupSettings($server_id, $disk_id, $auto_backup = null, string $contentType = self::contentTypes['updateServerDiskAutoBackupSettings'][0])
     {
@@ -16041,7 +16041,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateServerDiskAutoBackupSettingsWithHttpInfo($server_id, $disk_id, $auto_backup = null, string $contentType = self::contentTypes['updateServerDiskAutoBackupSettings'][0])
     {
@@ -16084,17 +16084,17 @@ class ServersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -16190,7 +16190,7 @@ class ServersApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response';
+            $returnType = '\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -16211,7 +16211,7 @@ class ServersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response',
+                        '\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16307,7 +16307,7 @@ class ServersApi
      */
     public function updateServerDiskAutoBackupSettingsAsyncWithHttpInfo($server_id, $disk_id, $auto_backup = null, string $contentType = self::contentTypes['updateServerDiskAutoBackupSettings'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetServerDiskAutoBackupSettings200Response';
+        $returnType = '\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response';
         $request = $this->updateServerDiskAutoBackupSettingsRequest($server_id, $disk_id, $auto_backup, $contentType);
 
         return $this->client
@@ -16971,7 +16971,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AddServerIP201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\AddServerIP201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateServerIP($server_id, $update_server_ip_request, string $contentType = self::contentTypes['updateServerIP'][0])
     {
@@ -16990,7 +16990,7 @@ class ServersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AddServerIP201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\AddServerIP201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateServerIPWithHttpInfo($server_id, $update_server_ip_request, string $contentType = self::contentTypes['updateServerIP'][0])
     {
@@ -17108,17 +17108,17 @@ class ServersApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -17215,7 +17215,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17539,7 +17539,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17844,7 +17844,7 @@ class ServersApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

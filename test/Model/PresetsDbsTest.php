@@ -117,6 +117,15 @@ class PresetsDbsTest extends TestCase
     }
 
     /**
+     * Test attribute "cpu_frequency"
+     */
+    public function testPropertyCpuFrequency()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "ram"
      */
     public function testPropertyRam()
@@ -156,6 +165,15 @@ class PresetsDbsTest extends TestCase
      * Test attribute "location"
      */
     public function testPropertyLocation()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "tags"
+     */
+    public function testPropertyTags()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

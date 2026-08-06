@@ -81,9 +81,9 @@ class DeleteDatabaseCluster200ResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "hash"
+     * Test attribute "database_delete"
      */
-    public function testPropertyHash()
+    public function testPropertyDatabaseDelete()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

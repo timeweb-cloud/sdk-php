@@ -75,10 +75,16 @@ class DatabasesApi
         'createDatabaseBackup' => [
             'application/json',
         ],
+        'createDatabaseBackupDownloadUrl' => [
+            'application/json',
+        ],
         'createDatabaseCluster' => [
             'application/json',
         ],
         'createDatabaseInstance' => [
+            'application/json',
+        ],
+        'createDatabaseS3Backup' => [
             'application/json',
         ],
         'createDatabaseUser' => [
@@ -91,6 +97,9 @@ class DatabasesApi
             'application/json',
         ],
         'deleteDatabaseInstance' => [
+            'application/json',
+        ],
+        'deleteDatabaseS3Backup' => [
             'application/json',
         ],
         'deleteDatabaseUser' => [
@@ -108,10 +117,19 @@ class DatabasesApi
         'getDatabaseCluster' => [
             'application/json',
         ],
+        'getDatabaseClusterReplicas' => [
+            'application/json',
+        ],
         'getDatabaseClusterTypes' => [
             'application/json',
         ],
         'getDatabaseClusters' => [
+            'application/json',
+        ],
+        'getDatabaseConfigurators' => [
+            'application/json',
+        ],
+        'getDatabaseDefaultParameters' => [
             'application/json',
         ],
         'getDatabaseInstance' => [
@@ -123,6 +141,18 @@ class DatabasesApi
         'getDatabaseParameters' => [
             'application/json',
         ],
+        'getDatabasePreset' => [
+            'application/json',
+        ],
+        'getDatabasePrivileges' => [
+            'application/json',
+        ],
+        'getDatabaseS3Backup' => [
+            'application/json',
+        ],
+        'getDatabaseS3Backups' => [
+            'application/json',
+        ],
         'getDatabaseUser' => [
             'application/json',
         ],
@@ -132,16 +162,31 @@ class DatabasesApi
         'getDatabasesPresets' => [
             'application/json',
         ],
+        'performDatabaseClusterAction' => [
+            'application/json',
+        ],
         'restoreDatabaseFromBackup' => [
+            'application/json',
+        ],
+        'restoreDatabaseFromS3Backup' => [
             'application/json',
         ],
         'updateDatabaseAutoBackupsSettings' => [
             'application/json',
         ],
+        'updateDatabaseBackup' => [
+            'application/json',
+        ],
         'updateDatabaseCluster' => [
             'application/json',
         ],
+        'updateDatabaseClusterV2' => [
+            'application/json',
+        ],
         'updateDatabaseInstance' => [
+            'application/json',
+        ],
+        'updateDatabaseS3Backup' => [
             'application/json',
         ],
         'updateDatabaseUser' => [
@@ -201,16 +246,16 @@ class DatabasesApi
      * Создание бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  string $comment Описание бэкапа (optional)
+     * @param  \OpenAPI\Client\Model\DbsCreateBackup $dbs_create_backup dbs_create_backup (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateDatabaseBackup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateDatabaseBackup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function createDatabaseBackup($db_id, $comment = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
+    public function createDatabaseBackup($db_id, $dbs_create_backup = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
     {
-        list($response) = $this->createDatabaseBackupWithHttpInfo($db_id, $comment, $contentType);
+        list($response) = $this->createDatabaseBackupWithHttpInfo($db_id, $dbs_create_backup, $contentType);
         return $response;
     }
 
@@ -220,16 +265,16 @@ class DatabasesApi
      * Создание бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  string $comment Описание бэкапа (optional)
+     * @param  \OpenAPI\Client\Model\DbsCreateBackup $dbs_create_backup (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateDatabaseBackup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\CreateDatabaseBackup409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateDatabaseBackup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDatabaseBackupWithHttpInfo($db_id, $comment = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
+    public function createDatabaseBackupWithHttpInfo($db_id, $dbs_create_backup = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
     {
-        $request = $this->createDatabaseBackupRequest($db_id, $comment, $contentType);
+        $request = $this->createDatabaseBackupRequest($db_id, $dbs_create_backup, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -343,17 +388,17 @@ class DatabasesApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup409Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup409Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -450,7 +495,7 @@ class DatabasesApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -482,15 +527,15 @@ class DatabasesApi
      * Создание бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  string $comment Описание бэкапа (optional)
+     * @param  \OpenAPI\Client\Model\DbsCreateBackup $dbs_create_backup (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDatabaseBackupAsync($db_id, $comment = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
+    public function createDatabaseBackupAsync($db_id, $dbs_create_backup = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
     {
-        return $this->createDatabaseBackupAsyncWithHttpInfo($db_id, $comment, $contentType)
+        return $this->createDatabaseBackupAsyncWithHttpInfo($db_id, $dbs_create_backup, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -504,16 +549,16 @@ class DatabasesApi
      * Создание бэкапа базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  string $comment Описание бэкапа (optional)
+     * @param  \OpenAPI\Client\Model\DbsCreateBackup $dbs_create_backup (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDatabaseBackupAsyncWithHttpInfo($db_id, $comment = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
+    public function createDatabaseBackupAsyncWithHttpInfo($db_id, $dbs_create_backup = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CreateDatabaseBackup201Response';
-        $request = $this->createDatabaseBackupRequest($db_id, $comment, $contentType);
+        $request = $this->createDatabaseBackupRequest($db_id, $dbs_create_backup, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -555,13 +600,13 @@ class DatabasesApi
      * Create request for operation 'createDatabaseBackup'
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  string $comment Описание бэкапа (optional)
+     * @param  \OpenAPI\Client\Model\DbsCreateBackup $dbs_create_backup (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createDatabaseBackupRequest($db_id, $comment = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
+    public function createDatabaseBackupRequest($db_id, $dbs_create_backup = null, string $contentType = self::contentTypes['createDatabaseBackup'][0])
     {
 
         // verify the required parameter 'db_id' is set
@@ -580,15 +625,6 @@ class DatabasesApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $comment,
-            'comment', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
 
         // path params
@@ -608,7 +644,501 @@ class DatabasesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($dbs_create_backup)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($dbs_create_backup));
+            } else {
+                $httpBody = $dbs_create_backup;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createDatabaseBackupDownloadUrl
+     *
+     * Получение ссылки для скачивания бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  int $backup_id ID резервной копии (required)
+     * @param  \OpenAPI\Client\Model\BackupDownloadUrlRequest $backup_download_url_request backup_download_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackupDownloadUrl'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CreateDatabaseBackupDownloadUrl201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function createDatabaseBackupDownloadUrl($db_id, $backup_id, $backup_download_url_request, string $contentType = self::contentTypes['createDatabaseBackupDownloadUrl'][0])
+    {
+        list($response) = $this->createDatabaseBackupDownloadUrlWithHttpInfo($db_id, $backup_id, $backup_download_url_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createDatabaseBackupDownloadUrlWithHttpInfo
+     *
+     * Получение ссылки для скачивания бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  int $backup_id ID резервной копии (required)
+     * @param  \OpenAPI\Client\Model\BackupDownloadUrlRequest $backup_download_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackupDownloadUrl'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\CreateDatabaseBackupDownloadUrl201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createDatabaseBackupDownloadUrlWithHttpInfo($db_id, $backup_id, $backup_download_url_request, string $contentType = self::contentTypes['createDatabaseBackupDownloadUrl'][0])
+    {
+        $request = $this->createDatabaseBackupDownloadUrlRequest($db_id, $backup_id, $backup_download_url_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\OpenAPI\Client\Model\CreateDatabaseBackupDownloadUrl201Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\CreateDatabaseBackupDownloadUrl201Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackupDownloadUrl201Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CreateDatabaseBackupDownloadUrl201Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDatabaseBackupDownloadUrl201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createDatabaseBackupDownloadUrlAsync
+     *
+     * Получение ссылки для скачивания бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  int $backup_id ID резервной копии (required)
+     * @param  \OpenAPI\Client\Model\BackupDownloadUrlRequest $backup_download_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackupDownloadUrl'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createDatabaseBackupDownloadUrlAsync($db_id, $backup_id, $backup_download_url_request, string $contentType = self::contentTypes['createDatabaseBackupDownloadUrl'][0])
+    {
+        return $this->createDatabaseBackupDownloadUrlAsyncWithHttpInfo($db_id, $backup_id, $backup_download_url_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createDatabaseBackupDownloadUrlAsyncWithHttpInfo
+     *
+     * Получение ссылки для скачивания бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  int $backup_id ID резервной копии (required)
+     * @param  \OpenAPI\Client\Model\BackupDownloadUrlRequest $backup_download_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackupDownloadUrl'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createDatabaseBackupDownloadUrlAsyncWithHttpInfo($db_id, $backup_id, $backup_download_url_request, string $contentType = self::contentTypes['createDatabaseBackupDownloadUrl'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\CreateDatabaseBackupDownloadUrl201Response';
+        $request = $this->createDatabaseBackupDownloadUrlRequest($db_id, $backup_id, $backup_download_url_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createDatabaseBackupDownloadUrl'
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  int $backup_id ID резервной копии (required)
+     * @param  \OpenAPI\Client\Model\BackupDownloadUrlRequest $backup_download_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseBackupDownloadUrl'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createDatabaseBackupDownloadUrlRequest($db_id, $backup_id, $backup_download_url_request, string $contentType = self::contentTypes['createDatabaseBackupDownloadUrl'][0])
+    {
+
+        // verify the required parameter 'db_id' is set
+        if ($db_id === null || (is_array($db_id) && count($db_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $db_id when calling createDatabaseBackupDownloadUrl'
+            );
+        }
+
+        // verify the required parameter 'backup_id' is set
+        if ($backup_id === null || (is_array($backup_id) && count($backup_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $backup_id when calling createDatabaseBackupDownloadUrl'
+            );
+        }
+
+        // verify the required parameter 'backup_download_url_request' is set
+        if ($backup_download_url_request === null || (is_array($backup_download_url_request) && count($backup_download_url_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $backup_download_url_request when calling createDatabaseBackupDownloadUrl'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/dbs/{db_id}/backups/{backup_id}/download-url';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($db_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'db_id' . '}',
+                ObjectSerializer::toPathValue($db_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($backup_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'backup_id' . '}',
+                ObjectSerializer::toPathValue($backup_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($backup_download_url_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($backup_download_url_request));
+            } else {
+                $httpBody = $backup_download_url_request;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1527,6 +2057,467 @@ class DatabasesApi
     }
 
     /**
+     * Operation createDatabaseS3Backup
+     *
+     * Создание S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  \OpenAPI\Client\Model\CreateS3Backup $create_s3_backup create_s3_backup (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CreateDatabaseS3Backup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function createDatabaseS3Backup($db_id, $create_s3_backup = null, string $contentType = self::contentTypes['createDatabaseS3Backup'][0])
+    {
+        list($response) = $this->createDatabaseS3BackupWithHttpInfo($db_id, $create_s3_backup, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createDatabaseS3BackupWithHttpInfo
+     *
+     * Создание S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  \OpenAPI\Client\Model\CreateS3Backup $create_s3_backup (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\CreateDatabaseS3Backup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createDatabaseS3BackupWithHttpInfo($db_id, $create_s3_backup = null, string $contentType = self::contentTypes['createDatabaseS3Backup'][0])
+    {
+        $request = $this->createDatabaseS3BackupRequest($db_id, $create_s3_backup, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createDatabaseS3BackupAsync
+     *
+     * Создание S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  \OpenAPI\Client\Model\CreateS3Backup $create_s3_backup (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createDatabaseS3BackupAsync($db_id, $create_s3_backup = null, string $contentType = self::contentTypes['createDatabaseS3Backup'][0])
+    {
+        return $this->createDatabaseS3BackupAsyncWithHttpInfo($db_id, $create_s3_backup, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createDatabaseS3BackupAsyncWithHttpInfo
+     *
+     * Создание S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  \OpenAPI\Client\Model\CreateS3Backup $create_s3_backup (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createDatabaseS3BackupAsyncWithHttpInfo($db_id, $create_s3_backup = null, string $contentType = self::contentTypes['createDatabaseS3Backup'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response';
+        $request = $this->createDatabaseS3BackupRequest($db_id, $create_s3_backup, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createDatabaseS3Backup'
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  \OpenAPI\Client\Model\CreateS3Backup $create_s3_backup (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createDatabaseS3BackupRequest($db_id, $create_s3_backup = null, string $contentType = self::contentTypes['createDatabaseS3Backup'][0])
+    {
+
+        // verify the required parameter 'db_id' is set
+        if ($db_id === null || (is_array($db_id) && count($db_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $db_id when calling createDatabaseS3Backup'
+            );
+        }
+
+
+
+        $resourcePath = '/api/v2/databases/{db_id}/backups';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($db_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'db_id' . '}',
+                ObjectSerializer::toPathValue($db_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($create_s3_backup)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_s3_backup));
+            } else {
+                $httpBody = $create_s3_backup;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation createDatabaseUser
      *
      * Создание пользователя базы данных
@@ -2076,6 +3067,14 @@ class DatabasesApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -2277,17 +3276,15 @@ class DatabasesApi
      * Удаление кластера базы данных
      *
      * @param  int $db_cluster_id ID кластера базы данных (required)
-     * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
-     * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseCluster'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DeleteDatabaseCluster200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function deleteDatabaseCluster($db_cluster_id, $hash = null, $code = null, string $contentType = self::contentTypes['deleteDatabaseCluster'][0])
+    public function deleteDatabaseCluster($db_cluster_id, string $contentType = self::contentTypes['deleteDatabaseCluster'][0])
     {
-        list($response) = $this->deleteDatabaseClusterWithHttpInfo($db_cluster_id, $hash, $code, $contentType);
+        list($response) = $this->deleteDatabaseClusterWithHttpInfo($db_cluster_id, $contentType);
         return $response;
     }
 
@@ -2297,17 +3294,15 @@ class DatabasesApi
      * Удаление кластера базы данных
      *
      * @param  int $db_cluster_id ID кластера базы данных (required)
-     * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
-     * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseCluster'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DeleteDatabaseCluster200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteDatabaseClusterWithHttpInfo($db_cluster_id, $hash = null, $code = null, string $contentType = self::contentTypes['deleteDatabaseCluster'][0])
+    public function deleteDatabaseClusterWithHttpInfo($db_cluster_id, string $contentType = self::contentTypes['deleteDatabaseCluster'][0])
     {
-        $request = $this->deleteDatabaseClusterRequest($db_cluster_id, $hash, $code, $contentType);
+        $request = $this->deleteDatabaseClusterRequest($db_cluster_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2537,16 +3532,14 @@ class DatabasesApi
      * Удаление кластера базы данных
      *
      * @param  int $db_cluster_id ID кластера базы данных (required)
-     * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
-     * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseCluster'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDatabaseClusterAsync($db_cluster_id, $hash = null, $code = null, string $contentType = self::contentTypes['deleteDatabaseCluster'][0])
+    public function deleteDatabaseClusterAsync($db_cluster_id, string $contentType = self::contentTypes['deleteDatabaseCluster'][0])
     {
-        return $this->deleteDatabaseClusterAsyncWithHttpInfo($db_cluster_id, $hash, $code, $contentType)
+        return $this->deleteDatabaseClusterAsyncWithHttpInfo($db_cluster_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2560,17 +3553,15 @@ class DatabasesApi
      * Удаление кластера базы данных
      *
      * @param  int $db_cluster_id ID кластера базы данных (required)
-     * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
-     * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseCluster'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDatabaseClusterAsyncWithHttpInfo($db_cluster_id, $hash = null, $code = null, string $contentType = self::contentTypes['deleteDatabaseCluster'][0])
+    public function deleteDatabaseClusterAsyncWithHttpInfo($db_cluster_id, string $contentType = self::contentTypes['deleteDatabaseCluster'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DeleteDatabaseCluster200Response';
-        $request = $this->deleteDatabaseClusterRequest($db_cluster_id, $hash, $code, $contentType);
+        $request = $this->deleteDatabaseClusterRequest($db_cluster_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2612,14 +3603,12 @@ class DatabasesApi
      * Create request for operation 'deleteDatabaseCluster'
      *
      * @param  int $db_cluster_id ID кластера базы данных (required)
-     * @param  string $hash Хеш, который совместно с кодом авторизации надо отправить для удаления, если включено подтверждение удаления сервисов через Телеграм. (optional)
-     * @param  string $code Код подтверждения, который придет к вам в Телеграм, после запроса удаления, если включено подтверждение удаления сервисов.  При помощи API токена сервисы можно удалять без подтверждения, если параметр токена &#x60;is_able_to_delete&#x60; установлен в значение &#x60;true&#x60; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseCluster'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteDatabaseClusterRequest($db_cluster_id, $hash = null, $code = null, string $contentType = self::contentTypes['deleteDatabaseCluster'][0])
+    public function deleteDatabaseClusterRequest($db_cluster_id, string $contentType = self::contentTypes['deleteDatabaseCluster'][0])
     {
 
         // verify the required parameter 'db_cluster_id' is set
@@ -2630,8 +3619,6 @@ class DatabasesApi
         }
 
 
-
-
         $resourcePath = '/api/v1/databases/{db_cluster_id}';
         $formParams = [];
         $queryParams = [];
@@ -2639,24 +3626,6 @@ class DatabasesApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $hash,
-            'hash', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $code,
-            'code', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
 
         // path params
@@ -2965,6 +3934,315 @@ class DatabasesApi
             $resourcePath = str_replace(
                 '{' . 'instance_id' . '}',
                 ObjectSerializer::toPathValue($instance_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteDatabaseS3Backup
+     *
+     * Удаление S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteDatabaseS3Backup($db_id, $backup_id, string $contentType = self::contentTypes['deleteDatabaseS3Backup'][0])
+    {
+        $this->deleteDatabaseS3BackupWithHttpInfo($db_id, $backup_id, $contentType);
+    }
+
+    /**
+     * Operation deleteDatabaseS3BackupWithHttpInfo
+     *
+     * Удаление S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteDatabaseS3BackupWithHttpInfo($db_id, $backup_id, string $contentType = self::contentTypes['deleteDatabaseS3Backup'][0])
+    {
+        $request = $this->deleteDatabaseS3BackupRequest($db_id, $backup_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteDatabaseS3BackupAsync
+     *
+     * Удаление S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteDatabaseS3BackupAsync($db_id, $backup_id, string $contentType = self::contentTypes['deleteDatabaseS3Backup'][0])
+    {
+        return $this->deleteDatabaseS3BackupAsyncWithHttpInfo($db_id, $backup_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteDatabaseS3BackupAsyncWithHttpInfo
+     *
+     * Удаление S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteDatabaseS3BackupAsyncWithHttpInfo($db_id, $backup_id, string $contentType = self::contentTypes['deleteDatabaseS3Backup'][0])
+    {
+        $returnType = '';
+        $request = $this->deleteDatabaseS3BackupRequest($db_id, $backup_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteDatabaseS3Backup'
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteDatabaseS3BackupRequest($db_id, $backup_id, string $contentType = self::contentTypes['deleteDatabaseS3Backup'][0])
+    {
+
+        // verify the required parameter 'db_id' is set
+        if ($db_id === null || (is_array($db_id) && count($db_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $db_id when calling deleteDatabaseS3Backup'
+            );
+        }
+
+        // verify the required parameter 'backup_id' is set
+        if ($backup_id === null || (is_array($backup_id) && count($backup_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $backup_id when calling deleteDatabaseS3Backup'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/databases/{db_id}/backups/{backup_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($db_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'db_id' . '}',
+                ObjectSerializer::toPathValue($db_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($backup_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'backup_id' . '}',
+                ObjectSerializer::toPathValue($backup_id),
                 $resourcePath
             );
         }
@@ -3338,7 +4616,7 @@ class DatabasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getDatabaseAutoBackupsSettings($db_id, string $contentType = self::contentTypes['getDatabaseAutoBackupsSettings'][0])
     {
@@ -3356,7 +4634,7 @@ class DatabasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDatabaseAutoBackupsSettingsWithHttpInfo($db_id, string $contentType = self::contentTypes['getDatabaseAutoBackupsSettings'][0])
     {
@@ -3473,6 +4751,21 @@ class DatabasesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 409:
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 429:
                     if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -3559,6 +4852,14 @@ class DatabasesApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3764,7 +5065,7 @@ class DatabasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateDatabaseBackup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetDatabaseBackup200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getDatabaseBackup($db_id, $backup_id, string $contentType = self::contentTypes['getDatabaseBackup'][0])
     {
@@ -3783,7 +5084,7 @@ class DatabasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateDatabaseBackup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetDatabaseBackup200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDatabaseBackupWithHttpInfo($db_id, $backup_id, string $contentType = self::contentTypes['getDatabaseBackup'][0])
     {
@@ -3826,17 +5127,17 @@ class DatabasesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseBackup201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetDatabaseBackup200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseBackup201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetDatabaseBackup200Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseBackup201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetDatabaseBackup200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3900,6 +5201,21 @@ class DatabasesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 409:
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 429:
                     if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -3932,7 +5248,7 @@ class DatabasesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateDatabaseBackup201Response';
+            $returnType = '\OpenAPI\Client\Model\GetDatabaseBackup200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3953,7 +5269,7 @@ class DatabasesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup201Response',
+                        '\OpenAPI\Client\Model\GetDatabaseBackup200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3986,6 +5302,14 @@ class DatabasesApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4047,7 +5371,7 @@ class DatabasesApi
      */
     public function getDatabaseBackupAsyncWithHttpInfo($db_id, $backup_id, string $contentType = self::contentTypes['getDatabaseBackup'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateDatabaseBackup201Response';
+        $returnType = '\OpenAPI\Client\Model\GetDatabaseBackup200Response';
         $request = $this->getDatabaseBackupRequest($db_id, $backup_id, $contentType);
 
         return $this->client
@@ -4723,7 +6047,7 @@ class DatabasesApi
             }
 
             switch($statusCode) {
-                case 201:
+                case 200:
                     if ('\OpenAPI\Client\Model\CreateDatabaseCluster201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -4848,7 +6172,7 @@ class DatabasesApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 201:
+                case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\CreateDatabaseCluster201Response',
@@ -5003,6 +6327,431 @@ class DatabasesApi
 
 
         $resourcePath = '/api/v1/databases/{db_cluster_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($db_cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'db_cluster_id' . '}',
+                ObjectSerializer::toPathValue($db_cluster_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDatabaseClusterReplicas
+     *
+     * Получение списка реплик кластера базы данных
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseClusterReplicas'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\GetDatabaseClusterReplicas200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function getDatabaseClusterReplicas($db_cluster_id, string $contentType = self::contentTypes['getDatabaseClusterReplicas'][0])
+    {
+        list($response) = $this->getDatabaseClusterReplicasWithHttpInfo($db_cluster_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getDatabaseClusterReplicasWithHttpInfo
+     *
+     * Получение списка реплик кластера базы данных
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseClusterReplicas'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\GetDatabaseClusterReplicas200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDatabaseClusterReplicasWithHttpInfo($db_cluster_id, string $contentType = self::contentTypes['getDatabaseClusterReplicas'][0])
+    {
+        $request = $this->getDatabaseClusterReplicasRequest($db_cluster_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\GetDatabaseClusterReplicas200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetDatabaseClusterReplicas200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetDatabaseClusterReplicas200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\GetDatabaseClusterReplicas200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetDatabaseClusterReplicas200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDatabaseClusterReplicasAsync
+     *
+     * Получение списка реплик кластера базы данных
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseClusterReplicas'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabaseClusterReplicasAsync($db_cluster_id, string $contentType = self::contentTypes['getDatabaseClusterReplicas'][0])
+    {
+        return $this->getDatabaseClusterReplicasAsyncWithHttpInfo($db_cluster_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDatabaseClusterReplicasAsyncWithHttpInfo
+     *
+     * Получение списка реплик кластера базы данных
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseClusterReplicas'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabaseClusterReplicasAsyncWithHttpInfo($db_cluster_id, string $contentType = self::contentTypes['getDatabaseClusterReplicas'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\GetDatabaseClusterReplicas200Response';
+        $request = $this->getDatabaseClusterReplicasRequest($db_cluster_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDatabaseClusterReplicas'
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseClusterReplicas'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDatabaseClusterReplicasRequest($db_cluster_id, string $contentType = self::contentTypes['getDatabaseClusterReplicas'][0])
+    {
+
+        // verify the required parameter 'db_cluster_id' is set
+        if ($db_cluster_id === null || (is_array($db_cluster_id) && count($db_cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $db_cluster_id when calling getDatabaseClusterReplicas'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/databases/{db_cluster_id}/replicas';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5852,6 +7601,909 @@ class DatabasesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $offset,
             'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDatabaseConfigurators
+     *
+     * Получение списка конфигураторов баз данных
+     *
+     * @param  int $cluster_id ID кластера базы данных. Возвращает конфигураторы группы, в пределах которой доступна смена конфигурации этого кластера (сценарий изменения кластера). (optional)
+     * @param  bool $with_unavailable Включить в ответ конфигураторы, недоступные к заказу из-за нехватки свободных ресурсов. Учитывается только при запросе без &#x60;cluster_id&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseConfigurators'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\GetDatabaseConfigurators200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function getDatabaseConfigurators($cluster_id = null, $with_unavailable = null, string $contentType = self::contentTypes['getDatabaseConfigurators'][0])
+    {
+        list($response) = $this->getDatabaseConfiguratorsWithHttpInfo($cluster_id, $with_unavailable, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getDatabaseConfiguratorsWithHttpInfo
+     *
+     * Получение списка конфигураторов баз данных
+     *
+     * @param  int $cluster_id ID кластера базы данных. Возвращает конфигураторы группы, в пределах которой доступна смена конфигурации этого кластера (сценарий изменения кластера). (optional)
+     * @param  bool $with_unavailable Включить в ответ конфигураторы, недоступные к заказу из-за нехватки свободных ресурсов. Учитывается только при запросе без &#x60;cluster_id&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseConfigurators'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\GetDatabaseConfigurators200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDatabaseConfiguratorsWithHttpInfo($cluster_id = null, $with_unavailable = null, string $contentType = self::contentTypes['getDatabaseConfigurators'][0])
+    {
+        $request = $this->getDatabaseConfiguratorsRequest($cluster_id, $with_unavailable, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\GetDatabaseConfigurators200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetDatabaseConfigurators200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetDatabaseConfigurators200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\GetDatabaseConfigurators200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetDatabaseConfigurators200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDatabaseConfiguratorsAsync
+     *
+     * Получение списка конфигураторов баз данных
+     *
+     * @param  int $cluster_id ID кластера базы данных. Возвращает конфигураторы группы, в пределах которой доступна смена конфигурации этого кластера (сценарий изменения кластера). (optional)
+     * @param  bool $with_unavailable Включить в ответ конфигураторы, недоступные к заказу из-за нехватки свободных ресурсов. Учитывается только при запросе без &#x60;cluster_id&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseConfigurators'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabaseConfiguratorsAsync($cluster_id = null, $with_unavailable = null, string $contentType = self::contentTypes['getDatabaseConfigurators'][0])
+    {
+        return $this->getDatabaseConfiguratorsAsyncWithHttpInfo($cluster_id, $with_unavailable, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDatabaseConfiguratorsAsyncWithHttpInfo
+     *
+     * Получение списка конфигураторов баз данных
+     *
+     * @param  int $cluster_id ID кластера базы данных. Возвращает конфигураторы группы, в пределах которой доступна смена конфигурации этого кластера (сценарий изменения кластера). (optional)
+     * @param  bool $with_unavailable Включить в ответ конфигураторы, недоступные к заказу из-за нехватки свободных ресурсов. Учитывается только при запросе без &#x60;cluster_id&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseConfigurators'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabaseConfiguratorsAsyncWithHttpInfo($cluster_id = null, $with_unavailable = null, string $contentType = self::contentTypes['getDatabaseConfigurators'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\GetDatabaseConfigurators200Response';
+        $request = $this->getDatabaseConfiguratorsRequest($cluster_id, $with_unavailable, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDatabaseConfigurators'
+     *
+     * @param  int $cluster_id ID кластера базы данных. Возвращает конфигураторы группы, в пределах которой доступна смена конфигурации этого кластера (сценарий изменения кластера). (optional)
+     * @param  bool $with_unavailable Включить в ответ конфигураторы, недоступные к заказу из-за нехватки свободных ресурсов. Учитывается только при запросе без &#x60;cluster_id&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseConfigurators'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDatabaseConfiguratorsRequest($cluster_id = null, $with_unavailable = null, string $contentType = self::contentTypes['getDatabaseConfigurators'][0])
+    {
+
+
+
+
+        $resourcePath = '/api/v1/configurator/databases';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $cluster_id,
+            'cluster_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $with_unavailable,
+            'with_unavailable', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDatabaseDefaultParameters
+     *
+     * Получение рекомендуемых значений параметров баз данных
+     *
+     * @param  string $type Тип кластера базы данных. (required)
+     * @param  int $ram Объём оперативной памяти кластера (в Мб). (required)
+     * @param  int $replica_count Количество нод (реплик) кластера. (optional, default to 1)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseDefaultParameters'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\GetDatabaseDefaultParameters200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function getDatabaseDefaultParameters($type, $ram, $replica_count = 1, string $contentType = self::contentTypes['getDatabaseDefaultParameters'][0])
+    {
+        list($response) = $this->getDatabaseDefaultParametersWithHttpInfo($type, $ram, $replica_count, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getDatabaseDefaultParametersWithHttpInfo
+     *
+     * Получение рекомендуемых значений параметров баз данных
+     *
+     * @param  string $type Тип кластера базы данных. (required)
+     * @param  int $ram Объём оперативной памяти кластера (в Мб). (required)
+     * @param  int $replica_count Количество нод (реплик) кластера. (optional, default to 1)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseDefaultParameters'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\GetDatabaseDefaultParameters200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDatabaseDefaultParametersWithHttpInfo($type, $ram, $replica_count = 1, string $contentType = self::contentTypes['getDatabaseDefaultParameters'][0])
+    {
+        $request = $this->getDatabaseDefaultParametersRequest($type, $ram, $replica_count, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\GetDatabaseDefaultParameters200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetDatabaseDefaultParameters200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetDatabaseDefaultParameters200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\GetDatabaseDefaultParameters200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetDatabaseDefaultParameters200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDatabaseDefaultParametersAsync
+     *
+     * Получение рекомендуемых значений параметров баз данных
+     *
+     * @param  string $type Тип кластера базы данных. (required)
+     * @param  int $ram Объём оперативной памяти кластера (в Мб). (required)
+     * @param  int $replica_count Количество нод (реплик) кластера. (optional, default to 1)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseDefaultParameters'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabaseDefaultParametersAsync($type, $ram, $replica_count = 1, string $contentType = self::contentTypes['getDatabaseDefaultParameters'][0])
+    {
+        return $this->getDatabaseDefaultParametersAsyncWithHttpInfo($type, $ram, $replica_count, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDatabaseDefaultParametersAsyncWithHttpInfo
+     *
+     * Получение рекомендуемых значений параметров баз данных
+     *
+     * @param  string $type Тип кластера базы данных. (required)
+     * @param  int $ram Объём оперативной памяти кластера (в Мб). (required)
+     * @param  int $replica_count Количество нод (реплик) кластера. (optional, default to 1)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseDefaultParameters'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabaseDefaultParametersAsyncWithHttpInfo($type, $ram, $replica_count = 1, string $contentType = self::contentTypes['getDatabaseDefaultParameters'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\GetDatabaseDefaultParameters200Response';
+        $request = $this->getDatabaseDefaultParametersRequest($type, $ram, $replica_count, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDatabaseDefaultParameters'
+     *
+     * @param  string $type Тип кластера базы данных. (required)
+     * @param  int $ram Объём оперативной памяти кластера (в Мб). (required)
+     * @param  int $replica_count Количество нод (реплик) кластера. (optional, default to 1)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseDefaultParameters'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDatabaseDefaultParametersRequest($type, $ram, $replica_count = 1, string $contentType = self::contentTypes['getDatabaseDefaultParameters'][0])
+    {
+
+        // verify the required parameter 'type' is set
+        if ($type === null || (is_array($type) && count($type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $type when calling getDatabaseDefaultParameters'
+            );
+        }
+
+        // verify the required parameter 'ram' is set
+        if ($ram === null || (is_array($ram) && count($ram) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ram when calling getDatabaseDefaultParameters'
+            );
+        }
+        if ($ram < 1) {
+            throw new \InvalidArgumentException('invalid value for "$ram" when calling DatabasesApi.getDatabaseDefaultParameters, must be bigger than or equal to 1.');
+        }
+        
+        if ($replica_count !== null && $replica_count < 1) {
+            throw new \InvalidArgumentException('invalid value for "$replica_count" when calling DatabasesApi.getDatabaseDefaultParameters, must be bigger than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/api/v1/dbs/default-parameters';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $type,
+            'type', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $ram,
+            'ram', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $replica_count,
+            'replica_count', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode
@@ -6797,7 +9449,7 @@ class DatabasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ConfigParameters|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\DbParametersByType|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getDatabaseParameters(string $contentType = self::contentTypes['getDatabaseParameters'][0])
     {
@@ -6814,7 +9466,7 @@ class DatabasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ConfigParameters|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\DbParametersByType|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDatabaseParametersWithHttpInfo(string $contentType = self::contentTypes['getDatabaseParameters'][0])
     {
@@ -6857,17 +9509,17 @@ class DatabasesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ConfigParameters' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\DbParametersByType' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ConfigParameters' !== 'string') {
+                        if ('\OpenAPI\Client\Model\DbParametersByType' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConfigParameters', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DbParametersByType', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6963,7 +9615,7 @@ class DatabasesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ConfigParameters';
+            $returnType = '\OpenAPI\Client\Model\DbParametersByType';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6984,7 +9636,7 @@ class DatabasesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ConfigParameters',
+                        '\OpenAPI\Client\Model\DbParametersByType',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7074,7 +9726,7 @@ class DatabasesApi
      */
     public function getDatabaseParametersAsyncWithHttpInfo(string $contentType = self::contentTypes['getDatabaseParameters'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ConfigParameters';
+        $returnType = '\OpenAPI\Client\Model\DbParametersByType';
         $request = $this->getDatabaseParametersRequest($contentType);
 
         return $this->client
@@ -7134,6 +9786,1726 @@ class DatabasesApi
 
 
 
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDatabasePreset
+     *
+     * Получение тарифа для базы данных
+     *
+     * @param  int $preset_id ID тарифа (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasePreset'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\GetDatabasePreset200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function getDatabasePreset($preset_id, string $contentType = self::contentTypes['getDatabasePreset'][0])
+    {
+        list($response) = $this->getDatabasePresetWithHttpInfo($preset_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getDatabasePresetWithHttpInfo
+     *
+     * Получение тарифа для базы данных
+     *
+     * @param  int $preset_id ID тарифа (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasePreset'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\GetDatabasePreset200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDatabasePresetWithHttpInfo($preset_id, string $contentType = self::contentTypes['getDatabasePreset'][0])
+    {
+        $request = $this->getDatabasePresetRequest($preset_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\GetDatabasePreset200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetDatabasePreset200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetDatabasePreset200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\GetDatabasePreset200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetDatabasePreset200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDatabasePresetAsync
+     *
+     * Получение тарифа для базы данных
+     *
+     * @param  int $preset_id ID тарифа (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasePreset'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabasePresetAsync($preset_id, string $contentType = self::contentTypes['getDatabasePreset'][0])
+    {
+        return $this->getDatabasePresetAsyncWithHttpInfo($preset_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDatabasePresetAsyncWithHttpInfo
+     *
+     * Получение тарифа для базы данных
+     *
+     * @param  int $preset_id ID тарифа (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasePreset'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabasePresetAsyncWithHttpInfo($preset_id, string $contentType = self::contentTypes['getDatabasePreset'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\GetDatabasePreset200Response';
+        $request = $this->getDatabasePresetRequest($preset_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDatabasePreset'
+     *
+     * @param  int $preset_id ID тарифа (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasePreset'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDatabasePresetRequest($preset_id, string $contentType = self::contentTypes['getDatabasePreset'][0])
+    {
+
+        // verify the required parameter 'preset_id' is set
+        if ($preset_id === null || (is_array($preset_id) && count($preset_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $preset_id when calling getDatabasePreset'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/dbs/presets/{preset_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($preset_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'preset_id' . '}',
+                ObjectSerializer::toPathValue($preset_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDatabasePrivileges
+     *
+     * Получение привилегий кластера базы данных
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasePrivileges'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\GetDatabasePrivileges200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function getDatabasePrivileges($db_cluster_id, string $contentType = self::contentTypes['getDatabasePrivileges'][0])
+    {
+        list($response) = $this->getDatabasePrivilegesWithHttpInfo($db_cluster_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getDatabasePrivilegesWithHttpInfo
+     *
+     * Получение привилегий кластера базы данных
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasePrivileges'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\GetDatabasePrivileges200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDatabasePrivilegesWithHttpInfo($db_cluster_id, string $contentType = self::contentTypes['getDatabasePrivileges'][0])
+    {
+        $request = $this->getDatabasePrivilegesRequest($db_cluster_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\GetDatabasePrivileges200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetDatabasePrivileges200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetDatabasePrivileges200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\GetDatabasePrivileges200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetDatabasePrivileges200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDatabasePrivilegesAsync
+     *
+     * Получение привилегий кластера базы данных
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasePrivileges'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabasePrivilegesAsync($db_cluster_id, string $contentType = self::contentTypes['getDatabasePrivileges'][0])
+    {
+        return $this->getDatabasePrivilegesAsyncWithHttpInfo($db_cluster_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDatabasePrivilegesAsyncWithHttpInfo
+     *
+     * Получение привилегий кластера базы данных
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasePrivileges'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabasePrivilegesAsyncWithHttpInfo($db_cluster_id, string $contentType = self::contentTypes['getDatabasePrivileges'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\GetDatabasePrivileges200Response';
+        $request = $this->getDatabasePrivilegesRequest($db_cluster_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDatabasePrivileges'
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasePrivileges'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDatabasePrivilegesRequest($db_cluster_id, string $contentType = self::contentTypes['getDatabasePrivileges'][0])
+    {
+
+        // verify the required parameter 'db_cluster_id' is set
+        if ($db_cluster_id === null || (is_array($db_cluster_id) && count($db_cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $db_cluster_id when calling getDatabasePrivileges'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/databases/{db_cluster_id}/privileges';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($db_cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'db_cluster_id' . '}',
+                ObjectSerializer::toPathValue($db_cluster_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDatabaseS3Backup
+     *
+     * Получение S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CreateDatabaseS3Backup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function getDatabaseS3Backup($db_id, $backup_id, string $contentType = self::contentTypes['getDatabaseS3Backup'][0])
+    {
+        list($response) = $this->getDatabaseS3BackupWithHttpInfo($db_id, $backup_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getDatabaseS3BackupWithHttpInfo
+     *
+     * Получение S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\CreateDatabaseS3Backup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDatabaseS3BackupWithHttpInfo($db_id, $backup_id, string $contentType = self::contentTypes['getDatabaseS3Backup'][0])
+    {
+        $request = $this->getDatabaseS3BackupRequest($db_id, $backup_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDatabaseS3BackupAsync
+     *
+     * Получение S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabaseS3BackupAsync($db_id, $backup_id, string $contentType = self::contentTypes['getDatabaseS3Backup'][0])
+    {
+        return $this->getDatabaseS3BackupAsyncWithHttpInfo($db_id, $backup_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDatabaseS3BackupAsyncWithHttpInfo
+     *
+     * Получение S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabaseS3BackupAsyncWithHttpInfo($db_id, $backup_id, string $contentType = self::contentTypes['getDatabaseS3Backup'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response';
+        $request = $this->getDatabaseS3BackupRequest($db_id, $backup_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDatabaseS3Backup'
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDatabaseS3BackupRequest($db_id, $backup_id, string $contentType = self::contentTypes['getDatabaseS3Backup'][0])
+    {
+
+        // verify the required parameter 'db_id' is set
+        if ($db_id === null || (is_array($db_id) && count($db_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $db_id when calling getDatabaseS3Backup'
+            );
+        }
+
+        // verify the required parameter 'backup_id' is set
+        if ($backup_id === null || (is_array($backup_id) && count($backup_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $backup_id when calling getDatabaseS3Backup'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/databases/{db_id}/backups/{backup_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($db_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'db_id' . '}',
+                ObjectSerializer::toPathValue($db_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($backup_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'backup_id' . '}',
+                ObjectSerializer::toPathValue($backup_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDatabaseS3Backups
+     *
+     * Список S3-бэкапов базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseS3Backups'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\GetDatabaseS3Backups200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function getDatabaseS3Backups($db_id, string $contentType = self::contentTypes['getDatabaseS3Backups'][0])
+    {
+        list($response) = $this->getDatabaseS3BackupsWithHttpInfo($db_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getDatabaseS3BackupsWithHttpInfo
+     *
+     * Список S3-бэкапов базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseS3Backups'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\GetDatabaseS3Backups200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDatabaseS3BackupsWithHttpInfo($db_id, string $contentType = self::contentTypes['getDatabaseS3Backups'][0])
+    {
+        $request = $this->getDatabaseS3BackupsRequest($db_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\GetDatabaseS3Backups200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetDatabaseS3Backups200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetDatabaseS3Backups200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\GetDatabaseS3Backups200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetDatabaseS3Backups200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDatabaseS3BackupsAsync
+     *
+     * Список S3-бэкапов базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseS3Backups'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabaseS3BackupsAsync($db_id, string $contentType = self::contentTypes['getDatabaseS3Backups'][0])
+    {
+        return $this->getDatabaseS3BackupsAsyncWithHttpInfo($db_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDatabaseS3BackupsAsyncWithHttpInfo
+     *
+     * Список S3-бэкапов базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseS3Backups'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDatabaseS3BackupsAsyncWithHttpInfo($db_id, string $contentType = self::contentTypes['getDatabaseS3Backups'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\GetDatabaseS3Backups200Response';
+        $request = $this->getDatabaseS3BackupsRequest($db_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDatabaseS3Backups'
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabaseS3Backups'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDatabaseS3BackupsRequest($db_id, string $contentType = self::contentTypes['getDatabaseS3Backups'][0])
+    {
+
+        // verify the required parameter 'db_id' is set
+        if ($db_id === null || (is_array($db_id) && count($db_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $db_id when calling getDatabaseS3Backups'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/databases/{db_id}/backups';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($db_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'db_id' . '}',
+                ObjectSerializer::toPathValue($db_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -8068,16 +12440,17 @@ class DatabasesApi
      *
      * Получение списка тарифов для баз данных
      *
-     * @param  int $db_id ID базы данных (optional)
+     * @param  int $cluster_id ID кластера базы данных. Возвращает тарифы группы, в пределах которой доступна смена тарифа этого кластера (сценарий изменения кластера). (optional)
+     * @param  bool $with_unavailable Включить в ответ тарифы, недоступные к заказу из-за нехватки свободных ресурсов. Учитывается только при запросе без &#x60;cluster_id&#x60;: вместе с &#x60;cluster_id&#x60; фильтр по свободным ресурсам и так не применяется. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasesPresets'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetDatabasesPresets200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function getDatabasesPresets($db_id = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
+    public function getDatabasesPresets($cluster_id = null, $with_unavailable = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
     {
-        list($response) = $this->getDatabasesPresetsWithHttpInfo($db_id, $contentType);
+        list($response) = $this->getDatabasesPresetsWithHttpInfo($cluster_id, $with_unavailable, $contentType);
         return $response;
     }
 
@@ -8086,16 +12459,17 @@ class DatabasesApi
      *
      * Получение списка тарифов для баз данных
      *
-     * @param  int $db_id ID базы данных (optional)
+     * @param  int $cluster_id ID кластера базы данных. Возвращает тарифы группы, в пределах которой доступна смена тарифа этого кластера (сценарий изменения кластера). (optional)
+     * @param  bool $with_unavailable Включить в ответ тарифы, недоступные к заказу из-за нехватки свободных ресурсов. Учитывается только при запросе без &#x60;cluster_id&#x60;: вместе с &#x60;cluster_id&#x60; фильтр по свободным ресурсам и так не применяется. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasesPresets'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetDatabasesPresets200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDatabasesPresetsWithHttpInfo($db_id = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
+    public function getDatabasesPresetsWithHttpInfo($cluster_id = null, $with_unavailable = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
     {
-        $request = $this->getDatabasesPresetsRequest($db_id, $contentType);
+        $request = $this->getDatabasesPresetsRequest($cluster_id, $with_unavailable, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8324,15 +12698,16 @@ class DatabasesApi
      *
      * Получение списка тарифов для баз данных
      *
-     * @param  int $db_id ID базы данных (optional)
+     * @param  int $cluster_id ID кластера базы данных. Возвращает тарифы группы, в пределах которой доступна смена тарифа этого кластера (сценарий изменения кластера). (optional)
+     * @param  bool $with_unavailable Включить в ответ тарифы, недоступные к заказу из-за нехватки свободных ресурсов. Учитывается только при запросе без &#x60;cluster_id&#x60;: вместе с &#x60;cluster_id&#x60; фильтр по свободным ресурсам и так не применяется. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasesPresets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDatabasesPresetsAsync($db_id = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
+    public function getDatabasesPresetsAsync($cluster_id = null, $with_unavailable = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
     {
-        return $this->getDatabasesPresetsAsyncWithHttpInfo($db_id, $contentType)
+        return $this->getDatabasesPresetsAsyncWithHttpInfo($cluster_id, $with_unavailable, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8345,16 +12720,17 @@ class DatabasesApi
      *
      * Получение списка тарифов для баз данных
      *
-     * @param  int $db_id ID базы данных (optional)
+     * @param  int $cluster_id ID кластера базы данных. Возвращает тарифы группы, в пределах которой доступна смена тарифа этого кластера (сценарий изменения кластера). (optional)
+     * @param  bool $with_unavailable Включить в ответ тарифы, недоступные к заказу из-за нехватки свободных ресурсов. Учитывается только при запросе без &#x60;cluster_id&#x60;: вместе с &#x60;cluster_id&#x60; фильтр по свободным ресурсам и так не применяется. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasesPresets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDatabasesPresetsAsyncWithHttpInfo($db_id = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
+    public function getDatabasesPresetsAsyncWithHttpInfo($cluster_id = null, $with_unavailable = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GetDatabasesPresets200Response';
-        $request = $this->getDatabasesPresetsRequest($db_id, $contentType);
+        $request = $this->getDatabasesPresetsRequest($cluster_id, $with_unavailable, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8395,14 +12771,16 @@ class DatabasesApi
     /**
      * Create request for operation 'getDatabasesPresets'
      *
-     * @param  int $db_id ID базы данных (optional)
+     * @param  int $cluster_id ID кластера базы данных. Возвращает тарифы группы, в пределах которой доступна смена тарифа этого кластера (сценарий изменения кластера). (optional)
+     * @param  bool $with_unavailable Включить в ответ тарифы, недоступные к заказу из-за нехватки свободных ресурсов. Учитывается только при запросе без &#x60;cluster_id&#x60;: вместе с &#x60;cluster_id&#x60; фильтр по свободным ресурсам и так не применяется. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDatabasesPresets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDatabasesPresetsRequest($db_id = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
+    public function getDatabasesPresetsRequest($cluster_id = null, $with_unavailable = null, string $contentType = self::contentTypes['getDatabasesPresets'][0])
     {
+
 
 
 
@@ -8415,9 +12793,18 @@ class DatabasesApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $db_id,
-            'db_id', // param base name
+            $cluster_id,
+            'cluster_id', // param base name
             'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $with_unavailable,
+            'with_unavailable', // param base name
+            'boolean', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -8477,6 +12864,306 @@ class DatabasesApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation performDatabaseClusterAction
+     *
+     * Выполнение действия над кластером базы данных
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  \OpenAPI\Client\Model\ClusterAction $cluster_action cluster_action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performDatabaseClusterAction'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function performDatabaseClusterAction($db_cluster_id, $cluster_action, string $contentType = self::contentTypes['performDatabaseClusterAction'][0])
+    {
+        $this->performDatabaseClusterActionWithHttpInfo($db_cluster_id, $cluster_action, $contentType);
+    }
+
+    /**
+     * Operation performDatabaseClusterActionWithHttpInfo
+     *
+     * Выполнение действия над кластером базы данных
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  \OpenAPI\Client\Model\ClusterAction $cluster_action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performDatabaseClusterAction'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function performDatabaseClusterActionWithHttpInfo($db_cluster_id, $cluster_action, string $contentType = self::contentTypes['performDatabaseClusterAction'][0])
+    {
+        $request = $this->performDatabaseClusterActionRequest($db_cluster_id, $cluster_action, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation performDatabaseClusterActionAsync
+     *
+     * Выполнение действия над кластером базы данных
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  \OpenAPI\Client\Model\ClusterAction $cluster_action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performDatabaseClusterAction'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function performDatabaseClusterActionAsync($db_cluster_id, $cluster_action, string $contentType = self::contentTypes['performDatabaseClusterAction'][0])
+    {
+        return $this->performDatabaseClusterActionAsyncWithHttpInfo($db_cluster_id, $cluster_action, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation performDatabaseClusterActionAsyncWithHttpInfo
+     *
+     * Выполнение действия над кластером базы данных
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  \OpenAPI\Client\Model\ClusterAction $cluster_action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performDatabaseClusterAction'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function performDatabaseClusterActionAsyncWithHttpInfo($db_cluster_id, $cluster_action, string $contentType = self::contentTypes['performDatabaseClusterAction'][0])
+    {
+        $returnType = '';
+        $request = $this->performDatabaseClusterActionRequest($db_cluster_id, $cluster_action, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'performDatabaseClusterAction'
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  \OpenAPI\Client\Model\ClusterAction $cluster_action (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['performDatabaseClusterAction'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function performDatabaseClusterActionRequest($db_cluster_id, $cluster_action, string $contentType = self::contentTypes['performDatabaseClusterAction'][0])
+    {
+
+        // verify the required parameter 'db_cluster_id' is set
+        if ($db_cluster_id === null || (is_array($db_cluster_id) && count($db_cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $db_cluster_id when calling performDatabaseClusterAction'
+            );
+        }
+
+        // verify the required parameter 'cluster_action' is set
+        if ($cluster_action === null || (is_array($cluster_action) && count($cluster_action) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_action when calling performDatabaseClusterAction'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/databases/{db_cluster_id}/action';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($db_cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'db_cluster_id' . '}',
+                ObjectSerializer::toPathValue($db_cluster_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($cluster_action)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cluster_action));
+            } else {
+                $httpBody = $cluster_action;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -8592,7 +13279,7 @@ class DatabasesApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseBackup409Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8793,21 +13480,330 @@ class DatabasesApi
     }
 
     /**
+     * Operation restoreDatabaseFromS3Backup
+     *
+     * Восстановление базы данных из S3-бэкапа
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDatabaseFromS3Backup'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function restoreDatabaseFromS3Backup($db_id, $backup_id, string $contentType = self::contentTypes['restoreDatabaseFromS3Backup'][0])
+    {
+        $this->restoreDatabaseFromS3BackupWithHttpInfo($db_id, $backup_id, $contentType);
+    }
+
+    /**
+     * Operation restoreDatabaseFromS3BackupWithHttpInfo
+     *
+     * Восстановление базы данных из S3-бэкапа
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDatabaseFromS3Backup'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function restoreDatabaseFromS3BackupWithHttpInfo($db_id, $backup_id, string $contentType = self::contentTypes['restoreDatabaseFromS3Backup'][0])
+    {
+        $request = $this->restoreDatabaseFromS3BackupRequest($db_id, $backup_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation restoreDatabaseFromS3BackupAsync
+     *
+     * Восстановление базы данных из S3-бэкапа
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDatabaseFromS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function restoreDatabaseFromS3BackupAsync($db_id, $backup_id, string $contentType = self::contentTypes['restoreDatabaseFromS3Backup'][0])
+    {
+        return $this->restoreDatabaseFromS3BackupAsyncWithHttpInfo($db_id, $backup_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation restoreDatabaseFromS3BackupAsyncWithHttpInfo
+     *
+     * Восстановление базы данных из S3-бэкапа
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDatabaseFromS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function restoreDatabaseFromS3BackupAsyncWithHttpInfo($db_id, $backup_id, string $contentType = self::contentTypes['restoreDatabaseFromS3Backup'][0])
+    {
+        $returnType = '';
+        $request = $this->restoreDatabaseFromS3BackupRequest($db_id, $backup_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'restoreDatabaseFromS3Backup'
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDatabaseFromS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function restoreDatabaseFromS3BackupRequest($db_id, $backup_id, string $contentType = self::contentTypes['restoreDatabaseFromS3Backup'][0])
+    {
+
+        // verify the required parameter 'db_id' is set
+        if ($db_id === null || (is_array($db_id) && count($db_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $db_id when calling restoreDatabaseFromS3Backup'
+            );
+        }
+
+        // verify the required parameter 'backup_id' is set
+        if ($backup_id === null || (is_array($backup_id) && count($backup_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $backup_id when calling restoreDatabaseFromS3Backup'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/databases/{db_id}/backups/{backup_id}/restore';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($db_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'db_id' . '}',
+                ObjectSerializer::toPathValue($db_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($backup_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'backup_id' . '}',
+                ObjectSerializer::toPathValue($backup_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation updateDatabaseAutoBackupsSettings
      *
      * Изменение настроек автобэкапов базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  \OpenAPI\Client\Model\AutoBackup $auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (optional)
+     * @param  \OpenAPI\Client\Model\UpdateAutoBackup $update_auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseAutoBackupsSettings'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function updateDatabaseAutoBackupsSettings($db_id, $auto_backup = null, string $contentType = self::contentTypes['updateDatabaseAutoBackupsSettings'][0])
+    public function updateDatabaseAutoBackupsSettings($db_id, $update_auto_backup, string $contentType = self::contentTypes['updateDatabaseAutoBackupsSettings'][0])
     {
-        list($response) = $this->updateDatabaseAutoBackupsSettingsWithHttpInfo($db_id, $auto_backup, $contentType);
+        list($response) = $this->updateDatabaseAutoBackupsSettingsWithHttpInfo($db_id, $update_auto_backup, $contentType);
         return $response;
     }
 
@@ -8817,16 +13813,16 @@ class DatabasesApi
      * Изменение настроек автобэкапов базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  \OpenAPI\Client\Model\AutoBackup $auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (optional)
+     * @param  \OpenAPI\Client\Model\UpdateAutoBackup $update_auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseAutoBackupsSettings'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateDatabaseAutoBackupsSettingsWithHttpInfo($db_id, $auto_backup = null, string $contentType = self::contentTypes['updateDatabaseAutoBackupsSettings'][0])
+    public function updateDatabaseAutoBackupsSettingsWithHttpInfo($db_id, $update_auto_backup, string $contentType = self::contentTypes['updateDatabaseAutoBackupsSettings'][0])
     {
-        $request = $this->updateDatabaseAutoBackupsSettingsRequest($db_id, $auto_backup, $contentType);
+        $request = $this->updateDatabaseAutoBackupsSettingsRequest($db_id, $update_auto_backup, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8939,6 +13935,21 @@ class DatabasesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 409:
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 429:
                     if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -9029,6 +14040,14 @@ class DatabasesApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -9056,15 +14075,15 @@ class DatabasesApi
      * Изменение настроек автобэкапов базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  \OpenAPI\Client\Model\AutoBackup $auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (optional)
+     * @param  \OpenAPI\Client\Model\UpdateAutoBackup $update_auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseAutoBackupsSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDatabaseAutoBackupsSettingsAsync($db_id, $auto_backup = null, string $contentType = self::contentTypes['updateDatabaseAutoBackupsSettings'][0])
+    public function updateDatabaseAutoBackupsSettingsAsync($db_id, $update_auto_backup, string $contentType = self::contentTypes['updateDatabaseAutoBackupsSettings'][0])
     {
-        return $this->updateDatabaseAutoBackupsSettingsAsyncWithHttpInfo($db_id, $auto_backup, $contentType)
+        return $this->updateDatabaseAutoBackupsSettingsAsyncWithHttpInfo($db_id, $update_auto_backup, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9078,16 +14097,16 @@ class DatabasesApi
      * Изменение настроек автобэкапов базы данных
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  \OpenAPI\Client\Model\AutoBackup $auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (optional)
+     * @param  \OpenAPI\Client\Model\UpdateAutoBackup $update_auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseAutoBackupsSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDatabaseAutoBackupsSettingsAsyncWithHttpInfo($db_id, $auto_backup = null, string $contentType = self::contentTypes['updateDatabaseAutoBackupsSettings'][0])
+    public function updateDatabaseAutoBackupsSettingsAsyncWithHttpInfo($db_id, $update_auto_backup, string $contentType = self::contentTypes['updateDatabaseAutoBackupsSettings'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GetDatabaseAutoBackupsSettings200Response';
-        $request = $this->updateDatabaseAutoBackupsSettingsRequest($db_id, $auto_backup, $contentType);
+        $request = $this->updateDatabaseAutoBackupsSettingsRequest($db_id, $update_auto_backup, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9129,13 +14148,13 @@ class DatabasesApi
      * Create request for operation 'updateDatabaseAutoBackupsSettings'
      *
      * @param  int $db_id ID базы данных (required)
-     * @param  \OpenAPI\Client\Model\AutoBackup $auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (optional)
+     * @param  \OpenAPI\Client\Model\UpdateAutoBackup $update_auto_backup При значении &#x60;is_enabled&#x60;: &#x60;true&#x60;, поля &#x60;copy_count&#x60;, &#x60;creation_start_at&#x60;, &#x60;interval&#x60; являются обязательными (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseAutoBackupsSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateDatabaseAutoBackupsSettingsRequest($db_id, $auto_backup = null, string $contentType = self::contentTypes['updateDatabaseAutoBackupsSettings'][0])
+    public function updateDatabaseAutoBackupsSettingsRequest($db_id, $update_auto_backup, string $contentType = self::contentTypes['updateDatabaseAutoBackupsSettings'][0])
     {
 
         // verify the required parameter 'db_id' is set
@@ -9145,6 +14164,12 @@ class DatabasesApi
             );
         }
 
+        // verify the required parameter 'update_auto_backup' is set
+        if ($update_auto_backup === null || (is_array($update_auto_backup) && count($update_auto_backup) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $update_auto_backup when calling updateDatabaseAutoBackupsSettings'
+            );
+        }
 
 
         $resourcePath = '/api/v1/dbs/{db_id}/auto-backups';
@@ -9173,12 +14198,499 @@ class DatabasesApi
         );
 
         // for model (json/xml)
-        if (isset($auto_backup)) {
+        if (isset($update_auto_backup)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auto_backup));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_auto_backup));
             } else {
-                $httpBody = $auto_backup;
+                $httpBody = $update_auto_backup;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateDatabaseBackup
+     *
+     * Изменение комментария к бэкапу базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  int $backup_id ID резервной копии (required)
+     * @param  \OpenAPI\Client\Model\DbsUpdateBackup $dbs_update_backup dbs_update_backup (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseBackup'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\GetDatabaseBackup200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function updateDatabaseBackup($db_id, $backup_id, $dbs_update_backup, string $contentType = self::contentTypes['updateDatabaseBackup'][0])
+    {
+        list($response) = $this->updateDatabaseBackupWithHttpInfo($db_id, $backup_id, $dbs_update_backup, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateDatabaseBackupWithHttpInfo
+     *
+     * Изменение комментария к бэкапу базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  int $backup_id ID резервной копии (required)
+     * @param  \OpenAPI\Client\Model\DbsUpdateBackup $dbs_update_backup (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseBackup'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\GetDatabaseBackup200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateDatabaseBackupWithHttpInfo($db_id, $backup_id, $dbs_update_backup, string $contentType = self::contentTypes['updateDatabaseBackup'][0])
+    {
+        $request = $this->updateDatabaseBackupRequest($db_id, $backup_id, $dbs_update_backup, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\GetDatabaseBackup200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetDatabaseBackup200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetDatabaseBackup200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\GetDatabaseBackup200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetDatabaseBackup200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateDatabaseBackupAsync
+     *
+     * Изменение комментария к бэкапу базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  int $backup_id ID резервной копии (required)
+     * @param  \OpenAPI\Client\Model\DbsUpdateBackup $dbs_update_backup (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseBackup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateDatabaseBackupAsync($db_id, $backup_id, $dbs_update_backup, string $contentType = self::contentTypes['updateDatabaseBackup'][0])
+    {
+        return $this->updateDatabaseBackupAsyncWithHttpInfo($db_id, $backup_id, $dbs_update_backup, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateDatabaseBackupAsyncWithHttpInfo
+     *
+     * Изменение комментария к бэкапу базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  int $backup_id ID резервной копии (required)
+     * @param  \OpenAPI\Client\Model\DbsUpdateBackup $dbs_update_backup (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseBackup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateDatabaseBackupAsyncWithHttpInfo($db_id, $backup_id, $dbs_update_backup, string $contentType = self::contentTypes['updateDatabaseBackup'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\GetDatabaseBackup200Response';
+        $request = $this->updateDatabaseBackupRequest($db_id, $backup_id, $dbs_update_backup, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateDatabaseBackup'
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  int $backup_id ID резервной копии (required)
+     * @param  \OpenAPI\Client\Model\DbsUpdateBackup $dbs_update_backup (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseBackup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateDatabaseBackupRequest($db_id, $backup_id, $dbs_update_backup, string $contentType = self::contentTypes['updateDatabaseBackup'][0])
+    {
+
+        // verify the required parameter 'db_id' is set
+        if ($db_id === null || (is_array($db_id) && count($db_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $db_id when calling updateDatabaseBackup'
+            );
+        }
+
+        // verify the required parameter 'backup_id' is set
+        if ($backup_id === null || (is_array($backup_id) && count($backup_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $backup_id when calling updateDatabaseBackup'
+            );
+        }
+
+        // verify the required parameter 'dbs_update_backup' is set
+        if ($dbs_update_backup === null || (is_array($dbs_update_backup) && count($dbs_update_backup) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $dbs_update_backup when calling updateDatabaseBackup'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/dbs/{db_id}/backups/{backup_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($db_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'db_id' . '}',
+                ObjectSerializer::toPathValue($db_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($backup_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'backup_id' . '}',
+                ObjectSerializer::toPathValue($backup_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($dbs_update_backup)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($dbs_update_backup));
+            } else {
+                $httpBody = $dbs_update_backup;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -9241,7 +14753,7 @@ class DatabasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateDatabaseCluster201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\UpdateDatabaseCluster200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function updateDatabaseCluster($db_cluster_id, $update_cluster, string $contentType = self::contentTypes['updateDatabaseCluster'][0])
     {
@@ -9260,7 +14772,7 @@ class DatabasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateDatabaseCluster201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\UpdateDatabaseCluster200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateDatabaseClusterWithHttpInfo($db_cluster_id, $update_cluster, string $contentType = self::contentTypes['updateDatabaseCluster'][0])
     {
@@ -9303,17 +14815,17 @@ class DatabasesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreateDatabaseCluster201Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseCluster200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreateDatabaseCluster201Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseCluster200Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseCluster201Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseCluster200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9409,7 +14921,7 @@ class DatabasesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreateDatabaseCluster201Response';
+            $returnType = '\OpenAPI\Client\Model\UpdateDatabaseCluster200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -9430,7 +14942,7 @@ class DatabasesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateDatabaseCluster201Response',
+                        '\OpenAPI\Client\Model\UpdateDatabaseCluster200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9524,7 +15036,7 @@ class DatabasesApi
      */
     public function updateDatabaseClusterAsyncWithHttpInfo($db_cluster_id, $update_cluster, string $contentType = self::contentTypes['updateDatabaseCluster'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreateDatabaseCluster201Response';
+        $returnType = '\OpenAPI\Client\Model\UpdateDatabaseCluster200Response';
         $request = $this->updateDatabaseClusterRequest($db_cluster_id, $update_cluster, $contentType);
 
         return $this->client
@@ -9675,21 +15187,466 @@ class DatabasesApi
     }
 
     /**
+     * Operation updateDatabaseClusterV2
+     *
+     * Изменение кластера базы данных (v2)
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  \OpenAPI\Client\Model\UpdateClusterV2 $update_cluster_v2 update_cluster_v2 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseClusterV2'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\UpdateDatabaseCluster200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function updateDatabaseClusterV2($db_cluster_id, $update_cluster_v2, string $contentType = self::contentTypes['updateDatabaseClusterV2'][0])
+    {
+        list($response) = $this->updateDatabaseClusterV2WithHttpInfo($db_cluster_id, $update_cluster_v2, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateDatabaseClusterV2WithHttpInfo
+     *
+     * Изменение кластера базы данных (v2)
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  \OpenAPI\Client\Model\UpdateClusterV2 $update_cluster_v2 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseClusterV2'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\UpdateDatabaseCluster200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateDatabaseClusterV2WithHttpInfo($db_cluster_id, $update_cluster_v2, string $contentType = self::contentTypes['updateDatabaseClusterV2'][0])
+    {
+        $request = $this->updateDatabaseClusterV2Request($db_cluster_id, $update_cluster_v2, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseCluster200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseCluster200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseCluster200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\UpdateDatabaseCluster200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseCluster200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateDatabaseClusterV2Async
+     *
+     * Изменение кластера базы данных (v2)
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  \OpenAPI\Client\Model\UpdateClusterV2 $update_cluster_v2 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseClusterV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateDatabaseClusterV2Async($db_cluster_id, $update_cluster_v2, string $contentType = self::contentTypes['updateDatabaseClusterV2'][0])
+    {
+        return $this->updateDatabaseClusterV2AsyncWithHttpInfo($db_cluster_id, $update_cluster_v2, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateDatabaseClusterV2AsyncWithHttpInfo
+     *
+     * Изменение кластера базы данных (v2)
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  \OpenAPI\Client\Model\UpdateClusterV2 $update_cluster_v2 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseClusterV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateDatabaseClusterV2AsyncWithHttpInfo($db_cluster_id, $update_cluster_v2, string $contentType = self::contentTypes['updateDatabaseClusterV2'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\UpdateDatabaseCluster200Response';
+        $request = $this->updateDatabaseClusterV2Request($db_cluster_id, $update_cluster_v2, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateDatabaseClusterV2'
+     *
+     * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  \OpenAPI\Client\Model\UpdateClusterV2 $update_cluster_v2 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseClusterV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateDatabaseClusterV2Request($db_cluster_id, $update_cluster_v2, string $contentType = self::contentTypes['updateDatabaseClusterV2'][0])
+    {
+
+        // verify the required parameter 'db_cluster_id' is set
+        if ($db_cluster_id === null || (is_array($db_cluster_id) && count($db_cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $db_cluster_id when calling updateDatabaseClusterV2'
+            );
+        }
+
+        // verify the required parameter 'update_cluster_v2' is set
+        if ($update_cluster_v2 === null || (is_array($update_cluster_v2) && count($update_cluster_v2) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $update_cluster_v2 when calling updateDatabaseClusterV2'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/databases/{db_cluster_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($db_cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'db_cluster_id' . '}',
+                ObjectSerializer::toPathValue($db_cluster_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($update_cluster_v2)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_cluster_v2));
+            } else {
+                $httpBody = $update_cluster_v2;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation updateDatabaseInstance
      *
      * Изменение инстанса базы данных
      *
      * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  int $instance_id ID инстанса базы данных (required)
      * @param  \OpenAPI\Client\Model\UpdateInstance $update_instance update_instance (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseInstance'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateDatabaseInstance201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateDatabaseInstance201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function updateDatabaseInstance($db_cluster_id, $update_instance, string $contentType = self::contentTypes['updateDatabaseInstance'][0])
+    public function updateDatabaseInstance($db_cluster_id, $instance_id, $update_instance, string $contentType = self::contentTypes['updateDatabaseInstance'][0])
     {
-        list($response) = $this->updateDatabaseInstanceWithHttpInfo($db_cluster_id, $update_instance, $contentType);
+        list($response) = $this->updateDatabaseInstanceWithHttpInfo($db_cluster_id, $instance_id, $update_instance, $contentType);
         return $response;
     }
 
@@ -9699,16 +15656,17 @@ class DatabasesApi
      * Изменение инстанса базы данных
      *
      * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  int $instance_id ID инстанса базы данных (required)
      * @param  \OpenAPI\Client\Model\UpdateInstance $update_instance (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseInstance'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateDatabaseInstance201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateDatabaseInstance201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateDatabaseInstanceWithHttpInfo($db_cluster_id, $update_instance, string $contentType = self::contentTypes['updateDatabaseInstance'][0])
+    public function updateDatabaseInstanceWithHttpInfo($db_cluster_id, $instance_id, $update_instance, string $contentType = self::contentTypes['updateDatabaseInstance'][0])
     {
-        $request = $this->updateDatabaseInstanceRequest($db_cluster_id, $update_instance, $contentType);
+        $request = $this->updateDatabaseInstanceRequest($db_cluster_id, $instance_id, $update_instance, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9821,6 +15779,21 @@ class DatabasesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 409:
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 429:
                     if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -9911,6 +15884,14 @@ class DatabasesApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -9938,15 +15919,16 @@ class DatabasesApi
      * Изменение инстанса базы данных
      *
      * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  int $instance_id ID инстанса базы данных (required)
      * @param  \OpenAPI\Client\Model\UpdateInstance $update_instance (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseInstance'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDatabaseInstanceAsync($db_cluster_id, $update_instance, string $contentType = self::contentTypes['updateDatabaseInstance'][0])
+    public function updateDatabaseInstanceAsync($db_cluster_id, $instance_id, $update_instance, string $contentType = self::contentTypes['updateDatabaseInstance'][0])
     {
-        return $this->updateDatabaseInstanceAsyncWithHttpInfo($db_cluster_id, $update_instance, $contentType)
+        return $this->updateDatabaseInstanceAsyncWithHttpInfo($db_cluster_id, $instance_id, $update_instance, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9960,16 +15942,17 @@ class DatabasesApi
      * Изменение инстанса базы данных
      *
      * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  int $instance_id ID инстанса базы данных (required)
      * @param  \OpenAPI\Client\Model\UpdateInstance $update_instance (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseInstance'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDatabaseInstanceAsyncWithHttpInfo($db_cluster_id, $update_instance, string $contentType = self::contentTypes['updateDatabaseInstance'][0])
+    public function updateDatabaseInstanceAsyncWithHttpInfo($db_cluster_id, $instance_id, $update_instance, string $contentType = self::contentTypes['updateDatabaseInstance'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CreateDatabaseInstance201Response';
-        $request = $this->updateDatabaseInstanceRequest($db_cluster_id, $update_instance, $contentType);
+        $request = $this->updateDatabaseInstanceRequest($db_cluster_id, $instance_id, $update_instance, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10011,19 +15994,27 @@ class DatabasesApi
      * Create request for operation 'updateDatabaseInstance'
      *
      * @param  int $db_cluster_id ID кластера базы данных (required)
+     * @param  int $instance_id ID инстанса базы данных (required)
      * @param  \OpenAPI\Client\Model\UpdateInstance $update_instance (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseInstance'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateDatabaseInstanceRequest($db_cluster_id, $update_instance, string $contentType = self::contentTypes['updateDatabaseInstance'][0])
+    public function updateDatabaseInstanceRequest($db_cluster_id, $instance_id, $update_instance, string $contentType = self::contentTypes['updateDatabaseInstance'][0])
     {
 
         // verify the required parameter 'db_cluster_id' is set
         if ($db_cluster_id === null || (is_array($db_cluster_id) && count($db_cluster_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $db_cluster_id when calling updateDatabaseInstance'
+            );
+        }
+
+        // verify the required parameter 'instance_id' is set
+        if ($instance_id === null || (is_array($instance_id) && count($instance_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_id when calling updateDatabaseInstance'
             );
         }
 
@@ -10052,6 +16043,14 @@ class DatabasesApi
                 $resourcePath
             );
         }
+        // path params
+        if ($instance_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_id' . '}',
+                ObjectSerializer::toPathValue($instance_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -10067,6 +16066,487 @@ class DatabasesApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_instance));
             } else {
                 $httpBody = $update_instance;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateDatabaseS3Backup
+     *
+     * Изменение комментария S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  \OpenAPI\Client\Model\UpdateS3Backup $update_s3_backup update_s3_backup (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CreateDatabaseS3Backup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function updateDatabaseS3Backup($db_id, $backup_id, $update_s3_backup = null, string $contentType = self::contentTypes['updateDatabaseS3Backup'][0])
+    {
+        list($response) = $this->updateDatabaseS3BackupWithHttpInfo($db_id, $backup_id, $update_s3_backup, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateDatabaseS3BackupWithHttpInfo
+     *
+     * Изменение комментария S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  \OpenAPI\Client\Model\UpdateS3Backup $update_s3_backup (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\CreateDatabaseS3Backup201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateDatabaseS3BackupWithHttpInfo($db_id, $backup_id, $update_s3_backup = null, string $contentType = self::contentTypes['updateDatabaseS3Backup'][0])
+    {
+        $request = $this->updateDatabaseS3BackupRequest($db_id, $backup_id, $update_s3_backup, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateDatabaseS3BackupAsync
+     *
+     * Изменение комментария S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  \OpenAPI\Client\Model\UpdateS3Backup $update_s3_backup (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateDatabaseS3BackupAsync($db_id, $backup_id, $update_s3_backup = null, string $contentType = self::contentTypes['updateDatabaseS3Backup'][0])
+    {
+        return $this->updateDatabaseS3BackupAsyncWithHttpInfo($db_id, $backup_id, $update_s3_backup, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateDatabaseS3BackupAsyncWithHttpInfo
+     *
+     * Изменение комментария S3-бэкапа базы данных
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  \OpenAPI\Client\Model\UpdateS3Backup $update_s3_backup (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateDatabaseS3BackupAsyncWithHttpInfo($db_id, $backup_id, $update_s3_backup = null, string $contentType = self::contentTypes['updateDatabaseS3Backup'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\CreateDatabaseS3Backup201Response';
+        $request = $this->updateDatabaseS3BackupRequest($db_id, $backup_id, $update_s3_backup, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateDatabaseS3Backup'
+     *
+     * @param  int $db_id ID базы данных (required)
+     * @param  string $backup_id ID резервной копии в формате UUID (required)
+     * @param  \OpenAPI\Client\Model\UpdateS3Backup $update_s3_backup (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDatabaseS3Backup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateDatabaseS3BackupRequest($db_id, $backup_id, $update_s3_backup = null, string $contentType = self::contentTypes['updateDatabaseS3Backup'][0])
+    {
+
+        // verify the required parameter 'db_id' is set
+        if ($db_id === null || (is_array($db_id) && count($db_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $db_id when calling updateDatabaseS3Backup'
+            );
+        }
+
+        // verify the required parameter 'backup_id' is set
+        if ($backup_id === null || (is_array($backup_id) && count($backup_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $backup_id when calling updateDatabaseS3Backup'
+            );
+        }
+
+
+
+        $resourcePath = '/api/v2/databases/{db_id}/backups/{backup_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($db_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'db_id' . '}',
+                ObjectSerializer::toPathValue($db_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($backup_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'backup_id' . '}',
+                ObjectSerializer::toPathValue($backup_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($update_s3_backup)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_s3_backup));
+            } else {
+                $httpBody = $update_s3_backup;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

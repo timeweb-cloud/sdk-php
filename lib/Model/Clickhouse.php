@@ -43,21 +43,15 @@ class Clickhouse
     /**
      * Possible values of this enum
      */
-    public const ALTER = 'ALTER';
-
     public const ALTER_TABLE = 'ALTER_TABLE';
 
     public const ALTER_VIEW = 'ALTER_VIEW';
-
-    public const CREATE = 'CREATE';
 
     public const CREATE_VIEW = 'CREATE_VIEW';
 
     public const CREATE_DICTIONARY = 'CREATE_DICTIONARY';
 
     public const CREATE_TABLE = 'CREATE_TABLE';
-
-    public const DROP = 'DROP';
 
     public const DROP_TABLE = 'DROP_TABLE';
 
@@ -86,14 +80,11 @@ class Clickhouse
     public static function getAllowableEnumValues()
     {
         return [
-            self::ALTER,
             self::ALTER_TABLE,
             self::ALTER_VIEW,
-            self::CREATE,
             self::CREATE_VIEW,
             self::CREATE_DICTIONARY,
             self::CREATE_TABLE,
-            self::DROP,
             self::DROP_TABLE,
             self::DROP_VIEW,
             self::DROP_DICTIONARY,

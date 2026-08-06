@@ -65,6 +65,8 @@ class DatabaseAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'password' => 'string',
         'description' => 'string',
         'host' => 'string',
+        'for_all' => 'bool',
+        'is_reset_password' => 'bool',
         'instances' => '\OpenAPI\Client\Model\DatabaseAdminInstancesInner[]'
     ];
 
@@ -82,6 +84,8 @@ class DatabaseAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'password' => null,
         'description' => null,
         'host' => null,
+        'for_all' => null,
+        'is_reset_password' => null,
         'instances' => null
     ];
 
@@ -97,6 +101,8 @@ class DatabaseAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
 		'password' => false,
 		'description' => false,
 		'host' => true,
+		'for_all' => false,
+		'is_reset_password' => false,
 		'instances' => false
     ];
 
@@ -192,6 +198,8 @@ class DatabaseAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'password' => 'password',
         'description' => 'description',
         'host' => 'host',
+        'for_all' => 'for_all',
+        'is_reset_password' => 'is_reset_password',
         'instances' => 'instances'
     ];
 
@@ -207,6 +215,8 @@ class DatabaseAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'password' => 'setPassword',
         'description' => 'setDescription',
         'host' => 'setHost',
+        'for_all' => 'setForAll',
+        'is_reset_password' => 'setIsResetPassword',
         'instances' => 'setInstances'
     ];
 
@@ -222,6 +232,8 @@ class DatabaseAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         'password' => 'getPassword',
         'description' => 'getDescription',
         'host' => 'getHost',
+        'for_all' => 'getForAll',
+        'is_reset_password' => 'getIsResetPassword',
         'instances' => 'getInstances'
     ];
 
@@ -288,6 +300,8 @@ class DatabaseAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('password', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('host', $data ?? [], null);
+        $this->setIfExists('for_all', $data ?? [], null);
+        $this->setIfExists('is_reset_password', $data ?? [], null);
         $this->setIfExists('instances', $data ?? [], null);
     }
 
@@ -335,6 +349,12 @@ class DatabaseAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['host'] === null) {
             $invalidProperties[] = "'host' can't be null";
+        }
+        if ($this->container['for_all'] === null) {
+            $invalidProperties[] = "'for_all' can't be null";
+        }
+        if ($this->container['is_reset_password'] === null) {
+            $invalidProperties[] = "'is_reset_password' can't be null";
         }
         if ($this->container['instances'] === null) {
             $invalidProperties[] = "'instances' can't be null";
@@ -394,7 +414,7 @@ class DatabaseAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param string $created_at Значение времени, указанное в комбинированном формате даты и времени ISO8601, которое представляет, когда была создана база данных.
+     * @param string $created_at Значение времени, указанное в комбинированном формате даты и времени ISO8601, которое представляет, когда был создан пользователь базы данных.
      *
      * @return self
      */
@@ -519,6 +539,60 @@ class DatabaseAdmin implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets for_all
+     *
+     * @return bool
+     */
+    public function getForAll()
+    {
+        return $this->container['for_all'];
+    }
+
+    /**
+     * Sets for_all
+     *
+     * @param bool $for_all Флаг, выданы ли пользователю привилегии на все инстансы базы данных
+     *
+     * @return self
+     */
+    public function setForAll($for_all)
+    {
+        if (is_null($for_all)) {
+            throw new \InvalidArgumentException('non-nullable for_all cannot be null');
+        }
+        $this->container['for_all'] = $for_all;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_reset_password
+     *
+     * @return bool
+     */
+    public function getIsResetPassword()
+    {
+        return $this->container['is_reset_password'];
+    }
+
+    /**
+     * Sets is_reset_password
+     *
+     * @param bool $is_reset_password Флаг, был ли сброшен пароль пользователя
+     *
+     * @return self
+     */
+    public function setIsResetPassword($is_reset_password)
+    {
+        if (is_null($is_reset_password)) {
+            throw new \InvalidArgumentException('non-nullable is_reset_password cannot be null');
+        }
+        $this->container['is_reset_password'] = $is_reset_password;
 
         return $this;
     }

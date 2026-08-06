@@ -60,10 +60,15 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'name' => 'string',
         'preset_id' => 'int',
+        'configuration' => '\OpenAPI\Client\Model\UpdateClusterConfiguration',
         'config_parameters' => '\OpenAPI\Client\Model\Mysql',
+        'hash_type' => 'string',
         'description' => 'string',
         'is_enabled_public_network' => 'bool',
-        'is_public_ipv6' => 'bool'
+        'is_enabled_public_ipv6' => 'bool',
+        'is_secure_connection_enable' => 'bool',
+        'maintenance_slot' => '\OpenAPI\Client\Model\CreateClusterMaintenanceSlot',
+        'disk_autoscaling' => '\OpenAPI\Client\Model\CreateClusterDiskAutoscaling'
     ];
 
     /**
@@ -76,10 +81,15 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'name' => null,
         'preset_id' => null,
+        'configuration' => null,
         'config_parameters' => null,
+        'hash_type' => null,
         'description' => null,
         'is_enabled_public_network' => null,
-        'is_public_ipv6' => null
+        'is_enabled_public_ipv6' => null,
+        'is_secure_connection_enable' => null,
+        'maintenance_slot' => null,
+        'disk_autoscaling' => null
     ];
 
     /**
@@ -90,10 +100,15 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'name' => false,
 		'preset_id' => false,
+		'configuration' => false,
 		'config_parameters' => false,
+		'hash_type' => false,
 		'description' => false,
 		'is_enabled_public_network' => false,
-		'is_public_ipv6' => false
+		'is_enabled_public_ipv6' => false,
+		'is_secure_connection_enable' => false,
+		'maintenance_slot' => false,
+		'disk_autoscaling' => false
     ];
 
     /**
@@ -184,10 +199,15 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'name' => 'name',
         'preset_id' => 'preset_id',
+        'configuration' => 'configuration',
         'config_parameters' => 'config_parameters',
+        'hash_type' => 'hash_type',
         'description' => 'description',
         'is_enabled_public_network' => 'is_enabled_public_network',
-        'is_public_ipv6' => 'is_public_ipv6'
+        'is_enabled_public_ipv6' => 'is_enabled_public_ipv6',
+        'is_secure_connection_enable' => 'is_secure_connection_enable',
+        'maintenance_slot' => 'maintenance_slot',
+        'disk_autoscaling' => 'disk_autoscaling'
     ];
 
     /**
@@ -198,10 +218,15 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'name' => 'setName',
         'preset_id' => 'setPresetId',
+        'configuration' => 'setConfiguration',
         'config_parameters' => 'setConfigParameters',
+        'hash_type' => 'setHashType',
         'description' => 'setDescription',
         'is_enabled_public_network' => 'setIsEnabledPublicNetwork',
-        'is_public_ipv6' => 'setIsPublicIpv6'
+        'is_enabled_public_ipv6' => 'setIsEnabledPublicIpv6',
+        'is_secure_connection_enable' => 'setIsSecureConnectionEnable',
+        'maintenance_slot' => 'setMaintenanceSlot',
+        'disk_autoscaling' => 'setDiskAutoscaling'
     ];
 
     /**
@@ -212,10 +237,15 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'name' => 'getName',
         'preset_id' => 'getPresetId',
+        'configuration' => 'getConfiguration',
         'config_parameters' => 'getConfigParameters',
+        'hash_type' => 'getHashType',
         'description' => 'getDescription',
         'is_enabled_public_network' => 'getIsEnabledPublicNetwork',
-        'is_public_ipv6' => 'getIsPublicIpv6'
+        'is_enabled_public_ipv6' => 'getIsEnabledPublicIpv6',
+        'is_secure_connection_enable' => 'getIsSecureConnectionEnable',
+        'maintenance_slot' => 'getMaintenanceSlot',
+        'disk_autoscaling' => 'getDiskAutoscaling'
     ];
 
     /**
@@ -259,6 +289,21 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const HASH_TYPE_CACHING_SHA2 = 'caching_sha2';
+    public const HASH_TYPE_MYSQL_NATIVE = 'mysql_native';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getHashTypeAllowableValues()
+    {
+        return [
+            self::HASH_TYPE_CACHING_SHA2,
+            self::HASH_TYPE_MYSQL_NATIVE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -277,10 +322,15 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('preset_id', $data ?? [], null);
+        $this->setIfExists('configuration', $data ?? [], null);
         $this->setIfExists('config_parameters', $data ?? [], null);
+        $this->setIfExists('hash_type', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('is_enabled_public_network', $data ?? [], null);
-        $this->setIfExists('is_public_ipv6', $data ?? [], null);
+        $this->setIfExists('is_enabled_public_ipv6', $data ?? [], null);
+        $this->setIfExists('is_secure_connection_enable', $data ?? [], null);
+        $this->setIfExists('maintenance_slot', $data ?? [], null);
+        $this->setIfExists('disk_autoscaling', $data ?? [], null);
     }
 
     /**
@@ -309,6 +359,15 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getHashTypeAllowableValues();
+        if (!is_null($this->container['hash_type']) && !in_array($this->container['hash_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'hash_type', must be one of '%s'",
+                $this->container['hash_type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -365,7 +424,7 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preset_id
      *
-     * @param int|null $preset_id ID тарифа.
+     * @param int|null $preset_id ID тарифа. Нельзя передавать вместе с `configuration`
      *
      * @return self
      */
@@ -375,6 +434,33 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable preset_id cannot be null');
         }
         $this->container['preset_id'] = $preset_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets configuration
+     *
+     * @return \OpenAPI\Client\Model\UpdateClusterConfiguration|null
+     */
+    public function getConfiguration()
+    {
+        return $this->container['configuration'];
+    }
+
+    /**
+     * Sets configuration
+     *
+     * @param \OpenAPI\Client\Model\UpdateClusterConfiguration|null $configuration configuration
+     *
+     * @return self
+     */
+    public function setConfiguration($configuration)
+    {
+        if (is_null($configuration)) {
+            throw new \InvalidArgumentException('non-nullable configuration cannot be null');
+        }
+        $this->container['configuration'] = $configuration;
 
         return $this;
     }
@@ -402,6 +488,43 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable config_parameters cannot be null');
         }
         $this->container['config_parameters'] = $config_parameters;
+
+        return $this;
+    }
+
+    /**
+     * Gets hash_type
+     *
+     * @return string|null
+     */
+    public function getHashType()
+    {
+        return $this->container['hash_type'];
+    }
+
+    /**
+     * Sets hash_type
+     *
+     * @param string|null $hash_type Тип хеширования базы данных (mysql | postgres).
+     *
+     * @return self
+     */
+    public function setHashType($hash_type)
+    {
+        if (is_null($hash_type)) {
+            throw new \InvalidArgumentException('non-nullable hash_type cannot be null');
+        }
+        $allowedValues = $this->getHashTypeAllowableValues();
+        if (!in_array($hash_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'hash_type', must be one of '%s'",
+                    $hash_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['hash_type'] = $hash_type;
 
         return $this;
     }
@@ -461,28 +584,109 @@ class UpdateCluster implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets is_public_ipv6
+     * Gets is_enabled_public_ipv6
      *
      * @return bool|null
      */
-    public function getIsPublicIpv6()
+    public function getIsEnabledPublicIpv6()
     {
-        return $this->container['is_public_ipv6'];
+        return $this->container['is_enabled_public_ipv6'];
     }
 
     /**
-     * Sets is_public_ipv6
+     * Sets is_enabled_public_ipv6
      *
-     * @param bool|null $is_public_ipv6 Использование IPv6 адреса.
+     * @param bool|null $is_enabled_public_ipv6 Использование публичного IPv6-адреса.
      *
      * @return self
      */
-    public function setIsPublicIpv6($is_public_ipv6)
+    public function setIsEnabledPublicIpv6($is_enabled_public_ipv6)
     {
-        if (is_null($is_public_ipv6)) {
-            throw new \InvalidArgumentException('non-nullable is_public_ipv6 cannot be null');
+        if (is_null($is_enabled_public_ipv6)) {
+            throw new \InvalidArgumentException('non-nullable is_enabled_public_ipv6 cannot be null');
         }
-        $this->container['is_public_ipv6'] = $is_public_ipv6;
+        $this->container['is_enabled_public_ipv6'] = $is_enabled_public_ipv6;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_secure_connection_enable
+     *
+     * @return bool|null
+     */
+    public function getIsSecureConnectionEnable()
+    {
+        return $this->container['is_secure_connection_enable'];
+    }
+
+    /**
+     * Sets is_secure_connection_enable
+     *
+     * @param bool|null $is_secure_connection_enable Включить защищенное подключение к кластеру базы данных
+     *
+     * @return self
+     */
+    public function setIsSecureConnectionEnable($is_secure_connection_enable)
+    {
+        if (is_null($is_secure_connection_enable)) {
+            throw new \InvalidArgumentException('non-nullable is_secure_connection_enable cannot be null');
+        }
+        $this->container['is_secure_connection_enable'] = $is_secure_connection_enable;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintenance_slot
+     *
+     * @return \OpenAPI\Client\Model\CreateClusterMaintenanceSlot|null
+     */
+    public function getMaintenanceSlot()
+    {
+        return $this->container['maintenance_slot'];
+    }
+
+    /**
+     * Sets maintenance_slot
+     *
+     * @param \OpenAPI\Client\Model\CreateClusterMaintenanceSlot|null $maintenance_slot maintenance_slot
+     *
+     * @return self
+     */
+    public function setMaintenanceSlot($maintenance_slot)
+    {
+        if (is_null($maintenance_slot)) {
+            throw new \InvalidArgumentException('non-nullable maintenance_slot cannot be null');
+        }
+        $this->container['maintenance_slot'] = $maintenance_slot;
+
+        return $this;
+    }
+
+    /**
+     * Gets disk_autoscaling
+     *
+     * @return \OpenAPI\Client\Model\CreateClusterDiskAutoscaling|null
+     */
+    public function getDiskAutoscaling()
+    {
+        return $this->container['disk_autoscaling'];
+    }
+
+    /**
+     * Sets disk_autoscaling
+     *
+     * @param \OpenAPI\Client\Model\CreateClusterDiskAutoscaling|null $disk_autoscaling disk_autoscaling
+     *
+     * @return self
+     */
+    public function setDiskAutoscaling($disk_autoscaling)
+    {
+        if (is_null($disk_autoscaling)) {
+            throw new \InvalidArgumentException('non-nullable disk_autoscaling cannot be null');
+        }
+        $this->container['disk_autoscaling'] = $disk_autoscaling;
 
         return $this;
     }

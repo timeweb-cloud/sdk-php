@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * DatabaseClusterNetworksInnerTest Class Doc Comment
  *
  * @category    Class
- * @description DatabaseClusterNetworksInner
+ * @description Публичная сеть кластера базы данных.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

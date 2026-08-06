@@ -117,6 +117,15 @@ class CreateAdminTest extends TestCase
     }
 
     /**
+     * Test attribute "for_all"
+     */
+    public function testPropertyForAll()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "privileges"
      */
     public function testPropertyPrivileges()

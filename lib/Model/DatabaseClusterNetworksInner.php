@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * DatabaseClusterNetworksInner Class Doc Comment
  *
  * @category Class
+ * @description Публичная сеть кластера базы данных.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -236,7 +237,6 @@ class DatabaseClusterNetworksInner implements ModelInterface, ArrayAccess, \Json
     }
 
     public const TYPE__PUBLIC = 'public';
-    public const TYPE_LOCAL = 'local';
 
     /**
      * Gets allowable values of the enum
@@ -247,7 +247,6 @@ class DatabaseClusterNetworksInner implements ModelInterface, ArrayAccess, \Json
     {
         return [
             self::TYPE__PUBLIC,
-            self::TYPE_LOCAL,
         ];
     }
 
