@@ -67,7 +67,7 @@ class Image implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'description' => 'string',
         'disk_id' => 'int',
-        'location' => 'string',
+        'location' => '\OpenAPI\Client\Model\Location',
         'os' => '\OpenAPI\Client\Model\OS',
         'progress' => 'int',
         'is_custom' => 'bool',
@@ -307,29 +307,8 @@ class Image implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const LOCATION_RU_1 = 'ru-1';
-    public const LOCATION_RU_2 = 'ru-2';
-    public const LOCATION_PL_1 = 'pl-1';
-    public const LOCATION_KZ_1 = 'kz-1';
-    public const LOCATION_NL_1 = 'nl-1';
     public const TYPE_QCOW2 = 'qcow2';
     public const TYPE_ISO = 'iso';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getLocationAllowableValues()
-    {
-        return [
-            self::LOCATION_RU_1,
-            self::LOCATION_RU_2,
-            self::LOCATION_PL_1,
-            self::LOCATION_KZ_1,
-            self::LOCATION_NL_1,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -432,15 +411,6 @@ class Image implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['location'] === null) {
             $invalidProperties[] = "'location' can't be null";
         }
-        $allowedValues = $this->getLocationAllowableValues();
-        if (!is_null($this->container['location']) && !in_array($this->container['location'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'location', must be one of '%s'",
-                $this->container['location'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['os'] === null) {
             $invalidProperties[] = "'os' can't be null";
         }
@@ -723,7 +693,7 @@ class Image implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets location
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\Location
      */
     public function getLocation()
     {
@@ -733,7 +703,7 @@ class Image implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets location
      *
-     * @param string $location Локация образа.
+     * @param \OpenAPI\Client\Model\Location $location location
      *
      * @return self
      */
@@ -741,16 +711,6 @@ class Image implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($location)) {
             throw new \InvalidArgumentException('non-nullable location cannot be null');
-        }
-        $allowedValues = $this->getLocationAllowableValues();
-        if (!in_array($location, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'location', must be one of '%s'",
-                    $location,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['location'] = $location;
 

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **name** | **string** | Имя образа. |
 **description** | **string** | Описание образа. |
 **disk_id** | **int** | ID связанного с образом диска. |
-**location** | **string** | Локация образа. |
+**location** | [**\OpenAPI\Client\Model\Location**](Location.md) |  |
 **os** | [**\OpenAPI\Client\Model\OS**](OS.md) |  |
 **progress** | **int** | Процент создания образа. |
 **is_custom** | **bool** | Логическое значение, которое показывает, является ли образ кастомным. |

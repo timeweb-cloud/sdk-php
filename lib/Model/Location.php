@@ -50,11 +50,19 @@ class Location
 
     public const RU_3 = 'ru-3';
 
+    public const RU_4 = 'ru-4';
+
+    public const RU_5 = 'ru-5';
+
     public const PL_1 = 'pl-1';
 
     public const KZ_1 = 'kz-1';
 
     public const NL_1 = 'nl-1';
+
+    public const DE_1 = 'de-1';
+
+    public const US_4 = 'us-4';
 
     /**
      * Gets allowable values of the enum
@@ -66,9 +74,13 @@ class Location
             self::RU_1,
             self::RU_2,
             self::RU_3,
+            self::RU_4,
+            self::RU_5,
             self::PL_1,
             self::KZ_1,
-            self::NL_1
+            self::NL_1,
+            self::DE_1,
+            self::US_4
         ];
     }
 }
