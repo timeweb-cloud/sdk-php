@@ -99,6 +99,15 @@ class TokenPackageTest extends TestCase
     }
 
     /**
+     * Test attribute "service_type_id"
+     */
+    public function testPropertyServiceTypeId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "name"
      */
     public function testPropertyName()

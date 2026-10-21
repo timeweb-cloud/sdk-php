@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * AgentModelSettings Class Doc Comment
  *
  * @category Class
- * @description Настройки модели агента
+ * @description Параметры модели агента. Допустимые параметры и их границы зависят от модели (см. параметры модели в разделе «AI Модели»): параметры, которые модель не поддерживает, отбрасываются при сохранении, а значения вне допустимых границ отклоняются с ошибкой 400.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,9 +61,10 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'temperature' => 'float',
         'top_p' => 'float',
-        'max_tokens' => 'float',
+        'max_tokens' => 'int',
         'frequency_penalty' => 'float',
-        'presence_penalty' => 'float'
+        'presence_penalty' => 'float',
+        'enable_thinking' => 'bool'
     ];
 
     /**
@@ -78,7 +79,8 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
         'top_p' => null,
         'max_tokens' => null,
         'frequency_penalty' => null,
-        'presence_penalty' => null
+        'presence_penalty' => null,
+        'enable_thinking' => null
     ];
 
     /**
@@ -91,7 +93,8 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
 		'top_p' => false,
 		'max_tokens' => false,
 		'frequency_penalty' => false,
-		'presence_penalty' => false
+		'presence_penalty' => false,
+		'enable_thinking' => false
     ];
 
     /**
@@ -184,7 +187,8 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
         'top_p' => 'top_p',
         'max_tokens' => 'max_tokens',
         'frequency_penalty' => 'frequency_penalty',
-        'presence_penalty' => 'presence_penalty'
+        'presence_penalty' => 'presence_penalty',
+        'enable_thinking' => 'enable_thinking'
     ];
 
     /**
@@ -197,7 +201,8 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
         'top_p' => 'setTopP',
         'max_tokens' => 'setMaxTokens',
         'frequency_penalty' => 'setFrequencyPenalty',
-        'presence_penalty' => 'setPresencePenalty'
+        'presence_penalty' => 'setPresencePenalty',
+        'enable_thinking' => 'setEnableThinking'
     ];
 
     /**
@@ -210,7 +215,8 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
         'top_p' => 'getTopP',
         'max_tokens' => 'getMaxTokens',
         'frequency_penalty' => 'getFrequencyPenalty',
-        'presence_penalty' => 'getPresencePenalty'
+        'presence_penalty' => 'getPresencePenalty',
+        'enable_thinking' => 'getEnableThinking'
     ];
 
     /**
@@ -275,6 +281,7 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('max_tokens', $data ?? [], null);
         $this->setIfExists('frequency_penalty', $data ?? [], null);
         $this->setIfExists('presence_penalty', $data ?? [], null);
+        $this->setIfExists('enable_thinking', $data ?? [], null);
     }
 
     /**
@@ -332,7 +339,7 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets temperature
      *
-     * @param float|null $temperature Контролирует случайность вывода модели.
+     * @param float|null $temperature Температура: чем выше, тем случайнее ответы модели.
      *
      * @return self
      */
@@ -359,7 +366,7 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets top_p
      *
-     * @param float|null $top_p Контролирует разнообразие вывода модели.
+     * @param float|null $top_p Nucleus sampling: доля вероятностной массы, из которой выбираются токены.
      *
      * @return self
      */
@@ -376,7 +383,7 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets max_tokens
      *
-     * @return float|null
+     * @return int|null
      */
     public function getMaxTokens()
     {
@@ -386,7 +393,7 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets max_tokens
      *
-     * @param float|null $max_tokens Максимальное количество токенов в выводе.
+     * @param int|null $max_tokens Максимальное количество токенов в ответе модели.
      *
      * @return self
      */
@@ -413,7 +420,7 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets frequency_penalty
      *
-     * @param float|null $frequency_penalty Положительные значения штрафуют новые токены на основе их существующей частоты.
+     * @param float|null $frequency_penalty Штраф за частоту: положительные значения снижают повторы уже использованных токенов.
      *
      * @return self
      */
@@ -440,7 +447,7 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets presence_penalty
      *
-     * @param float|null $presence_penalty Положительные значения штрафуют новые токены на основе того, встречались ли они в тексте ранее.
+     * @param float|null $presence_penalty Штраф за присутствие: положительные значения поощряют новые темы.
      *
      * @return self
      */
@@ -450,6 +457,33 @@ class AgentModelSettings implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable presence_penalty cannot be null');
         }
         $this->container['presence_penalty'] = $presence_penalty;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_thinking
+     *
+     * @return bool|null
+     */
+    public function getEnableThinking()
+    {
+        return $this->container['enable_thinking'];
+    }
+
+    /**
+     * Sets enable_thinking
+     *
+     * @param bool|null $enable_thinking Включает режим рассуждений (thinking) для моделей, которые его поддерживают.
+     *
+     * @return self
+     */
+    public function setEnableThinking($enable_thinking)
+    {
+        if (is_null($enable_thinking)) {
+            throw new \InvalidArgumentException('non-nullable enable_thinking cannot be null');
+        }
+        $this->container['enable_thinking'] = $enable_thinking;
 
         return $this;
     }

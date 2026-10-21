@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * UpdateKnowledgebase Class Doc Comment
  *
  * @category Class
- * @description Данные для обновления базы знаний
+ * @description Данные для изменения базы знаний. Передайте только поля, которые нужно изменить
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -311,7 +311,7 @@ class UpdateKnowledgebase implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets name
      *
-     * @param string|null $name Название базы знаний
+     * @param string|null $name Новое название. Пустая строка игнорируется
      *
      * @return self
      */
@@ -338,7 +338,7 @@ class UpdateKnowledgebase implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets description
      *
-     * @param string|null $description Описание базы знаний
+     * @param string|null $description Новое описание
      *
      * @return self
      */

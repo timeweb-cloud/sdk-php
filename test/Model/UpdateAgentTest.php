@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * UpdateAgentTest Class Doc Comment
  *
  * @category    Class
- * @description Данные для обновления AI агента
+ * @description Данные для обновления AI агента. Передавайте только изменяемые поля.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -117,15 +117,6 @@ class UpdateAgentTest extends TestCase
     }
 
     /**
-     * Test attribute "token_package_id"
-     */
-    public function testPropertyTokenPackageId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "settings"
      */
     public function testPropertySettings()
@@ -138,6 +129,51 @@ class UpdateAgentTest extends TestCase
      * Test attribute "project_id"
      */
     public function testPropertyProjectId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "additional_model_ids"
+     */
+    public function testPropertyAdditionalModelIds()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "additional_models"
+     */
+    public function testPropertyAdditionalModels()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_web_search_enabled"
+     */
+    public function testPropertyIsWebSearchEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ai_gateway_key_id"
+     */
+    public function testPropertyAiGatewayKeyId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "token_package_id"
+     */
+    public function testPropertyTokenPackageId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

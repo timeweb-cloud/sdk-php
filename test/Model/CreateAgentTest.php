@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CreateAgentTest Class Doc Comment
  *
  * @category    Class
- * @description Данные для создания AI агента
+ * @description Данные для создания AI агента (устаревший метод API v1)
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -117,15 +117,6 @@ class CreateAgentTest extends TestCase
     }
 
     /**
-     * Test attribute "token_package_id"
-     */
-    public function testPropertyTokenPackageId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "settings"
      */
     public function testPropertySettings()
@@ -138,6 +129,24 @@ class CreateAgentTest extends TestCase
      * Test attribute "project_id"
      */
     public function testPropertyProjectId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_web_search_enabled"
+     */
+    public function testPropertyIsWebSearchEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "token_package_id"
+     */
+    public function testPropertyTokenPackageId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

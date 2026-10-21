@@ -81,9 +81,9 @@ class GetKnowledgebasesV2200ResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "knowledgebases"
+     * Test attribute "knowledge_bases"
      */
-    public function testPropertyKnowledgebases()
+    public function testPropertyKnowledgeBases()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * Document Class Doc Comment
  *
  * @category Class
- * @description Документ в базе знаний
+ * @description Документ базы знаний
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,12 +59,15 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
+        'id' => 'int',
         'name' => 'string',
-        'size' => 'float',
+        'size' => 'int',
         'status' => 'string',
+        'type' => 'string',
+        'indexing_schedule' => '\OpenAPI\Client\Model\IndexingSchedule',
         'indexing_version' => 'string',
         'status_info' => '\OpenAPI\Client\Model\DocumentStatusInfo',
+        'link' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -81,8 +84,11 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'size' => null,
         'status' => null,
+        'type' => null,
+        'indexing_schedule' => null,
         'indexing_version' => null,
         'status_info' => null,
+        'link' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -97,8 +103,11 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
 		'name' => false,
 		'size' => false,
 		'status' => false,
+		'type' => false,
+		'indexing_schedule' => false,
 		'indexing_version' => true,
 		'status_info' => true,
+		'link' => false,
 		'created_at' => false,
 		'updated_at' => false
     ];
@@ -193,8 +202,11 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'size' => 'size',
         'status' => 'status',
+        'type' => 'type',
+        'indexing_schedule' => 'indexing_schedule',
         'indexing_version' => 'indexing_version',
         'status_info' => 'status_info',
+        'link' => 'link',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -209,8 +221,11 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'size' => 'setSize',
         'status' => 'setStatus',
+        'type' => 'setType',
+        'indexing_schedule' => 'setIndexingSchedule',
         'indexing_version' => 'setIndexingVersion',
         'status_info' => 'setStatusInfo',
+        'link' => 'setLink',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -225,8 +240,11 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'size' => 'getSize',
         'status' => 'getStatus',
+        'type' => 'getType',
+        'indexing_schedule' => 'getIndexingSchedule',
         'indexing_version' => 'getIndexingVersion',
         'status_info' => 'getStatusInfo',
+        'link' => 'getLink',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -273,9 +291,11 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const STATUS__NEW = 'new';
-    public const STATUS_INDEXED = 'indexed';
     public const STATUS_INDEXING = 'indexing';
+    public const STATUS_INDEXED = 'indexed';
     public const STATUS_ERROR = 'error';
+    public const TYPE_FILE = 'file';
+    public const TYPE_LINK = 'link';
 
     /**
      * Gets allowable values of the enum
@@ -286,9 +306,22 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::STATUS__NEW,
-            self::STATUS_INDEXED,
             self::STATUS_INDEXING,
+            self::STATUS_INDEXED,
             self::STATUS_ERROR,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_FILE,
+            self::TYPE_LINK,
         ];
     }
 
@@ -311,8 +344,11 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('size', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('indexing_schedule', $data ?? [], null);
         $this->setIfExists('indexing_version', $data ?? [], null);
         $this->setIfExists('status_info', $data ?? [], null);
+        $this->setIfExists('link', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
     }
@@ -365,6 +401,27 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['indexing_schedule'] === null) {
+            $invalidProperties[] = "'indexing_schedule' can't be null";
+        }
+        if ($this->container['indexing_version'] === null) {
+            $invalidProperties[] = "'indexing_version' can't be null";
+        }
+        if ($this->container['status_info'] === null) {
+            $invalidProperties[] = "'status_info' can't be null";
+        }
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
@@ -389,7 +446,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return float
+     * @return int
      */
     public function getId()
     {
@@ -399,7 +456,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param float $id Уникальный идентификатор документа
+     * @param int $id ID документа
      *
      * @return self
      */
@@ -443,7 +500,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets size
      *
-     * @return float
+     * @return int
      */
     public function getSize()
     {
@@ -453,7 +510,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets size
      *
-     * @param float $size Размер документа в байтах
+     * @param int $size Размер в байтах. Для документа по ссылке — значение заголовка `Content-Length` на момент добавления, `0`, если сервер его не вернул
      *
      * @return self
      */
@@ -480,7 +537,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string $status Статус индексации документа
+     * @param string $status Статус индексации: - `new` — документ добавлен и ждёт индексации - `indexing` — индексируется - `indexed` — проиндексирован, используется в поиске - `error` — ошибка индексации, подробности в `status_info`
      *
      * @return self
      */
@@ -505,9 +562,73 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type Тип документа: `file` — загруженный файл, `link` — документ по ссылке
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets indexing_schedule
+     *
+     * @return \OpenAPI\Client\Model\IndexingSchedule
+     */
+    public function getIndexingSchedule()
+    {
+        return $this->container['indexing_schedule'];
+    }
+
+    /**
+     * Sets indexing_schedule
+     *
+     * @param \OpenAPI\Client\Model\IndexingSchedule $indexing_schedule indexing_schedule
+     *
+     * @return self
+     */
+    public function setIndexingSchedule($indexing_schedule)
+    {
+        if (is_null($indexing_schedule)) {
+            throw new \InvalidArgumentException('non-nullable indexing_schedule cannot be null');
+        }
+        $this->container['indexing_schedule'] = $indexing_schedule;
+
+        return $this;
+    }
+
+    /**
      * Gets indexing_version
      *
-     * @return string|null
+     * @return string
      */
     public function getIndexingVersion()
     {
@@ -517,7 +638,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets indexing_version
      *
-     * @param string|null $indexing_version Версия индексации
+     * @param string $indexing_version Версия индексации документа
      *
      * @return self
      */
@@ -541,7 +662,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status_info
      *
-     * @return \OpenAPI\Client\Model\DocumentStatusInfo|null
+     * @return \OpenAPI\Client\Model\DocumentStatusInfo
      */
     public function getStatusInfo()
     {
@@ -551,7 +672,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status_info
      *
-     * @param \OpenAPI\Client\Model\DocumentStatusInfo|null $status_info status_info
+     * @param \OpenAPI\Client\Model\DocumentStatusInfo $status_info status_info
      *
      * @return self
      */
@@ -573,6 +694,33 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets link
+     *
+     * @return string|null
+     */
+    public function getLink()
+    {
+        return $this->container['link'];
+    }
+
+    /**
+     * Sets link
+     *
+     * @param string|null $link URL документа. Только для документов типа `link`
+     *
+     * @return self
+     */
+    public function setLink($link)
+    {
+        if (is_null($link)) {
+            throw new \InvalidArgumentException('non-nullable link cannot be null');
+        }
+        $this->container['link'] = $link;
+
+        return $this;
+    }
+
+    /**
      * Gets created_at
      *
      * @return \DateTime
@@ -585,7 +733,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Дата создания документа
+     * @param \DateTime $created_at Дата и время добавления документа
      *
      * @return self
      */
@@ -612,7 +760,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_at
      *
-     * @param \DateTime $updated_at Дата обновления документа
+     * @param \DateTime $updated_at Дата и время последнего изменения документа
      *
      * @return self
      */

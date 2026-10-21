@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * DocumentStatusInfoTest Class Doc Comment
  *
  * @category    Class
- * @description Детальная информация о текущем состоянии документа в базе знаний
+ * @description Подробности о состоянии индексации документа. &#x60;null&#x60;, если информации нет
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -102,6 +102,24 @@ class DocumentStatusInfoTest extends TestCase
      * Test attribute "error_code"
      */
     public function testPropertyErrorCode()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "stage"
+     */
+    public function testPropertyStage()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "trace_id"
+     */
+    public function testPropertyTraceId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

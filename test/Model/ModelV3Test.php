@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ModelV3Test Class Doc Comment
  *
  * @category    Class
- * @description Модель AI (v3). Идентификация и управляющие поля находятся на верхнем уровне, все сравнимые характеристики (цены, лимиты, возможности) — в словаре &#x60;parameter_values&#x60;
+ * @description AI модель с характеристиками для сравнения (v3). Цены и характеристики — в &#x60;parameter_values&#x60;
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -201,6 +201,24 @@ class ModelV3Test extends TestCase
      * Test attribute "parameter_values"
      */
     public function testPropertyParameterValues()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "price_tiers"
+     */
+    public function testPropertyPriceTiers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "batch"
+     */
+    public function testPropertyBatch()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

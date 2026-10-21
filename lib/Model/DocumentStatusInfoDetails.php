@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * DocumentStatusInfoDetails Class Doc Comment
  *
  * @category Class
- * @description Дополнительные детали, зависящие от типа статуса
+ * @description Подробности, набор полей зависит от состояния. Могут присутствовать и другие поля
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,7 +61,16 @@ class DocumentStatusInfoDetails implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'started_at' => '\DateTime',
         'current_stage' => 'string',
-        'progress' => 'float'
+        'progress' => 'float',
+        'indexing_duration_ms' => 'float',
+        'tokens_used' => 'float',
+        'tokens_estimated' => 'float',
+        'chunks_count' => 'float',
+        'needed' => 'float',
+        'available' => 'float',
+        'estimated' => 'float',
+        'balance' => 'float',
+        'min_required' => 'float'
     ];
 
     /**
@@ -74,7 +83,16 @@ class DocumentStatusInfoDetails implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'started_at' => 'date-time',
         'current_stage' => null,
-        'progress' => null
+        'progress' => null,
+        'indexing_duration_ms' => null,
+        'tokens_used' => null,
+        'tokens_estimated' => null,
+        'chunks_count' => null,
+        'needed' => null,
+        'available' => null,
+        'estimated' => null,
+        'balance' => null,
+        'min_required' => null
     ];
 
     /**
@@ -85,7 +103,16 @@ class DocumentStatusInfoDetails implements ModelInterface, ArrayAccess, \JsonSer
     protected static array $openAPINullables = [
         'started_at' => false,
 		'current_stage' => false,
-		'progress' => false
+		'progress' => false,
+		'indexing_duration_ms' => false,
+		'tokens_used' => false,
+		'tokens_estimated' => false,
+		'chunks_count' => false,
+		'needed' => false,
+		'available' => false,
+		'estimated' => false,
+		'balance' => false,
+		'min_required' => false
     ];
 
     /**
@@ -176,7 +203,16 @@ class DocumentStatusInfoDetails implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'started_at' => 'started_at',
         'current_stage' => 'current_stage',
-        'progress' => 'progress'
+        'progress' => 'progress',
+        'indexing_duration_ms' => 'indexing_duration_ms',
+        'tokens_used' => 'tokens_used',
+        'tokens_estimated' => 'tokens_estimated',
+        'chunks_count' => 'chunks_count',
+        'needed' => 'needed',
+        'available' => 'available',
+        'estimated' => 'estimated',
+        'balance' => 'balance',
+        'min_required' => 'min_required'
     ];
 
     /**
@@ -187,7 +223,16 @@ class DocumentStatusInfoDetails implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'started_at' => 'setStartedAt',
         'current_stage' => 'setCurrentStage',
-        'progress' => 'setProgress'
+        'progress' => 'setProgress',
+        'indexing_duration_ms' => 'setIndexingDurationMs',
+        'tokens_used' => 'setTokensUsed',
+        'tokens_estimated' => 'setTokensEstimated',
+        'chunks_count' => 'setChunksCount',
+        'needed' => 'setNeeded',
+        'available' => 'setAvailable',
+        'estimated' => 'setEstimated',
+        'balance' => 'setBalance',
+        'min_required' => 'setMinRequired'
     ];
 
     /**
@@ -198,7 +243,16 @@ class DocumentStatusInfoDetails implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'started_at' => 'getStartedAt',
         'current_stage' => 'getCurrentStage',
-        'progress' => 'getProgress'
+        'progress' => 'getProgress',
+        'indexing_duration_ms' => 'getIndexingDurationMs',
+        'tokens_used' => 'getTokensUsed',
+        'tokens_estimated' => 'getTokensEstimated',
+        'chunks_count' => 'getChunksCount',
+        'needed' => 'getNeeded',
+        'available' => 'getAvailable',
+        'estimated' => 'getEstimated',
+        'balance' => 'getBalance',
+        'min_required' => 'getMinRequired'
     ];
 
     /**
@@ -261,6 +315,15 @@ class DocumentStatusInfoDetails implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('started_at', $data ?? [], null);
         $this->setIfExists('current_stage', $data ?? [], null);
         $this->setIfExists('progress', $data ?? [], null);
+        $this->setIfExists('indexing_duration_ms', $data ?? [], null);
+        $this->setIfExists('tokens_used', $data ?? [], null);
+        $this->setIfExists('tokens_estimated', $data ?? [], null);
+        $this->setIfExists('chunks_count', $data ?? [], null);
+        $this->setIfExists('needed', $data ?? [], null);
+        $this->setIfExists('available', $data ?? [], null);
+        $this->setIfExists('estimated', $data ?? [], null);
+        $this->setIfExists('balance', $data ?? [], null);
+        $this->setIfExists('min_required', $data ?? [], null);
     }
 
     /**
@@ -326,7 +389,7 @@ class DocumentStatusInfoDetails implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets started_at
      *
-     * @param \DateTime|null $started_at Время начала индексации
+     * @param \DateTime|null $started_at `indexing`: время начала индексации
      *
      * @return self
      */
@@ -353,7 +416,7 @@ class DocumentStatusInfoDetails implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets current_stage
      *
-     * @param string|null $current_stage Текущий этап индексации
+     * @param string|null $current_stage `indexing`: текущий этап
      *
      * @return self
      */
@@ -380,7 +443,7 @@ class DocumentStatusInfoDetails implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets progress
      *
-     * @param float|null $progress Прогресс в процентах (0-100)
+     * @param float|null $progress `indexing`: прогресс в процентах
      *
      * @return self
      */
@@ -398,6 +461,249 @@ class DocumentStatusInfoDetails implements ModelInterface, ArrayAccess, \JsonSer
         }
 
         $this->container['progress'] = $progress;
+
+        return $this;
+    }
+
+    /**
+     * Gets indexing_duration_ms
+     *
+     * @return float|null
+     */
+    public function getIndexingDurationMs()
+    {
+        return $this->container['indexing_duration_ms'];
+    }
+
+    /**
+     * Sets indexing_duration_ms
+     *
+     * @param float|null $indexing_duration_ms `indexed`: длительность индексации в миллисекундах
+     *
+     * @return self
+     */
+    public function setIndexingDurationMs($indexing_duration_ms)
+    {
+        if (is_null($indexing_duration_ms)) {
+            throw new \InvalidArgumentException('non-nullable indexing_duration_ms cannot be null');
+        }
+        $this->container['indexing_duration_ms'] = $indexing_duration_ms;
+
+        return $this;
+    }
+
+    /**
+     * Gets tokens_used
+     *
+     * @return float|null
+     */
+    public function getTokensUsed()
+    {
+        return $this->container['tokens_used'];
+    }
+
+    /**
+     * Sets tokens_used
+     *
+     * @param float|null $tokens_used `indexed`: израсходовано токенов
+     *
+     * @return self
+     */
+    public function setTokensUsed($tokens_used)
+    {
+        if (is_null($tokens_used)) {
+            throw new \InvalidArgumentException('non-nullable tokens_used cannot be null');
+        }
+        $this->container['tokens_used'] = $tokens_used;
+
+        return $this;
+    }
+
+    /**
+     * Gets tokens_estimated
+     *
+     * @return float|null
+     */
+    public function getTokensEstimated()
+    {
+        return $this->container['tokens_estimated'];
+    }
+
+    /**
+     * Sets tokens_estimated
+     *
+     * @param float|null $tokens_estimated `indexed`: оценка количества токенов перед индексацией
+     *
+     * @return self
+     */
+    public function setTokensEstimated($tokens_estimated)
+    {
+        if (is_null($tokens_estimated)) {
+            throw new \InvalidArgumentException('non-nullable tokens_estimated cannot be null');
+        }
+        $this->container['tokens_estimated'] = $tokens_estimated;
+
+        return $this;
+    }
+
+    /**
+     * Gets chunks_count
+     *
+     * @return float|null
+     */
+    public function getChunksCount()
+    {
+        return $this->container['chunks_count'];
+    }
+
+    /**
+     * Sets chunks_count
+     *
+     * @param float|null $chunks_count `indexed`: количество фрагментов, на которые разбит документ
+     *
+     * @return self
+     */
+    public function setChunksCount($chunks_count)
+    {
+        if (is_null($chunks_count)) {
+            throw new \InvalidArgumentException('non-nullable chunks_count cannot be null');
+        }
+        $this->container['chunks_count'] = $chunks_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets needed
+     *
+     * @return float|null
+     */
+    public function getNeeded()
+    {
+        return $this->container['needed'];
+    }
+
+    /**
+     * Sets needed
+     *
+     * @param float|null $needed `INSUFFICIENT_TOKENS`: сколько токенов нужно
+     *
+     * @return self
+     */
+    public function setNeeded($needed)
+    {
+        if (is_null($needed)) {
+            throw new \InvalidArgumentException('non-nullable needed cannot be null');
+        }
+        $this->container['needed'] = $needed;
+
+        return $this;
+    }
+
+    /**
+     * Gets available
+     *
+     * @return float|null
+     */
+    public function getAvailable()
+    {
+        return $this->container['available'];
+    }
+
+    /**
+     * Sets available
+     *
+     * @param float|null $available `INSUFFICIENT_TOKENS`: сколько токенов доступно
+     *
+     * @return self
+     */
+    public function setAvailable($available)
+    {
+        if (is_null($available)) {
+            throw new \InvalidArgumentException('non-nullable available cannot be null');
+        }
+        $this->container['available'] = $available;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimated
+     *
+     * @return float|null
+     */
+    public function getEstimated()
+    {
+        return $this->container['estimated'];
+    }
+
+    /**
+     * Sets estimated
+     *
+     * @param float|null $estimated `INSUFFICIENT_TOKENS`: оценка без запаса
+     *
+     * @return self
+     */
+    public function setEstimated($estimated)
+    {
+        if (is_null($estimated)) {
+            throw new \InvalidArgumentException('non-nullable estimated cannot be null');
+        }
+        $this->container['estimated'] = $estimated;
+
+        return $this;
+    }
+
+    /**
+     * Gets balance
+     *
+     * @return float|null
+     */
+    public function getBalance()
+    {
+        return $this->container['balance'];
+    }
+
+    /**
+     * Sets balance
+     *
+     * @param float|null $balance `CRITICAL_BALANCE`, `NEGATIVE_BALANCE`: текущий остаток токенов
+     *
+     * @return self
+     */
+    public function setBalance($balance)
+    {
+        if (is_null($balance)) {
+            throw new \InvalidArgumentException('non-nullable balance cannot be null');
+        }
+        $this->container['balance'] = $balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets min_required
+     *
+     * @return float|null
+     */
+    public function getMinRequired()
+    {
+        return $this->container['min_required'];
+    }
+
+    /**
+     * Sets min_required
+     *
+     * @param float|null $min_required `CRITICAL_BALANCE`: минимально необходимый остаток
+     *
+     * @return self
+     */
+    public function setMinRequired($min_required)
+    {
+        if (is_null($min_required)) {
+            throw new \InvalidArgumentException('non-nullable min_required cannot be null');
+        }
+        $this->container['min_required'] = $min_required;
 
         return $this;
     }

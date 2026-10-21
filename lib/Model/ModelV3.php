@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ModelV3 Class Doc Comment
  *
  * @category Class
- * @description Модель AI (v3). Идентификация и управляющие поля находятся на верхнем уровне, все сравнимые характеристики (цены, лимиты, возможности) — в словаре &#x60;parameter_values&#x60;
+ * @description AI модель с характеристиками для сравнения (v3). Цены и характеристики — в &#x60;parameter_values&#x60;
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,8 +59,8 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
-        'provider_id' => 'float',
+        'id' => 'int',
+        'provider_id' => 'int',
         'name' => 'string',
         'public_name' => 'string',
         'model_name' => 'string',
@@ -71,8 +71,10 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
         'deprecation_date' => '\DateTime',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'params_info' => 'object',
-        'parameter_values' => 'array<string,mixed>'
+        'params_info' => 'array<string,\OpenAPI\Client\Model\ModelParamInfo>',
+        'parameter_values' => 'array<string,float>',
+        'price_tiers' => '\OpenAPI\Client\Model\ModelPriceTier[]',
+        'batch' => '\OpenAPI\Client\Model\ModelBatch'
     ];
 
     /**
@@ -96,7 +98,9 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'params_info' => null,
-        'parameter_values' => null
+        'parameter_values' => null,
+        'price_tiers' => null,
+        'batch' => null
     ];
 
     /**
@@ -118,7 +122,9 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
 		'created_at' => false,
 		'updated_at' => false,
 		'params_info' => true,
-		'parameter_values' => false
+		'parameter_values' => false,
+		'price_tiers' => false,
+		'batch' => false
     ];
 
     /**
@@ -220,7 +226,9 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'params_info' => 'params_info',
-        'parameter_values' => 'parameter_values'
+        'parameter_values' => 'parameter_values',
+        'price_tiers' => 'price_tiers',
+        'batch' => 'batch'
     ];
 
     /**
@@ -242,7 +250,9 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'params_info' => 'setParamsInfo',
-        'parameter_values' => 'setParameterValues'
+        'parameter_values' => 'setParameterValues',
+        'price_tiers' => 'setPriceTiers',
+        'batch' => 'setBatch'
     ];
 
     /**
@@ -264,7 +274,9 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'params_info' => 'getParamsInfo',
-        'parameter_values' => 'getParameterValues'
+        'parameter_values' => 'getParameterValues',
+        'price_tiers' => 'getPriceTiers',
+        'batch' => 'getBatch'
     ];
 
     /**
@@ -313,7 +325,9 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     public const TYPE_EMBEDDING = 'embedding';
     public const TYPE_IMAGE = 'image';
     public const TYPE_AUDIO = 'audio';
+    public const TYPE_VIDEO = 'video';
     public const TYPE_MODERATION = 'moderation';
+    public const TYPE_SYSTEM_ONE = 'system-one';
 
     /**
      * Gets allowable values of the enum
@@ -328,7 +342,9 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE_EMBEDDING,
             self::TYPE_IMAGE,
             self::TYPE_AUDIO,
+            self::TYPE_VIDEO,
             self::TYPE_MODERATION,
+            self::TYPE_SYSTEM_ONE,
         ];
     }
 
@@ -361,6 +377,8 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('params_info', $data ?? [], null);
         $this->setIfExists('parameter_values', $data ?? [], null);
+        $this->setIfExists('price_tiers', $data ?? [], null);
+        $this->setIfExists('batch', $data ?? [], null);
     }
 
     /**
@@ -426,14 +444,26 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['is_stopped'] === null) {
             $invalidProperties[] = "'is_stopped' can't be null";
         }
+        if ($this->container['deprecation_date'] === null) {
+            $invalidProperties[] = "'deprecation_date' can't be null";
+        }
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
         if ($this->container['updated_at'] === null) {
             $invalidProperties[] = "'updated_at' can't be null";
         }
+        if ($this->container['params_info'] === null) {
+            $invalidProperties[] = "'params_info' can't be null";
+        }
         if ($this->container['parameter_values'] === null) {
             $invalidProperties[] = "'parameter_values' can't be null";
+        }
+        if ($this->container['price_tiers'] === null) {
+            $invalidProperties[] = "'price_tiers' can't be null";
+        }
+        if ($this->container['batch'] === null) {
+            $invalidProperties[] = "'batch' can't be null";
         }
         return $invalidProperties;
     }
@@ -453,7 +483,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return float
+     * @return int
      */
     public function getId()
     {
@@ -463,7 +493,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param float $id Уникальный идентификатор модели
+     * @param int $id ID модели
      *
      * @return self
      */
@@ -480,7 +510,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets provider_id
      *
-     * @return float
+     * @return int
      */
     public function getProviderId()
     {
@@ -490,7 +520,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets provider_id
      *
-     * @param float $provider_id ID провайдера, который предоставляет модель
+     * @param int $provider_id ID провайдера модели
      *
      * @return self
      */
@@ -517,7 +547,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Название модели
+     * @param string $name Семейство модели
      *
      * @return self
      */
@@ -544,7 +574,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets public_name
      *
-     * @param string $public_name Публичное имя модели
+     * @param string $public_name Отображаемое название модели
      *
      * @return self
      */
@@ -571,7 +601,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets model_name
      *
-     * @param string $model_name Идентификатор модели, который передаётся в поле `model` тела запроса
+     * @param string $model_name Идентификатор модели с префиксом провайдера — передаётся в поле `model` запросов к AI Gateway
      *
      * @return self
      */
@@ -598,7 +628,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type Тип модели (llm — языковая модель, hosted-llm — self-hosted языковая модель, embedding — модель для эмбеддингов, image — генерация изображений, audio — работа с аудио, moderation — модерация контента)
+     * @param string $type Тип модели: - `llm` — языковая модель - `hosted-llm` — языковая модель, размещённая в Timeweb Cloud - `embedding` — модель эмбеддингов - `image` — генерация изображений - `audio` — работа с аудио - `video` — генерация видео - `moderation` — модерация контента - `system-one` — служебная модель с собственным API
      *
      * @return self
      */
@@ -662,7 +692,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_deprecated
      *
-     * @param bool $is_deprecated Признак, что модель устарела
+     * @param bool $is_deprecated Модель устарела и недоступна для выбора в новых агентах
      *
      * @return self
      */
@@ -689,7 +719,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_stopped
      *
-     * @param bool $is_stopped Признак, что поддержка модели остановлена
+     * @param bool $is_stopped Поддержка модели остановлена: запросы к ней не выполняются
      *
      * @return self
      */
@@ -706,7 +736,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets deprecation_date
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getDeprecationDate()
     {
@@ -716,7 +746,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets deprecation_date
      *
-     * @param \DateTime|null $deprecation_date Дата отключения модели у провайдера. `null`, если отключение не запланировано
+     * @param \DateTime $deprecation_date Дата отключения модели у провайдера. `null`, если отключение не запланировано
      *
      * @return self
      */
@@ -777,7 +807,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_at
      *
-     * @param \DateTime $updated_at Дата и время последнего обновления модели
+     * @param \DateTime $updated_at Дата и время последнего изменения модели
      *
      * @return self
      */
@@ -794,7 +824,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets params_info
      *
-     * @return object|null
+     * @return array<string,\OpenAPI\Client\Model\ModelParamInfo>
      */
     public function getParamsInfo()
     {
@@ -804,7 +834,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets params_info
      *
-     * @param object|null $params_info Информация о доступных параметрах модели с их ограничениями. Ключ — название параметра, значение — его тип, ограничения и значение по умолчанию
+     * @param array<string,\OpenAPI\Client\Model\ModelParamInfo> $params_info Параметры генерации, которые можно настроить у агента с этой моделью. Ключ — имя параметра (`temperature`, `top_p`, `max_tokens`, `reasoning_effort` и т.д.). `null`, если параметры не заданы
      *
      * @return self
      */
@@ -828,7 +858,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets parameter_values
      *
-     * @return array<string,mixed>
+     * @return array<string,float>
      */
     public function getParameterValues()
     {
@@ -838,7 +868,7 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets parameter_values
      *
-     * @param array<string,mixed> $parameter_values Характеристики модели. Ключ — код характеристики, значение — число, строка, булево значение или массив строк.  Основные коды: - `cost_in` — цена за 1 входной токен в рублях - `cost_out` — цена за 1 выходной токен в рублях - `context_window` — размер контекстного окна в токенах - `max_output_tokens` — максимальное количество токенов в ответе - `is_reasoning` — поддержка режима рассуждений - `supports_function_calling` — поддержка function calling - `supported_input_modalities` — поддерживаемые входные модальности (например, `text`, `image`) - `supported_output_modalities` — поддерживаемые выходные модальности - `avg_speed` — средняя скорость генерации в токенах в секунду - `aa_intelligence_index`, `aa_coding_index`, `aa_agentic_index` — индексы качества Artificial Analysis - `release_date` — дата релиза модели
+     * @param array<string,float> $parameter_values Характеристики модели. Ключ — `code` из справочника `GET /api/v3/cloud-ai/model-parameters`, значение — число, строка, булево значение или массив строк. Если значение неизвестно, ключа нет.  Основные коды: - `cost_in`, `cost_out` — цена 1 входного / выходного токена в рублях - `cost_cache_read`, `cost_cache_write` — цена 1 токена чтения / записи кэша промпта в рублях; ключа нет, если отдельной цены нет (тарифицируется по `cost_in`) - `pricing_unit` — единица тарификации: `token` (по умолчанию), `megapixel`, `credit` - `cost_per_image` — цена изображения базового размера (1 МП) в рублях - `credits_from`, `cost_per_second_from` — минимальная ставка в кредитах провайдера и цена от, в рублях, за секунду видео - `context_window`, `max_output_tokens` — размер контекста и максимум токенов в ответе - `is_reasoning`, `supports_function_calling` — поддержка рассуждений и вызова инструментов - `supported_input_modalities`, `supported_output_modalities` — входные и выходные модальности (`text`, `image`, ...) - `avg_speed` — средняя скорость генерации, токенов в секунду - `aa_intelligence_index`, `aa_coding_index`, `aa_agentic_index` — индексы Artificial Analysis - `release_date` — дата релиза (`YYYY-MM-DD`)
      *
      * @return self
      */
@@ -848,6 +878,60 @@ class ModelV3 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable parameter_values cannot be null');
         }
         $this->container['parameter_values'] = $parameter_values;
+
+        return $this;
+    }
+
+    /**
+     * Gets price_tiers
+     *
+     * @return \OpenAPI\Client\Model\ModelPriceTier[]
+     */
+    public function getPriceTiers()
+    {
+        return $this->container['price_tiers'];
+    }
+
+    /**
+     * Sets price_tiers
+     *
+     * @param \OpenAPI\Client\Model\ModelPriceTier[] $price_tiers Ступени цены по размеру входного контекста, по возрастанию порога. Пустой массив — у модели одна цена при любом контексте
+     *
+     * @return self
+     */
+    public function setPriceTiers($price_tiers)
+    {
+        if (is_null($price_tiers)) {
+            throw new \InvalidArgumentException('non-nullable price_tiers cannot be null');
+        }
+        $this->container['price_tiers'] = $price_tiers;
+
+        return $this;
+    }
+
+    /**
+     * Gets batch
+     *
+     * @return \OpenAPI\Client\Model\ModelBatch
+     */
+    public function getBatch()
+    {
+        return $this->container['batch'];
+    }
+
+    /**
+     * Sets batch
+     *
+     * @param \OpenAPI\Client\Model\ModelBatch $batch batch
+     *
+     * @return self
+     */
+    public function setBatch($batch)
+    {
+        if (is_null($batch)) {
+            throw new \InvalidArgumentException('non-nullable batch cannot be null');
+        }
+        $this->container['batch'] = $batch;
 
         return $this;
     }

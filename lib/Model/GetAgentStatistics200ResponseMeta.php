@@ -58,7 +58,7 @@ class GetAgentStatistics200ResponseMeta implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'float'
+        'total' => 'int'
     ];
 
     /**
@@ -296,7 +296,7 @@ class GetAgentStatistics200ResponseMeta implements ModelInterface, ArrayAccess, 
     /**
      * Gets total
      *
-     * @return float
+     * @return int
      */
     public function getTotal()
     {
@@ -306,7 +306,7 @@ class GetAgentStatistics200ResponseMeta implements ModelInterface, ArrayAccess, 
     /**
      * Sets total
      *
-     * @param float $total Количество полученных временных отрезков
+     * @param int $total Количество точек статистики
      *
      * @return self
      */

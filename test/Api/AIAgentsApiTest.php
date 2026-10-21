@@ -85,12 +85,36 @@ class AIAgentsApiTest extends TestCase
     }
 
     /**
+     * Test case for changeAgentModel
+     *
+     * Смена модели AI агента.
+     *
+     */
+    public function testChangeAgentModel()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createAgent
      *
      * Создание AI агента.
      *
      */
     public function testCreateAgent()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for createAgentEntityLimit
+     *
+     * Создание лимита агента.
+     *
+     */
+    public function testCreateAgentEntityLimit()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -121,12 +145,84 @@ class AIAgentsApiTest extends TestCase
     }
 
     /**
+     * Test case for deleteAgentEntityLimit
+     *
+     * Удаление лимита агента.
+     *
+     */
+    public function testDeleteAgentEntityLimit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for exportAgentChatsCsv
+     *
+     * Выгрузка чатов агента в CSV.
+     *
+     */
+    public function testExportAgentChatsCsv()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getAgent
      *
      * Получение AI агента.
      *
      */
     public function testGetAgent()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getAgentChatList
+     *
+     * Получение списка чатов агента.
+     *
+     */
+    public function testGetAgentChatList()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getAgentChatMessages
+     *
+     * Получение сообщений чата агента.
+     *
+     */
+    public function testGetAgentChatMessages()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getAgentEntityLimit
+     *
+     * Получение лимита агента.
+     *
+     */
+    public function testGetAgentEntityLimit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getAgentEntityLimits
+     *
+     * Получение лимитов агента.
+     *
+     */
+    public function testGetAgentEntityLimits()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -145,6 +241,18 @@ class AIAgentsApiTest extends TestCase
     }
 
     /**
+     * Test case for getAgentV3
+     *
+     * Получение AI агента (v3).
+     *
+     */
+    public function testGetAgentV3()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getAgents
      *
      * Получение списка AI агентов.
@@ -157,48 +265,24 @@ class AIAgentsApiTest extends TestCase
     }
 
     /**
-     * Test case for getAgentsTokenPackages
+     * Test case for getAgentsV3
      *
-     * Получение списка пакетов токенов для агентов.
+     * Получение списка AI агентов (v3).
      *
      */
-    public function testGetAgentsTokenPackages()
+    public function testGetAgentsV3()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for getKnowledgebasesTokenPackages
+     * Test case for syncAgentEntityLimits
      *
-     * Получение списка пакетов токенов для баз знаний.
-     *
-     */
-    public function testGetKnowledgebasesTokenPackages()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getModels
-     *
-     * Получение списка моделей.
+     * Синхронизация лимитов агента за период.
      *
      */
-    public function testGetModels()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getModelsV3
-     *
-     * Получение списка моделей.
-     *
-     */
-    public function testGetModelsV3()
+    public function testSyncAgentEntityLimits()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -211,6 +295,18 @@ class AIAgentsApiTest extends TestCase
      *
      */
     public function testUpdateAgent()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateAgentEntityLimit
+     *
+     * Изменение лимита агента.
+     *
+     */
+    public function testUpdateAgentEntityLimit()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

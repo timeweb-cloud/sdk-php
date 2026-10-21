@@ -108,9 +108,36 @@ class AgentSettingsTest extends TestCase
     }
 
     /**
+     * Test attribute "memory_enabled"
+     */
+    public function testPropertyMemoryEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "widget"
      */
     public function testPropertyWidget()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "web_search_allowed_sites"
+     */
+    public function testPropertyWebSearchAllowedSites()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "additional_models"
+     */
+    public function testPropertyAdditionalModels()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

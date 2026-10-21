@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * Knowledgebase Class Doc Comment
  *
  * @category Class
- * @description База знаний
+ * @description База знаний со списком документов
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,19 +59,20 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
+        'id' => 'int',
         'name' => 'string',
         'description' => 'string',
-        'dbaas_id' => 'float',
+        'project_id' => 'int',
+        'dbaas_id' => 'int',
         'status' => 'string',
         'last_sync' => '\DateTime',
-        'total_tokens' => 'float',
-        'used_tokens' => 'float',
-        'remaining_tokens' => 'float',
-        'token_package_id' => 'float',
+        'total_tokens' => 'int',
+        'used_tokens' => 'int',
+        'remaining_tokens' => 'int',
+        'token_package_id' => 'int',
         'subscription_renewal_date' => '\DateTime',
         'documents' => '\OpenAPI\Client\Model\Document[]',
-        'agents_ids' => 'float[]',
+        'agents_ids' => 'int[]',
         'created_at' => '\DateTime'
     ];
 
@@ -86,6 +87,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => null,
         'name' => null,
         'description' => null,
+        'project_id' => null,
         'dbaas_id' => null,
         'status' => null,
         'last_sync' => 'date-time',
@@ -108,6 +110,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => false,
 		'name' => false,
 		'description' => true,
+		'project_id' => false,
 		'dbaas_id' => false,
 		'status' => false,
 		'last_sync' => true,
@@ -115,7 +118,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
 		'used_tokens' => false,
 		'remaining_tokens' => false,
 		'token_package_id' => false,
-		'subscription_renewal_date' => false,
+		'subscription_renewal_date' => true,
 		'documents' => false,
 		'agents_ids' => false,
 		'created_at' => false
@@ -210,6 +213,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'name' => 'name',
         'description' => 'description',
+        'project_id' => 'project_id',
         'dbaas_id' => 'dbaas_id',
         'status' => 'status',
         'last_sync' => 'last_sync',
@@ -232,6 +236,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'name' => 'setName',
         'description' => 'setDescription',
+        'project_id' => 'setProjectId',
         'dbaas_id' => 'setDbaasId',
         'status' => 'setStatus',
         'last_sync' => 'setLastSync',
@@ -254,6 +259,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'name' => 'getName',
         'description' => 'getDescription',
+        'project_id' => 'getProjectId',
         'dbaas_id' => 'getDbaasId',
         'status' => 'getStatus',
         'last_sync' => 'getLastSync',
@@ -346,6 +352,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
         $this->setIfExists('dbaas_id', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('last_sync', $data ?? [], null);
@@ -392,6 +399,9 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
         if ($this->container['dbaas_id'] === null) {
             $invalidProperties[] = "'dbaas_id' can't be null";
         }
@@ -407,6 +417,9 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['last_sync'] === null) {
+            $invalidProperties[] = "'last_sync' can't be null";
+        }
         if ($this->container['total_tokens'] === null) {
             $invalidProperties[] = "'total_tokens' can't be null";
         }
@@ -449,7 +462,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return float
+     * @return int
      */
     public function getId()
     {
@@ -459,7 +472,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param float $id Уникальный идентификатор базы знаний
+     * @param int $id ID базы знаний
      *
      * @return self
      */
@@ -503,7 +516,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets description
      *
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -513,7 +526,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string|null $description Описание базы знаний
+     * @param string $description Описание базы знаний
      *
      * @return self
      */
@@ -535,9 +548,36 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets project_id
+     *
+     * @return int|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param int|null $project_id ID проекта, в котором находится база знаний. Поля нет, если проект не определён
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
+        }
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
      * Gets dbaas_id
      *
-     * @return float
+     * @return int
      */
     public function getDbaasId()
     {
@@ -547,7 +587,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dbaas_id
      *
-     * @param float $dbaas_id ID базы данных opensearch
+     * @param int $dbaas_id ID кластера базы данных OpenSearch, который создан для базы знаний в вашем аккаунте
      *
      * @return self
      */
@@ -574,7 +614,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string $status Статус базы знаний
+     * @param string $status Статус базы знаний: - `creating` — создаётся кластер базы данных, документы будут проиндексированы после перехода в `active` - `active` — база знаний работает - `blocked` — заблокирована: закончились токены или не удалось продлить подписку - `deleted` — удалена
      *
      * @return self
      */
@@ -601,7 +641,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets last_sync
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getLastSync()
     {
@@ -611,7 +651,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_sync
      *
-     * @param \DateTime|null $last_sync Дата последней синхронизации
+     * @param \DateTime $last_sync Дата и время последней синхронизации. `null`, если синхронизации не было
      *
      * @return self
      */
@@ -635,7 +675,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets total_tokens
      *
-     * @return float
+     * @return int
      */
     public function getTotalTokens()
     {
@@ -645,7 +685,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets total_tokens
      *
-     * @param float $total_tokens Всего токенов выделено
+     * @param int $total_tokens Количество токенов, доступных в текущем периоде подписки (пакет подписки и докупленные пакеты)
      *
      * @return self
      */
@@ -662,7 +702,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets used_tokens
      *
-     * @return float
+     * @return int
      */
     public function getUsedTokens()
     {
@@ -672,7 +712,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets used_tokens
      *
-     * @param float $used_tokens Использовано токенов
+     * @param int $used_tokens Количество израсходованных токенов
      *
      * @return self
      */
@@ -689,7 +729,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets remaining_tokens
      *
-     * @return float
+     * @return int
      */
     public function getRemainingTokens()
     {
@@ -699,7 +739,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remaining_tokens
      *
-     * @param float $remaining_tokens Осталось токенов
+     * @param int $remaining_tokens Количество оставшихся токенов
      *
      * @return self
      */
@@ -716,7 +756,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets token_package_id
      *
-     * @return float
+     * @return int
      */
     public function getTokenPackageId()
     {
@@ -726,7 +766,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets token_package_id
      *
-     * @param float $token_package_id ID пакета токенов
+     * @param int $token_package_id ID пакета токенов подписки базы знаний
      *
      * @return self
      */
@@ -753,14 +793,21 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subscription_renewal_date
      *
-     * @param \DateTime $subscription_renewal_date Дата обновления подписки
+     * @param \DateTime $subscription_renewal_date Дата следующего продления подписки (списания стоимости пакета токенов)
      *
      * @return self
      */
     public function setSubscriptionRenewalDate($subscription_renewal_date)
     {
         if (is_null($subscription_renewal_date)) {
-            throw new \InvalidArgumentException('non-nullable subscription_renewal_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'subscription_renewal_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subscription_renewal_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['subscription_renewal_date'] = $subscription_renewal_date;
 
@@ -780,7 +827,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets documents
      *
-     * @param \OpenAPI\Client\Model\Document[] $documents Документы в базе знаний
+     * @param \OpenAPI\Client\Model\Document[] $documents Документы базы знаний
      *
      * @return self
      */
@@ -797,7 +844,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets agents_ids
      *
-     * @return float[]
+     * @return int[]
      */
     public function getAgentsIds()
     {
@@ -807,7 +854,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets agents_ids
      *
-     * @param float[] $agents_ids ID агентов, связанных с базой знаний
+     * @param int[] $agents_ids ID агентов, к которым привязана база знаний
      *
      * @return self
      */
@@ -834,7 +881,7 @@ class Knowledgebase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Дата создания базы знаний
+     * @param \DateTime $created_at Дата и время создания базы знаний
      *
      * @return self
      */

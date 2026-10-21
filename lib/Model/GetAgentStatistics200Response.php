@@ -58,7 +58,7 @@ class GetAgentStatistics200Response implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'agent_statistics' => '\OpenAPI\Client\Model\TokenStatistic[]',
+        'agent_statistics' => '\OpenAPI\Client\Model\AgentTokenStatistic[]',
         'meta' => '\OpenAPI\Client\Model\GetAgentStatistics200ResponseMeta'
     ];
 
@@ -306,7 +306,7 @@ class GetAgentStatistics200Response implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets agent_statistics
      *
-     * @return \OpenAPI\Client\Model\TokenStatistic[]
+     * @return \OpenAPI\Client\Model\AgentTokenStatistic[]
      */
     public function getAgentStatistics()
     {
@@ -316,7 +316,7 @@ class GetAgentStatistics200Response implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets agent_statistics
      *
-     * @param \OpenAPI\Client\Model\TokenStatistic[] $agent_statistics agent_statistics
+     * @param \OpenAPI\Client\Model\AgentTokenStatistic[] $agent_statistics agent_statistics
      *
      * @return self
      */

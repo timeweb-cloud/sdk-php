@@ -306,7 +306,7 @@ class GetModelsV3200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets total
      *
-     * @param float $total Общее количество моделей
+     * @param float $total Количество моделей
      *
      * @return self
      */

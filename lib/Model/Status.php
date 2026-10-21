@@ -59,6 +59,7 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'login' => 'string',
         'is_blocked' => 'bool',
         'is_permanent_blocked' => 'bool',
         'is_send_bill_letters' => 'bool',
@@ -75,6 +76,7 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'login' => null,
         'is_blocked' => null,
         'is_permanent_blocked' => null,
         'is_send_bill_letters' => null,
@@ -89,7 +91,8 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'is_blocked' => false,
+        'login' => false,
+		'is_blocked' => false,
 		'is_permanent_blocked' => false,
 		'is_send_bill_letters' => false,
 		'company_info' => false,
@@ -183,6 +186,7 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'login' => 'login',
         'is_blocked' => 'is_blocked',
         'is_permanent_blocked' => 'is_permanent_blocked',
         'is_send_bill_letters' => 'is_send_bill_letters',
@@ -197,6 +201,7 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'login' => 'setLogin',
         'is_blocked' => 'setIsBlocked',
         'is_permanent_blocked' => 'setIsPermanentBlocked',
         'is_send_bill_letters' => 'setIsSendBillLetters',
@@ -211,6 +216,7 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'login' => 'getLogin',
         'is_blocked' => 'getIsBlocked',
         'is_permanent_blocked' => 'getIsPermanentBlocked',
         'is_send_bill_letters' => 'getIsSendBillLetters',
@@ -276,6 +282,7 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('login', $data ?? [], null);
         $this->setIfExists('is_blocked', $data ?? [], null);
         $this->setIfExists('is_permanent_blocked', $data ?? [], null);
         $this->setIfExists('is_send_bill_letters', $data ?? [], null);
@@ -311,6 +318,9 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['login'] === null) {
+            $invalidProperties[] = "'login' can't be null";
+        }
         if ($this->container['is_blocked'] === null) {
             $invalidProperties[] = "'is_blocked' can't be null";
         }
@@ -343,6 +353,33 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets login
+     *
+     * @return string
+     */
+    public function getLogin()
+    {
+        return $this->container['login'];
+    }
+
+    /**
+     * Sets login
+     *
+     * @param string $login Логин аккаунта.
+     *
+     * @return self
+     */
+    public function setLogin($login)
+    {
+        if (is_null($login)) {
+            throw new \InvalidArgumentException('non-nullable login cannot be null');
+        }
+        $this->container['login'] = $login;
+
+        return $this;
+    }
 
     /**
      * Gets is_blocked

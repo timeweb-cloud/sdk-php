@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ModelTest Class Doc Comment
  *
  * @category    Class
- * @description Модель AI
+ * @description AI модель
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -117,9 +117,27 @@ class ModelTest extends TestCase
     }
 
     /**
+     * Test attribute "model_name"
+     */
+    public function testPropertyModelName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "type"
      */
     public function testPropertyType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "version"
+     */
+    public function testPropertyVersion()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -156,15 +174,6 @@ class ModelTest extends TestCase
      * Test attribute "is_reasoning"
      */
     public function testPropertyIsReasoning()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "version"
-     */
-    public function testPropertyVersion()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * Model Class Doc Comment
  *
  * @category Class
- * @description Модель AI
+ * @description AI модель
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,17 +59,18 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
-        'provider_id' => 'float',
+        'id' => 'int',
+        'provider_id' => 'int',
         'name' => 'string',
         'public_name' => 'string',
+        'model_name' => 'string',
         'type' => 'string',
+        'version' => 'string',
         'is_deprecated' => 'bool',
         'is_stopped' => 'bool',
         'deprecation_date' => '\DateTime',
         'is_reasoning' => 'bool',
-        'version' => 'string',
-        'params_info' => '\OpenAPI\Client\Model\ModelParamsInfo'
+        'params_info' => 'array<string,\OpenAPI\Client\Model\ModelParamInfo>'
     ];
 
     /**
@@ -84,12 +85,13 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         'provider_id' => null,
         'name' => null,
         'public_name' => null,
+        'model_name' => null,
         'type' => null,
+        'version' => null,
         'is_deprecated' => null,
         'is_stopped' => null,
         'deprecation_date' => 'date-time',
         'is_reasoning' => null,
-        'version' => null,
         'params_info' => null
     ];
 
@@ -103,12 +105,13 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
 		'provider_id' => false,
 		'name' => false,
 		'public_name' => false,
+		'model_name' => false,
 		'type' => false,
+		'version' => false,
 		'is_deprecated' => false,
 		'is_stopped' => false,
 		'deprecation_date' => true,
 		'is_reasoning' => false,
-		'version' => false,
 		'params_info' => true
     ];
 
@@ -202,12 +205,13 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         'provider_id' => 'provider_id',
         'name' => 'name',
         'public_name' => 'public_name',
+        'model_name' => 'model_name',
         'type' => 'type',
+        'version' => 'version',
         'is_deprecated' => 'is_deprecated',
         'is_stopped' => 'is_stopped',
         'deprecation_date' => 'deprecation_date',
         'is_reasoning' => 'is_reasoning',
-        'version' => 'version',
         'params_info' => 'params_info'
     ];
 
@@ -221,12 +225,13 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         'provider_id' => 'setProviderId',
         'name' => 'setName',
         'public_name' => 'setPublicName',
+        'model_name' => 'setModelName',
         'type' => 'setType',
+        'version' => 'setVersion',
         'is_deprecated' => 'setIsDeprecated',
         'is_stopped' => 'setIsStopped',
         'deprecation_date' => 'setDeprecationDate',
         'is_reasoning' => 'setIsReasoning',
-        'version' => 'setVersion',
         'params_info' => 'setParamsInfo'
     ];
 
@@ -240,12 +245,13 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         'provider_id' => 'getProviderId',
         'name' => 'getName',
         'public_name' => 'getPublicName',
+        'model_name' => 'getModelName',
         'type' => 'getType',
+        'version' => 'getVersion',
         'is_deprecated' => 'getIsDeprecated',
         'is_stopped' => 'getIsStopped',
         'deprecation_date' => 'getDeprecationDate',
         'is_reasoning' => 'getIsReasoning',
-        'version' => 'getVersion',
         'params_info' => 'getParamsInfo'
     ];
 
@@ -291,7 +297,13 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const TYPE_LLM = 'llm';
+    public const TYPE_HOSTED_LLM = 'hosted-llm';
     public const TYPE_EMBEDDING = 'embedding';
+    public const TYPE_IMAGE = 'image';
+    public const TYPE_AUDIO = 'audio';
+    public const TYPE_VIDEO = 'video';
+    public const TYPE_MODERATION = 'moderation';
+    public const TYPE_SYSTEM_ONE = 'system-one';
 
     /**
      * Gets allowable values of the enum
@@ -302,7 +314,13 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::TYPE_LLM,
+            self::TYPE_HOSTED_LLM,
             self::TYPE_EMBEDDING,
+            self::TYPE_IMAGE,
+            self::TYPE_AUDIO,
+            self::TYPE_VIDEO,
+            self::TYPE_MODERATION,
+            self::TYPE_SYSTEM_ONE,
         ];
     }
 
@@ -325,12 +343,13 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('provider_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('public_name', $data ?? [], null);
+        $this->setIfExists('model_name', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('version', $data ?? [], null);
         $this->setIfExists('is_deprecated', $data ?? [], null);
         $this->setIfExists('is_stopped', $data ?? [], null);
         $this->setIfExists('deprecation_date', $data ?? [], null);
         $this->setIfExists('is_reasoning', $data ?? [], null);
-        $this->setIfExists('version', $data ?? [], null);
         $this->setIfExists('params_info', $data ?? [], null);
     }
 
@@ -373,6 +392,9 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['public_name'] === null) {
             $invalidProperties[] = "'public_name' can't be null";
         }
+        if ($this->container['model_name'] === null) {
+            $invalidProperties[] = "'model_name' can't be null";
+        }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -385,17 +407,23 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['version'] === null) {
+            $invalidProperties[] = "'version' can't be null";
+        }
         if ($this->container['is_deprecated'] === null) {
             $invalidProperties[] = "'is_deprecated' can't be null";
         }
         if ($this->container['is_stopped'] === null) {
             $invalidProperties[] = "'is_stopped' can't be null";
         }
+        if ($this->container['deprecation_date'] === null) {
+            $invalidProperties[] = "'deprecation_date' can't be null";
+        }
         if ($this->container['is_reasoning'] === null) {
             $invalidProperties[] = "'is_reasoning' can't be null";
         }
-        if ($this->container['version'] === null) {
-            $invalidProperties[] = "'version' can't be null";
+        if ($this->container['params_info'] === null) {
+            $invalidProperties[] = "'params_info' can't be null";
         }
         return $invalidProperties;
     }
@@ -415,7 +443,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return float
+     * @return int
      */
     public function getId()
     {
@@ -425,7 +453,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param float $id Уникальный идентификатор модели
+     * @param int $id ID модели
      *
      * @return self
      */
@@ -442,7 +470,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets provider_id
      *
-     * @return float
+     * @return int
      */
     public function getProviderId()
     {
@@ -452,7 +480,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets provider_id
      *
-     * @param float $provider_id ID провайдера, который предоставляет модель
+     * @param int $provider_id ID провайдера модели
      *
      * @return self
      */
@@ -479,7 +507,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Название модели
+     * @param string $name Семейство модели
      *
      * @return self
      */
@@ -506,7 +534,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets public_name
      *
-     * @param string $public_name Публичное имя модели
+     * @param string $public_name Отображаемое название модели
      *
      * @return self
      */
@@ -516,6 +544,33 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable public_name cannot be null');
         }
         $this->container['public_name'] = $public_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets model_name
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return $this->container['model_name'];
+    }
+
+    /**
+     * Sets model_name
+     *
+     * @param string $model_name Идентификатор модели с префиксом провайдера — передаётся в поле `model` запросов к AI Gateway
+     *
+     * @return self
+     */
+    public function setModelName($model_name)
+    {
+        if (is_null($model_name)) {
+            throw new \InvalidArgumentException('non-nullable model_name cannot be null');
+        }
+        $this->container['model_name'] = $model_name;
 
         return $this;
     }
@@ -533,7 +588,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type Тип модели (llm - языковая модель, embedding - модель для эмбеддингов)
+     * @param string $type Тип модели: - `llm` — языковая модель - `hosted-llm` — языковая модель, размещённая в Timeweb Cloud - `embedding` — модель эмбеддингов - `image` — генерация изображений - `audio` — работа с аудио - `video` — генерация видео - `moderation` — модерация контента - `system-one` — служебная модель с собственным API
      *
      * @return self
      */
@@ -558,6 +613,33 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets version
+     *
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param string $version Версия модели
+     *
+     * @return self
+     */
+    public function setVersion($version)
+    {
+        if (is_null($version)) {
+            throw new \InvalidArgumentException('non-nullable version cannot be null');
+        }
+        $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
      * Gets is_deprecated
      *
      * @return bool
@@ -570,7 +652,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_deprecated
      *
-     * @param bool $is_deprecated Признак, что модель устарела
+     * @param bool $is_deprecated Модель устарела и недоступна для выбора в новых агентах
      *
      * @return self
      */
@@ -597,7 +679,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_stopped
      *
-     * @param bool $is_stopped Признак, что поддержка модели остановлена в системе
+     * @param bool $is_stopped Поддержка модели остановлена: запросы к ней не выполняются
      *
      * @return self
      */
@@ -614,7 +696,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets deprecation_date
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getDeprecationDate()
     {
@@ -624,7 +706,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets deprecation_date
      *
-     * @param \DateTime|null $deprecation_date Дата депрекейта модели у провайдера
+     * @param \DateTime $deprecation_date Дата отключения модели у провайдера. `null`, если отключение не запланировано
      *
      * @return self
      */
@@ -658,7 +740,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_reasoning
      *
-     * @param bool $is_reasoning Признак поддержки режима рассуждения
+     * @param bool $is_reasoning Модель поддерживает режим рассуждений
      *
      * @return self
      */
@@ -673,36 +755,9 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets version
-     *
-     * @return string
-     */
-    public function getVersion()
-    {
-        return $this->container['version'];
-    }
-
-    /**
-     * Sets version
-     *
-     * @param string $version Версия модели
-     *
-     * @return self
-     */
-    public function setVersion($version)
-    {
-        if (is_null($version)) {
-            throw new \InvalidArgumentException('non-nullable version cannot be null');
-        }
-        $this->container['version'] = $version;
-
-        return $this;
-    }
-
-    /**
      * Gets params_info
      *
-     * @return \OpenAPI\Client\Model\ModelParamsInfo|null
+     * @return array<string,\OpenAPI\Client\Model\ModelParamInfo>
      */
     public function getParamsInfo()
     {
@@ -712,7 +767,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets params_info
      *
-     * @param \OpenAPI\Client\Model\ModelParamsInfo|null $params_info params_info
+     * @param array<string,\OpenAPI\Client\Model\ModelParamInfo> $params_info Параметры генерации, которые можно настроить у агента с этой моделью. Ключ — имя параметра (`temperature`, `top_p`, `max_tokens`, `reasoning_effort` и т.д.). `null`, если параметры не заданы
      *
      * @return self
      */

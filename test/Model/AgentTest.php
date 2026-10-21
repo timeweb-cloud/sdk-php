@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AgentTest Class Doc Comment
  *
  * @category    Class
- * @description AI Agent
+ * @description AI агент
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -108,6 +108,15 @@ class AgentTest extends TestCase
     }
 
     /**
+     * Test attribute "project_id"
+     */
+    public function testPropertyProjectId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "model_id"
      */
     public function testPropertyModelId()
@@ -147,6 +156,24 @@ class AgentTest extends TestCase
      * Test attribute "access_type"
      */
     public function testPropertyAccessType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "access_id"
+     */
+    public function testPropertyAccessId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "token_limit"
+     */
+    public function testPropertyTokenLimit()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -198,18 +225,54 @@ class AgentTest extends TestCase
     }
 
     /**
-     * Test attribute "knowledge_bases_ids"
+     * Test attribute "auto_buy_additional_tokens"
      */
-    public function testPropertyKnowledgeBasesIds()
+    public function testPropertyAutoBuyAdditionalTokens()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "access_id"
+     * Test attribute "tools"
      */
-    public function testPropertyAccessId()
+    public function testPropertyTools()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "additional_model_ids"
+     */
+    public function testPropertyAdditionalModelIds()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "additional_models"
+     */
+    public function testPropertyAdditionalModels()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_web_search_enabled"
+     */
+    public function testPropertyIsWebSearchEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ai_gateway_key_id"
+     */
+    public function testPropertyAiGatewayKeyId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -219,6 +282,15 @@ class AgentTest extends TestCase
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "knowledge_bases_ids"
+     */
+    public function testPropertyKnowledgeBasesIds()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

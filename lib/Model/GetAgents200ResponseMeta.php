@@ -58,7 +58,7 @@ class GetAgents200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'float'
+        'total' => 'int'
     ];
 
     /**
@@ -296,7 +296,7 @@ class GetAgents200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets total
      *
-     * @return float
+     * @return int
      */
     public function getTotal()
     {
@@ -306,7 +306,7 @@ class GetAgents200ResponseMeta implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets total
      *
-     * @param float $total Общее количество агентов
+     * @param int $total Количество агентов
      *
      * @return self
      */

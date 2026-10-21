@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * DocumentStatusInfo Class Doc Comment
  *
  * @category Class
- * @description Детальная информация о текущем состоянии документа в базе знаний
+ * @description Подробности о состоянии индексации документа. &#x60;null&#x60;, если информации нет
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,6 +62,8 @@ class DocumentStatusInfo implements ModelInterface, ArrayAccess, \JsonSerializab
         'type' => 'string',
         'timestamp' => '\DateTime',
         'error_code' => 'string',
+        'stage' => 'string',
+        'trace_id' => 'string',
         'details' => '\OpenAPI\Client\Model\DocumentStatusInfoDetails'
     ];
 
@@ -76,6 +78,8 @@ class DocumentStatusInfo implements ModelInterface, ArrayAccess, \JsonSerializab
         'type' => null,
         'timestamp' => 'date-time',
         'error_code' => null,
+        'stage' => null,
+        'trace_id' => null,
         'details' => null
     ];
 
@@ -88,6 +92,8 @@ class DocumentStatusInfo implements ModelInterface, ArrayAccess, \JsonSerializab
         'type' => false,
 		'timestamp' => false,
 		'error_code' => false,
+		'stage' => false,
+		'trace_id' => false,
 		'details' => false
     ];
 
@@ -180,6 +186,8 @@ class DocumentStatusInfo implements ModelInterface, ArrayAccess, \JsonSerializab
         'type' => 'type',
         'timestamp' => 'timestamp',
         'error_code' => 'error_code',
+        'stage' => 'stage',
+        'trace_id' => 'trace_id',
         'details' => 'details'
     ];
 
@@ -192,6 +200,8 @@ class DocumentStatusInfo implements ModelInterface, ArrayAccess, \JsonSerializab
         'type' => 'setType',
         'timestamp' => 'setTimestamp',
         'error_code' => 'setErrorCode',
+        'stage' => 'setStage',
+        'trace_id' => 'setTraceId',
         'details' => 'setDetails'
     ];
 
@@ -204,6 +214,8 @@ class DocumentStatusInfo implements ModelInterface, ArrayAccess, \JsonSerializab
         'type' => 'getType',
         'timestamp' => 'getTimestamp',
         'error_code' => 'getErrorCode',
+        'stage' => 'getStage',
+        'trace_id' => 'getTraceId',
         'details' => 'getDetails'
     ];
 
@@ -305,6 +317,8 @@ class DocumentStatusInfo implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('error_code', $data ?? [], null);
+        $this->setIfExists('stage', $data ?? [], null);
+        $this->setIfExists('trace_id', $data ?? [], null);
         $this->setIfExists('details', $data ?? [], null);
     }
 
@@ -387,7 +401,7 @@ class DocumentStatusInfo implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets type
      *
-     * @param string $type Тип статуса документа
+     * @param string $type Тип состояния, совпадает со статусом документа
      *
      * @return self
      */
@@ -424,7 +438,7 @@ class DocumentStatusInfo implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets timestamp
      *
-     * @param \DateTime $timestamp Время записи информации (ISO string)
+     * @param \DateTime $timestamp Время, когда записано состояние
      *
      * @return self
      */
@@ -451,7 +465,7 @@ class DocumentStatusInfo implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets error_code
      *
-     * @param string|null $error_code Код ошибки (только для type: 'error')
+     * @param string|null $error_code Код ошибки, только для `type: error`: - `INSUFFICIENT_TOKENS` — недостаточно токенов для индексации - `CRITICAL_BALANCE` — критически низкий остаток токенов - `NEGATIVE_BALANCE` — отрицательный остаток токенов - `INDEXING_ERROR` — не удалось обработать документ
      *
      * @return self
      */
@@ -471,6 +485,60 @@ class DocumentStatusInfo implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
         $this->container['error_code'] = $error_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets stage
+     *
+     * @return string|null
+     */
+    public function getStage()
+    {
+        return $this->container['stage'];
+    }
+
+    /**
+     * Sets stage
+     *
+     * @param string|null $stage Этап индексации, на котором произошла ошибка
+     *
+     * @return self
+     */
+    public function setStage($stage)
+    {
+        if (is_null($stage)) {
+            throw new \InvalidArgumentException('non-nullable stage cannot be null');
+        }
+        $this->container['stage'] = $stage;
+
+        return $this;
+    }
+
+    /**
+     * Gets trace_id
+     *
+     * @return string|null
+     */
+    public function getTraceId()
+    {
+        return $this->container['trace_id'];
+    }
+
+    /**
+     * Sets trace_id
+     *
+     * @param string|null $trace_id Идентификатор операции индексации — укажите его при обращении в поддержку
+     *
+     * @return self
+     */
+    public function setTraceId($trace_id)
+    {
+        if (is_null($trace_id)) {
+            throw new \InvalidArgumentException('non-nullable trace_id cannot be null');
+        }
+        $this->container['trace_id'] = $trace_id;
 
         return $this;
     }

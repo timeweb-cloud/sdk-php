@@ -316,7 +316,7 @@ class GetKnowledgebaseDocumentsV2200Response implements ModelInterface, ArrayAcc
     /**
      * Sets knowledgebase_documents
      *
-     * @param \OpenAPI\Client\Model\Document[] $knowledgebase_documents Список документов
+     * @param \OpenAPI\Client\Model\Document[] $knowledgebase_documents Документы
      *
      * @return self
      */

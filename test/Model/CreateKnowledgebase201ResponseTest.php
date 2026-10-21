@@ -81,9 +81,9 @@ class CreateKnowledgebase201ResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "knowledgebase"
+     * Test attribute "knowledge_base"
      */
-    public function testPropertyKnowledgebase()
+    public function testPropertyKnowledgeBase()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

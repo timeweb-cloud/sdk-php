@@ -58,8 +58,8 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'knowledgebases' => '\OpenAPI\Client\Model\Knowledgebase[]',
-        'meta' => '\OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta'
+        'knowledge_bases' => '\OpenAPI\Client\Model\Knowledgebase[]',
+        'meta' => '\OpenAPI\Client\Model\GetKnowledgebasesV3200ResponseMeta'
     ];
 
     /**
@@ -70,7 +70,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'knowledgebases' => null,
+        'knowledge_bases' => null,
         'meta' => null
     ];
 
@@ -80,7 +80,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'knowledgebases' => false,
+        'knowledge_bases' => false,
 		'meta' => false
     ];
 
@@ -170,7 +170,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'knowledgebases' => 'knowledgebases',
+        'knowledge_bases' => 'knowledge_bases',
         'meta' => 'meta'
     ];
 
@@ -180,7 +180,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'knowledgebases' => 'setKnowledgebases',
+        'knowledge_bases' => 'setKnowledgeBases',
         'meta' => 'setMeta'
     ];
 
@@ -190,7 +190,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'knowledgebases' => 'getKnowledgebases',
+        'knowledge_bases' => 'getKnowledgeBases',
         'meta' => 'getMeta'
     ];
 
@@ -251,7 +251,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('knowledgebases', $data ?? [], null);
+        $this->setIfExists('knowledge_bases', $data ?? [], null);
         $this->setIfExists('meta', $data ?? [], null);
     }
 
@@ -282,8 +282,8 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['knowledgebases'] === null) {
-            $invalidProperties[] = "'knowledgebases' can't be null";
+        if ($this->container['knowledge_bases'] === null) {
+            $invalidProperties[] = "'knowledge_bases' can't be null";
         }
         if ($this->container['meta'] === null) {
             $invalidProperties[] = "'meta' can't be null";
@@ -304,28 +304,28 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets knowledgebases
+     * Gets knowledge_bases
      *
      * @return \OpenAPI\Client\Model\Knowledgebase[]
      */
-    public function getKnowledgebases()
+    public function getKnowledgeBases()
     {
-        return $this->container['knowledgebases'];
+        return $this->container['knowledge_bases'];
     }
 
     /**
-     * Sets knowledgebases
+     * Sets knowledge_bases
      *
-     * @param \OpenAPI\Client\Model\Knowledgebase[] $knowledgebases knowledgebases
+     * @param \OpenAPI\Client\Model\Knowledgebase[] $knowledge_bases knowledge_bases
      *
      * @return self
      */
-    public function setKnowledgebases($knowledgebases)
+    public function setKnowledgeBases($knowledge_bases)
     {
-        if (is_null($knowledgebases)) {
-            throw new \InvalidArgumentException('non-nullable knowledgebases cannot be null');
+        if (is_null($knowledge_bases)) {
+            throw new \InvalidArgumentException('non-nullable knowledge_bases cannot be null');
         }
-        $this->container['knowledgebases'] = $knowledgebases;
+        $this->container['knowledge_bases'] = $knowledge_bases;
 
         return $this;
     }
@@ -333,7 +333,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta
+     * @return \OpenAPI\Client\Model\GetKnowledgebasesV3200ResponseMeta
      */
     public function getMeta()
     {
@@ -343,7 +343,7 @@ class GetKnowledgebases200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\GetKnowledgebasesV2200ResponseMeta $meta meta
+     * @param \OpenAPI\Client\Model\GetKnowledgebasesV3200ResponseMeta $meta meta
      *
      * @return self
      */

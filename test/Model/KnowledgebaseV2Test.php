@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * KnowledgebaseV2Test Class Doc Comment
  *
  * @category    Class
- * @description База знаний (версия API v2)
+ * @description База знаний (v2): вместо списка документов — их количество
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -102,6 +102,15 @@ class KnowledgebaseV2Test extends TestCase
      * Test attribute "description"
      */
     public function testPropertyDescription()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "project_id"
+     */
+    public function testPropertyProjectId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

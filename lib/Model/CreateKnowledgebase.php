@@ -61,10 +61,10 @@ class CreateKnowledgebase implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'name' => 'string',
         'description' => 'string',
-        'dbaas_preset_id' => 'float',
+        'dbaas_preset_id' => 'int',
         'network_id' => 'string',
-        'token_package_id' => 'float',
-        'project_id' => 'float'
+        'token_package_id' => 'int',
+        'project_id' => 'int'
     ];
 
     /**
@@ -395,7 +395,7 @@ class CreateKnowledgebase implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets dbaas_preset_id
      *
-     * @return float
+     * @return int
      */
     public function getDbaasPresetId()
     {
@@ -405,7 +405,7 @@ class CreateKnowledgebase implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets dbaas_preset_id
      *
-     * @param float $dbaas_preset_id ID пресета базы данных
+     * @param int $dbaas_preset_id ID тарифа кластера OpenSearch, который будет создан для базы знаний. Список тарифов баз данных — `GET /api/v2/presets/dbs`
      *
      * @return self
      */
@@ -432,7 +432,7 @@ class CreateKnowledgebase implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets network_id
      *
-     * @param string $network_id ID сети
+     * @param string $network_id ID приватной сети (VPC), в которой будет создан кластер
      *
      * @return self
      */
@@ -449,7 +449,7 @@ class CreateKnowledgebase implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets token_package_id
      *
-     * @return float
+     * @return int
      */
     public function getTokenPackageId()
     {
@@ -459,7 +459,7 @@ class CreateKnowledgebase implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets token_package_id
      *
-     * @param float $token_package_id ID пакета токенов
+     * @param int $token_package_id ID пакета токенов подписки. Подходят только базовые пакеты (`package_type: base`) из `GET /api/v1/cloud-ai/token-packages/knowledge-bases`
      *
      * @return self
      */
@@ -476,7 +476,7 @@ class CreateKnowledgebase implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets project_id
      *
-     * @return float|null
+     * @return int|null
      */
     public function getProjectId()
     {
@@ -486,7 +486,7 @@ class CreateKnowledgebase implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets project_id
      *
-     * @param float|null $project_id ID проекта
+     * @param int|null $project_id ID проекта, в который нужно добавить базу знаний
      *
      * @return self
      */

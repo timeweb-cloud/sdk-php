@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CreateAgentV2Test Class Doc Comment
  *
  * @category    Class
- * @description Данные для создания AI агента через API v2
+ * @description Данные для создания AI агента
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -117,15 +117,6 @@ class CreateAgentV2Test extends TestCase
     }
 
     /**
-     * Test attribute "token_limit"
-     */
-    public function testPropertyTokenLimit()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "settings"
      */
     public function testPropertySettings()
@@ -144,6 +135,42 @@ class CreateAgentV2Test extends TestCase
     }
 
     /**
+     * Test attribute "is_web_search_enabled"
+     */
+    public function testPropertyIsWebSearchEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "money_limit"
+     */
+    public function testPropertyMoneyLimit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "token_limit"
+     */
+    public function testPropertyTokenLimit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "token_package_id"
+     */
+    public function testPropertyTokenPackageId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "additional_model_ids"
      */
     public function testPropertyAdditionalModelIds()
@@ -153,9 +180,18 @@ class CreateAgentV2Test extends TestCase
     }
 
     /**
-     * Test attribute "is_web_search_enabled"
+     * Test attribute "additional_models"
      */
-    public function testPropertyIsWebSearchEnabled()
+    public function testPropertyAdditionalModels()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "skill_ids"
+     */
+    public function testPropertySkillIds()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

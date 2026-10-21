@@ -59,14 +59,15 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
-        'model_id' => 'float',
+        'id' => 'int',
+        'model_id' => 'int',
+        'service_type_id' => 'int',
         'name' => 'string',
         'package_type' => 'string',
         'type' => 'string',
-        'token_amount' => 'float',
+        'token_amount' => 'int',
         'price' => 'float',
-        'duration_days' => 'float',
+        'duration_days' => 'int',
         'is_available' => 'bool'
     ];
 
@@ -80,6 +81,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => null,
         'model_id' => null,
+        'service_type_id' => null,
         'name' => null,
         'package_type' => null,
         'type' => null,
@@ -97,6 +99,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'id' => false,
 		'model_id' => false,
+		'service_type_id' => false,
 		'name' => false,
 		'package_type' => false,
 		'type' => false,
@@ -194,6 +197,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'model_id' => 'model_id',
+        'service_type_id' => 'service_type_id',
         'name' => 'name',
         'package_type' => 'package_type',
         'type' => 'type',
@@ -211,6 +215,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'model_id' => 'setModelId',
+        'service_type_id' => 'setServiceTypeId',
         'name' => 'setName',
         'package_type' => 'setPackageType',
         'type' => 'setType',
@@ -228,6 +233,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'model_id' => 'getModelId',
+        'service_type_id' => 'getServiceTypeId',
         'name' => 'getName',
         'package_type' => 'getPackageType',
         'type' => 'getType',
@@ -328,6 +334,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('model_id', $data ?? [], null);
+        $this->setIfExists('service_type_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('package_type', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
@@ -370,6 +377,9 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['model_id'] === null) {
             $invalidProperties[] = "'model_id' can't be null";
         }
+        if ($this->container['service_type_id'] === null) {
+            $invalidProperties[] = "'service_type_id' can't be null";
+        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -403,6 +413,9 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['price'] === null) {
             $invalidProperties[] = "'price' can't be null";
         }
+        if ($this->container['duration_days'] === null) {
+            $invalidProperties[] = "'duration_days' can't be null";
+        }
         if ($this->container['is_available'] === null) {
             $invalidProperties[] = "'is_available' can't be null";
         }
@@ -424,7 +437,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return float
+     * @return int
      */
     public function getId()
     {
@@ -434,7 +447,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param float $id Уникальный идентификатор пакета
+     * @param int $id ID пакета
      *
      * @return self
      */
@@ -451,7 +464,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets model_id
      *
-     * @return float
+     * @return int
      */
     public function getModelId()
     {
@@ -461,7 +474,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets model_id
      *
-     * @param float $model_id ID модели, к которой применяется пакет токенов
+     * @param int $model_id ID модели, к которой относится пакет
      *
      * @return self
      */
@@ -471,6 +484,33 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable model_id cannot be null');
         }
         $this->container['model_id'] = $model_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets service_type_id
+     *
+     * @return int
+     */
+    public function getServiceTypeId()
+    {
+        return $this->container['service_type_id'];
+    }
+
+    /**
+     * Sets service_type_id
+     *
+     * @param int $service_type_id ID тарифа пакета в биллинге
+     *
+     * @return self
+     */
+    public function setServiceTypeId($service_type_id)
+    {
+        if (is_null($service_type_id)) {
+            throw new \InvalidArgumentException('non-nullable service_type_id cannot be null');
+        }
+        $this->container['service_type_id'] = $service_type_id;
 
         return $this;
     }
@@ -488,7 +528,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Название пакета токенов
+     * @param string $name Название пакета
      *
      * @return self
      */
@@ -515,7 +555,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets package_type
      *
-     * @param string $package_type Тип пакета (base - базовый, additional - дополнительный, promo - промо)
+     * @param string $package_type Тип пакета: `base` — пакет подписки, `additional` — дополнительный пакет, `promo` — промо-пакет
      *
      * @return self
      */
@@ -552,7 +592,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type Тип сущности, к которой относится пакет (agent - агент, knowledgebase - база знаний)
+     * @param string $type Для чего пакет: `agent` — AI агент, `knowledgebase` — база знаний
      *
      * @return self
      */
@@ -579,7 +619,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets token_amount
      *
-     * @return float
+     * @return int
      */
     public function getTokenAmount()
     {
@@ -589,7 +629,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets token_amount
      *
-     * @param float $token_amount Количество токенов в пакете
+     * @param int $token_amount Количество токенов в пакете
      *
      * @return self
      */
@@ -616,7 +656,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price
      *
-     * @param float $price Цена пакета в целых единицах
+     * @param float $price Цена пакета в рублях
      *
      * @return self
      */
@@ -633,7 +673,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets duration_days
      *
-     * @return float|null
+     * @return int
      */
     public function getDurationDays()
     {
@@ -643,7 +683,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets duration_days
      *
-     * @param float|null $duration_days Продолжительность пакета в днях (null для дополнительных пакетов)
+     * @param int $duration_days Период подписки в днях. `null` для дополнительных пакетов
      *
      * @return self
      */
@@ -677,7 +717,7 @@ class TokenPackage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_available
      *
-     * @param bool $is_available Флаг, указывающий доступность пакета
+     * @param bool $is_available Пакет доступен для покупки
      *
      * @return self
      */

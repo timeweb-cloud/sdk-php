@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * DocumentStatusInfoDetailsTest Class Doc Comment
  *
  * @category    Class
- * @description Дополнительные детали, зависящие от типа статуса
+ * @description Подробности, набор полей зависит от состояния. Могут присутствовать и другие поля
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -102,6 +102,87 @@ class DocumentStatusInfoDetailsTest extends TestCase
      * Test attribute "progress"
      */
     public function testPropertyProgress()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "indexing_duration_ms"
+     */
+    public function testPropertyIndexingDurationMs()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "tokens_used"
+     */
+    public function testPropertyTokensUsed()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "tokens_estimated"
+     */
+    public function testPropertyTokensEstimated()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "chunks_count"
+     */
+    public function testPropertyChunksCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "needed"
+     */
+    public function testPropertyNeeded()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "available"
+     */
+    public function testPropertyAvailable()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "estimated"
+     */
+    public function testPropertyEstimated()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "balance"
+     */
+    public function testPropertyBalance()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "min_required"
+     */
+    public function testPropertyMinRequired()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

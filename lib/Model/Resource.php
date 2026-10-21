@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * Resource Class Doc Comment
  *
  * @category Class
+ * @description Ресурс MCP
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -50,7 +51,7 @@ class Resource implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Resource';
+    protected static $openAPIModelName = 'resource';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +59,10 @@ class Resource implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'requested' => 'float',
-        'allocatable' => 'float',
-        'capacity' => 'float',
-        'used' => 'float'
+        'uri' => 'string',
+        'name' => 'string',
+        'description' => 'string',
+        'mime_type' => 'string'
     ];
 
     /**
@@ -72,10 +73,10 @@ class Resource implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'requested' => null,
-        'allocatable' => null,
-        'capacity' => null,
-        'used' => null
+        'uri' => null,
+        'name' => null,
+        'description' => null,
+        'mime_type' => null
     ];
 
     /**
@@ -84,10 +85,10 @@ class Resource implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'requested' => false,
-		'allocatable' => false,
-		'capacity' => false,
-		'used' => false
+        'uri' => false,
+		'name' => false,
+		'description' => false,
+		'mime_type' => false
     ];
 
     /**
@@ -176,10 +177,10 @@ class Resource implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'requested' => 'requested',
-        'allocatable' => 'allocatable',
-        'capacity' => 'capacity',
-        'used' => 'used'
+        'uri' => 'uri',
+        'name' => 'name',
+        'description' => 'description',
+        'mime_type' => 'mimeType'
     ];
 
     /**
@@ -188,10 +189,10 @@ class Resource implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'requested' => 'setRequested',
-        'allocatable' => 'setAllocatable',
-        'capacity' => 'setCapacity',
-        'used' => 'setUsed'
+        'uri' => 'setUri',
+        'name' => 'setName',
+        'description' => 'setDescription',
+        'mime_type' => 'setMimeType'
     ];
 
     /**
@@ -200,10 +201,10 @@ class Resource implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'requested' => 'getRequested',
-        'allocatable' => 'getAllocatable',
-        'capacity' => 'getCapacity',
-        'used' => 'getUsed'
+        'uri' => 'getUri',
+        'name' => 'getName',
+        'description' => 'getDescription',
+        'mime_type' => 'getMimeType'
     ];
 
     /**
@@ -247,6 +248,25 @@ class Resource implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const URI_BILLING__ME_FINANCES = 'billing://me/finances';
+    public const URI_SERVICES__ME_ACTIVE = 'services://me/active';
+    public const URI_SERVICES__CLOUD_CATALOG = 'services://cloud/catalog';
+    public const URI_LOCATIONS__CLOUD_LIST = 'locations://cloud/list';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getUriAllowableValues()
+    {
+        return [
+            self::URI_BILLING__ME_FINANCES,
+            self::URI_SERVICES__ME_ACTIVE,
+            self::URI_SERVICES__CLOUD_CATALOG,
+            self::URI_LOCATIONS__CLOUD_LIST,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -263,10 +283,10 @@ class Resource implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('requested', $data ?? [], 0);
-        $this->setIfExists('allocatable', $data ?? [], 0);
-        $this->setIfExists('capacity', $data ?? [], 0);
-        $this->setIfExists('used', $data ?? [], 0);
+        $this->setIfExists('uri', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('mime_type', $data ?? [], null);
     }
 
     /**
@@ -296,6 +316,21 @@ class Resource implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['uri'] === null) {
+            $invalidProperties[] = "'uri' can't be null";
+        }
+        $allowedValues = $this->getUriAllowableValues();
+        if (!is_null($this->container['uri']) && !in_array($this->container['uri'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'uri', must be one of '%s'",
+                $this->container['uri'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -312,109 +347,119 @@ class Resource implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets requested
+     * Gets uri
      *
-     * @return float|null
+     * @return string
      */
-    public function getRequested()
+    public function getUri()
     {
-        return $this->container['requested'];
+        return $this->container['uri'];
     }
 
     /**
-     * Sets requested
+     * Sets uri
      *
-     * @param float|null $requested Запрошенное количество ресурса
+     * @param string $uri URI ресурса
      *
      * @return self
      */
-    public function setRequested($requested)
+    public function setUri($uri)
     {
-        if (is_null($requested)) {
-            throw new \InvalidArgumentException('non-nullable requested cannot be null');
+        if (is_null($uri)) {
+            throw new \InvalidArgumentException('non-nullable uri cannot be null');
         }
-        $this->container['requested'] = $requested;
+        $allowedValues = $this->getUriAllowableValues();
+        if (!in_array($uri, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'uri', must be one of '%s'",
+                    $uri,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['uri'] = $uri;
 
         return $this;
     }
 
     /**
-     * Gets allocatable
+     * Gets name
      *
-     * @return float|null
+     * @return string
      */
-    public function getAllocatable()
+    public function getName()
     {
-        return $this->container['allocatable'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets allocatable
+     * Sets name
      *
-     * @param float|null $allocatable Доступное количество
+     * @param string $name Имя ресурса
      *
      * @return self
      */
-    public function setAllocatable($allocatable)
+    public function setName($name)
     {
-        if (is_null($allocatable)) {
-            throw new \InvalidArgumentException('non-nullable allocatable cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['allocatable'] = $allocatable;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets capacity
+     * Gets description
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getCapacity()
+    public function getDescription()
     {
-        return $this->container['capacity'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets capacity
+     * Sets description
      *
-     * @param float|null $capacity Общее количество
+     * @param string|null $description Описание ресурса
      *
      * @return self
      */
-    public function setCapacity($capacity)
+    public function setDescription($description)
     {
-        if (is_null($capacity)) {
-            throw new \InvalidArgumentException('non-nullable capacity cannot be null');
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-        $this->container['capacity'] = $capacity;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets used
+     * Gets mime_type
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getUsed()
+    public function getMimeType()
     {
-        return $this->container['used'];
+        return $this->container['mime_type'];
     }
 
     /**
-     * Sets used
+     * Sets mime_type
      *
-     * @param float|null $used Используемое количество
+     * @param string|null $mime_type Тип содержимого
      *
      * @return self
      */
-    public function setUsed($used)
+    public function setMimeType($mime_type)
     {
-        if (is_null($used)) {
-            throw new \InvalidArgumentException('non-nullable used cannot be null');
+        if (is_null($mime_type)) {
+            throw new \InvalidArgumentException('non-nullable mime_type cannot be null');
         }
-        $this->container['used'] = $used;
+        $this->container['mime_type'] = $mime_type;
 
         return $this;
     }

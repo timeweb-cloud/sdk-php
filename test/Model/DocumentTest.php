@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * DocumentTest Class Doc Comment
  *
  * @category    Class
- * @description Документ в базе знаний
+ * @description Документ базы знаний
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -117,6 +117,24 @@ class DocumentTest extends TestCase
     }
 
     /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "indexing_schedule"
+     */
+    public function testPropertyIndexingSchedule()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "indexing_version"
      */
     public function testPropertyIndexingVersion()
@@ -129,6 +147,15 @@ class DocumentTest extends TestCase
      * Test attribute "status_info"
      */
     public function testPropertyStatusInfo()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "link"
+     */
+    public function testPropertyLink()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

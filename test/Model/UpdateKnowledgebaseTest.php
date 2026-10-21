@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * UpdateKnowledgebaseTest Class Doc Comment
  *
  * @category    Class
- * @description Данные для обновления базы знаний
+ * @description Данные для изменения базы знаний. Передайте только поля, которые нужно изменить
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

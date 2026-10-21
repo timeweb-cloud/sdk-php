@@ -81,6 +81,15 @@ class StatusTest extends TestCase
     }
 
     /**
+     * Test attribute "login"
+     */
+    public function testPropertyLogin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "is_blocked"
      */
     public function testPropertyIsBlocked()

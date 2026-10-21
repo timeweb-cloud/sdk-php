@@ -51,7 +51,7 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'agent_settings';
+    protected static $openAPIModelName = 'agent-settings';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -62,7 +62,10 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => '\OpenAPI\Client\Model\AgentModelSettings',
         'system_prompt' => 'string',
         'refine_query' => 'bool',
-        'widget' => '\OpenAPI\Client\Model\AgentSettingsWidget'
+        'memory_enabled' => 'bool',
+        'widget' => '\OpenAPI\Client\Model\AgentWidgetSettings',
+        'web_search_allowed_sites' => 'string[]',
+        'additional_models' => '\OpenAPI\Client\Model\AgentAdditionalModel[]'
     ];
 
     /**
@@ -76,7 +79,10 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => null,
         'system_prompt' => null,
         'refine_query' => null,
-        'widget' => null
+        'memory_enabled' => null,
+        'widget' => null,
+        'web_search_allowed_sites' => null,
+        'additional_models' => null
     ];
 
     /**
@@ -88,7 +94,10 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => false,
 		'system_prompt' => false,
 		'refine_query' => false,
-		'widget' => false
+		'memory_enabled' => false,
+		'widget' => false,
+		'web_search_allowed_sites' => false,
+		'additional_models' => false
     ];
 
     /**
@@ -180,7 +189,10 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => 'model',
         'system_prompt' => 'system_prompt',
         'refine_query' => 'refine_query',
-        'widget' => 'widget'
+        'memory_enabled' => 'memory_enabled',
+        'widget' => 'widget',
+        'web_search_allowed_sites' => 'web_search_allowed_sites',
+        'additional_models' => 'additional_models'
     ];
 
     /**
@@ -192,7 +204,10 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => 'setModel',
         'system_prompt' => 'setSystemPrompt',
         'refine_query' => 'setRefineQuery',
-        'widget' => 'setWidget'
+        'memory_enabled' => 'setMemoryEnabled',
+        'widget' => 'setWidget',
+        'web_search_allowed_sites' => 'setWebSearchAllowedSites',
+        'additional_models' => 'setAdditionalModels'
     ];
 
     /**
@@ -204,7 +219,10 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => 'getModel',
         'system_prompt' => 'getSystemPrompt',
         'refine_query' => 'getRefineQuery',
-        'widget' => 'getWidget'
+        'memory_enabled' => 'getMemoryEnabled',
+        'widget' => 'getWidget',
+        'web_search_allowed_sites' => 'getWebSearchAllowedSites',
+        'additional_models' => 'getAdditionalModels'
     ];
 
     /**
@@ -267,7 +285,10 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('model', $data ?? [], null);
         $this->setIfExists('system_prompt', $data ?? [], null);
         $this->setIfExists('refine_query', $data ?? [], null);
+        $this->setIfExists('memory_enabled', $data ?? [], false);
         $this->setIfExists('widget', $data ?? [], null);
+        $this->setIfExists('web_search_allowed_sites', $data ?? [], null);
+        $this->setIfExists('additional_models', $data ?? [], null);
     }
 
     /**
@@ -306,6 +327,10 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['refine_query'] === null) {
             $invalidProperties[] = "'refine_query' can't be null";
         }
+        if (!is_null($this->container['web_search_allowed_sites']) && (count($this->container['web_search_allowed_sites']) > 5)) {
+            $invalidProperties[] = "invalid value for 'web_search_allowed_sites', number of items must be less than or equal to 5.";
+        }
+
         return $invalidProperties;
     }
 
@@ -361,7 +386,7 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets system_prompt
      *
-     * @param string $system_prompt Системный промпт
+     * @param string $system_prompt Системный промпт (инструкция) агента
      *
      * @return self
      */
@@ -388,7 +413,7 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets refine_query
      *
-     * @param bool $refine_query Уточнять ли запрос перед обработкой
+     * @param bool $refine_query Уточнять (переформулировать) запрос пользователя перед поиском по базам знаний
      *
      * @return self
      */
@@ -403,9 +428,36 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets memory_enabled
+     *
+     * @return bool|null
+     */
+    public function getMemoryEnabled()
+    {
+        return $this->container['memory_enabled'];
+    }
+
+    /**
+     * Sets memory_enabled
+     *
+     * @param bool|null $memory_enabled Запоминать факты о каждом авторизованном пользователе и учитывать их в ответах. В виджете не работает.
+     *
+     * @return self
+     */
+    public function setMemoryEnabled($memory_enabled)
+    {
+        if (is_null($memory_enabled)) {
+            throw new \InvalidArgumentException('non-nullable memory_enabled cannot be null');
+        }
+        $this->container['memory_enabled'] = $memory_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets widget
      *
-     * @return \OpenAPI\Client\Model\AgentSettingsWidget|null
+     * @return \OpenAPI\Client\Model\AgentWidgetSettings|null
      */
     public function getWidget()
     {
@@ -415,7 +467,7 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets widget
      *
-     * @param \OpenAPI\Client\Model\AgentSettingsWidget|null $widget widget
+     * @param \OpenAPI\Client\Model\AgentWidgetSettings|null $widget widget
      *
      * @return self
      */
@@ -425,6 +477,64 @@ class AgentSettings implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable widget cannot be null');
         }
         $this->container['widget'] = $widget;
+
+        return $this;
+    }
+
+    /**
+     * Gets web_search_allowed_sites
+     *
+     * @return string[]|null
+     */
+    public function getWebSearchAllowedSites()
+    {
+        return $this->container['web_search_allowed_sites'];
+    }
+
+    /**
+     * Sets web_search_allowed_sites
+     *
+     * @param string[]|null $web_search_allowed_sites Домены, которыми ограничивается веб-поиск агента (не более 5). Каждый элемент — домен (`timeweb.ru`) или домен с путём (`timeweb.ru/docs`). Если поле не передано при обновлении, сохранённый список не меняется.
+     *
+     * @return self
+     */
+    public function setWebSearchAllowedSites($web_search_allowed_sites)
+    {
+        if (is_null($web_search_allowed_sites)) {
+            throw new \InvalidArgumentException('non-nullable web_search_allowed_sites cannot be null');
+        }
+
+        if ((count($web_search_allowed_sites) > 5)) {
+            throw new \InvalidArgumentException('invalid value for $web_search_allowed_sites when calling AgentSettings., number of items must be less than or equal to 5.');
+        }
+        $this->container['web_search_allowed_sites'] = $web_search_allowed_sites;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_models
+     *
+     * @return \OpenAPI\Client\Model\AgentAdditionalModel[]|null
+     */
+    public function getAdditionalModels()
+    {
+        return $this->container['additional_models'];
+    }
+
+    /**
+     * Sets additional_models
+     *
+     * @param \OpenAPI\Client\Model\AgentAdditionalModel[]|null $additional_models Настройки дополнительных моделей. Заполняется автоматически из поля `additional_models` запроса создания или обновления агента, передавать здесь не нужно.
+     *
+     * @return self
+     */
+    public function setAdditionalModels($additional_models)
+    {
+        if (is_null($additional_models)) {
+            throw new \InvalidArgumentException('non-nullable additional_models cannot be null');
+        }
+        $this->container['additional_models'] = $additional_models;
 
         return $this;
     }

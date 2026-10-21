@@ -75,7 +75,7 @@ class KnowledgeBasesApiTest extends TestCase
     /**
      * Test case for addAdditionalTokenPackageToKnowledgebase
      *
-     * Добавление дополнительного пакета токенов.
+     * Покупка дополнительных пакетов токенов.
      *
      */
     public function testAddAdditionalTokenPackageToKnowledgebase()
@@ -91,6 +91,18 @@ class KnowledgeBasesApiTest extends TestCase
      *
      */
     public function testCreateKnowledgebase()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for createKnowledgebaseDocument
+     *
+     * Добавление документа по ссылке.
+     *
+     */
+    public function testCreateKnowledgebaseDocument()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -123,7 +135,7 @@ class KnowledgeBasesApiTest extends TestCase
     /**
      * Test case for downloadDocument
      *
-     * Скачивание документа из базы знаний.
+     * Скачивание файла документа.
      *
      */
     public function testDownloadDocument()
@@ -135,7 +147,7 @@ class KnowledgeBasesApiTest extends TestCase
     /**
      * Test case for getKnowledgebase
      *
-     * Получение базы знаний.
+     * Получение базы знаний со списком документов.
      *
      */
     public function testGetKnowledgebase()
@@ -157,12 +169,12 @@ class KnowledgeBasesApiTest extends TestCase
     }
 
     /**
-     * Test case for getKnowledgebaseStatistics
+     * Test case for getKnowledgebaseV3
      *
-     * Получение статистики использования токенов базы знаний.
+     * Получение базы знаний.
      *
      */
-    public function testGetKnowledgebaseStatistics()
+    public function testGetKnowledgebaseV3()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -171,7 +183,7 @@ class KnowledgeBasesApiTest extends TestCase
     /**
      * Test case for getKnowledgebases
      *
-     * Получение списка баз знаний.
+     * Получение списка баз знаний (v1).
      *
      */
     public function testGetKnowledgebases()
@@ -187,6 +199,18 @@ class KnowledgeBasesApiTest extends TestCase
      *
      */
     public function testGetKnowledgebasesV2()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getKnowledgebasesV3
+     *
+     * Получение списка баз знаний.
+     *
+     */
+    public function testGetKnowledgebasesV3()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -231,10 +255,34 @@ class KnowledgeBasesApiTest extends TestCase
     /**
      * Test case for updateKnowledgebase
      *
-     * Обновление базы знаний.
+     * Изменение базы знаний.
      *
      */
     public function testUpdateKnowledgebase()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateKnowledgebaseAgentLink
+     *
+     * Изменение режима поиска по базе знаний для агента.
+     *
+     */
+    public function testUpdateKnowledgebaseAgentLink()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateKnowledgebaseDocument
+     *
+     * Изменение документа.
+     *
+     */
+    public function testUpdateKnowledgebaseDocument()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

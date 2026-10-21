@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * Agent Class Doc Comment
  *
  * @category Class
- * @description AI Agent
+ * @description AI агент
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,22 +59,30 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
+        'id' => 'int',
         'name' => 'string',
         'description' => 'string',
-        'model_id' => 'float',
-        'provider_id' => 'float',
+        'project_id' => 'int',
+        'model_id' => 'int',
+        'provider_id' => 'int',
         'settings' => '\OpenAPI\Client\Model\AgentSettings',
         'status' => 'string',
         'access_type' => 'string',
-        'total_tokens' => 'float',
-        'used_tokens' => 'float',
-        'remaining_tokens' => 'float',
-        'token_package_id' => 'float',
+        'access_id' => 'string',
+        'token_limit' => 'int',
+        'total_tokens' => 'int',
+        'used_tokens' => 'int',
+        'remaining_tokens' => 'int',
+        'token_package_id' => 'int',
         'subscription_renewal_date' => '\DateTime',
-        'knowledge_bases_ids' => 'float[]',
-        'access_id' => 'float',
-        'created_at' => '\DateTime'
+        'auto_buy_additional_tokens' => 'bool',
+        'tools' => '\OpenAPI\Client\Model\AgentToolsInner[]',
+        'additional_model_ids' => 'int[]',
+        'additional_models' => '\OpenAPI\Client\Model\AgentAdditionalModel[]',
+        'is_web_search_enabled' => 'bool',
+        'ai_gateway_key_id' => 'string',
+        'created_at' => '\DateTime',
+        'knowledge_bases_ids' => 'int[]'
     ];
 
     /**
@@ -88,19 +96,27 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => null,
         'name' => null,
         'description' => null,
+        'project_id' => null,
         'model_id' => null,
         'provider_id' => null,
         'settings' => null,
         'status' => null,
         'access_type' => null,
+        'access_id' => 'uuid',
+        'token_limit' => null,
         'total_tokens' => null,
         'used_tokens' => null,
         'remaining_tokens' => null,
         'token_package_id' => null,
         'subscription_renewal_date' => 'date-time',
-        'knowledge_bases_ids' => null,
-        'access_id' => null,
-        'created_at' => 'date-time'
+        'auto_buy_additional_tokens' => null,
+        'tools' => null,
+        'additional_model_ids' => null,
+        'additional_models' => null,
+        'is_web_search_enabled' => null,
+        'ai_gateway_key_id' => 'uuid',
+        'created_at' => 'date-time',
+        'knowledge_bases_ids' => null
     ];
 
     /**
@@ -111,20 +127,28 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'id' => false,
 		'name' => false,
-		'description' => false,
+		'description' => true,
+		'project_id' => false,
 		'model_id' => false,
 		'provider_id' => false,
 		'settings' => false,
 		'status' => false,
 		'access_type' => false,
+		'access_id' => false,
+		'token_limit' => false,
 		'total_tokens' => false,
-		'used_tokens' => false,
+		'used_tokens' => true,
 		'remaining_tokens' => false,
 		'token_package_id' => false,
 		'subscription_renewal_date' => false,
-		'knowledge_bases_ids' => false,
-		'access_id' => false,
-		'created_at' => false
+		'auto_buy_additional_tokens' => false,
+		'tools' => false,
+		'additional_model_ids' => false,
+		'additional_models' => false,
+		'is_web_search_enabled' => false,
+		'ai_gateway_key_id' => true,
+		'created_at' => false,
+		'knowledge_bases_ids' => false
     ];
 
     /**
@@ -216,19 +240,27 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'name' => 'name',
         'description' => 'description',
+        'project_id' => 'project_id',
         'model_id' => 'model_id',
         'provider_id' => 'provider_id',
         'settings' => 'settings',
         'status' => 'status',
         'access_type' => 'access_type',
+        'access_id' => 'access_id',
+        'token_limit' => 'token_limit',
         'total_tokens' => 'total_tokens',
         'used_tokens' => 'used_tokens',
         'remaining_tokens' => 'remaining_tokens',
         'token_package_id' => 'token_package_id',
         'subscription_renewal_date' => 'subscription_renewal_date',
-        'knowledge_bases_ids' => 'knowledge_bases_ids',
-        'access_id' => 'access_id',
-        'created_at' => 'created_at'
+        'auto_buy_additional_tokens' => 'auto_buy_additional_tokens',
+        'tools' => 'tools',
+        'additional_model_ids' => 'additional_model_ids',
+        'additional_models' => 'additional_models',
+        'is_web_search_enabled' => 'is_web_search_enabled',
+        'ai_gateway_key_id' => 'ai_gateway_key_id',
+        'created_at' => 'created_at',
+        'knowledge_bases_ids' => 'knowledge_bases_ids'
     ];
 
     /**
@@ -240,19 +272,27 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'name' => 'setName',
         'description' => 'setDescription',
+        'project_id' => 'setProjectId',
         'model_id' => 'setModelId',
         'provider_id' => 'setProviderId',
         'settings' => 'setSettings',
         'status' => 'setStatus',
         'access_type' => 'setAccessType',
+        'access_id' => 'setAccessId',
+        'token_limit' => 'setTokenLimit',
         'total_tokens' => 'setTotalTokens',
         'used_tokens' => 'setUsedTokens',
         'remaining_tokens' => 'setRemainingTokens',
         'token_package_id' => 'setTokenPackageId',
         'subscription_renewal_date' => 'setSubscriptionRenewalDate',
-        'knowledge_bases_ids' => 'setKnowledgeBasesIds',
-        'access_id' => 'setAccessId',
-        'created_at' => 'setCreatedAt'
+        'auto_buy_additional_tokens' => 'setAutoBuyAdditionalTokens',
+        'tools' => 'setTools',
+        'additional_model_ids' => 'setAdditionalModelIds',
+        'additional_models' => 'setAdditionalModels',
+        'is_web_search_enabled' => 'setIsWebSearchEnabled',
+        'ai_gateway_key_id' => 'setAiGatewayKeyId',
+        'created_at' => 'setCreatedAt',
+        'knowledge_bases_ids' => 'setKnowledgeBasesIds'
     ];
 
     /**
@@ -264,19 +304,27 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'name' => 'getName',
         'description' => 'getDescription',
+        'project_id' => 'getProjectId',
         'model_id' => 'getModelId',
         'provider_id' => 'getProviderId',
         'settings' => 'getSettings',
         'status' => 'getStatus',
         'access_type' => 'getAccessType',
+        'access_id' => 'getAccessId',
+        'token_limit' => 'getTokenLimit',
         'total_tokens' => 'getTotalTokens',
         'used_tokens' => 'getUsedTokens',
         'remaining_tokens' => 'getRemainingTokens',
         'token_package_id' => 'getTokenPackageId',
         'subscription_renewal_date' => 'getSubscriptionRenewalDate',
-        'knowledge_bases_ids' => 'getKnowledgeBasesIds',
-        'access_id' => 'getAccessId',
-        'created_at' => 'getCreatedAt'
+        'auto_buy_additional_tokens' => 'getAutoBuyAdditionalTokens',
+        'tools' => 'getTools',
+        'additional_model_ids' => 'getAdditionalModelIds',
+        'additional_models' => 'getAdditionalModels',
+        'is_web_search_enabled' => 'getIsWebSearchEnabled',
+        'ai_gateway_key_id' => 'getAiGatewayKeyId',
+        'created_at' => 'getCreatedAt',
+        'knowledge_bases_ids' => 'getKnowledgeBasesIds'
     ];
 
     /**
@@ -373,19 +421,27 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
         $this->setIfExists('model_id', $data ?? [], null);
         $this->setIfExists('provider_id', $data ?? [], null);
         $this->setIfExists('settings', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('access_type', $data ?? [], null);
+        $this->setIfExists('access_id', $data ?? [], null);
+        $this->setIfExists('token_limit', $data ?? [], null);
         $this->setIfExists('total_tokens', $data ?? [], null);
         $this->setIfExists('used_tokens', $data ?? [], null);
         $this->setIfExists('remaining_tokens', $data ?? [], null);
         $this->setIfExists('token_package_id', $data ?? [], null);
         $this->setIfExists('subscription_renewal_date', $data ?? [], null);
-        $this->setIfExists('knowledge_bases_ids', $data ?? [], null);
-        $this->setIfExists('access_id', $data ?? [], null);
+        $this->setIfExists('auto_buy_additional_tokens', $data ?? [], null);
+        $this->setIfExists('tools', $data ?? [], null);
+        $this->setIfExists('additional_model_ids', $data ?? [], null);
+        $this->setIfExists('additional_models', $data ?? [], null);
+        $this->setIfExists('is_web_search_enabled', $data ?? [], null);
+        $this->setIfExists('ai_gateway_key_id', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('knowledge_bases_ids', $data ?? [], null);
     }
 
     /**
@@ -457,29 +513,35 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['total_tokens'] === null) {
-            $invalidProperties[] = "'total_tokens' can't be null";
+        if ($this->container['access_id'] === null) {
+            $invalidProperties[] = "'access_id' can't be null";
+        }
+        if ($this->container['token_limit'] === null) {
+            $invalidProperties[] = "'token_limit' can't be null";
         }
         if ($this->container['used_tokens'] === null) {
             $invalidProperties[] = "'used_tokens' can't be null";
         }
-        if ($this->container['remaining_tokens'] === null) {
-            $invalidProperties[] = "'remaining_tokens' can't be null";
+        if ($this->container['auto_buy_additional_tokens'] === null) {
+            $invalidProperties[] = "'auto_buy_additional_tokens' can't be null";
         }
-        if ($this->container['token_package_id'] === null) {
-            $invalidProperties[] = "'token_package_id' can't be null";
+        if ($this->container['tools'] === null) {
+            $invalidProperties[] = "'tools' can't be null";
         }
-        if ($this->container['subscription_renewal_date'] === null) {
-            $invalidProperties[] = "'subscription_renewal_date' can't be null";
+        if ($this->container['additional_model_ids'] === null) {
+            $invalidProperties[] = "'additional_model_ids' can't be null";
         }
-        if ($this->container['knowledge_bases_ids'] === null) {
-            $invalidProperties[] = "'knowledge_bases_ids' can't be null";
+        if ($this->container['additional_models'] === null) {
+            $invalidProperties[] = "'additional_models' can't be null";
         }
-        if ($this->container['access_id'] === null) {
-            $invalidProperties[] = "'access_id' can't be null";
+        if ($this->container['is_web_search_enabled'] === null) {
+            $invalidProperties[] = "'is_web_search_enabled' can't be null";
         }
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['knowledge_bases_ids'] === null) {
+            $invalidProperties[] = "'knowledge_bases_ids' can't be null";
         }
         return $invalidProperties;
     }
@@ -499,7 +561,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return float
+     * @return int
      */
     public function getId()
     {
@@ -509,7 +571,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param float $id Уникальный идентификатор агента
+     * @param int $id ID агента
      *
      * @return self
      */
@@ -570,7 +632,14 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description'] = $description;
 
@@ -578,9 +647,36 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets project_id
+     *
+     * @return int|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param int|null $project_id ID проекта, в котором находится агент
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
+        }
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
      * Gets model_id
      *
-     * @return float
+     * @return int
      */
     public function getModelId()
     {
@@ -590,7 +686,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets model_id
      *
-     * @param float $model_id ID модели
+     * @param int $model_id ID основной модели агента
      *
      * @return self
      */
@@ -607,7 +703,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets provider_id
      *
-     * @return float
+     * @return int
      */
     public function getProviderId()
     {
@@ -617,7 +713,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets provider_id
      *
-     * @param float $provider_id ID провайдера
+     * @param int $provider_id ID провайдера модели
      *
      * @return self
      */
@@ -671,7 +767,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string $status Статус агента
+     * @param string $status Статус агента: - `active` — работает; - `suspended` — приостановлен владельцем; - `blocked` — заблокирован (для агентов с пакетом токенов — закончились токены или подписка); - `deleted` — удалён.
      *
      * @return self
      */
@@ -708,7 +804,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets access_type
      *
-     * @param string $access_type Тип доступа к агенту
+     * @param string $access_type Тип доступа: `public` — агент отвечает анонимным посетителям сайта через виджет; `private` — только по токену аккаунта.
      *
      * @return self
      */
@@ -733,9 +829,65 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets access_id
+     *
+     * @return string
+     */
+    public function getAccessId()
+    {
+        return $this->container['access_id'];
+    }
+
+    /**
+     * Sets access_id
+     *
+     * @param string $access_id Идентификатор доступа агента. Используется для вызова агента из своих приложений через OpenAI-совместимое API (см. https://agent.timeweb.cloud/docs) и для встраивания виджета.
+     *
+     * @return self
+     */
+    public function setAccessId($access_id)
+    {
+        if (is_null($access_id)) {
+            throw new \InvalidArgumentException('non-nullable access_id cannot be null');
+        }
+        $this->container['access_id'] = $access_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_limit
+     *
+     * @return int
+     * @deprecated
+     */
+    public function getTokenLimit()
+    {
+        return $this->container['token_limit'];
+    }
+
+    /**
+     * Sets token_limit
+     *
+     * @param int $token_limit Устарело. Дневной лимит агента в токенах без привязки к модели, если он задан; `0` — такого лимита нет. Лимиты в деньгах, по моделям и за другие периоды здесь не отражаются — используйте лимиты агента (`/api/v1/cloud-ai/agents/{id}/entity-limits`).
+     *
+     * @return self
+     * @deprecated
+     */
+    public function setTokenLimit($token_limit)
+    {
+        if (is_null($token_limit)) {
+            throw new \InvalidArgumentException('non-nullable token_limit cannot be null');
+        }
+        $this->container['token_limit'] = $token_limit;
+
+        return $this;
+    }
+
+    /**
      * Gets total_tokens
      *
-     * @return float
+     * @return int|null
      */
     public function getTotalTokens()
     {
@@ -745,7 +897,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets total_tokens
      *
-     * @param float $total_tokens Всего токенов выделено агенту
+     * @param int|null $total_tokens Всего токенов в пакете. Только для агентов с пакетом токенов (устаревшая схема оплаты).
      *
      * @return self
      */
@@ -762,7 +914,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets used_tokens
      *
-     * @return float
+     * @return int
      */
     public function getUsedTokens()
     {
@@ -772,14 +924,21 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets used_tokens
      *
-     * @param float $used_tokens Использовано токенов
+     * @param int $used_tokens Использовано токенов пакета. Для агентов с поресурсной оплатой — `null`.
      *
      * @return self
      */
     public function setUsedTokens($used_tokens)
     {
         if (is_null($used_tokens)) {
-            throw new \InvalidArgumentException('non-nullable used_tokens cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'used_tokens');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('used_tokens', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['used_tokens'] = $used_tokens;
 
@@ -789,7 +948,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets remaining_tokens
      *
-     * @return float
+     * @return int|null
      */
     public function getRemainingTokens()
     {
@@ -799,7 +958,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remaining_tokens
      *
-     * @param float $remaining_tokens Осталось токенов
+     * @param int|null $remaining_tokens Осталось токенов в пакете. Только для агентов с пакетом токенов.
      *
      * @return self
      */
@@ -816,7 +975,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets token_package_id
      *
-     * @return float
+     * @return int|null
      */
     public function getTokenPackageId()
     {
@@ -826,7 +985,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets token_package_id
      *
-     * @param float $token_package_id ID пакета токенов
+     * @param int|null $token_package_id ID пакета токенов. Только для агентов с пакетом токенов; у агентов с поресурсной оплатой поле отсутствует.
      *
      * @return self
      */
@@ -843,7 +1002,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets subscription_renewal_date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getSubscriptionRenewalDate()
     {
@@ -853,7 +1012,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subscription_renewal_date
      *
-     * @param \DateTime $subscription_renewal_date Дата обновления подписки
+     * @param \DateTime|null $subscription_renewal_date Дата продления подписки на пакет токенов. Только для агентов с пакетом токенов.
      *
      * @return self
      */
@@ -868,55 +1027,170 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets knowledge_bases_ids
+     * Gets auto_buy_additional_tokens
      *
-     * @return float[]
+     * @return bool
      */
-    public function getKnowledgeBasesIds()
+    public function getAutoBuyAdditionalTokens()
     {
-        return $this->container['knowledge_bases_ids'];
+        return $this->container['auto_buy_additional_tokens'];
     }
 
     /**
-     * Sets knowledge_bases_ids
+     * Sets auto_buy_additional_tokens
      *
-     * @param float[] $knowledge_bases_ids ID баз знаний, связанных с агентом
+     * @param bool $auto_buy_additional_tokens Включена ли автоматическая докупка пакетов токенов
      *
      * @return self
      */
-    public function setKnowledgeBasesIds($knowledge_bases_ids)
+    public function setAutoBuyAdditionalTokens($auto_buy_additional_tokens)
     {
-        if (is_null($knowledge_bases_ids)) {
-            throw new \InvalidArgumentException('non-nullable knowledge_bases_ids cannot be null');
+        if (is_null($auto_buy_additional_tokens)) {
+            throw new \InvalidArgumentException('non-nullable auto_buy_additional_tokens cannot be null');
         }
-        $this->container['knowledge_bases_ids'] = $knowledge_bases_ids;
+        $this->container['auto_buy_additional_tokens'] = $auto_buy_additional_tokens;
 
         return $this;
     }
 
     /**
-     * Gets access_id
+     * Gets tools
      *
-     * @return float
+     * @return \OpenAPI\Client\Model\AgentToolsInner[]
      */
-    public function getAccessId()
+    public function getTools()
     {
-        return $this->container['access_id'];
+        return $this->container['tools'];
     }
 
     /**
-     * Sets access_id
+     * Sets tools
      *
-     * @param float $access_id ID доступа
+     * @param \OpenAPI\Client\Model\AgentToolsInner[] $tools Инструменты, подключённые к агенту
      *
      * @return self
      */
-    public function setAccessId($access_id)
+    public function setTools($tools)
     {
-        if (is_null($access_id)) {
-            throw new \InvalidArgumentException('non-nullable access_id cannot be null');
+        if (is_null($tools)) {
+            throw new \InvalidArgumentException('non-nullable tools cannot be null');
         }
-        $this->container['access_id'] = $access_id;
+        $this->container['tools'] = $tools;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_model_ids
+     *
+     * @return int[]
+     */
+    public function getAdditionalModelIds()
+    {
+        return $this->container['additional_model_ids'];
+    }
+
+    /**
+     * Sets additional_model_ids
+     *
+     * @param int[] $additional_model_ids ID дополнительных моделей агента
+     *
+     * @return self
+     */
+    public function setAdditionalModelIds($additional_model_ids)
+    {
+        if (is_null($additional_model_ids)) {
+            throw new \InvalidArgumentException('non-nullable additional_model_ids cannot be null');
+        }
+        $this->container['additional_model_ids'] = $additional_model_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_models
+     *
+     * @return \OpenAPI\Client\Model\AgentAdditionalModel[]
+     */
+    public function getAdditionalModels()
+    {
+        return $this->container['additional_models'];
+    }
+
+    /**
+     * Sets additional_models
+     *
+     * @param \OpenAPI\Client\Model\AgentAdditionalModel[] $additional_models Дополнительные модели агента с настройками
+     *
+     * @return self
+     */
+    public function setAdditionalModels($additional_models)
+    {
+        if (is_null($additional_models)) {
+            throw new \InvalidArgumentException('non-nullable additional_models cannot be null');
+        }
+        $this->container['additional_models'] = $additional_models;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_web_search_enabled
+     *
+     * @return bool
+     */
+    public function getIsWebSearchEnabled()
+    {
+        return $this->container['is_web_search_enabled'];
+    }
+
+    /**
+     * Sets is_web_search_enabled
+     *
+     * @param bool $is_web_search_enabled Включён ли веб-поиск
+     *
+     * @return self
+     */
+    public function setIsWebSearchEnabled($is_web_search_enabled)
+    {
+        if (is_null($is_web_search_enabled)) {
+            throw new \InvalidArgumentException('non-nullable is_web_search_enabled cannot be null');
+        }
+        $this->container['is_web_search_enabled'] = $is_web_search_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_gateway_key_id
+     *
+     * @return string|null
+     */
+    public function getAiGatewayKeyId()
+    {
+        return $this->container['ai_gateway_key_id'];
+    }
+
+    /**
+     * Sets ai_gateway_key_id
+     *
+     * @param string|null $ai_gateway_key_id ID ключа AI Gateway, к которому привязан агент. `null` — агента можно привязать к ключу (см. обновление агента); поле отсутствует — привязка недоступна.
+     *
+     * @return self
+     */
+    public function setAiGatewayKeyId($ai_gateway_key_id)
+    {
+        if (is_null($ai_gateway_key_id)) {
+            array_push($this->openAPINullablesSetToNull, 'ai_gateway_key_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ai_gateway_key_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ai_gateway_key_id'] = $ai_gateway_key_id;
 
         return $this;
     }
@@ -944,6 +1218,33 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable created_at cannot be null');
         }
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets knowledge_bases_ids
+     *
+     * @return int[]
+     */
+    public function getKnowledgeBasesIds()
+    {
+        return $this->container['knowledge_bases_ids'];
+    }
+
+    /**
+     * Sets knowledge_bases_ids
+     *
+     * @param int[] $knowledge_bases_ids ID баз знаний, подключённых к агенту
+     *
+     * @return self
+     */
+    public function setKnowledgeBasesIds($knowledge_bases_ids)
+    {
+        if (is_null($knowledge_bases_ids)) {
+            throw new \InvalidArgumentException('non-nullable knowledge_bases_ids cannot be null');
+        }
+        $this->container['knowledge_bases_ids'] = $knowledge_bases_ids;
 
         return $this;
     }

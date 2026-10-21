@@ -78,6 +78,9 @@ class KnowledgeBasesApi
         'createKnowledgebase' => [
             'application/json',
         ],
+        'createKnowledgebaseDocument' => [
+            'application/json',
+        ],
         'deleteDocument' => [
             'application/json',
         ],
@@ -93,13 +96,16 @@ class KnowledgeBasesApi
         'getKnowledgebaseDocumentsV2' => [
             'application/json',
         ],
-        'getKnowledgebaseStatistics' => [
+        'getKnowledgebaseV3' => [
             'application/json',
         ],
         'getKnowledgebases' => [
             'application/json',
         ],
         'getKnowledgebasesV2' => [
+            'application/json',
+        ],
+        'getKnowledgebasesV3' => [
             'application/json',
         ],
         'linkKnowledgebaseToAgent' => [
@@ -112,6 +118,12 @@ class KnowledgeBasesApi
             'application/json',
         ],
         'updateKnowledgebase' => [
+            'application/json',
+        ],
+        'updateKnowledgebaseAgentLink' => [
+            'application/json',
+        ],
+        'updateKnowledgebaseDocument' => [
             'application/json',
         ],
         'uploadFilesToKnowledgebase' => [
@@ -168,37 +180,37 @@ class KnowledgeBasesApi
     /**
      * Operation addAdditionalTokenPackageToKnowledgebase
      *
-     * Добавление дополнительного пакета токенов
+     * Покупка дополнительных пакетов токенов
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \OpenAPI\Client\Model\AddTokenPackage $add_token_package add_token_package (optional)
+     * @param  \OpenAPI\Client\Model\KnowledgebaseAddTokenPackage $knowledgebase_add_token_package knowledgebase_add_token_package (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addAdditionalTokenPackageToKnowledgebase'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addAdditionalTokenPackageToKnowledgebase($id, $add_token_package = null, string $contentType = self::contentTypes['addAdditionalTokenPackageToKnowledgebase'][0])
+    public function addAdditionalTokenPackageToKnowledgebase($id, $knowledgebase_add_token_package = null, string $contentType = self::contentTypes['addAdditionalTokenPackageToKnowledgebase'][0])
     {
-        $this->addAdditionalTokenPackageToKnowledgebaseWithHttpInfo($id, $add_token_package, $contentType);
+        $this->addAdditionalTokenPackageToKnowledgebaseWithHttpInfo($id, $knowledgebase_add_token_package, $contentType);
     }
 
     /**
      * Operation addAdditionalTokenPackageToKnowledgebaseWithHttpInfo
      *
-     * Добавление дополнительного пакета токенов
+     * Покупка дополнительных пакетов токенов
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \OpenAPI\Client\Model\AddTokenPackage $add_token_package (optional)
+     * @param  \OpenAPI\Client\Model\KnowledgebaseAddTokenPackage $knowledgebase_add_token_package (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addAdditionalTokenPackageToKnowledgebase'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addAdditionalTokenPackageToKnowledgebaseWithHttpInfo($id, $add_token_package = null, string $contentType = self::contentTypes['addAdditionalTokenPackageToKnowledgebase'][0])
+    public function addAdditionalTokenPackageToKnowledgebaseWithHttpInfo($id, $knowledgebase_add_token_package = null, string $contentType = self::contentTypes['addAdditionalTokenPackageToKnowledgebase'][0])
     {
-        $request = $this->addAdditionalTokenPackageToKnowledgebaseRequest($id, $add_token_package, $contentType);
+        $request = $this->addAdditionalTokenPackageToKnowledgebaseRequest($id, $knowledgebase_add_token_package, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -295,18 +307,18 @@ class KnowledgeBasesApi
     /**
      * Operation addAdditionalTokenPackageToKnowledgebaseAsync
      *
-     * Добавление дополнительного пакета токенов
+     * Покупка дополнительных пакетов токенов
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \OpenAPI\Client\Model\AddTokenPackage $add_token_package (optional)
+     * @param  \OpenAPI\Client\Model\KnowledgebaseAddTokenPackage $knowledgebase_add_token_package (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addAdditionalTokenPackageToKnowledgebase'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addAdditionalTokenPackageToKnowledgebaseAsync($id, $add_token_package = null, string $contentType = self::contentTypes['addAdditionalTokenPackageToKnowledgebase'][0])
+    public function addAdditionalTokenPackageToKnowledgebaseAsync($id, $knowledgebase_add_token_package = null, string $contentType = self::contentTypes['addAdditionalTokenPackageToKnowledgebase'][0])
     {
-        return $this->addAdditionalTokenPackageToKnowledgebaseAsyncWithHttpInfo($id, $add_token_package, $contentType)
+        return $this->addAdditionalTokenPackageToKnowledgebaseAsyncWithHttpInfo($id, $knowledgebase_add_token_package, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -317,19 +329,19 @@ class KnowledgeBasesApi
     /**
      * Operation addAdditionalTokenPackageToKnowledgebaseAsyncWithHttpInfo
      *
-     * Добавление дополнительного пакета токенов
+     * Покупка дополнительных пакетов токенов
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \OpenAPI\Client\Model\AddTokenPackage $add_token_package (optional)
+     * @param  \OpenAPI\Client\Model\KnowledgebaseAddTokenPackage $knowledgebase_add_token_package (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addAdditionalTokenPackageToKnowledgebase'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addAdditionalTokenPackageToKnowledgebaseAsyncWithHttpInfo($id, $add_token_package = null, string $contentType = self::contentTypes['addAdditionalTokenPackageToKnowledgebase'][0])
+    public function addAdditionalTokenPackageToKnowledgebaseAsyncWithHttpInfo($id, $knowledgebase_add_token_package = null, string $contentType = self::contentTypes['addAdditionalTokenPackageToKnowledgebase'][0])
     {
         $returnType = '';
-        $request = $this->addAdditionalTokenPackageToKnowledgebaseRequest($id, $add_token_package, $contentType);
+        $request = $this->addAdditionalTokenPackageToKnowledgebaseRequest($id, $knowledgebase_add_token_package, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -358,13 +370,13 @@ class KnowledgeBasesApi
      * Create request for operation 'addAdditionalTokenPackageToKnowledgebase'
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \OpenAPI\Client\Model\AddTokenPackage $add_token_package (optional)
+     * @param  \OpenAPI\Client\Model\KnowledgebaseAddTokenPackage $knowledgebase_add_token_package (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addAdditionalTokenPackageToKnowledgebase'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addAdditionalTokenPackageToKnowledgebaseRequest($id, $add_token_package = null, string $contentType = self::contentTypes['addAdditionalTokenPackageToKnowledgebase'][0])
+    public function addAdditionalTokenPackageToKnowledgebaseRequest($id, $knowledgebase_add_token_package = null, string $contentType = self::contentTypes['addAdditionalTokenPackageToKnowledgebase'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -405,12 +417,12 @@ class KnowledgeBasesApi
         );
 
         // for model (json/xml)
-        if (isset($add_token_package)) {
+        if (isset($knowledgebase_add_token_package)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_token_package));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($knowledgebase_add_token_package));
             } else {
-                $httpBody = $add_token_package;
+                $httpBody = $knowledgebase_add_token_package;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -472,7 +484,7 @@ class KnowledgeBasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreateKnowledgebase201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\CreateKnowledgebase201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function createKnowledgebase($create_knowledgebase, string $contentType = self::contentTypes['createKnowledgebase'][0])
     {
@@ -490,7 +502,7 @@ class KnowledgeBasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreateKnowledgebase201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateKnowledgebase201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createKnowledgebaseWithHttpInfo($create_knowledgebase, string $contentType = self::contentTypes['createKnowledgebase'][0])
     {
@@ -592,6 +604,21 @@ class KnowledgeBasesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 429:
                     if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -670,6 +697,14 @@ class KnowledgeBasesApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -812,6 +847,453 @@ class KnowledgeBasesApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_knowledgebase));
             } else {
                 $httpBody = $create_knowledgebase;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createKnowledgebaseDocument
+     *
+     * Добавление документа по ссылке
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  \OpenAPI\Client\Model\CreateDocument $create_document create_document (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createKnowledgebaseDocument'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function createKnowledgebaseDocument($id, $create_document, string $contentType = self::contentTypes['createKnowledgebaseDocument'][0])
+    {
+        list($response) = $this->createKnowledgebaseDocumentWithHttpInfo($id, $create_document, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createKnowledgebaseDocumentWithHttpInfo
+     *
+     * Добавление документа по ссылке
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  \OpenAPI\Client\Model\CreateDocument $create_document (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createKnowledgebaseDocument'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createKnowledgebaseDocumentWithHttpInfo($id, $create_document, string $contentType = self::contentTypes['createKnowledgebaseDocument'][0])
+    {
+        $request = $this->createKnowledgebaseDocumentRequest($id, $create_document, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createKnowledgebaseDocumentAsync
+     *
+     * Добавление документа по ссылке
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  \OpenAPI\Client\Model\CreateDocument $create_document (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createKnowledgebaseDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createKnowledgebaseDocumentAsync($id, $create_document, string $contentType = self::contentTypes['createKnowledgebaseDocument'][0])
+    {
+        return $this->createKnowledgebaseDocumentAsyncWithHttpInfo($id, $create_document, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createKnowledgebaseDocumentAsyncWithHttpInfo
+     *
+     * Добавление документа по ссылке
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  \OpenAPI\Client\Model\CreateDocument $create_document (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createKnowledgebaseDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createKnowledgebaseDocumentAsyncWithHttpInfo($id, $create_document, string $contentType = self::contentTypes['createKnowledgebaseDocument'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response';
+        $request = $this->createKnowledgebaseDocumentRequest($id, $create_document, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createKnowledgebaseDocument'
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  \OpenAPI\Client\Model\CreateDocument $create_document (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createKnowledgebaseDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createKnowledgebaseDocumentRequest($id, $create_document, string $contentType = self::contentTypes['createKnowledgebaseDocument'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling createKnowledgebaseDocument'
+            );
+        }
+        if ($id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$id" when calling KnowledgeBasesApi.createKnowledgebaseDocument, must be bigger than or equal to 1.');
+        }
+        
+        // verify the required parameter 'create_document' is set
+        if ($create_document === null || (is_array($create_document) && count($create_document) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $create_document when calling createKnowledgebaseDocument'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/cloud-ai/knowledge-bases/{id}/documents';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($create_document)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_document));
+            } else {
+                $httpBody = $create_document;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1457,7 +1939,7 @@ class KnowledgeBasesApi
     /**
      * Operation downloadDocument
      *
-     * Скачивание документа из базы знаний
+     * Скачивание файла документа
      *
      * @param  int $id ID базы знаний (required)
      * @param  int $document_id ID документа (required)
@@ -1465,7 +1947,7 @@ class KnowledgeBasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \SplFileObject|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function downloadDocument($id, $document_id, string $contentType = self::contentTypes['downloadDocument'][0])
     {
@@ -1476,7 +1958,7 @@ class KnowledgeBasesApi
     /**
      * Operation downloadDocumentWithHttpInfo
      *
-     * Скачивание документа из базы знаний
+     * Скачивание файла документа
      *
      * @param  int $id ID базы знаний (required)
      * @param  int $document_id ID документа (required)
@@ -1484,7 +1966,7 @@ class KnowledgeBasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function downloadDocumentWithHttpInfo($id, $document_id, string $contentType = self::contentTypes['downloadDocument'][0])
     {
@@ -1568,6 +2050,21 @@ class KnowledgeBasesApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1660,6 +2157,14 @@ class KnowledgeBasesApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1692,7 +2197,7 @@ class KnowledgeBasesApi
     /**
      * Operation downloadDocumentAsync
      *
-     * Скачивание документа из базы знаний
+     * Скачивание файла документа
      *
      * @param  int $id ID базы знаний (required)
      * @param  int $document_id ID документа (required)
@@ -1714,7 +2219,7 @@ class KnowledgeBasesApi
     /**
      * Operation downloadDocumentAsyncWithHttpInfo
      *
-     * Скачивание документа из базы знаний
+     * Скачивание файла документа
      *
      * @param  int $id ID базы знаний (required)
      * @param  int $document_id ID документа (required)
@@ -1885,7 +2390,7 @@ class KnowledgeBasesApi
     /**
      * Operation getKnowledgebase
      *
-     * Получение базы знаний
+     * Получение базы знаний со списком документов
      *
      * @param  int $id ID базы знаний (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebase'] to see the possible values for this operation
@@ -1903,7 +2408,7 @@ class KnowledgeBasesApi
     /**
      * Operation getKnowledgebaseWithHttpInfo
      *
-     * Получение базы знаний
+     * Получение базы знаний со списком документов
      *
      * @param  int $id ID базы знаний (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebase'] to see the possible values for this operation
@@ -2141,7 +2646,7 @@ class KnowledgeBasesApi
     /**
      * Operation getKnowledgebaseAsync
      *
-     * Получение базы знаний
+     * Получение базы знаний со списком документов
      *
      * @param  int $id ID базы знаний (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebase'] to see the possible values for this operation
@@ -2162,7 +2667,7 @@ class KnowledgeBasesApi
     /**
      * Operation getKnowledgebaseAsyncWithHttpInfo
      *
-     * Получение базы знаний
+     * Получение базы знаний со списком документов
      *
      * @param  int $id ID базы знаний (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebase'] to see the possible values for this operation
@@ -2316,19 +2821,20 @@ class KnowledgeBasesApi
      * Получение списка документов базы знаний
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $limit Количество документов на странице (по умолчанию: 10, максимум: 100) (optional, default to 10)
-     * @param  int $offset Количество документов для пропуска (по умолчанию: 0) (optional, default to 0)
-     * @param  string $sort_by Поле для сортировки (по умолчанию: indexing_timestamp - время последней индексации документа) (optional, default to 'indexing_timestamp')
-     * @param  string $sort_order Порядок сортировки (по умолчанию: DESC) (optional, default to 'DESC')
+     * @param  int $limit Количество документов на странице. Значения больше 100 уменьшаются до 100 (optional, default to 10)
+     * @param  int $offset Количество документов, которые нужно пропустить (optional, default to 0)
+     * @param  string $sort_by Поле сортировки. &#x60;indexing_timestamp&#x60; — время последнего изменения документа (optional, default to 'indexing_timestamp')
+     * @param  string $sort_order Порядок сортировки (optional, default to 'DESC')
+     * @param  string $search Фильтр по подстроке в названии документа (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseDocumentsV2'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetKnowledgebaseDocumentsV2200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function getKnowledgebaseDocumentsV2($id, $limit = 10, $offset = 0, $sort_by = 'indexing_timestamp', $sort_order = 'DESC', string $contentType = self::contentTypes['getKnowledgebaseDocumentsV2'][0])
+    public function getKnowledgebaseDocumentsV2($id, $limit = 10, $offset = 0, $sort_by = 'indexing_timestamp', $sort_order = 'DESC', $search = null, string $contentType = self::contentTypes['getKnowledgebaseDocumentsV2'][0])
     {
-        list($response) = $this->getKnowledgebaseDocumentsV2WithHttpInfo($id, $limit, $offset, $sort_by, $sort_order, $contentType);
+        list($response) = $this->getKnowledgebaseDocumentsV2WithHttpInfo($id, $limit, $offset, $sort_by, $sort_order, $search, $contentType);
         return $response;
     }
 
@@ -2338,19 +2844,20 @@ class KnowledgeBasesApi
      * Получение списка документов базы знаний
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $limit Количество документов на странице (по умолчанию: 10, максимум: 100) (optional, default to 10)
-     * @param  int $offset Количество документов для пропуска (по умолчанию: 0) (optional, default to 0)
-     * @param  string $sort_by Поле для сортировки (по умолчанию: indexing_timestamp - время последней индексации документа) (optional, default to 'indexing_timestamp')
-     * @param  string $sort_order Порядок сортировки (по умолчанию: DESC) (optional, default to 'DESC')
+     * @param  int $limit Количество документов на странице. Значения больше 100 уменьшаются до 100 (optional, default to 10)
+     * @param  int $offset Количество документов, которые нужно пропустить (optional, default to 0)
+     * @param  string $sort_by Поле сортировки. &#x60;indexing_timestamp&#x60; — время последнего изменения документа (optional, default to 'indexing_timestamp')
+     * @param  string $sort_order Порядок сортировки (optional, default to 'DESC')
+     * @param  string $search Фильтр по подстроке в названии документа (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseDocumentsV2'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetKnowledgebaseDocumentsV2200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getKnowledgebaseDocumentsV2WithHttpInfo($id, $limit = 10, $offset = 0, $sort_by = 'indexing_timestamp', $sort_order = 'DESC', string $contentType = self::contentTypes['getKnowledgebaseDocumentsV2'][0])
+    public function getKnowledgebaseDocumentsV2WithHttpInfo($id, $limit = 10, $offset = 0, $sort_by = 'indexing_timestamp', $sort_order = 'DESC', $search = null, string $contentType = self::contentTypes['getKnowledgebaseDocumentsV2'][0])
     {
-        $request = $this->getKnowledgebaseDocumentsV2Request($id, $limit, $offset, $sort_by, $sort_order, $contentType);
+        $request = $this->getKnowledgebaseDocumentsV2Request($id, $limit, $offset, $sort_by, $sort_order, $search, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2580,18 +3087,19 @@ class KnowledgeBasesApi
      * Получение списка документов базы знаний
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $limit Количество документов на странице (по умолчанию: 10, максимум: 100) (optional, default to 10)
-     * @param  int $offset Количество документов для пропуска (по умолчанию: 0) (optional, default to 0)
-     * @param  string $sort_by Поле для сортировки (по умолчанию: indexing_timestamp - время последней индексации документа) (optional, default to 'indexing_timestamp')
-     * @param  string $sort_order Порядок сортировки (по умолчанию: DESC) (optional, default to 'DESC')
+     * @param  int $limit Количество документов на странице. Значения больше 100 уменьшаются до 100 (optional, default to 10)
+     * @param  int $offset Количество документов, которые нужно пропустить (optional, default to 0)
+     * @param  string $sort_by Поле сортировки. &#x60;indexing_timestamp&#x60; — время последнего изменения документа (optional, default to 'indexing_timestamp')
+     * @param  string $sort_order Порядок сортировки (optional, default to 'DESC')
+     * @param  string $search Фильтр по подстроке в названии документа (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseDocumentsV2'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getKnowledgebaseDocumentsV2Async($id, $limit = 10, $offset = 0, $sort_by = 'indexing_timestamp', $sort_order = 'DESC', string $contentType = self::contentTypes['getKnowledgebaseDocumentsV2'][0])
+    public function getKnowledgebaseDocumentsV2Async($id, $limit = 10, $offset = 0, $sort_by = 'indexing_timestamp', $sort_order = 'DESC', $search = null, string $contentType = self::contentTypes['getKnowledgebaseDocumentsV2'][0])
     {
-        return $this->getKnowledgebaseDocumentsV2AsyncWithHttpInfo($id, $limit, $offset, $sort_by, $sort_order, $contentType)
+        return $this->getKnowledgebaseDocumentsV2AsyncWithHttpInfo($id, $limit, $offset, $sort_by, $sort_order, $search, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2605,19 +3113,20 @@ class KnowledgeBasesApi
      * Получение списка документов базы знаний
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $limit Количество документов на странице (по умолчанию: 10, максимум: 100) (optional, default to 10)
-     * @param  int $offset Количество документов для пропуска (по умолчанию: 0) (optional, default to 0)
-     * @param  string $sort_by Поле для сортировки (по умолчанию: indexing_timestamp - время последней индексации документа) (optional, default to 'indexing_timestamp')
-     * @param  string $sort_order Порядок сортировки (по умолчанию: DESC) (optional, default to 'DESC')
+     * @param  int $limit Количество документов на странице. Значения больше 100 уменьшаются до 100 (optional, default to 10)
+     * @param  int $offset Количество документов, которые нужно пропустить (optional, default to 0)
+     * @param  string $sort_by Поле сортировки. &#x60;indexing_timestamp&#x60; — время последнего изменения документа (optional, default to 'indexing_timestamp')
+     * @param  string $sort_order Порядок сортировки (optional, default to 'DESC')
+     * @param  string $search Фильтр по подстроке в названии документа (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseDocumentsV2'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getKnowledgebaseDocumentsV2AsyncWithHttpInfo($id, $limit = 10, $offset = 0, $sort_by = 'indexing_timestamp', $sort_order = 'DESC', string $contentType = self::contentTypes['getKnowledgebaseDocumentsV2'][0])
+    public function getKnowledgebaseDocumentsV2AsyncWithHttpInfo($id, $limit = 10, $offset = 0, $sort_by = 'indexing_timestamp', $sort_order = 'DESC', $search = null, string $contentType = self::contentTypes['getKnowledgebaseDocumentsV2'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GetKnowledgebaseDocumentsV2200Response';
-        $request = $this->getKnowledgebaseDocumentsV2Request($id, $limit, $offset, $sort_by, $sort_order, $contentType);
+        $request = $this->getKnowledgebaseDocumentsV2Request($id, $limit, $offset, $sort_by, $sort_order, $search, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2659,16 +3168,17 @@ class KnowledgeBasesApi
      * Create request for operation 'getKnowledgebaseDocumentsV2'
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $limit Количество документов на странице (по умолчанию: 10, максимум: 100) (optional, default to 10)
-     * @param  int $offset Количество документов для пропуска (по умолчанию: 0) (optional, default to 0)
-     * @param  string $sort_by Поле для сортировки (по умолчанию: indexing_timestamp - время последней индексации документа) (optional, default to 'indexing_timestamp')
-     * @param  string $sort_order Порядок сортировки (по умолчанию: DESC) (optional, default to 'DESC')
+     * @param  int $limit Количество документов на странице. Значения больше 100 уменьшаются до 100 (optional, default to 10)
+     * @param  int $offset Количество документов, которые нужно пропустить (optional, default to 0)
+     * @param  string $sort_by Поле сортировки. &#x60;indexing_timestamp&#x60; — время последнего изменения документа (optional, default to 'indexing_timestamp')
+     * @param  string $sort_order Порядок сортировки (optional, default to 'DESC')
+     * @param  string $search Фильтр по подстроке в названии документа (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseDocumentsV2'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getKnowledgebaseDocumentsV2Request($id, $limit = 10, $offset = 0, $sort_by = 'indexing_timestamp', $sort_order = 'DESC', string $contentType = self::contentTypes['getKnowledgebaseDocumentsV2'][0])
+    public function getKnowledgebaseDocumentsV2Request($id, $limit = 10, $offset = 0, $sort_by = 'indexing_timestamp', $sort_order = 'DESC', $search = null, string $contentType = self::contentTypes['getKnowledgebaseDocumentsV2'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -2692,6 +3202,7 @@ class KnowledgeBasesApi
             throw new \InvalidArgumentException('invalid value for "$offset" when calling KnowledgeBasesApi.getKnowledgebaseDocumentsV2, must be bigger than or equal to 0.');
         }
         
+
 
 
 
@@ -2733,6 +3244,15 @@ class KnowledgeBasesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $sort_order,
             'sort_order', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $search,
+            'search', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -2808,44 +3328,38 @@ class KnowledgeBasesApi
     }
 
     /**
-     * Operation getKnowledgebaseStatistics
+     * Operation getKnowledgebaseV3
      *
-     * Получение статистики использования токенов базы знаний
+     * Получение базы знаний
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \DateTime $start_time Начало временного диапазона (ISO 8601) (optional)
-     * @param  \DateTime $end_time Конец временного диапазона (ISO 8601) (optional)
-     * @param  float $interval Интервал в минутах (по умолчанию 60) (optional, default to 60)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseStatistics'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseV3'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetKnowledgebaseStatistics200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetKnowledgebaseV3200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
-    public function getKnowledgebaseStatistics($id, $start_time = null, $end_time = null, $interval = 60, string $contentType = self::contentTypes['getKnowledgebaseStatistics'][0])
+    public function getKnowledgebaseV3($id, string $contentType = self::contentTypes['getKnowledgebaseV3'][0])
     {
-        list($response) = $this->getKnowledgebaseStatisticsWithHttpInfo($id, $start_time, $end_time, $interval, $contentType);
+        list($response) = $this->getKnowledgebaseV3WithHttpInfo($id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getKnowledgebaseStatisticsWithHttpInfo
+     * Operation getKnowledgebaseV3WithHttpInfo
      *
-     * Получение статистики использования токенов базы знаний
+     * Получение базы знаний
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \DateTime $start_time Начало временного диапазона (ISO 8601) (optional)
-     * @param  \DateTime $end_time Конец временного диапазона (ISO 8601) (optional)
-     * @param  float $interval Интервал в минутах (по умолчанию 60) (optional, default to 60)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseStatistics'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseV3'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetKnowledgebaseStatistics200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetKnowledgebaseV3200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getKnowledgebaseStatisticsWithHttpInfo($id, $start_time = null, $end_time = null, $interval = 60, string $contentType = self::contentTypes['getKnowledgebaseStatistics'][0])
+    public function getKnowledgebaseV3WithHttpInfo($id, string $contentType = self::contentTypes['getKnowledgebaseV3'][0])
     {
-        $request = $this->getKnowledgebaseStatisticsRequest($id, $start_time, $end_time, $interval, $contentType);
+        $request = $this->getKnowledgebaseV3Request($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2884,17 +3398,17 @@ class KnowledgeBasesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetKnowledgebaseStatistics200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetKnowledgebaseV3200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetKnowledgebaseStatistics200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetKnowledgebaseV3200Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetKnowledgebaseStatistics200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetKnowledgebaseV3200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2990,7 +3504,7 @@ class KnowledgeBasesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetKnowledgebaseStatistics200Response';
+            $returnType = '\OpenAPI\Client\Model\GetKnowledgebaseV3200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3011,7 +3525,7 @@ class KnowledgeBasesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetKnowledgebaseStatistics200Response',
+                        '\OpenAPI\Client\Model\GetKnowledgebaseV3200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3070,22 +3584,19 @@ class KnowledgeBasesApi
     }
 
     /**
-     * Operation getKnowledgebaseStatisticsAsync
+     * Operation getKnowledgebaseV3Async
      *
-     * Получение статистики использования токенов базы знаний
+     * Получение базы знаний
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \DateTime $start_time Начало временного диапазона (ISO 8601) (optional)
-     * @param  \DateTime $end_time Конец временного диапазона (ISO 8601) (optional)
-     * @param  float $interval Интервал в минутах (по умолчанию 60) (optional, default to 60)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseStatistics'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseV3'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getKnowledgebaseStatisticsAsync($id, $start_time = null, $end_time = null, $interval = 60, string $contentType = self::contentTypes['getKnowledgebaseStatistics'][0])
+    public function getKnowledgebaseV3Async($id, string $contentType = self::contentTypes['getKnowledgebaseV3'][0])
     {
-        return $this->getKnowledgebaseStatisticsAsyncWithHttpInfo($id, $start_time, $end_time, $interval, $contentType)
+        return $this->getKnowledgebaseV3AsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3094,23 +3605,20 @@ class KnowledgeBasesApi
     }
 
     /**
-     * Operation getKnowledgebaseStatisticsAsyncWithHttpInfo
+     * Operation getKnowledgebaseV3AsyncWithHttpInfo
      *
-     * Получение статистики использования токенов базы знаний
+     * Получение базы знаний
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \DateTime $start_time Начало временного диапазона (ISO 8601) (optional)
-     * @param  \DateTime $end_time Конец временного диапазона (ISO 8601) (optional)
-     * @param  float $interval Интервал в минутах (по умолчанию 60) (optional, default to 60)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseStatistics'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseV3'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getKnowledgebaseStatisticsAsyncWithHttpInfo($id, $start_time = null, $end_time = null, $interval = 60, string $contentType = self::contentTypes['getKnowledgebaseStatistics'][0])
+    public function getKnowledgebaseV3AsyncWithHttpInfo($id, string $contentType = self::contentTypes['getKnowledgebaseV3'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetKnowledgebaseStatistics200Response';
-        $request = $this->getKnowledgebaseStatisticsRequest($id, $start_time, $end_time, $interval, $contentType);
+        $returnType = '\OpenAPI\Client\Model\GetKnowledgebaseV3200Response';
+        $request = $this->getKnowledgebaseV3Request($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3149,68 +3657,35 @@ class KnowledgeBasesApi
     }
 
     /**
-     * Create request for operation 'getKnowledgebaseStatistics'
+     * Create request for operation 'getKnowledgebaseV3'
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \DateTime $start_time Начало временного диапазона (ISO 8601) (optional)
-     * @param  \DateTime $end_time Конец временного диапазона (ISO 8601) (optional)
-     * @param  float $interval Интервал в минутах (по умолчанию 60) (optional, default to 60)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseStatistics'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebaseV3'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getKnowledgebaseStatisticsRequest($id, $start_time = null, $end_time = null, $interval = 60, string $contentType = self::contentTypes['getKnowledgebaseStatistics'][0])
+    public function getKnowledgebaseV3Request($id, string $contentType = self::contentTypes['getKnowledgebaseV3'][0])
     {
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getKnowledgebaseStatistics'
+                'Missing the required parameter $id when calling getKnowledgebaseV3'
             );
         }
         if ($id < 1) {
-            throw new \InvalidArgumentException('invalid value for "$id" when calling KnowledgeBasesApi.getKnowledgebaseStatistics, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$id" when calling KnowledgeBasesApi.getKnowledgebaseV3, must be bigger than or equal to 1.');
         }
         
 
-
-
-
-        $resourcePath = '/api/v1/cloud-ai/knowledge-bases/{id}/statistic';
+        $resourcePath = '/api/v3/cloud-ai/knowledge-bases/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $start_time,
-            'startTime', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $end_time,
-            'endTime', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $interval,
-            'interval', // param base name
-            'number', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
 
         // path params
@@ -3283,13 +3758,13 @@ class KnowledgeBasesApi
     /**
      * Operation getKnowledgebases
      *
-     * Получение списка баз знаний
+     * Получение списка баз знаний (v1)
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebases'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetKnowledgebases200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetKnowledgebases200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      * @deprecated
      */
     public function getKnowledgebases(string $contentType = self::contentTypes['getKnowledgebases'][0])
@@ -3301,13 +3776,13 @@ class KnowledgeBasesApi
     /**
      * Operation getKnowledgebasesWithHttpInfo
      *
-     * Получение списка баз знаний
+     * Получение списка баз знаний (v1)
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebases'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetKnowledgebases200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetKnowledgebases200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      * @deprecated
      */
     public function getKnowledgebasesWithHttpInfo(string $contentType = self::contentTypes['getKnowledgebases'][0])
@@ -3410,21 +3885,6 @@ class KnowledgeBasesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 404:
-                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
                 case 429:
                     if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -3507,14 +3967,6 @@ class KnowledgeBasesApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetImage404Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -3539,7 +3991,7 @@ class KnowledgeBasesApi
     /**
      * Operation getKnowledgebasesAsync
      *
-     * Получение списка баз знаний
+     * Получение списка баз знаний (v1)
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebases'] to see the possible values for this operation
      *
@@ -3560,7 +4012,7 @@ class KnowledgeBasesApi
     /**
      * Operation getKnowledgebasesAsyncWithHttpInfo
      *
-     * Получение списка баз знаний
+     * Получение списка баз знаний (v1)
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebases'] to see the possible values for this operation
      *
@@ -3699,7 +4151,7 @@ class KnowledgeBasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetKnowledgebasesV2200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return \OpenAPI\Client\Model\GetKnowledgebasesV2200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
      */
     public function getKnowledgebasesV2(string $contentType = self::contentTypes['getKnowledgebasesV2'][0])
     {
@@ -3716,7 +4168,7 @@ class KnowledgeBasesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetKnowledgebasesV2200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetKnowledgebasesV2200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getKnowledgebasesV2WithHttpInfo(string $contentType = self::contentTypes['getKnowledgebasesV2'][0])
     {
@@ -3818,21 +4270,6 @@ class KnowledgeBasesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 404:
-                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
                 case 429:
                     if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -3911,14 +4348,6 @@ class KnowledgeBasesApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\GetAccountStatus403Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetImage404Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4096,21 +4525,404 @@ class KnowledgeBasesApi
     }
 
     /**
+     * Operation getKnowledgebasesV3
+     *
+     * Получение списка баз знаний
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebasesV3'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\GetKnowledgebasesV3200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function getKnowledgebasesV3(string $contentType = self::contentTypes['getKnowledgebasesV3'][0])
+    {
+        list($response) = $this->getKnowledgebasesV3WithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getKnowledgebasesV3WithHttpInfo
+     *
+     * Получение списка баз знаний
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebasesV3'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\GetKnowledgebasesV3200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getKnowledgebasesV3WithHttpInfo(string $contentType = self::contentTypes['getKnowledgebasesV3'][0])
+    {
+        $request = $this->getKnowledgebasesV3Request($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\GetKnowledgebasesV3200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetKnowledgebasesV3200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetKnowledgebasesV3200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\GetKnowledgebasesV3200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetKnowledgebasesV3200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getKnowledgebasesV3Async
+     *
+     * Получение списка баз знаний
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebasesV3'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getKnowledgebasesV3Async(string $contentType = self::contentTypes['getKnowledgebasesV3'][0])
+    {
+        return $this->getKnowledgebasesV3AsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getKnowledgebasesV3AsyncWithHttpInfo
+     *
+     * Получение списка баз знаний
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebasesV3'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getKnowledgebasesV3AsyncWithHttpInfo(string $contentType = self::contentTypes['getKnowledgebasesV3'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\GetKnowledgebasesV3200Response';
+        $request = $this->getKnowledgebasesV3Request($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getKnowledgebasesV3'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getKnowledgebasesV3'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getKnowledgebasesV3Request(string $contentType = self::contentTypes['getKnowledgebasesV3'][0])
+    {
+
+
+        $resourcePath = '/api/v3/cloud-ai/knowledge-bases';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation linkKnowledgebaseToAgent
      *
      * Привязка базы знаний к агенту
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $agent_id ID агента (required)
+     * @param  int $agent_id ID AI агента (required)
+     * @param  \OpenAPI\Client\Model\LinkKnowledgebase $link_knowledgebase link_knowledgebase (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkKnowledgebaseToAgent'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function linkKnowledgebaseToAgent($id, $agent_id, string $contentType = self::contentTypes['linkKnowledgebaseToAgent'][0])
+    public function linkKnowledgebaseToAgent($id, $agent_id, $link_knowledgebase = null, string $contentType = self::contentTypes['linkKnowledgebaseToAgent'][0])
     {
-        $this->linkKnowledgebaseToAgentWithHttpInfo($id, $agent_id, $contentType);
+        $this->linkKnowledgebaseToAgentWithHttpInfo($id, $agent_id, $link_knowledgebase, $contentType);
     }
 
     /**
@@ -4119,16 +4931,17 @@ class KnowledgeBasesApi
      * Привязка базы знаний к агенту
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $agent_id ID агента (required)
+     * @param  int $agent_id ID AI агента (required)
+     * @param  \OpenAPI\Client\Model\LinkKnowledgebase $link_knowledgebase (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkKnowledgebaseToAgent'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function linkKnowledgebaseToAgentWithHttpInfo($id, $agent_id, string $contentType = self::contentTypes['linkKnowledgebaseToAgent'][0])
+    public function linkKnowledgebaseToAgentWithHttpInfo($id, $agent_id, $link_knowledgebase = null, string $contentType = self::contentTypes['linkKnowledgebaseToAgent'][0])
     {
-        $request = $this->linkKnowledgebaseToAgentRequest($id, $agent_id, $contentType);
+        $request = $this->linkKnowledgebaseToAgentRequest($id, $agent_id, $link_knowledgebase, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4228,15 +5041,16 @@ class KnowledgeBasesApi
      * Привязка базы знаний к агенту
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $agent_id ID агента (required)
+     * @param  int $agent_id ID AI агента (required)
+     * @param  \OpenAPI\Client\Model\LinkKnowledgebase $link_knowledgebase (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkKnowledgebaseToAgent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function linkKnowledgebaseToAgentAsync($id, $agent_id, string $contentType = self::contentTypes['linkKnowledgebaseToAgent'][0])
+    public function linkKnowledgebaseToAgentAsync($id, $agent_id, $link_knowledgebase = null, string $contentType = self::contentTypes['linkKnowledgebaseToAgent'][0])
     {
-        return $this->linkKnowledgebaseToAgentAsyncWithHttpInfo($id, $agent_id, $contentType)
+        return $this->linkKnowledgebaseToAgentAsyncWithHttpInfo($id, $agent_id, $link_knowledgebase, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4250,16 +5064,17 @@ class KnowledgeBasesApi
      * Привязка базы знаний к агенту
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $agent_id ID агента (required)
+     * @param  int $agent_id ID AI агента (required)
+     * @param  \OpenAPI\Client\Model\LinkKnowledgebase $link_knowledgebase (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkKnowledgebaseToAgent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function linkKnowledgebaseToAgentAsyncWithHttpInfo($id, $agent_id, string $contentType = self::contentTypes['linkKnowledgebaseToAgent'][0])
+    public function linkKnowledgebaseToAgentAsyncWithHttpInfo($id, $agent_id, $link_knowledgebase = null, string $contentType = self::contentTypes['linkKnowledgebaseToAgent'][0])
     {
         $returnType = '';
-        $request = $this->linkKnowledgebaseToAgentRequest($id, $agent_id, $contentType);
+        $request = $this->linkKnowledgebaseToAgentRequest($id, $agent_id, $link_knowledgebase, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4288,13 +5103,14 @@ class KnowledgeBasesApi
      * Create request for operation 'linkKnowledgebaseToAgent'
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $agent_id ID агента (required)
+     * @param  int $agent_id ID AI агента (required)
+     * @param  \OpenAPI\Client\Model\LinkKnowledgebase $link_knowledgebase (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['linkKnowledgebaseToAgent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function linkKnowledgebaseToAgentRequest($id, $agent_id, string $contentType = self::contentTypes['linkKnowledgebaseToAgent'][0])
+    public function linkKnowledgebaseToAgentRequest($id, $agent_id, $link_knowledgebase = null, string $contentType = self::contentTypes['linkKnowledgebaseToAgent'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -4317,6 +5133,7 @@ class KnowledgeBasesApi
             throw new \InvalidArgumentException('invalid value for "$agent_id" when calling KnowledgeBasesApi.linkKnowledgebaseToAgent, must be bigger than or equal to 1.');
         }
         
+
 
         $resourcePath = '/api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id}';
         $formParams = [];
@@ -4352,7 +5169,14 @@ class KnowledgeBasesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($link_knowledgebase)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($link_knowledgebase));
+            } else {
+                $httpBody = $link_knowledgebase;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4715,7 +5539,7 @@ class KnowledgeBasesApi
      * Отвязка базы знаний от агента
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $agent_id ID агента (required)
+     * @param  int $agent_id ID AI агента (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unlinkKnowledgebaseFromAgent'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -4733,7 +5557,7 @@ class KnowledgeBasesApi
      * Отвязка базы знаний от агента
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $agent_id ID агента (required)
+     * @param  int $agent_id ID AI агента (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unlinkKnowledgebaseFromAgent'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -4842,7 +5666,7 @@ class KnowledgeBasesApi
      * Отвязка базы знаний от агента
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $agent_id ID агента (required)
+     * @param  int $agent_id ID AI агента (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unlinkKnowledgebaseFromAgent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4864,7 +5688,7 @@ class KnowledgeBasesApi
      * Отвязка базы знаний от агента
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $agent_id ID агента (required)
+     * @param  int $agent_id ID AI агента (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unlinkKnowledgebaseFromAgent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4902,7 +5726,7 @@ class KnowledgeBasesApi
      * Create request for operation 'unlinkKnowledgebaseFromAgent'
      *
      * @param  int $id ID базы знаний (required)
-     * @param  int $agent_id ID агента (required)
+     * @param  int $agent_id ID AI агента (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unlinkKnowledgebaseFromAgent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5019,7 +5843,7 @@ class KnowledgeBasesApi
     /**
      * Operation updateKnowledgebase
      *
-     * Обновление базы знаний
+     * Изменение базы знаний
      *
      * @param  int $id ID базы знаний (required)
      * @param  \OpenAPI\Client\Model\UpdateKnowledgebase $update_knowledgebase update_knowledgebase (required)
@@ -5038,7 +5862,7 @@ class KnowledgeBasesApi
     /**
      * Operation updateKnowledgebaseWithHttpInfo
      *
-     * Обновление базы знаний
+     * Изменение базы знаний
      *
      * @param  int $id ID базы знаний (required)
      * @param  \OpenAPI\Client\Model\UpdateKnowledgebase $update_knowledgebase (required)
@@ -5277,7 +6101,7 @@ class KnowledgeBasesApi
     /**
      * Operation updateKnowledgebaseAsync
      *
-     * Обновление базы знаний
+     * Изменение базы знаний
      *
      * @param  int $id ID базы знаний (required)
      * @param  \OpenAPI\Client\Model\UpdateKnowledgebase $update_knowledgebase (required)
@@ -5299,7 +6123,7 @@ class KnowledgeBasesApi
     /**
      * Operation updateKnowledgebaseAsyncWithHttpInfo
      *
-     * Обновление базы знаний
+     * Изменение базы знаний
      *
      * @param  int $id ID базы знаний (required)
      * @param  \OpenAPI\Client\Model\UpdateKnowledgebase $update_knowledgebase (required)
@@ -5464,40 +6288,362 @@ class KnowledgeBasesApi
     }
 
     /**
-     * Operation uploadFilesToKnowledgebase
+     * Operation updateKnowledgebaseAgentLink
      *
-     * Загрузка файлов в базу знаний
+     * Изменение режима поиска по базе знаний для агента
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \SplFileObject[] $files Файлы для загрузки (максимум 10 файлов, 10 МБ каждый) (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesToKnowledgebase'] to see the possible values for this operation
+     * @param  int $agent_id ID AI агента (required)
+     * @param  \OpenAPI\Client\Model\LinkKnowledgebase $link_knowledgebase link_knowledgebase (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKnowledgebaseAgentLink'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\UploadFilesToKnowledgebase200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     * @return void
      */
-    public function uploadFilesToKnowledgebase($id, $files, string $contentType = self::contentTypes['uploadFilesToKnowledgebase'][0])
+    public function updateKnowledgebaseAgentLink($id, $agent_id, $link_knowledgebase = null, string $contentType = self::contentTypes['updateKnowledgebaseAgentLink'][0])
     {
-        list($response) = $this->uploadFilesToKnowledgebaseWithHttpInfo($id, $files, $contentType);
+        $this->updateKnowledgebaseAgentLinkWithHttpInfo($id, $agent_id, $link_knowledgebase, $contentType);
+    }
+
+    /**
+     * Operation updateKnowledgebaseAgentLinkWithHttpInfo
+     *
+     * Изменение режима поиска по базе знаний для агента
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  int $agent_id ID AI агента (required)
+     * @param  \OpenAPI\Client\Model\LinkKnowledgebase $link_knowledgebase (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKnowledgebaseAgentLink'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateKnowledgebaseAgentLinkWithHttpInfo($id, $agent_id, $link_knowledgebase = null, string $contentType = self::contentTypes['updateKnowledgebaseAgentLink'][0])
+    {
+        $request = $this->updateKnowledgebaseAgentLinkRequest($id, $agent_id, $link_knowledgebase, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateKnowledgebaseAgentLinkAsync
+     *
+     * Изменение режима поиска по базе знаний для агента
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  int $agent_id ID AI агента (required)
+     * @param  \OpenAPI\Client\Model\LinkKnowledgebase $link_knowledgebase (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKnowledgebaseAgentLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateKnowledgebaseAgentLinkAsync($id, $agent_id, $link_knowledgebase = null, string $contentType = self::contentTypes['updateKnowledgebaseAgentLink'][0])
+    {
+        return $this->updateKnowledgebaseAgentLinkAsyncWithHttpInfo($id, $agent_id, $link_knowledgebase, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateKnowledgebaseAgentLinkAsyncWithHttpInfo
+     *
+     * Изменение режима поиска по базе знаний для агента
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  int $agent_id ID AI агента (required)
+     * @param  \OpenAPI\Client\Model\LinkKnowledgebase $link_knowledgebase (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKnowledgebaseAgentLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateKnowledgebaseAgentLinkAsyncWithHttpInfo($id, $agent_id, $link_knowledgebase = null, string $contentType = self::contentTypes['updateKnowledgebaseAgentLink'][0])
+    {
+        $returnType = '';
+        $request = $this->updateKnowledgebaseAgentLinkRequest($id, $agent_id, $link_knowledgebase, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateKnowledgebaseAgentLink'
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  int $agent_id ID AI агента (required)
+     * @param  \OpenAPI\Client\Model\LinkKnowledgebase $link_knowledgebase (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKnowledgebaseAgentLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateKnowledgebaseAgentLinkRequest($id, $agent_id, $link_knowledgebase = null, string $contentType = self::contentTypes['updateKnowledgebaseAgentLink'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling updateKnowledgebaseAgentLink'
+            );
+        }
+        if ($id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$id" when calling KnowledgeBasesApi.updateKnowledgebaseAgentLink, must be bigger than or equal to 1.');
+        }
+        
+        // verify the required parameter 'agent_id' is set
+        if ($agent_id === null || (is_array($agent_id) && count($agent_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $agent_id when calling updateKnowledgebaseAgentLink'
+            );
+        }
+        if ($agent_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$agent_id" when calling KnowledgeBasesApi.updateKnowledgebaseAgentLink, must be bigger than or equal to 1.');
+        }
+        
+
+
+        $resourcePath = '/api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($agent_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'agent_id' . '}',
+                ObjectSerializer::toPathValue($agent_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($link_knowledgebase)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($link_knowledgebase));
+            } else {
+                $httpBody = $link_knowledgebase;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateKnowledgebaseDocument
+     *
+     * Изменение документа
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  int $document_id ID документа (required)
+     * @param  \OpenAPI\Client\Model\UpdateDocument $update_document update_document (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKnowledgebaseDocument'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function updateKnowledgebaseDocument($id, $document_id, $update_document, string $contentType = self::contentTypes['updateKnowledgebaseDocument'][0])
+    {
+        list($response) = $this->updateKnowledgebaseDocumentWithHttpInfo($id, $document_id, $update_document, $contentType);
         return $response;
     }
 
     /**
-     * Operation uploadFilesToKnowledgebaseWithHttpInfo
+     * Operation updateKnowledgebaseDocumentWithHttpInfo
      *
-     * Загрузка файлов в базу знаний
+     * Изменение документа
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \SplFileObject[] $files Файлы для загрузки (максимум 10 файлов, 10 МБ каждый) (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesToKnowledgebase'] to see the possible values for this operation
+     * @param  int $document_id ID документа (required)
+     * @param  \OpenAPI\Client\Model\UpdateDocument $update_document (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKnowledgebaseDocument'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\UploadFilesToKnowledgebase200Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadFilesToKnowledgebaseWithHttpInfo($id, $files, string $contentType = self::contentTypes['uploadFilesToKnowledgebase'][0])
+    public function updateKnowledgebaseDocumentWithHttpInfo($id, $document_id, $update_document, string $contentType = self::contentTypes['updateKnowledgebaseDocument'][0])
     {
-        $request = $this->uploadFilesToKnowledgebaseRequest($id, $files, $contentType);
+        $request = $this->updateKnowledgebaseDocumentRequest($id, $document_id, $update_document, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5536,17 +6682,17 @@ class KnowledgeBasesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\UploadFilesToKnowledgebase200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\UploadFilesToKnowledgebase200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UploadFilesToKnowledgebase200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5642,7 +6788,7 @@ class KnowledgeBasesApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\UploadFilesToKnowledgebase200Response';
+            $returnType = '\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5663,7 +6809,475 @@ class KnowledgeBasesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\UploadFilesToKnowledgebase200Response',
+                        '\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateKnowledgebaseDocumentAsync
+     *
+     * Изменение документа
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  int $document_id ID документа (required)
+     * @param  \OpenAPI\Client\Model\UpdateDocument $update_document (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKnowledgebaseDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateKnowledgebaseDocumentAsync($id, $document_id, $update_document, string $contentType = self::contentTypes['updateKnowledgebaseDocument'][0])
+    {
+        return $this->updateKnowledgebaseDocumentAsyncWithHttpInfo($id, $document_id, $update_document, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateKnowledgebaseDocumentAsyncWithHttpInfo
+     *
+     * Изменение документа
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  int $document_id ID документа (required)
+     * @param  \OpenAPI\Client\Model\UpdateDocument $update_document (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKnowledgebaseDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateKnowledgebaseDocumentAsyncWithHttpInfo($id, $document_id, $update_document, string $contentType = self::contentTypes['updateKnowledgebaseDocument'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response';
+        $request = $this->updateKnowledgebaseDocumentRequest($id, $document_id, $update_document, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateKnowledgebaseDocument'
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  int $document_id ID документа (required)
+     * @param  \OpenAPI\Client\Model\UpdateDocument $update_document (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateKnowledgebaseDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateKnowledgebaseDocumentRequest($id, $document_id, $update_document, string $contentType = self::contentTypes['updateKnowledgebaseDocument'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling updateKnowledgebaseDocument'
+            );
+        }
+        if ($id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$id" when calling KnowledgeBasesApi.updateKnowledgebaseDocument, must be bigger than or equal to 1.');
+        }
+        
+        // verify the required parameter 'document_id' is set
+        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $document_id when calling updateKnowledgebaseDocument'
+            );
+        }
+        if ($document_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$document_id" when calling KnowledgeBasesApi.updateKnowledgebaseDocument, must be bigger than or equal to 1.');
+        }
+        
+        // verify the required parameter 'update_document' is set
+        if ($update_document === null || (is_array($update_document) && count($update_document) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $update_document when calling updateKnowledgebaseDocument'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($document_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'document_id' . '}',
+                ObjectSerializer::toPathValue($document_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($update_document)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_document));
+            } else {
+                $httpBody = $update_document;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation uploadFilesToKnowledgebase
+     *
+     * Загрузка файлов в базу знаний
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  \SplFileObject[] $files Файлы для загрузки (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesToKnowledgebase'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\UploadResult|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function uploadFilesToKnowledgebase($id, $files, string $contentType = self::contentTypes['uploadFilesToKnowledgebase'][0])
+    {
+        list($response) = $this->uploadFilesToKnowledgebaseWithHttpInfo($id, $files, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation uploadFilesToKnowledgebaseWithHttpInfo
+     *
+     * Загрузка файлов в базу знаний
+     *
+     * @param  int $id ID базы знаний (required)
+     * @param  \SplFileObject[] $files Файлы для загрузки (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesToKnowledgebase'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\UploadResult|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function uploadFilesToKnowledgebaseWithHttpInfo($id, $files, string $contentType = self::contentTypes['uploadFilesToKnowledgebase'][0])
+    {
+        $request = $this->uploadFilesToKnowledgebaseRequest($id, $files, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\UploadResult' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\UploadResult' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UploadResult', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\UploadResult';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UploadResult',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5727,7 +7341,7 @@ class KnowledgeBasesApi
      * Загрузка файлов в базу знаний
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \SplFileObject[] $files Файлы для загрузки (максимум 10 файлов, 10 МБ каждый) (required)
+     * @param  \SplFileObject[] $files Файлы для загрузки (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesToKnowledgebase'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5749,7 +7363,7 @@ class KnowledgeBasesApi
      * Загрузка файлов в базу знаний
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \SplFileObject[] $files Файлы для загрузки (максимум 10 файлов, 10 МБ каждый) (required)
+     * @param  \SplFileObject[] $files Файлы для загрузки (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesToKnowledgebase'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5757,7 +7371,7 @@ class KnowledgeBasesApi
      */
     public function uploadFilesToKnowledgebaseAsyncWithHttpInfo($id, $files, string $contentType = self::contentTypes['uploadFilesToKnowledgebase'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\UploadFilesToKnowledgebase200Response';
+        $returnType = '\OpenAPI\Client\Model\UploadResult';
         $request = $this->uploadFilesToKnowledgebaseRequest($id, $files, $contentType);
 
         return $this->client
@@ -5800,7 +7414,7 @@ class KnowledgeBasesApi
      * Create request for operation 'uploadFilesToKnowledgebase'
      *
      * @param  int $id ID базы знаний (required)
-     * @param  \SplFileObject[] $files Файлы для загрузки (максимум 10 файлов, 10 МБ каждый) (required)
+     * @param  \SplFileObject[] $files Файлы для загрузки (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesToKnowledgebase'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

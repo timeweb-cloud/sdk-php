@@ -58,7 +58,7 @@ class CreateKnowledgebase201Response implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'knowledgebase' => '\OpenAPI\Client\Model\Knowledgebase'
+        'knowledge_base' => '\OpenAPI\Client\Model\Knowledgebase'
     ];
 
     /**
@@ -69,7 +69,7 @@ class CreateKnowledgebase201Response implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'knowledgebase' => null
+        'knowledge_base' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class CreateKnowledgebase201Response implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'knowledgebase' => false
+        'knowledge_base' => false
     ];
 
     /**
@@ -167,7 +167,7 @@ class CreateKnowledgebase201Response implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'knowledgebase' => 'knowledgebase'
+        'knowledge_base' => 'knowledge_base'
     ];
 
     /**
@@ -176,7 +176,7 @@ class CreateKnowledgebase201Response implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'knowledgebase' => 'setKnowledgebase'
+        'knowledge_base' => 'setKnowledgeBase'
     ];
 
     /**
@@ -185,7 +185,7 @@ class CreateKnowledgebase201Response implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'knowledgebase' => 'getKnowledgebase'
+        'knowledge_base' => 'getKnowledgeBase'
     ];
 
     /**
@@ -245,7 +245,7 @@ class CreateKnowledgebase201Response implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('knowledgebase', $data ?? [], null);
+        $this->setIfExists('knowledge_base', $data ?? [], null);
     }
 
     /**
@@ -275,8 +275,8 @@ class CreateKnowledgebase201Response implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
-        if ($this->container['knowledgebase'] === null) {
-            $invalidProperties[] = "'knowledgebase' can't be null";
+        if ($this->container['knowledge_base'] === null) {
+            $invalidProperties[] = "'knowledge_base' can't be null";
         }
         return $invalidProperties;
     }
@@ -294,28 +294,28 @@ class CreateKnowledgebase201Response implements ModelInterface, ArrayAccess, \Js
 
 
     /**
-     * Gets knowledgebase
+     * Gets knowledge_base
      *
      * @return \OpenAPI\Client\Model\Knowledgebase
      */
-    public function getKnowledgebase()
+    public function getKnowledgeBase()
     {
-        return $this->container['knowledgebase'];
+        return $this->container['knowledge_base'];
     }
 
     /**
-     * Sets knowledgebase
+     * Sets knowledge_base
      *
-     * @param \OpenAPI\Client\Model\Knowledgebase $knowledgebase knowledgebase
+     * @param \OpenAPI\Client\Model\Knowledgebase $knowledge_base knowledge_base
      *
      * @return self
      */
-    public function setKnowledgebase($knowledgebase)
+    public function setKnowledgeBase($knowledge_base)
     {
-        if (is_null($knowledgebase)) {
-            throw new \InvalidArgumentException('non-nullable knowledgebase cannot be null');
+        if (is_null($knowledge_base)) {
+            throw new \InvalidArgumentException('non-nullable knowledge_base cannot be null');
         }
-        $this->container['knowledgebase'] = $knowledgebase;
+        $this->container['knowledge_base'] = $knowledge_base;
 
         return $this;
     }

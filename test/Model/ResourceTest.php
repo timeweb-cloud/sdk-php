@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ResourceTest Class Doc Comment
  *
  * @category    Class
- * @description Resource
+ * @description Ресурс MCP
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -81,36 +81,36 @@ class ResourceTest extends TestCase
     }
 
     /**
-     * Test attribute "requested"
+     * Test attribute "uri"
      */
-    public function testPropertyRequested()
+    public function testPropertyUri()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "allocatable"
+     * Test attribute "name"
      */
-    public function testPropertyAllocatable()
+    public function testPropertyName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "capacity"
+     * Test attribute "description"
      */
-    public function testPropertyCapacity()
+    public function testPropertyDescription()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "used"
+     * Test attribute "mime_type"
      */
-    public function testPropertyUsed()
+    public function testPropertyMimeType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

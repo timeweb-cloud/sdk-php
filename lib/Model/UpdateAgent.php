@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * UpdateAgent Class Doc Comment
  *
  * @category Class
- * @description Данные для обновления AI агента
+ * @description Данные для обновления AI агента. Передавайте только изменяемые поля.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,9 +63,13 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'string',
         'access_type' => 'string',
         'status' => 'string',
-        'token_package_id' => 'float',
-        'settings' => '\OpenAPI\Client\Model\UpdateAgentSettings',
-        'project_id' => 'float'
+        'settings' => '\OpenAPI\Client\Model\AgentSettings',
+        'project_id' => 'int',
+        'additional_model_ids' => 'int[]',
+        'additional_models' => '\OpenAPI\Client\Model\AgentAdditionalModel[]',
+        'is_web_search_enabled' => 'bool',
+        'ai_gateway_key_id' => 'string',
+        'token_package_id' => 'int'
     ];
 
     /**
@@ -80,9 +84,13 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => null,
         'access_type' => null,
         'status' => null,
-        'token_package_id' => null,
         'settings' => null,
-        'project_id' => null
+        'project_id' => null,
+        'additional_model_ids' => null,
+        'additional_models' => null,
+        'is_web_search_enabled' => null,
+        'ai_gateway_key_id' => 'uuid',
+        'token_package_id' => null
     ];
 
     /**
@@ -95,9 +103,13 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
 		'description' => false,
 		'access_type' => false,
 		'status' => false,
-		'token_package_id' => false,
 		'settings' => false,
-		'project_id' => false
+		'project_id' => false,
+		'additional_model_ids' => false,
+		'additional_models' => false,
+		'is_web_search_enabled' => false,
+		'ai_gateway_key_id' => false,
+		'token_package_id' => false
     ];
 
     /**
@@ -190,9 +202,13 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'description',
         'access_type' => 'access_type',
         'status' => 'status',
-        'token_package_id' => 'token_package_id',
         'settings' => 'settings',
-        'project_id' => 'project_id'
+        'project_id' => 'project_id',
+        'additional_model_ids' => 'additional_model_ids',
+        'additional_models' => 'additional_models',
+        'is_web_search_enabled' => 'is_web_search_enabled',
+        'ai_gateway_key_id' => 'ai_gateway_key_id',
+        'token_package_id' => 'token_package_id'
     ];
 
     /**
@@ -205,9 +221,13 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'setDescription',
         'access_type' => 'setAccessType',
         'status' => 'setStatus',
-        'token_package_id' => 'setTokenPackageId',
         'settings' => 'setSettings',
-        'project_id' => 'setProjectId'
+        'project_id' => 'setProjectId',
+        'additional_model_ids' => 'setAdditionalModelIds',
+        'additional_models' => 'setAdditionalModels',
+        'is_web_search_enabled' => 'setIsWebSearchEnabled',
+        'ai_gateway_key_id' => 'setAiGatewayKeyId',
+        'token_package_id' => 'setTokenPackageId'
     ];
 
     /**
@@ -220,9 +240,13 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'getDescription',
         'access_type' => 'getAccessType',
         'status' => 'getStatus',
-        'token_package_id' => 'getTokenPackageId',
         'settings' => 'getSettings',
-        'project_id' => 'getProjectId'
+        'project_id' => 'getProjectId',
+        'additional_model_ids' => 'getAdditionalModelIds',
+        'additional_models' => 'getAdditionalModels',
+        'is_web_search_enabled' => 'getIsWebSearchEnabled',
+        'ai_gateway_key_id' => 'getAiGatewayKeyId',
+        'token_package_id' => 'getTokenPackageId'
     ];
 
     /**
@@ -316,9 +340,13 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('access_type', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('token_package_id', $data ?? [], null);
         $this->setIfExists('settings', $data ?? [], null);
         $this->setIfExists('project_id', $data ?? [], null);
+        $this->setIfExists('additional_model_ids', $data ?? [], null);
+        $this->setIfExists('additional_models', $data ?? [], null);
+        $this->setIfExists('is_web_search_enabled', $data ?? [], null);
+        $this->setIfExists('ai_gateway_key_id', $data ?? [], null);
+        $this->setIfExists('token_package_id', $data ?? [], null);
     }
 
     /**
@@ -448,7 +476,7 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets access_type
      *
-     * @param string|null $access_type Тип доступа к агенту
+     * @param string|null $access_type Тип доступа
      *
      * @return self
      */
@@ -485,7 +513,7 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string|null $status Статус агента
+     * @param string|null $status Статус агента: `suspended` — приостановить, `active` — возобновить. Статус заблокированного или удалённого агента изменить нельзя.
      *
      * @return self
      */
@@ -510,36 +538,9 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets token_package_id
-     *
-     * @return float|null
-     */
-    public function getTokenPackageId()
-    {
-        return $this->container['token_package_id'];
-    }
-
-    /**
-     * Sets token_package_id
-     *
-     * @param float|null $token_package_id ID пакета токенов
-     *
-     * @return self
-     */
-    public function setTokenPackageId($token_package_id)
-    {
-        if (is_null($token_package_id)) {
-            throw new \InvalidArgumentException('non-nullable token_package_id cannot be null');
-        }
-        $this->container['token_package_id'] = $token_package_id;
-
-        return $this;
-    }
-
-    /**
      * Gets settings
      *
-     * @return \OpenAPI\Client\Model\UpdateAgentSettings|null
+     * @return \OpenAPI\Client\Model\AgentSettings|null
      */
     public function getSettings()
     {
@@ -549,7 +550,7 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets settings
      *
-     * @param \OpenAPI\Client\Model\UpdateAgentSettings|null $settings settings
+     * @param \OpenAPI\Client\Model\AgentSettings|null $settings settings
      *
      * @return self
      */
@@ -566,7 +567,8 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets project_id
      *
-     * @return float|null
+     * @return int|null
+     * @deprecated
      */
     public function getProjectId()
     {
@@ -576,9 +578,10 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets project_id
      *
-     * @param float|null $project_id ID проекта
+     * @param int|null $project_id Не используется: перенести агента в другой проект можно методами проектов.
      *
      * @return self
+     * @deprecated
      */
     public function setProjectId($project_id)
     {
@@ -586,6 +589,143 @@ class UpdateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable project_id cannot be null');
         }
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_model_ids
+     *
+     * @return int[]|null
+     */
+    public function getAdditionalModelIds()
+    {
+        return $this->container['additional_model_ids'];
+    }
+
+    /**
+     * Sets additional_model_ids
+     *
+     * @param int[]|null $additional_model_ids ID дополнительных моделей агента (например, для генерации изображений). Список заменяет текущий целиком.
+     *
+     * @return self
+     */
+    public function setAdditionalModelIds($additional_model_ids)
+    {
+        if (is_null($additional_model_ids)) {
+            throw new \InvalidArgumentException('non-nullable additional_model_ids cannot be null');
+        }
+        $this->container['additional_model_ids'] = $additional_model_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_models
+     *
+     * @return \OpenAPI\Client\Model\AgentAdditionalModel[]|null
+     */
+    public function getAdditionalModels()
+    {
+        return $this->container['additional_models'];
+    }
+
+    /**
+     * Sets additional_models
+     *
+     * @param \OpenAPI\Client\Model\AgentAdditionalModel[]|null $additional_models Дополнительные модели вместе с настройками (для моделей генерации изображений — `width`/`height`). Если переданы и `additional_models`, и `additional_model_ids`, используется `additional_models`.
+     *
+     * @return self
+     */
+    public function setAdditionalModels($additional_models)
+    {
+        if (is_null($additional_models)) {
+            throw new \InvalidArgumentException('non-nullable additional_models cannot be null');
+        }
+        $this->container['additional_models'] = $additional_models;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_web_search_enabled
+     *
+     * @return bool|null
+     */
+    public function getIsWebSearchEnabled()
+    {
+        return $this->container['is_web_search_enabled'];
+    }
+
+    /**
+     * Sets is_web_search_enabled
+     *
+     * @param bool|null $is_web_search_enabled Включить или выключить веб-поиск
+     *
+     * @return self
+     */
+    public function setIsWebSearchEnabled($is_web_search_enabled)
+    {
+        if (is_null($is_web_search_enabled)) {
+            throw new \InvalidArgumentException('non-nullable is_web_search_enabled cannot be null');
+        }
+        $this->container['is_web_search_enabled'] = $is_web_search_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_gateway_key_id
+     *
+     * @return string|null
+     */
+    public function getAiGatewayKeyId()
+    {
+        return $this->container['ai_gateway_key_id'];
+    }
+
+    /**
+     * Sets ai_gateway_key_id
+     *
+     * @param string|null $ai_gateway_key_id ID ключа AI Gateway, к которому нужно привязать агента. Привязка доступна, только если в ответе агента `ai_gateway_key_id` равен `null` (агент без баз знаний, инструментов и интеграций, созданный до 9 октября 2026 года), и делается один раз. При первой привязке на аккаунт однократно начисляется временная скидка 10% на запросы через ключи AI Gateway.
+     *
+     * @return self
+     */
+    public function setAiGatewayKeyId($ai_gateway_key_id)
+    {
+        if (is_null($ai_gateway_key_id)) {
+            throw new \InvalidArgumentException('non-nullable ai_gateway_key_id cannot be null');
+        }
+        $this->container['ai_gateway_key_id'] = $ai_gateway_key_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_package_id
+     *
+     * @return int|null
+     * @deprecated
+     */
+    public function getTokenPackageId()
+    {
+        return $this->container['token_package_id'];
+    }
+
+    /**
+     * Sets token_package_id
+     *
+     * @param int|null $token_package_id Новый пакет токенов. Только для агентов с пакетом токенов (устаревшая схема оплаты): пакет должен относиться к модели агента и быть не меньше текущего, его стоимость сразу списывается с баланса.
+     *
+     * @return self
+     * @deprecated
+     */
+    public function setTokenPackageId($token_package_id)
+    {
+        if (is_null($token_package_id)) {
+            throw new \InvalidArgumentException('non-nullable token_package_id cannot be null');
+        }
+        $this->container['token_package_id'] = $token_package_id;
 
         return $this;
     }

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CreateAgent Class Doc Comment
  *
  * @category Class
- * @description Данные для создания AI агента
+ * @description Данные для создания AI агента (устаревший метод API v1)
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,10 +62,11 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'description' => 'string',
         'access_type' => 'string',
-        'model_id' => 'float',
-        'token_package_id' => 'float',
+        'model_id' => 'int',
         'settings' => '\OpenAPI\Client\Model\AgentSettings',
-        'project_id' => 'float'
+        'project_id' => 'int',
+        'is_web_search_enabled' => 'bool',
+        'token_package_id' => 'int'
     ];
 
     /**
@@ -80,9 +81,10 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => null,
         'access_type' => null,
         'model_id' => null,
-        'token_package_id' => null,
         'settings' => null,
-        'project_id' => null
+        'project_id' => null,
+        'is_web_search_enabled' => null,
+        'token_package_id' => null
     ];
 
     /**
@@ -95,9 +97,10 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
 		'description' => false,
 		'access_type' => false,
 		'model_id' => false,
-		'token_package_id' => false,
 		'settings' => false,
-		'project_id' => false
+		'project_id' => false,
+		'is_web_search_enabled' => false,
+		'token_package_id' => false
     ];
 
     /**
@@ -190,9 +193,10 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'description',
         'access_type' => 'access_type',
         'model_id' => 'model_id',
-        'token_package_id' => 'token_package_id',
         'settings' => 'settings',
-        'project_id' => 'project_id'
+        'project_id' => 'project_id',
+        'is_web_search_enabled' => 'is_web_search_enabled',
+        'token_package_id' => 'token_package_id'
     ];
 
     /**
@@ -205,9 +209,10 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'setDescription',
         'access_type' => 'setAccessType',
         'model_id' => 'setModelId',
-        'token_package_id' => 'setTokenPackageId',
         'settings' => 'setSettings',
-        'project_id' => 'setProjectId'
+        'project_id' => 'setProjectId',
+        'is_web_search_enabled' => 'setIsWebSearchEnabled',
+        'token_package_id' => 'setTokenPackageId'
     ];
 
     /**
@@ -220,9 +225,10 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'getDescription',
         'access_type' => 'getAccessType',
         'model_id' => 'getModelId',
-        'token_package_id' => 'getTokenPackageId',
         'settings' => 'getSettings',
-        'project_id' => 'getProjectId'
+        'project_id' => 'getProjectId',
+        'is_web_search_enabled' => 'getIsWebSearchEnabled',
+        'token_package_id' => 'getTokenPackageId'
     ];
 
     /**
@@ -301,9 +307,10 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('access_type', $data ?? [], null);
         $this->setIfExists('model_id', $data ?? [], null);
-        $this->setIfExists('token_package_id', $data ?? [], null);
         $this->setIfExists('settings', $data ?? [], null);
         $this->setIfExists('project_id', $data ?? [], null);
+        $this->setIfExists('is_web_search_enabled', $data ?? [], false);
+        $this->setIfExists('token_package_id', $data ?? [], null);
     }
 
     /**
@@ -351,11 +358,11 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['model_id'] === null) {
             $invalidProperties[] = "'model_id' can't be null";
         }
-        if ($this->container['token_package_id'] === null) {
-            $invalidProperties[] = "'token_package_id' can't be null";
-        }
         if ($this->container['settings'] === null) {
             $invalidProperties[] = "'settings' can't be null";
+        }
+        if ($this->container['token_package_id'] === null) {
+            $invalidProperties[] = "'token_package_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -439,7 +446,7 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets access_type
      *
-     * @param string $access_type Тип доступа к агенту
+     * @param string $access_type Тип доступа: `public` — агент отвечает анонимным посетителям сайта через виджет; `private` — только по токену аккаунта.
      *
      * @return self
      */
@@ -466,7 +473,7 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets model_id
      *
-     * @return float
+     * @return int
      */
     public function getModelId()
     {
@@ -476,7 +483,7 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets model_id
      *
-     * @param float $model_id ID модели
+     * @param int $model_id ID основной модели агента
      *
      * @return self
      */
@@ -486,33 +493,6 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable model_id cannot be null');
         }
         $this->container['model_id'] = $model_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets token_package_id
-     *
-     * @return float
-     */
-    public function getTokenPackageId()
-    {
-        return $this->container['token_package_id'];
-    }
-
-    /**
-     * Sets token_package_id
-     *
-     * @param float $token_package_id ID пакета токенов
-     *
-     * @return self
-     */
-    public function setTokenPackageId($token_package_id)
-    {
-        if (is_null($token_package_id)) {
-            throw new \InvalidArgumentException('non-nullable token_package_id cannot be null');
-        }
-        $this->container['token_package_id'] = $token_package_id;
 
         return $this;
     }
@@ -547,7 +527,7 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets project_id
      *
-     * @return float|null
+     * @return int|null
      */
     public function getProjectId()
     {
@@ -557,7 +537,7 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets project_id
      *
-     * @param float|null $project_id ID проекта
+     * @param int|null $project_id ID проекта, в который нужно добавить агента. По умолчанию — проект по умолчанию.
      *
      * @return self
      */
@@ -567,6 +547,60 @@ class CreateAgent implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable project_id cannot be null');
         }
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_web_search_enabled
+     *
+     * @return bool|null
+     */
+    public function getIsWebSearchEnabled()
+    {
+        return $this->container['is_web_search_enabled'];
+    }
+
+    /**
+     * Sets is_web_search_enabled
+     *
+     * @param bool|null $is_web_search_enabled Включить веб-поиск
+     *
+     * @return self
+     */
+    public function setIsWebSearchEnabled($is_web_search_enabled)
+    {
+        if (is_null($is_web_search_enabled)) {
+            throw new \InvalidArgumentException('non-nullable is_web_search_enabled cannot be null');
+        }
+        $this->container['is_web_search_enabled'] = $is_web_search_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_package_id
+     *
+     * @return int
+     */
+    public function getTokenPackageId()
+    {
+        return $this->container['token_package_id'];
+    }
+
+    /**
+     * Sets token_package_id
+     *
+     * @param int $token_package_id ID пакета токенов. Обязателен для совместимости, но не учитывается: агент всегда создаётся с поресурсной оплатой.
+     *
+     * @return self
+     */
+    public function setTokenPackageId($token_package_id)
+    {
+        if (is_null($token_package_id)) {
+            throw new \InvalidArgumentException('non-nullable token_package_id cannot be null');
+        }
+        $this->container['token_package_id'] = $token_package_id;
 
         return $this;
     }

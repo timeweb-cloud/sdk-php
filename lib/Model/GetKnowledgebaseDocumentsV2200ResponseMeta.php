@@ -326,7 +326,7 @@ class GetKnowledgebaseDocumentsV2200ResponseMeta implements ModelInterface, Arra
     /**
      * Sets total
      *
-     * @param float $total Общее количество документов
+     * @param float $total Количество документов, подходящих под фильтр
      *
      * @return self
      */
@@ -353,7 +353,7 @@ class GetKnowledgebaseDocumentsV2200ResponseMeta implements ModelInterface, Arra
     /**
      * Sets limit
      *
-     * @param float $limit Количество документов на странице
+     * @param float $limit Применённый размер страницы
      *
      * @return self
      */
@@ -380,7 +380,7 @@ class GetKnowledgebaseDocumentsV2200ResponseMeta implements ModelInterface, Arra
     /**
      * Sets offset
      *
-     * @param float $offset Количество пропущенных документов
+     * @param float $offset Применённое смещение
      *
      * @return self
      */

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AgentModelSettingsTest Class Doc Comment
  *
  * @category    Class
- * @description Настройки модели агента
+ * @description Параметры модели агента. Допустимые параметры и их границы зависят от модели (см. параметры модели в разделе «AI Модели»): параметры, которые модель не поддерживает, отбрасываются при сохранении, а значения вне допустимых границ отклоняются с ошибкой 400.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -120,6 +120,15 @@ class AgentModelSettingsTest extends TestCase
      * Test attribute "presence_penalty"
      */
     public function testPropertyPresencePenalty()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enable_thinking"
+     */
+    public function testPropertyEnableThinking()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -306,7 +306,7 @@ class GetAgentsTokenPackages200ResponseMeta implements ModelInterface, ArrayAcce
     /**
      * Sets total
      *
-     * @param float $total Общее количество пакетов токенов
+     * @param float $total Количество пакетов токенов
      *
      * @return self
      */

@@ -4,32 +4,36 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addAdditionalTokenPackageToKnowledgebase()**](KnowledgeBasesApi.md#addAdditionalTokenPackageToKnowledgebase) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/add-additional-token-package | Добавление дополнительного пакета токенов |
+| [**addAdditionalTokenPackageToKnowledgebase()**](KnowledgeBasesApi.md#addAdditionalTokenPackageToKnowledgebase) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/add-additional-token-package | Покупка дополнительных пакетов токенов |
 | [**createKnowledgebase()**](KnowledgeBasesApi.md#createKnowledgebase) | **POST** /api/v1/cloud-ai/knowledge-bases | Создание базы знаний |
+| [**createKnowledgebaseDocument()**](KnowledgeBasesApi.md#createKnowledgebaseDocument) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/documents | Добавление документа по ссылке |
 | [**deleteDocument()**](KnowledgeBasesApi.md#deleteDocument) | **DELETE** /api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id} | Удаление документа из базы знаний |
 | [**deleteKnowledgebase()**](KnowledgeBasesApi.md#deleteKnowledgebase) | **DELETE** /api/v1/cloud-ai/knowledge-bases/{id} | Удаление базы знаний |
-| [**downloadDocument()**](KnowledgeBasesApi.md#downloadDocument) | **GET** /api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/download | Скачивание документа из базы знаний |
-| [**getKnowledgebase()**](KnowledgeBasesApi.md#getKnowledgebase) | **GET** /api/v1/cloud-ai/knowledge-bases/{id} | Получение базы знаний |
+| [**downloadDocument()**](KnowledgeBasesApi.md#downloadDocument) | **GET** /api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/download | Скачивание файла документа |
+| [**getKnowledgebase()**](KnowledgeBasesApi.md#getKnowledgebase) | **GET** /api/v1/cloud-ai/knowledge-bases/{id} | Получение базы знаний со списком документов |
 | [**getKnowledgebaseDocumentsV2()**](KnowledgeBasesApi.md#getKnowledgebaseDocumentsV2) | **GET** /api/v2/cloud-ai/knowledge-bases/{id}/documents | Получение списка документов базы знаний |
-| [**getKnowledgebaseStatistics()**](KnowledgeBasesApi.md#getKnowledgebaseStatistics) | **GET** /api/v1/cloud-ai/knowledge-bases/{id}/statistic | Получение статистики использования токенов базы знаний |
-| [**getKnowledgebases()**](KnowledgeBasesApi.md#getKnowledgebases) | **GET** /api/v1/cloud-ai/knowledge-bases | Получение списка баз знаний |
+| [**getKnowledgebaseV3()**](KnowledgeBasesApi.md#getKnowledgebaseV3) | **GET** /api/v3/cloud-ai/knowledge-bases/{id} | Получение базы знаний |
+| [**getKnowledgebases()**](KnowledgeBasesApi.md#getKnowledgebases) | **GET** /api/v1/cloud-ai/knowledge-bases | Получение списка баз знаний (v1) |
 | [**getKnowledgebasesV2()**](KnowledgeBasesApi.md#getKnowledgebasesV2) | **GET** /api/v2/cloud-ai/knowledge-bases | Получение списка баз знаний (v2) |
+| [**getKnowledgebasesV3()**](KnowledgeBasesApi.md#getKnowledgebasesV3) | **GET** /api/v3/cloud-ai/knowledge-bases | Получение списка баз знаний |
 | [**linkKnowledgebaseToAgent()**](KnowledgeBasesApi.md#linkKnowledgebaseToAgent) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id} | Привязка базы знаний к агенту |
 | [**reindexDocument()**](KnowledgeBasesApi.md#reindexDocument) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/reindex | Переиндексация документа |
 | [**unlinkKnowledgebaseFromAgent()**](KnowledgeBasesApi.md#unlinkKnowledgebaseFromAgent) | **DELETE** /api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id} | Отвязка базы знаний от агента |
-| [**updateKnowledgebase()**](KnowledgeBasesApi.md#updateKnowledgebase) | **PATCH** /api/v1/cloud-ai/knowledge-bases/{id} | Обновление базы знаний |
+| [**updateKnowledgebase()**](KnowledgeBasesApi.md#updateKnowledgebase) | **PATCH** /api/v1/cloud-ai/knowledge-bases/{id} | Изменение базы знаний |
+| [**updateKnowledgebaseAgentLink()**](KnowledgeBasesApi.md#updateKnowledgebaseAgentLink) | **PATCH** /api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id} | Изменение режима поиска по базе знаний для агента |
+| [**updateKnowledgebaseDocument()**](KnowledgeBasesApi.md#updateKnowledgebaseDocument) | **PATCH** /api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id} | Изменение документа |
 | [**uploadFilesToKnowledgebase()**](KnowledgeBasesApi.md#uploadFilesToKnowledgebase) | **POST** /api/v1/cloud-ai/knowledge-bases/{id}/upload | Загрузка файлов в базу знаний |
 
 
 ## `addAdditionalTokenPackageToKnowledgebase()`
 
 ```php
-addAdditionalTokenPackageToKnowledgebase($id, $add_token_package)
+addAdditionalTokenPackageToKnowledgebase($id, $knowledgebase_add_token_package)
 ```
 
-Добавление дополнительного пакета токенов
+Покупка дополнительных пакетов токенов
 
-Чтобы добавить дополнительный пакет токенов для базы знаний, отправьте POST-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/add-additional-token-package`.
+Чтобы докупить токены для базы знаний, отправьте POST-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/add-additional-token-package`.  Покупается дополнительный пакет (`package_type: additional`) из `GET /api/v1/cloud-ai/token-packages/knowledge-bases` в количестве `count`. Стоимость списывается с баланса, токены добавляются к текущему периоду подписки, заблокированная база знаний разблокируется.  Возможные ошибки: - `400 insufficient_balance` — на балансе недостаточно средств - `400 subscription_expired` — база знаний заблокирована и дата продления подписки прошла: продлите подписку в панели управления - `404 additional_token_package_not_found` — дополнительный пакет недоступен
 
 ### Example
 
@@ -49,10 +53,10 @@ $apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
     $config
 );
 $id = 1; // int | ID базы знаний
-$add_token_package = new \OpenAPI\Client\Model\AddTokenPackage(); // \OpenAPI\Client\Model\AddTokenPackage
+$knowledgebase_add_token_package = new \OpenAPI\Client\Model\KnowledgebaseAddTokenPackage(); // \OpenAPI\Client\Model\KnowledgebaseAddTokenPackage
 
 try {
-    $apiInstance->addAdditionalTokenPackageToKnowledgebase($id, $add_token_package);
+    $apiInstance->addAdditionalTokenPackageToKnowledgebase($id, $knowledgebase_add_token_package);
 } catch (Exception $e) {
     echo 'Exception when calling KnowledgeBasesApi->addAdditionalTokenPackageToKnowledgebase: ', $e->getMessage(), PHP_EOL;
 }
@@ -63,7 +67,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| ID базы знаний | |
-| **add_token_package** | [**\OpenAPI\Client\Model\AddTokenPackage**](../Model/AddTokenPackage.md)|  | [optional] |
+| **knowledgebase_add_token_package** | [**\OpenAPI\Client\Model\KnowledgebaseAddTokenPackage**](../Model/KnowledgebaseAddTokenPackage.md)|  | [optional] |
 
 ### Return type
 
@@ -90,7 +94,7 @@ createKnowledgebase($create_knowledgebase): \OpenAPI\Client\Model\CreateKnowledg
 
 Создание базы знаний
 
-Чтобы создать базу знаний, отправьте POST-запрос на `/api/v1/cloud-ai/knowledge-bases`, задав необходимые атрибуты.  База знаний будет создана с использованием предоставленной информации. Тело ответа будет содержать объект JSON с информацией о созданной базе знаний.
+Чтобы создать базу знаний, отправьте POST-запрос на `/api/v1/cloud-ai/knowledge-bases`, задав необходимые атрибуты.  Для базы знаний в вашем аккаунте создаётся кластер базы данных OpenSearch по выбранному тарифу в указанной приватной сети, а с баланса сразу списывается стоимость пакета токенов. Подписка продлевается автоматически раз в период пакета.  Пока кластер создаётся, база знаний находится в статусе `creating`; документы, добавленные в это время, будут проиндексированы после перехода в `active`.  Возможные ошибки: - `404 token_package_not_found` — пакет токенов не найден или недоступен - `400 invalid_token_package_type` — пакет не является базовым пакетом для баз знаний - `400 insufficient_balance` — на балансе недостаточно средств для оплаты пакета  Тело ответа будет представлять собой объект JSON с ключом `knowledge_base`.
 
 ### Example
 
@@ -142,15 +146,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteDocument()`
+## `createKnowledgebaseDocument()`
 
 ```php
-deleteDocument($id, $document_id)
+createKnowledgebaseDocument($id, $create_document): \OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response
 ```
 
-Удаление документа из базы знаний
+Добавление документа по ссылке
 
-Чтобы удалить документ из базы знаний, отправьте DELETE-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}`.
+Чтобы добавить в базу знаний документ по ссылке, отправьте POST-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/documents`.  Перед добавлением выполняется HEAD-запрос к `url`: адрес должен быть публично доступен, а ответ — содержать заголовок `Content-Type` одного из поддерживаемых форматов (текст, Markdown, HTML, XML, CSV, PDF, DOC, DOCX, XLS, XLSX; JSON не поддерживается). Документ сразу ставится в очередь на индексацию. Чтобы содержимое по ссылке переиндексировалось автоматически, задайте `indexing_schedule`.  Возможные ошибки: - `400 url_is_not_accessible` — адрес недоступен или вернул ошибку - `400 unsupported_file_type` — неподдерживаемый `Content-Type`  Тело ответа будет представлять собой объект JSON с ключом `document`.
 
 ### Example
 
@@ -170,7 +174,69 @@ $apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
     $config
 );
 $id = 1; // int | ID базы знаний
-$document_id = 1; // int | ID документа
+$create_document = new \OpenAPI\Client\Model\CreateDocument(); // \OpenAPI\Client\Model\CreateDocument
+
+try {
+    $result = $apiInstance->createKnowledgebaseDocument($id, $create_document);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KnowledgeBasesApi->createKnowledgebaseDocument: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| ID базы знаний | |
+| **create_document** | [**\OpenAPI\Client\Model\CreateDocument**](../Model/CreateDocument.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response**](../Model/CreateKnowledgebaseDocument201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteDocument()`
+
+```php
+deleteDocument($id, $document_id)
+```
+
+Удаление документа из базы знаний
+
+Чтобы удалить документ из базы знаний, отправьте DELETE-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}`.  Документ удаляется вместе с его фрагментами в поисковом индексе.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 1; // int | ID базы знаний
+$document_id = 286071; // int | ID документа
 
 try {
     $apiInstance->deleteDocument($id, $document_id);
@@ -211,7 +277,7 @@ deleteKnowledgebase($id)
 
 Удаление базы знаний
 
-Чтобы удалить базу знаний, отправьте DELETE-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}`.
+Чтобы удалить базу знаний, отправьте DELETE-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}`.  База знаний отвязывается от всех агентов, её кластер базы данных OpenSearch удаляется, подписка закрывается.
 
 ### Example
 
@@ -268,9 +334,9 @@ void (empty response body)
 downloadDocument($id, $document_id): \SplFileObject
 ```
 
-Скачивание документа из базы знаний
+Скачивание файла документа
 
-Чтобы скачать документ из базы знаний, отправьте GET-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/download`.
+Чтобы скачать загруженный файл документа, отправьте GET-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/download`.  Доступно только для документов типа `file`. Файл возвращается потоком с исходным MIME-типом в заголовке `Content-Type` и именем в `Content-Disposition`.
 
 ### Example
 
@@ -290,7 +356,7 @@ $apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
     $config
 );
 $id = 1; // int | ID базы знаний
-$document_id = 1; // int | ID документа
+$document_id = 286071; // int | ID документа
 
 try {
     $result = $apiInstance->downloadDocument($id, $document_id);
@@ -330,9 +396,9 @@ try {
 getKnowledgebase($id): \OpenAPI\Client\Model\CreateKnowledgebase201Response
 ```
 
-Получение базы знаний
+Получение базы знаний со списком документов
 
-Чтобы получить информацию о базе знаний, отправьте GET-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}`.
+Чтобы получить информацию о базе знаний вместе со всеми её документами, отправьте GET-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}`.  Тело ответа будет представлять собой объект JSON с ключом `knowledge_base`.
 
 ### Example
 
@@ -387,12 +453,12 @@ try {
 ## `getKnowledgebaseDocumentsV2()`
 
 ```php
-getKnowledgebaseDocumentsV2($id, $limit, $offset, $sort_by, $sort_order): \OpenAPI\Client\Model\GetKnowledgebaseDocumentsV2200Response
+getKnowledgebaseDocumentsV2($id, $limit, $offset, $sort_by, $sort_order, $search): \OpenAPI\Client\Model\GetKnowledgebaseDocumentsV2200Response
 ```
 
 Получение списка документов базы знаний
 
-Чтобы получить список документов базы знаний, отправьте GET-запрос на `/api/v2/cloud-ai/knowledge-bases/{id}/documents`.  Тело ответа будет представлять собой объект JSON с ключами `knowledgebase_documents` и `meta`.
+Чтобы получить список документов базы знаний с пагинацией, отправьте GET-запрос на `/api/v2/cloud-ai/knowledge-bases/{id}/documents`.  Некорректные значения параметров пагинации и сортировки не приводят к ошибке — вместо них применяются значения по умолчанию.  Тело ответа будет представлять собой объект JSON с ключами `knowledgebase_documents` и `meta`.
 
 ### Example
 
@@ -412,13 +478,14 @@ $apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
     $config
 );
 $id = 1; // int | ID базы знаний
-$limit = 20; // int | Количество документов на странице (по умолчанию: 10, максимум: 100)
-$offset = 0; // int | Количество документов для пропуска (по умолчанию: 0)
-$sort_by = indexing_timestamp; // string | Поле для сортировки (по умолчанию: indexing_timestamp - время последней индексации документа)
-$sort_order = DESC; // string | Порядок сортировки (по умолчанию: DESC)
+$limit = 20; // int | Количество документов на странице. Значения больше 100 уменьшаются до 100
+$offset = 0; // int | Количество документов, которые нужно пропустить
+$sort_by = name; // string | Поле сортировки. `indexing_timestamp` — время последнего изменения документа
+$sort_order = ASC; // string | Порядок сортировки
+$search = faq; // string | Фильтр по подстроке в названии документа
 
 try {
-    $result = $apiInstance->getKnowledgebaseDocumentsV2($id, $limit, $offset, $sort_by, $sort_order);
+    $result = $apiInstance->getKnowledgebaseDocumentsV2($id, $limit, $offset, $sort_by, $sort_order, $search);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling KnowledgeBasesApi->getKnowledgebaseDocumentsV2: ', $e->getMessage(), PHP_EOL;
@@ -430,10 +497,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| ID базы знаний | |
-| **limit** | **int**| Количество документов на странице (по умолчанию: 10, максимум: 100) | [optional] [default to 10] |
-| **offset** | **int**| Количество документов для пропуска (по умолчанию: 0) | [optional] [default to 0] |
-| **sort_by** | **string**| Поле для сортировки (по умолчанию: indexing_timestamp - время последней индексации документа) | [optional] [default to &#39;indexing_timestamp&#39;] |
-| **sort_order** | **string**| Порядок сортировки (по умолчанию: DESC) | [optional] [default to &#39;DESC&#39;] |
+| **limit** | **int**| Количество документов на странице. Значения больше 100 уменьшаются до 100 | [optional] [default to 10] |
+| **offset** | **int**| Количество документов, которые нужно пропустить | [optional] [default to 0] |
+| **sort_by** | **string**| Поле сортировки. &#x60;indexing_timestamp&#x60; — время последнего изменения документа | [optional] [default to &#39;indexing_timestamp&#39;] |
+| **sort_order** | **string**| Порядок сортировки | [optional] [default to &#39;DESC&#39;] |
+| **search** | **string**| Фильтр по подстроке в названии документа | [optional] |
 
 ### Return type
 
@@ -452,15 +520,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getKnowledgebaseStatistics()`
+## `getKnowledgebaseV3()`
 
 ```php
-getKnowledgebaseStatistics($id, $start_time, $end_time, $interval): \OpenAPI\Client\Model\GetKnowledgebaseStatistics200Response
+getKnowledgebaseV3($id): \OpenAPI\Client\Model\GetKnowledgebaseV3200Response
 ```
 
-Получение статистики использования токенов базы знаний
+Получение базы знаний
 
-Чтобы получить статистику использования токенов базы знаний, отправьте GET-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/statistic`.  Можно указать временной диапазон и интервал агрегации.
+Чтобы получить информацию о базе знаний, отправьте GET-запрос на `/api/v3/cloud-ai/knowledge-bases/{id}`.  Тело ответа будет представлять собой объект JSON с ключом `knowledge_base`.
 
 ### Example
 
@@ -480,15 +548,12 @@ $apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
     $config
 );
 $id = 1; // int | ID базы знаний
-$start_time = 2024-10-01T00:00Z; // \DateTime | Начало временного диапазона (ISO 8601)
-$end_time = 2024-10-16T23:59:59.999Z; // \DateTime | Конец временного диапазона (ISO 8601)
-$interval = 60; // float | Интервал в минутах (по умолчанию 60)
 
 try {
-    $result = $apiInstance->getKnowledgebaseStatistics($id, $start_time, $end_time, $interval);
+    $result = $apiInstance->getKnowledgebaseV3($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling KnowledgeBasesApi->getKnowledgebaseStatistics: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeBasesApi->getKnowledgebaseV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -497,13 +562,10 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| ID базы знаний | |
-| **start_time** | **\DateTime**| Начало временного диапазона (ISO 8601) | [optional] |
-| **end_time** | **\DateTime**| Конец временного диапазона (ISO 8601) | [optional] |
-| **interval** | **float**| Интервал в минутах (по умолчанию 60) | [optional] [default to 60] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetKnowledgebaseStatistics200Response**](../Model/GetKnowledgebaseStatistics200Response.md)
+[**\OpenAPI\Client\Model\GetKnowledgebaseV3200Response**](../Model/GetKnowledgebaseV3200Response.md)
 
 ### Authorization
 
@@ -524,9 +586,9 @@ try {
 getKnowledgebases(): \OpenAPI\Client\Model\GetKnowledgebases200Response
 ```
 
-Получение списка баз знаний
+Получение списка баз знаний (v1)
 
-Чтобы получить список баз знаний, отправьте GET-запрос на `/api/v1/cloud-ai/knowledge-bases`.  Тело ответа будет представлять собой объект JSON с ключом `knowledgebases`.
+Метод устарел — используйте `GET /api/v3/cloud-ai/knowledge-bases`.  Чтобы получить список баз знаний вместе со всеми их документами, отправьте GET-запрос на `/api/v1/cloud-ai/knowledge-bases`.  Тело ответа будет представлять собой объект JSON с ключами `knowledge_bases` и `meta`.
 
 ### Example
 
@@ -583,7 +645,7 @@ getKnowledgebasesV2(): \OpenAPI\Client\Model\GetKnowledgebasesV2200Response
 
 Получение списка баз знаний (v2)
 
-Чтобы получить список баз знаний, отправьте GET-запрос на `/api/v2/cloud-ai/knowledge-bases`.  Версия API v2 возвращает оптимизированный ответ с количеством документов вместо полного списка документов.  Тело ответа будет представлять собой объект JSON с ключом `knowledgebases`.
+Чтобы получить список баз знаний, отправьте GET-запрос на `/api/v2/cloud-ai/knowledge-bases`.  Вместо списка документов возвращается их количество, привязанные агенты — списком ID. Режим поиска для каждого агента возвращает `GET /api/v3/cloud-ai/knowledge-bases`.  Тело ответа будет представлять собой объект JSON с ключами `knowledge_bases` и `meta`.
 
 ### Example
 
@@ -632,15 +694,15 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `linkKnowledgebaseToAgent()`
+## `getKnowledgebasesV3()`
 
 ```php
-linkKnowledgebaseToAgent($id, $agent_id)
+getKnowledgebasesV3(): \OpenAPI\Client\Model\GetKnowledgebasesV3200Response
 ```
 
-Привязка базы знаний к агенту
+Получение списка баз знаний
 
-Чтобы привязать базу знаний к AI агенту, отправьте POST-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id}`.
+Чтобы получить список баз знаний, отправьте GET-запрос на `/api/v3/cloud-ai/knowledge-bases`.  Ответ содержит количество документов и привязанных агентов с режимом поиска. Документы базы знаний запрашивайте отдельно — `GET /api/v2/cloud-ai/knowledge-bases/{id}/documents`.  Тело ответа будет представлять собой объект JSON с ключами `knowledge_bases` и `meta`.
 
 ### Example
 
@@ -659,26 +721,22 @@ $apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | ID базы знаний
-$agent_id = 1; // int | ID агента
 
 try {
-    $apiInstance->linkKnowledgebaseToAgent($id, $agent_id);
+    $result = $apiInstance->getKnowledgebasesV3();
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling KnowledgeBasesApi->linkKnowledgebaseToAgent: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KnowledgeBasesApi->getKnowledgebasesV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| ID базы знаний | |
-| **agent_id** | **int**| ID агента | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**\OpenAPI\Client\Model\GetKnowledgebasesV3200Response**](../Model/GetKnowledgebasesV3200Response.md)
 
 ### Authorization
 
@@ -693,15 +751,15 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `reindexDocument()`
+## `linkKnowledgebaseToAgent()`
 
 ```php
-reindexDocument($id, $document_id)
+linkKnowledgebaseToAgent($id, $agent_id, $link_knowledgebase)
 ```
 
-Переиндексация документа
+Привязка базы знаний к агенту
 
-Чтобы переиндексировать документ в базе знаний, отправьте POST-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/reindex`.
+Чтобы привязать базу знаний к AI агенту, отправьте POST-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id}`.  Тело запроса необязательно: в нём можно выбрать режим поиска `retrievalMode` (по умолчанию `agentic`). Изменить режим для существующей привязки можно запросом PATCH на тот же адрес.  Возможные ошибки: `404 knowledgebase_not_found`, `404 agent_not_found`.
 
 ### Example
 
@@ -721,7 +779,70 @@ $apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
     $config
 );
 $id = 1; // int | ID базы знаний
-$document_id = 1; // int | ID документа
+$agent_id = 101; // int | ID AI агента
+$link_knowledgebase = new \OpenAPI\Client\Model\LinkKnowledgebase(); // \OpenAPI\Client\Model\LinkKnowledgebase
+
+try {
+    $apiInstance->linkKnowledgebaseToAgent($id, $agent_id, $link_knowledgebase);
+} catch (Exception $e) {
+    echo 'Exception when calling KnowledgeBasesApi->linkKnowledgebaseToAgent: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| ID базы знаний | |
+| **agent_id** | **int**| ID AI агента | |
+| **link_knowledgebase** | [**\OpenAPI\Client\Model\LinkKnowledgebase**](../Model/LinkKnowledgebase.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reindexDocument()`
+
+```php
+reindexDocument($id, $document_id)
+```
+
+Переиндексация документа
+
+Чтобы переиндексировать документ, отправьте POST-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}/reindex`.  Документ ставится в очередь на индексацию; следите за полем `status` документа. Для документа по ссылке содержимое скачивается заново. Если база знаний не в статусе `active`, документ будет проиндексирован после активации.  Возможные ошибки: `404 knowledgebase_not_found`, `404 document_not_found`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 1; // int | ID базы знаний
+$document_id = 286071; // int | ID документа
 
 try {
     $apiInstance->reindexDocument($id, $document_id);
@@ -762,7 +883,7 @@ unlinkKnowledgebaseFromAgent($id, $agent_id)
 
 Отвязка базы знаний от агента
 
-Чтобы отвязать базу знаний от AI агента, отправьте DELETE-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id}`.
+Чтобы отвязать базу знаний от AI агента, отправьте DELETE-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id}`.  Возможные ошибки: `404 knowledgebase_not_found`, `404 agent_not_found`.
 
 ### Example
 
@@ -782,7 +903,7 @@ $apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
     $config
 );
 $id = 1; // int | ID базы знаний
-$agent_id = 1; // int | ID агента
+$agent_id = 101; // int | ID AI агента
 
 try {
     $apiInstance->unlinkKnowledgebaseFromAgent($id, $agent_id);
@@ -796,7 +917,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| ID базы знаний | |
-| **agent_id** | **int**| ID агента | |
+| **agent_id** | **int**| ID AI агента | |
 
 ### Return type
 
@@ -821,9 +942,9 @@ void (empty response body)
 updateKnowledgebase($id, $update_knowledgebase): \OpenAPI\Client\Model\CreateKnowledgebase201Response
 ```
 
-Обновление базы знаний
+Изменение базы знаний
 
-Чтобы обновить базу знаний, отправьте PATCH-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}`.
+Чтобы изменить название или описание базы знаний, отправьте PATCH-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}`.  Тело ответа будет представлять собой объект JSON с ключом `knowledge_base`.
 
 ### Example
 
@@ -877,15 +998,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `uploadFilesToKnowledgebase()`
+## `updateKnowledgebaseAgentLink()`
 
 ```php
-uploadFilesToKnowledgebase($id, $files): \OpenAPI\Client\Model\UploadFilesToKnowledgebase200Response
+updateKnowledgebaseAgentLink($id, $agent_id, $link_knowledgebase)
 ```
 
-Загрузка файлов в базу знаний
+Изменение режима поиска по базе знаний для агента
 
-Чтобы загрузить файлы в базу знаний, отправьте POST-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/upload` с файлами в формате multipart/form-data.  Поддерживаемые форматы: CSV, XML, Markdown (md), HTML, TXT. JSON не поддерживается. Максимум 10 файлов, до 10 МБ каждый.
+Чтобы изменить режим поиска по привязанной базе знаний для AI агента, отправьте PATCH-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/link/{agent_id}`.  Если `retrievalMode` не передан, устанавливается `agentic`. Если база знаний не привязана к агенту, запрос ничего не меняет и также возвращает `204`.  Возможные ошибки: `404 knowledgebase_not_found`, `404 agent_not_found`.
 
 ### Example
 
@@ -905,7 +1026,134 @@ $apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
     $config
 );
 $id = 1; // int | ID базы знаний
-$files = array("/path/to/file.txt"); // \SplFileObject[] | Файлы для загрузки (максимум 10 файлов, 10 МБ каждый)
+$agent_id = 101; // int | ID AI агента
+$link_knowledgebase = new \OpenAPI\Client\Model\LinkKnowledgebase(); // \OpenAPI\Client\Model\LinkKnowledgebase
+
+try {
+    $apiInstance->updateKnowledgebaseAgentLink($id, $agent_id, $link_knowledgebase);
+} catch (Exception $e) {
+    echo 'Exception when calling KnowledgeBasesApi->updateKnowledgebaseAgentLink: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| ID базы знаний | |
+| **agent_id** | **int**| ID AI агента | |
+| **link_knowledgebase** | [**\OpenAPI\Client\Model\LinkKnowledgebase**](../Model/LinkKnowledgebase.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateKnowledgebaseDocument()`
+
+```php
+updateKnowledgebaseDocument($id, $document_id, $update_document): \OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response
+```
+
+Изменение документа
+
+Чтобы изменить документ базы знаний, отправьте PATCH-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/documents/{document_id}`.  Можно изменить название, расписание переиндексации и — только для документов типа `link` — адрес. После смены адреса документ переиндексируется; изменение названия и расписания переиндексацию не запускает. Новый адрес проверяется так же, как при добавлении документа.  Тело ответа будет представлять собой объект JSON с ключом `document`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 1; // int | ID базы знаний
+$document_id = 286071; // int | ID документа
+$update_document = new \OpenAPI\Client\Model\UpdateDocument(); // \OpenAPI\Client\Model\UpdateDocument
+
+try {
+    $result = $apiInstance->updateKnowledgebaseDocument($id, $document_id, $update_document);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KnowledgeBasesApi->updateKnowledgebaseDocument: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| ID базы знаний | |
+| **document_id** | **int**| ID документа | |
+| **update_document** | [**\OpenAPI\Client\Model\UpdateDocument**](../Model/UpdateDocument.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreateKnowledgebaseDocument201Response**](../Model/CreateKnowledgebaseDocument201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `uploadFilesToKnowledgebase()`
+
+```php
+uploadFilesToKnowledgebase($id, $files): \OpenAPI\Client\Model\UploadResult
+```
+
+Загрузка файлов в базу знаний
+
+Чтобы загрузить файлы в базу знаний, отправьте POST-запрос на `/api/v1/cloud-ai/knowledge-bases/{id}/upload` с файлами в поле `files` формата `multipart/form-data`. Для каждого файла создаётся документ типа `file`, после загрузки документы ставятся в очередь на индексацию (если база знаний в статусе `active`; иначе — после активации).  Поддерживаемые форматы: TXT, Markdown (`md`, `markdown`), HTML (`html`, `htm`), XML, CSV, PDF, DOC, DOCX, XLS, XLSX, а также другие файлы с MIME-типом `text/_*`. JSON (`json`, `jsonl`, `ndjson`) не поддерживается. Размер одного файла — не более 50 МБ.  Если хотя бы один файл неподдерживаемого формата, запрос завершается ошибкой.  Тело ответа будет представлять собой объект JSON с ключами `uploadedFiles` и `documents`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\KnowledgeBasesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 1; // int | ID базы знаний
+$files = array("/path/to/file.txt"); // \SplFileObject[] | Файлы для загрузки
 
 try {
     $result = $apiInstance->uploadFilesToKnowledgebase($id, $files);
@@ -920,11 +1168,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| ID базы знаний | |
-| **files** | **\SplFileObject[]**| Файлы для загрузки (максимум 10 файлов, 10 МБ каждый) | |
+| **files** | **\SplFileObject[]**| Файлы для загрузки | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\UploadFilesToKnowledgebase200Response**](../Model/UploadFilesToKnowledgebase200Response.md)
+[**\OpenAPI\Client\Model\UploadResult**](../Model/UploadResult.md)
 
 ### Authorization
 

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CreateAgentV2 Class Doc Comment
  *
  * @category Class
- * @description Данные для создания AI агента через API v2
+ * @description Данные для создания AI агента
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,12 +62,16 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'description' => 'string',
         'access_type' => 'string',
-        'model_id' => 'float',
-        'token_limit' => 'float',
+        'model_id' => 'int',
         'settings' => '\OpenAPI\Client\Model\AgentSettings',
-        'project_id' => 'float',
-        'additional_model_ids' => 'float[]',
-        'is_web_search_enabled' => 'bool'
+        'project_id' => 'int',
+        'is_web_search_enabled' => 'bool',
+        'money_limit' => 'float',
+        'token_limit' => 'int',
+        'token_package_id' => 'int',
+        'additional_model_ids' => 'int[]',
+        'additional_models' => '\OpenAPI\Client\Model\AgentAdditionalModel[]',
+        'skill_ids' => 'int[]'
     ];
 
     /**
@@ -82,11 +86,15 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => null,
         'access_type' => null,
         'model_id' => null,
-        'token_limit' => null,
         'settings' => null,
         'project_id' => null,
+        'is_web_search_enabled' => null,
+        'money_limit' => null,
+        'token_limit' => null,
+        'token_package_id' => null,
         'additional_model_ids' => null,
-        'is_web_search_enabled' => null
+        'additional_models' => null,
+        'skill_ids' => null
     ];
 
     /**
@@ -99,11 +107,15 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
 		'description' => false,
 		'access_type' => false,
 		'model_id' => false,
-		'token_limit' => false,
 		'settings' => false,
 		'project_id' => false,
+		'is_web_search_enabled' => false,
+		'money_limit' => false,
+		'token_limit' => false,
+		'token_package_id' => false,
 		'additional_model_ids' => false,
-		'is_web_search_enabled' => false
+		'additional_models' => false,
+		'skill_ids' => false
     ];
 
     /**
@@ -196,11 +208,15 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'description',
         'access_type' => 'access_type',
         'model_id' => 'model_id',
-        'token_limit' => 'token_limit',
         'settings' => 'settings',
         'project_id' => 'project_id',
+        'is_web_search_enabled' => 'is_web_search_enabled',
+        'money_limit' => 'money_limit',
+        'token_limit' => 'token_limit',
+        'token_package_id' => 'token_package_id',
         'additional_model_ids' => 'additional_model_ids',
-        'is_web_search_enabled' => 'is_web_search_enabled'
+        'additional_models' => 'additional_models',
+        'skill_ids' => 'skill_ids'
     ];
 
     /**
@@ -213,11 +229,15 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'setDescription',
         'access_type' => 'setAccessType',
         'model_id' => 'setModelId',
-        'token_limit' => 'setTokenLimit',
         'settings' => 'setSettings',
         'project_id' => 'setProjectId',
+        'is_web_search_enabled' => 'setIsWebSearchEnabled',
+        'money_limit' => 'setMoneyLimit',
+        'token_limit' => 'setTokenLimit',
+        'token_package_id' => 'setTokenPackageId',
         'additional_model_ids' => 'setAdditionalModelIds',
-        'is_web_search_enabled' => 'setIsWebSearchEnabled'
+        'additional_models' => 'setAdditionalModels',
+        'skill_ids' => 'setSkillIds'
     ];
 
     /**
@@ -230,11 +250,15 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'getDescription',
         'access_type' => 'getAccessType',
         'model_id' => 'getModelId',
-        'token_limit' => 'getTokenLimit',
         'settings' => 'getSettings',
         'project_id' => 'getProjectId',
+        'is_web_search_enabled' => 'getIsWebSearchEnabled',
+        'money_limit' => 'getMoneyLimit',
+        'token_limit' => 'getTokenLimit',
+        'token_package_id' => 'getTokenPackageId',
         'additional_model_ids' => 'getAdditionalModelIds',
-        'is_web_search_enabled' => 'getIsWebSearchEnabled'
+        'additional_models' => 'getAdditionalModels',
+        'skill_ids' => 'getSkillIds'
     ];
 
     /**
@@ -313,11 +337,15 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('access_type', $data ?? [], null);
         $this->setIfExists('model_id', $data ?? [], null);
-        $this->setIfExists('token_limit', $data ?? [], null);
         $this->setIfExists('settings', $data ?? [], null);
         $this->setIfExists('project_id', $data ?? [], null);
+        $this->setIfExists('is_web_search_enabled', $data ?? [], false);
+        $this->setIfExists('money_limit', $data ?? [], null);
+        $this->setIfExists('token_limit', $data ?? [], null);
+        $this->setIfExists('token_package_id', $data ?? [], null);
         $this->setIfExists('additional_model_ids', $data ?? [], null);
-        $this->setIfExists('is_web_search_enabled', $data ?? [], null);
+        $this->setIfExists('additional_models', $data ?? [], null);
+        $this->setIfExists('skill_ids', $data ?? [], null);
     }
 
     /**
@@ -365,13 +393,17 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['model_id'] === null) {
             $invalidProperties[] = "'model_id' can't be null";
         }
+        if ($this->container['settings'] === null) {
+            $invalidProperties[] = "'settings' can't be null";
+        }
+        if (!is_null($this->container['money_limit']) && ($this->container['money_limit'] < 0)) {
+            $invalidProperties[] = "invalid value for 'money_limit', must be bigger than or equal to 0.";
+        }
+
         if (!is_null($this->container['token_limit']) && ($this->container['token_limit'] < 0)) {
             $invalidProperties[] = "invalid value for 'token_limit', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['settings'] === null) {
-            $invalidProperties[] = "'settings' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -454,7 +486,7 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets access_type
      *
-     * @param string $access_type Тип доступа к агенту
+     * @param string $access_type Тип доступа: `public` — агент отвечает анонимным посетителям сайта через виджет; `private` — только по токену аккаунта.
      *
      * @return self
      */
@@ -481,7 +513,7 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets model_id
      *
-     * @return float
+     * @return int
      */
     public function getModelId()
     {
@@ -491,7 +523,7 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets model_id
      *
-     * @param float $model_id ID основной модели
+     * @param int $model_id ID основной модели агента
      *
      * @return self
      */
@@ -501,38 +533,6 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable model_id cannot be null');
         }
         $this->container['model_id'] = $model_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets token_limit
-     *
-     * @return float|null
-     */
-    public function getTokenLimit()
-    {
-        return $this->container['token_limit'];
-    }
-
-    /**
-     * Sets token_limit
-     *
-     * @param float|null $token_limit Дневной лимит токенов для агента (0 — без лимита)
-     *
-     * @return self
-     */
-    public function setTokenLimit($token_limit)
-    {
-        if (is_null($token_limit)) {
-            throw new \InvalidArgumentException('non-nullable token_limit cannot be null');
-        }
-
-        if (($token_limit < 0)) {
-            throw new \InvalidArgumentException('invalid value for $token_limit when calling CreateAgentV2., must be bigger than or equal to 0.');
-        }
-
-        $this->container['token_limit'] = $token_limit;
 
         return $this;
     }
@@ -567,7 +567,7 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets project_id
      *
-     * @return float|null
+     * @return int|null
      */
     public function getProjectId()
     {
@@ -577,7 +577,7 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets project_id
      *
-     * @param float|null $project_id ID проекта
+     * @param int|null $project_id ID проекта, в который нужно добавить агента. По умолчанию — проект по умолчанию.
      *
      * @return self
      */
@@ -587,33 +587,6 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable project_id cannot be null');
         }
         $this->container['project_id'] = $project_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets additional_model_ids
-     *
-     * @return float[]|null
-     */
-    public function getAdditionalModelIds()
-    {
-        return $this->container['additional_model_ids'];
-    }
-
-    /**
-     * Sets additional_model_ids
-     *
-     * @param float[]|null $additional_model_ids Список ID дополнительных моделей агента
-     *
-     * @return self
-     */
-    public function setAdditionalModelIds($additional_model_ids)
-    {
-        if (is_null($additional_model_ids)) {
-            throw new \InvalidArgumentException('non-nullable additional_model_ids cannot be null');
-        }
-        $this->container['additional_model_ids'] = $additional_model_ids;
 
         return $this;
     }
@@ -631,7 +604,7 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_web_search_enabled
      *
-     * @param bool|null $is_web_search_enabled Признак использования веб-поиска агентом
+     * @param bool|null $is_web_search_enabled Включить веб-поиск
      *
      * @return self
      */
@@ -641,6 +614,182 @@ class CreateAgentV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_web_search_enabled cannot be null');
         }
         $this->container['is_web_search_enabled'] = $is_web_search_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets money_limit
+     *
+     * @return float|null
+     */
+    public function getMoneyLimit()
+    {
+        return $this->container['money_limit'];
+    }
+
+    /**
+     * Sets money_limit
+     *
+     * @param float|null $money_limit Дневной лимит расходов агента в валюте аккаунта. `0` или не передан — без лимита. Создаётся как лимит агента с периодом `day`; изменить его можно через лимиты агента.
+     *
+     * @return self
+     */
+    public function setMoneyLimit($money_limit)
+    {
+        if (is_null($money_limit)) {
+            throw new \InvalidArgumentException('non-nullable money_limit cannot be null');
+        }
+
+        if (($money_limit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $money_limit when calling CreateAgentV2., must be bigger than or equal to 0.');
+        }
+
+        $this->container['money_limit'] = $money_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_limit
+     *
+     * @return int|null
+     * @deprecated
+     */
+    public function getTokenLimit()
+    {
+        return $this->container['token_limit'];
+    }
+
+    /**
+     * Sets token_limit
+     *
+     * @param int|null $token_limit Устарело: дневной лимит агента в токенах. `0` или не передан — без лимита. Не учитывается, если передан `money_limit`.
+     *
+     * @return self
+     * @deprecated
+     */
+    public function setTokenLimit($token_limit)
+    {
+        if (is_null($token_limit)) {
+            throw new \InvalidArgumentException('non-nullable token_limit cannot be null');
+        }
+
+        if (($token_limit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $token_limit when calling CreateAgentV2., must be bigger than or equal to 0.');
+        }
+
+        $this->container['token_limit'] = $token_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_package_id
+     *
+     * @return int|null
+     * @deprecated
+     */
+    public function getTokenPackageId()
+    {
+        return $this->container['token_package_id'];
+    }
+
+    /**
+     * Sets token_package_id
+     *
+     * @param int|null $token_package_id Устарело и не учитывается: агент всегда создаётся с поресурсной оплатой.
+     *
+     * @return self
+     * @deprecated
+     */
+    public function setTokenPackageId($token_package_id)
+    {
+        if (is_null($token_package_id)) {
+            throw new \InvalidArgumentException('non-nullable token_package_id cannot be null');
+        }
+        $this->container['token_package_id'] = $token_package_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_model_ids
+     *
+     * @return int[]|null
+     */
+    public function getAdditionalModelIds()
+    {
+        return $this->container['additional_model_ids'];
+    }
+
+    /**
+     * Sets additional_model_ids
+     *
+     * @param int[]|null $additional_model_ids ID дополнительных моделей агента (например, для генерации изображений). Список заменяет текущий целиком.
+     *
+     * @return self
+     */
+    public function setAdditionalModelIds($additional_model_ids)
+    {
+        if (is_null($additional_model_ids)) {
+            throw new \InvalidArgumentException('non-nullable additional_model_ids cannot be null');
+        }
+        $this->container['additional_model_ids'] = $additional_model_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_models
+     *
+     * @return \OpenAPI\Client\Model\AgentAdditionalModel[]|null
+     */
+    public function getAdditionalModels()
+    {
+        return $this->container['additional_models'];
+    }
+
+    /**
+     * Sets additional_models
+     *
+     * @param \OpenAPI\Client\Model\AgentAdditionalModel[]|null $additional_models Дополнительные модели вместе с настройками (для моделей генерации изображений — `width`/`height`). Если переданы и `additional_models`, и `additional_model_ids`, используется `additional_models`.
+     *
+     * @return self
+     */
+    public function setAdditionalModels($additional_models)
+    {
+        if (is_null($additional_models)) {
+            throw new \InvalidArgumentException('non-nullable additional_models cannot be null');
+        }
+        $this->container['additional_models'] = $additional_models;
+
+        return $this;
+    }
+
+    /**
+     * Gets skill_ids
+     *
+     * @return int[]|null
+     */
+    public function getSkillIds()
+    {
+        return $this->container['skill_ids'];
+    }
+
+    /**
+     * Sets skill_ids
+     *
+     * @param int[]|null $skill_ids ID навыков, которые нужно подключить к агенту сразу после создания (текущие версии навыков). Неизвестные ID пропускаются; ошибка подключения навыков не отменяет создание агента.
+     *
+     * @return self
+     */
+    public function setSkillIds($skill_ids)
+    {
+        if (is_null($skill_ids)) {
+            throw new \InvalidArgumentException('non-nullable skill_ids cannot be null');
+        }
+        $this->container['skill_ids'] = $skill_ids;
 
         return $this;
     }
