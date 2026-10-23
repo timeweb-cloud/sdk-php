@@ -93,6 +93,9 @@ class ServersApi
         'createServerDiskBackup' => [
             'application/json',
         ],
+        'createServerDiskBackupDownloadUrl' => [
+            'application/json',
+        ],
         'deleteServer' => [
             'application/json',
         ],
@@ -3166,6 +3169,522 @@ class ServersApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_server_disk_backup_request));
             } else {
                 $httpBody = $create_server_disk_backup_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createServerDiskBackupDownloadUrl
+     *
+     * Получение ссылки для скачивания бэкапа диска сервера
+     *
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
+     * @param  \OpenAPI\Client\Model\ServerBackupDownloadUrlRequest $server_backup_download_url_request server_backup_download_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDiskBackupDownloadUrl'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CreateServerDiskBackupDownloadUrl201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response
+     */
+    public function createServerDiskBackupDownloadUrl($server_id, $disk_id, $backup_id, $server_backup_download_url_request, string $contentType = self::contentTypes['createServerDiskBackupDownloadUrl'][0])
+    {
+        list($response) = $this->createServerDiskBackupDownloadUrlWithHttpInfo($server_id, $disk_id, $backup_id, $server_backup_download_url_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createServerDiskBackupDownloadUrlWithHttpInfo
+     *
+     * Получение ссылки для скачивания бэкапа диска сервера
+     *
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
+     * @param  \OpenAPI\Client\Model\ServerBackupDownloadUrlRequest $server_backup_download_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDiskBackupDownloadUrl'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\CreateServerDiskBackupDownloadUrl201Response|\OpenAPI\Client\Model\GetFinances400Response|\OpenAPI\Client\Model\GetFinances401Response|\OpenAPI\Client\Model\GetAccountStatus403Response|\OpenAPI\Client\Model\GetImage404Response|\OpenAPI\Client\Model\UpdateDatabaseInstance409Response|\OpenAPI\Client\Model\GetFinances429Response|\OpenAPI\Client\Model\GetFinances500Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createServerDiskBackupDownloadUrlWithHttpInfo($server_id, $disk_id, $backup_id, $server_backup_download_url_request, string $contentType = self::contentTypes['createServerDiskBackupDownloadUrl'][0])
+    {
+        $request = $this->createServerDiskBackupDownloadUrlRequest($server_id, $disk_id, $backup_id, $server_backup_download_url_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\OpenAPI\Client\Model\CreateServerDiskBackupDownloadUrl201Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\CreateServerDiskBackupDownloadUrl201Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateServerDiskBackupDownloadUrl201Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetFinances400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances400Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\GetFinances401Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances401Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances401Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\GetAccountStatus403Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetAccountStatus403Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAccountStatus403Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\Model\GetImage404Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetImage404Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetImage404Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\UpdateDatabaseInstance409Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\OpenAPI\Client\Model\GetFinances429Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances429Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances429Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\OpenAPI\Client\Model\GetFinances500Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\GetFinances500Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetFinances500Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CreateServerDiskBackupDownloadUrl201Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CreateServerDiskBackupDownloadUrl201Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetAccountStatus403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetImage404Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UpdateDatabaseInstance409Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances429Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetFinances500Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createServerDiskBackupDownloadUrlAsync
+     *
+     * Получение ссылки для скачивания бэкапа диска сервера
+     *
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
+     * @param  \OpenAPI\Client\Model\ServerBackupDownloadUrlRequest $server_backup_download_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDiskBackupDownloadUrl'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createServerDiskBackupDownloadUrlAsync($server_id, $disk_id, $backup_id, $server_backup_download_url_request, string $contentType = self::contentTypes['createServerDiskBackupDownloadUrl'][0])
+    {
+        return $this->createServerDiskBackupDownloadUrlAsyncWithHttpInfo($server_id, $disk_id, $backup_id, $server_backup_download_url_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createServerDiskBackupDownloadUrlAsyncWithHttpInfo
+     *
+     * Получение ссылки для скачивания бэкапа диска сервера
+     *
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
+     * @param  \OpenAPI\Client\Model\ServerBackupDownloadUrlRequest $server_backup_download_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDiskBackupDownloadUrl'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createServerDiskBackupDownloadUrlAsyncWithHttpInfo($server_id, $disk_id, $backup_id, $server_backup_download_url_request, string $contentType = self::contentTypes['createServerDiskBackupDownloadUrl'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\CreateServerDiskBackupDownloadUrl201Response';
+        $request = $this->createServerDiskBackupDownloadUrlRequest($server_id, $disk_id, $backup_id, $server_backup_download_url_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createServerDiskBackupDownloadUrl'
+     *
+     * @param  int $server_id ID облачного сервера. (required)
+     * @param  int $disk_id ID диска сервера. (required)
+     * @param  int $backup_id ID бэкапа сервера. (required)
+     * @param  \OpenAPI\Client\Model\ServerBackupDownloadUrlRequest $server_backup_download_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createServerDiskBackupDownloadUrl'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createServerDiskBackupDownloadUrlRequest($server_id, $disk_id, $backup_id, $server_backup_download_url_request, string $contentType = self::contentTypes['createServerDiskBackupDownloadUrl'][0])
+    {
+
+        // verify the required parameter 'server_id' is set
+        if ($server_id === null || (is_array($server_id) && count($server_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $server_id when calling createServerDiskBackupDownloadUrl'
+            );
+        }
+        if ($server_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$server_id" when calling ServersApi.createServerDiskBackupDownloadUrl, must be bigger than or equal to 1.');
+        }
+        
+        // verify the required parameter 'disk_id' is set
+        if ($disk_id === null || (is_array($disk_id) && count($disk_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $disk_id when calling createServerDiskBackupDownloadUrl'
+            );
+        }
+        if ($disk_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$disk_id" when calling ServersApi.createServerDiskBackupDownloadUrl, must be bigger than or equal to 1.');
+        }
+        
+        // verify the required parameter 'backup_id' is set
+        if ($backup_id === null || (is_array($backup_id) && count($backup_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $backup_id when calling createServerDiskBackupDownloadUrl'
+            );
+        }
+        if ($backup_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$backup_id" when calling ServersApi.createServerDiskBackupDownloadUrl, must be bigger than or equal to 1.');
+        }
+        
+        // verify the required parameter 'server_backup_download_url_request' is set
+        if ($server_backup_download_url_request === null || (is_array($server_backup_download_url_request) && count($server_backup_download_url_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $server_backup_download_url_request when calling createServerDiskBackupDownloadUrl'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/servers/{server_id}/disks/{disk_id}/backups/{backup_id}/download-url';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($server_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'server_id' . '}',
+                ObjectSerializer::toPathValue($server_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($disk_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'disk_id' . '}',
+                ObjectSerializer::toPathValue($disk_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($backup_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'backup_id' . '}',
+                ObjectSerializer::toPathValue($backup_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($server_backup_download_url_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($server_backup_download_url_request));
+            } else {
+                $httpBody = $server_backup_download_url_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

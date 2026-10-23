@@ -11,6 +11,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**createServer()**](ServersApi.md#createServer) | **POST** /api/v1/servers | Создание сервера |
 | [**createServerDisk()**](ServersApi.md#createServerDisk) | **POST** /api/v1/servers/{server_id}/disks | Создание диска сервера |
 | [**createServerDiskBackup()**](ServersApi.md#createServerDiskBackup) | **POST** /api/v1/servers/{server_id}/disks/{disk_id}/backups | Создание бэкапа диска сервера |
+| [**createServerDiskBackupDownloadUrl()**](ServersApi.md#createServerDiskBackupDownloadUrl) | **POST** /api/v1/servers/{server_id}/disks/{disk_id}/backups/{backup_id}/download-url | Получение ссылки для скачивания бэкапа диска сервера |
 | [**deleteServer()**](ServersApi.md#deleteServer) | **DELETE** /api/v1/servers/{server_id} | Удаление сервера |
 | [**deleteServerDisk()**](ServersApi.md#deleteServerDisk) | **DELETE** /api/v1/servers/{server_id}/disks/{disk_id} | Удаление диска сервера |
 | [**deleteServerDiskBackup()**](ServersApi.md#deleteServerDiskBackup) | **DELETE** /api/v1/servers/{server_id}/disks/{disk_id}/backups/{backup_id} | Удаление бэкапа диска сервера |
@@ -464,6 +465,72 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\CreateServerDiskBackup201Response**](../Model/CreateServerDiskBackup201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createServerDiskBackupDownloadUrl()`
+
+```php
+createServerDiskBackupDownloadUrl($server_id, $disk_id, $backup_id, $server_backup_download_url_request): \OpenAPI\Client\Model\CreateServerDiskBackupDownloadUrl201Response
+```
+
+Получение ссылки для скачивания бэкапа диска сервера
+
+Чтобы получить ссылку для скачивания бэкапа диска сервера, отправьте POST-запрос на `/api/v1/servers/{server_id}/disks/{disk_id}/backups/{backup_id}/download-url`.   Скачивание бэкапов доступно для серверов в локациях `ru-1` (Санкт-Петербург) и `ru-3` (Москва). Для серверов в других локациях метод вернет ошибку со статусом `400`.   Ссылка действует 7 дней. Скачать бэкап по ней может любой, у кого она есть, поэтому не передавайте ее третьим лицам.   Тело ответа будет представлять собой объект JSON с ключом `backup_url`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ServersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$server_id = 1051; // int | ID облачного сервера.
+$disk_id = 1051; // int | ID диска сервера.
+$backup_id = 1051; // int | ID бэкапа сервера.
+$server_backup_download_url_request = new \OpenAPI\Client\Model\ServerBackupDownloadUrlRequest(); // \OpenAPI\Client\Model\ServerBackupDownloadUrlRequest
+
+try {
+    $result = $apiInstance->createServerDiskBackupDownloadUrl($server_id, $disk_id, $backup_id, $server_backup_download_url_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ServersApi->createServerDiskBackupDownloadUrl: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **server_id** | **int**| ID облачного сервера. | |
+| **disk_id** | **int**| ID диска сервера. | |
+| **backup_id** | **int**| ID бэкапа сервера. | |
+| **server_backup_download_url_request** | [**\OpenAPI\Client\Model\ServerBackupDownloadUrlRequest**](../Model/ServerBackupDownloadUrlRequest.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreateServerDiskBackupDownloadUrl201Response**](../Model/CreateServerDiskBackupDownloadUrl201Response.md)
 
 ### Authorization
 

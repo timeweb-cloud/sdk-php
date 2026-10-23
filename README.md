@@ -689,6 +689,7 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**createServer**](docs/Api/ServersApi.md#createserver) | **POST** /api/v1/servers | Создание сервера
 *ServersApi* | [**createServerDisk**](docs/Api/ServersApi.md#createserverdisk) | **POST** /api/v1/servers/{server_id}/disks | Создание диска сервера
 *ServersApi* | [**createServerDiskBackup**](docs/Api/ServersApi.md#createserverdiskbackup) | **POST** /api/v1/servers/{server_id}/disks/{disk_id}/backups | Создание бэкапа диска сервера
+*ServersApi* | [**createServerDiskBackupDownloadUrl**](docs/Api/ServersApi.md#createserverdiskbackupdownloadurl) | **POST** /api/v1/servers/{server_id}/disks/{disk_id}/backups/{backup_id}/download-url | Получение ссылки для скачивания бэкапа диска сервера
 *ServersApi* | [**deleteServer**](docs/Api/ServersApi.md#deleteserver) | **DELETE** /api/v1/servers/{server_id} | Удаление сервера
 *ServersApi* | [**deleteServerDisk**](docs/Api/ServersApi.md#deleteserverdisk) | **DELETE** /api/v1/servers/{server_id}/disks/{disk_id} | Удаление диска сервера
 *ServersApi* | [**deleteServerDiskBackup**](docs/Api/ServersApi.md#deleteserverdiskbackup) | **DELETE** /api/v1/servers/{server_id}/disks/{disk_id}/backups/{backup_id} | Удаление бэкапа диска сервера
@@ -1011,6 +1012,7 @@ Class | Method | HTTP request | Description
 - [CreateServerConfiguration](docs/Model/CreateServerConfiguration.md)
 - [CreateServerDisk201Response](docs/Model/CreateServerDisk201Response.md)
 - [CreateServerDiskBackup201Response](docs/Model/CreateServerDiskBackup201Response.md)
+- [CreateServerDiskBackupDownloadUrl201Response](docs/Model/CreateServerDiskBackupDownloadUrl201Response.md)
 - [CreateServerDiskBackupRequest](docs/Model/CreateServerDiskBackupRequest.md)
 - [CreateServerDiskRequest](docs/Model/CreateServerDiskRequest.md)
 - [CreateServerNetwork](docs/Model/CreateServerNetwork.md)
@@ -1477,6 +1479,8 @@ Class | Method | HTTP request | Description
 - [SendAiSolutionMessage](docs/Model/SendAiSolutionMessage.md)
 - [SendAiSolutionMessage200Response](docs/Model/SendAiSolutionMessage200Response.md)
 - [ServerBackup](docs/Model/ServerBackup.md)
+- [ServerBackupDownloadUrl](docs/Model/ServerBackupDownloadUrl.md)
+- [ServerBackupDownloadUrlRequest](docs/Model/ServerBackupDownloadUrlRequest.md)
 - [ServerDisk](docs/Model/ServerDisk.md)
 - [ServerIp](docs/Model/ServerIp.md)
 - [ServerLog](docs/Model/ServerLog.md)

@@ -310,6 +310,7 @@ docs/Model/CreateServer201Response.md
 docs/Model/CreateServerConfiguration.md
 docs/Model/CreateServerDisk201Response.md
 docs/Model/CreateServerDiskBackup201Response.md
+docs/Model/CreateServerDiskBackupDownloadUrl201Response.md
 docs/Model/CreateServerDiskBackupRequest.md
 docs/Model/CreateServerDiskRequest.md
 docs/Model/CreateServerNetwork.md
@@ -776,6 +777,8 @@ docs/Model/SchemasPresetsResponse.md
 docs/Model/SendAiSolutionMessage.md
 docs/Model/SendAiSolutionMessage200Response.md
 docs/Model/ServerBackup.md
+docs/Model/ServerBackupDownloadUrl.md
+docs/Model/ServerBackupDownloadUrlRequest.md
 docs/Model/ServerDisk.md
 docs/Model/ServerIp.md
 docs/Model/ServerLog.md
@@ -1242,6 +1245,7 @@ lib/Model/CreateServer201Response.php
 lib/Model/CreateServerConfiguration.php
 lib/Model/CreateServerDisk201Response.php
 lib/Model/CreateServerDiskBackup201Response.php
+lib/Model/CreateServerDiskBackupDownloadUrl201Response.php
 lib/Model/CreateServerDiskBackupRequest.php
 lib/Model/CreateServerDiskRequest.php
 lib/Model/CreateServerNetwork.php
@@ -1709,6 +1713,8 @@ lib/Model/SchemasPresetsResponse.php
 lib/Model/SendAiSolutionMessage.php
 lib/Model/SendAiSolutionMessage200Response.php
 lib/Model/ServerBackup.php
+lib/Model/ServerBackupDownloadUrl.php
+lib/Model/ServerBackupDownloadUrlRequest.php
 lib/Model/ServerDisk.php
 lib/Model/ServerIp.php
 lib/Model/ServerLog.php
@@ -2172,6 +2178,7 @@ test/Model/CreateServer201ResponseTest.php
 test/Model/CreateServerConfigurationTest.php
 test/Model/CreateServerDisk201ResponseTest.php
 test/Model/CreateServerDiskBackup201ResponseTest.php
+test/Model/CreateServerDiskBackupDownloadUrl201ResponseTest.php
 test/Model/CreateServerDiskBackupRequestTest.php
 test/Model/CreateServerDiskRequestTest.php
 test/Model/CreateServerNetworkTest.php
@@ -2638,6 +2645,8 @@ test/Model/SchemasMetaTest.php
 test/Model/SchemasPresetsResponseTest.php
 test/Model/SendAiSolutionMessage200ResponseTest.php
 test/Model/SendAiSolutionMessageTest.php
+test/Model/ServerBackupDownloadUrlRequestTest.php
+test/Model/ServerBackupDownloadUrlTest.php
 test/Model/ServerBackupTest.php
 test/Model/ServerDiskTest.php
 test/Model/ServerIpTest.php

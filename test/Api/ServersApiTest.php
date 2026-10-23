@@ -157,6 +157,18 @@ class ServersApiTest extends TestCase
     }
 
     /**
+     * Test case for createServerDiskBackupDownloadUrl
+     *
+     * Получение ссылки для скачивания бэкапа диска сервера.
+     *
+     */
+    public function testCreateServerDiskBackupDownloadUrl()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for deleteServer
      *
      * Удаление сервера.
