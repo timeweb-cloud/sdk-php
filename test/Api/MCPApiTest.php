@@ -73,6 +73,42 @@ class MCPApiTest extends TestCase
     }
 
     /**
+     * Test case for connectAgentToolToAgent
+     *
+     * Подключение MCP-инструмента к агенту.
+     *
+     */
+    public function testConnectAgentToolToAgent()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for createAgentTool
+     *
+     * Подключение собственного MCP-сервера.
+     *
+     */
+    public function testCreateAgentTool()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for deleteAgentTool
+     *
+     * Удаление MCP-инструмента.
+     *
+     */
+    public function testDeleteAgentTool()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for deleteMcpSearchSession
      *
      * Завершение сессии сервера MCP с поиском инструментов.
@@ -91,6 +127,102 @@ class MCPApiTest extends TestCase
      *
      */
     public function testDeleteMcpSession()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for disconnectAgentToolFromAgent
+     *
+     * Отключение MCP-инструмента от агента.
+     *
+     */
+    public function testDisconnectAgentToolFromAgent()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getAgentTool
+     *
+     * Получение MCP-инструмента.
+     *
+     */
+    public function testGetAgentTool()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getAgentToolOAuth2AuthorizeUrl
+     *
+     * Получение ссылки на OAuth2-авторизацию инструмента.
+     *
+     */
+    public function testGetAgentToolOAuth2AuthorizeUrl()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getAgentToolTemplatePrices
+     *
+     * Получение цен системных инструментов.
+     *
+     */
+    public function testGetAgentToolTemplatePrices()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getAgentToolTemplates
+     *
+     * Получение шаблонов MCP-инструментов из маркетплейса.
+     *
+     */
+    public function testGetAgentToolTemplates()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getAgentTools
+     *
+     * Получение списка MCP-инструментов.
+     *
+     */
+    public function testGetAgentTools()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getAgentToolsByAgent
+     *
+     * Получение MCP-инструментов агента.
+     *
+     */
+    public function testGetAgentToolsByAgent()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for installAgentToolFromTemplate
+     *
+     * Установка MCP-инструмента из маркетплейса.
+     *
+     */
+    public function testInstallAgentToolFromTemplate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -121,6 +253,18 @@ class MCPApiTest extends TestCase
     }
 
     /**
+     * Test case for refreshAgentToolMethods
+     *
+     * Обновление списка методов MCP-инструмента.
+     *
+     */
+    public function testRefreshAgentToolMethods()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for sendMcpMessage
      *
      * Отправка JSON-RPC-сообщения серверу MCP.
@@ -139,6 +283,30 @@ class MCPApiTest extends TestCase
      *
      */
     public function testSendMcpSearchMessage()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateAgentTool
+     *
+     * Изменение MCP-инструмента.
+     *
+     */
+    public function testUpdateAgentTool()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateAgentToolConnection
+     *
+     * Изменение разрешённых методов MCP-инструмента у агента.
+     *
+     */
+    public function testUpdateAgentToolConnection()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

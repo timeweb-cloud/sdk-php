@@ -6,7 +6,6 @@ README.md
 composer.json
 docs/Api/AIAgentIntegrationsApi.md
 docs/Api/AIAgentSkillsApi.md
-docs/Api/AIAgentToolsApi.md
 docs/Api/AIAgentsApi.md
 docs/Api/AIGatewayApi.md
 docs/Api/AIGatewayInferenceApi.md
@@ -938,7 +937,6 @@ docs/Model/WorkerPresetOutApi.md
 git_push.sh
 lib/Api/AIAgentIntegrationsApi.php
 lib/Api/AIAgentSkillsApi.php
-lib/Api/AIAgentToolsApi.php
 lib/Api/AIAgentsApi.php
 lib/Api/AIGatewayApi.php
 lib/Api/AIGatewayInferenceApi.php
@@ -1875,7 +1873,6 @@ lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/AIAgentIntegrationsApiTest.php
 test/Api/AIAgentSkillsApiTest.php
-test/Api/AIAgentToolsApiTest.php
 test/Api/AIAgentsApiTest.php
 test/Api/AIGatewayApiTest.php
 test/Api/AIGatewayInferenceApiTest.php
