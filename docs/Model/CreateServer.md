@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **ssh_keys_ids** | **float[]** | Список SSH-ключей. | [optional]
 **is_local_network** | **bool** | Локальная сеть. | [optional]
 **network** | [**\OpenAPI\Client\Model\CreateServerNetwork**](CreateServerNetwork.md) |  | [optional]
-**cloud_init** | **string** | Cloud-init скрипт | [optional]
+**cloud_init** | **string** | Cloud-init скрипт. Максимальный размер — 65 535 байт в UTF-8. | [optional]
 **availability_zone** | [**\OpenAPI\Client\Model\AvailabilityZone**](AvailabilityZone.md) |  | [optional]
 **project_id** | **float** | ID проекта. | [optional]
 **hostname** | **string** | Сетевое имя сервера | [optional]

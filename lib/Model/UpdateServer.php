@@ -625,7 +625,7 @@ class UpdateServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cloud_init
      *
-     * @param string|null $cloud_init Cloud-init скрипт
+     * @param string|null $cloud_init Cloud-init скрипт. Максимальный размер — 65 535 байт в UTF-8.
      *
      * @return self
      */
