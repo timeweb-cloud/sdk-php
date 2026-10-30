@@ -97,6 +97,18 @@ class AppsApiTest extends TestCase
     }
 
     /**
+     * Test case for createAppV2
+     *
+     * Создание приложения (v2).
+     *
+     */
+    public function testCreateAppV2()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createDeploy
      *
      * Запуск деплоя приложения.

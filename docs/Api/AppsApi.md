@@ -6,6 +6,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | ------------- | ------------- | ------------- |
 | [**addProvider()**](AppsApi.md#addProvider) | **POST** /api/v1/vcs-provider | Привязка vcs провайдера |
 | [**createApp()**](AppsApi.md#createApp) | **POST** /api/v1/apps | Создание приложения |
+| [**createAppV2()**](AppsApi.md#createAppV2) | **POST** /api/v2/apps | Создание приложения (v2) |
 | [**createDeploy()**](AppsApi.md#createDeploy) | **POST** /api/v1/apps/{app_id}/deploy | Запуск деплоя приложения |
 | [**deleteApp()**](AppsApi.md#deleteApp) | **DELETE** /api/v1/apps/{app_id} | Удаление приложения |
 | [**deleteProvider()**](AppsApi.md#deleteProvider) | **DELETE** /api/v1/vcs-provider/{provider_id} | Отвязка vcs провайдера от аккаунта |
@@ -95,7 +96,7 @@ createApp($create_app): \OpenAPI\Client\Model\CreateApp201Response
 
 Создание приложения
 
-Чтобы создать приложение, отправьте POST-запрос в `/api/v1/apps`, задав необходимые атрибуты.
+Метод устарел. Используйте [POST /api/v2/apps](#operation/createAppV2).  Чтобы создать приложение, отправьте POST-запрос в `/api/v1/apps`, задав необходимые атрибуты.
 
 ### Example
 
@@ -133,6 +134,66 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\CreateApp201Response**](../Model/CreateApp201Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createAppV2()`
+
+```php
+createAppV2($create_app_v2): \OpenAPI\Client\Model\CreateAppV2201Response
+```
+
+Создание приложения (v2)
+
+Чтобы создать приложение, отправьте POST-запрос в `/api/v2/apps`.  Создание сервера, настройка окружения и первый деплой выполняются асинхронно. Ответ `201 Created` содержит запись приложения в статусе `new` и не означает, что приложение уже готово к работе. До создания инфраструктуры в ответе могут отсутствовать `ip`, `location`, `configuration`, `disk_status`, `language`, `framework`, `envs`, `env_version`, `build_cmd`, `run_cmd` и `index_dir`. Состояние приложения можно проверять через `GET /api/v2/apps/{app_id}`.  В v2 обязательно поле `language`, а в ответе ветка репозитория называется `branch`. Для Git-репозитория передайте параметры провайдера, репозитория, ветки, коммита и сборки. Для готового Docker-образа используйте `type: backend`, `language: custom-image`, `docker_image` и `docker_image_tag`. Для frontend обязателен `preset_id`, для backend — либо `preset_id`, либо `configuration`. ID тарифа можно получить через `GET /api/v1/presets/apps`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\AppsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$create_app_v2 = {"type":"backend","provider_id":"b392b624-ee80-496e-8b61-47276acac2da","repository_id":"eb4e1796-78ce-4232-a824-3c3f4dfaf98f","branch_name":"master","commit_sha":"7d3a6dcca79d2c29e3fe7456ca1598e70d484d7c","build_cmd":"npm ci","run_cmd":"npm start","is_auto_deploy":true,"name":"app_example","comment":"","preset_id":42,"language":"node","framework":"express","env_version":"22","envs":{"NODE_ENV":"production"}}; // \OpenAPI\Client\Model\CreateAppV2
+
+try {
+    $result = $apiInstance->createAppV2($create_app_v2);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AppsApi->createAppV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_app_v2** | [**\OpenAPI\Client\Model\CreateAppV2**](../Model/CreateAppV2.md)|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CreateAppV2201Response**](../Model/CreateAppV2201Response.md)
 
 ### Authorization
 

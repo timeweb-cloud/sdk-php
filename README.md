@@ -357,6 +357,7 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**updateNotificationSettings**](docs/Api/AccountApi.md#updatenotificationsettings) | **PATCH** /api/v1/account/notification-settings | Изменение настроек уведомлений аккаунта
 *AppsApi* | [**addProvider**](docs/Api/AppsApi.md#addprovider) | **POST** /api/v1/vcs-provider | Привязка vcs провайдера
 *AppsApi* | [**createApp**](docs/Api/AppsApi.md#createapp) | **POST** /api/v1/apps | Создание приложения
+*AppsApi* | [**createAppV2**](docs/Api/AppsApi.md#createappv2) | **POST** /api/v2/apps | Создание приложения (v2)
 *AppsApi* | [**createDeploy**](docs/Api/AppsApi.md#createdeploy) | **POST** /api/v1/apps/{app_id}/deploy | Запуск деплоя приложения
 *AppsApi* | [**deleteApp**](docs/Api/AppsApi.md#deleteapp) | **DELETE** /api/v1/apps/{app_id} | Удаление приложения
 *AppsApi* | [**deleteProvider**](docs/Api/AppsApi.md#deleteprovider) | **DELETE** /api/v1/vcs-provider/{provider_id} | Отвязка vcs провайдера от аккаунта
@@ -844,6 +845,11 @@ Class | Method | HTTP request | Description
 - [AppDiskStatus](docs/Model/AppDiskStatus.md)
 - [AppDomainsInner](docs/Model/AppDomainsInner.md)
 - [AppProvider](docs/Model/AppProvider.md)
+- [AppV2](docs/Model/AppV2.md)
+- [AppV2Configuration](docs/Model/AppV2Configuration.md)
+- [AppV2DiskStatus](docs/Model/AppV2DiskStatus.md)
+- [AppV2DomainsInner](docs/Model/AppV2DomainsInner.md)
+- [AppV2Provider](docs/Model/AppV2Provider.md)
 - [ApproveTelegramPairing](docs/Model/ApproveTelegramPairing.md)
 - [AppsPresets](docs/Model/AppsPresets.md)
 - [AppsPresetsBackendPresetsInner](docs/Model/AppsPresetsBackendPresetsInner.md)
@@ -949,6 +955,10 @@ Class | Method | HTTP request | Description
 - [CreateAiSolution201Response](docs/Model/CreateAiSolution201Response.md)
 - [CreateApp](docs/Model/CreateApp.md)
 - [CreateApp201Response](docs/Model/CreateApp201Response.md)
+- [CreateAppV2](docs/Model/CreateAppV2.md)
+- [CreateAppV2201Response](docs/Model/CreateAppV2201Response.md)
+- [CreateAppV2Configuration](docs/Model/CreateAppV2Configuration.md)
+- [CreateAppV2Network](docs/Model/CreateAppV2Network.md)
 - [CreateBalancer](docs/Model/CreateBalancer.md)
 - [CreateBalancer200Response](docs/Model/CreateBalancer200Response.md)
 - [CreateBalancerCertificates](docs/Model/CreateBalancerCertificates.md)
