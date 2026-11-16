@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **float** | ID DNS-записи. |
 **type** | **string** | Тип DNS-записи. |
-**id** | **float** | ID DNS-записи. | [optional]
-**fqdn** | **string** | Полное имя основного домена. | [optional]
 **data** | [**\OpenAPI\Client\Model\DnsRecordV2Data**](DnsRecordV2Data.md) |  |
-**ttl** | **float** | Время жизни DNS-записи. | [optional]
+**fqdn** | **string** | Домен, относительно которого указано &#x60;data.subdomain&#x60;. Полное имя записи — &#x60;data.subdomain&#x60; + &#x60;.&#x60; + &#x60;fqdn&#x60;, а если &#x60;data.subdomain&#x60; нет — &#x60;fqdn&#x60;. |
+**ttl** | **float** | Время жизни DNS-записи в секундах. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

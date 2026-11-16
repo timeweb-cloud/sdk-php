@@ -241,6 +241,18 @@ class DomainsApiTest extends TestCase
     }
 
     /**
+     * Test case for getDomainDNSRecordsV2
+     *
+     * Получить информацию обо всех пользовательских DNS-записях домена или поддомена.
+     *
+     */
+    public function testGetDomainDNSRecordsV2()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getDomainDefaultDNSRecords
      *
      * Получить информацию обо всех DNS-записях по умолчанию домена или поддомена.

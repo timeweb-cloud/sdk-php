@@ -18,6 +18,7 @@ All URIs are relative to https://api.timeweb.cloud, except if the operation defi
 | [**deleteSubdomain()**](DomainsApi.md#deleteSubdomain) | **DELETE** /api/v1/domains/{fqdn}/subdomains/{subdomain} | Удаление поддомена |
 | [**getDomain()**](DomainsApi.md#getDomain) | **GET** /api/v1/domains/{fqdn} | Получение информации о домене |
 | [**getDomainDNSRecords()**](DomainsApi.md#getDomainDNSRecords) | **GET** /api/v1/domains/{fqdn}/dns-records | Получить информацию обо всех пользовательских DNS-записях домена или поддомена |
+| [**getDomainDNSRecordsV2()**](DomainsApi.md#getDomainDNSRecordsV2) | **GET** /api/v2/domains/{fqdn}/dns-records | Получить информацию обо всех пользовательских DNS-записях домена или поддомена |
 | [**getDomainDefaultDNSRecords()**](DomainsApi.md#getDomainDefaultDNSRecords) | **GET** /api/v1/domains/{fqdn}/default-dns-records | Получить информацию обо всех DNS-записях по умолчанию домена или поддомена |
 | [**getDomainNameServers()**](DomainsApi.md#getDomainNameServers) | **GET** /api/v1/domains/{fqdn}/name-servers | Получение списка name-серверов домена |
 | [**getDomainRequest()**](DomainsApi.md#getDomainRequest) | **GET** /api/v1/domains-requests/{request_id} | Получение заявки на регистрацию/продление/трансфер домена |
@@ -829,7 +830,7 @@ getDomainDNSRecords($fqdn, $limit, $offset): \OpenAPI\Client\Model\GetDomainDNSR
 
 Получить информацию обо всех пользовательских DNS-записях домена или поддомена
 
-Чтобы получить информацию обо всех пользовательских DNS-записях домена или поддомена, отправьте запрос GET на `/api/v1/domains/{fqdn}/dns-records`.
+Метод устарел. Используйте [GET /api/v2/domains/{fqdn}/dns-records](#operation/getDomainDNSRecordsV2).  Чтобы получить информацию обо всех пользовательских DNS-записях домена или поддомена, отправьте запрос GET на `/api/v1/domains/{fqdn}/dns-records`.
 
 ### Example
 
@@ -871,6 +872,66 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\GetDomainDNSRecords200Response**](../Model/GetDomainDNSRecords200Response.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDomainDNSRecordsV2()`
+
+```php
+getDomainDNSRecordsV2($fqdn): \OpenAPI\Client\Model\GetDomainDNSRecordsV2200Response
+```
+
+Получить информацию обо всех пользовательских DNS-записях домена или поддомена
+
+Чтобы получить информацию обо всех пользовательских DNS-записях домена или поддомена, отправьте запрос GET на `/api/v2/domains/{fqdn}/dns-records`.  По основному домену возвращаются записи всей зоны, включая записи поддоменов: у них `fqdn` — основной домен, а `data.subdomain` — имя поддомена. По поддомену возвращаются только записи этого поддомена, без вложенных поддоменов: у них `fqdn` — сам поддомен, а поля `data.subdomain` нет. Полное имя записи — `data.subdomain` + `.` + `fqdn`.  Возвращаются все записи сразу, без пагинации.  Заменяет устаревший `GET /api/v1/domains/{fqdn}/dns-records`: тот по поддомену не возвращает его TXT-записи.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: Bearer
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DomainsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$fqdn = somedomain.ru; // string | Полное имя домена или поддомена.
+
+try {
+    $result = $apiInstance->getDomainDNSRecordsV2($fqdn);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DomainsApi->getDomainDNSRecordsV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fqdn** | **string**| Полное имя домена или поддомена. | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\GetDomainDNSRecordsV2200Response**](../Model/GetDomainDNSRecordsV2200Response.md)
 
 ### Authorization
 

@@ -536,6 +536,7 @@ docs/Model/GetDeployLogs200Response.md
 docs/Model/GetDeploySettings200Response.md
 docs/Model/GetDomain200Response.md
 docs/Model/GetDomainDNSRecords200Response.md
+docs/Model/GetDomainDNSRecordsV2200Response.md
 docs/Model/GetDomainMailInfo200Response.md
 docs/Model/GetDomainNameServers200Response.md
 docs/Model/GetDomainRequests200Response.md
@@ -1479,6 +1480,7 @@ lib/Model/GetDeployLogs200Response.php
 lib/Model/GetDeploySettings200Response.php
 lib/Model/GetDomain200Response.php
 lib/Model/GetDomainDNSRecords200Response.php
+lib/Model/GetDomainDNSRecordsV2200Response.php
 lib/Model/GetDomainMailInfo200Response.php
 lib/Model/GetDomainNameServers200Response.php
 lib/Model/GetDomainRequests200Response.php
@@ -2421,6 +2423,7 @@ test/Model/GetDeployLogs200ResponseTest.php
 test/Model/GetDeploySettings200ResponseTest.php
 test/Model/GetDomain200ResponseTest.php
 test/Model/GetDomainDNSRecords200ResponseTest.php
+test/Model/GetDomainDNSRecordsV2200ResponseTest.php
 test/Model/GetDomainMailInfo200ResponseTest.php
 test/Model/GetDomainNameServers200ResponseTest.php
 test/Model/GetDomainRequests200ResponseTest.php

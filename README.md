@@ -478,6 +478,7 @@ Class | Method | HTTP request | Description
 *DomainsApi* | [**deleteSubdomain**](docs/Api/DomainsApi.md#deletesubdomain) | **DELETE** /api/v1/domains/{fqdn}/subdomains/{subdomain} | Удаление поддомена
 *DomainsApi* | [**getDomain**](docs/Api/DomainsApi.md#getdomain) | **GET** /api/v1/domains/{fqdn} | Получение информации о домене
 *DomainsApi* | [**getDomainDNSRecords**](docs/Api/DomainsApi.md#getdomaindnsrecords) | **GET** /api/v1/domains/{fqdn}/dns-records | Получить информацию обо всех пользовательских DNS-записях домена или поддомена
+*DomainsApi* | [**getDomainDNSRecordsV2**](docs/Api/DomainsApi.md#getdomaindnsrecordsv2) | **GET** /api/v2/domains/{fqdn}/dns-records | Получить информацию обо всех пользовательских DNS-записях домена или поддомена
 *DomainsApi* | [**getDomainDefaultDNSRecords**](docs/Api/DomainsApi.md#getdomaindefaultdnsrecords) | **GET** /api/v1/domains/{fqdn}/default-dns-records | Получить информацию обо всех DNS-записях по умолчанию домена или поддомена
 *DomainsApi* | [**getDomainNameServers**](docs/Api/DomainsApi.md#getdomainnameservers) | **GET** /api/v1/domains/{fqdn}/name-servers | Получение списка name-серверов домена
 *DomainsApi* | [**getDomainRequest**](docs/Api/DomainsApi.md#getdomainrequest) | **GET** /api/v1/domains-requests/{request_id} | Получение заявки на регистрацию/продление/трансфер домена
@@ -1240,6 +1241,7 @@ Class | Method | HTTP request | Description
 - [GetDeploySettings200Response](docs/Model/GetDeploySettings200Response.md)
 - [GetDomain200Response](docs/Model/GetDomain200Response.md)
 - [GetDomainDNSRecords200Response](docs/Model/GetDomainDNSRecords200Response.md)
+- [GetDomainDNSRecordsV2200Response](docs/Model/GetDomainDNSRecordsV2200Response.md)
 - [GetDomainMailInfo200Response](docs/Model/GetDomainMailInfo200Response.md)
 - [GetDomainNameServers200Response](docs/Model/GetDomainNameServers200Response.md)
 - [GetDomainRequests200Response](docs/Model/GetDomainRequests200Response.md)

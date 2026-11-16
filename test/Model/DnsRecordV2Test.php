@@ -81,15 +81,6 @@ class DnsRecordV2Test extends TestCase
     }
 
     /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "id"
      */
     public function testPropertyId()
@@ -99,9 +90,9 @@ class DnsRecordV2Test extends TestCase
     }
 
     /**
-     * Test attribute "fqdn"
+     * Test attribute "type"
      */
-    public function testPropertyFqdn()
+    public function testPropertyType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -111,6 +102,15 @@ class DnsRecordV2Test extends TestCase
      * Test attribute "data"
      */
     public function testPropertyData()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "fqdn"
+     */
+    public function testPropertyFqdn()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

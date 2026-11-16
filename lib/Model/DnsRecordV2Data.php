@@ -92,7 +92,7 @@ class DnsRecordV2Data implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'priority' => false,
-		'subdomain' => true,
+		'subdomain' => false,
 		'value' => false,
 		'host' => false,
 		'port' => false,
@@ -346,7 +346,7 @@ class DnsRecordV2Data implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets priority
      *
-     * @param float|null $priority Приоритет DNS-записи (для MX и SRV записей).
+     * @param float|null $priority Приоритет DNS-записи (для MX, SRV, HTTPS и SVCB записей).
      *
      * @return self
      */
@@ -373,21 +373,14 @@ class DnsRecordV2Data implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subdomain
      *
-     * @param string|null $subdomain Имя поддомена (только поддомен без основного домена, например `sub` для `sub.example.com`). Для записей на основном домене это поле отсутствует в ответе.
+     * @param string|null $subdomain Имя записи относительно `fqdn`, например `sub` для `sub.example.com` или `mail._domainkey`. Для записей самого `fqdn` это поле отсутствует в ответе.
      *
      * @return self
      */
     public function setSubdomain($subdomain)
     {
         if (is_null($subdomain)) {
-            array_push($this->openAPINullablesSetToNull, 'subdomain');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('subdomain', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable subdomain cannot be null');
         }
         $this->container['subdomain'] = $subdomain;
 
@@ -407,7 +400,7 @@ class DnsRecordV2Data implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets value
      *
-     * @param string|null $value Значение DNS-записи (для A, AAAA, TXT, CNAME, MX записей).
+     * @param string|null $value Значение DNS-записи (для всех типов, кроме SRV: у SRV цель записи в поле `host`).
      *
      * @return self
      */

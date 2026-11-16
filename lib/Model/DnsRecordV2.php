@@ -59,10 +59,10 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
         'id' => 'float',
-        'fqdn' => 'string',
+        'type' => 'string',
         'data' => '\OpenAPI\Client\Model\DnsRecordV2Data',
+        'fqdn' => 'string',
         'ttl' => 'float'
     ];
 
@@ -74,10 +74,10 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
         'id' => null,
-        'fqdn' => null,
+        'type' => null,
         'data' => null,
+        'fqdn' => null,
         'ttl' => null
     ];
 
@@ -87,11 +87,11 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-		'id' => true,
-		'fqdn' => false,
+        'id' => false,
+		'type' => false,
 		'data' => false,
-		'ttl' => false
+		'fqdn' => false,
+		'ttl' => true
     ];
 
     /**
@@ -180,10 +180,10 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
         'id' => 'id',
-        'fqdn' => 'fqdn',
+        'type' => 'type',
         'data' => 'data',
+        'fqdn' => 'fqdn',
         'ttl' => 'ttl'
     ];
 
@@ -193,10 +193,10 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
         'id' => 'setId',
-        'fqdn' => 'setFqdn',
+        'type' => 'setType',
         'data' => 'setData',
+        'fqdn' => 'setFqdn',
         'ttl' => 'setTtl'
     ];
 
@@ -206,10 +206,10 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
         'id' => 'getId',
-        'fqdn' => 'getFqdn',
+        'type' => 'getType',
         'data' => 'getData',
+        'fqdn' => 'getFqdn',
         'ttl' => 'getTtl'
     ];
 
@@ -260,6 +260,10 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     public const TYPE_AAAA = 'AAAA';
     public const TYPE_MX = 'MX';
     public const TYPE_A = 'A';
+    public const TYPE_PTR = 'PTR';
+    public const TYPE_HTTPS = 'HTTPS';
+    public const TYPE_SVCB = 'SVCB';
+    public const TYPE_CAA = 'CAA';
 
     /**
      * Gets allowable values of the enum
@@ -275,6 +279,10 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE_AAAA,
             self::TYPE_MX,
             self::TYPE_A,
+            self::TYPE_PTR,
+            self::TYPE_HTTPS,
+            self::TYPE_SVCB,
+            self::TYPE_CAA,
         ];
     }
 
@@ -293,10 +301,10 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('fqdn', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('fqdn', $data ?? [], null);
         $this->setIfExists('ttl', $data ?? [], null);
     }
 
@@ -327,6 +335,9 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -342,6 +353,12 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
+        if ($this->container['fqdn'] === null) {
+            $invalidProperties[] = "'fqdn' can't be null";
+        }
+        if ($this->container['ttl'] === null) {
+            $invalidProperties[] = "'ttl' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -356,6 +373,33 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return float
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param float $id ID DNS-записи.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets type
@@ -395,67 +439,6 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets id
-     *
-     * @return float|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param float|null $id ID DNS-записи.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets fqdn
-     *
-     * @return string|null
-     */
-    public function getFqdn()
-    {
-        return $this->container['fqdn'];
-    }
-
-    /**
-     * Sets fqdn
-     *
-     * @param string|null $fqdn Полное имя основного домена.
-     *
-     * @return self
-     */
-    public function setFqdn($fqdn)
-    {
-        if (is_null($fqdn)) {
-            throw new \InvalidArgumentException('non-nullable fqdn cannot be null');
-        }
-        $this->container['fqdn'] = $fqdn;
-
-        return $this;
-    }
-
-    /**
      * Gets data
      *
      * @return \OpenAPI\Client\Model\DnsRecordV2Data
@@ -483,9 +466,36 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets fqdn
+     *
+     * @return string
+     */
+    public function getFqdn()
+    {
+        return $this->container['fqdn'];
+    }
+
+    /**
+     * Sets fqdn
+     *
+     * @param string $fqdn Домен, относительно которого указано `data.subdomain`. Полное имя записи — `data.subdomain` + `.` + `fqdn`, а если `data.subdomain` нет — `fqdn`.
+     *
+     * @return self
+     */
+    public function setFqdn($fqdn)
+    {
+        if (is_null($fqdn)) {
+            throw new \InvalidArgumentException('non-nullable fqdn cannot be null');
+        }
+        $this->container['fqdn'] = $fqdn;
+
+        return $this;
+    }
+
+    /**
      * Gets ttl
      *
-     * @return float|null
+     * @return float
      */
     public function getTtl()
     {
@@ -495,14 +505,21 @@ class DnsRecordV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ttl
      *
-     * @param float|null $ttl Время жизни DNS-записи.
+     * @param float $ttl Время жизни DNS-записи в секундах.
      *
      * @return self
      */
     public function setTtl($ttl)
     {
         if (is_null($ttl)) {
-            throw new \InvalidArgumentException('non-nullable ttl cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ttl');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ttl', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['ttl'] = $ttl;
 
