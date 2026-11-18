@@ -90,6 +90,15 @@ class ConfigDeliveryTest extends TestCase
     }
 
     /**
+     * Test attribute "http2"
+     */
+    public function testPropertyHttp2()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gzip"
      */
     public function testPropertyGzip()

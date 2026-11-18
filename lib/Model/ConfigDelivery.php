@@ -60,6 +60,7 @@ class ConfigDelivery implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'http3' => 'bool',
+        'http2' => 'bool',
         'gzip' => 'bool',
         'large_files' => 'bool',
         'slice_size' => 'int',
@@ -76,6 +77,7 @@ class ConfigDelivery implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'http3' => null,
+        'http2' => null,
         'gzip' => null,
         'large_files' => null,
         'slice_size' => null,
@@ -90,6 +92,7 @@ class ConfigDelivery implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'http3' => false,
+		'http2' => false,
 		'gzip' => false,
 		'large_files' => false,
 		'slice_size' => true,
@@ -184,6 +187,7 @@ class ConfigDelivery implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'http3' => 'http3',
+        'http2' => 'http2',
         'gzip' => 'gzip',
         'large_files' => 'large_files',
         'slice_size' => 'slice_size',
@@ -198,6 +202,7 @@ class ConfigDelivery implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'http3' => 'setHttp3',
+        'http2' => 'setHttp2',
         'gzip' => 'setGzip',
         'large_files' => 'setLargeFiles',
         'slice_size' => 'setSliceSize',
@@ -212,6 +217,7 @@ class ConfigDelivery implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'http3' => 'getHttp3',
+        'http2' => 'getHttp2',
         'gzip' => 'getGzip',
         'large_files' => 'getLargeFiles',
         'slice_size' => 'getSliceSize',
@@ -277,6 +283,7 @@ class ConfigDelivery implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('http3', $data ?? [], null);
+        $this->setIfExists('http2', $data ?? [], null);
         $this->setIfExists('gzip', $data ?? [], null);
         $this->setIfExists('large_files', $data ?? [], null);
         $this->setIfExists('slice_size', $data ?? [], null);
@@ -357,6 +364,33 @@ class ConfigDelivery implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable http3 cannot be null');
         }
         $this->container['http3'] = $http3;
+
+        return $this;
+    }
+
+    /**
+     * Gets http2
+     *
+     * @return bool|null
+     */
+    public function getHttp2()
+    {
+        return $this->container['http2'];
+    }
+
+    /**
+     * Sets http2
+     *
+     * @param bool|null $http2 Раздавать контент по HTTP/2.
+     *
+     * @return self
+     */
+    public function setHttp2($http2)
+    {
+        if (is_null($http2)) {
+            throw new \InvalidArgumentException('non-nullable http2 cannot be null');
+        }
+        $this->container['http2'] = $http2;
 
         return $this;
     }

@@ -61,6 +61,7 @@ class ConfigSecurity implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'redirect' => 'bool',
         'certificate_id' => 'int',
+        'ssl_protocols' => 'string[]',
         'secure_token' => '\OpenAPI\Client\Model\ConfigSecuritySecureToken'
     ];
 
@@ -74,6 +75,7 @@ class ConfigSecurity implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'redirect' => null,
         'certificate_id' => null,
+        'ssl_protocols' => null,
         'secure_token' => null
     ];
 
@@ -85,6 +87,7 @@ class ConfigSecurity implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'redirect' => false,
 		'certificate_id' => true,
+		'ssl_protocols' => true,
 		'secure_token' => true
     ];
 
@@ -176,6 +179,7 @@ class ConfigSecurity implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'redirect' => 'redirect',
         'certificate_id' => 'certificate_id',
+        'ssl_protocols' => 'ssl_protocols',
         'secure_token' => 'secure_token'
     ];
 
@@ -187,6 +191,7 @@ class ConfigSecurity implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'redirect' => 'setRedirect',
         'certificate_id' => 'setCertificateId',
+        'ssl_protocols' => 'setSslProtocols',
         'secure_token' => 'setSecureToken'
     ];
 
@@ -198,6 +203,7 @@ class ConfigSecurity implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'redirect' => 'getRedirect',
         'certificate_id' => 'getCertificateId',
+        'ssl_protocols' => 'getSslProtocols',
         'secure_token' => 'getSecureToken'
     ];
 
@@ -242,6 +248,27 @@ class ConfigSecurity implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const SSL_PROTOCOLS_TLSV1 = 'TLSv1';
+    public const SSL_PROTOCOLS_TLSV1_1 = 'TLSv1.1';
+    public const SSL_PROTOCOLS_TLSV1_2 = 'TLSv1.2';
+    public const SSL_PROTOCOLS_TLSV1_3 = 'TLSv1.3';
+    public const SSL_PROTOCOLS_SSLV3 = 'SSLv3';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSslProtocolsAllowableValues()
+    {
+        return [
+            self::SSL_PROTOCOLS_TLSV1,
+            self::SSL_PROTOCOLS_TLSV1_1,
+            self::SSL_PROTOCOLS_TLSV1_2,
+            self::SSL_PROTOCOLS_TLSV1_3,
+            self::SSL_PROTOCOLS_SSLV3,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -260,6 +287,7 @@ class ConfigSecurity implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('redirect', $data ?? [], null);
         $this->setIfExists('certificate_id', $data ?? [], null);
+        $this->setIfExists('ssl_protocols', $data ?? [], null);
         $this->setIfExists('secure_token', $data ?? [], null);
     }
 
@@ -289,6 +317,10 @@ class ConfigSecurity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['ssl_protocols']) && (count($this->container['ssl_protocols']) < 1)) {
+            $invalidProperties[] = "invalid value for 'ssl_protocols', number of items must be greater than or equal to 1.";
+        }
 
         return $invalidProperties;
     }
@@ -362,6 +394,54 @@ class ConfigSecurity implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['certificate_id'] = $certificate_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ssl_protocols
+     *
+     * @return string[]|null
+     */
+    public function getSslProtocols()
+    {
+        return $this->container['ssl_protocols'];
+    }
+
+    /**
+     * Sets ssl_protocols
+     *
+     * @param string[]|null $ssl_protocols Версии SSL/TLS, по которым CDN принимает HTTPS-подключения. `null` — принимать все версии.
+     *
+     * @return self
+     */
+    public function setSslProtocols($ssl_protocols)
+    {
+        if (is_null($ssl_protocols)) {
+            array_push($this->openAPINullablesSetToNull, 'ssl_protocols');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ssl_protocols', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getSslProtocolsAllowableValues();
+        if (!is_null($ssl_protocols) && array_diff($ssl_protocols, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'ssl_protocols', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+
+        if (!is_null($ssl_protocols) && (count($ssl_protocols) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $ssl_protocols when calling ConfigSecurity., number of items must be greater than or equal to 1.');
+        }
+        $this->container['ssl_protocols'] = $ssl_protocols;
 
         return $this;
     }

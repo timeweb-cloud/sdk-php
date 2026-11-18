@@ -99,6 +99,15 @@ class ConfigSecurityTest extends TestCase
     }
 
     /**
+     * Test attribute "ssl_protocols"
+     */
+    public function testPropertySslProtocols()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "secure_token"
      */
     public function testPropertySecureToken()
